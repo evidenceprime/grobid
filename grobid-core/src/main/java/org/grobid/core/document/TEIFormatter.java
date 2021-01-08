@@ -1145,6 +1145,46 @@ public class TEIFormatter {
         return buffer;
     }
 
+    private void appendParagraphCoordsAttribute(Element curParagraph, List<LayoutToken> curParagraphTokens, GrobidAnalysisConfig config) {
+        if (curParagraph != null && config.isGenerateTeiCoordinates("paragraph")) {
+            String coords = "";
+            if (config.isGenerateTeiCoordinates("singleBox")) {
+                coords = LayoutTokensUtil.getCoordsStringForOneBox(curParagraphTokens);
+            } else {
+                coords = LayoutTokensUtil.getCoordsString(curParagraphTokens);
+            }
+
+            if (coords != null) {
+                curParagraph.addAttribute(new Attribute("coords", coords));
+            }
+        }
+    }
+
+    private void appendClusterTokens(Element curParagraph, List<LayoutToken> clusterTokens, GrobidAnalysisConfig config) {
+        if (curParagraph != null) {
+            if (config.isGenerateTeiCoordinates("word")) {
+                // We would need to still normalize text afterwards with the following function
+                // StringUtils.normalizeSpace(LayoutTokensUtil.toText(tokens).replace("\n", " "));
+                List<LayoutToken> tokens = LayoutTokensUtil.dehyphenize(clusterTokens);
+                for (LayoutToken token : tokens) {
+                    if (token.t().equals(" ") || token.t().equals("")  || token.t().equals("\n")) {
+                        curParagraph.appendChild(token.t());
+                    } else {
+                        Element word = teiElement("span");
+                        String coords = LayoutTokensUtil.getCoordsString(Collections.singletonList(token));
+                        word.addAttribute(new Attribute("coords", coords));
+                        word.appendChild(token.t());
+
+                        curParagraph.appendChild(word);
+                    }
+                }
+            } else {
+                String clusterContent = LayoutTokensUtil.normalizeDehyphenizeText(clusterTokens);
+                curParagraph.appendChild(clusterContent);
+            }
+        }
+    }
+
     public StringBuilder toTEITextPiece(StringBuilder buffer,
                                          String result,
                                          BiblioItem biblio,
@@ -1269,6 +1309,9 @@ public class TEIFormatter {
                     if (curParagraph != null && config.isWithSentenceSegmentation()) {
                         segmentIntoSentences(curParagraph, curParagraphTokens, config, doc.getLanguage());
                     }
+
+                    // Append coords to the previous paragraph before the new empty paragraph is created
+                    appendParagraphCoordsAttribute(curParagraph, curParagraphTokens, config);
                     curParagraph = teiElement("p");
                     if (config.isGenerateTeiIds()) {
                         String divID = KeyGen.getKey().substring(0, 7);
@@ -1277,8 +1320,10 @@ public class TEIFormatter {
                     curDiv.appendChild(curParagraph);
                     curParagraphTokens = new ArrayList<>();
                 }
-                curParagraph.appendChild(clusterContent);
-                curParagraphTokens.addAll(cluster.concatTokens());
+
+                List<LayoutToken> clusterTokens = cluster.concatTokens();
+                appendClusterTokens(curParagraph, clusterTokens, config);
+                curParagraphTokens.addAll(clusterTokens);
             } else if (MARKER_LABELS.contains(clusterLabel)) {
                 List<LayoutToken> refTokens = cluster.concatTokens();
                 refTokens = LayoutTokensUtil.dehyphenize(refTokens);
@@ -1322,6 +1367,9 @@ public class TEIFormatter {
 
             lastClusterLabel = cluster.getTaggingLabel();
         }
+
+        // We still need to return coords for the last paragraph
+        appendParagraphCoordsAttribute(curParagraph, curParagraphTokens, config);
 
         // in case we segment paragraph into sentences, we still need to do it for the last paragraph 
         if (curParagraph != null && config.isWithSentenceSegmentation()) {
