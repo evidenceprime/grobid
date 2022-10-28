@@ -35,12 +35,11 @@ import static org.apache.commons.lang3.StringUtils.*;
  * page header, document body, bibliographical section, each bibliographical references in
  * the biblio section and finally the possible annexes.
  *
- * @author Patrice Lopez
  */
 public class Segmentation extends AbstractParser {
 
 	/*
-        10 labels for this model:
+        13 labels for this model:
 	 		cover page <cover>, 
 			document header <header>, 
 			page footer <footnote>, 
@@ -51,6 +50,8 @@ public class Segmentation extends AbstractParser {
 			page number <page>,
 			annexes <annex>,
 		    acknowledgement <acknowledgement>,
+		   	availability <availability>,
+		   	funding <funding>,
             other <other>,
 		    toc <toc> -> not yet used because not yet training data for this
 	*/
@@ -105,10 +106,10 @@ public class Segmentation extends AbstractParser {
         } finally {
             // keep it clean when leaving...
             /*if (config.getPdfAssetPath() == null) {
-                // remove the pdf2xml tmp file
+                // remove the pdfalto tmp file
                 DocumentSource.close(documentSource, false, true, true);
             } else*/ {
-                // remove the pdf2xml tmp files, including the sub-directories
+                // remove the pdfalto tmp files, including the sub-directories
                 DocumentSource.close(documentSource, true, true, true);
             }
         }
@@ -158,7 +159,7 @@ public class Segmentation extends AbstractParser {
                 if (files != null) {
                     int nbFiles = 0;
                     for (final File currFile : files) {
-                        if (nbFiles > DocumentSource.PDFTOXML_FILES_AMOUNT_LIMIT)
+                        if (nbFiles > DocumentSource.PDFALTO_FILES_AMOUNT_LIMIT)
                             break;
 
                         String toLowerCaseName = currFile.getName().toLowerCase();
@@ -353,7 +354,7 @@ public class Segmentation extends AbstractParser {
                     for(GraphicObject localImage : localImages) {
                         if (localImage.getType() == GraphicObjectType.BITMAP)
                             graphicBitmap = true;
-                        if (localImage.getType() == GraphicObjectType.VECTOR)
+                        if (localImage.getType() == GraphicObjectType.VECTOR || localImage.getType() == GraphicObjectType.VECTOR_BOX)
                             graphicVector = true;
                     }
                 }
@@ -770,7 +771,7 @@ public class Segmentation extends AbstractParser {
                 writer = new OutputStreamWriter(new FileOutputStream(new File(pathTEI +
                         File.separator + 
                         PDFFileName.replace(".pdf", ".training.blank.tei.xml")), false), "UTF-8");
-                writer.write("<?xml version=\"1.0\" ?>\n<tei xml:space=\"preserve\">\n\t<teiHeader>\n\t\t<fileDesc xml:id=\"" + id +
+                writer.write("<?xml version=\"1.0\" ?>\n<tei xml:space=\"preserve\">\n\t<teiHeader>\n\t\t<fileDesc xml:id=\"f" + id +
                         "\"/>\n\t</teiHeader>\n\t<text xml:lang=\"en\">\n");
 
                 writer.write(fulltext);
@@ -950,6 +951,12 @@ public class Segmentation extends AbstractParser {
                 if (!output) {
                     output = writeField(buffer, line, s1, lastTag0, s2, "<acknowledgement>", "<div type=\"acknowledgement\">", addSpace, 3);
                 }
+                if (!output) {
+                    output = writeField(buffer, line, s1, lastTag0, s2, "<availability>", "<div type=\"availability\">", addSpace, 3);
+                }
+                if (!output) {
+                    output = writeField(buffer, line, s1, lastTag0, s2, "<funding>", "<div type=\"funding\">", addSpace, 3);
+                }
                 lastTag = s1;
 
                 if (!st.hasMoreTokens()) {
@@ -1123,6 +1130,12 @@ public class Segmentation extends AbstractParser {
                 buffer.append("</div>\n\n");
                 res = true;
             } else if (lastTag0.equals("<acknowledgement>")) {
+                buffer.append("</div>\n\n");
+                res = true;
+            } else if (lastTag0.equals("<availability>")) {
+                buffer.append("</div>\n\n");
+                res = true;
+            } else if (lastTag0.equals("<funding>")) {
                 buffer.append("</div>\n\n");
                 res = true;
             } else if (lastTag0.equals("<other>")) {

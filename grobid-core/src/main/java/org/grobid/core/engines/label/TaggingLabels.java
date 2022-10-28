@@ -8,9 +8,6 @@ import org.grobid.core.utilities.Pair;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-/**
- * Created by lfoppiano on 25/11/16.
- */
 public class TaggingLabels {
 
     protected static final ConcurrentMap<Pair<GrobidModel, String>, TaggingLabel> cache = new ConcurrentHashMap<>();
@@ -29,6 +26,9 @@ public class TaggingLabels {
     public final static String OTHER_LABEL = "<other>";
 
     //Grobid specific labels
+
+    public final static String AVAILABILITY_LABEL = "<availability>";
+    public final static String FUNDING_LABEL = "<funding>";
 
     public static final String CITATION_MARKER_LABEL = "<citation_marker>";
     public static final String TABLE_MARKER_LABEL = "<table_marker>";
@@ -62,7 +62,6 @@ public class TaggingLabels {
     public final static String INSTITUTION_LABEL = "<institution>";
     public final static String NOTE_LABEL = "<note>";
     public final static String REFERENCE_LABEL = "<reference>";
-    public final static String FUNDING_LABEL = "<funding>";
     public final static String COPYRIGHT_LABEL = "<copyright>";
     public final static String AFFILIATION_LABEL = "<affiliation>";
     public final static String ADDRESS_LABEL = "<address>";
@@ -109,6 +108,9 @@ public class TaggingLabels {
     public final static String INDEX_LABEL = "<index>";
     public final static String GLOSSARY_LABEL = "<glossary>";
     public final static String BACK_LABEL = "<back>";
+
+    public final static String PATENT_CITATION_PL_LABEL = "<refPatent>";
+    public final static String PATENT_CITATION_NPL_LABEL = "<refNPL>";
 
 
     /* title page (secondary title page)
@@ -176,6 +178,7 @@ public class TaggingLabels {
     public static final TaggingLabel HEADER_MEETING = new TaggingLabelImpl(GrobidModels.HEADER, MEETING_LABEL);
     public static final TaggingLabel HEADER_PUBLISHER = new TaggingLabelImpl(GrobidModels.HEADER, PUBLISHER_LABEL);
     public static final TaggingLabel HEADER_JOURNAL = new TaggingLabelImpl(GrobidModels.HEADER, JOURNAL_LABEL);
+    public static final TaggingLabel HEADER_AVAILABILITY = new TaggingLabelImpl(GrobidModels.HEADER, AVAILABILITY_LABEL);
 
     public static final TaggingLabel DATE_YEAR = new TaggingLabelImpl(GrobidModels.DATE, DATE_YEAR_LABEL);
     public static final TaggingLabel DATE_MONTH = new TaggingLabelImpl(GrobidModels.DATE, DATE_MONTH_LABEL);
@@ -226,6 +229,9 @@ public class TaggingLabels {
     public static final TaggingLabel NAMES_CITATION_MIDDLENAME = new TaggingLabelImpl(GrobidModels.NAMES_CITATION, MIDDLENAME_LABEL);
     public static final TaggingLabel NAMES_CITATION_SURNAME = new TaggingLabelImpl(GrobidModels.NAMES_CITATION, SURNAME_LABEL);
     public static final TaggingLabel NAMES_CITATION_SUFFIX = new TaggingLabelImpl(GrobidModels.NAMES_CITATION, SUFFIX_LABEL);
+
+    public static final TaggingLabel PATENT_CITATION_PL = new TaggingLabelImpl(GrobidModels.PATENT_CITATION, PATENT_CITATION_PL_LABEL);
+    public static final TaggingLabel PATENT_CITATION_NPL = new TaggingLabelImpl(GrobidModels.PATENT_CITATION, PATENT_CITATION_NPL_LABEL);
 
     public static final TaggingLabel MONOGRAPH_COVER = new TaggingLabelImpl(GrobidModels.MONOGRAPH, COVER_LABEL);
     public static final TaggingLabel MONOGRAPH_TITLE = new TaggingLabelImpl(GrobidModels.MONOGRAPH, TITLE_LABEL);
@@ -299,6 +305,7 @@ public class TaggingLabels {
         register(HEADER_PUBLISHER);
         register(HEADER_JOURNAL);
         register(HEADER_PAGE);
+        register(HEADER_AVAILABILITY);
 
         //date
         register(DATE_YEAR);
@@ -354,6 +361,10 @@ public class TaggingLabels {
         register(NAMES_CITATION_SURNAME);
         register(NAMES_CITATION_SUFFIX);
 
+        // citations in patent
+        register(PATENT_CITATION_PL);
+        register(PATENT_CITATION_NPL);
+
         // monograph
         register(MONOGRAPH_COVER);
         register(MONOGRAPH_TITLE);
@@ -372,10 +383,7 @@ public class TaggingLabels {
         register(MONOGRAPH_GLOSSARY);
         register(MONOGRAPH_BACK);
         register(MONOGRAPH_OTHER);
-
-
     }
-
 
     protected TaggingLabels() {
     }

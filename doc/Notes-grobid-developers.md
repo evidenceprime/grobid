@@ -4,35 +4,127 @@ This page contains a set of notes for the Grobid developers:
 
 ### Release
 
+With the end of JCenter, the fact that the repo is too large for JitPack and that we are technically not ready to move back to the bureaucratic Maven Central yet, we currently publish the Grobid library artefacts ourselves... with the Grobid DIY repository :) 
+The idea anyway is that people will use Grobid with the Docker image, the service and usually not via the Java library artefacts. If they use the Java library, they will likely simply rebuild from the repo, because in this scenario they will likely want to massage the tool and they need a local `grobid-home`. 
+
 In order to make a new release:  
 
-+ make sure that there are no additional models in the grobid-home, usually it is better to have a second cloned project **over ssh** for the release 
++ tag the project branch to be releases, for instance a version `0.7.1`: 
 
-+ Make the release: 
 ```
-    > ./gradlew release
-```
-
-Note that the release via the gradle wrapper can only work when no prompt for the password is required by git, so in practice it means it is necessary to push over ssh. 
-
-+ Add the bintray credentials in are in the file `~/.gradle/gradle.properties`, like: 
-
-```  
-bintrayUser=username
-bintrayApiKey=the api key 
-mavenRepoReleasesUrl=https://dl.bintray.com/rookies/releases
-mavenRepoSnapshotsUrl=https://dl.bintray.com/rookies/snapshots
+> git tag 0.7.1
+> git push origin 0.7.1
 ```
 
-+ Fetch back the tag and upload the artifacts: 
- 
++ create a github release: the easiest is to use the GitHub web interface
+
++ do something to publish the Java artefacts... currrently just uploading them on AWS S3 
+
++ you're not done, you need to update the documentation, `Readme.md`, `CHANGELOG.md` and end-to-end benchmarking (PMC and bioRxiv sets). 
+
++ update the usage information, e.g. for Gradlew project: 
+
 ```
-    > git checkout [releasetag]
-    
-    > ./gradlew clean build install
-    
-    > ./gradlew bintrayUpload
+    allprojects {
+        repositories {
+            ...
+            maven { url 'https://grobid.s3.eu-west-1.amazonaws.com/repo/' }
+        }
+    }
 ```
+
+```
+dependencies {
+    implementation 'org.grobid:grobid-core:0.7.1'
+}
+```
+
+for maven projects:
+
+```xml
+    <repositories>
+        <repository>
+            <id>grobid</id>
+            <name>GROBID DIY repo</name>
+            <url>https://grobid.s3.eu-west-1.amazonaws.com/repo/</url>
+        </repository>
+    </repositories> 
+```
+
+```xml
+    <dependency>
+        <groupId>org.grobid</groupId>
+        <artifactId>grobid-core</artifactId>
+        <version>0.7.1</version>
+    </dependency>
+```
+
++ Update the docker image(s) on DockerHub with this new version (see the [GROBID docker](Grobid-docker.md) page)
+
++ Ensure that the different GROBID modules are updated to use this new release as indicated above. 
+
+### Configuration of GROBID module models
+
+Let's say we want to introduce a new model in a Grobid module called `newModel`. The new model configuration can be expressed as the normal Grobid model in a yaml config file:
+
+```yaml
+model:
+  name: "newModel"
+  #engine: "wapiti"
+  engine: "delft"
+  wapiti:
+    # wapiti training parameters, they will be used at training time only
+    epsilon: 0.00001
+    window: 30
+    nbMaxIterations: 1500
+  delft:
+    # deep learning parameters
+    architecture: "BidLSTM_CRF"
+    #architecture: "scibert"
+    useELMo: false
+    embeddings_name: "glove-840B"
+```
+
+In the module configuration class, we refer to the existing Grobid config class, for instance in a class `NewModuleConfiguration`:
+
+```java
+package org.grobid.core.utilities;
+
+import org.grobid.core.utilities.GrobidConfig.ModelParameters;
+
+public class NewModuleConfiguration {
+
+   /* other config parameter here */ 
+
+   public ModelParameters getModel() {
+        return model;
+    }
+
+    public void getModel(ModelParameters model) {
+        this.model = model;
+    }
+}
+
+```
+
+For initializing the new model, we simply do the following:
+
+```java
+        NewModuleConfiguration newModuleConfiguration = null;
+        try {
+            ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+            newModuleConfiguration = mapper.readValue(new File("resources/config/config.yml"), NewModuleConfiguration.class);
+        } catch(Exception e) {
+            LOGGER.error("The config file does not appear valid, see resources/config/config.yml", e);
+        }
+
+        if (newModuleConfiguration != null && newModuleConfiguration.getModel() != null)
+            GrobidProperties.getInstance().addModel(newModuleConfiguration.getModel());
+        LibraryLoader.load();
+```
+
+The appropriate libraries will be loaded dynamically based on the configuration of the normal Grobid models and this new model. 
+
 
 ### Unit tests of Grobid Parsers
 

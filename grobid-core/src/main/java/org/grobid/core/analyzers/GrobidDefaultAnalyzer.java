@@ -29,7 +29,6 @@ import java.util.StringTokenizer;
 /**
  * Default tokenizer adequate for all Indo-European languages.
  *
- * @author Patrice Lopez
  */
 public class GrobidDefaultAnalyzer implements Analyzer {
 
@@ -60,7 +59,6 @@ public class GrobidDefaultAnalyzer implements Analyzer {
     }
 
     public static final String delimiters = TextUtilities.delimiters;
-    //" \n\r\t([,:;?.!/)-–−\"“”‘’'`$]*\u2666\u2665\u2663\u2660\u00A0";
 
     public String getName() {
         return "DefaultGrobidAnalyzer";

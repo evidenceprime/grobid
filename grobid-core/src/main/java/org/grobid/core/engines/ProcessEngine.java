@@ -26,12 +26,6 @@ import java.util.List;
 
 import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
-/**
- * Perform the batch processing for the different engine methods.
- *
- * @author Damien, Patrice
- */
-
 public class ProcessEngine implements Closeable {
 
     /**
@@ -427,6 +421,19 @@ public class ProcessEngine implements Closeable {
     }
 
     /**
+     * Generate training data from raw reference strings.
+     *
+     * @param pGbdArgs The parameters.
+     * @throws Exception
+     */
+    public void createTrainingCitation(final GrobidMainArgs pGbdArgs) throws Exception {
+        inferPdfInputPath(pGbdArgs);
+        inferOutputPath(pGbdArgs);
+        int result = getEngine().batchCreateTrainingCitation(pGbdArgs.getPath2Input(), pGbdArgs.getPath2Output());
+        LOGGER.info(result + " files processed.");
+    }
+
+    /**
      * Process a patent encoded in TEI using pGbdArgs parameters.
      *
      * @param pGbdArgs The parameters.
@@ -577,7 +584,7 @@ public class ProcessEngine implements Closeable {
                             .generateTeiCoordinates(elementWithCoords)
                             .build();
 
-                    Document teiDoc = getEngine().fullTextToTEIDoc(currPDF, config);
+                    Document teiDoc = getEngine().fullTextToTEIDoc(currPDF, null, config);
                     document = PDDocument.load(currPDF);
                     //If no pages, skip the document
                     if (document.getNumberOfPages() > 0) {
