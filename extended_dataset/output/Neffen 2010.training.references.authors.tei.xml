@@ -1,0 +1,94 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>Meltzer</surname> <forename>EO</forename></author>
+
+						<author><forename>B</forename>, <forename>Clayton</forename> <middlename>T</middlename>, <forename>Ellwood</forename> <middlename>P</middlename>, et al., and <forename>ISAAC Phase III Study</forename> <surname>Group</surname></author>
+
+						<author><surname>Meltzer</surname> <forename>EO</forename>, <surname>Blaiss</surname> <forename>MS</forename>, <surname>Derebery</surname> <forename>MJ</forename>, et al.</author>
+
+						<author><surname>Meltzer</surname> <forename>EO</forename>, <surname>Nathan</surname> <forename>R</forename>, <surname>Derebery</surname> <forename>J</forename>, et al.</author>
+
+						<author><surname>Blaiss</surname> <forename>M</forename>, <surname>Meltzer</surname> <forename>EO</forename>, <surname>Derebery</surname> <forename>MJ</forename>, and <surname>Boyle</surname> <forename>JM</forename></author>
+
+						<author><surname>Reed</surname> <forename>SD</forename>, <surname>Lee</surname> <forename>TA</forename>, and <surname>McCrory</surname> <forename>DC</forename></author>
+
+						<author><surname>Schoenwetter</surname> <forename>WF</forename>, <surname>Dupclay</surname> <forename>L</forename> <surname>Jr</surname>, <surname>Appajosyula</surname> <forename>S</forename>, et al.</author>
+
+						<author><surname>Benninger</surname> <forename>M</forename></author>
+
+						<author><surname>Tripathi</surname> <forename>A</forename>, and <surname>Patterson</surname> <forename>R</forename>.</author>
+
+						<author><surname>Meltzer</surname> <forename>EO</forename></author>
+
+						<author><surname>McDonald</surname> <forename>K</forename>, <surname>Trick</surname> <forename>L</forename>, and <surname>Boyle</surname> <forename>J</forename>.</author>
+
+						<author><surname>Soldovieri</surname> <forename>MV</forename>, <surname>Miceli</surname> <forename>F</forename>, and <surname>Taglialatela</surname> <forename>M</forename></author>
+
+						<author><surname>Marple</surname> <forename>BF</forename></author>
+
+						<author><surname>Weiner</surname> <forename>JM</forename>, <surname>Abramson</surname> <forename>MJ</forename>, and <surname>Puy</surname> <forename>RM</forename></author>
+
+						<author><surname>White</surname> <forename>P</forename>, <surname>Smith</surname> <forename>H</forename>, <surname>Baker</surname> <forename>N</forename>, et al.</author>
+
+						<author><surname>Scadding</surname> <forename>GK</forename>, <surname>Richards</surname> <forename>DH</forename>, and <forename>Price</forename> <surname>MJ</surname></author>
+
+						<author><surname>Bachert</surname> <forename>C</forename>, and <surname>El-Akkad</surname> <forename>T</forename></author>
+
+						<author><surname>Mahadevia</surname> <forename>P</forename>, <surname>Shah</surname> <forename>S</forename>, <surname>Mannix</surname> <forename>S</forename>, et al.</author>
+
+						<author>. <surname>Meltzer</surname> <forename>E</forename>, <surname>Bardelas</surname> <forename>J</forename>, <surname>Goldsobel</surname> <forename>A</forename>, and <forename>Kaiser</forename> <middlename>H</middlename>.</author>
+
+						<author><surname>Neffen</surname> <forename>H</forename>, <surname>Sole</surname> <forename>D</forename>, and <surname>Maspero</surname> <forename>J</forename>.</author>
+
+						<author><surname>Schatz</surname> <forename>M</forename>, <surname>Zeiger</surname> <forename>RS</forename>, <forename>Chen</forename> <middlename>W</middlename>, et al.</author>
+
+						<author><surname>Nathan</surname> <forename>RA</forename>, <surname>Meltzer</surname> <forename>EO</forename>, <surname>Derebery</surname> <forename>J</forename>, et al.</author>
+
+						<author><surname>Berger</surname> <forename>WE</forename></author>
+
+						<author><surname>Keith</surname> <forename>PK</forename>, <surname>Desrosiers</surname> <forename>M</forename>, <surname>Waserman</surname> <forename>S</forename>, and <surname>Schellenberg RR</surname></author>
+
+						<author><surname>Santos</surname> <forename>CB</forename>, <surname>Hanks</surname> <forename>C</forename>, <surname>McCann</surname> <forename>J</forename>, et al.</author>
+
+						<author><surname>Ciprandi</surname> <forename>G</forename>, <surname>Klersy</surname> <forename>C</forename>, <surname>Cirillo</surname> <forename>I</forename>, and <surname>Marseglia</surname> <forename>GL</forename></author>
+
+						<author><surname>Szeinbach</surname> <forename>SL</forename>, <forename>Seoane-</forename><surname>Vazquez</surname> <forename>EC</forename>, <surname>Beyer</surname> <forename>A</forename>, and <forename>Williams</forename> <surname>PB</surname></author>
+
+						<author><surname>Nathan</surname> <forename>RA</forename></author>
+
+						<author><surname>Craig</surname> <forename>TJ</forename>, <surname>Ferguson</surname> <forename>BJ</forename>, and <surname>Krouse</surname> <forename>JH</forename></author>
+
+						<author><surname>Pratt</surname> <forename>EL</forename>, and <forename>Craig</forename> <surname>TJ</surname></author>
+
+						<author><surname>Stull</surname> <forename>DE</forename>, <surname>Roberts</surname> <forename>L</forename>, <surname>Frank</surname> <forename>L</forename>, and <surname>Heithoff</surname> <forename>K</forename></author>
+
+						<author><surname>Kakumanu</surname> <forename>S</forename>, <surname>Glass</surname> <forename>C</forename>, and <forename>Craig</forename> <middlename>T</middlename></author>
+
+						<author><surname>Santos</surname> <forename>CB</forename>, <surname>Pratt</surname> <forename>EL</forename>, <surname>Hanks</surname> <forename>C</forename>, et al.</author>
+
+						<author><surname>Ferguson</surname> <forename>BJ</forename></author>
+
+						<author><surname>Craig</surname> <forename>TJ</forename>, <surname>McCann</surname> <forename>JL</forename>, <surname>Gurevich</surname> <forename>F</forename>, and <surname>Davies</surname> <forename>MJ</forename></author>
+
+						<author><surname>Davies</surname> <forename>MJ</forename>, <surname>Fisher</surname> <forename>LH</forename>, <surname>Chegini</surname> <forename>S</forename>, and <forename>Craig</forename> <surname>TJ</surname></author>
+
+						<author><surname>Woods</surname> <forename>L</forename>, and <forename>Craig</forename> <surname>TJ</surname></author>
+
+						<author><surname>Vandenplas</surname> <forename>O</forename>, <forename>D</forename><surname>&apos;Alpaos</surname> <forename>V</forename>, and <forename>Van</forename> <surname>Brussel</surname> <forename>P</forename></author>
+
+						<author><surname>Naclerio</surname> <forename>RM</forename>, <surname>Hadley</surname> <forename>JA</forename>, <surname>Stoloff</surname> <forename>S</forename>, and <forename>Nelson</forename> <surname>HS</surname></author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

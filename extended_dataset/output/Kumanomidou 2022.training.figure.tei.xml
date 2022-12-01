@@ -1,0 +1,35 @@
+<tei>
+    <teiHeader>
+        <fileDesc xml:id="_Kumanomidou 2022.pdf"/>
+    </teiHeader>
+    <text xml:lang="en">
+
+
+        <figure>
+
+            <head>Fig. </head>
+ 
+            <label>1</label>
+
+            <head>. </head>
+ 
+            <figDesc>Utility in JCP. A: Comparison of utility based on the severity in 2019. B: Comparison of utility based on the severity in 2020. C: Comparison of utility based on the severity in<lb/> the combined data of 2019 and 2020. D: Comparison of utility in the presence or absence of treatment for JCP. E: Comparison of utility between male and female JCP patients. F:<lb/> Comparison of utility between asthmatic and non-asthmatic patients. P values were determined by Tukey&apos;s test (AeC) and the t-test (DeF). *P &lt; 0.05. **P &lt; 0.01.</figDesc>
+        </figure>
+
+
+        <figure>
+
+            <head>Fig. </head>
+ 
+            <label>2</label>
+
+            <head>. </head>
+ 
+            <figDesc>Correlation between utility and the TSS. A: The correlation in 2019. B: The correlation in 2020. C: Combined data of 2019 and 2020. D: Correlation with the presence (red line)<lb/> and absence (black line) of comorbid asthma.</figDesc>
+        </figure>
+
+
+
+    </text>
+</tei>
+

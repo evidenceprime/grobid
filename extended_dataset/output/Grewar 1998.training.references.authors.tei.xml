@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>Quick</surname> <forename>JM</forename>, <surname>Blenkinsopp</surname> <forename>A</forename></author>
+
+						<author><surname>Beswick</surname> <forename>KBJ</forename>, <surname>Kenyon</surname> <forename>GS</forename>, <surname>Cherry</surname> <forename>JR</forename></author>
+
+						<author><surname>Blenkinsopp</surname> <forename>A</forename>, <surname>Bradley</surname> <forename>C</forename></author>
+
+						<author><surname>Nathan</surname> <forename>A</forename></author>
+
+						<author><surname>Dean</surname> <forename>AD</forename>, <surname>Dean</surname> <forename>JA</forename>, <surname>Burton</surname> <forename>JH</forename>, <surname>Dicker</surname> <forename>RC</forename></author>
+
+						<author><surname>Grewar</surname> <forename>J</forename>, <surname>Matthews</surname> <forename>J</forename>, <surname>McMahon</surname> <forename>A D</forename>, <surname>MacDonald</surname> <forename>T</forename> <middlename>M</middlename>.</author>
+
+						<author><surname>Elliot</surname> <forename>J</forename></author>
+
+						<author><surname>Thomas</surname> <forename>DHV</forename>, <surname>Noyce</surname> <forename>PR</forename></author>
+
+						<author><surname>Schafheutle</surname> <forename>E</forename> L</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

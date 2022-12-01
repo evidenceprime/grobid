@@ -1,0 +1,57 @@
+<tei>
+    <teiHeader>
+        <fileDesc xml:id="_Ricard 1999.pdf"/>
+    </teiHeader>
+    <text xml:lang="en">
+
+
+		<figure type="table">
+
+            <head>Table </head>
+ 
+            <label>I</label>
+
+            <head>. </head>
+ 
+            <figDesc>Preference scores.<lb/> </figDesc>
+<lb/> 
+            <table>Before Treatment<lb/> After 1 Week of Placebo<lb/> Median<lb/> Median<lb/> Mean (SD) (Interquartile Range) Mean (SD) (Interquartile Range)<lb/> Allergy symptoms<lb/> Itchy nose, palate, or throat 7.6 (2.5)<lb/> 8 (610)<lb/> 6.5 (2.5)<lb/> 7 (5-8.5)<lb/> Itchy, watery, red eyes<lb/> 8.0(2.5)<lb/> 9(7-10)<lb/> 7.1 (2.6)<lb/> 8 (5-9.3)<lb/> Rhinorrhea<lb/> 8.0(2.5)<lb/> 9(7-10)<lb/> 7.3 (2.4)<lb/> 8 (6-9.5)<lb/> Sneezing<lb/> 7.2(2.6)<lb/> 8 (5-9.8)<lb/> 6.1 (2.8)<lb/> 7 (4-8.5)<lb/> Allergy-related conditions</table>
+		</figure>
+
+
+		<figure type="table">
+
+            <head>Table </head>
+ 
+            <label>II</label>
+
+            <head>. </head>
+ 
+            <figDesc>Correlation* between symptoms: Category ratings.<lb/> </figDesc>
+<lb/> 
+            <table>Itchy, Watery,<lb/> itchy Nose,<lb/> Red Eyes<lb/> Palate, or Throat Rhinorrhea Sneezing Fatigue<lb/> Itchy nose, palate, or throat<lb/> 0.37<lb/> Rhinorrhea<lb/> 0.30<lb/> 0.34<lb/> -<lb/>Sneezing<lb/> 0.33<lb/> 0.29<lb/> 0.52<lb/> -<lb/>Fatigue<lb/> 0.41<lb/> 0.36<lb/> 0.28<lb/> 0.23<lb/> -<lb/>Physical limitations<lb/> 0.40<lb/> 0.29<lb/> 0.24<lb/> 0.27<lb/> 0.55<lb/> </table>
+<lb/> 
+            <note>*All coefficients<lb/> are statistically<lb/> significant<lb/> at the 0.01 level.</note>
+		</figure>
+
+
+		<figure type="table">
+
+            <head>Table </head>
+ 
+            <label>III</label>
+
+            <head>. </head>
+ 
+            <figDesc>Mean symptom severity score per treatment period for patients grouped accord-<lb/>ing to symptom preferences.<lb/> </figDesc>
+<lb/> 
+            <table>Itchy Nose,<lb/> Itchy, Watery,<lb/> Palate, or Throat*<lb/> Red Eyes*<lb/> Rhinorrhea*<lb/> Sneezing<lb/> Symptom preference rank<lb/> 1<lb/> 24<lb/> 1<lb/> 24<lb/> 1<lb/> 2-4<lb/> 1<lb/> 24<lb/> Mean severity score after<lb/> 1 week of treatment<lb/> 1.55 1.25<lb/> 1.53 1.19<lb/> 1.66 1.44 1.17 1.03<lb/> Mean severity score after<lb/> 2 weeks of treatment<lb/> 1.43 1.17<lb/> 1.39 1.11<lb/> 1.65 1.35 1.13 0.99<lb/> </table>
+<lb/> 
+            <figDesc>Symptom preference rank: 1 = most important to relieve; 2-4 = not most important to relieve.<lb/> &apos;P &lt; 0.01 most important versus not most important.</figDesc>
+		</figure>
+
+
+
+    </text>
+</tei>
+

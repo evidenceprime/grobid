@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Canonica 2008"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<docTitle>
+	<titlePart>Patient Perceptions of Allergic Rhinitis and Quality of Life<lb/> Findings From a Survey Conducted in Europe and the United States<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>G. Walter Canonica,* Joaquim Mullol, || Andre ´Pradalier,þ and Alain Didier §<lb/></docAuthor>
+	</byline>
+
+	<div type="abstract">Background: Allergic rhinitis (AR) is a common, costly, and trou-<lb/>blesome condition, impairing patients&apos; quality of life (QoL),<lb/> cognitive function, and productivity. Patients with AR report dis-<lb/>turbed sleep, fatigue, irritability, and a range of practical problems.<lb/> However, there is a relative lack of data on how patients with AR<lb/> perceive their QoL.<lb/> Objective: To better understand how patients perceive AR and their<lb/> attitudes toward this condition (including QoL) and its treatment<lb/> options.<lb/> Methods: An online and telephone survey of 3635 people identified<lb/> as having outdoor and indoor allergies, urticaria, and/or pet allergies<lb/> was performed in 6 countries.<lb/> Results: The survey confirmed that patients with allergies perceive<lb/> their symptoms as causing significant disruptions to their daily lives.<lb/> Respondents were affected for a considerable part of each day, with<lb/> the most severe symptoms occurring in the morning. The most im-<lb/>portant desired effect of medication was the restoration of normal<lb/> breathing, and the most highly rated attributes of the Bideal[ AR drug<lb/> were efficacy, safety, and freedom from undesirable side effects.<lb/> Conclusions: The information gathered from allergy sufferers who<lb/> participated in this survey sheds light on the degree to which people<lb/> with allergies are affected by their disease and the limitations imposed<lb/> by associated symptoms.<lb/></div>
+
+	Key Words:
+	<keyword>allergic rhinitis, nonallergic rhinitis, quality of life<lb/></keyword>
+
+	(WAO Journal 2008;138Y144)
+	<div type="abstract">METHODS<lb/> A questionnaire was administered in July 2005 to res-<lb/>pondents in France, Germany, Italy, Spain, the United<lb/> Kingdom, and the United States, with the goal of obtaining<lb/> a minimum of 575 complete responses from each country<lb/> (3450 total): 500 from people who treated their allergies and<lb/></div>
+
+	<note type="doctype">ORIGINAL ARTICLE</note>
+
+	138<lb/>
+	<reference>WAO Journal I September 2008<lb/></reference>
+
+	<note type="submission">Received for publication February 7, 2008; accepted July 10, 2008.<lb/></note>
+
+	From the
+	<byline>
+	<affiliation>*Allergy and Respiratory Diseases Clinic, DIMI, University of<lb/> Genoa,</affiliation>
+	</byline>
+
+	<address>Genoa,</address>
+
+	<byline>
+	<affiliation>Italy; ||Rhinology Unit, ENT Department, Hospital<lb/> Clinic,</affiliation>
+	</byline>
+
+	<address>Barcelona, Catalonia, Spain;</address>
+
+	<byline>
+	<affiliation>‡Department of Internal Medicine,<lb/> Allergology Service, Ho ˆpital Louis Mourier, Colombes Ce ´dex, France;<lb/> and §Service de Pneumologie et Allergologie,</affiliation>
+	</byline>
+
+	<address>Ho ˆpital Larrey CHU de<lb/> Toulouse, France.<lb/></address>
+
+	Dr. Canonica and Dr. Mullol have received research grants from Schering-<lb/>Plough Corporation. Dr. Mullol has participated in advisory boards and<lb/> received honoraria from Schering-Plough Corporation. Dr. Pradalier has<lb/> no conflicts of interest. Dr. Didier has received honoraria from Schering-<lb/>Plough Corporation.<lb/> Reprints:
+	<byline>
+	<docAuthor>Walter G. Canonica, MD,</docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Allergy and Respiratory Diseases Clinic,<lb/> DIMI, University of Genoa,</affiliation>
+	</byline>
+
+	<address>Pad. Maragliano, L.go R. Benzi 10, 16132<lb/> Genoa, Italy.</address>
+
+	E-mail:
+	<email>canonica@unige.it<lb/></email>
+
+	<note type="copyright">Copyright * 2008 by World Allergy Organization</note>
+
+		</front>
+	</text>
+</tei>

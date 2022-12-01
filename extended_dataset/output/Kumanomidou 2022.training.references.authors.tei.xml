@@ -1,0 +1,86 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>Okubo</surname> <forename>K</forename>, <surname>Kurono</surname> <forename>Y</forename>, <surname>Ichimura</surname> <forename>K</forename>, <surname>Enomoto</surname> <forename>T</forename>, <surname>Okamoto</surname> <forename>Y</forename>, <surname>Kawauchi</surname> <forename>H</forename>, et al.</author>
+
+						<author><surname>Matsabura</surname> <forename>A</forename>, <surname>Sakashita</surname> <forename>M</forename>, <surname>Gotoh</surname> <forename>M</forename>, <surname>Kawashima</surname> <forename>K</forename>, <surname>Matsuoka</surname> <forename>B</forename>, <surname>Kondou</surname> <forename>S</forename>, et al.</author>
+
+						<author><surname>Lamb</surname> <forename>CE</forename>, <surname>Ratner</surname> <forename>PH</forename>, <surname>Johnson</surname> <forename>CE</forename>, <surname>Ambegaonkar</surname> <forename>AJ</forename>, <surname>Joshi</surname> <forename>AV</forename>, <surname>Day</surname> <forename>D</forename>, et al.</author>
+
+						<author><surname>Vandenplas</surname> <forename>O</forename>, <surname>Vinnikov</surname> <forename>D</forename>, <surname>Blanc</surname> <forename>PD</forename>, <surname>Agache</surname> <forename>I</forename>, <surname>Bachert</surname> <forename>C</forename>, <surname>Bewick</surname> <forename>M</forename>, et al.</author>
+
+						<author><surname>Cardell</surname> <forename>LO</forename>, <surname>Olsson</surname> <forename>P</forename>, <surname>Andersson</surname> <forename>M</forename>, <surname>Welin</surname> <forename>KO</forename>, <surname>Svensson</surname> <forename>J</forename>, <surname>Tennvall</surname> <forename>GR</forename>, et al.</author>
+
+						<author>. <surname>Halmai</surname> <forename>LA</forename>, <surname>Neilson</surname> <forename>AR</forename>, <surname>Kilonzo</surname> <forename>M</forename></author>
+
+						<author><surname>Ronaldson</surname> <forename>S</forename>, <surname>Taylor</surname> <forename>M</forename>, <surname>Bech</surname> <forename>PG</forename>, <surname>Shenton</surname> <forename>R</forename>, <surname>Bufe</surname> <forename>A</forename></author>
+
+						<author><surname>Coons</surname> <forename>SJ</forename>, <surname>Rao</surname> <forename>S</forename>, <surname>Keininger</surname> <forename>DL</forename>, <surname>Hays</surname> <forename>RD</forename></author>
+
+						<author><surname>Owen</surname> <forename>L</forename>, <surname>Pennigton</surname> <forename>B</forename>, <surname>Fischer</surname> <forename>A</forename>, <surname>Jeong</surname> <forename>K</forename></author>
+
+						<author><surname>Shiroiwa</surname> <forename>T</forename>, <surname>Sung</surname> <forename>YK</forename>, <surname>Fukuda</surname> <forename>T</forename>, <surname>Lang</surname> <forename>HC</forename>, <surname>Bae</surname> <forename>SC</forename>, <surname>Tsutani</surname> <forename>K</forename></author>
+
+						<author><surname>Poole</surname> <forename>CD</forename>, <surname>Bannister</surname> <forename>CA</forename>, <surname>Andreasen</surname> <forename>JN</forename>, <surname>Andersen</surname> <forename>JS</forename>, <surname>Currie</surname> <forename>CJ</forename></author>
+
+						<author><surname>Mukuria</surname> <forename>C</forename>, <surname>Rowen</surname> <forename>D</forename>, <surname>Harnan</surname> <forename>S</forename>, <surname>Rawdin</surname> <forename>A</forename>, <surname>Wong</surname> <forename>R</forename>, <forename>Ara</forename> <middlename>R</middlename>, et al.</author>
+
+						<author><surname>Tuchiya</surname> <forename>A</forename>, <surname>Ikeda</surname> <forename>S</forename>, <surname>Ikegami</surname> <forename>N</forename>, <surname>Nishmura</surname> <forename>S</forename>, <surname>Sakai</surname> <forename>I</forename>, <surname>Fukuda</surname> <forename>T</forename>, et al.</author>
+
+						<author><surname>Monden</surname> <forename>A</forename>, <surname>Ogino</surname> <forename>S</forename></author>
+
+						<author><surname>Green</surname> <forename>W</forename>, <surname>Kleine-Tebbe</surname> <forename>J</forename>, <surname>Klimek</surname> <forename>L</forename>, <surname>Hahn-Pedersen</surname> <forename>J</forename>, <surname>Andreasen</surname> <forename>JN</forename>, <forename>Taylor</forename></author>
+
+						<author><surname>Dick</surname> <forename>K</forename>, <surname>Briggs</surname> <forename>A</forename>, <surname>Ohsfeldt</surname> <forename>R</forename>, <surname>Grand</surname> <forename>TS</forename>, <surname>Buchs</surname> <forename>S</forename></author>
+
+						<author><surname>Yu</surname> <forename>ST</forename>, <surname>Chang</surname> <forename>HY</forename>, <surname>Yao</surname> <forename>KP</forename>, <surname>Lin</surname> <forename>YH</forename>, <surname>Hurng</surname> <forename>BS</forename></author>
+
+						<author><surname>Caimmi</surname> <forename>D</forename>, <surname>Calderon</surname> <forename>MA</forename>, <surname>Bousquet</surname> <forename>M</forename>, <surname>Demoly</surname> <forename>P</forename></author>
+
+						<author><surname>Okubo</surname> <forename>K</forename>, <surname>Okano</surname> <forename>M</forename>, <surname>Sato</surname> <forename>N</forename>, <surname>Tamaki</surname> <forename>Y</forename>, <surname>Suzuki</surname> <forename>H</forename>, <surname>Uddin</surname> <forename>A</forename>, et al.</author>
+
+						<author><surname>Dick</surname> <forename>K</forename>, <surname>Briggs</surname> <forename>A</forename>, <surname>Brandi</surname> <forename>H</forename></author>
+
+						<author><surname>Petou</surname> <forename>S</forename>, <surname>Rivero-Arias</surname> <forename>O</forename>, <surname>Dakin</surname> <forename>H</forename>, <surname>Longworth</surname> <forename>L</forename>, <surname>Oppe</surname> <forename>M</forename>, <surname>Fround</surname> <forename>R</forename>, et al.</author>
+
+						<author><surname>Okamoto</surname> <forename>Y</forename>, <surname>Okubo</surname> <forename>K</forename>, <surname>Yonekura</surname> <forename>S</forename>, <surname>Hashiguchi</surname> <forename>K</forename>, <surname>Goto</surname> <forename>M</forename>, <surname>Otsuka</surname> <forename>T</forename>, et al.</author>
+
+						<author><surname>Shiroiwa</surname> <forename>T</forename>, <surname>Ikeda</surname> <forename>S</forename>, <surname>Noto</surname> <forename>S</forename>, <surname>Igarashi</surname> <forename>A</forename>, <surname>Fukuda</surname> <forename>T</forename>, <surname>Saito</surname> <forename>S</forename>, et al.</author>
+
+						<author><surname>Osada</surname> <forename>T</forename>, <surname>Okano</surname> <forename>M</forename></author>
+
+						<author><surname>Kamae</surname> <forename>I</forename>, <surname>Thwaites</surname> <forename>R</forename>, <surname>Hamada</surname> <forename>A</forename>, <surname>Fernandez</surname> <forename>JL</forename></author>
+
+						<author><surname>Shiroiwa</surname> <forename>T</forename></author>
+
+						<author><surname>Kishikawa</surname> <forename>R</forename>, <surname>Koto</surname> <forename>E</forename></author>
+
+						<author><surname>Tamayama</surname> <forename>K</forename>, <surname>Kondo</surname> <forename>M</forename>, <surname>Shono</surname> <forename>A</forename>, <surname>Okubo</surname> <forename>I</forename></author>
+
+						<author><surname>Canonica</surname> <forename>GW</forename>, <surname>Poulsen</surname> <forename>PB</forename>, <surname>Vestenbeak</surname> <forename>U</forename></author>
+
+						<author><surname>Bachert</surname> <forename>C</forename>, <surname>Vestenbeak</surname> <forename>U</forename>, <surname>Christensen</surname> <forename>J</forename>, <surname>Griffiths</surname> <forename>UK</forename>, <surname>Poulsen</surname> <forename>PB</forename></author>
+
+						<author><surname>Penagos</surname> <forename>M</forename>, <surname>Durham</surname> <forename>SR</forename></author>
+
+						<author><surname>Yonekura</surname> <forename>S</forename>, <surname>Gotoh</surname> <forename>M</forename>, <surname>Kaneko</surname> <forename>S</forename>, <surname>Maekawa</surname> <forename>Y</forename>, <surname>Okubo</surname> <forename>K</forename>, <surname>Okamoto</surname> <forename>Y</forename></author>
+
+						<author><surname>Blaiss</surname> <forename>M</forename>, <surname>Maloney</surname> <forename>J</forename>, <surname>Nolte</surname> <forename>H</forename>, <surname>Gawchik</surname> <forename>S</forename>, <surname>Yao</surname> <forename>R</forename>, <surname>Skoner</surname> <forename>DP</forename></author>
+
+						<author><surname>Fujii</surname> <forename>T</forename>, <surname>Ogino</surname> <forename>S</forename>, <surname>Arimoto</surname> <forename>H</forename>, <surname>Irifune</surname> <forename>M</forename>, <surname>Iwata</surname> <forename>N</forename>, <surname>Ookawachi</surname> <forename>I</forename>, et al.</author>
+
+						<author><surname>Gotoh</surname> <forename>M</forename>, <surname>Yonekura</surname> <forename>S</forename>, <surname>Imai</surname> <forename>T</forename>, <surname>Kaneko</surname> <forename>S</forename>, <surname>Hirokawa</surname> <forename>E</forename>, <surname>Konno</surname> <forename>A</forename>, et al.</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

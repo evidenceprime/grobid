@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>Rapezzi</surname> <forename>C</forename>, <surname>Quarta</surname> <forename>CC</forename>, <surname>Riva</surname> <forename>L</forename>, et al.</author>
+
+						<author><surname>Ruberg</surname> <forename>FL</forename>, <surname>Berk</surname> <forename>JL</forename></author>
+
+						<author><surname>Maurer</surname> <forename>MS</forename>, <surname>Hanna</surname> <forename>M</forename>, <surname>Grogan</surname> <forename>M</forename>, et al.</author>
+
+						<author><surname>Gillmore</surname> <forename>JD</forename>, <surname>Maurer</surname> <forename>MS</forename>, <surname>Falk</surname> <forename>RH</forename>, et al.</author>
+
+						<author><surname>Castano</surname> <forename>A</forename>, <surname>Haq</surname> <forename>M</forename>, <surname>Narotsky</surname> <forename>DL</forename>, et al.</author>
+
+						<author><surname>González-López</surname> <forename>E</forename>, <surname>Gallego-Delgado</surname> <forename>M</forename>, <surname>Guzzo-Merello</surname> <forename>G</forename>, et al.</author>
+
+						<author><surname>Castaño</surname> <forename>A</forename>, <surname>Narotsky</surname> <forename>DL</forename>, <surname>Hamid</surname> <forename>N</forename>, et al.</author>
+
+						<author><surname>Damy</surname> <forename>T</forename>, <surname>Costes</surname> <forename>B</forename>, <surname>Hagège</surname> <forename>AA</forename>, et al.</author>
+
+						<author><surname>Grogan</surname> <forename>M</forename>, <surname>Scott</surname> <forename>CG</forename>, <surname>Kyle</surname> <forename>RA</forename>, et al.</author>
+
+						<author><surname>Gillmore</surname> <forename>JD</forename>, <surname>Damy</surname> <forename>T</forename>, <surname>Fontana</surname> <forename>M</forename>, et al.</author>
+
+						<author><surname>Blake</surname> <forename>CC</forename>, <surname>Geisow</surname> <forename>MJ</forename>, <surname>Oatley</surname> <forename>SJ</forename>, <surname>Rérat</surname> <forename>B</forename>, <surname>Rérat</surname> <forename>C</forename></author>
+
+						<author><forename>A</forename>.</author>
+
+						<author><surname>Monaco</surname> <forename>HL</forename>, <surname>Rizzi</surname> <forename>M</forename>, <surname>Coda</surname> <forename>A</forename></author>
+
+						<author><surname>Colon</surname> <forename>W</forename>, <surname>Kelly</surname> <forename>JW</forename></author>
+
+						<author><surname>Castaño</surname> <forename>A</forename>, <surname>Drachman</surname> <forename>BM</forename>, <surname>Judge</surname> <forename>D</forename>, <surname>Maurer</surname> <forename>MS</forename></author>
+
+						<author><surname>Hammarström</surname> <forename>P</forename>, <surname>Schneider</surname> <forename>F</forename>, <surname>Kelly</surname> <forename>JW</forename></author>
+
+						<author><surname>Coelho</surname> <forename>T</forename>, <surname>Merlini</surname> <forename>G</forename>, <surname>Bulawa</surname> <forename>CE</forename>, et al.</author>
+
+						<author><surname>Maurer</surname> <forename>MS</forename>, <surname>Grogan</surname> <forename>DR</forename>, <surname>Judge</surname> <forename>DP</forename>, et al.</author>
+
+						<author><surname>Rosenblum</surname> <forename>H</forename>, <surname>Castano</surname> <forename>A</forename>, <surname>Alvarez</surname> <forename>J</forename>, <surname>Goldsmith</surname> <forename>J</forename>, <surname>Helmke</surname> <forename>S</forename>, <surname>Maurer</surname> <forename>MS</forename></author>
+
+						<author><surname>Maurer</surname> <forename>MS</forename>, <surname>Elliott</surname> <forename>P</forename>, <surname>Merlini</surname> <forename>G</forename>, et al.</author>
+
+						<author><surname>Green</surname> <forename>CP</forename>, <surname>Porter</surname> <forename>CB</forename>, <surname>Bresnahan</surname> <forename>DR</forename>, <surname>Spertus</surname> <forename>JA</forename></author>
+
+						<author><surname>Finkelstein</surname> <forename>DM</forename>, <surname>Schoenfeld</surname> <forename>DA</forename></author>
+
+						<author><surname>Pocock</surname> <forename>SJ</forename>, <surname>Ariti</surname> <forename>CA</forename>, <surname>Collier</surname> <forename>TJ</forename>, <surname>Wang</surname> <forename>D</forename></author>
+
+						<author><surname>Coelho</surname> <forename>T</forename>, <surname>Maia</surname> <forename>LF</forename>, <forename>Martins</forename> <surname>da Silva</surname> <forename>A</forename>, et al.</author>
+
+						<author><surname>Groenning</surname> <forename>BA</forename>, <surname>Nilsson</surname> <forename>JC</forename>, <surname>Sondergaard</surname> <forename>L</forename>, <surname>Fritz-Hansen</surname> <forename>T</forename>, <surname>Larsson</surname> <forename>HB</forename></author>
+
+						<author><surname>Solomon</surname> <forename>SD</forename>, <surname>Foster</surname> <forename>E</forename>, <surname>Bourgoun</surname> <forename>M</forename>, et al.</author>
+
+						<author>. <surname>Konstam</surname> <forename>MA</forename>, <surname>Rousseau</surname> <forename>MF</forename>, <surname>Kronenberg</surname> <forename>MW</forename>, et al.</author>
+
+						<author><surname>Sultan</surname> <forename>MB</forename>, <surname>Gundapaneni</surname> <forename>B</forename>, <surname>Schumacher</surname> <forename>J</forename>, <surname>Schwartz</surname> <forename>JH</forename></author>
+
+						<author><surname>Keohane</surname> <forename>D</forename>, <surname>Schwartz</surname> <forename>J</forename>, <surname>Gundapaneni</surname> <forename>B</forename>, <surname>Stewart</surname> <forename>M</forename>, <surname>Amass</surname> <forename>L</forename></author>
+
+						<author><surname>Bokhari</surname> <forename>S</forename>, <surname>Castaño</surname> <forename>A</forename>, <surname>Pozniakoff</surname> <forename>T</forename>, <surname>Deslisle</surname> <forename>S</forename>, <surname>Latif</surname> <forename>F</forename>, <surname>Maurer</surname> <forename>MS</forename></author>
+
+						<author><surname>Haq</surname> <forename>M</forename>, <surname>Pawar</surname> <forename>S</forename>, <surname>Berk</surname> <forename>JL</forename>, <surname>Miller</surname> <forename>EJ</forename>, <surname>Ruberg</surname> <forename>FL</forename></author>
+
+						<author><surname>Glaudemans</surname> <forename>AW</forename>, <surname>van Rheenen</surname> <forename>RW</forename>, <surname>van den Berg MP</surname>, et al.</author>
+
+						<author><surname>Galat</surname> <forename>A</forename>, <surname>Rosso</surname> <forename>J</forename>, <surname>Guellich</surname> <forename>A</forename>, et al.</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

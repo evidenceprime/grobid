@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Ellis 2020"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<reference>Ellis et al.<lb/> Allergy Asthma Clin Immunol<lb/> (2020) 16:15<lb/></reference>
+
+	<idno>https://doi.org/10.1186/s13223-020-0412-8</idno>
+
+	<note type="doctype">RESEARCH<lb/></note>
+
+	<docTitle>
+	<titlePart>Patient and physician perceptions<lb/> of seasonal allergic rhinitis and allergen<lb/> immunotherapy: a parallel physician patient survey<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Anne K. Ellis 1* , Jean Boursiquot 2 , Stuart Carr 3 , François Graham 4 and Marie-Soleil Masse 4<lb/></docAuthor>
+	</byline>
+
+	Abstract<lb/>
+	<div type="abstract">Background: The Allergy Patient Identification for Immunotherapy (AsPIRe) program was a parallel physician and<lb/> patient survey. The objectives were to examine physician and patient perceptions of seasonal allergy symptoms<lb/> and their impact on patients, and to examine patient and physician attitudes to allergen immunotherapy (AIT) for<lb/> seasonal allergies. AsPIRe was led by a steering committee and received research ethics board clearance from Queen&apos;s<lb/> University.<lb/> Methods: Allergists (17) from across Canada enrolled in the AsPIRe program and completed an on-line survey<lb/> to collect demographic information and baseline perceptions. Allergists then recruited patients and completed<lb/> paper-based parallel physician and patient questionnaires. Patients received an AIT informational booklet with their<lb/> questionnaire. Patients who were AIT-naïve with no contraindication to AIT and 12 years of age and older met the<lb/> inclusion criteria.<lb/> Results: The survey was in field from February 2018 to June 2018. A total of 141 allergist surveys and 136 patient<lb/> surveys were completed. Mean age of patients was 30 years old (range 12-70). Fifty-seven percent of patients<lb/> reported prior knowledge of AIT. Seventy-two percent of patients reported seasonal allergies of longer than 5 years<lb/> duration and in this subset of patients, 46% were at their first allergist visit. Seventy-three percent of all patients<lb/> indicated they would be likely or very likely to try sublingual immunotherapy (SLIT), if recommended by their allergist<lb/> compared to 36% for subcutaneous immunotherapy (SCIT). Conversely, 10% of patients reported they would be<lb/> unlikely or very unlikely to try SLIT compared to 46% of patients who would be unlikely or very unlikely to try SCIT if<lb/> recommended by their allergist.<lb/> Conclusions: In this particular study cohort, there was a gap in perception between allergists and their patients as<lb/> to the impact of allergy symptoms on daily life. Patients reported being more frequently impacted vs. their physician&apos;s<lb/> assessment. When asked about preference for AIT options, Canadian patients reported they were more likely to follow<lb/> their allergists&apos; recommendation for initiation of SLIT compared to SCIT.<lb/></div>
+
+	Keywords:
+	<keyword>Allergen immunotherapy, Patient preference, Seasonal allergies, Allergist preference, Hay fever, Allergic<lb/> rhinitis, Sublingual immunotherapy, Subcutaneous immunotherapy<lb/></keyword>
+
+	<note type="copyright">© The Author(s) 2020. This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing,<lb/> adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and<lb/> the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material<lb/> in this article are included in the article&apos; s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material<lb/> is not included in the article&apos; s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the<lb/> permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit http://creat iveco<lb/> mmons .org/licen ses/by/4.0/. The Creative Commons Public Domain Dedication waiver (http://creat iveco mmons .org/publi cdoma in/<lb/> zero/1.0/) applies to the data made available in this article, unless otherwise stated in a credit line to the data.<lb/></note>
+
+	<note type="doctype">Open Access<lb/></note>
+
+	<docTitle>
+	<titlePart>Allergy, Asthma &amp; Clinical Immunology<lb/></titlePart>
+	</docTitle>
+
+	*Correspondence:
+	<email>ellisa@queensu.ca<lb/></email>
+
+	<byline>
+	<affiliation>1 Division of Allergy &amp; Immunology, Department of Medicine, Queen&apos;s<lb/> University,</affiliation>
+	</byline>
+
+	<address>Kingston, ON, Canada<lb/></address>
+
+	Full list of author information is available at the end of the article<lb/> Author details<lb/>
+	<byline>
+	<affiliation>1 Division of Allergy &amp; Immunology, Department of Medicine, Queen&apos;s<lb/> University,</affiliation>
+	</byline>
+
+	<address>Kingston, ON, Canada.</address>
+
+	<byline>
+	<affiliation>2 Division of Allergy and Clinical<lb/> Immunology, Centre hospitalier universitaire de Québec, Laval University,<lb/></affiliation>
+	</byline>
+
+	<address>Quebec City, QC, Canada.</address>
+
+	<byline>
+	<affiliation>3 Department of Pediatrics, University of Alberta,<lb/></affiliation>
+	</byline>
+
+	<address>Edmonton, AB, Canada.</address>
+
+	<byline>
+	<affiliation>4 Division of Allergy and Immunology, Department<lb/> of Medicine, Université de Montréal,</affiliation>
+	</byline>
+
+	<address>Quebec, Canada.<lb/></address>
+
+	<note type="submission">Received: 11 October 2019 Accepted: 6 February 2020</note>
+
+		</front>
+	</text>
+</tei>

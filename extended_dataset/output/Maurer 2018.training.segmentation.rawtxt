@@ -1,0 +1,1448 @@
+The new england 
+journal of medicine 
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1007 
+
+established in 1812 
+
+September 13, 2018 
+
+vol. 379 no. 11 
+
+The authors' affiliations are listed in the 
+Appendix. Address reprint requests to 
+Dr. Maurer at Columbia University Irving 
+Medical Center, 622 W. 168th St., PH 12 
+Stem Rm. 134, New York, NY 10032, or at 
+msm10@ cumc . columbia . edu. 
+
+*The complete list of the ATTR-ACT Study 
+Investigators is provided in the Supple-
+mentary Appendix, available at NEJM.org. 
+
+This article was published on August 27, 
+2018, at NEJM.org. 
+
+N Engl J Med 2018;379:1007-16. 
+DOI: 10.1056/NEJMoa1805689 
+
+Copyright © 2018 Massachusetts Medical Society. 
+
+BACKGROUND 
+
+Transthyretin amyloid cardiomyopathy is caused by the deposition of transthyretin amy-
+loid fibrils in the myocardium. The deposition occurs when wild-type or variant trans-
+thyretin becomes unstable and misfolds. Tafamidis binds to transthyretin, preventing 
+tetramer dissociation and amyloidogenesis. 
+
+METHODS 
+
+In a multicenter, international, double-blind, placebo-controlled, phase 3 trial, we 
+randomly assigned 441 patients with transthyretin amyloid cardiomyopathy in a 2:1:2 
+ratio to receive 80 mg of tafamidis, 20 mg of tafamidis, or placebo for 30 months. 
+In the primary analysis, we hierarchically assessed all-cause mortality, followed by 
+frequency of cardiovascular-related hospitalizations according to the Finkelstein-
+Schoenfeld method. Key secondary end points were the change from baseline to 
+month 30 for the 6-minute walk test and the score on the Kansas City Cardiomyopathy 
+Questionnaire-Overall Summary (KCCQ-OS), in which higher scores indicate better 
+health status. 
+
+RESULTS 
+
+In the primary analysis, all-cause mortality and rates of cardiovascular-related hos-
+pitalizations were lower among the 264 patients who received tafamidis than among 
+the 177 patients who received placebo (P<0.001). Tafamidis was associated with lower 
+all-cause mortality than placebo (78 of 264 [29.5%] vs. 76 of 177 [42.9%]; hazard ratio, 
+0.70; 95% confidence interval [CI], 0.51 to 0.96) and a lower rate of cardiovascular-
+related hospitalizations, with a relative risk ratio of 0.68 (0.48 per year vs. 0.70 per year; 
+95% CI, 0.56 to 0.81). At month 30, tafamidis was also associated with a lower rate of 
+decline in distance for the 6-minute walk test (P<0.001) and a lower rate of decline 
+in KCCQ-OS score (P<0.001). The incidence and types of adverse events were similar 
+in the two groups. 
+
+CONCLUSIONS 
+
+In patients with transthyretin amyloid cardiomyopathy, tafamidis was associated 
+with reductions in all-cause mortality and cardiovascular-related hospitalizations 
+and reduced the decline in functional capacity and quality of life as compared with 
+placebo. (Funded by Pfizer; ATTR-ACT ClinicalTrials.gov number, NCT01994889.) 
+
+a bs tr ac t 
+
+Tafamidis Treatment for Patients with Transthyretin Amyloid 
+Cardiomyopathy 
+
+Mathew S. Maurer, M.D., Jeffrey H. Schwartz, Ph.D., Balarama Gundapaneni, M.S., Perry M. Elliott, M.D., 
+Giampaolo Merlini, M.D., Ph.D., Marcia Waddington-Cruz, M.D., Arnt V. Kristen, M.D., Martha Grogan, M.D., 
+Ronald Witteles, M.D., Thibaud Damy, M.D., Ph.D., Brian M. Drachman, M.D., Sanjiv J. Shah, M.D., 
+Mazen Hanna, M.D., Daniel P. Judge, M.D., Alexandra I. Barsdorf, Ph.D., Peter Huber, R.Ph., 
+Terrell A. Patterson, Ph.D., Steven Riley, Pharm.D., Ph.D., Jennifer Schumacher, Ph.D., Michelle Stewart, Ph.D., 
+Marla B. Sultan, M.D., M.B.A., and Claudio Rapezzi, M.D., for the ATTR-ACT Study Investigators* 
+
+The New England Journal of Medicine 
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1008 
+
+T h e ne w e ngl a nd jou r na l o f m e dicine 
+
+T 
+
+ransthyretin amyloid cardiomy 
+opathy is a life-threatening disease charac-
+terized by the accumulation of amyloid fi-
+brils composed of misfolded transthyretin protein 
+in the heart. 1 Misfolded monomers or oligomers 
+of transthyretin are deposited in the myocardium, 
+leading to cardiomyopathy and symptoms of heart 
+failure, including dyspnea, fatigue, orthostatic hy-
+potension, and syncope. 2 Infiltration of the con-
+duction system can lead to bundle-branch block, 
+atrioventricular block, sinoatrial disease, and atrial 
+fibrillation. 
+Transthyretin amyloid cardiomyopathy is a late-
+onset disease; symptoms are predominately mani-
+fested in male patients 60 years of age or older. 2 
+The condition can be inherited as an autosomal 
+dominant trait caused by pathogenic mutations 
+in the transthyretin gene TTR (ATTRm) or by the 
+deposition of wild-type transthyretin protein 
+(ATTRwt), previously called senile systemic amy-
+loidosis. 3 There are more than 120 pathogenic 
+mutations in TTR that result in a variable pheno-
+typic presentation. 2,3 Although the prevalence of 
+ATTRwt is uncertain, studies that use an approach 
+to diagnosis that is not based on biopsy 4,5 have 
+reported a prevalence of 13% among patients with 
+heart failure with a preserved ejection fraction, 6 
+16% among patients undergoing transcatheter 
+aortic-valve replacement for severe aortic steno-
+sis, 7 and 5% among patients with presumed hy-
+pertrophic cardiomyopathy. 8 Treatments have been 
+limited to supportive care, with no guideline-rec-
+ommended treatment. Median survival in untreat-
+ed patients is reported to be 2.5 years after diag-
+nosis for ATTRm caused by the TTR Val122Ile 
+mutation and 3.6 years for ATTRwt. 9,10 Death in 
+most patients is from cardiac causes, including 
+sudden death and heart failure. 9 
+Transthyretin is a 127-amino acid, 55-kD pro-
+tein that is primarily synthesized in the liver and 
+transports thyroxine and retinol-binding protein-
+retinol (vitamin A) complex. 11,12 Fibrillogenesis oc-
+curs when the tetrameric structure of the trans-
+thyretin protein dissociates into intermediates, 
+which misassemble into soluble oligomers, 
+protofilaments, and amyloid fibrils. 13 Kelly and 
+colleagues discovered that a polymorphism in 
+TTR that encodes the amino-acid substitution 
+Thr119Met stabilized the protein in the context 
+of a destabilizing pathogenic variant (Val30Met), 
+leading to the development of tafamidis, 14,15 a 
+benzoxazole derivative lacking nonsteroidal anti-
+
+inflammatory drug activity that binds to the thy-
+roxine-binding sites of transthyretin with high af-
+finity and selectivity and inhibits the dissociation 
+of tetramers into monomers. Tafamidis has been 
+shown to slow the progression of peripheral neu-
+rologic impairment in transthyretin amyloid poly-
+neuropathy. 16 
+With respect to transthyretin amyloid cardio-
+myopathy, a phase 2, open-label trial involving 
+31 patients showed that tafamidis (20 mg daily) 
+stabilized transthyretin and had an acceptable 
+safety profile. 17 A single-center, nonrandomized 
+study showed an association between tafamidis 
+and improved survival. 18 The Transthyretin Amyloi-
+dosis Cardiomyopathy Clinical Trial (ATTR-ACT) 19 
+was designed to determine the efficacy and safety 
+of tafamidis in patients with hereditary and wild-
+type transthyretin amyloid cardiomyopathy. 
+
+Me thods 
+
+Trial Oversight 
+
+ATTR-ACT was a phase 3, multicenter, interna-
+tional, parallel-design, placebo-controlled, double-
+blind, randomized trial. Details of the trial have 
+been described previously. 19 The trial was over-
+seen by a steering committee that included inves-
+tigators and the sponsor. ATTR-ACT was approved 
+by the independent review board or ethics com-
+mittee at each participating site and was con-
+ducted in accordance with the provisions of the 
+Declaration of Helsinki and the International 
+Conference on Harmonisation Good Clinical Prac-
+tice guidelines. All patients provided written in-
+formed consent. The trial was designed by the 
+sponsor in collaboration with clinicians with expe-
+rience in the treatment of transthyretin amyloid 
+cardiomyopathy. Investigators collected and held 
+the data in a blinded fashion until the data were 
+analyzed centrally by the sponsor. An external 
+data and safety monitoring board was responsi-
+ble for monitoring patient safety and conducted 
+unblinded reviews of cumulative trial data. An 
+independent, end-point adjudication committee, 
+whose members were also unaware of the trial-
+group assignments, determined whether investi-
+gator-reported events met the definition of dis-
+ease-related efficacy end points with the use of 
+predefined end-point criteria, thereby maintain-
+ing the scientific integrity of the trial. The sta-
+tistical analysis was performed by the sponsor, 
+and data tables were provided to the investiga-
+
+The New England Journal of Medicine 
+
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1009 
+
+Tafamidis for Tr ansthyretin Amyloid Cardiomyopathy 
+
+tors. All authors participated in the interpreta-
+tion of the data and vouch for the accuracy and 
+completeness of the data and for the fidelity of 
+the trial to the protocol, available with the full 
+text of this article at NEJM.org. The first author 
+wrote the first draft. All authors participated in 
+manuscript development and made the decision 
+to publish the results. Agreements between the 
+sponsor of the trial, Pfizer, and the investigators 
+included data confidentiality. 
+
+Patients 
+
+Patients between 18 and 90 years of age were 
+eligible to participate in ATTR-ACT if they had 
+transthyretin amyloid cardiomyopathy (ATTRwt 
+or ATTRm) confirmed by the presence of amyloid 
+deposits on analysis of biopsy specimens obtained 
+from cardiac and noncardiac sites (e.g., fat aspi-
+rate, gastrointestinal sites, salivary glands, or 
+bone marrow) and, in patients without ATTRm, 
+by the presence of transthyretin precursor pro-
+tein confirmed on immunohistochemical analy-
+sis, scintigraphy, or mass spectrometry. Cardiac 
+involvement was confirmed by means of echocar-
+diography, with an end-diastolic interventricular 
+septal wall thickness exceeding 12 mm; a history 
+of heart failure, with at least one prior hospital-
+ization for heart failure or clinical evidence of 
+heart failure (without hospitalization) manifested 
+in signs or symptoms of volume overload or ele-
+vated intracardiac pressures requiring treatment 
+with a diuretic for improvement; an N-terminal 
+pro-B-type natriuretic peptide (NT-proBNP) level 
+greater than or equal to 600 pg per milliliter; and 
+a 6-minute walk-test distance exceeding 100 m. 
+Patients were excluded if any one of the fol-
+lowing criteria was met: they had, in the opinion 
+of the investigator, heart failure that was not due 
+to transthyretin amyloid cardiomyopathy; New 
+York Heart Association (NYHA) class IV heart 
+failure; the presence of light-chain amyloidosis; 
+a history of liver or heart transplantation; an im-
+planted cardiac device; previous treatment with 
+tafamidis; an estimated glomerular filtration rate 
+lower than 25 ml per minute per 1.73 m 2 of body-
+surface area; or liver transaminase levels exceed-
+ing two times the upper limit of the normal range. 
+Patients were also excluded if they had severe 
+malnutrition as defined by a modified body-mass 
+index (mBMI) of less than 600, calculated as the 
+serum albumin level in grams per liter multiplied 
+by the conventional BMI (the weight in kilograms 
+
+divided by the square of the height in meters), or 
+were receiving concurrent treatment with non-
+steroidal antiinflammatory drugs, tauroursode-
+oxycholate, doxycycline, calcium-channel block-
+ers, or digitalis. 
+
+Trial Design 
+
+Patients were randomly assigned to receive 80 mg 
+of tafamidis, 20 mg of tafamidis, or matching 
+placebo once daily in ratio of a 2:1:2. Stratifica-
+tion was conducted according to TTR status (vari-
+ant or wild type) and baseline NYHA class. An 
+interactive Web-response system was used. The 
+trial duration was 30 months, and on completion 
+patients were offered enrollment in an extension 
+study. Patients who had adverse events that may 
+have been associated with treatment and may have 
+affected adherence to the dosing regimen or con-
+tinued participation in the trial were given the 
+option to receive a reduced dose (patients receiving 
+a dose of 80 mg would instead receive a dose of 
+40 mg, and all others continued to receive the dose 
+assigned at randomization). 
+
+Analysis Populations 
+
+The modified intention-to-treat analysis included 
+all patients who were enrolled, received at least 
+one dose of tafamidis or placebo, with both pa-
+tient and investigator unaware of group assign-
+ment, and underwent at least one postbaseline 
+efficacy evaluation (i.e., postbaseline hospital-
+ization, study visit, or death). The safety analysis 
+set included all enrolled patients who received at 
+least one dose of tafamidis or placebo. Because 
+all patients who were enrolled also fulfilled the 
+three other criteria of the modified intention-to-
+treat analysis, this analysis was effectively also an 
+intention-to-treat analysis. 
+
+Outcomes 
+
+We hierarchically assessed all-cause mortality, 
+followed by frequency of cardiovascular-related 
+hospitalizations over the course of the 30-month 
+trial. This analysis compared the results of a 
+pooled tafamidis (80 mg and 20 mg) treatment 
+group with the placebo group. Key secondary end 
+points were change from baseline to month 30 in 
+both distance walked on the 6-minute walk test, 20 
+a measure of functional capacity, and the Kansas 
+City Cardiomyopathy Questionnaire-Overall Sum-
+mary (KCCQ-OS) score, 21 which assesses quality 
+of life. Scores range from 0 to 100, with lower 
+
+The New England Journal of Medicine 
+
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1010 
+
+T h e ne w e ngl a nd jou r na l o f m e dicine 
+
+scores denoting poorer quality of life. Vital status 
+at month 30 was assessed for all enrolled patients. 
+
+Statistical Analysis 
+
+A sample size of 400 patients was estimated to 
+give the trial power of at least 90% to detect a 
+30% reduction in mortality, a reduction in the 
+frequency of cardiovascular-related hospitaliza-
+tions from 2.5 to 1.5 (over the 30-month dura-
+tion of the trial), or both given treatment with 
+tafamidis. Our trial population was targeted to 
+comprise at least 30% of patients with ATTRm 
+and at least 30% with ATTRwt. Comparisons were 
+based on the pooled tafamidis treatment groups of 
+80 mg and 20 mg versus placebo, except for spe-
+cific dose comparisons. In the primary analysis, 
+
+we hierarchically assessed all-cause mortality, fol-
+lowed by frequency of cardiovascular-related hos-
+pitalizations with the use of the Finkelstein-
+Schoenfeld method, 22 which is based on the 
+principle that each patient in the clinical trial is 
+compared with every other patient within each 
+stratum in a pairwise manner. This method 
+gives a higher importance to all-cause mortality. 
+The pairwise comparison proceeds in hierarchi-
+cal fashion, using all-cause mortality, followed by 
+frequency of cardiovascular-related hospitaliza-
+tion when patients cannot be differentiated on 
+the basis of mortality. In the analysis of fre-
+quency of cardiovascular-related hospitalization, 
+when two patients had different follow-up times, 
+the shorter follow-up time was used in compar-
+
+Figure 1. Randomization, Evaluation, and Outcomes. 
+
+The most common reasons that screened patients were not admitted to the trial were as follows: closure of enroll-
+ment (for patients with wild-type transthyretin protein), N-terminal pro-B-type natriuretic peptide level less than 
+600 pg per milliliter, clinical instability, and an estimated glomerular filtration rate lower than 25 ml per minute per 
+1.73 m 2 of body-surface area. Among patients assigned to receive tafamidis who did not complete the trial, 25 were 
+no longer willing to participate, 17 had adverse events, 6 underwent organ transplantation, 2 had implantation of a 
+cardiac mechanical assist device (CMAD), 1 was lost to follow-up, and 1 had a protocol violation. Among patients 
+assigned to receive placebo, 37 were no longer willing to participate, 11 had an adverse event, 5 underwent organ 
+transplantation, and 1 had a protocol violation. Vital status at 30 months was available and confirmed for all pa-
+tients who underwent randomization. The numbers shown do not depict the death count for the purpose of pri-
+mary analysis. Some reasons for discontinuation (i.e., heart transplantation and CMAD implantation) were treated 
+as death in the primary analysis. The total number of actual deaths was 144. 
+
+441 Underwent randomization 
+
+548 Patients were screened 
+
+107 Were excluded 
+94 Were not eligible 
+13 Withdrew consent 
+
+264 Were assigned to pooled tafamidis 
+and had efficacy assessment 
+(intention-to-treat analysis) 
+
+177 Were assigned to placebo 
+and had efficacy assessment 
+(intention-to-treat analysis) 
+
+52 Discontinued study 
+30-mo vital status: 
+33 Died 
+19 Were alive 
+39 Died during the study 
+
+54 Discontinued study 
+30-mo vital status: 
+34 Died 
+20 Were alive 
+38 Died during the study 
+
+173 Completed the study 
+85 Completed the study 
+
+The New England Journal of Medicine 
+
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1011 
+
+Tafamidis for Tr ansthyretin Amyloid Cardiomyopathy 
+
+ing the frequency of their cardiovascular-related 
+hospitalizations. 
+We applied the Finkelstein-Schoenfeld method 
+to the patients stratified according to NYHA class 
+at baseline (class I or II vs. class III) and TTR 
+status (variant vs. wild-type), yielding four strati-
+fication pools. Heart transplantation, heart and 
+liver transplantation, and implantation of a me-
+chanical cardiac-assist device were treated as death 
+for the purposes of this analysis. Only one pa-
+tient underwent liver transplantation alone, and 
+this event was not treated as a death. All-cause 
+mortality was analyzed with the use of a Cox 
+proportional-hazards model, with treatment and 
+the stratification factors treated as covariates. 
+We compared the frequency of cardiovascular-
+related hospitalizations with the use of a Poisson 
+regression model, with treatment, TTR status (vari-
+ant and wild type), NYHA baseline class (NYHA 
+classes I and II combined vs. NYHA class III), 
+treatment-by-TTR status interaction, and treat-
+ment-by-NYHA baseline class interaction terms as 
+factors, with adjustment for treatment duration. 
+The key secondary end points were assessed with 
+the use of a mixed-effect model, repeated-mea-
+sure approach and analysis of covariance, 23 with 
+an unstructured covariance matrix. Center and 
+patient-within-center were treated as random ef-
+fects, and treatment, visit, TTR status (ATTRm 
+vs. ATTRwt), and visit-by-treatment interaction 
+were treated as fixed effects, with the baseline 
+value as covariate. A prespecified hierarchical 
+testing order (the 6-minute walk test, followed 
+by the KCCQ-OS) provided multiplicity protec-
+tion against type 1 error. The remaining second-
+ary and exploratory analyses and end points were 
+not adjusted for multiplicity. 
+
+R esult s 
+
+Patient Characteristics 
+
+From December 2013 through August 2015, a total 
+of 548 patients were screened and 441 patients 
+enrolled at 48 sites in 13 countries; 264 patients 
+received tafamidis (80 mg or 20 mg) and 177 pa-
+tients received placebo (Fig. 1; and Table S1 in the 
+Supplementary Appendix, available at NEJM.org.). 
+Overall, baseline characteristics in the two groups 
+were balanced (Table 1, and Table S2 in the Sup-
+plementary Appendix). The median age was 75 
+years, and patients were predominately male. 
+
+Characteristic 
+
+Tafamidis 
+(N=264) 
+
+Placebo 
+(N=177) 
+
+Age -yr 
+
+Mean 
+74.5±7.2 
+74.1±6.7 
+
+Median (range) 
+75 (46-88) 
+74 (51-89) 
+
+Sex -no. (%) 
+
+Male 
+241 (91.3) 
+157 (88.7) 
+
+Female 
+23 (8.7) 
+20 (11.3) 
+
+Race -no. (%) 
+
+White 
+211 (79.9) 
+146 (82.5) 
+
+Black 
+37 (14.0) 
+26 (14.7) 
+
+Asian 
+13 (4.9) 
+5 (2.8) 
+
+Other 
+3 (1.1) 
+0 
+
+TTR genotype -no. (%) 
+
+ATTRm 
+63 (23.9) 
+43 (24.3) 
+
+ATTRwt 
+201 (76.1) 
+134 (75.7) 
+
+Blood pressure -mm Hg 
+
+Supine 
+
+Systolic 
+115.4±15.4 
+115.1±15.7 
+
+Diastolic 
+70.4±10.3 
+70.2±9.5 
+
+Standing 
+
+Systolic 
+115.5±15.5 
+115.9±15.9 
+
+Diastolic 
+70.6±9.9 
+71.0±10.3 
+
+Heart rate, mean -beats per 
+minute 
+
+Supine 
+70.7±12.3 
+69.9±11.7 
+
+Standing 
+72.9±12.9 
+73.8±12.2 
+
+NYHA Class -no. (%) 
+
+Class I 
+24 (9.1) 
+13 (7.3) 
+
+Class II 
+162 (61.4) 
+101 (57.1) 
+
+Class III 
+78 (29.5) 
+63 (35.6) 
+
+Modified BMI † 
+1058.8±173.8 
+1066.4±194.4 
+
+NT-proBNP level -pg/ml 
+
+Median 
+2995.9 
+3161.0 
+
+Interquartile range 
+1751.5-4861.5 
+1864.4-4825.0 
+
+* Plus-minus values are means ±SD. There were 264 patients in the tafamidis 
+group and 177 patients in the placebo group in both the intention-to-treat and 
+safety analyses. Percentages may not total 100 because of rounding. NT-
+proBNP denotes N-terminal pro-B-type natriuretic peptide, and NYHA New 
+York Heart Association. 
+ † The modified body-mass index (BMI) is calculated as the serum albumin level 
+in grams per liter multiplied by the conventional BMI (the weight in kilograms 
+divided by the square of the height in meters). 
+
+Table 1. Demographic and Clinical Characteristics of the Patients 
+at Baseline.* 
+
+The New England Journal of Medicine 
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1012 
+
+T h e ne w e ngl a nd jou r na l o f m e dicine 
+
+Among those who underwent randomization, 
+106 (24%) had ATTRm with Val122Ile, Thr60Ala, 
+and Ile68Leu being the most common mutations. 
+Predefined treatment adherence (taking ≥80% of 
+scheduled doses) was high, at 97.2% for tafam-
+idis and 97.0% for placebo. 
+
+Efficacy 
+
+In the primary analysis that hierarchically assessed 
+all-cause mortality, followed by frequency of car-
+diovascular-related hospitalization, according to 
+
+analyses performed with the Finkelstein-Schoen-
+feld method, treatment with tafamidis was supe-
+rior to placebo over 30 months (P<0.001). The 
+win ratio 24 (number of pairs of treated-patient 
+"wins" divided by number of pairs of placebo-
+patient "wins") may be helpful in interpreting 
+the Finkelstein-Schoenfeld result. The win ratio 
+is 1.695 (95% confidence interval [CI], 1.255 to 
+2.289). According to Cox regression analysis, all-
+cause mortality was lower with tafamidis than 
+with placebo (78 of 264 [29.5%] vs. 76 of 177 
+
+Figure 2. Primary Analysis and Components. 
+
+Panel A shows the results of the primary analysis as determined with the use of the Finkelstein-Schoenfeld method. 
+Panel B shows an analysis of all-cause mortality for pooled tafamidis and for placebo, a secondary end point. Panel 
+C shows the frequency of cardiovascular-related hospitalizations, also a secondary end point. 
+
+B Analysis of All-Cause Mortality 
+
+C Frequency of Cardiovascular-Related Hospitalizations 
+
+A Primary Analysis, with Finkelstein-Schoenfeld Method 
+
+Probability of Survival 
+
+1.0 
+
+0.8 
+
+0.9 
+
+0.7 
+
+0.6 
+
+0.4 
+
+0.3 
+
+0.1 
+
+0.5 
+
+0.2 
+
+0.0 
+0 
+6 
+9 
+12 
+15 
+18 
+33 
+
+Months since First Dose 
+
+Hazard ratio, 0.70 (95% CI, 0.51-0.96) 
+
+No. at Risk (cumulative no. of events) 
+
+Pooled tafamidis 
+Placebo 
+
+264 (0) 
+177 (0) 
+
+259 (5) 
+173 (4) 
+
+252 (12) 
+171 (6) 
+
+244 (20) 
+163 (14) 
+
+235 (29) 
+161 (16) 
+
+222 (42) 
+150 (27) 
+
+216 (48) 
+141 (36) 
+
+209 (55) 
+131 (46) 
+
+200 (64) 
+118 (59) 
+
+193 (71) 
+113 (64) 
+
+3 
+21 
+24 
+27 
+30 
+
+0 (78) 
+0 (76) 
+
+99 (78) 
+51 (75) 
+
+Pooled tafamidis 
+
+Placebo 
+
+Pooled Tafamidis 
+
+Placebo 
+
+264 
+
+177 
+
+186 (70.5) 
+
+101 (57.1) 
+
+1.70 (1.26-2.29) 
+<0.001 
+
+0.30 
+
+0.46 
+
+No. of 
+Patients 
+
+Patients Alive 
+at Mo 30 
+
+P Value from 
+Finkelstein-Schoenfeld 
+Method 
+
+Win Ratio 
+(95% CI) 
+
+no. (%) 
+
+Average Cardiovascular-Related 
+Hospitalizations during 30 Mo 
+among Those Alive at Mo 30 
+
+per patient per yr 
+
+Pooled Tafamidis 
+
+Placebo 
+
+264 
+
+177 
+0.68 (0.56-0.81) 
+
+0.48 
+
+0.70 
+
+138 (52.3) 
+
+107 (60.5) 
+
+No. of 
+Patients 
+
+No. of Patients with 
+Cardiovascular-Related 
+Hospitalizations 
+
+Cardiovascular-Related 
+Hospitalizations 
+
+Pooled Tafamidis vs. Placebo 
+Treatment Difference 
+
+no. per yr 
+relative risk ratio (95% CI) 
+total no. (%) 
+
+The New England Journal of Medicine 
+
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1013 
+
+Tafamidis for Tr ansthyretin Amyloid Cardiomyopathy 
+
+[42.9%]; hazard ratio, 0.70; 95% CI, 0.51 to 0.96). 
+According to the Poisson regression analysis, the 
+rate of cardiovascular-related hospitalizations 
+(0.48 vs. 0.70 hospitalizations per year; relative 
+risk ratio, 0.68; 95% CI, 0.56 to 0.81) was lower 
+with tafamidis than with placebo (see Table S3 
+in the Supplementary Appendix for post hoc 
+negative binomial analysis). Kaplan-Meier sur-
+vival curves showed that tafamidis resulted in a 
+reduction in all-cause mortality, with the curves 
+diverging after approximately 18 months of treat-
+ment (Fig. 2). Across prespecified subgroups, in-
+cluding those based on TTR status (ATTRwt vs. 
+ATTRm), NYHA class (I or II vs. III), and tafam-
+idis dose (80 mg vs. 20 mg), the difference in 
+all-cause mortality and frequency of cardiovas-
+cular-related hospitalizations favored tafamidis 
+over placebo, except in patients with NYHA class 
+III disease at baseline, among whom the rates of 
+cardiovascular-related hospitalizations were high-
+er among patients receiving tafamidis than among 
+those receiving placebo (Fig. 3). Using a prespeci-
+fied Poisson-regression analysis, we observed an 
+interaction between treatment and NYHA base-
+line classification. We did not observe an inter-
+action between treatment and TTR status. A pre-
+specified sensitivity analysis of all-cause mortality 
+
+that did not treat transplantation involving heart 
+transplantation or implantation of a cardiac me-
+chanical assist device as death yielded a hazard 
+ratio of 0.67 (95% CI, 0.49 to 0.94). An additional 
+post hoc analysis of time to first cardiovascular-
+related hospitalization is provided (see Fig. S1 in 
+the Supplementary Appendix). 
+Key secondary end points included the change 
+from baseline to month 30 in the distance walked 
+during the 6-minute walk test and in KCCQ-OS 
+score. Tafamidis reduced the decline in the dis-
+tance walked during the 6-minute test as com-
+pared with placebo (75.68 m [standard error, ±9.24; 
+P<0.001]), with differences first observed at 
+month 6 (Fig. 4A). Tafamidis also reduced the 
+decline in the KCCQ-OS score as compared with 
+placebo (13.65 [standard error, ±2.13; P<0.001]), 
+with differences first observed at month 6 (Fig. 4B). 
+Exploratory end points included a smaller in-
+crease in the NT-proBNP level among patients 
+receiving tafamidis than among those receiving 
+placebo at months 12 and 30 (least-squares mean 
+difference, −735.14 [95% CI, −1249.16 to −221.13] 
+at 12 months and −2180.54 [95% CI, −3326.14 to 
+−1034.95] at 30 months). Directionally positive 
+echocardiographic findings (see Table S4 in the 
+Supplementary Appendix), including a smaller de-
+
+Figure 3. Overall and Subgroup Results as Calculated with the Use of the Finkelstein-Schoenfeld Method, All-Cause Mortality, 
+and Cardiovascular-Related Hospitalizations. 
+
+All-cause mortality was evaluated with the use of a Cox proportional-hazards model, with treatment and stratification factors treated as 
+covariates. The survival analysis interaction terms are based on a post hoc analysis. The frequency of cardiovascular-related hospitaliza-
+tions was assessed with the use of a Poisson regression model. ATTRm denotes disease that results from an inherited autosomal domi-
+nant trait that is caused by pathogenic mutations in TTR, ATTRwt disease that results from the deposition of wild-type transthyretin 
+protein, and NYHA New York Heart Association. 
+
+0.50 
+1.00 
+2.00 
+
+Placebo Better 
+Tafamidis Better 
+
+Overall -pooled tafamidis 
+vs. placebo 
+TTR genotype 
+ATTRm 
+ATTRwt 
+NYHA baseline 
+Class I or II 
+Class III 
+Dose 
+80 mg vs. placebo 
+20 mg vs. placebo 
+
+Cardiovascular Hospitalization 
+Relative Risk Ratio (95% CI) 
+
+P Value from 
+Finkelstein-
+Schoenfeld 
+Method 
+
+Survival Analysis 
+Hazard Ratio (95% CI) 
+Subgroup 
+
+0.25 
+
+P Value for 
+Interaction 
+
+<0.001 
+
+0.30 
+<0.001 
+
+<0.001 
+0.78 
+
+0.003 
+0.005 
+
+P Value for 
+Interaction 
+
+0.79 
+
+0.22 
+
+0.11 
+
+<0.001 
+
+0.50 
+1.00 
+2.00 
+
+Placebo Better 
+Tafamidis Better 
+
+0.25 
+
+The New England Journal of Medicine 
+
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1014 
+
+T h e ne w e ngl a nd jou r na l o f m e dicine 
+
+crease in left ventricular stroke volume (least-
+squares mean difference, 6.28), were noted at 
+month 30. 
+
+Safety and Adverse Effects 
+
+The safety profiles of tafamidis and placebo were 
+similar. There was no meaningful difference in 
+the safety of the two doses of tafamidis. Adverse 
+events that emerged during treatment were gen-
+
+erally mild to moderate in severity, and perma-
+nent discontinuation of tafamidis or placebo as 
+a result of adverse events was less common in 
+the tafamidis groups than in the placebo group 
+(Table S5 in the Supplementary Appendix). Dose 
+reduction related to adverse events were uncom-
+mon (two patients receiving tafamidis [0.8%] and 
+four patients receiving placebo [2.3%]). The results 
+of laboratory analyses related to safety did not 
+differ between the tafamidis and placebo groups. 
+Both diarrhea and urinary tract infections, ad-
+verse events previously reported in patients with 
+familial amyloid polyneuropathy, 25 were less com-
+mon in patients who received tafamidis than in 
+those who received placebo. The most frequent 
+adverse events are summarized in the Supplemen-
+tary Appendix. 
+
+Discussion 
+
+ATTR-ACT showed that tafamidis is superior to 
+placebo in reducing the combination of all-cause 
+mortality and cardiovascular-related hospitaliza-
+tions. The evidence also supports the assertion 
+that the risk of each component, when analyzed 
+independently of the other, is reduced. Tafamidis 
+was also associated with a significant reduction 
+in the decline in functional capacity (as measured 
+by the 6-minute walk test) and the decline in 
+quality of life (as measured by the KCCQ-OS) at 
+month 30, with differences first observed at 
+6 months. In contrast, the effect on overall sur-
+vival emerged after approximately 18 months. This 
+dissociation between the effect on symptoms and 
+survival has also been observed with other thera-
+pies for systolic heart failure in which ventricular 
+remodeling takes months to achieve. 26-28 
+We observed a consistent benefit from tafam-
+idis related to mortality across all subgroups. We 
+also observed fewer cardiovascular-related hos-
+pitalizations among those who received tafamidis 
+across all subgroups, with the exception of those 
+with NYHA class III. We speculate that the high-
+er hospitalization rate observed in this group is 
+attributable to longer survival during a more 
+severe period of disease, underscoring the im-
+portance of early diagnosis and treatment of this 
+fatal, progressive disease, which can be difficult 
+to diagnose. 29 Given the progressive nature of the 
+disease and the mechanism through which tafam-
+idis reduces amyloidogenesis -by specifically 
+
+Figure 4. Key Secondary End Points. 
+
+Panel A shows the least-squares (LS) mean (±SE) change from baseline 
+to month 30 in the distance walked in the 6-minute walk test in the pooled 
+tafamidis group as compared with the placebo group. Panel B shows the 
+LS mean (±SE) change from baseline for both groups in the Kansas City 
+Cardiomyopathy Questionnaire-Overall Summary (KCCQ-OS) score, in 
+which higher scores indicate better health status. I bars indicated standard 
+errors. 
+
+LS Mean Change from Baseline (m) 
+
+0 
+
+−60 
+
+−30 
+
+−90 
+
+−150 
+
+−120 
+
+−180 
+0 
+6 
+12 
+18 
+24 
+30 
+
+Month 
+
+B Change from Baseline in KCCQ-OS 
+
+A Change from Baseline in 6-Minute Walk Test 
+
+No. of Patients 
+
+Tafamidis 
+Placebo 
+
+264 
+177 
+
+233 
+147 
+
+216 
+136 
+
+193 
+111 
+
+163 
+85 
+
+155 
+70 
+
+Pooled tafamidis 
+
+Placebo 
+
+LS Mean Change from Baseline 
+
+0 
+
+−20 
+
+−10 
+
+−30 
+0 
+6 
+12 
+18 
+24 
+30 
+
+Month 
+
+No. of Patients 
+
+Tafamidis 
+Placebo 
+
+264 
+177 
+
+241 
+159 
+
+221 
+145 
+
+201 
+123 
+
+181 
+96 
+
+170 
+84 
+
+Pooled tafamidis 
+
+Placebo 
+
+P<0.001 
+
+P<0.001 
+
+The New England Journal of Medicine 
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1015 
+
+Tafamidis for Tr ansthyretin Amyloid Cardiomyopathy 
+
+stabilizing transthyretin tetramers -the drug is 
+expected to have greater benefit when adminis-
+tered early in the disease course. 30 
+When the trial was designed, tissue biopsy 
+was required for diagnosis, but an approach 
+without biopsy -in which technetium-labeled 
+bone scintigraphy tracing is used instead -has 
+been validated as a method for the identification 
+of patients. This approach is highly sensitive and 
+specific for the diagnosis of transthyretin amy-
+loid cardiomyopathy 4,5,31 and can detect amyloid 
+deposits before an increase in left ventricular 
+wall thickness or the clinical syndrome of heart 
+failure and a rise in cardiac biomarkers has oc-
+curred. 32,33 This method can even predict prog-
+nosis. 5,34 Early identification and treatment are 
+now more likely given the availability of effective 
+diagnostic tools and therapy. 
+Similarly, innovative methods are being de-
+veloped and used for research in rare disease. In 
+studies of rare disease such as transthyretin amy-
+loid cardiomyopathy, small patient populations 
+often limit recruitment and hinder the conduct of 
+randomized trials. The Finkelstein-Schoenfeld 
+method, used in this trial, is a validated technique 
+that increases the sensitivity and power of the 
+analysis of smaller cohorts and prioritizes the 
+
+importance of mortality while also addressing 
+morbidity. 
+The overall incidence and type of adverse 
+events were similar in the tafamidis and placebo 
+groups. Discontinuation of the trial drug owing 
+to adverse events that occurred during treatment 
+was less common in patients who received ta-
+famidis than in those who received placebo, and 
+dose reductions were uncommon and occurred 
+more often in the placebo group. 
+In conclusion, in patients with heart failure 
+due to transthyretin amyloid cardiomyopathy, 
+treatment with tafamidis reduced all-cause mor-
+tality and cardiovascular-related hospitalizations 
+as compared with placebo. Tafamidis treatment 
+also significantly reduced the decline in func-
+tional capacity and quality of life. These find-
+ings indicate that tafamidis is an effective therapy 
+for patients with transthyretin amyloid cardio-
+myopathy. 
+
+Supported by Pfizer. Preparatory support for the formatting 
+and submission of the article for publication was provided by 
+Joshua Fink, Ph.D., of Engage Scientific Solutions and funded by 
+Pfizer; no contribution was made to editorial content. 
+Disclosure forms provided by the authors are available with 
+the full text of this article at NEJM.org. 
+A data sharing statement provided by the authors is available 
+with the full text of this article at NEJM.org. 
+
+Appendix 
+From the Columbia University Vagelos College of Physicians and Surgeons (M.S.M.) and Pfizer (J.H.S., A.I.B., P.H., J.S., M.B.S.), New 
+York; Syneos Health, Raleigh, NC (B.G.); University College London and St. Bartholomew's Hospital, London (P.M.E.); the Amyloidosis 
+Center, Istituto di Ricovero e Cura a Carattere Scientifico Policlinico San Matteo, and the University of Pavia, Pavia (G.M.), and the 
+Department of Experimental, Diagnostic, and Specialty Medicine, University of Bologna, Bologna (C.R.) -both in Italy; the Amyloido-
+sis Center (CEPARM), Federal University of Rio de Janeiro, Rio de Janeiro (M.W-C.); the Amyloidosis Center, Medical University of 
+Heidelberg, Heidelberg, Germany (A.V.K.); the Department of Cardiovascular Diseases, Mayo Clinic, Rochester, MN (M.G.); Stanford 
+University School of Medicine, Stanford, CA (R.W.); the French Referral Center for Cardiac Amyloidosis, Amyloidosis Mondor Network, 
+GRC Amyloid Research Institute and Department of Cardiology, Assistance Publique-Hôpitaux de Paris, CHU Henri Mondor, and 
+INSERM Unité 955, Clinical Investigation Center 006, and DHU ATVB, Creteil, France (T.D.); Penn Presbyterian Medical Center, Uni-
+versity of Pennsylvania Health System, Philadelphia (B.M.D.); the Division of Cardiology, Department of Medicine, Northwestern 
+University Feinberg School of Medicine, Chicago (S.J.S.); Cleveland Clinic, Cleveland (M.H.); the Medical University of South Carolina, 
+Charleston (D.P.J.); and Pfizer, Groton, CT (T.A.P., S.R., M.S.). 
+
+References 
+1. Rapezzi C, Quarta CC, Riva L, et al. 
+Transthyretin-related amyloidoses and the 
+heart: a clinical overview. Nat Rev Cardiol 
+2010; 7: 398-408. 
+2. Ruberg FL, Berk JL. Transthyretin 
+(TTR) cardiac amyloidosis. Circulation 
+2012; 126: 1286-300. 
+3. Maurer MS, Hanna M, Grogan M, et 
+al. Genotype and phenotype of trans-
+thyretin cardiac amyloidosis: THAOS 
+(Transthyretin Amyloid Outcome Survey). 
+J Am Coll Cardiol 2016; 68: 161-72. 
+4. Gillmore JD, Maurer MS, Falk RH, et al. 
+Nonbiopsy diagnosis of cardiac transthyre-
+
+tin amyloidosis. Circulation 2016; 133: 
+2404-12. 
+5. Castano A, Haq M, Narotsky DL, et al. 
+Multicenter study of planar technetium 
+99m pyrophosphate cardiac imaging: pre-
+dicting survival for patients with ATTR 
+cardiac amyloidosis. JAMA Cardiol 2016; 
+1: 880-9. 
+6. González-López E, Gallego-Delgado 
+M, Guzzo-Merello G, et al. Wild-type 
+transthyretin amyloidosis as a cause of 
+heart failure with preserved ejection frac-
+tion. Eur Heart J 2015; 36: 2585-94. 
+7. Castaño A, Narotsky DL, Hamid N, et 
+
+al. Unveiling transthyretin cardiac amy-
+loidosis and its predictors among elderly 
+patients with severe aortic stenosis under-
+going transcatheter aortic valve replace-
+ment. Eur Heart J 2017; 38: 2879-87. 
+8. Damy T, Costes B, Hagège AA, et al. 
+Prevalence and clinical phenotype of he-
+reditary transthyretin amyloid cardiomy-
+opathy in patients with increased left ven-
+tricular wall thickness. Eur Heart J 2016; 
+37: 1826-34. 
+9. Grogan M, Scott CG, Kyle RA, et al. 
+Natural history of wild-type transthyre-
+tin cardiac amyloidosis and risk stratifi-
+
+The New England Journal of Medicine 
+
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+
+n engl j med 379;11 nejm.org September 13, 2018 
+
+1016 
+
+Tafamidis for Tr ansthyretin Amyloid Cardiomyopathy 
+
+cation using a novel staging system. J Am 
+Coll Cardiol 2016; 68: 1014-20. 
+10. Gillmore JD, Damy T, Fontana M, et 
+al. A new staging system for cardiac trans-
+thyretin amyloidosis. Eur Heart J 2017 Oc-
+tober 18 (Epub ahead of print). 
+11. Blake CC, Geisow MJ, Oatley SJ, Rérat 
+B, Rérat C. Structure of prealbumin: sec-
+ondary, tertiary and quaternary interac-
+tions determined by Fourier refinement at 
+1.8 A. J Mol Biol 1978; 121: 339-56. 
+12. Monaco HL, Rizzi M, Coda A. Struc-
+ture of a complex of two plasma proteins: 
+transthyretin and retinol-binding protein. 
+Science 1995; 268: 1039-41. 
+13. Colon W, Kelly JW. Partial denatur-
+ation of transthyretin is sufficient for 
+amyloid fibril formation in vitro. Bio-
+chemistry 1992; 31: 8654-60. 
+14. Castaño A, Drachman BM, Judge D, 
+Maurer MS. Natural history and therapy 
+of TTR-cardiac amyloidosis: emerging 
+disease-modifying therapies from organ 
+transplantation to stabilizer and silencer 
+drugs. Heart Fail Rev 2015; 20: 163-78. 
+15. Hammarström P, Schneider F, Kelly 
+JW. Trans-suppression of misfolding in 
+an amyloid disease. Science 2001; 293: 
+2459-62. 
+16. Coelho T, Merlini G, Bulawa CE, et al. 
+Mechanism of action and clinical applica-
+tion of tafamidis in hereditary transthyre-
+tin amyloidosis. Neurol Ther 2016; 5: 1-25. 
+17. Maurer MS, Grogan DR, Judge DP, et 
+al. Tafamidis in transthyretin amyloid 
+cardiomyopathy: effects on transthyretin 
+stabilization and clinical outcomes. Circ 
+Heart Fail 2015; 8: 519-26. 
+18. Rosenblum H, Castano A, Alvarez J, 
+Goldsmith J, Helmke S, Maurer MS. TTR 
+(transthyretin) stabilizers are associated 
+with improved survival in patients with 
+TTR cardiac amyloidosis. Circ Heart Fail 
+2018; 11(4): e004769. 
+19. Maurer MS, Elliott P, Merlini G, et al. 
+Design and rationale of the phase 3 
+
+ATTR-ACT clinical trial (Tafamidis in 
+Transthyretin Cardiomyopathy Clinical 
+Trial). Circ Heart Fail 2017; 10(6): e003815. 
+20. ATS Committee on Proficiency Stan-
+dards for Clinical Pulmonary Function 
+Laboratories. ATS statement: guidelines 
+for the six-minute walk test. Am J Respir 
+Crit Care Med 2002; 166: 111-7. 
+21. Green CP, Porter CB, Bresnahan DR, 
+Spertus JA. Development and evaluation 
+of the Kansas City Cardiomyopathy Ques-
+tionnaire: a new health status measure 
+for heart failure. J Am Coll Cardiol 2000; 
+35: 1245-55. 
+22. Finkelstein DM, Schoenfeld DA. Com-
+bining mortality and longitudinal mea-
+sures in clinical trials. Stat Med 1999; 18: 
+1341-54. 
+23. Wolfinger RD. An example of using 
+mixed models and PROC MIXED for lon-
+gitudinal data. J Biopharm Stat 1997; 7: 
+481-500. 
+24. Pocock SJ, Ariti CA, Collier TJ, Wang 
+D. The win ratio: a new approach to the 
+analysis of composite endpoints in clini-
+cal trials based on clinical priorities. Eur 
+Heart J 2012; 33: 176-82. 
+25. Coelho T, Maia LF, Martins da Silva A, 
+et al. Tafamidis for transthyretin familial 
+amyloid polyneuropathy: a randomized, 
+controlled trial. Neurology 2012; 79: 785-
+92. 
+26. Groenning BA, Nilsson JC, Sonder-
+gaard L, Fritz-Hansen T, Larsson HB, Hil-
+debrandt PR. Antiremodeling effects on 
+the left ventricle during beta-blockade 
+with metoprolol in the treatment of 
+chronic heart failure. J Am Coll Cardiol 
+2000; 36: 2072-80. 
+27. Solomon SD, Foster E, Bourgoun M, 
+et al. Effect of cardiac resynchronization 
+therapy on reverse remodeling and rela-
+tion to outcome: Multicenter Automatic 
+Defibrillator Implantation Trial: cardiac 
+resynchronization therapy. Circulation 
+2010; 122: 985-92. 
+
+28. Konstam MA, Rousseau MF, Kronen-
+berg MW, et al. Effects of the angiotensin 
+converting enzyme inhibitor enalapril on 
+the long-term progression of left ventric-
+ular dysfunction in patients with heart 
+failure. Circulation 1992; 86: 431-8. 
+29. Sultan MB, Gundapaneni B, Schu-
+macher J, Schwartz JH. Treatment with 
+tafamidis slows disease progression in 
+early-stage transthyretin cardiomyopathy. 
+Clin Med Insights Cardiol 2017; 11: 
+1179546817730322. 
+30. Keohane D, Schwartz J, Gundapaneni 
+B, Stewart M, Amass L. Tafamidis delays 
+disease progression in patients with early 
+stage transthyretin familial amyloid poly-
+neuropathy: additional supportive analy-
+ses from the pivotal trial. Amyloid 2017; 
+24: 30-6. 
+31. Bokhari S, Castaño A, Pozniakoff T, 
+Deslisle S, Latif F, Maurer MS. (99m)Tc-
+pyrophosphate scintigraphy for differen-
+tiating light-chain cardiac amyloidosis 
+from the transthyretin-related familial 
+and senile cardiac amyloidoses. Circ Car-
+diovasc Imaging 2013; 6: 195-201. 
+32. Haq M, Pawar S, Berk JL, Miller EJ, 
+Ruberg FL. Can 99m Tc-pyrophosphate aid 
+in early detection of cardiac involvement 
+in asymptomatic variant TTR amyloido-
+sis? JACC Cardiovasc Imaging 2017; 10: 
+713-4. 
+33. Glaudemans AW, van Rheenen RW, 
+van den Berg MP, et al. Bone scintigraphy 
+with (99m)technetium-hydroxymethylene 
+diphosphonate allows early diagnosis of 
+cardiac involvement in patients with 
+transthyretin-derived systemic amyloido-
+sis. Amyloid 2014; 21: 35-44. 
+34. Galat A, Rosso J, Guellich A, et al. 
+Usefulness of (99m)Tc-HMDP scintigra-
+phy for the etiologic diagnosis and prog-
+nosis of cardiac amyloidosis. Amyloid 
+2015; 22: 210-20. 
+
+Copyright © 2018 Massachusetts Medical Society. 
+
+TRACK THIS ARTICLE'S IMPACT AND REACH 
+
+Visit the article page at NEJM.org and click on Metrics for a dashboard 
+that logs views, citations, media references, and commentary. 
+www.nejm.org/about-nejm/article-metrics. 
+
+The New England Journal of Medicine 
+Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission. 
+
+Copyright © 2018 Massachusetts Medical Society. All rights reserved. 
+
+

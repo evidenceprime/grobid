@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc xml:id="0"/>
+	</teiHeader>
+	<text>
+		<front/>
+		<body/>
+		<back>
+<listBibl>
+	<bibl><author>. Larrabee JH</author>. <title level="a">The changing role of the con-sumer in health care quality</title>. <title level="j">J Nurs Care Qual.</title> <date>1995</date>;<biblScope unit="volume">9</biblScope>:<biblScope unit="page">8-15</biblScope>.</bibl>
+	<bibl><author>Morris LS, Schulz RM</author>. <title level="a">Medication com-pliance: The patient&apos;s perspective</title>. <title level="j">Clin Ther</title>: <date>1993</date>;<biblScope unit="volume">15</biblScope>:<biblScope unit="page">593-605</biblScope>.</bibl>
+	<bibl><orgName>Health Services Research Group</orgName>. <title level="a">Study-ing patients&apos; preferences in health care de-cision making</title>. <title level="j">Can Med Assoc J.</title> <date>1992</date>; <biblScope unit="volume">147</biblScope>:<biblScope unit="page">859-864</biblScope>.</bibl>
+	<bibl><author>Noler TM.</author> <title level="a">Sedative effects of antihista-mines: Safety, performance, learning and quality of life</title>. <title level="j">Clin Thel</title>: <date>1997</date>;<biblScope unit="volume">19</biblScope>:<biblScope unit="page">79-85</biblScope>.</bibl>
+	<bibl><author>Ricard N, Christian S, Steward J</author>. <title level="a">History of allergy medication utilization: A sur-vey</title>. <title level="j">J Allergy Clin Immunol.</title> <date>1998</date>;<title level="a">lOl: S247. Abstract. Meltzer EO. An overview of current phar-macotherapy in perennial rhinitis</title>. <title level="j">J AZ-lergy Clin Immunol.</title> <date>1995</date>;<biblScope unit="volume">95</biblScope>: <biblScope unit="page">1097-l 110</biblScope>.</bibl>
+	<bibl><author>Hornberger JC, Habraken H, Bloch DA</author>. <title level="a">Minimum data needed on patient prefer-ences for accurate, efficient medical deci-sion making</title>. <title level="j">Med Care.</title> <date>1995</date>;<biblScope unit="volume">33</biblScope>:<biblScope unit="page">297-310</biblScope>.</bibl>
+	<bibl><author>Nathan RA, Meltzer EO, Selner JC, Storms W</author>. <title level="a">Prevalence of allergic rhinitis in the United States</title>. <title level="j">J Allergy Clin Im-munol</title>. <date>1997</date>;<biblScope unit="volume">99</biblScope>:<biblScope unit="page">S808-S814</biblScope>.</bibl>
+	<bibl><author>Miller MD, Ferris DG</author>. <title level="a">Measurement of subjective phenomena in primary care re-search: The visual analog scare</title>. <title level="j">Fam Pratt Res J.</title> <date>1993</date>;<biblScope unit="volume">13</biblScope>:<biblScope unit="page">15-24</biblScope>. <idno>10. 11 12. 13. 14. 15. 16. 17</idno>. <title level="a">Norman GR, Streiner DL. Health Mea-surement Scales: A Practical Guide to Their Development and Use</title>. <note>2nd ed</note>. <pubPlace>New York</pubPlace>: <publisher>Oxford Medical Publications</publisher>; <date>1998</date>: <biblScope unit="page">l-60</biblScope>.</bibl>
+	<bibl><author>Trudeau-Vanhems E, Marquis P, Saal G, et al.</author> <title level="a">Patient satisfaction in need for bet-ter measurement strategies</title>. <title level="j">Qual Life Newsletter</title>: <date>1998</date>;<biblScope unit="volume">20</biblScope>:<biblScope unit="page">6</biblScope>.</bibl>
+	<bibl><author>Bowers MR, Swan JE, Koehler WF</author>. <title level="a">What attributes determine quality and satisfac-tion with health care delivery? Health Care Manage Rev</title>. <date>1994</date>;<biblScope unit="volume">19</biblScope>:<biblScope unit="page">49-55</biblScope>.</bibl>
+	<bibl><author>Horwitz RI, Horwitz SM</author>. <title level="a">Adherence to treatment and health outcomes</title>. <title level="j">Arch In-tern Med.</title> <date>1993</date>;<biblScope unit="volume">153</biblScope>:<biblScope unit="page">1863-1868</biblScope>.</bibl>
+	<bibl><author>Ruggeri M.</author> <title level="a">Patients&apos; and relatives&apos; satisfac-tion with psychiatric services: The state of the art of its measurement</title>. <title level="j">Sot Psychiatry Psychiatr Epidemiol</title>. <date>1994</date>;<biblScope unit="volume">29</biblScope>:<biblScope unit="page">212-227</biblScope>.</bibl>
+	<bibl><author>Ricard N, Kind l</author>? <title level="a">Rating the severity of allergy symptoms: The influence of per-sonal preferences</title>. <title level="j">Am J Managed Care</title>. <date>1997</date>;<biblScope unit="volume">3</biblScope>(<note>Suppl</note>):<biblScope unit="page">S33</biblScope>. <note>Abstract</note>.</bibl>
+	<bibl><author>Ross CK, Steward CA, Sinacore JM</author>. <title level="a">The importance of patient preferences in the measurement of health care satisfaction</title>. <title level="j">Med Cure.</title> <date>1993</date>;<biblScope unit="volume">31</biblScope>:<biblScope unit="page">1138-1149</biblScope>.</bibl>
+	<bibl><author>Stiggelbout AM, Kiebert GM</author>. <title level="a">A role for the sick role</title>. <title level="a">Patient preferences regard-ing information and participation in clini-cal decision-making</title>. <title level="j">Can Med Assoc J.</title> <date>1997</date>;<biblScope unit="volume">157</biblScope>:<biblScope unit="page">383-389</biblScope>.</bibl>
+
+		</listBibl>
+	</back>
+	</text>
+</TEI>

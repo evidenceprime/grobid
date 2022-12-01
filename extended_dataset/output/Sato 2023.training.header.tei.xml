@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Sato 2023"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<note type="submission">Received: 11 February 2022<lb/> Revised: 23 April 2022<lb/> Accepted: 28 April 2022<lb/></note>
+
+	<idno>DOI: 10.1002/deo2.127<lb/></idno>
+
+	<note type="doctype">O R I G I N A L A R T I C L E<lb/></note>
+
+	<docTitle>
+	<titlePart>Initial drainage-related prognostic factors for perihilar<lb/> cholangiocarcinoma: A single-center retrospective study<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Katsuhiko Sato 1<lb/> Minoru Shigekawa 1<lb/> Kazuhiro Kozumi 1<lb/> Junya Okabe 1<lb/> Yu Sato 1<lb/> Takeshi Tamura 1<lb/> Teppei Yoshioka 1<lb/> Ryotaro Sakamori 1<lb/> Yoshifumi Iwagami 2<lb/> Daisaku Yamada 2<lb/> Yoshito Tomimaru 2<lb/> Takehiro Noda 2<lb/> Hidenori Takahashi 2<lb/> Shogo Kobayashi 2<lb/> Hidetoshi Eguchi 2<lb/> Tomohide Tatsumi 1<lb/> Tetsuo Takehara 1<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Gastroenterology and<lb/> Hepatology, Osaka University Graduate<lb/> School of Medicine,</affiliation>
+	</byline>
+
+	<address>Osaka, Japan<lb/></address>
+
+	<byline>
+	<affiliation>2 Department of Gastroenterological Surgery,<lb/> Osaka University Graduate School of<lb/> Medicine,</affiliation>
+	</byline>
+
+	<address>Osaka, Japan<lb/></address>
+
+	<byline>
+	<affiliation>Correspondence<lb/> Department of Gastroenterology and<lb/> Hepatology, Osaka University Graduate<lb/> School of Medicine,</affiliation>
+	</byline>
+
+	<address>2-2, Yamadaoka, Suita<lb/> City, Osaka, Japan.<lb/></address>
+
+	Email:
+	<email>takehara@gh.med.osaka-u.ac.jp<lb/></email>
+
+	Abstract<lb/>
+	<div type="abstract">Objectives: Perihilar cholangiocarcinoma (PCC) is a complex disorder<lb/> involving the hepatic hilum. Multiple endoscopic retrograde cholangiopancre-<lb/>atography sessions are necessary for diagnosis and treatment with underly-<lb/>ing cholangitis risk. Our aim is to clarify the initial-drainage-related prognostic<lb/> factors of PCC.<lb/> Methods: This study was a single-center retrospective study. A total of 104<lb/> consecutive patients diagnosed with PCC from January 2010 to February<lb/> 2020 were enrolled. We defined the diagnostic period as the time between the<lb/> first biliary drainage attempt and the final drainage when treatment, including<lb/> surgery or chemotherapy, was started. We focused on this initial period and<lb/> analyzed the endoscopy-related factors that affected mortality.<lb/> Results: Overall survival of all PCC patients was 599 days.Overall survival of<lb/> surgically treated patients and unresectable patients were 893 days and 512<lb/> days, respectively. In 48 surgically treated patients, drainage-related cholangi-<lb/>tis within the diagnostic period, defined as new cholangitis that occurred after<lb/> the first biliary drainage attempt, worsened overall survival from 1460 days to<lb/> 607 days. Endoscopic sphincterotomy, the first drainage method other than<lb/> endoscopic nasobiliary drainage, and four or more endoscopic retrograde<lb/> cholangiopancreatography sessions were risk factors for drainage-related<lb/> cholangitis. Drainage-related cholangitis increased pathological lymph node<lb/> metastasis. Percutaneous transhepatic biliary drainage as final drainage was<lb/> the only prognostic factor in unresectable chemotherapy-treated patients.<lb/> Conclusions: Drainage-related cholangitis worsened the prognosis in PCC<lb/> patients who underwent surgery. Appropriate endoscopic retrograde cholan-<lb/>giopancreatography strategies, especially during the diagnostic period, are of<lb/> great importance in PCC.<lb/></div>
+
+	<note type="copyright">K E Y W O R D S<lb/> cholangiocarcinoma, cholangitis, drainage, endoscopic retrograde cholangiopancreatography,<lb/> endoscopic sphincterotomy<lb/> This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided<lb/> the original work is properly cited.<lb/> © 2022 The Authors. DEN Open published by John Wiley &amp; Sons Australia, Ltd on behalf of Japan Gastroenterological Endoscopy Society.<lb/></note>
+
+	<reference>DEN Open. 2023;3:e127.<lb/> wileyonlinelibrary.com/denopen<lb/> 1 of 11<lb/></reference>
+
+	<idno>https://doi.org/10.1002/deo2.127<lb/></idno>
+
+	<note type="copyright">26924609, 2023, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/deo2.127 by Cochrane Poland, Wiley Online Library on [24/11/2022]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License<lb/> 26924609, 2023, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/deo2.127 by Cochrane Poland, Wiley Online Library on [24/11/2022]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License</note>
+
+		</front>
+	</text>
+</tei>

@@ -1,0 +1,65 @@
+<tei>
+    <teiHeader>
+        <fileDesc xml:id="_Meltzer 2009.pdf"/>
+    </teiHeader>
+    <text xml:lang="en">
+
+
+		<figure type="table">
+
+            <head>TABLE </head>
+ 
+            <label>I</label>
+
+            <head>. </head>
+ 
+            <figDesc>Survey demographics<lb/> </figDesc>
+<lb/> 
+            <table>AR (n 5 500),<lb/> no. (%)<lb/> No AR (n 5 504),<lb/> no. (%)<lb/> Sex<lb/> Male<lb/> 263 (53)<lb/> 251 (50)<lb/> Female<lb/> 235 (47)<lb/> 253 (50)<lb/> Age (y)<lb/> Mean (range)<lb/> 7.9 (4-17)<lb/> 10.4 (4-17)<lb/> 7<lb/> 133 (26)<lb/> 166 (33)<lb/> 8-12<lb/> 168 (34)<lb/> 157 (32)<lb/> 13-17<lb/> 197 (40)<lb/> 181 (37)<lb/> Race*<lb/> White<lb/> 367 (73)<lb/> 381 (76)<lb/> Black<lb/> 51 (10)<lb/> 44 (9)<lb/> Asian/Pacific Islander<lb/> 10 (2)<lb/> 14 (3)<lb/> Hispanic<lb/> 19 (4)<lb/> 29 (6)<lb/> Mixed<lb/> 35 (7)<lb/> 13 (3)<lb/> Other<lb/> 16 (4)<lb/> 8 (2)<lb/> Refused<lb/> 10 (2)<lb/> 6 (1)<lb/> </table>
+<lb/> 
+            <note>Percentages do not equal 100% within columns as a result of rounding.<lb/> <note>*Represents race of parent responder.</note>
+		</figure>
+
+
+		<figure type="table">
+
+            <head>TABLE </head>
+ 
+            <label>II</label>
+
+            <head>. </head>
+ 
+            <figDesc>Nasal allergies contribute to other upper airway<lb/> problems<lb/> </figDesc>
+<lb/> 
+            <table>Patients or<lb/> parents (%)<lb/> AR<lb/> No AR<lb/> Fold difference<lb/> Pain or pressure<lb/> Headache*<lb/> 54<lb/> 19<lb/> 2.8<lb/> Face*<lb/> 28<lb/> 4<lb/> 7.0<lb/> Ear*<lb/> 24<lb/> 5<lb/> 4.9<lb/> Surgery<lb/> Tubes placed<lb/> 16<lb/> 9<lb/> 1.8<lb/> Tonsils and/or<lb/> adenoids removedà<lb/> 18<lb/> 11<lb/> 1.6<lb/> Sinus problems*<lb/> 43<lb/> 4<lb/> 10.8<lb/> Snoring*<lb/> Every day<lb/> 14<lb/> 5<lb/> 2.8<lb/> Most days<lb/> 10<lb/> 4<lb/> 2.5<lb/> </table>
+<lb/> 
+            <note>*P &lt; .001.<lb/> P &lt; .05.<lb/> àP &lt; .01.</note>
+		</figure>
+
+
+		<figure type="table">
+
+            <head>TABLE</head>
+
+            <label>III</label>
+
+            <head>. </head>
+ 
+            <figDesc>Comorbidity of AR and asthma<lb/> </figDesc>
+<lb/> 
+            <table>Patients or<lb/> parents (%)<lb/> AR<lb/> No AR<lb/> Fold difference<lb/> Asthma diagnosis*<lb/> 39<lb/> 13<lb/> 3<lb/> Asthma in last 12 mo*<lb/> 28<lb/> 7<lb/> 4<lb/> </table>
+<lb/> 
+            <note>*P &lt; .001.</note>
+		</figure>
+
+
+		<figure type="table">
+
+            <figDesc>1. At what age was your child first diagnosed with nasal aller-<lb/>gies, rhinitis, or hay fever?<lb/> 2. What was the medical specialty of the doctor/HCP who<lb/> diagnosed your child with nasal allergies?<lb/> 3. Was your child given a skin test to see to what he or she was<lb/> allergic?<lb/> 4. Was your child given a blood test to see to what he or she<lb/> was allergic?<lb/> 5. Would you describe your child&apos;s nasal allergies as seasonal,<lb/> or do they occur throughout the year?<lb/> 6. During what times of the year are your child&apos;s nasal allergies<lb/> the worst?<lb/> 2. In general, would you say that your child&apos;s discomfort dur-<lb/>ing a nasal allergy attack is usually something he or she<lb/> can ignore, he or she cannot ignore but can tolerate, or he<lb/> or she cannot tolerate without relief?<lb/> 3. For the current management and treatment of your nasal al-<lb/>lergy symptoms, do you use prescription medications only,<lb/> nonprescription medications only, or both? (children aged<lb/> 10 to 17 years)<lb/> HCPs<lb/> 1. For the average patient 4 to 17 years of age with AR, during<lb/> the allergy season, would you say the condition affected his<lb/> or her daily life-a lot, a moderate amount, some, a little, or<lb/> does not really affect his or her daily life?<lb/> 2. In general, would you say that a patient&apos;s discomfort during<lb/> a nasal allergy attack is usually something he or she can ig-<lb/>nore, he or she cannot ignore but can tolerate, or he or she<lb/> cannot tolerate without relief?</figDesc>
+		</figure>
+
+
+
+    </text>
+</tei>
+

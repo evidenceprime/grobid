@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Saito 2022"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<note type="submission">Received: 4 March 2022<lb/> Revised: 13 June 2022<lb/> Accepted: 19 June 2022<lb/></note>
+
+	<idno>DOI: 10.1002/deo2.153<lb/></idno>
+
+	<note type="doctype">O R I G I N A L A R T I C L E<lb/></note>
+
+	<docTitle>
+	<titlePart>Predictive model for bleeding after gastric submucosal<lb/> dissection before and after guidelines: A single-center<lb/> retrospective study<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Keita Saito 1<lb/> Hironobu Nagumo 1<lb/> Takashi Ashikawa 1<lb/> Tomoyuki Funato 1<lb/> So Nakaji 1<lb/> Hiroki Matsui 2<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Gastroenterology, Kameda<lb/> General Hospital,</affiliation>
+	</byline>
+
+	<address>Japan<lb/></address>
+
+	<byline>
+	<affiliation>2 Department of Public Health Medicine,<lb/> Graduate School of Medicine, University of<lb/> Tokyo,</affiliation>
+	</byline>
+
+	<address>Tokyo, Japan<lb/></address>
+
+	Correspondence<lb/>
+	<byline>
+	<docAuthor>Keita Saito,</docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Department of Gastroenterology,<lb/> Kameda General Hospital,</affiliation>
+	</byline>
+
+	<address>929, Higashi-cho,<lb/> Kamogawa, Chiba 296-8602, Japan.<lb/></address>
+
+	Email:
+	<email>keisaitou.ymgt@gmail.com<lb/></email>
+
+	Abstract<lb/>
+	<div type="abstract">Objectives: In July 2017, supplementary guidelines on anticoagulants,<lb/> including direct oral anticoagulants, were published in Japan. We investigated<lb/> the changes in endoscopic submucosal dissection (ESD) of gastric mucosal<lb/> lesions after the publication of the supplement, examined the risk factors, and<lb/> developed a predictive model for post-ESD bleeding.<lb/> Methods: We included 2272 gastric ESD cases from our hospital between<lb/> May 2003 and June 2021 and classified them into two groups: 1789 cases<lb/> before and 483 after the publication of the supplementary guidelines. A pre-<lb/>dictive model for post-ESD bleeding was developed using the pre-publication<lb/> cohort data.<lb/> Results: The proportion of patients receiving warfarin decreased (5.0% vs.<lb/> 1.4%) and those receiving direct oral anticoagulants increased (1.2% vs.<lb/> 6.8%) after the publication of the supplementary guidelines. Post-ESD bleed-<lb/>ing occurred in 61 patients, but there was no significant difference in the<lb/> bleeding rate between the groups (50 [2.8%] vs. 11 [2.3%] patients, respec-<lb/>tively). Five risk factors (number of antithrombotic agents, dialysis, heparin<lb/> replacement, resection specimen size, and procedure time) were identified<lb/> for model development. The C-statistic for the model and post-publication<lb/> cohorts were 0.83 and 0.72, respectively. In the model, each risk factor for<lb/> postoperative bleeding was scored, and the risk was classified into three lev-<lb/>els according to the total score. Bleeding rates at low, intermediate, and high<lb/> risks were 1.6%, 10.3%, and 38.9%, respectively.<lb/> Conclusion: Despite changes in patient characteristics and clinical prac-<lb/>tice regarding ESD before and after the publication of the supplementary<lb/> guidelines, we could still develop a simple and useful predictive model.<lb/></div>
+
+	<note type="copyright">K E Y W O R D S<lb/> anticoagulants, antithrombotic agents, bleeding, endoscopic submucosal dissection, risk factors<lb/> This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided<lb/> the original work is properly cited.<lb/> © 2022 The Authors. DEN Open published by John Wiley &amp; Sons Australia, Ltd on behalf of Japan Gastroenterological Endoscopy Society.<lb/></note>
+
+	<div type="abstract">resection of the tumor and is less invasive than surgi-<lb/>cal resection. 4,5 Although infrequent, post-ESD bleed-<lb/>ing plagues endoscopists. 6-8 Its risk factors include<lb/> antithrombotic agents, such as warfarin, direct oral<lb/></div>
+
+	<reference>DEN Open. 2023;3:e153.<lb/> wileyonlinelibrary.com/denopen<lb/> 1 of 9<lb/></reference>
+
+	<idno>https://doi.org/10.1002/deo2.153<lb/></idno>
+
+	<note type="copyright">26924609, 2023, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/deo2.153 by Cochrane Poland, Wiley Online Library on [29/11/2022]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License<lb/> 26924609, 2023, 1, Downloaded from https://onlinelibrary.wiley.com/doi/10.1002/deo2.153 by Cochrane Poland, Wiley Online Library on [29/11/2022]. See the Terms and Conditions (https://onlinelibrary.wiley.com/terms-and-conditions) on Wiley Online Library for rules of use; OA articles are governed by the applicable Creative Commons License</note>
+
+		</front>
+	</text>
+</tei>

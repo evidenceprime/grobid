@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>MACVIA-France</surname></author>
+
+						<author><surname>Kyomed</surname> , <forename>Montpellier</forename> <surname>France</surname></author>
+
+						<author><surname>EPAR U707</surname> <forename>INSERM</forename>, <forename>Paris</forename> and <forename>EPAR UMR-S</forename> <surname>UPMC</surname>, <surname>Paris</surname> <forename>VI</forename></author>
+
+						<author>. <surname>INSERM</surname>, <surname>Université</surname> <forename>Grenoble</forename> <surname>Alpes</surname>, <forename>IAB</forename>, U 1209</author>
+
+						<author><surname>Ock</surname> <forename>M</forename>, <surname>Jo</surname> <forename>MW</forename>, <surname>Gong</surname> <forename>YH</forename>, <surname>Lee</surname> <forename>HJ</forename>, <surname>Lee</surname> <forename>J</forename>, <surname>Sim</surname> <forename>CS</forename></author>
+
+						<author><surname>Petersen</surname> <forename>KD</forename>, <surname>Kronborg</surname> <forename>C</forename>, <surname>Larsen</surname> <forename>JN</forename>, <surname>Dahl</surname> <forename>R</forename>, <surname>Gyrd-Hansen</surname> <forename>D</forename></author>
+
+						<author><surname>Chen</surname> <forename>H</forename>, <surname>Cisternas</surname> <forename>MG</forename>, <surname>Katz</surname> <forename>PP</forename>, <surname>Omachi</surname> <forename>TA</forename>, <surname>Trupin</surname> <forename>L</forename>, <surname>Yelin</surname> <forename>EH</forename>, et al.</author>
+
+						<author><surname>Bousquet</surname> <forename>J</forename>, <surname>Neukirch</surname> <forename>F</forename>, <surname>Bousquet</surname> <forename>PJ</forename>, <surname>Gehano</surname> <forename>P</forename>, <surname>Klossek</surname> <forename>JM</forename>, <forename>Le</forename> <surname>Gal</surname> <forename>M</forename>, et al.</author>
+
+						<author><surname>Virchow</surname> <forename>JC</forename>, <surname>Kay</surname> <forename>S</forename>, <surname>Demoly</surname> <forename>P</forename>, <surname>Mullol</surname> <forename>J</forename>, <surname>Canonica</surname> <forename>W</forename>, <surname>Higgins</surname> <forename>V</forename></author>
+
+						<author><surname>Sullivan</surname> <forename>PW</forename>, <surname>Ghushchyan</surname> <forename>VH</forename>, <surname>Campbell</surname> <forename>JD</forename>, <surname>Globe</surname> <forename>G</forename>, <surname>Bender</surname> <forename>B</forename>, <surname>Magid</surname> <forename>DJ</forename></author>
+
+						<author><surname>Terzano</surname> <forename>C</forename>, <surname>Cremonesi</surname> <forename>G</forename>, <surname>Girbino</surname> <forename>G</forename>, <surname>Ingrassia</surname> <forename>E</forename>, <surname>Marsico</surname> <forename>S</forename>, <surname>Nicolini</surname> <forename>G</forename>, et al.</author>
+
+						<author><surname>Boehler</surname> <forename>CE</forename>, <surname>de Graaf</surname> <forename>G</forename>, <surname>Steuten</surname> <forename>L</forename>, <surname>Yang</surname> <forename>Y</forename>, <surname>Abadie</surname> <forename>F</forename></author>
+
+						<author><surname>Bousquet</surname> <forename>J</forename>, <surname>Agache</surname> <forename>I</forename>, <surname>Aliberti</surname> <forename>MR</forename>, <surname>Angles</surname> <forename>R</forename>, <surname>Annesi-Maesano</surname> <forename>I</forename>, <surname>Anto</surname> <forename>JM</forename>, et al.</author>
+
+						<author><surname>Stull</surname> <forename>DE</forename>, <surname>Roberts</surname> <forename>L</forename>, <surname>Frank</surname> <forename>L</forename>, <surname>Heithoff</surname> <forename>K</forename></author>
+
+						<author><surname>Meltzer</surname> <forename>EO</forename>, <surname>Munafo</surname> <forename>DA</forename>, <forename>Chung</forename> <middlename>W</middlename>, <surname>Gopalan</surname> <forename>G</forename>, <surname>Varghese</surname> <forename>ST</forename></author>
+
+						<author><surname>Colas</surname> <forename>C</forename>, <surname>Brosa</surname> <forename>M</forename>, <forename>Anton</forename> <middlename>E</middlename>, <surname>Montoro</surname> <forename>J</forename>, <surname>Navarro</surname> <forename>A</forename>, <surname>Dordal</surname> <forename>MT</forename>, et al.</author>
+
+						<author><surname>Haahtela</surname> <forename>T</forename>, <surname>Valovirta</surname> <forename>E</forename>, <surname>Bousquet</surname> <forename>J</forename>, <surname>Makela</surname> <forename>M</forename></author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

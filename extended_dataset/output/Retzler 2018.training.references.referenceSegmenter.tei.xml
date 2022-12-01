@@ -1,0 +1,33 @@
+<tei xml:space="preserve">
+    <teiHeader>
+        <fileDesc xml:id="_0"/>
+    </teiHeader>
+    <text xml:lang="en">
+        <listBibl>
+
+        References<lb/> 
+        <bibl><label>1</label>. Bauchau, V., &amp; Durham, S. R. (2004). Prevalence and rate of diag-<lb/>nosis of allergic rhinitis in Europe. European Respiratory Journal,<lb/> 24(5), 758-764.<lb/> </bibl>
+        <bibl><label>2</label>. NHS Choices. Allergic rhinitis. Available from: https ://www.nhs.<lb/> uk/condi tions /aller gic-rhini tis/.<lb/> </bibl>
+        <bibl><label>3</label>. Leynaert, B., Neukirch, C., Liard, R., Bousquet, J., &amp; Neukirch,<lb/> F. (2000). Quality of life in allergic rhinitis and asthma: A popu-<lb/>lation-based study of young adults. American Journal of Respira-<lb/>tory and Critical Care Medicine, 162(4), 1391-1396.<lb/> </bibl>
+        <bibl><label>4</label>. Meltzer, E. O. (2001). Quality of life in adults and children with<lb/> allergic rhinitis. Journal of Allergy and Clinical Immunology,<lb/> 108(1), S45-53.<lb/> </bibl>
+        <bibl><label>5</label>. NHS Choices. Asthma. Last updated 12/09/2016. Available from:<lb/> https ://www.nhs.uk/condi tions /asthm a/.<lb/> </bibl>
+        <bibl><label>6</label>. Scadding, G., &amp; Walker, S. (2012). Poor asthma control? Then<lb/> look up the nose. The importance of co-morbid rhinitis in patients<lb/> with asthma. Primary Care Respiratory Journal, 21(2), 222-228.<lb/> </bibl>
+        <bibl><label>7</label>. Feng, C. H., Miller, M. D., &amp; Simon, R. A. (2012). The united<lb/> allergic airway: Connections between allergic rhinitis, asthma,<lb/> and chronic sinusitis. American Journal of Rhinology &amp; Allergy,<lb/> 26(3), 187.<lb/> </bibl>
+        <bibl><label>8</label>. Guerra, S., Sherrill, D. L., Martinez, F. D., &amp; Barbee, R. A.<lb/> (2002). Rhinitis as an independent risk factor for adult-onset<lb/> asthma. Journal of Allergy and Clinical Immunology, 109(3),<lb/> 419-425.<lb/> </bibl>
+        <bibl><label>9</label>. Braido, F., Baiardini, I., Balestracci, S., Ghiglione, V., Stagi, E.,<lb/> Ridolo, E., et al. (2009). Does asthma control correlate with qual-<lb/>ity of life related to upper and lower airways? A real life study.<lb/> Allergy, 64(6), 937-943.<lb/> </bibl>
+        <bibl><label>10</label>. Jacobsen, L., Niggemann, B., Dreborg, S., Ferdousi, H. A.,<lb/> Halken, S., Høst, A., et al. (2007). Specific immunotherapy has<lb/> long-term preventive effect of seasonal and perennial asthma:<lb/> 10-year follow-up on the PAT study. Allergy, 62(8), 943-948.<lb/> </bibl>
+        <bibl><label>11</label>. Disutility. York: York Health Economics Consortium (2016).<lb/> Available from: http://www.yhec.co.uk/gloss ary/disut ility /.<lb/> </bibl>
+        <bibl><label>12</label>. Allergic Rhinitis and its impact on Asthma (ARIA) (2007). Avail-<lb/>able from: http://www.whiar .org.<lb/> </bibl>
+        <bibl><label>13</label>. Global Initiative of Asthma (GINA) (2016). Available from: http://<lb/> www.ginas thma.org.<lb/> </bibl>
+        <bibl><label>14</label>. Juniper, E. F., Guyatt, G. H., Feeny, D. H., Griffith, L. E., &amp; Fer-<lb/>rie, P. J. (1997). Minimum skills required by children to complete<lb/> health-related quality of life instruments for asthma: compari-<lb/>son of measurement properties. European Respiratory Journal,<lb/> 10(10), 2285-2294.<lb/> </bibl>
+        <bibl><label>15</label>. Poole, C. D., Bannister, C. A., Andreasen, J. N., Andersen, J. S.,<lb/> &amp; Currie, C. J. (2014). Estimation of health-related utility (EQ-<lb/>5D index) in subjects with seasonal allergic rhinoconjunctivitis<lb/> to evaluate health gain associated with sublingual grass allergen<lb/> immunotherapy. Health and Quality of Life Outcomes, 12(1), 99.<lb/> </bibl>
+        <bibl><label>16</label>. Petersen, K. D., Kronborg, C., Larsen, J. N., Dahl, R., &amp; Gyrd-<lb/>Hansen, D. (2013). Patient related outcomes in a real life prospec-<lb/>tive follow up study: Allergen immunotherapy increase quality of<lb/> life and reduce sick days. World Allergy Organization Journal,<lb/> 6(1), 15.<lb/> </bibl>
+        <bibl><label>17</label>. Briggs, A. H., Bousquet, J., Wallace, M. V., Busse, W. W., Clark,<lb/> T. J., Pedersen, S. E., et al. (2006). Cost-effectiveness of asthma<lb/> control: An economic appraisal of the GOAL study. Allergy,<lb/> 61(1), 531-536.<lb/> </bibl>
+        <bibl><label>18</label>. Walters, S. J., &amp; Brazier, J. E. (2005). Comparison of the mini-<lb/>mally important difference for two health state utility measures:<lb/> EQ-5D and SF-6D. Quality of Life Research, 14(6), 1523-1532.<lb/> </bibl>
+        <bibl><label>19</label>. Sullivan, P. W., &amp; Ghushchyan, V. (2006). Preference-based<lb/> EQ-5D index scores for chronic conditions in the United States.<lb/> Medical Decision Making, 26(4), 410-420.<lb/> </bibl>
+        <bibl><label>20</label>. Bass, E. B., Steinberg, E. P., Pitt, H. A., Griffiths, R. I., Lillemoe,<lb/> K. D., Saba, G. P., et al. (1994). Comparison of the rating scale<lb/> and the standard gamble in measuring patient preferences for<lb/> outcomes of gallstone disease. Medical Decision Making, 14(4),<lb/> 307-314.<lb/> </bibl>
+        <bibl><label>21</label>. Morimoto, T., &amp; Fukui, T. (2002). Utilities measured by rating<lb/> scale, time trade-off, and standard gamble: review and reference<lb/> for health care professionals. Journal of Epidemiology, 12(2),<lb/> 160-178.</bibl>
+        </listBibl>
+    </text>
+</tei>
+

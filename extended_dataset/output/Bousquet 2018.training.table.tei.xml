@@ -1,0 +1,35 @@
+<tei>
+    <teiHeader>
+        <fileDesc xml:id="_Bousquet 2018.pdf"/>
+    </teiHeader>
+    <text xml:lang="en">
+
+
+		<figure type="table">
+
+            <head>Table </head>
+ 
+            <label>1</label>
+
+            <head>: Mean levels of EQ-5D and WPAI-AS depending on the ARIA score<lb/> </head>
+<lb/> 
+            <table>EQ-5D VAS<lb/> WPAI-AS Q9<lb/> N<lb/> m ± sd<lb/> N<lb/> m ± sd<lb/> No rhinitis<lb/> 48<lb/> 80.0±19.0<lb/> 49<lb/> 27.5±25.5<lb/> ARIA score<lb/> 0<lb/> 83<lb/> 77.0±21.3 a<lb/> 71<lb/> 29.9±27.3 d<lb/> 1<lb/> 403<lb/> 79.5±19.1<lb/> 308<lb/> 20.4±22.1<lb/> 2<lb/> 368<lb/> 76.2±20.2<lb/> 268<lb/> 30.1±23.9<lb/> 3<lb/> 199<lb/> 72.6±18.7 b<lb/> 164<lb/> 41.4±27.3<lb/> 4<lb/> 186<lb/> 67.7±23.0 c<lb/> 168<lb/> 45.8±27.7 e<lb/> p a/b &lt;0.0001, p a/c &lt;0.0001, p d/e &lt;0.0001, Student&apos;s t test<lb/> </table>
+<lb/> 
+            <head>Accepted Article<lb/> Figure 1: Repartition of users depending<lb/> References<lb/> </head>
+<lb/> 
+            <note>1. Schatz M, Meltzer EO, Nathan R, D<lb/> validation of the rhinitis control asse<lb/> evaluating rhinitis symptom control.<lb/> </note>
+<lb/> 
+            <table>2. Bousquet J, Schunemann HJ, Helling<lb/> MACVIA clinical decision algorithm<lb/> Clin Immunol. 2016;138(2):367-74 e<lb/> 3. Bousquet J, Bewick M, Arnavielhe S<lb/> productivity in rhinitis using cell pho<lb/> 4. Bousquet J, Caimmi DP, Bedbrook A<lb/> mobile phone technology in allergic<lb/> Allergy. 2017;72(6):857-65.<lb/> 5. Bousquet J, Hellings PW, Agache I,<lb/> Care pathways implementing emergi<lb/> asthma across the life cycle. Clin Tra<lb/> 6. Bousquet J, Addis A, Adcock I, Aga<lb/> for airway diseases (AIRWAYS-ICP<lb/> 7. Hoehle LP, Speth MM, Phillips KM<lb/> between symptoms of allergic rhiniti<lb/> Rhinol Allergy. 2017;31(4):235-9.<lb/> </table>
+<lb/> 
+            <note>g on EQ-5D visual analogue scale (A) and WPAI-AS Q<lb/> Derebery MJ, Mintz M, Stanford RH, et al. Psychometri<lb/> essment test: a brief patient-completed instrument for<lb/> . Ann Allergy Asthma Immunol. 2010;104(2):118-24.<lb/> <note>gs </note>
+ 
+            <figDesc>PW, Arnavielhe S, Bachert C, Bedbrook A, et al.<lb/> m in adolescents and adults with allergic rhinitis. J Alle<lb/> e2.<lb/> S, Mathieu-Dupas E, Murray R, Bedbrook A, et al. Wo<lb/> ones: The MASK pilot study. Allergy. 2017.<lb/> A, Bewick M, Hellings PW, Devillier P, et al. Pilot stu<lb/> rhinitis in European countries: the MASK-rhinitis stud<lb/> Bedbrook A, Bachert C, Bergmann KC, et al. ARIA 2<lb/> ing technologies for predictive medicine in rhinitis and<lb/> ansl Allergy. 2016;6:47.<lb/> ache I, Agusti A, Alonso A, et al. Integrated care pathw<lb/> Ps). Eur Respir J. 2014;44(2):304-23.<lb/> M, Gaudin RA, Caradonna DS, Gray ST, et al. Associati<lb/> is with decreased general health-related quality of life.<lb/> </figDesc>
+<lb/> 
+            <table>Q9 (B)<lb/> ic<lb/> ergy<lb/> ork<lb/> udy of<lb/> dy.<lb/> 2016:<lb/> d<lb/> ways<lb/> ion<lb/> . Am J</table>
+		</figure>
+
+
+
+    </text>
+</tei>
+

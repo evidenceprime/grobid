@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<address>
+								<settlement>Brazil</settlement>,
+								<country>Chile</country>,
+								<country>Colombia</country>,
+								<country>Ecuador</country>,
+								<settlement>Mexico</settlement>,
+								<country>Peru</country>,
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="laboratory">Respiratory Medicine Unit</orgName>,
+							<orgName type="institution">Children&apos;s Hospital &quot;Orlando Alassia,&quot; Santa<lb/> Fe</orgName>,
+							<address>
+								<country>Argentina</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">Department of Otorhinolaryngology</orgName>,
+							<orgName type="institution">University of Sao Paulo Medical<lb/> School</orgName>,
+							<address>
+								<country>Brazil</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Division of Allergy</orgName>,
+							<orgName type="department">Clinical Immunology</orgName>,
+							<orgName type="department">Department of Pediatrics</orgName>,
+							<lb/>
+							<orgName type="institution">Federal University of Sao Paulo</orgName>,
+							<address>
+								<country>Brazil</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker> Hospital de
+							<orgName type="institution">Clinicas Jose de San Martín</orgName>,
+							<lb/>
+							<orgName type="institution">Buenos Aires University</orgName>,
+							<address>
+								<settlement>Buenos Aires</settlement>,
+								<country>Argentina</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="institution">Universidad Autonoma de Me ´x-<lb/>ico</orgName>,
+							<address>
+								<settlement>Mexico City</settlement>,
+								<settlement>Mexico</settlement>, and
+							</address>
+							<orgName type="department">Mexican Association for Respiratory Care</orgName>,
+							<address>
+								<settlement>Mexico City</settlement>,
+							<lb/>
+								<settlement>Mexico</settlement>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="department">Head and Neck Surgery</orgName>,
+							<orgName type="department">Otorhinolaryngology Department</orgName>,
+							<orgName type="institution">Hospital Ange-<lb/>les de las Lomas</orgName>,
+							<address>
+								<settlement>Mexico City</settlement>,
+								<settlement>Mexico</settlement>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>7</marker>
+							<orgName type="institution">Universidad Nacional Autonoma de Mexico</orgName>,
+							<lb/>
+							<address>
+								<settlement>Mexico City</settlement>,
+								<settlement>Mexico</settlement>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>8</marker>
+							<orgName type="department">Schulman</orgName>,
+							<address>
+								<settlement>Ronca</settlement>, and
+							</address>
+							<orgName type="institution">Bucuvalas, Inc.</orgName>,
+							<address>
+								<settlement>New York</settlement>,
+								<region>New York</region>,
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>9</marker>
+							<orgName type="institution">Nycomed GmbH</orgName>,
+							<address>
+								<settlement>Florham Park</settlement>,
+								<country>New Jersey</country>
+							<lb/>
+							</address>
+							<orgName type="department">Division of Allergy</orgName>,
+							<orgName type="department">Clinical Immunology</orgName>,
+							<orgName type="department">Department<lb/> of Pediatrics</orgName>,
+							<orgName type="institution">Federal University of Sao Paulo</orgName>,
+							<address>
+								<country>Brazil</country>
+							<lb/>
+							</address>
+							<orgName type="laboratory">Respiratory Medicine<lb/> Unit</orgName>,
+							<orgName type="institution">Children&apos;s Hospital &quot;Orlando Alassia</orgName>,&quot;
+							<address>
+								<settlement>Santa Fe S3000CII</settlement>,
+								<country>Argentina</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

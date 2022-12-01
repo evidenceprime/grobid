@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Hiroshi</forename>
+								 <surname>Kumanomidou</surname>
+								 <marker>a, b</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kengo</forename>
+								 <surname>Kanai</surname>
+								 <marker>a</marker> ,
+							</persName>
+							<persName>
+								 <forename>Aiko</forename>
+								 <surname>Oka</surname>
+								 <marker>a</marker> ,
+							</persName>
+							<persName>
+								 <forename>Takenori</forename>
+								 <surname>Haruna</surname>
+								 <marker>c</marker> ,
+							</persName>
+							<persName>
+								 <forename>Yuji</forename>
+								 <surname>Hirata</surname>
+								 <marker>d</marker> ,
+							</persName>
+							<persName>
+								 <forename>Sei-ichiro</forename>
+								 <surname>Makihara</surname>
+								 <marker>e</marker> ,
+							</persName>
+							<persName>
+								 <forename>Takaya</forename>
+								 <surname>Higaki</surname>
+								 <marker>f</marker> ,
+							</persName>
+							<persName>
+								 <forename>Maki</forename>
+								 <surname>Akamatsu</surname>
+								 <marker>a</marker> ,
+							</persName>
+							<persName>
+								 <forename>Yoshitaka</forename>
+								 <surname>Okamoto</surname>
+								 <marker>g</marker> ,
+							</persName>
+							<persName>
+								 <forename>Shunya</forename>
+								 <surname>Ikeda</surname>
+								 <marker>h</marker> ,
+							</persName>
+							<persName>
+								 <forename>Mitsuhiro</forename>
+								 <surname>Okano</surname>
+								 <marker>a, f, *</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

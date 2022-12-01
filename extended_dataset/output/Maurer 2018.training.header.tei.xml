@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Maurer 2018"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	The new england<lb/> journal of medicine<lb/> n engl j med 379;11 nejm.org
+	<date>September 13, 2018</date>
+
+	1007<lb/> established in 1812<lb/>
+	<date>September 13, 2018<lb/></date>
+
+	<reference>vol. 379 no. 11<lb/></reference>
+
+	The authors&apos; affiliations are listed in the<lb/> Appendix. Address reprint requests to<lb/> Dr. Maurer at
+	<byline>
+	<affiliation>Columbia University Irving<lb/> Medical Center,</affiliation>
+	</byline>
+
+	<address>622 W. 168th St., PH 12<lb/> Stem Rm. 134, New York, NY 10032, or at<lb/></address>
+
+	<email>msm10@ cumc . columbia . edu</email>
+
+	.<lb/> *The complete list of the ATTR-ACT Study<lb/> Investigators is provided in the Supple-<lb/>mentary Appendix, available at NEJM.org.<lb/> This article was published on
+	<date>August 27</date>
+
+	<reference>,<lb/> 2018, at NEJM.org.<lb/> N Engl J Med 2018;379:1007-16.<lb/></reference>
+
+	<idno>DOI: 10.1056/NEJMoa1805689<lb/></idno>
+
+	<note type="copyright">Copyright © 2018 Massachusetts Medical Society.</note>
+
+	<div type="abstract">BACKGROUND<lb/> Transthyretin amyloid cardiomyopathy is caused by the deposition of transthyretin amy-<lb/>loid fibrils in the myocardium. The deposition occurs when wild-type or variant trans-<lb/>thyretin becomes unstable and misfolds. Tafamidis binds to transthyretin, preventing<lb/> tetramer dissociation and amyloidogenesis. CONCLUSIONS<lb/> In patients with transthyretin amyloid cardiomyopathy, tafamidis was associated<lb/> with reductions in all-cause mortality and cardiovascular-related hospitalizations<lb/> and reduced the decline in functional capacity and quality of life as compared with<lb/> placebo. (Funded by Pfizer; ATTR-ACT ClinicalTrials.gov number, NCT01994889.</div>
+
+	)<lb/> a bs tr ac t<lb/>
+	<docTitle>
+	<titlePart>Tafamidis Treatment for Patients with Transthyretin Amyloid Cardiomyopathy<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Mathew S. Maurer, M.D., Jeffrey H. Schwartz, Ph.D., Balarama Gundapaneni, M.S., Perry M. Elliott, M.D.,<lb/> Giampaolo Merlini, M.D., Ph.D., Marcia Waddington-Cruz, M.D., Arnt V. Kristen, M.D., Martha Grogan, M.D.,<lb/> Ronald Witteles, M.D., Thibaud Damy, M.D., Ph.D., Brian M. Drachman, M.D., Sanjiv J. Shah, M.D.,<lb/> Mazen Hanna, M.D., Daniel P. Judge, M.D., Alexandra I. Barsdorf, Ph.D., Peter Huber, R.Ph.,<lb/> Terrell A. Patterson, Ph.D., Steven Riley, Pharm.D., Ph.D., Jennifer Schumacher, Ph.D., Michelle Stewart, Ph.D.,<lb/> Marla B. Sultan, M.D., M.B.A., and Claudio Rapezzi, M.D.,</docAuthor>
+	</byline>
+
+	for the ATTR-ACT Study Investigators*<lb/>
+	<note type="copyright">The New England Journal of Medicine<lb/> Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission.<lb/> Copyright © 2018 Massachusetts Medical Society. All rights reserved.<lb/> Copyright © 2018 Massachusetts Medical Society.<lb/></note>
+
+	TRACK THIS ARTICLE&apos;S IMPACT AND REACH<lb/> Visit the article page at NEJM.org and click on Metrics for a dashboard<lb/> that logs views, citations, media references, and commentary.<lb/> www.nejm.org/about-nejm/article-metrics.<lb/>
+	<reference>The New England Journal of Medicine<lb/> Downloaded from nejm.org on November 9, 2022. For personal use only. No other uses without permission.<lb/></reference>
+
+	<note type="copyright">Copyright © 2018 Massachusetts Medical Society. All rights reserved.</note>
+
+		</front>
+	</text>
+</tei>

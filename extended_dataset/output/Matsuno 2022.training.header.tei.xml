@@ -1,0 +1,133 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Matsuno 2022"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<note type="submission">Received: 5 June 2022<lb/> Revised: 12 August 2022<lb/> Accepted: 19 August 2022<lb/></note>
+
+	<idno>DOI: 10.1002/deo2.163<lb/></idno>
+
+	<note type="doctype">O R I G I N A L A R T I C L E<lb/></note>
+
+	<docTitle>
+	<titlePart>Comparison of endoscopic submucosal resection with<lb/> ligation and endoscopic submucosal dissection for small<lb/> rectal neuroendocrine tumors: A multicenter retrospective study<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Kenshi Matsuno 1<lb/> Hideaki Miyamoto 1<lb/> Hideki Kitada 2<lb/> Shinichi Yoshimatsu 3<lb/> Fumio Tamura 4<lb/> Kouichi Sakurai 5<lb/> Kotaro Fukubayashi 6<lb/> Takashi Shono 7<lb/> Hiroko Setoyama 1,8<lb/> Taichi Matsuyama 9<lb/> Shinichiro Suko 10<lb/> Rei Narita 11<lb/> Munenori Honda 1<lb/> Masakuni Tateyama 1<lb/> Hideaki Naoe 1<lb/> Jun Morinaga 12<lb/> Yasuhito Tanaka 1<lb/> Ryosuke Gushima 1<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Gastroenterology and Hepatology, Faculty of Life Sciences, Kumamoto University,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>2 Department of Gastroenterology, Japanese Red Cross Kumamoto Hospital,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>3 Department of Gastroenterology, Kumamoto General Hospital, Community Health Care Organization,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>4 Department of Gastroenterology, Kumamoto Regional Medical Center,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>5 Hattori Clinic,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>6 Department of Gastroenterology, Tamana Central Hospital,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>7 Department of Gastroenterology, Kumamoto Chuo Hospital,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>8 Department of Gastroenterology, Kumamoto Rosai Hospital,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>9 Department of Gastroenterology, National Hospital Organization Kumamoto Medical Center,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>10 Department of Gastroenterology, Saiseikai Kumamoto Hospital,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>11 Department of Gastroenterology, Minamata City Hospital and Medical Center,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	<byline>
+	<affiliation>12 Department of Clinical Investigation (Biostatistics), Kumamoto University Hospital,</affiliation>
+	</byline>
+
+	<address>Kumamoto, Japan<lb/></address>
+
+	Correspondence<lb/>
+	<byline>
+	<docAuthor>Yasuhito Tanaka,</docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Department of<lb/> Gastroenterology and Hepatology, Faculty of<lb/> Life Sciences, Kumamoto University,</affiliation>
+	</byline>
+
+	<address>1-1-1<lb/> Honjo, Chuo-ku, Kumamoto City, Kumamoto<lb/> 860-8556, Japan.<lb/></address>
+
+	Email:
+	<email>ytanaka@kumamoto-u.ac.jp<lb/></email>
+
+	Funding information<lb/>
+	<byline>
+	<affiliation>Kumamoto University Hospital Research<lb/></affiliation>
+	</byline>
+
+	<address>Revitalization Project<lb/></address>
+
+	Abstract<lb/>
+	<div type="abstract">Objectives: Endoscopic submucosal resection with band ligation (ESMR-L)<lb/> and endoscopic submucosal dissection (ESD) are both standard endoscopic<lb/> resection methods for rectal neuroendocrine tumors (NETs) &lt;10 mm in<lb/> size. However, there is no definitive consensus on which is better. Here, we<lb/> compared the efficacy of ESMR-L and ESD for small rectal NETs.<lb/> Methods: This was a multicenter retrospective cohort study including 205<lb/> patients with rectal NETs who underwent ESMR-L or ESD. Treatment out-<lb/>comes were compared by univariate analysis, multivariate analysis, and<lb/> inverse probability treatment weighting (IPTW) using propensity scores. Sub-<lb/>group analysis evaluated the impact of the endoscopist&apos;s experience on the<lb/> technical outcome.<lb/></div>
+
+	<note type="copyright">This is an open access article under the terms of the Creative Commons Attribution License, which permits use, distribution and reproduction in any medium, provided<lb/> the original work is properly cited.<lb/> © 2022 The Authors. DEN Open published by John Wiley &amp; Sons Australia, Ltd on behalf of Japan Gastroenterological Endoscopy Society.<lb/></note>
+
+	<reference>DEN Open. 2023;3:e163.<lb/> wileyonlinelibrary.com/denopen<lb/> 1 of 8<lb/></reference>
+
+	<idno>https://doi.org/10.1002/deo2.163<lb/></idno>
+
+	2 of 8<lb/> MATSUNO ET AL.<lb/>
+	<div type="abstract">Results: Eighty-nine patients were treated by ESMR-L and 116 by ESD. The<lb/> R0 resection rate was not significantly different between the two (90% vs.<lb/> 92%, p = 0.73). The procedure time of ESMR-L was significantly shorter<lb/> than for ESD (17 min vs. 52 min, p &lt; 0.01) and the hospitalization period<lb/> was also significantly shorter (3 days vs. 5 days, p &lt; 0.01). These results<lb/> were confirmed by multivariate analysis and also after IPTW adjustment. The<lb/> procedure time of ESD was significantly prolonged by a less-experienced<lb/> endoscopist (49 min vs.70 min,p = 0.02),but that of ESMR-L was not affected<lb/> (17 min vs. 17 min, p = 0.27).<lb/> Conclusions: For small rectal NETs, both ESMR-L and ESD showed similar<lb/> high complete resection rates. However, considering the shorter proce-<lb/>dure time and shorter hospitalization period, ESMR-L is the more efficient<lb/> treatment method, especially for less-experienced endoscopists.<lb/></div>
+
+	K E Y W O R D S<lb/>
+	<keyword>colonoscopy, endoscopic resection, endoscopic submucosal dissection, endoscopic submucosal<lb/> resection with band ligation, rectal neuroendocrine tumors</keyword>
+
+		</front>
+	</text>
+</tei>

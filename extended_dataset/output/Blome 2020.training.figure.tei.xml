@@ -1,0 +1,31 @@
+<tei>
+    <teiHeader>
+        <fileDesc xml:id="_Blome 2020.pdf"/>
+    </teiHeader>
+    <text xml:lang="en">
+
+
+        <figure>
+
+            <head>Fig. </head>
+ 
+            <label>1 </label>
+ 
+            <figDesc>Distribution of patient-relevant benefit from sub-<lb/>lingual immunotherapy (SLIT): PBI-AR global score,<lb/> ranged 0 = no benefit to 4 = maximum benefit</figDesc>
+        </figure>
+
+
+        <figure>
+
+            <head>Fig. </head>
+ 
+            <label>2 </label>
+ 
+            <figDesc>PBI-AR global score (mean and SD) by physicians&apos; and patients&apos; judgement on improvement in well-being (second<lb/> visit)</figDesc>
+        </figure>
+
+
+
+    </text>
+</tei>
+

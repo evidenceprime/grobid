@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>9</marker>
+							<orgName type="institution">GlaxoSmithKline</orgName>,
+							<address>
+								<postBox>PO Box 50199</postBox>,
+								<settlement>Dubai</settlement>,
+								<country>United Arab Emirates</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Department of Paediatrics</orgName>,
+							<orgName type="laboratory">Allergy And Clinical Immunology</orgName>,
+							<orgName type="institution">Security<lb/> Forces Hospital</orgName>,
+							<orgName type="department">Ministry of Interior</orgName>,
+							<address>
+								<settlement>Riyadh</settlement>,
+								<country>Saudi Arabia.</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">College<lb/> of Medicine</orgName>,
+							<orgName type="institution">University of Sharjah</orgName>,
+							<address>
+								<settlement>Sharjah</settlement>,
+								<country>United Arab Emirates.</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Pulmonary Medicine Department</orgName>,
+							<orgName type="institution">Rashid Hospital</orgName>,
+							<address>
+								<settlement>Dubai</settlement>,
+								<country>United Arab<lb/> Emirates.</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">The Medical School</orgName>,
+							<orgName type="institution">Cairo University</orgName>,
+							<address>
+								<settlement>Cairo</settlement>,
+								<country>Egypt.</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="department">Department<lb/> of Otorhinolaryngology</orgName>,
+							<orgName type="institution">Hacettepe University</orgName>,
+							<address>
+								<settlement>Ankara</settlement>,
+								<country>Turkey.</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="department">Epidemiology<lb/> of Allergic and Respiratory Diseases Department (EPAR)</orgName>,
+							<orgName type="department">Institut Pierre<lb/> Louis d&apos;Epidemiologie et de Sante Publique (IPLESP)</orgName>,
+							<orgName type="institution">Sorbonne Universite<lb/> and INSERM</orgName>,
+							<orgName type="department">Medical School Saint-Antoine</orgName>,
+							<address>
+								<settlement>Paris</settlement>,
+								<country>France.</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>7</marker>
+							<address>
+								<settlement>Foxymed</settlement>,
+								<settlement>Paris</settlement>,
+							<lb/>
+								<country>France.</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>8</marker>
+							<orgName type="institution">MS Health</orgName>,
+							<address>
+								<settlement>Rabat</settlement>,
+								<country>Morocco.</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>9</marker>
+							<orgName type="institution">GlaxoSmithKline</orgName>,
+							<address>
+								<postBox>PO Box 50199</postBox>,
+								<settlement>Dubai</settlement>,
+							<lb/>
+								<country>United Arab Emirates.</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

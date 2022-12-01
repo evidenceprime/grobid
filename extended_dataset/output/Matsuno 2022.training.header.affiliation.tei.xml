@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Department of Gastroenterology and Hepatology</orgName>,
+							<orgName type="department">Faculty of Life Sciences</orgName>,
+							<orgName type="institution">Kumamoto University</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">Japanese Red Cross Kumamoto Hospital</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">Kumamoto General Hospital</orgName>,
+							<orgName type="institution">Community Health Care Organization</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">Kumamoto Regional Medical Center</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="institution">Hattori Clinic</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">Tamana Central Hospital</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>7</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">Kumamoto Chuo Hospital</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>8</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">Kumamoto Rosai Hospital</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>9</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">National Hospital Organization Kumamoto Medical Center</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>10</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">Saiseikai Kumamoto Hospital</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>11</marker>
+							<orgName type="department">Department of Gastroenterology</orgName>,
+							<orgName type="institution">Minamata City Hospital and Medical Center</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>12</marker>
+							<orgName type="department">Department of Clinical Investigation (Biostatistics)</orgName>,
+							<orgName type="institution">Kumamoto University Hospital</orgName>,
+							<address>
+								<settlement>Kumamoto</settlement>,
+								<country>Japan</country>
+							<lb/>
+							</address>
+							<orgName type="department">Department of<lb/> Gastroenterology and Hepatology</orgName>,
+							<orgName type="department">Faculty of<lb/> Life Sciences</orgName>,
+							<orgName type="institution">Kumamoto University</orgName>,
+							<address>
+								<addrLine>1-1-1<lb/> Honjo</addrLine>,
+								<addrLine>Chuo-ku</addrLine>,
+								<settlement>Kumamoto City</settlement>,
+								<settlement>Kumamoto</settlement>
+							<lb/>
+								<postCode>860-8556</postCode>,
+								<country>Japan.</country>
+							<lb/>
+							</address>
+							<orgName type="institution">Kumamoto University Hospital Research<lb/> Revitalization Project</orgName>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

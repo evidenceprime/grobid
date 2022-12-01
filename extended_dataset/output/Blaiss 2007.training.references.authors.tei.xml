@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>Adams</surname> <forename>RJ</forename>, <surname>Fuhlbrigge</surname> <forename>AL</forename>, <surname>Finkelstein</surname> <forename>JA</forename>, et al.</author>
+
+						<author><surname>Bellanti</surname> <forename>JA</forename>, and <forename>Wallerstedt</forename> <surname>DB</surname></author>
+
+						<author><surname>Skoner</surname> <forename>DP</forename></author>
+
+						<author><surname>Schoenwetter</surname> <forename>WF</forename></author>
+
+						<author><surname>Arbes SJ</surname> <suffix>Jr</suffix>, <surname>Gergen</surname> <forename>PJ</forename>, <surname>Elliott</surname> <forename>L</forename>, et al.</author>
+
+						<author><surname>McCrory</surname> <forename>DC</forename>, <surname>Williams</surname> <forename>JW</forename>, <surname>Dolor</surname> <forename>RJ</forename>, et al.</author>
+
+						<author><surname>Gergen</surname> <forename>PJ</forename>, <surname>Turkeltaub</surname> <forename>PC</forename>, and <surname>Kovar</surname> <forename>MG</forename>.</author>
+
+						<author><surname>Shedden</surname> <forename>A</forename>, and <surname>Iezzoni</surname> <forename>D</forename></author>
+
+						<author><surname>Shedden</surname> <forename>A</forename></author>
+
+						<author><surname>Stanford</surname> <forename>R</forename>, <surname>Meltzer</surname> <forename>E</forename>, <surname>Derebery</surname> <forename>J</forename>, et al.</author>
+
+						<author><surname>Lavie</surname> <forename>P</forename>, <surname>Gertner</surname> <forename>R</forename>, <surname>Zomer</surname> <forename>J</forename>, et al.</author>
+
+						<author><surname>Thompson</surname> <forename>AK</forename>, <surname>Juniper</surname> <forename>E</forename>, and <forename>Meltzer</forename> <surname>EO</surname></author>
+
+						<author><forename>Ware</forename> <surname>JE</surname> <suffix>Jr</suffix>, and <surname>Sherbourne</surname> <forename>CD</forename></author>
+
+						<author><surname>Meltzer</surname> <forename>EO</forename>, <surname>Nathan</surname> <forename>RA</forename>, <surname>Selner</surname> <forename>JC</forename>, et al.</author>
+
+						<author><surname>Bousquet</surname> <forename>J</forename>, <surname>Bullinger</surname> <forename>M</forename>, <surname>Fayol</surname> <forename>C</forename>, et al.</author>
+
+						<author><surname>Bousquet</surname> <forename>J</forename>, <surname>Knani</surname> <forename>J</forename>, <surname>Dhivert</surname> <forename>H</forename>, et al.</author>
+
+						<author>. <surname>Stuck</surname> <forename>BA</forename>, <surname>Czajkowski</surname> <forename>J</forename>, <surname>Hagner</surname> <forename>AE</forename>, et al.</author>
+
+						<author><surname>Santanello</surname> <forename>NC</forename>, <surname>DeMuro-Mercon</surname> <forename>C</forename>, <surname>Shah</surname> <forename>SR</forename>, et al.</author>
+
+						<author><surname>Davies</surname> <forename>MJ</forename>, <surname>Fisher</surname> <forename>LH</forename>, <surname>Chegini</surname> <forename>S</forename>, et al.</author>
+
+						<author><surname>Lamb</surname> <forename>CE</forename>, <surname>Ratner</surname> <forename>PH</forename>, <surname>Johnson</surname> <forename>CE</forename>, et al.</author>
+
+						<author><surname>Law</surname> <forename>AW</forename>, <surname>Reed</surname> <forename>SD</forename>, <surname>Sundy</surname> <forename>JS</forename>, et al.</author>
+
+						<author><forename>Crystal-Peters J</forename>, <surname>Crown</surname> <forename>WH</forename>, <surname>Goetzel</surname> <forename>RZ</forename>, et al.</author>
+
+						<author>. <surname>Kay</surname> <forename>GG</forename></author>
+
+						<author>. <surname>Meltzer</surname> <forename>EO</forename></author>
+
+						<author><surname>Casale</surname> <forename>TB</forename>, and <surname>Dykewicz</surname> <forename>MS</forename></author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc xml:id="0"/>
+	</teiHeader>
+	<text>
+		<front/>
+		<body/>
+		<back>
+<listBibl>
+	<bibl>. <author>Greiner AN, Hellings PW, Rotiroti G, Scadding GK</author>. <title level="a">Allergic rhinitis</title>. <title level="j">Lancet</title>. <date>2011</date>;<biblScope unit="volume">378</biblScope>(<biblScope unit="issue">9809</biblScope>):<biblScope unit="page">2112-22</biblScope>.</bibl>
+	<bibl>. <author>Bauchau V, Durham SR</author>. <title level="a">Prevalence and rate of diagnosis of allergic rhinitis in Europe</title>. <title level="j">Eur Respir J.</title> <date>2004</date>;<biblScope unit="volume">24</biblScope>:<biblScope unit="page">758-64</biblScope>.</bibl>
+	<bibl>. <author>Dahl R, Andersen PS, Chivato T, et al.</author> <title level="a">National prevalence of respiratory allergic disorders</title>. <title level="j">Respir Med</title>. <date>2004</date>;<biblScope unit="volume">98</biblScope>:<biblScope unit="page">398-403</biblScope>.</bibl>
+	<bibl>. <author>Warner JO, Kaliner MA, Crisci CD, et al.</author> <title level="a">Allergy practice worldwide: a report by the World Allergy Organization Specialty and Training Council</title>. <title level="j">Int Arch Allergy Immunol.</title> <date>2006</date>;<biblScope unit="volume">139</biblScope>:<biblScope unit="page">166-74</biblScope>.</bibl>
+	<bibl>. <author>Meltzer EO</author>. <title level="a">Allergic rhinitis: burden of illness, quality of life, comorbidities, and control</title>. <title level="j">Immunol Allergy Clin North Am</title>. <date>2016</date>;<biblScope unit="volume">36</biblScope>(<biblScope unit="issue">2</biblScope>):<biblScope unit="page">235-48</biblScope>.</bibl>
+	<bibl>. <author>Canonica GW, Bousquet J, Mullol J, Scadding GK, Virchow JC</author>. <title level="a">A survey of the burden of allergic rhinitis in Europe</title>. <title level="j">Allergy</title>. <date>2007</date>;<biblScope unit="volume">62</biblScope>(<note>Suppl</note> <biblScope unit="issue">85</biblScope>): <biblScope unit="page">17-25</biblScope>.</bibl>
+	<bibl>. <author>Bro _ zek JL, Bousquet J, Agache I, et al.</author> <title level="a">Allergic rhinitis and its impact on asthma (ARIA) guidelines-2016 revision</title>. <title level="j">J Allergy Clin Immunol.</title> <date>2017</date>;<biblScope unit="volume">140</biblScope>(<biblScope unit="issue">4</biblScope>): <biblScope unit="page">950-8</biblScope>.</bibl>
+	<bibl>. <author>Roberts G, Pfaar O, Akdis CA, et al.</author> <title level="a">EAACI guideli-nes on allergen immunotherapy: allergic rhinoconjunctivitis</title>. <title level="j">Allergy</title>. <date>2018</date>;<biblScope unit="volume">73</biblScope>:<biblScope unit="page">765-98</biblScope>.</bibl>
+	<bibl>. <author>Halken S, Larenas-Linnemann D, Roberts G, et al.</author> <title level="a">EAACI guidelines on allergen immunotherapy: prevention of allergy</title>. <title level="j">Pediatr Allergy Immunol.</title> <date>2017</date>;<biblScope unit="volume">28</biblScope>:<biblScope unit="page">728-45</biblScope>.</bibl>
+	<bibl>. <author>Pfaar O, Bachert C, Bufe A, et al.</author> <title level="a">Guideline on allergen-specific immunotherapy in IgE-mediated allergic diseases</title>. <title level="j">Allergo J Int</title>. <date>2014</date>;<biblScope unit="volume">23</biblScope>:<biblScope unit="page">28-65</biblScope>.</bibl>
+	<bibl>. <author>Franzke N, Scha ¨fer I, Jost K, et al.</author> <title level="a">A new instrument for the assessment of patient-defined benefit in the treatment of allergic rhinitis</title>. <title level="j">Allergy</title>. <date>2011</date>;<biblScope unit="volume">66</biblScope>(<biblScope unit="issue">5</biblScope>): <biblScope unit="page">665-70</biblScope>.</bibl>
+	<bibl>. <author>Eton DT, Ridgeway JL, Egginton JS, et al.</author> <title level="a">Finalizing a measurement framework for the burden of treat-ment in complex patients with chronic conditions</title>. <title level="j">Patient Relat Outcome Meas</title>. <date>2015</date>;<biblScope unit="volume">27</biblScope>(<biblScope unit="issue">6</biblScope>):<biblScope unit="page">117-26</biblScope>.</bibl>
+	<bibl>. <author>Biedermann T, Winther L, Till SJ, Panzner P, Knulst A, Valovirta E</author>. <title level="a">Birch pollen allergy in Europe</title>. <title level="j">Allergy</title>. <date>2019</date>;<biblScope unit="volume">74</biblScope>(<biblScope unit="issue">7</biblScope>):<biblScope unit="page">1237-48</biblScope>.</bibl>
+	<bibl><author>. Khinchi MS, Poulsen LK, Carat F, Andre C, Hansen AB, Malling HJ</author>. <title level="a">Clinical efficacy of sublingual and subcutaneous birch pollen allergen-specific immunotherapy: a randomized, placebo-con-trolled, double-blind, double-dummy study</title>. <title level="j">Allergy</title>. <date>2004</date>;<biblScope unit="volume">59</biblScope>:<biblScope unit="page">45-53</biblScope>.</bibl>
+	<bibl>. <author>Worm M, Rak S, de Blay F, et al.</author> <title level="a">Sustained efficacy and safety of a 300 IR daily dose of a sublingual solution of birch pollen allergen extract in adults with allergic rhinoconjunctivitis: results of a dou-ble-blind, placebo-controlled study</title>. <title level="j">Clin Transl Allergy</title>. <date>2014</date>;<biblScope unit="volume">4</biblScope>:<biblScope unit="page">7</biblScope>.</bibl>
+	<bibl>. <author>Augustin M, Radtke MA, Zschocke I, et al.</author> <title level="a">The patient benefit index: a novel approach in patient-defined outcomes measurement for skin diseases</title>. <title level="j">Arch Dermatol Res</title>. <date>2009</date>;<biblScope unit="volume">301</biblScope>(<biblScope unit="issue">8</biblScope>):<biblScope unit="page">561-71</biblScope>.</bibl>
+	<bibl>. <author>Bousquet J, Khaltaev N, Cruz AA, et al.</author> <title level="a">Allergic Rhinitis and its Impact on Asthma (ARIA) 2008 update (in collaboration with the World Health Organization, GA (2) LEN and AllerGen)</title>. <title level="j">Allergy</title>. <date>2008</date>;<biblScope unit="volume">63</biblScope>(<note>Suppl</note> <biblScope unit="issue">86</biblScope>):<biblScope unit="page">8-160</biblScope>.</bibl>
+	<bibl>. <author>Price D, Scadding G, Ryan D, et al.</author> <title level="a">The hidden burden of adult allergic rhinitis: UK healthcare resource utilisation survey</title>. <title level="j">Clin Transl Allergy</title>. <date>2015</date>;<biblScope unit="volume">5</biblScope>:<biblScope unit="page">39</biblScope>.</bibl>
+	<bibl>. <title level="m">Stiftung Deutscher Polleninformationsdienst</title>. <title level="a">Lit-eratur und Vortra ¨ge-Studien, Analysen und Vero ¨ffentlichungen</title>. <ptr type="web">http://www.pollenstiftung.de/ symposien-literatur/studienanalysen/</ptr>. Accessed <date>13 Feb 2020</date>.</bibl>
+	<bibl>. <author>Blome C, Augustin M</author>. <title level="a">Measuring change in quality of life: bias in prospective and retrospective evalu-ation. Value Health</title>. <date>2015</date>;<biblScope unit="volume">18</biblScope>(<biblScope unit="issue">1</biblScope>):<biblScope unit="page">110-5</biblScope>.</bibl>
+
+		</listBibl>
+	</back>
+	</text>
+</TEI>

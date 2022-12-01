@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Al Digheari 2018"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<reference>Al-Digheari et al.<lb/> Allergy Asthma Clin Immunol (2018) 14:63<lb/></reference>
+
+	<idno>https://doi.org/10.1186/s13223-018-0298-x</idno>
+
+	<note type="doctype">RESEARCH<lb/></note>
+
+	<docTitle>
+	<titlePart>The clinical burden of allergic rhinitis<lb/> in five Middle Eastern countries: results<lb/> of the SNAPSHOT program<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Ahmed Al-Digheari 1 , Bassam Mahboub 2,3 , Hesham Tarraf 4 , Taskin Yucel 5 , Isabella Annesi-Maesano 6 ,<lb/> Adam Doble 7 , Aaicha Lahlou 8 , Luqman Tariq 9 , Fayaz Aziz 9 and Abdelkader El Hasnaoui 9*<lb/></docAuthor>
+	</byline>
+
+	Abstract<lb/>
+	<div type="abstract">Background: The SNAPSHOT program provides current data on the allergic rhinitis burden in the adult general<lb/> population of five Middle Eastern countries (Egypt, Turkey, Kuwait, Saudi Arabia and the United Arab Emirates, the<lb/> latter three grouped into a Gulf cluster).<lb/> Methods: A multi-country, cross-sectional, epidemiological program conducted by telephone in a random sample<lb/> of the adult general population; quotas were defined per country demographics. Subjects were screened for allergic<lb/> rhinitis using the Score For Allergic Rhinitis questionnaire. Current prevalence (last 12 months) was estimated. Disease<lb/> severity and control were assessed using the Allergic Rhinitis and its Impact on Asthma classification and Rhinitis<lb/> Control Assessment Test respectively. Quality of sleep, impact on daily activities and quality of life were measured<lb/> using the Epworth Sleepiness Scale, Sheehan Disability Scale and EuroQol Five-Dimension questionnaire respectively.<lb/> Multivariate logistic regression analyses were used to investigate risk factors and co-morbidities.<lb/> Results: 1808 of 33,486 subjects enrolled in the SNAPSHOT program fulfilled the case definition for allergic rhinitis.<lb/> Prevalence was 3.6% [95% CI 3.2-4.0%] in Egypt, 6.4% [95% CI 5.9-6.9%] in Turkey and 6.4% [95% CI 6.0-6.9%] in<lb/> the Gulf cluster. Risk factors identified were country, co-morbid asthma and income. Subjects with allergic rhinitis<lb/> reported a significantly lower quality of life compared to the general population (p &lt; 0.0001). Overall, 55% of allergic<lb/> rhinitis subjects were moderate/severe and 33% were uncontrolled. Both these groups reported impaired quality<lb/> of life and quality of sleep and increased impairment of daily activities compared to mild/well-controlled subjects<lb/> (p &lt; 0.0001).<lb/> Conclusions: Although the observed prevalence of allergic rhinitis in these Middle Eastern countries is low<lb/> compared to western countries, its burden is considerable. Allergic rhinitis in general, and specifically uncontrolled<lb/> and severe disease, results in a negative impact on quality of life, quality of sleep and daily activities.<lb/></div>
+
+	Keywords:
+	<keyword>Allergic rhinitis, Clinical burden, Middle East, SNAPSHOT, Quality of life<lb/></keyword>
+
+	<note type="copyright">© The Author(s) 2018. This article is distributed under the terms of the Creative Commons Attribution 4.0 International License<lb/> (http://creat iveco mmons .org/licen ses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium,<lb/> provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license,<lb/> and indicate if changes were made. The Creative Commons Public Domain Dedication waiver (http://creat iveco mmons .org/<lb/> publi cdoma in/zero/1.0/) applies to the data made available in this article, unless otherwise stated.<lb/></note>
+
+	<note type="doctype">Open Access<lb/></note>
+
+	<docTitle>
+	<titlePart>Allergy, Asthma &amp; Clinical Immunology<lb/></titlePart>
+	</docTitle>
+
+	*Correspondence: abdelkader.a.el-
+	<email>hasnaoui@gsk.com<lb/></email>
+
+	<byline>
+	<affiliation>9 GlaxoSmithKline,</affiliation>
+	</byline>
+
+	<address>PO Box 50199, Dubai, United Arab Emirates<lb/></address>
+
+	Full list of author information is available at the end of the article<lb/> Author details<lb/>
+	<byline>
+	<affiliation>1 Department of Paediatrics, Allergy And Clinical Immunology, Security<lb/> Forces Hospital, Ministry of Interior,</affiliation>
+	</byline>
+
+	<address>Riyadh, Saudi Arabia.</address>
+
+	<byline>
+	<affiliation>2 College<lb/> of Medicine, University of Sharjah,</affiliation>
+	</byline>
+
+	<address>Sharjah, United Arab Emirates.<lb/></address>
+
+	<byline>
+	<affiliation>3 Pulmonary Medicine Department, Rashid Hospital,</affiliation>
+	</byline>
+
+	<address>Dubai, United Arab<lb/> Emirates.</address>
+
+	<byline>
+	<affiliation>4 The Medical School, Cairo University,</affiliation>
+	</byline>
+
+	<address>Cairo, Egypt.</address>
+
+	<byline>
+	<affiliation>5 Department<lb/> of Otorhinolaryngology, Hacettepe University,</affiliation>
+	</byline>
+
+	<address>Ankara, Turkey.</address>
+
+	<byline>
+	<affiliation>6 Epidemiology<lb/> of Allergic and Respiratory Diseases Department (EPAR), Institut Pierre<lb/> Louis d&apos;Epidemiologie et de Sante Publique (IPLESP), Sorbonne Universite<lb/> and INSERM, Medical School Saint-Antoine,</affiliation>
+	</byline>
+
+	<address>Paris, France.</address>
+
+	<byline>
+	<affiliation>7 Foxymed,</affiliation>
+	</byline>
+
+	<address>Paris,<lb/> France.</address>
+
+	<byline>
+	<affiliation>8 MS Health,</affiliation>
+	</byline>
+
+	<address>Rabat, Morocco. 9 GlaxoSmithKline, PO Box 50199, Dubai,<lb/> United Arab Emirates.<lb/></address>
+
+	<note type="submission">Received: 30 May 2018 Accepted: 6 September 2018</note>
+
+		</front>
+	</text>
+</tei>

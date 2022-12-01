@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>Siegel</surname> <forename>R</forename>, <surname>Desantis</surname> <forename>C</forename>, <surname>Jemal</surname> <forename>A</forename></author>
+
+						<author><surname>DeOliveira</surname> <forename>ML</forename>, <surname>Cunningham</surname> <forename>SC</forename>, <surname>Cameron</surname> <forename>JL</forename> et al.</author>
+
+						<author><surname>Sano</surname> <forename>T</forename>, <surname>Shimada</surname> <forename>K</forename>, <surname>Sakamoto</surname> <forename>Y</forename>, <surname>Yamamoto</surname> <forename>J</forename>, <surname>Yamasaki</surname> <forename>S</forename>, <surname>Kosuge</surname> <forename>T</forename></author>
+
+						<author><surname>Cho</surname> <forename>MS</forename>,<surname>Kim</surname> <forename>SH</forename>,<surname>Park</surname> <forename>SW</forename> et al.</author>
+
+						<author><surname>Bismuth</surname> <forename>H</forename>, <surname>Castaing</surname> <forename>D</forename>, <surname>Traynor</surname> <forename>O</forename></author>
+
+						<author><surname>Wiggers</surname> <forename>JK</forename>, <forename>Groot</forename> <surname>Koerkamp</surname> <forename>B</forename>, <surname>Cieslak</surname> <forename>KP</forename> et al.</author>
+
+						<author><surname>Kanai</surname> <forename>M</forename>, <surname>Nimura</surname> <forename>Y</forename>, <surname>Kamiya</surname> <forename>J</forename>, <surname>Kondo</surname> <forename>S</forename>, <surname>Nagino</surname> <forename>M</forename>, <surname>Miyachi</surname> <forename>M</forename>, <surname>Goto</surname> <forename>Y</forename></author>
+
+						<author><surname>Moole</surname> <forename>H</forename>, <surname>Bechtold</surname> <forename>M</forename>, <surname>Puli</surname> <forename>SR</forename></author>
+
+						<author><surname>Ferrero</surname> <forename>A</forename>, <surname>Lo Tesoriere</surname> <forename>R</forename>, <surname>Viganò</surname> <forename>L</forename>, <surname>Caggiano</surname> <forename>L</forename>, <surname>Sgotto</surname> <forename>E</forename>, <surname>Capussotti</surname> <forename>L</forename>. <surname>Surg</surname></author>
+
+						<author><surname>Nuzzo</surname> <forename>G</forename>, <surname>Giuliante</surname> <forename>F</forename>, <surname>Ardito</surname> <forename>F</forename> et al.</author>
+
+						<author><surname>Wang</surname> <forename>Y</forename>, <surname>Fu</surname> <forename>W</forename>, <surname>Tang</surname> <forename>Z</forename>, <surname>Meng</surname> <forename>W</forename>, <surname>Zhou</surname> <forename>W</forename>, <surname>Li</surname> <forename>X</forename></author>
+
+						<author><surname>Farges</surname> <forename>O</forename>, <surname>Regimbeau</surname> <forename>JM</forename>, <surname>Fuks</surname> <forename>D</forename> et al.</author>
+
+						<author><surname>Kiriyama</surname> <forename>S</forename>, <surname>Kozaka</surname> <forename>K</forename>, <surname>Takada</surname> <forename>T</forename> et al.</author>
+
+						<author><surname>Isayama</surname> <forename>H</forename>, <surname>Hamada</surname> <forename>T</forename>, <surname>Yasuda</surname> <forename>I</forename> et al.</author>
+
+						<author><surname>Cotton</surname> <forename>PB</forename>, <surname>Garrow</surname> <forename>DA</forename>, <surname>Gallagher</surname> <forename>J</forename>, <surname>Romagnuolo</surname> <forename>J</forename></author>
+
+						<author><surname>Chen</surname> <forename>M</forename>, <surname>Wang</surname> <forename>L</forename>, <surname>Wang</surname> <forename>Y</forename> et al.</author>
+
+						<author><surname>Kawakami</surname> <forename>H</forename>, <surname>Kuwatani</surname> <forename>M</forename>, <surname>Onodera</surname> <forename>M</forename> et al.</author>
+
+						<author><surname>Nakai</surname> <forename>Y</forename>, <surname>Yamamoto</surname> <forename>R</forename>, <surname>Matsuyama</surname> <forename>M</forename> et al.</author>
+
+						<author><surname>Nagino</surname> <forename>M</forename>, <surname>Ebata</surname> <forename>T</forename>, <surname>Yokoyama</surname> <forename>Y</forename> et al.</author>
+
+						<author><surname>Shigdar</surname> <forename>S</forename>, <surname>Li</surname> <forename>Y</forename>, <surname>Bhattacharya</surname> <forename>S</forename> et al.</author>
+
+						<author><surname>Techasen</surname> <forename>A</forename>, <surname>Namwat</surname> <forename>N</forename>, <surname>Loilome</surname> <forename>W</forename> et al.</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

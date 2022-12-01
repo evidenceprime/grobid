@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>Feeny</surname> <forename>D</forename>, <surname>Furlong</surname> <forename>W</forename>, <surname>Saigal</surname> <forename>S</forename>, <surname>Sun</surname> <forename>J</forename></author>
+
+						<author><surname>Torrance</surname> <forename>GW</forename>, <surname>Feeny</surname> <forename>D</forename></author>
+
+						<author><surname>Feeny</surname> <forename>D</forename></author>
+
+						<author><surname>Quraishi</surname> <forename>SA</forename>, <surname>Davies</surname> <forename>MJ</forename>, <surname>Craig</surname> <forename>TJ</forename></author>
+
+						<author><surname>Santilli</surname> <forename>J</forename>, <surname>Nathan</surname> <forename>R</forename>, <surname>Glassheim</surname> <forename>J</forename>, <surname>Rockwell</surname> <forename>W</forename>, <surname>Gold</surname> <forename>K</forename></author>
+
+						<author><surname>Sibbald</surname> <forename>B</forename>, <surname>Rink</surname> <forename>E</forename></author>
+
+						<author><surname>Spector</surname> <forename>SL</forename></author>
+
+						<author><surname>Law</surname> <forename>AW</forename>, <surname>Reed</surname> <forename>SD</forename>, <surname>Sundy</surname> <forename>JS</forename>, <surname>Schulman</surname> <forename>KA</forename></author>
+
+						<author><forename>Crystal-Peters J</forename>, <surname>Neslusan</surname> <forename>CA</forename>, <surname>Smith</surname> <forename>MW</forename>, <surname>Togias</surname> <forename>A</forename></author>
+
+						<author><surname>Revicki</surname> <forename>DA</forename>, <surname>Leidy</surname> <forename>NK</forename>, <surname>Brennan-Diemer</surname> <forename>F</forename>, <surname>Thompson</surname> <forename>C</forename>, <surname>Togias</surname> <forename>A</forename></author>
+
+						<author><surname>Ware</surname> JE <suffix>Jr</suffix>, <surname>Keller</surname> <forename>SD</forename>, <surname>Gandek</surname> <forename>B</forename>, <surname>Brazier</surname> <forename>JE</forename>, <surname>Sullivan</surname> <forename>M</forename></author>
+
+						<author><surname>Lebel</surname> <forename>B</forename>, <surname>Bousquet</surname> <forename>J</forename>, <surname>More</surname> <forename>A</forename>, <surname>Chanal</surname> <forename>I</forename>, <surname>Godard</surname> <forename>P</forename>, <surname>Michel</surname> <forename>FB</forename></author>
+
+						<author><surname>Lam</surname> <forename>CL</forename>, <surname>Gandek</surname> <forename>B</forename>, <surname>Ren</surname> <forename>XS</forename>, <surname>Chan</surname> <forename>MS</forename></author>
+
+						<author><surname>Ware</surname> JE <suffix>Jr</suffix>, <surname>Sherbourne</surname> <forename>CD</forename>.</author>
+
+						<author><surname>Lenert</surname> <forename>LA</forename>, <surname>Cher</surname> <forename>DJ</forename>, <surname>Goldstein</surname> <forename>MK</forename>, <surname>Bergen</surname> <forename>MR</forename>, <surname>Garber</surname> <forename>A</forename></author>
+
+						<author><surname>Torrance</surname> <forename>GW</forename>, <surname>Feeny</surname> <forename>DH</forename>, <surname>Furlong</surname> <forename>W</forename>, <surname>Barr</surname> <forename>R</forename>, <surname>Zhang</surname> <forename>Y</forename>, <surname>Wany</surname> <forename>Q</forename></author>
+
+						<author><surname>Torrance</surname> <forename>GW</forename>, <surname>Furlong</surname> <forename>W</forename>, <surname>Feeny</surname> <forename>D</forename>, <surname>Boyle</surname> <forename>M</forename></author>
+
+						<author><surname>Feeny</surname> <forename>D</forename>, <surname>Furlong</surname> <forename>W</forename>, <surname>Torrance</surname> <forename>GW</forename>, et al.</author>
+
+						<author><surname>Ottenbacher</surname> <forename>KJ</forename>, <surname>Tomchek</surname> <forename>SD</forename></author>
+
+						<author><surname>Portney</surname> <forename>LG</forename>, <surname>Watkins</surname> <forename>MP</forename></author>
+
+						<author><surname>Patrick</surname> <forename>DL</forename>, <surname>Wild</surname> <forename>DJ</forename>, <surname>Johnson</surname> <forename>ES</forename>, <surname>Wagner</surname> <forename>TH</forename>, <surname>Martin</surname> <forename>MA</forename></author>
+
+						<author><surname>Lehman</surname> <forename>AF</forename>, <surname>Postrado</surname> <forename>LT</forename>, <surname>Rachuba</surname> <forename>LT</forename></author>
+
+						<author><surname>Furlong</surname> <forename>WJ</forename>, <surname>Feeny</surname> <forename>DH</forename>, <surname>Torrance</surname> <forename>GW</forename>, <surname>Barr</surname> <forename>RD</forename></author>
+
+						<author><surname>Nathan</surname> <forename>RA</forename>, <surname>Meltzer</surname> <forename>EO</forename>, <surname>Seiner</surname> <forename>JC</forename>, <surname>Storms</surname> <forename>W</forename></author>
+
+						<author>. <surname>Lund</surname> <forename>V</forename></author>
+
+						<author><surname>Sly</surname> <forename>RM</forename></author>
+
+						<author><surname>Tsang</surname> <forename>RK</forename>, <surname>Tong</surname> <forename>MC</forename>, <surname>Woo</surname> <forename>JK</forename>, <forename>Van</forename> <surname>Hasselt</surname> <forename>CA</forename></author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

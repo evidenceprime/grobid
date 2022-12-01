@@ -1,0 +1,2339 @@
+Journal Pre-proof 
+
+An Exploratory Cross-sectional Study of Immune Checkpoint Inhibitors and Immuno-
+related Adverse Events: Knowledge and Influencing Factors among Japanese 
+Oncology Nurses 
+
+Mikiko Tsuji, RN, MSN, Naoko Hayashi, RN, PHN, PhD 
+
+PII: 
+S2347-5625(22)00205-0 
+
+DOI: 
+https://doi.org/10.1016/j.apjon.2022.100147 
+
+Reference: 
+APJON 100147 
+
+To appear in: Asia-Pacific Journal of Oncology Nursing 
+
+Received Date: 6 April 2022 
+
+Revised Date: 11 September 2022 
+
+Accepted Date: 12 September 2022 
+
+Please cite this article as: Tsuji M, Hayashi N, An Exploratory Cross-sectional Study of Immune 
+Checkpoint Inhibitors and Immuno-related Adverse Events: Knowledge and Influencing Factors 
+among Japanese Oncology Nurses, Asia-Pacific Journal of Oncology Nursing, https://doi.org/10.1016/ 
+j.apjon.2022.100147. 
+
+This is a PDF file of an article that has undergone enhancements after acceptance, such as the addition 
+of a cover page and metadata, and formatting for readability, but it is not yet the definitive version of 
+record. This version will undergo additional copyediting, typesetting and review before it is published 
+in its final form, but we are providing this version to give early visibility of the article. Please note that, 
+during the production process, errors may be discovered which could affect the content, and all legal 
+disclaimers that apply to the journal pertain. 
+
+© 2022 The Author(s). Published by Elsevier Inc. on behalf of Asian Oncology Nursing Society. 
+
+
+An Exploratory Cross-sectional Study of Immune Checkpoint Inhibitors and Immuno-related 
+
+Adverse Events: Knowledge and Influencing Factors among Japanese Oncology Nurses 
+
+Mikiko Tsuji a , RN, MSN; Naoko Hayashi a* , RN, PHN, PhD 
+
+a 
+
+Department of Oncology Nursing and Palliative Care, Graduate School of Nursing Science, 
+
+St Luke's International University, Tokyo, Japan 
+
+*Correspondence 
+
+PO Box 104-0044, 10-1 Akashi-cho, Chuo-ku, Tokyo 
+
+Email: naoko-hayashi@slcn.ac.jp 
+
+Acknowledgments 
+
+The authors thank all the nurses at the respective facilities who cooperated with the survey 
+
+despite the impact of the COVID-19 pandemic and flood damage. We would like to 
+
+acknowledge for their invaluable cooperation and guidance, Teruo Yamauchi as an 
+
+oncologist perspective, and Sakiko Aso, Yukiko Ogata, Yukie Hosoda, Miki Koyama, 
+
+Mariko Nakano, as a CNS perspective. In addition, the authors are grateful to a 
+
+pulmonologist, CNS, CN, for suggestion and three nurses who participated the pilot 
+
+J o u r n a l P r e -p r o o f 
+
+
+knowledge test at Shizuoka Cancer Center. The authors also would like to thank Aiko 
+
+Okimura for technical statistics advice. 
+
+Financial support and sponsorship 
+
+This work was supported by Japan Society for the Promotion of Science KAKENHI Grant 
+
+Number 17H04444. 
+
+Conflict of interest statement 
+
+The authors have no funding or conflicts of interest to disclose. 
+
+The manuscript has been read and approved by both authors, the requirements for authorship 
+
+have been met, and each author believes that the manuscript represents honest work. 
+
+J o u r n a l P r e -p r o o f 
+
+
+An Exploratory Cross-sectional Study of Immune Checkpoint Inhibitors and 
+
+Immuno-related Adverse Events: 
+
+Knowledge and Influencing Factors among Japanese Oncology Nurses 
+
+Abstract 
+
+Objective: Adequate knowledge of immune checkpoint inhibitors (ICIs) and associated 
+
+immune-related adverse events (irAEs) is essential for managing such events. However, the level 
+
+of knowledge among Japanese nurses remains unclear. This study aimed to investigate the 
+
+current status of ICIs and irAE knowledge and the factors influencing them, among outpatient 
+
+nurses caring for patients undergoing ICI treatment. 
+
+Methods: An exploratory cross-sectional study was conducted at 450 facilities nationwide. 
+
+Participants completed a self-administered online questionnaire consisting of three parts, 
+
+measuring personal and environmental attributes and awareness and knowledge of irAEs. 
+
+Questions were based on multiple literature sources and were evaluated and validated by medical 
+
+oncologists and certified oncology nurses. 
+
+Results: A total of 196 (response rate: 36%) nurses responded to the survey at 109 facilities 
+
+(valid responses: 192; rate: 35%). The correct response rate was 27.6% for questions on general 
+
+ICI knowledge and 15.6% for general irAE knowledge. Questions on pulmonary dysfunction had 
+
+the highest correct response rate (41.7%), while those on neuromuscular/joint dysfunction had 
+
+the lowest (1%). The mean correct response rates were 76% for general knowledge and 48.1% 
+
+for ICI-specific knowledge. Multiple regression analysis showed that the most influential factor 
+
+was participants' study schedule (p<.05). 
+
+J o u r n a l P r e -p r o o f 
+
+
+Conclusions: There is room for nurses to acquire additional knowledge about ICIs and irAEs. 
+
+The use of patient education tools and a study schedule significantly increased knowledge scores. 
+
+Further research is needed to identify when and how to provide nurses with opportunities to 
+
+acquire additional ICI and irAE-related knowledge. 
+
+J o u r n a l P r e -p r o o f 
+
+
+1. Introduction 
+
+Cancer has been the leading cause of mortality in Japan since 1981, causing 
+
+approximately 380,000 deaths per year in 2020. 1 However, the five-year relative survival rate has 
+
+exceeded 60% since 2009. 2 
+
+Approaches to cancer treatment have also been changing in Japan. The number of 
+
+domestic outpatients with malignant neoplasms now exceeds the number of inpatients, a trend 
+
+that has increased in recent years. 3 This change is due to a variety of factors currently occurring 
+
+in Japan, including the limited number of beds available at inpatient facilities, the promotion of 
+
+home care, and advances in cancer drug therapy. 
+
+Oncology pharmacotherapy is diversifying with the introduction of cytotoxic anticancer 
+
+agents, molecular targeted agents, and immune checkpoint inhibitors (ICIs), all of which have 
+
+completely different mechanisms from conventional immunotherapy. 4-8 As of 2019, three ICIs 
+
+had either been approved or were undergoing clinical trials in Japan: CTLA-4 inhibitors, PD-1 
+
+inhibitors, and PD-L1 inhibitors. These have since been approved for nine types of cancer, 4 and 
+
+clinical trials with these ICIs are being conducted for more than 25 cancer types. These trials are 
+
+expected to result in additional indications for many cancer types and stages. 
+
+The mode of action behind immune-related adverse events (irAEs) caused by ICI therapy 
+
+remains unknown. It is also unclear why some patients experience irAEs, while others do not. 
+
+Managing irAEs is different from managing the side effects of cytotoxic anticancer drug therapy. 
+
+This is because irAEs appear in various forms and can, theoretically, occur anywhere in the 
+
+body. Moreover, it is difficult to predict when they will appear, and delays in appropriate 
+
+response and treatment can be fatal. 4,9,10 However, there is no established treatment or supportive 
+
+care beyond the use of steroids. 4 Additionally, recent studies have shown that the risk of 
+
+J o u r n a l P r e -p r o o f 
+
+
+mortality and disease progression is reduced when irAEs occur. 11,12 Thus, recognizing and 
+
+managing irAEs is a critical factor for ensuring that patients continue to receive the treatment 
+
+they require. 
+
+Against this background, nurses must have adequate knowledge of ICI treatment and any 
+
+associated irAEs. 13 However, although nurses must possess knowledge related to the medications 
+
+used for each patient, their actual acquisition of such knowledge remains insufficient. 14,15 
+
+According to the results of a survey of 160 nurses involved in clinical practice and education in 
+
+various fields, nurses are aware of the need to provide nursing care based on evidence-based 
+
+knowledge; however, they have difficulty translating this knowledge into practice. 16 
+
+As ICI therapy is likely to become a mainstream cancer treatment in the near future, nurses 
+
+need to acquire knowledge about ICI therapy and irAEs. However, the current status of nurses' 
+
+knowledge about ICIs and irAEs and the recognition of their importance in Japan have not yet 
+
+been clarified. Furthermore, globally, there is no research or questionnaire assessing ICI and 
+
+irAE knowledge. At present, supportive care for adverse events associated with ICI therapy has 
+
+not been established. As such, it is vital for nurses to have appropriate knowledge regarding 
+
+irAEs to ensure early detection and treatment, thereby reducing distress among patients and their 
+
+families. An appropriate level of knowledge is also needed to ensure that effective treatment can 
+
+be safely continued and sufficient therapeutic effects are realized. 
+
+This study aimed to test the following research hypotheses by examining knowledge of 
+
+ICIs and irAEs-and the factors affecting that knowledge-among outpatient nurses involved in 
+
+the care of patients undergoing ICI treatment in Japan. This study seeks to contribute to the field 
+
+by analyzing the hypotheses based on a conceptual diagram of knowledge, attributes, and 
+
+awareness of irAEs (Figure). Since no theoretical framework existed, the conceptual diagram 
+
+J o u r n a l P r e -p r o o f 
+
+
+was originally schematized by the author. Knowledge of ICIs and irAEs is associated with 
+
+personal attributes and environmental characteristics. Awareness of irAEs is associated with 
+
+personal attributes, environmental characteristics, and knowledge of ICIs and irAEs. Personal 
+
+attributes are in turn associated with environmental characteristics. 
+
+Hypothesis 1: Nurses who study ICIs and irAEs gain adequate knowledge compared to 
+
+those who do not. 
+
+Hypothesis 2: Knowledge of ICIs and irAEs among nurses involved in ICI treatment 
+
+would be associated with nurses' personal attributes, such as irAE management training 
+
+participants, providing opportunities for learning about irAEs, and the number of ICI-
+
+administered patients involved in care to date. A null hypothesis will be tested to the effect that 
+
+there is no association between knowledge of irAEs and nurses' personal attributes, such as irAE 
+
+management training participants, providing opportunities for learning about irAEs, and the 
+
+number of ICI-administered patients involved in care. 
+
+Hypothesis 3: Knowledge of ICIs and irAEs among nurses involved in ICI treatment 
+
+would be associated between two groups of nurses' environmental characteristics, such as the 
+
+presence of an in-house multidisciplinary team, certified cancer-related personnel, and an ICI-
+
+specific questionnaire in the facility. A null hypothesis will be tested to the effect that there is no 
+
+association between knowledge of irAEs and nurses' environmental characteristics, such as the 
+
+presence of an in-house multidisciplinary team, certified cancer-related personnel, and an ICI-
+
+specific questionnaire in the facility. 
+
+2. Methods 
+
+2.1 Design 
+
+J o u r n a l P r e -p r o o f 
+
+
+This was an exploratory cross-sectional study using an internet-based self-administered 
+
+questionnaire. 
+
+2.2 Setting 
+
+A total of 450 facilities in Japan were included in this study, including 447 designated 
+
+comprehensive cancer centers and 86 advanced treatment hospitals that do not overlap with the 
+
+designated comprehensive cancer centers. 17,18 
+
+A research request letter, a sample questionnaire, a sample research cooperation request 
+
+form for cooperating nurses, and a reply-paid postcard were sent to the head of the nursing 
+
+department of the facility where the survey was conducted. The return postcards were sent by the 
+
+head of the nursing department of the facility where the survey was to be conducted, with the 
+
+name of the person in charge of accepting the survey and the number of possible collaborators 
+
+indicated. Based on the returned postcards, a "Request for Research Cooperation Form" was 
+
+mailed to the person in charge of accepting the survey at facilities that agreed to cooperate. The 
+
+form included the purpose of the study and the URL and 2D code to access the Internet survey 
+
+for the cooperating nurses. The research coordinator distributed this form to nurses who were 
+
+involved in ICI administration nursing in the outpatient chemotherapy centers and outpatient 
+
+treatment centers of gastroenterology and respiratory medicine, or similar departments, and 
+
+requested their responses via the Internet. 
+
+The data collection period was from June to September 2020. 
+
+2.3 Participants 
+
+The survey targets were nurses working in departments involved in the care of patients 
+
+undergoing ICI treatment at the concerned facilities. The survey did not ask whether participants 
+
+held certifications, such as certified cancer chemotherapy nursing or cancer nursing specialist in 
+
+J o u r n a l P r e -p r o o f 
+
+
+oncology. 
+
+2.4 Sample Size Calculation 
+
+The total number of items calculated for the sample size was 35, which included 10 main 
+
+attribute items from the 26 attribute items considered and selected to be particularly influential 
+
+on irAE management, eight awareness items (7 questions and 1 free comment), nine items 
+
+testing knowledge about ICIs and irAEs, and eight items on the various types of irAEs. The 
+
+required minimum sample size was set at 175, five times the number of items. 19 Assuming that 
+
+the response rate will be 25%, the number of required participants was calculated to be 700 
+
+(=175/0.25). The number of facilities requested was calculated to be 281 (=70/0.25) assuming a 
+
+minimum of 70 facilities and a response rate of 25%, based on the assumption that 10 nurses 
+
+from one facility would respond to the survey. 
+
+2.5 Questionnaire 
+
+2.5.1 Test of ICI and irAE Knowledge 
+
+Questions related to basic knowledge of ICIs and irAEs were based on the Cancer 
+
+Immunotherapy Guidelines (second edition), 4 National Comprehensive Cancer Network 
+
+guidelines, 6 and previous studies. 8,17,18.20-26 The survey consisted of ten items meant to extract 
+
+participants' basic knowledge about ICIs and irAEs, specific symptoms of irAEs by area, 
+
+frequency of occurrence, severity (mortality rate), and urgency as well as specific symptom 
+
+measures and non-steroidal treatment. Knowledge scores were based on whether participants 
+
+answered the true/false questions correctly. 
+
+Nine oncologists, pulmonary physicians, oncology certificated nurse specialists, and 
+
+certified cancer chemotherapy nurses were asked to evaluate the content validity of the ICI and 
+
+irAE knowledge test in terms of appropriateness, difficulty, necessity, and modifications. The 
+
+J o u r n a l P r e -p r o o f 
+
+
+appropriateness, difficulty, and necessity of each item were rated on a three-point Likert-type 
+
+scale (3, high; 2, neither; 1, low); the mean scores were 2.4, 2.1, and 2.7, respectively. 
+
+Modifications were made based on these results. 
+
+A pilot survey of the modified ICI and irAE knowledge test was conducted with three 
+
+nurses working at a designated comprehensive cancer center. The items were then re-examined 
+
+and finalized. 
+
+2.5.2 Awareness of irAEs 
+
+Eight questions related to irAE awareness were set by referring to the item on side effects 
+
+in the "31 items of nursing practice for cancer patients undergoing chemotherapy," 14 replacing 
+
+chemotherapy and its associated side effects with ICIs and irAEs, respectively. The response 
+
+format was a five-point Likert scale. 
+
+The Transtheoretical Model (TTM) 27 was applied to set up the answers for question 7, 
+
+"plan to learn about irAEs." 
+
+2.5.3 Attributes (Personal Attributes and Environmental Characteristics) 
+
+A total of 26 items were asked based on multiple sources, including 20 items related to 
+
+personal attributes and six related to environmental characteristics that are considered influential 
+
+in the acquisition of cancer care expertise. Participants were asked to select applicable items or 
+
+write freely. 
+
+2.6 Data Analysis 
+
+We performed a variance, correlation coefficient, and multiple regression analysis with 
+
+attributes (personal attributes and environmental characteristics) and awareness of irAEs (7 
+
+questions and 1 free comment) as the independent variables and irAE knowledge test scores as 
+
+the dependent variable. 
+
+J o u r n a l P r e -p r o o f 
+
+
+The knowledge test score was calculated as one point for each of the 41 questions in the 
+
+ten domains, resulting in a total of 41 points for the knowledge test score. Additionally, each of 
+
+the irAE question options (Q3 through Q10: total 32 options) was divided into two categories 
+
+(except Q1 and Q2, which were ICI-related questions): knowledge required for general cancer 
+
+nursing (12 options) and knowledge required for nursing specific to ICI (20 options), with one 
+
+point each for a total of 32 points. The average percentage of correct answers was calculated. 
+
+SPSS Statistics version 27.0 (IBM Corp., Armonk, NY, USA) was used for analysis, and the 
+
+significance level was set at .05%. 
+
+In accordance with the hypothesis, the knowledge test scores on ICIs and irAEs were used 
+
+as the dependent variable and the other variables were used as independent variables to examine 
+
+the influencing factors. 
+
+2.7 Ethical Considerations 
+
+This study was conducted after obtaining approval from the Research Ethics Review 
+
+Committee of an international university (approval no. 20-A018). All participants provided 
+
+written informed consent. 
+
+3. Results 
+
+3.1 The Number of Survey Participants and Response Rate 
+
+We sent a letter in advance to 281 nurse directors at the target facilities, which were 
+
+randomly selected from 450 eligible facilities, requesting their participation. Nurse directors 
+
+approached nurses who were involved in ICI administration nursing in the outpatient department, 
+
+where cancer patients with indications for ICIs are treated. We sent 538 request letters to 109 
+
+facilities (63%) that agreed to cooperate (38%). We received responses from 196 (36%), and 192 
+
+J o u r n a l P r e -p r o o f 
+
+
+valid responses were obtained (valid response rate: 35%). Table 1 summarizes the basic 
+
+attributes of the participants. 
+
+3.2 General Data 
+
+Table 1 summarizes the basic attributes of the participants. 
+
+3.3 Nurses` Knowledge Level 
+
+Table 2 presents the results of the ICI and irAE knowledge test. The mean score was 26.2 
+
+out of 41 (63.9% correct, standard deviation (SD) 5.48), and the median score was 26.5. Among 
+
+the individual questions, nine questions on ICI and irAE general knowledge were excluded 
+
+because they combined the two types of knowledge, preventing individual measurement of ICI-
+
+and irAE-specific knowledge. The remaining questions were divided into ICI-or irAE-specific 
+
+knowledge (20 questions, "a" in Table 2) and general knowledge necessary for cancer nursing 
+
+(12 questions, "b" in Table 2). The average percentage of correct answers for general knowledge 
+
+of cancer nursing was higher than the average percentage of total correct answers, while the 
+
+average percentage of correct answers for ICI-specific knowledge was lower. This was also true 
+
+for the percentage of correct answers for each of the irAE topics; the percentage of correct 
+
+answers was higher for the general knowledge questions and lower for the questions with more 
+
+ICI-specific options. The irAE topics that exceeded the average percentage of correct answers for 
+
+all questions were pulmonary dysfunction (41.7%) and hepatic dysfunction (27.1%). The 
+
+reliability coefficient (Cronbach's alpha) for the knowledge test was 0.79. 
+
+3.4 Influencing Factors: Single Factor Analysis 
+
+3.4.1 Personal Attributes and Environmental Characteristics Associated with Knowledge 
+
+Test Scores 
+
+The relationships between the knowledge test scores and the nominal variables of personal 
+
+J o u r n a l P r e -p r o o f 
+
+
+attributes and environmental characteristics are shown in Table 3. The significant personal 
+
+attributes were the number of beds, current department, certification held, highest level of 
+
+nursing educational background, academic society affiliation, participation in irAE management 
+
+training, experience with currently predictable irAEs, experience with currently unpredictable 
+
+irAEs, existence of free self-study, existence of paid self-study, and affiliation with ICI-related 
+
+multidisciplinary teams in the hospital. The significant environmental characteristics were the 
+
+presence of certified personnel in the hospital, use of an ICI-specific questionnaire, and presence 
+
+of a patient education tool (p < .05). 
+
+The continuous variables of personal attributes and environmental characteristics that were 
+
+correlated with ICI and irAE knowledge test scores by correlation coefficients were significantly 
+
+different by years of experience in cancer nursing, number of certifications held, number of 
+
+academic society affiliations, number of free self-study opportunities/modes, number of paid 
+
+self-study opportunities/modes, number of in-hospital certified personnel, number of irAE 
+
+confirmation tools, and number of patient education tools. The correlation coefficients were 
+
+weak, ranging from 0.2 to 0.4. 
+
+The ICI and irAE knowledge test scores for irAE management training participants were 
+
+significantly higher, with a mean score of 28.5 (SD 4.80) and a median score of 29, than the 
+
+scores of participants who had not participated in such training. 
+
+In terms of the mean and median scores for the number of self-learning 
+
+opportunities/modes, there was a difference in scores between the "free" group with two or fewer 
+
+opportunities/modes and the "paid" group with three or more opportunities/modes. There was 
+
+also a difference between the paid group with one or no opportunities/modes and the paid group 
+
+with two or more opportunities/modes. Therefore, we set up groups according to the number of 
+
+J o u r n a l P r e -p r o o f 
+
+
+items for which a difference in scores was observed: two or fewer and three or more for the free 
+
+group, and one or more for the paid group. We then compared these groups using Mann-
+
+Whitney U tests. The results showed that there was a significant difference in knowledge 
+
+depending on the number of free self-study opportunities/modes (between two or fewer and three 
+
+or more [p=.000]) and the number of paid self-study opportunities/modes (between one or no 
+
+opportunities and two or more [p=.004]). 
+
+Those with fewer than five years of clinical experience (n=4) scored higher on the 
+
+knowledge test (mean 30.5 SD 5.74, median 31). However, those with fewer than five years of 
+
+oncology nursing experience (n=44, mean 18 years of clinical experience) scored lower (mean 
+
+23.7 SD 7.84, median 21). Although there was no significant difference in knowledge test scores 
+
+for either years of clinical experience or of oncology nursing experience, correct responses were 
+
+higher in the group with six or more years of clinical experience than in that with one to five 
+
+years of experience. Scores were also higher for those with oncology nursing experience than for 
+
+those without. 
+
+Based on the results of the above analysis, the personal attributes and environmental 
+
+characteristics that were related or correlated with the knowledge test scores were certifications 
+
+held, academic society affiliation, free self-learning opportunities/media, irAE confirmation 
+
+tools, and patient education tools. 
+
+Regarding learning status, participants with previously predicted and unpredicted irAEs 
+
+used multiple self-learning opportunities/modes. Furthermore, more than two-thirds of them 
+
+indicated that they were already engaged in learning (more than six months and six months or 
+
+under). 
+
+3.4.2 Examination of Awareness of irAEs as Related to Knowledge Test Scores 
+
+J o u r n a l P r e -p r o o f 
+
+
+The relationships between ICI and irAE knowledge test scores and awareness of irAEs are 
+
+shown in Table 4. Free comments (n=23) on the awareness of irAEs are shown in Table 5; the 
+
+relationships between ICI and irAE knowledge test scores could not be analyzed due to 
+
+insufficient data. The results showed that independence was dismissed in knowledge test scores 
+
+and awareness of irAEs, with "calling on oneself to identify irAEs," "patient education on the 
+
+purpose of irAE prevention and coping behaviors is important," "improving knowledge of the 
+
+antitumor effects and adverse events of the drugs administered to each patient is important," and 
+
+"learning schedule for irAEs" were significantly different (p < .05). Hence, an association was 
+
+observed. 
+
+No association was found between "early detection of irAEs is the physician's role" and 
+
+knowledge test scores. There was a significant difference between the "agree" and "neither agree 
+
+nor disagree" groups (multiple comparison method). The "neither agree nor disagree" group had 
+
+higher knowledge test scores. "It is the physician's role" and "it is not the physician's role" 
+
+groups had lower scores than the "neither agree nor disagree" group. 
+
+The "plan to learn" item of the awareness of irAE variable was the most relevant to 
+
+knowledge test scores on ICIs and irAEs. 
+
+3.4.3 Influencing Factors: Multiple Regression Analysis 
+
+The multiple linear regression analysis results are shown in Table 6. We used a forced 
+
+imputation method to examine the relationship between ICI and irAE knowledge test scores and 
+
+the significant variables of attribute and irAE awareness. 
+
+Therefore, the standardized coefficients (β) of each of the variables in the questionnaire 
+
+showed that "plan to learn" and "certifications held" influenced the knowledge test scores, but 
+
+the significant probability was p < .05 for "plan to learn." 
+
+J o u r n a l P r e -p r o o f 
+
+
+4. Discussion 
+
+In this section, we examine the relationship between the items based on the obtained 
+
+results and discuss future strategies for nurses to acquire knowledge. 
+
+4.1 Characteristics of the Target Population 
+
+More than 70% of the participants were nurses in their 40s or older and working in 
+
+medium-sized or larger facilities. This sample is slightly older than the general population of 
+
+nurses in Japan, where just under 50% of hospital nurses are in their 40s or older. 28 More than 
+
+70% of the nurses had experience of caring for more than 21 patients on ICI therapy, and nearly 
+
+90% of the nurses worked in outpatient chemotherapy units, suggesting that this is a group 
+
+involved in cancer drug therapy daily. 
+
+4.2 Nurses` Knowledge Level 
+
+As described earlier, the reliability coefficient (Cronbach's alpha) for the knowledge test 
+
+was 0.79. Therefore, the knowledge test used in this study remained reliable, and we believe it 
+
+was appropriate for measuring nurses' knowledge on ICIs and irAEs in this aspect. Additionally, 
+
+in terms of awareness of irAEs, nearly 35% of the participants who answered "already learning 
+
+(more than six months)" to the question "plan to learn about irAEs" scored significantly higher 
+
+(mean 29.07, SD 3.95, median 30) than who did not. This suggests that the test was an 
+
+appropriate measure of the knowledge of those accessing learning opportunities. 
+
+As per the result shown, in each of the irAE categories, only two categories had a higher-
+
+than-average percentage of all questions answered correctly on the knowledge test: pulmonary 
+
+dysfunction (41.7%) and hepatic dysfunction (27.1%). We believe that the pulmonary 
+
+dysfunction knowledge score was the highest because of rising awareness among nurses about 
+
+J o u r n a l P r e -p r o o f 
+
+
+reports of deaths because of the interstitial pulmonary dysfunction associated with ICI treatment 
+
+and also because the mortality rate of drug-induced pulmonary dysfunction due to cancer drug 
+
+therapy in Japan is higher than that in other countries. 30 Based on the above, the probability that 
+
+nurses have been involved in the care of patients with cancer who develop drug-induced 
+
+pulmonary dysfunction is high, so it can be inferred that nurses are aware of this problem. 
+
+In contrast, the knowledge scores for dermatological dysfunction (47.2%), 
+
+neurologic/musculoskeletal dysfunction (39.2%), endocrine dysfunction (46.3%), and cardiac 
+
+dysfunction (48.3%) were below the average percentage of each question answered correctly. In 
+
+these areas, a lack of penetration of disease-specific knowledge may be a factor. This is because 
+
+the incidence of irAE itself is in the single digits, and a variety of diseases are included in this 
+
+area. Although endocrine dysfunction also includes a variety of diseases, 56% of the participants 
+
+correctly answered, "(c.) thyroid dysfunction is the least frequent endocrine dysfunction among 
+
+irAEs (incorrect)." 4,6,7,20-22 It is assumed that the participants were aware of thyroid dysfunction, 
+
+which is relatively frequent among irAEs; this led to the acquisition of knowledge. For cardiac 
+
+dysfunction, the result indicates that the acquisition of knowledge about the general 
+
+cardiovascular system is also an issue. 
+
+The distinctive results showed that correct response rates for gastrointestinal and 
+
+dermatological dysfunction, which are considered to occur more frequently among irAEs, 4,6,7,21-
+
+23 were lower than those for neurologic/musculoskeletal dysfunction. The incidence of 
+
+gastrointestinal dysfunction caused by ICIs is estimated to be 30%-40%, and fatalities, such as 
+
+those resulting from intestinal perforation, have been reported. Unlike gastrointestinal disorders 
+
+caused by cytotoxic anticancer drugs, the use of antidiarrheal agents may delay treatment for 
+
+irAEs and cause serious complications. 4,6-8 However, the item-specific correct response rate was 
+
+J o u r n a l P r e -p r o o f 
+
+
+low. 
+
+In this knowledge test, questions related to general clinical symptoms and care were 
+
+avoided as much as possible because the target audience was nurses who were already engaged 
+
+in clinical practice. The test was composed of questions related to specialized knowledge of ICIs 
+
+and irAEs as well as specific clinical symptoms and responses. Furthermore, the percentage of 
+
+correct answers to irAE-specific questions, such as the frequency, timing, severity, and grade of 
+
+irAEs, was low. Therefore, it can be considered that the participants lacked knowledge of ICIs 
+
+and irAEs. 
+
+According to the above data, we analyzed that nurses caring for cancer patients 
+
+undergoing ICI treatment need to further improve their basic knowledge of ICIs and irAEs 
+
+especially the frequency of incidence or are prone to become severe irAEs. Furthermore, the 
+
+study found that nurses urgently need to acquire knowledge about low occurrence fatal irAEs. 
+
+For preventing irAEs, it is significant to first know the immune-toxicity spectrum 13 , especially 
+
+for early detection of irAEs, which is one of the most significant roles of nurses caring for 
+
+patients undergoing ICI treatment. 
+
+4.3 Influencing Factors of the Knowledge Test Scores and Attributes 
+
+The ICI and irAE knowledge test scores for irAE management training participants were 
+
+significantly higher than the scores of participants who had not participated in such training 
+
+programs. Although participation in training programs is an effective means of acquiring 
+
+knowledge, further intervention studies are needed because nurses who already possess the 
+
+required knowledge may participate in training programs to acquire further knowledge. 
+
+Nurses who engaged in self-learning had significantly higher knowledge test scores than 
+
+those who did not. On the contrary, there was no significant difference in knowledge test scores 
+
+J o u r n a l P r e -p r o o f 
+
+
+when only a single learning opportunity or mode was accessed, and the knowledge test scores 
+
+were significantly higher when three or more free learning opportunities or modes were accessed 
+
+or two or more paid learning opportunities or modes were accessed. This suggests that the use of 
+
+multiple self-learning systems possibly in combination with a paid system will enable effective 
+
+learning for knowledge acquisition. 
+
+Furthermore, the knowledge test scores were significantly higher for participants who 
+
+answered "yes" to the questions on experience with predictable or unpredictable irAEs than for 
+
+those who answered "no" to predictable irAEs. In other words, those who indicated that they had 
+
+experience with predictable or unpredictable irAEs had already acquired knowledge of irAEs and 
+
+were likely to provide nursing care with awareness of irAEs. 
+
+The results of this study showed a trend in terms of the extent of experience and 
+
+institutional attributes of the target population; working in a specialized comprehensive cancer 
+
+center did not significantly affect the level of expertise. Additionally, nurses working in general 
+
+hospitals and university hospitals maintain their knowledge due to diverse associations. Although 
+
+the sample size was small, the knowledge test scores were higher in those with fewer than five 
+
+years of clinical experience (n=4; mean 30.5, SD 5.74, median 31). We can assume that after 
+
+they graduated from a nursing educational institution, they were assigned to an outpatient 
+
+chemotherapy center or outpatient department as nurses with recently updated knowledge. 
+
+There was no significant difference in knowledge test scores according to the number of 
+
+years of clinical experience or the number of years of oncology nursing experience. However, 
+
+the percentage of correct answers increased with the number of years of clinical experience. 
+
+There was also no significant difference in knowledge test scores according to the number of 
+
+years of experience working in comprehensive cancer centers or chemotherapy centers. 
+
+J o u r n a l P r e -p r o o f 
+
+
+Furthermore, those with six to ten years of experience working in comprehensive cancer centers 
+
+had the lowest scores compared to the overall group without work experience in comprehensive 
+
+cancers. Additionally, the scores of those with fewer than five years of oncology nursing 
+
+experience (n=44; mean 18 years of clinical experience) were the lowest (mean 23.7, SD 7.84, 
+
+median 21). These results suggest that nurses' knowledge acquisition is highly influenced by the 
+
+environment in which they are placed, for instance the availability of ICI-specific questionnaires 
+
+and patient education tools. 
+
+Nurses using ICI-specific questionnaires, irAE confirmation tool, and patient education 
+
+tool had significantly higher knowledge test scores than those who did not. As nurses use these 
+
+tools to make direct explanations to patients, it is highly likely that nurses learn about irAEs 
+
+ahead of time, before explaining them to patients, or that they learn about them through such 
+
+patient explanations. This will likely be an opportunity to acquire knowledge not only for nurses 
+
+with limited experience, as mentioned earlier, but also for nurses involved in such situations. 
+
+4.4 Influencing Factors of Knowledge and Awareness of irAEs 
+
+Participants who answered "agree (it is important)" to the questions on the importance of 
+
+talking to patients, educating patients, and improving their own knowledge had significantly 
+
+higher knowledge test scores. It can be assumed that a high knowledge test score is a result of 
+
+learning, which further results in confidence in nursing. It can also be assumed that nurses select 
+
+and implement appropriate nursing care based on specific information, theories, and methods; 
+
+that is, the patient is approached and the irAE is confirmed. 29 
+
+There was a significant difference in the response to the question on whether early 
+
+detection of irAEs is the physician's responsibility when an in-house ICI-related 
+
+multidisciplinary team exists. Moreover, the presence of qualified personnel in the hospital, or in 
+
+J o u r n a l P r e -p r o o f 
+
+
+a nurse's own department, was significantly related to nurses talking to patients themselves; 
+
+however, no significant relationship was found with "plan to learn." 
+
+4.5 Future Suggestions for Knowledge Acquisition 
+
+Regarding the question on "plan to learn" in the questions on awareness of irAEs, the 
+
+transtheoretical model (TTM) 32 was used. The finding indicates that further research is needed to 
+
+determine the kind of approach that should be adopted in the future to educate the 30% who were 
+
+in the contemplation and precontemplation stages. In this study, nearly 95% of the nurses 
+
+indicated that they used free learning opportunities/modes for self-improvement, including 
+
+seminars, lectures, training sessions, conference-produced materials, and e-learning. The TTM 
+
+considers the use of these modes to be part of the preparation stage. 
+
+Additionally, computerized interactive interventions may lead to significant results in 
+
+terms of behavior changes. 27 Digital tools such as apps and social networking sites, which were 
+
+among the answer choices for learning opportunities/modes currently used, were not mentioned 
+
+in the survey results. However, the participants freely stated that they would learn if online 
+
+learning materials and tools were available or if they had the time and schedule flexibility to 
+
+participate. Thus, it is possible that on-demand digital tools that are interactive and can be 
+
+completed at any pace, according to one's own convenience, would be useful. 
+
+4.6 Limitations and Future Challenges 
+
+As mentioned earlier, the content of the irAE knowledge test was extracted from the 
+
+Cancer Immunotherapy Guidelines 4 and relevant literature. 6-8,20-22,31,32 The test was then 
+
+confirmed by an expert panel. However, further validation is needed to evaluate the reliability of 
+
+the test as a knowledge test on ICIs and irAEs. Additionally, further research is needed to 
+
+evaluate the correct response rate of this test, including validation and different target groups. 
+
+J o u r n a l P r e -p r o o f 
+
+
+In this survey, about 90% of the participants were nurses who care for patients 
+
+undergoing anticancer drug therapy in outpatient chemotherapy units or outpatient infusion 
+
+centers. In the future, it will be necessary to devise recruitment methods so that more nurses who 
+
+provide cancer nursing care at general outpatient clinics or best supportive care units can be 
+
+included. The reason is that most patients receiving ICI treatment have intervals between 
+
+administration (two to six weeks 20,21 ); irAEs may occur late after the completion of 
+
+treatment, 4,9,20-22 and the occurrence of irAEs may require permanent treatment for irAEs. 
+
+Additionally, ICIs may be combined with other cancer drugs or radiation therapy based on new 
+
+regimen approvals. The management of irAEs resulting from ICIs requires educating patients 
+
+prior to treatment and providing ongoing support through multiple methods tailored to each 
+
+patient. 13,31 In parallel, nurses need to know what to ask and how to respond to patients, and they 
+
+must have experience and knowledge of the treatment and underlying disease so that they can 
+
+distinguish complications. 33 Nurses play a role not only in preventing physical deterioration 
+
+through early detection of irAEs but also in supporting patients to continue the necessary or 
+
+desired treatment over the mid-to-long-term period. Considering the above, it is necessary to 
+
+further verify the results of this study by conducting an additional survey that fully addresses the 
+
+context of these participants. 
+
+5. Conclusion 
+
+This study revealed that there is room for nurses to acquire more knowledge about ICIs 
+
+and irAEs, as ICI pharmacotherapy occupies an important position in cancer treatment. 
+
+Based on the suggestions from the study findings and in light of the above, specific 
+
+consideration should be given to computerized interactive tools that are appropriate to the 
+
+J o u r n a l P r e -p r o o f 
+
+
+nurses' stage of knowledge acquisition, to building an ICI-related multidisciplinary team or a 
+
+potential substitute for such a team at hospitals, and to increasing nurses' awareness of their role 
+
+in confronting patients by providing specific information on how appropriate feedback and 
+
+change can lead to positive outcomes for patients. A challenge for the future is to build multiple 
+
+effective knowledge acquisition opportunities through patient education tools, questionnaires, 
+
+and other direct patient media and linking them to behavior change. Based on the present results, 
+
+the possibility of clinical application to the acquisition of knowledge in other fields and other 
+
+treatment methods should also be considered. 
+
+J o u r n a l P r e -p r o o f 
+
+
+References 
+
+1. Ministry of Health, Labour and Welfare. Vital Statistics of Japan. 
+
+https://www.mhlw.go.jp/toukei/saikin/hw/jinkou/geppo/nengai18/dl/gaikyou30.pdf. 
+
+Accessed 25 March 2020. 
+
+2. National Cancer Center Japan. Cancer Statistics in 2016. 
+
+https://ganjoho.jp/public/qa_links/report/hosp_c/pdf/2019_report.pdf. Accessed 29 June 
+
+2019. 
+
+3. Ministry of Health, Labour and Welfare. Estimated number of patients. 
+
+https://www.mhlw.go.jp/toukei/saikin/hw/kanja/17/dl/01.pdf. Accessed 25 August 2020. 
+
+4. Japanese Society of Medical Oncology. Guidelines for Cancer Immunotherapy. 2nd ed. 
+
+Tokyo, Japan: Kanehara & Co., Ltd.; 2019. 
+
+5. Johnson DB, Reynolds KL, Sullivan RJ, Balko JM, Patrinely JR, Cappelli LC, Naidoo J, 
+
+Moslehi JJ. Immune checkpoint inhibitor toxicities: systems-based approaches to improve 
+
+patient care and research. Lancet Oncol. 2020;21(8):e398-e404. 
+
+https://doi.org/10.1016/S1470-2045(20)30107-8 
+
+6. Postow MA, Sidlow R, Hellmann MD. Immune-related adverse events associated with 
+
+immune checkpoint blockade. N Engl J Med. 2018;378(2):158-168. 
+
+https://doi.org/10.1056/NEJMra1703481 
+
+7. Tadano H, Torigoe T. Immune-related adverse events of immune checkpoint inhibitors. 
+
+Nihon Rinsho Meneki Gakkai Kaishi. 2017;40(2):102-108. 
+
+https://doi.org/10.2177/jsci.40.102 
+
+8. Thompson JA, Schneider BJ, Brahmer J, Andrews S, Armand P, Bhatia S, Budde LE, Costa 
+
+L, Davies M, Dunnington D, Ernstoff MS. Management of immunotherapy-related 
+
+J o u r n a l P r e -p r o o f 
+
+
+toxicities, version 1.2019, NCCN clinical practice guidelines in oncology. J Natl Compr 
+
+Canc Netw. 2019;17(3):255-289. https://doi.org/10.6004/jnccn.2019.0013 
+
+9. Brahmer JR, Lacchetti C, Schneider BJ, Atkins MB, Brassil KJ, Caterino JM, Chau I, 
+
+Ernstoff MS, Gardner JM, Ginex P, Hallmeyer S. Management of immune-related adverse 
+
+events in patients treated with immune checkpoint inhibitor therapy: American Society of 
+
+Clinical Oncology clinical practice guideline. Journal Clin Oncol. 2018;36(17):1714-1768. 
+
+https://doi.org/10.1200/jco.2017.77.6385. 
+
+10. Kagamu H, Yamaguchi O, Todo M, Tamaki S. チームで取り組む免疫チェックポイン 
+
+ト阻害薬治療 [A team approach to immune checkpoint inhibitor therapy]. Tokyo, Japan: 
+
+Chugai-Igakusha; 2019. 
+
+11. Haratani K, Hayashi H, Chiba Y, Kudo K, Yonesaka K, Kato R, Kaneda H, Hasegawa Y, 
+
+Tanaka K, Takeda M, Nakagawa K. Association of immune-related adverse events with 
+
+nivolumab efficacy in non-small-cell lung cancer. JAMA Oncol. 2018;4(3):374-378. 
+
+https://dx.doi.org/10.1001/jamaoncol.2017.2925 
+
+12. Petrelli F, Grizzi G, Ghidini M, Ghidini A, Ratti M, Panni S, Cabiddu M, Ghilardi M, 
+
+Borgonovo K, Parati MC, Tomasello G. Immune-related adverse events and survival in solid 
+
+tumors treated with immune checkpoint inhibitors: A systematic review and meta-analysis. J 
+
+Immunother. 2020;43(1):1-7. https://doi.org/10.1097/CJI.0000000000000300 
+
+13. Champiat S, Lambotte O, Barreau E, Belkhir R, Berdelou A, Carbonnel F, Cauquil C, 
+
+Chanson P, Collins M, Durrbach A, Ederhy S, Feuillet S, François H, Lazarovici J, Le Pavec 
+
+J, De Martin E, Mateus C, Michot JM, Samuel D, Soria JC, Robert C, Eggermont A, 
+
+Marabelle A. Management of immune checkpoint blockade dysimmune toxicities: a 
+
+collaborative position paper. Ann Oncol. 2016;27(4):559-574. doi:10.1093/annonc/mdv623 
+
+J o u r n a l P r e -p r o o f 
+
+
+14. Hayashi C, Kokufu H. The status of nursing practice for cancer patients receiving 
+
+chemotherapy and factors related to the practice of nursing. J Jpn Soc Cancer Nurs. 
+
+2010;24(3);33-44. 
+
+15. Moto N. チーム医療の現状と今後の展望 [Current status and prospects of the team 
+
+approach to medicine]. J Jpn Soc Clin Oncol. 2014;49(2);489-492. 
+
+16. Melnyk BM, Fineout-Overholt E, Feinstein NF, Li H, Small L, Wilcox L, Kraus R. Nurses' 
+
+perceived knowledge, beliefs, skills, and needs regarding evidence-based practice: 
+
+Implications for accelerating the paradigm shift. Worldviews Evid-Based Nurs. 
+
+2004;1(3):185-193. https://doi.org/10.1111/j.1524-475X.2004.04024.x 
+
+17. Ministry of Health, Labour and Welfare. Designated cancer hospital. 
+
+https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/gan/gan_byoin.htm 
+
+l. Accessed 2 August 2020. 
+
+18. Ministry of Health, Labour and Welfare. [Guidelines for the promotion of optimal use]. 
+
+https://www.mhlw.go.jp/file/06-Seisakujouhou-11120000-
+
+Iyakushokuhinkyoku/0000162318.pdf. Accessed 1 October 2022. 
+
+19. Oda T. [The Fundamentals of Social Research Methods]. Tokyo, Japan: Pleiades Publishing 
+
+Co., Ltd.; 2017. 
+
+20. Nivolumab [Guidelines for Optimal Use]. New York, NY: Bristol-Myers Squibb Company; 
+
+2014. 
+
+21. Pembrolizumab [Guidelines for Optimal Use]. Kenilworth, NJ: Merck & Co., Inc; 2017. 
+
+22. Wang DY, Salem J, Cohen JV, Chandra S, Menzer C, Ye F, Zhao S, Das S, Beckermann 
+
+KE, Ha L, Rathmell WK. Fatal toxic effects associated with immune checkpoint inhibitors: 
+
+A systematic review and meta-analysis. JAMA Oncol. 2018;4(12):1721-1728. 
+
+J o u r n a l P r e -p r o o f 
+
+
+https://doi.org/10.1001/jamaoncol.2018.3923. 
+
+23. Davies M, Duffield EA. Safety of checkpoint inhibitors for cancer treatment: strategies for 
+
+patient monitoring and management of immune-mediated adverse events. Immunotargets 
+
+Ther. 2017;6:51-71. https://doi.org/10.2147/ITT.S141577 
+
+24. El Majzoub I, Qdaisat A, Thein KZ, Chandra S, Menzer C, Ye F, Zhao S, Das S, 
+
+Beckermann KE, Ha L, Rathmell WK. Adverse effects of immune checkpoint therapy in 
+
+cancer patients visiting the emergency department of a comprehensive cancer center. Ann 
+
+Emerg Med. 2019;73(1):79-87. https://doi.org/10.1016/j.annemergmed.2018.04.019 
+
+25. Brahmer JR, Lacchetti C, Schneider BJ, Atkins MB, Brassil KJ, Caterino JM, Chau I, 
+
+Ernstoff MS, Gardner JM, Ginex P, Hallmeyer S. Management of immune-related adverse 
+
+events in patients treated with immune checkpoint inhibitor therapy: American Society of 
+
+Clinical Oncology clinical practice guideline. J Clin Oncol. 2018;36(17):1714-1768. 
+
+https://doi.org/10.1200/jco.2017.77.6385 
+
+26. Kurata T, Yosioka H, Kaneda T. 肺がん化学療法 副作用マネジメント [Side effect 
+
+management for lung cancer chemotherapy]. Tokyo: Medical View Co., Ltd.; 2019. 
+
+27. Prochaska JO, Velicer WF. The transtheoretical model of health behavior change. Am J 
+
+Health Promot. 1997;12(1):38-48. https://doi.org/10.4278/0890-1171-12.1.38. PMID: 
+
+10170434 
+
+28. Japanese Nursing Association. Nursing Statistics. 
+
+https://www.nurse.or.jp/home/statistics/index.html. Accessed 27 January 2021. 
+
+29. Kikuchi A, Harada T. A study on the measurement of professional autonomy in nursing. 
+
+Bulletin of the Education Faculty, Shizuoka University. Liberal Arts and Social Sciences 
+
+Series. 1996;47:241-254. 
+
+J o u r n a l P r e -p r o o f 
+
+
+30. The Japanese Respiratory Society. 薬剤性肺障害の診断・治療の手引き短縮版 2013 
+
+[Guide to the diagnosis and treatment of drug-induced lung disorders shortened edition 
+
+2013]. https://www.jrs.or.jp/uploads/uploads/files/photos/1049.pdf. Accessed 20 January 
+
+2021. 
+
+31. Wood LS, Moldawer NP, Lewis C. Immune checkpoint inhibitor therapy: Key principles 
+
+when educating patients. Clin J Oncol Nurs. 2019;23(3):271-280. 
+
+https://doi.org/10.1188/19.CJON.271-280. 
+
+32. McGettigan S, Rubin KM. PD-1 inhibitor therapy: Consensus statement from the faculty of 
+
+the Melanoma Nursing Initiative on managing adverse events. Clin J Oncol Nurs. 2017;21(4 
+
+Suppl):42-51. https://doi.org/10.1188/17.CJON.S4.42-51 
+
+33. Londoño M, Reig M. Multidisciplinary clinical approach to cancer patients with immune-
+
+related adverse events induced by checkpoint inhibitors. Cancers (Basel). 2020;12(11):3446. 
+
+https://doi.org/10.3390/cancers12113446 
+
+J o u r n a l P r e -p r o o f 
+
+
+Table 1. Personal Attributes 
+
+N=192 
+
+Personal 
+Attributes 
+Items 
+n 
+(%) 
+
+Sex 
+Male 
+8 
+4.2 
+
+Female 
+182 
+94.8 
+
+No Response 
+2 
+1 
+
+Job Title 
+Staff 
+152 
+79.2 
+
+Manager 
+40 
+20.8 
+
+Age 
+20s 
+7 
+3.6 
+
+30s 
+62 
+32.3 
+
+40s 
+101 
+52.6 
+
+50s 
+18 
+9.4 
+
+Over 60 
+4 
+2.1 
+
+Years of clinical experience 
+
+5 years or less 
+4 
+2.1 
+
+6-10 years 
+23 
+12.2 
+
+11-15 years 
+33 
+17.6 
+
+16-20 years 
+52 
+27.7 
+21 years or 
+more 
+76 
+40.4 
+
+Years of cancer nursing clinical experience 
+5 years or 
+less 
+44 
+23.3 
+
+6-10 years 
+46 
+24.3 
+
+11-15 years 
+39 
+20.6 
+
+15-20 years 
+37 
+19.6 
+21 years or 
+more 
+23 
+12.2 
+
+The number of qualifications held such as certified cancer 
+chemotherapy nursing /cancer nursing specialist in oncology / 
+others 
+0 
+124 
+64.6 
+
+1 
+66 
+34.4 
+
+2 
+2 
+1 
+
+Final level of nursing education 
+Nursing 
+school 
+143 
+74.5 
+
+Bachelor's 
+degree 
+36 
+18.8 
+
+Master's 
+degree 
+13 
+6.8 
+
+Participation in irAE management training 
+
+Yes 
+60 
+31.3 
+
+No 
+132 
+68.8 
+
+Abbreviation: irAE, immune-related adverse event. 
+
+J o u r n a l P r e -p r o o f 
+
+
+Table 2. Result of ICI and irAE Knowledge Test (Q3) 
+
+Question 
+Items 
+
+Answer Options 
+(True and False) 
+
+Separate Items 
+All Items 
+
+True 
+n (%) 
+
+Average 
+True 
+(%) 
+
+True 
+n (％) 
+
+False 
+n (%) 
+
+ICI related 
+(4 items) 
+
+1 a 
+
+a. ICIs release the brakes on the immune system 
+by blocking inhibitory signals, thereby 
+enhancing the immune response to tumors. 
+(True) 
+
+151 (78.6) 
+
+(68.2) 
+53 (27.6) 
+1 (0.5) 
+
+2 a 
+
+b. The immune system has a gas pedal that 
+activates the immune response and a brake that 
+inhibits it. (True) 
+
+132 (68.8) 
+
+3 a 
+
+c. The inhibitory receptors of immune 
+checkpoint molecules are expressed on the B 
+cells of lymphocytes. (False) 
+
+160 (83.3) 
+
+4 a 
+
+d. The typical inhibitory receptors of ICIs for 
+immune checkpoint molecules are CTLA-2, 
+CTLA-4, PD-1, and PD-L1. (False) 
+
+81 (42.2) 
+
+irAE related 
+(5 items) 
+
+5 a a. AEs occur less frequently than with cytotoxic 
+anticancer agents. (True) 
+97 (50.5) 
+
+(68.7) 
+30 (15.6) 
+0 (0.0) 
+
+6 a b. The timing of AE onset is difficult to predict. 
+(True) 
+150 (78.1) 
+
+7 a c. Adverse events may occur even after ICI 
+administration is completed (True) 
+169 (88.0) 
+
+8 a d. The treatment is similar to traditional 
+cytotoxic anticancer drug side effects. (False) 
+177 (92.2) 
+
+9 a 
+
+e. It has been reported that the prognosis of 
+patients who develop irAEs is better than that of 
+patients who do not develop irAEs. (True) 
+
+67 (34.9) 
+
+Skin 
+dysfunction 
+(4 items) 
+
+10 a a. Skin dysfunction is the most frequent and 
+delayed adverse effect observed. (False) 
+105 (54.7) 
+
+(47.2) 
+11 (5.7) 
+28 (14.6) 
+
+11 a 
+
+b. Stevens-Johnson syndrome and toxic 
+epidermal necrolysis are grade 3 or higher 
+adverse events. (True) 
+
+133 (69.3) 
+
+12 a c. Less than 3% of adverse events are grade 3 or 
+higher. (True) 
+66 (34.4) 
+
+13 a 
+
+d. Severe skin dysfunction occurs in 
+combination with other agents such as cytotoxic 
+anticancer agents and in sequential therapy. 
+(True) 
+
+59 (30.7) 
+
+Gastrointest 
+inal 
+dysfunction 
+(4 items) 
+
+14 a a. Diarrhea and colitis occur in 30~40% of 
+patients. (True) 
+92 (47.9) 
+
+(65.0) 
+24 (12.5) 
+2 (1.0) 
+
+15 a 
+
+b. Treatment with antidiarrheal drugs such as 
+loperamide hydrochloride may delay the 
+initiation of appropriate treatment and lead to 
+more severe disease. (True) 
+
+119 (62.0) 
+
+16 b 
+
+c. Diarrhea and colitis can become severe 
+rapidly, but they do not cause gastrointestinal 
+perforation. (False) 
+
+187 (97.4) 
+
+17 a d. There have been reports of fatalities. (True) 
+105 (54.7) 
+
+Pulmonary 
+dysfunction 
+(4 items) 
+
+18 a a. The incidence is less than 1%. (False) 
+175 (91.1) 
+
+(73.4) 
+80 (41.7) 
+1 (0.5) 
+
+19 b b. May worsen in a short time. (True). 
+154 (80.2) 
+
+20 a c. Death has occurred in some cases. (True) 
+145 (75.5) 
+
+21 b 
+
+d. Patients may be asymptomatic in the early 
+stages, depending on the extent of damage and 
+inflammation intensity. (True). 
+
+128 (66.7) 
+
+N=192 
+
+J o u r n a l P r e -p r o o f 
+
+
+Hepatic 
+dysfunction 
+(4 items) 
+
+22 b 
+
+a. It is necessary to exclude hepatic dysfunction 
+due to infection, drugs, or worsening of the 
+primary disease. (True) 
+
+143 (74.5) 
+
+(75.8) 
+52 (27.1) 
+0 (0.0) 
+
+23 b b. The hepatic dysfunction caused by ICI is 
+alcoholic liver disease. (False) 
+190 (99.0) 
+
+24 b 
+
+c. For early detection, it is necessary to 
+periodically check hepatic function test values. 
+(True) 
+
+175 (91.1) 
+
+25 a d. Hepatic dysfunction is observed in less than 
+5% of patients. (True) 
+74 (38.5) 
+
+Nerve, 
+muscle, and 
+joint 
+dysfunction 
+(4 items) 
+
+26 a a. Neuropathy can occur at any site from central 
+to peripheral nerves and can be severe. (False). 
+73 (38.0) 
+
+(39.2) 
+2 (1.0) 
+44 (22.9) 
+
+27 a 
+
+b. Autoimmune encephalitis, demyelinating 
+neuropathy, myasthenia gravis, and myositis are 
+serious irAEs that often occur early during 
+treatment (typically up to 4 doses). (True) 
+
+66 (34.4) 
+
+28 a c. Symptom progression is often more rapid 
+severe than in general myasthenia gravis. (True) 
+108 (56.3) 
+
+29 a d. Rapid respiratory failure is also more common 
+than in general myasthenia gravis. (True). 
+54 (28.1) 
+
+Type 1 
+diabetes 
+(4 items) 
+
+30 a a. The incidence is less than 1%. (True) 
+62 (32.3) 
+
+(67.8) 
+34 (17.7) 
+5 (2.6) 
+
+31 b b. Type 1 diabetes does not occur in patients with 
+a history of type 2 diabetes. (False) 
+184 (95.8) 
+
+32 b c. Fulminant type 1 diabetes develops 
+hyperacutely over a few days. (True). 
+144 (75.0) 
+
+33 b 
+
+d. Fulminant type 1 diabetes is fatal if treatment 
+is not started immediately after onset, because 
+blood glucose levels rise even more rapidly, 
+regardless of the blood glucose level at the time 
+of detection. (True) 
+
+131 (68.2) 
+
+Endocrine 
+dysfunction 
+(4 items) 
+
+34 b 
+
+a. Hypopituitarism may be followed by 
+secondary hypoadrenalism, and in severe cases, 
+adrenal crisis may lead to shock. (True) 
+
+112 (58.3) 
+
+(46.3) 
+25 (13.0) 
+5 (2.6) 
+
+35 a b. Adrenal dysfunction often develops in the first 
+few months of treatment. (True) 
+65 (33.9) 
+
+36 a c. Thyrotoxicosis is the least frequent endocrine 
+disorder among irAEs. (False) 
+108 (56.3) 
+
+37 a 
+
+d. Some thyroid dysfunction leads to 
+hypothyroidism via thyrotoxicosis, while others 
+exhibit hypothyroidism from the onset. (True) 
+
+71 (37.0) 
+
+Cardio-
+vascular 
+dysfunction 
+(4 items) 
+
+38 a 
+
+a. The symptoms are diverse, including 
+asymptomatic presentation, fatal arrhythmia, 
+and heart failure. (True) 
+
+93 (48.4) 
+
+(48.3) 
+36 (18.8) 
+12 (6.3) 
+
+39 a 
+
+b. The incidence of myocarditis is not high, but 
+the fatality rate of severe cases is as high as 
+20%-50%. (True) 
+
+74 (38.5) 
+
+40 b 
+
+c. Fulminant cardiomyopathy is a rapidly 
+worsening condition that often results in death in 
+a very short time. (True) 
+
+93 (48.4) 
+
+41 b 
+
+d. Administration of antiarrhythmic drugs for 
+arrhythmia associated with severe myocarditis is 
+highly effective. (False) 
+
+111 (57.8) 
+
+Average 
+(60.8) 
+(60.0) 
+(18.1) 
+(5.1) 
+
+Abbreviation: ICI, immune checkpoint inhibitors; irAE, immune-related adverse event. 
+a ICI-specific knowledge. 
+b General knowledge required for cancer nursing. 
+
+J o u r n a l P r e -p r o o f 
+
+
+Table 3. Association Between Basic Statistics, Personal and Environmental Attributes (Q1), and Knowledge Test 
+Scores (Q3) 
+
+Attributes (Q1) 
+Knowledge Test Scores (Q3) 
+
+n (%) 
+M 
+SD 
+Mdn 
+p-value 
+4. Current outpatient unit 
+Respiratory 
+2 (1.0) 
+27 (5.657) 
+27 
+.035 a 
+Gastroenterology 
+3 (1.6) 
+19 (1.000) 
+19 
+Head and neck 
+1 (0.5) 
+26 . 
+26 
+Chemotherapy 
+room/ 
+Infusion center 
+
+168 (87.5) 
+26.58 (5.427) 
+27 
+
+Others 
+18 (9.4) 
+23.78 (5.429) 
+23 
+
+14. Participation in irAE management training 
+Yes 
+60 (31.3) 
+28.5 (4.806) 
+29 
+.000 b 
+No 
+132 (68.8) 
+25.15 (5.467) 25.5 
+15. No. of patients receiving ICI involved to date 
+1-10 
+26 (13.5) 
+23.19 (5.852) 23.5 
+.003 a 
+11-20 
+19 (9.9) 
+24.47 (4.982) 
+24 
+21 and more 
+147 (76.6) 
+26.95 (5.275) 
+28 
+16. No. of predictable irAEs to date 
+Yes 
+111 (57.8) 
+27.23 (5.262) 
+28 
+.001 b 
+No 
+81 (42.2) 
+24.79 (5.497) 
+25 
+17. No. of unpredictable irAEs to date 
+Yes 
+116 (60.4) 
+27.24 (5.426) 
+28 
+.000 b 
+No 
+76 (39.6) 
+24.61 (5.210) 
+24 
+18. No. of free self-study opportunities/media 
+0 
+11 (5.7) 
+24.18 (3.188) 
+24 
+.000 a 
+1 
+37 (19.3) 
+23.32 (5.503) 
+24 
+2 
+38 (19.8) 
+24.08 (5.957) 
+24 
+3 
+48 (25.0) 
+27.88 (4.671) 
+28 
+4 
+33 (17.2) 
+27.12 (4.910) 
+28 
+5 and more 
+25 (13.0) 
+30.12 (3.930) 
+30 
+19. No. of paid self-study opportunities/media 
+0 
+72 (37.5) 
+25.74 (5.960) 
+26 
+.005 a 
+1 
+58 (30.2) 
+25.1 (4.887) 24.5 
+2 
+44 (22.9) 
+26.95 (5.545) 
+28 
+3 and more 
+18 (9.4) 
+29.72 (3.444) 
+30 
+24. Questionnaire for ICI use or not 
+Yes 
+98 (51.0) 
+26.94 (5.845) 
+28 
+.027 b 
+No 
+94 (49.0) 
+25.43 (4.991) 25.5 
+25. No. of tools to confirm irAEs 
+Yes 
+150 (78.13) 
+.013 b 
+No 
+42 (21.9) 
+24.57 (4.435) 
+25 
+No. of tools for those who selected "Yes" 
+1 
+120 (62.5) 
+25.97 (5.783) 
+26 
+2 
+28 (14.6) 
+29.18 (4.234) 
+30 
+3 
+2 (1.0) 
+32.5 (4.950) 32.5 
+26. Availability of patient education tools 
+Yes 
+169 (88.0) 
+.000 b 
+No 
+23 (12.0) 
+21.61 (3.513) 
+21 
+No. of tools for those who selected "Yes" 
+1 
+133 (69.3) 
+26.34 (5.496) 
+27 
+2 
+32 (16.7) 
+27.91 (4.468) 
+27 
+3 
+4 (2.1) 
+34.25 (2.754) 34.5 
+Abbreviation: ICI, immune checkpoint inhibitors; irAE, immune-related adverse event; M, sample mean; Mdn, median; SD, standard 
+deviation 
+a Kruskal-Wallis test. 
+b Mann-Whitney U test with two groups: presence and absence. 
+
+N=192 
+
+J o u r n a l P r e -p r o o f 
+
+
+Table 4. Association Between Basic Statistics of irAE Awareness (Q2) and Knowledge Test Scores (Q3) 
+
+N=192 
+irAE Awareness (Q2) 
+Knowledge Test Scores (Q3) 
+
+n (%) 
+M 
+SD 
+Mdn p-value a 
+
+adjusted 
+p-value b 
+１. I approach the patient myself to check for irAEs 
+.000 
+Disagree 
+9 (4.70) 
+20.89 (4.014) 
+20 
+Neither 
+39 (20.30) 
+24.38 (5.107) 
+25 
+Agree 
+144 (75.00) 
+27.02 (5.381) 
+28 
+Disagree vs. Agree 
+.001 
+.003 
+Disagree vs. Neither 
+.097 
+.292 
+Neither vs. Agree 
+.004 
+.012 
+2. I think that patient education on the purpose behind prevention and coping behaviors is important for early detection of irAEs. 
+.003 
+Disagree 
+3 (1.60) 
+17 (2.646) 
+16 
+Neither 
+12 (6.30) 
+22.92 (4.481) 
+23 
+Agree 
+177 (92.20) 
+26.58 (5.382) 
+27 
+Disagree vs. Neither 
+.192 
+.577 
+Disagree vs. Agree 
+.008 
+.025 
+Neither vs. Agree 
+.020 
+.061 
+3. I think that patient education on methods of prevention and coping is important for the early detection of irAEs. 
+.047 
+Disagree 
+3 (1.60) 
+20.33 (5.508) 
+20 
+Neither 
+13 (6.80) 
+24.23 (4.086) 
+25 
+Agree 
+176 (91.70) 
+26.44 (5.511) 
+27 
+Disagree vs. Neither 
+.404 
+1.000 
+Disagree vs. Agree 
+.073 
+.220 
+Neither vs. Agree 
+.077 
+.232 
+4. I think that early detection of irAEs is the responsibility of physicians. 
+.958 
+Disagree 
+49 (25.50) 
+26 (6.608) 
+26 
+Neither 
+81 (42.20) 
+26.09 (5.080) 
+27 
+Agree 
+62 (32.30) 
+26.5 (5.076) 
+26.5 
+5. For early detection and treatment of irAEs, I think that it is important to improve our knowledge of the antitumor effects and adverse 
+events associated with the drugs administered to each patient. 
+.012 
+Disagree 
+1 (0.50) 
+15 . 
+15 
+Neither 
+6 (3.10) 
+21.17 (2.563) 
+21 
+Agree 
+185 (96.40) 
+26.42 (5.428) 
+27 
+Disagree vs. Neither 
+.556 
+1.000 
+Disagree vs. Agree 
+.095 
+.286 
+Neither vs. Agree 
+.012 
+.037 
+6. For early detection and treatment of irAEs, I think that it is important to improve our knowledge about the onset time of adverse events 
+for the drugs administered. 
+.082 
+Disagree 
+2 (1.00) 
+24.5 (13.435) 
+24.5 
+Neither 
+10 (5.20) 
+22.3 (5.229) 
+21 
+Agree 
+180 (93.80) 
+26.43 (5.362) 
+27 
+7. Plan to learn about irAEs. 
+.000 
+Already learning (more than 6 months) 
+68 (35.40) 
+29.07 (3.952) 
+30 
+Already learning (less than 6 months) 
+50 (26.00) 
+26.16 (6.011) 
+27 
+Intend to learn soon (generally within 1 month) or have 
+started little by little 
+18 (9.40) 
+24.44 (7.221) 
+26.5 
+
+Intend to learn (generally within 6 months) 
+45 (23.40) 
+23.51 (3.992) 
+23 
+Do not intend to learn 
+11 (5.70) 
+22.45 (4.886) 
+24 
+Abbreviation: irAE, immune-related adverse event; M, sample mean; Mdn, median; SD, standard deviation. 
+a Kruskal-Wallis test. p<.05. 
+b Bonferroni correction adjusts the value of significance probability for multiple tests. 
+
+J o u r n a l P r e -p r o o f 
+
+
+Table 5. 
+
+Free comment description of the impetus for future study by 23 of the 74 respondents 
+who are not yet learning at present 
+
+n=23 
+
+Category 
+Comment 
+n 
+(%) 
+
+Training Opportunity 
+Seminar 
+4 (17.4) 
+
+Internal Seminar 
+2 
+(8.7) 
+
+Facing irAEs 
+irAEs 
+4 (17.4) 
+
+Schedule 
+I have a chance to start, but I am having a hard time finding the time to learn. 
+1 
+(4.3) 
+
+There are training sessions and other events held in the hospital, but I have never been able to attend 
+them because they are during work hours. I would like to participate and learn if there are 
+workshops outside of work hours. 
+
+1 
+(4.3) 
+
+If I have time, physical and mental capacity 
+1 
+(4.3) 
+
+I would like to participate if my schedule allows me to attend. 
+1 
+(4.3) 
+
+Environment 
+Environment and content for easy participation 
+1 
+(4.3) 
+
+Support from the facility 
+1 
+(4.3) 
+
+When I return to work in the outpatient chemotherapy unit. 
+1 
+(4.3) 
+
+If I have sources or the tools 
+1 
+(4.3) 
+
+I would like to learn if there are online materials available 
+1 
+(4.3) 
+
+Others 
+If I have the chance to learn, I will. 
+1 
+(4.3) 
+
+I feel the need. 
+1 
+(4.3) 
+
+If the number of patients increases 
+1 
+(4.3) 
+
+Hold study sessions and obtain knowledge from books and other sources if I have problems of my 
+own. 
+1 
+(4.3) 
+
+Table 6. Multiple Regression Analysis of the Effect of Personal and Environmental Attributes (Q1) and Awareness (Q2) on 
+ICI and irAE Knowledge Test Scores (Q3) 
+
+irAE Knowledge Test Scores (Q3) 
+
+Unstandardized Coefficient 
+Standardized 
+Coefficient 
+
+Statistic of 
+Collinearity 
+Coefficient 
+Standard Errors 
+β 
+p 
+VIF 
+
+(Constant) 
+19.717 
+5.644 
+.001 
+
+Attribute 
+question 
+
+(Q1) 
+
+9. Qualifications held 
+1.657 
+1.090 
+.145 
+.13 
+2.185 
+
+13. Membership in academic societies 
+.278 
+1.022 
+.024 
+.786 
+1.933 
+
+14. Participation in irAE management training 
+.811 
+.919 
+.069 
+.379 
+1.458 
+
+18. Free self-study 
+-1.036 
+1.630 
+-.044 
+.526 
+1.154 
+
+25. Availability of irAE confirmation tool 
+.499 
+.953 
+.038 
+.601 
+1.247 
+
+26. Availability of patient education tools 
+1.270 
+1.469 
+.074 
+.388 
+1.759 
+
+Awareness 
+question 
+
+(Q2) 
+
+1. I approach the patient myself to check for irAEs. 
+.583 
+.805 
+.059 
+.47 
+1.577 
+
+2. I think that patient education on the purpose of 
+prevention and coping behavior is important for early 
+detection of irAEs. 
+
+1.195 
+1.453 
+.075 
+.412 
+1.973 
+
+5. For early detection and treatment of irAEs, I think that 
+it is important to improve our knowledge on the antitumor 
+effects and adverse events associated with the drugs 
+administered to each patient. 
+
+.787 
+2.150 
+.032 
+.715 
+1.871 
+
+7. Plan to learn about irAEs 
+-.998 
+.343 
+-.242 
+.004 
+1.66 
+
+Abbreviation: irAE, immune-related adverse event; VIF, variance inflation factor. 
+ANOVA p<.01. R, .497; R², .247; Adjusted R², .205. 
+
+N=192 
+
+J o u r n a l P r e -p r o o f 
+
+
+This conceptual diagram was originally schematized by the author. Knowledge of ICI irAE is associated 
+with personal attributes and environmental characteristics. Awareness of irAE is associated with personal 
+attributes, environmental characteristics and knowledge of ICI and irAE. Personal attributes are associated with 
+environmental characteristics. 
+Figure. Conceptual diagram of ICI and irAE knowledge, attributes, and awareness of irAEs 
+
+J o u r n a l P r e -p r o o f 
+
+

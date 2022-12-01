@@ -1,0 +1,35 @@
+<tei>
+    <teiHeader>
+        <fileDesc xml:id="_Blaiss 2007.pdf"/>
+    </teiHeader>
+    <text xml:lang="en">
+
+
+        <figure>
+
+            <head>Figure </head>
+ 
+            <label>1</label>
+
+            <head>. </head>
+ 
+            <figDesc>(A and B) Patient and healthcare provider perspectives<lb/> on the most bothersome symptoms of nasal allergies. Patient re-<lb/>sponse was based on a single choice for the most bothersome<lb/> symptom. Healthcare provider response was based on multiple<lb/> responses.</figDesc>
+        </figure>
+
+
+        <figure>
+
+            <head>Figure </head>
+ 
+            <label>2</label>
+
+            <head>. </head>
+ 
+            <figDesc>Effect of nasal allergies on (A) work and (B) produc-<lb/>tivity among nasal allergy sufferers. Patients who work full time<lb/> indicates the response from patients in full-time employment who<lb/> missed work in the past 12 months because of nasal allergies. All,<lb/> physician response that indicated effect on productivity in 91-<lb/>100% of patients; Most, physician response that indicated effect on<lb/> 51-90% of patients; Some, physician response that indicated effect<lb/> on 11-50% of patients.<lb/> S8<lb/> May-June 2007, Vol. 28, No. 3 (Suppl 1)</figDesc>
+        </figure>
+
+
+
+    </text>
+</tei>
+

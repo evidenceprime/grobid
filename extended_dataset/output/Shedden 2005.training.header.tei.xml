@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Shedden 2005"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<reference>Treat Respir Med 2005; 4 (6): 439-446<lb/></reference>
+
+	<note type="doctype">ORIGINAL RESEARCH ARTICLE<lb/></note>
+
+	1176-3450/05/0006-0439/$34.95/0<lb/>
+	<note type="copyright">© 2005 Adis Data Information BV. All rights reserved.<lb/></note>
+
+	<docTitle>
+	<titlePart>Impact of Nasal Congestion on Quality of Life<lb/> and Work Productivity in Allergic Rhinitis<lb/> Findings from a Large Online Survey<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Arthur Shedden<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Schering-Plough Corporation,</affiliation>
+	</byline>
+
+	<address>Kenilworth, New Jersey, USA<lb/></address>
+
+	Background: Allergic rhinitis is the most common allergic disease in the US. The predominant symptom of this Abstract<lb/>
+	<div type="abstract">condition is nasal congestion, which has a significant impact on quality of life and work productivity. This large<lb/> survey was conducted to determine the impact of nasal congestion on the above parameters in individuals with<lb/> allergic rhinitis, and treatment patterns for this symptom.<lb/> Methods: Participants were recruited voluntarily via telephone surveys and internet advertisements. Respon-<lb/>dents with nasal congestion as a symptom of their allergic rhinitis (or who were primary caregivers to a child<lb/> with nasal congestion associated with allergic rhinitis) were eligible for participation and completed a 52-ques-<lb/>tion internet survey. Data were normalized to the US adult population using a weighting algorithm.<lb/> Results: Of the 2355 individuals with allergic rhinitis screened for participation in the survey, 2002 (85%) had<lb/> nasal congestion. This was considered severe by 40% of respondents, compared with fewer than 30% who<lb/> considered any other individual allergy symptom to be severe. Nasal congestion was the symptom that most<lb/> adults and children wished to prevent, and it affected most respondents at work or school, had a notable<lb/> emotional impact, and interfered with their ability to perform daily activities. Only 13% of participants receiving<lb/> allergic rhinitis medication of any type, including over-the-counter medications, claimed to be very satisfied with<lb/> treatment, and only 20% adhered completely to prescribing instructions. Although intranasal corticosteroids are<lb/> recommended as first-line therapy for nasal congestion, only 30% of respondents with severe nasal congestion<lb/> received treatment with intranasal corticosteroids.<lb/> Conclusions: Nasal congestion affects most individuals with allergic rhinitis, and has a notable impact on<lb/> quality of life, emotional function, productivity, and the ability to perform daily activities. Patients need to be<lb/> better educated on the appropriate use of medications, particularly intranasal corticosteroids, to manage their<lb/> nasal congestion.</div>
+
+		</front>
+	</text>
+</tei>

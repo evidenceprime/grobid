@@ -1,0 +1,53 @@
+<tei>
+    <teiHeader>
+        <fileDesc xml:id="_Saito 2022.pdf"/>
+    </teiHeader>
+    <text xml:lang="en">
+
+
+		<figure type="table">
+
+            <table>R ver. 3.6.3 was used for statistical analysis (R Foun-<lb/>dation for Statistical Computing, Vienna, Austria). The<lb/> </table>
+<lb/> 
+            <head>TA B L E 1 a Comparison of patient characteristics between the pre and post-publication cohorts<lb/> Pre-publication<lb/> cohort<lb/> Post-publication<lb/> cohort<lb/> n = 1789<lb/> n = 483<lb/> p<lb/> </head>
+<lb/> 
+            <table>Age, years (mean ± SD)<lb/> 72.16 ± 8.39<lb/> 73.06 ± 8.48<lb/> 0.037<lb/> Male, n (%)<lb/> 1351 (75.5)<lb/> 366 (75.8)<lb/> 0.954<lb/> Taking antithrombotics, n (%)<lb/> &lt;0.001<lb/> None<lb/> 1465 (81.9)<lb/> 380 (78.7)<lb/> Antiplatelet only<lb/> 212 (11.9)<lb/> 63 (13.0)<lb/> Warfarin only<lb/> 56 (3.1)<lb/> 7 (1.4)<lb/> Warfarin + antiplatelet<lb/> 34 (1.9)<lb/> 0 (0.0)<lb/> DOAC only<lb/> 19 (1.1)<lb/> 28 (5.8)<lb/> DOAC + antiplatelet<lb/> 3 (0.2)<lb/> 5 (1.0)<lb/> Use of warfarin, n (%)<lb/> 90 (5.0)<lb/> 7 (1.4)<lb/> 0.001<lb/> Use of DOAC, n (%)<lb/> 22 (1.2)<lb/> 33 (6.8)<lb/> &lt;0.001<lb/> Heparin replacement, n (%)<lb/> 72 (4.0)<lb/> 6 (1.2)<lb/> 0.005<lb/> AF, n (%)<lb/> 101 (5.6)<lb/> 37 (7.7)<lb/> 0.124<lb/> Valvular disease, n (%)<lb/> 7 (0.4)<lb/> 2 (0.4)<lb/> 1.000<lb/> DVT, n (%)<lb/> 7 (0.4)<lb/> 2 (0.4)<lb/> 1.000<lb/> DM, n (%)<lb/> 231 (12.9)<lb/> 73 (15.1)<lb/> 0.236<lb/> HD, n (%)<lb/> 24 (1.3)<lb/> 9 (1.9)<lb/> 0.525<lb/> LC, n (%)<lb/> 33 (1.8)<lb/> 6 (1.2)<lb/> 0.480<lb/> Use of steroid, n (%)<lb/> 46 (2.6)<lb/> 20 (4.1)<lb/> 0.095<lb/> </table>
+<lb/> 
+            <note>Abbreviations: AF, atrial fibrillation; DOAC, direct oral anticoagulants; DM, diabetes mellitus; DVT, deep vein thrombosis; HD, hemodialysis; LC, liver cirrhosis; SD, standard<lb/> deviation.</note>
+		</figure>
+
+
+		<figure type="table">
+
+            <note>TA B L E 1 b Comparison of gastric lesions between the pre and post-publication cohorts<lb/> Pre-publication<lb/> cohort<lb/> Post-publication<lb/> cohort<lb/> n = 1789<lb/> n = 483<lb/> p<lb/> Location, n (%)<lb/> 0.046<lb/> Upper<lb/> 298 (16.7)<lb/> 72 (14.9)<lb/> </note>
+<lb/> 
+            <table>Middle<lb/> 503 (28.1)<lb/> 165 (34.2)<lb/> Lower<lb/> 971 (54.3)<lb/> 239 (49.5)<lb/> Other<lb/> 17 (1.0)<lb/> 7 (1.4)<lb/> Specimen size, mm (mean ± SD)<lb/> 37.87 ± 14.77<lb/> 35.29 ± 15.52<lb/> 0.001<lb/> Procedure time, min (mean ± SD)<lb/> 83.69 ± 77.55<lb/> 71.47 ± 64.49<lb/> 0.002<lb/> Depressed type, n (%)<lb/> 807 (45.1)<lb/> 229 (47.4)<lb/> 0.395<lb/> Ulceration, n (%)<lb/> 113 (6.3)<lb/> 23 (4.8)<lb/> 0.242<lb/> Undifferentiated, n (%)<lb/> 26 (1.5)<lb/> 25 (5.2)<lb/> &lt;0.001<lb/> SM invasion, n (%)<lb/> 174 (9.7)<lb/> 49 (10.1)<lb/> 0.851<lb/> Abbreviations: SD, standard deviation; SM, submucosa.<lb/> </table>
+<lb/> 
+            <note>TA B L E 1 c Comparison of outcomes between the pre and post-publication cohorts<lb/> </note>
+<lb/> 
+            <table>Pre-publication<lb/> cohort<lb/> Post-publication<lb/> cohort<lb/> n = 1789<lb/> n = 483<lb/> p<lb/> Non-curative resection, n (%)<lb/> 198 (11.1)<lb/> 53 (11.0)<lb/> 1.000<lb/> Perforation, n (%)<lb/> 66 (3.7)<lb/> 3 (0.6)<lb/> &lt;0.001<lb/> Bleeding, n (%)<lb/> 50 (2.8)<lb/> 11 (2.3)<lb/> 0.641<lb/> Death, n (%)<lb/> 3 (0.2)<lb/> 0 (0.0)<lb/> 0.846<lb/> Thromboembolism associated with withdrawal of<lb/> anticoagulants, n (%)<lb/> 2 (0.1)<lb/> 0 (0.0)<lb/> 1.000</table>
+		</figure>
+
+
+		<figure type="table">
+
+            <note>TA B L E 2 Comparison of clinicopathological features between bleeding and non-bleeding cases in the pre and post-publication cohorts<lb/> Pre-</note>
+
+            <head>publication cohort<lb/> Post-publication cohort<lb/> No bleeding<lb/> Bleeding<lb/> No bleeding<lb/> Bleeding<lb/> </head>
+<lb/> 
+            <table>n = 1739<lb/> n = 50<lb/> p<lb/> n = 472<lb/> n = 11<lb/> p<lb/> Age, years (median)<lb/> 73<lb/> 75.5<lb/> 0.170<lb/> 74<lb/> 75<lb/> 0.913<lb/> Male, n (%)<lb/> 1308 (96.8)<lb/> 43 (3.2)<lb/> 0.114<lb/> 357 (97.5)<lb/> 9 (2.5)<lb/> 0.907<lb/> Heparin replacement, n (%)<lb/> 55 (76.4)<lb/> 17 (23.6)<lb/> &lt;0.001<lb/> 6 (100.0)<lb/> 0 (0.0)<lb/> 1.000<lb/> AF, n (%)<lb/> 87 (86.1)<lb/> 14 (13.9)<lb/> &lt;0.001<lb/> 34 (91.9)<lb/> 3 (8.1)<lb/> 0.057<lb/> Valvular disease, n (%)<lb/> 5 (71.4)<lb/> 2 (28.6)<lb/> 0.003<lb/> 2 (100.0)<lb/> 0 (0.0)<lb/> 1.000<lb/> DVT, n (%)<lb/> 7 (100.0)<lb/> 0 (0.0)<lb/> 1.000<lb/> 2 (100.0)<lb/> 0 (0.0)<lb/> 1.000<lb/> DM, n (%)<lb/> 216 (93.5)<lb/> 15 (6.5)<lb/> 0.001<lb/> 69 (94.5)<lb/> 4 (5.5)<lb/> 0.118<lb/> HD, n (%)<lb/> 19 (79.2)<lb/> 5 (20.8)<lb/> &lt;0.001<lb/> 6 (66.7)<lb/> 3 (33.3)<lb/> &lt;0.001<lb/> LC, n (%)<lb/> 32 (97.0)<lb/> 1 (3.0)<lb/> 1.000<lb/> 6 (100.0)<lb/> 0 (0.0)<lb/> 1.000<lb/> Use of steroid, n (%)<lb/> 46 (100.0)<lb/> 0 (0.0)<lb/> 0.476<lb/> 18 (90.0)<lb/> 2 (10.0)<lb/> 0.110<lb/> Anticoagulants, n (%)<lb/> 93 (83.0)<lb/> 19 (17.0)<lb/> &lt;0.001<lb/> 37 (92.5)<lb/> 3 (7.5)<lb/> 0.079<lb/> Taking warfarin, n (%)<lb/> 72 (80.0)<lb/> 18 (20.0)<lb/> &lt;0.001<lb/> 7 (100.0)<lb/> 0 (0.0)<lb/> 1.000<lb/> Warfarin only, n (%)<lb/> 50 (89.3)<lb/> 6 (10.7)<lb/> 0.001<lb/> 7 (100.0)<lb/> 0 (0.0)<lb/> 1.000<lb/> Warfarin + Antiplatelets, n (%)<lb/> 22 (64.7)<lb/> 12 (35.3)<lb/> &lt;0.001<lb/> 0 (0.0)<lb/> 0 (0.0)<lb/> NA<lb/> Taking DOAC, n (%)<lb/> 21 (95.5)<lb/> 1 (4.5)<lb/> 1.000<lb/> 30 (90.9)<lb/> 3 (9.1)<lb/> 0.035<lb/> DOAC only, n (%)<lb/> 18 (94.7)<lb/> 1 (5.3)<lb/> 1.000<lb/> 26 (92.9)<lb/> 2 (7.1)<lb/> 0.260<lb/> DOAC + Antiplatelets, n (%)<lb/> 3 (100.0)<lb/> 0 (0.0)<lb/> 1.000<lb/> 4 (80.0)<lb/> 1 (20.0)<lb/> 0.245<lb/> Antiplatelets, n (%)<lb/> 228 (91.6)<lb/> 21 (8.4)<lb/> &lt;0.001<lb/> 64 (94.1)<lb/> 4 (5.9)<lb/> 0.087<lb/> Antiplatelets only, n (%)<lb/> 203 (95.8)<lb/> 9 (4.2)<lb/> 0.253<lb/> 60 (95.2)<lb/> 3 (4.8)<lb/> 0.335<lb/> Thienopyridine, n (%)<lb/> 48 (94.1)<lb/> 3 (5.9)<lb/> 0.354<lb/> 20 (90.9)<lb/> 2 (9.1)<lb/> 0.144<lb/> Anticoagulants + Antiplatelets, n (%)<lb/> 25 (67.6)<lb/> 12 (32.4)<lb/> &lt;0.001<lb/> 4 (80.0)<lb/> 1 (20.0)<lb/> 0.245<lb/> Number of Antithrombotics<lb/> 1 type, n (%)<lb/> 244 (93.8)<lb/> 16 (6.2)<lb/> 0.001<lb/> 85 (94.4)<lb/> 5 (5.6)<lb/> 0.055<lb/> 2 or more, n (%)<lb/> 52 (81.3)<lb/> 12 (18.8)<lb/> &lt;0.001<lb/> 12 (92.3)<lb/> 1 (7.7)<lb/> 0.701<lb/> Location, n (%)<lb/> 0.401<lb/> 0.315<lb/> Upper<lb/> 290 (97.3)<lb/> 8 (2.7)<lb/> 70 (97.2)<lb/> 2 (2.8)<lb/> Middle<lb/> 484 (96.2)<lb/> 19 (3.8)<lb/> 164 (99.4)<lb/> 1 (0.6)<lb/> Lower<lb/> 948 (97.6)<lb/> 23 (2.4)<lb/> 231 (96.7)<lb/> 8 (3.3)<lb/> Other<lb/> 17 (100.0)<lb/> 0 (0.0)<lb/> 7 (100.0)<lb/> 0 (0.0)<lb/> Specimen size, mm, median<lb/> 35.0<lb/> 45.0<lb/> &lt;0.001<lb/> 32.0<lb/> 38.0<lb/> 0.141<lb/> Procedure time, min, median<lb/> 65.0<lb/> 77.5<lb/> 0.162<lb/> 50.0<lb/> 60.0<lb/> 0.876<lb/> Depressed type, n (%)<lb/> 786 (97.4)<lb/> 21 (2.6)<lb/> 0.761<lb/> 225 (98.3)<lb/> 4 (1.7)<lb/> 0.662<lb/> Ulceration, n (%)<lb/> 109 (96.5)<lb/> 4 (3.5)<lb/> 0.840<lb/> 23 (100.0)<lb/> 0 (0.0)<lb/> 0.973<lb/> Undifferentiated, n (%)<lb/> 26 (100.0)<lb/> 0 (0.0)<lb/> 0.786<lb/> 25 (100.0)<lb/> 0 (0.0)<lb/> 0.924<lb/> SM invasion, n (%)<lb/> 166 (95.4)<lb/> 8 (4.6)<lb/> 0.202<lb/> 48 (98.0)<lb/> 1 (2.0)<lb/> 1.000<lb/> Abbreviations: AF, atrial fibrillation; DM, diabetes mellitus; DOAC, direct oral anticoagulant; DVT, deep vein thrombosis; HD, hemodialysis; LC, liver cirrhosis; SM,<lb/> submucosa.</table>
+		</figure>
+
+
+		<figure type="table">
+
+            <table>Odds rate<lb/> 95% CI<lb/> p-value<lb/> B<lb/> Risk points a<lb/> Number of antithrombotics<lb/> One type<lb/> 2.22<lb/> 0.96-4.81<lb/> 0.050<lb/> 0.799<lb/> 1<lb/> Two or more<lb/> 3.87<lb/> 1.25-10.91<lb/> 0.014<lb/> 1.353<lb/> 2<lb/> Heparin replacement<lb/> 8.24<lb/> 3.19-21.85<lb/> &lt;0.001<lb/> 2.059<lb/> 3<lb/> HD<lb/> 8.19<lb/> 2.25-25.42<lb/> &lt;0.001<lb/> 2.099<lb/> 3<lb/> Specimen size ≥38 mm<lb/> 3.88<lb/> 1.95-8.27<lb/> &lt;0.001<lb/> 1.362<lb/> 2<lb/> Procedure time ≥139 min<lb/> 2.03<lb/> 0.97-4.07<lb/> 0.051<lb/> 0.715<lb/> 1<lb/> </table>
+<lb/> 
+            <note>B, partial regression coefficient; HD, hemodialysis<lb/> <note>a The risk of bleeding was quantified in risk points based on the partial regression coefficient of each variable.</note>
+		</figure>
+
+
+
+    </text>
+</tei>
+

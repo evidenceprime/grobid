@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Tamayama 2009"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<reference>Allergology International Vol 58, No2, 2009 www.jsaweb.jp! 201<lb/></reference>
+
+	<docTitle>
+	<titlePart>Utility Weights for Allergic Rhinitis<lb/> Based on a Community Survey with a<lb/> Time Trade-off Technique in Japan<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Kazuhiro Tamayama 1,2 , Masahide Kondo 1 , Aiko Shono 1 and Ichiro Okubo 1<lb/></docAuthor>
+	</byline>
+
+	ABSTRACT<lb/>
+	<div type="abstract">Background: Allergic rhinitis is not a fatal disease, but its symptoms deteriorate the quality of life. High mor-<lb/>bidity raises a concern about its impact on health care resources. Utility weights, which are required for cost-<lb/>utility analysis by the level of severity, have not been established to date. This study aims to derive the weights<lb/> based on a community survey with a time trade-off technique.<lb/> Methods: Self-administered monthly time trade-off questionnaires were administered to representative sam-<lb/>ples in the community. Four levels of severity were defined by clinical stratification proposed in the &quot;Practical<lb/> Guideline for the Management of Allergic Rhinitis in Japan&quot;.<lb/> Results: 146 responses (response rate: 51.0%) were collected. Utility weights by the four levels of severity<lb/> were found to be 0.96, 0.94, 0.89 and 0.83, from mild to severest symptoms, respectively. These values were<lb/> found to be statistically independent from the respondent&apos;s characteristics such as sex, age, existence of cur-<lb/>rent nasal symptoms or history of allergic rhinitis.<lb/> Conclusions: The authors consider that the elicited utility weights are reliable. The results of this study could<lb/> facilitate economic evaluations regarding allergic rhinitis in various contexts, contributing to better management<lb/> of the disease.<lb/></div>
+
+	KEY WORDS<lb/>
+	<keyword>pollinosis, Quality-Adjusted Life Years, quality of life, seasonal allergic rhinitis, utility theory<lb/></keyword>
+
+	<reference>Allergology International. 2009;58:201-207<lb/></reference>
+
+	<note type="doctype">ORIGINAL ARTICLE<lb/></note>
+
+	<byline>
+	<affiliation>1 Department of Health Care Policy and Management, Graduate<lb/> School of Comprehensive Human Sciences, University of<lb/> Tsukuba,</affiliation>
+	</byline>
+
+	<address>Ibaraki and</address>
+
+	<byline>
+	<affiliation>2 Department of Medical Social Work, Yoko-<lb/>hama Stroke &amp; Brain Center,</affiliation>
+	</byline>
+
+	<address>Kanagawa, Japan.<lb/></address>
+
+	Correspondence:
+	<byline>
+	<docAuthor>Masahide Kondo,</docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Department of Health Care<lb/> Policy and Management, Graduate School of Comprehensive Hu-<lb/>man Sciences, University of Tsukuba,</affiliation>
+	</byline>
+
+	<address>1−1−1 Tennodai, Tsukuba,<lb/> Ibaraki 305−8577, Japan.<lb/></address>
+
+	Email:
+	<email>mkondo@md.tsukuba.ac.jp<lb/></email>
+
+	<note type="submission">Received 23 July 2008. Accepted for publication 15 September<lb/> 2008.<lb/></note>
+
+	<note type="copyright">!2009 Japanese Society of Allergology<lb/></note>
+
+	<idno>DOI: 10.2332! allergolint.08-OA-0032</idno>
+
+		</front>
+	</text>
+</tei>

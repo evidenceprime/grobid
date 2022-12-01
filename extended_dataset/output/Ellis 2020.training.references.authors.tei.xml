@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>de la</surname> <forename>Hoz</forename> <surname>Caballer</surname> <forename>B</forename>, <surname>Rodriguez</surname> <forename>M</forename>, <surname>Fraj</surname> <forename>J</forename>, <surname>Cerecedo</surname> <forename>I</forename>, <surname>Antolin-Amerigo</surname> <forename>D</forename>, <surname>Colas</surname> <forename>C</forename></author>
+
+						<author><surname>Meltzer</surname> <forename>E</forename>, <forename>Rosen</forename> <surname>Farrar</surname> <forename>J</forename>, <surname>Sennett</surname> <forename>C</forename></author>
+
+						<author><surname>Benninger</surname> <forename>MS</forename>, <surname>Benninger</surname> <forename>RM</forename></author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

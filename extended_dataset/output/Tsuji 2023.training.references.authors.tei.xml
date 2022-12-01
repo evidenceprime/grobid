@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+
+						<author><surname>Johnson</surname> <forename>DB</forename>, <surname>Reynolds</surname> <forename>KL</forename>, <surname>Sullivan</surname> <forename>RJ</forename>, <surname>Balko</surname> <forename>JM</forename>, <surname>Patrinely</surname> <forename>JR</forename>, <surname>Cappelli</surname> <forename>LC</forename>, <surname>Naidoo</surname> <forename>J</forename>, <surname>Moslehi</surname> <forename>JJ</forename></author>
+
+						<author><surname>Postow</surname> <forename>MA</forename>, <surname>Sidlow</surname> <forename>R</forename>, <surname>Hellmann</surname> <forename>MD</forename></author>
+
+						<author><surname>Tadano</surname> <forename>H</forename>, <surname>Torigoe</surname> <forename>T</forename></author>
+
+						<author><surname>Thompson</surname> <forename>JA</forename>, <surname>Schneider</surname> <forename>BJ</forename>, <surname>Brahmer</surname> <forename>J</forename>, <surname>Andrews</surname> <forename>S</forename>, <surname>Armand</surname> <forename>P</forename>, <surname>Bhatia</surname> <forename>S</forename>, <surname>Budde</surname> <forename>LE</forename>, <surname>Costa</surname> <forename>L</forename>, <surname>Davies</surname> <forename>M</forename>, <surname>Dunnington</surname> <forename>D</forename>, <surname>Ernstoff</surname> <forename>MS</forename></author>
+
+						<author><surname>Brahmer</surname> <forename>JR</forename>, <surname>Lacchetti</surname> <forename>C</forename>, <surname>Schneider</surname> <forename>BJ</forename>, <surname>Atkins</surname> <forename>MB</forename>, <surname>Brassil</surname> <forename>KJ</forename>, <surname>Caterino</surname> <forename>JM</forename>, <surname>Chau</surname> <forename>I</forename>, <surname>Ernstoff</surname> <forename>MS</forename>, <surname>Gardner</surname> <forename>JM</forename>, <surname>Ginex</surname> <forename>P</forename>, <surname>Hallmeyer</surname> <forename>S</forename></author>
+
+						<author><surname>Kagamu</surname> <forename>H</forename>, <surname>Yamaguchi</surname> <forename>O</forename>, <surname>Todo</surname> <forename>M</forename>, <surname>Tamaki</surname> <forename>S</forename>. <surname>チームで取り組む免疫チェックポイン ト阻害薬治療</surname></author>
+
+						<author><surname>Haratani</surname> <forename>K</forename>, <surname>Hayashi</surname> <forename>H</forename>, <surname>Chiba</surname> <forename>Y</forename>, <surname>Kudo</surname> <forename>K</forename>, <surname>Yonesaka</surname> <forename>K</forename>, <surname>Kato</surname> <forename>R</forename>, <surname>Kaneda</surname> <forename>H</forename>, <surname>Hasegawa</surname> <forename>Y</forename>, <surname>Tanaka</surname> <forename>K</forename>, <surname>Takeda</surname> <forename>M</forename>, <surname>Nakagawa</surname> <forename>K</forename></author>
+
+						<author><surname>Petrelli</surname> <forename>F</forename>, <surname>Grizzi</surname> <forename>G</forename>, <surname>Ghidini</surname> <forename>M</forename>, <surname>Ghidini</surname> <forename>A</forename>, <surname>Ratti</surname> <forename>M</forename>, <surname>Panni</surname> <forename>S</forename>, <surname>Cabiddu</surname> <forename>M</forename>, <surname>Ghilardi</surname> <forename>M</forename>, <surname>Borgonovo</surname> <forename>K</forename>, <surname>Parati</surname> <forename>MC</forename>, <surname>Tomasello</surname> <forename>G</forename></author>
+
+						<author><surname>Champiat</surname> <forename>S</forename>, <surname>Lambotte</surname> <forename>O</forename>, <surname>Barreau</surname> <forename>E</forename>, <surname>Belkhir</surname> <forename>R</forename>, <surname>Berdelou</surname> <forename>A</forename>, <surname>Carbonnel</surname> <forename>F</forename>, <surname>Cauquil</surname> <forename>C</forename>, <surname>Chanson</surname> <forename>P</forename>, <surname>Collins</surname> <forename>M</forename>, <surname>Durrbach</surname> <forename>A</forename>, <surname>Ederhy</surname> <forename>S</forename>, <surname>Feuillet</surname> <forename>S</forename>, <surname>François</surname> <forename>H</forename>, <surname>Lazarovici</surname> <forename>J</forename>, <forename>Le</forename> <surname>Pavec</surname> <forename>J</forename>, <forename>De</forename> <surname>Martin</surname> <forename>E</forename>, <surname>Mateus</surname> <forename>C</forename>, <surname>Michot</surname> <forename>JM</forename>, <surname>Samuel</surname> <forename>D</forename>, <surname>Soria</surname> <forename>JC</forename>, <surname>Robert</surname> <forename>C</forename>, <surname>Eggermont</surname> <forename>A</forename>, <surname>Marabelle</surname> <forename>A</forename></author>
+
+						<author><surname>Hayashi</surname> <forename>C</forename>, <surname>Kokufu</surname> <forename>H</forename></author>
+
+						<author><surname>Melnyk</surname> <forename>BM</forename>, <surname>Fineout-Overholt</surname> <forename>E</forename>, <surname>Feinstein</surname> <forename>NF</forename>, <surname>Li</surname> <forename>H</forename>, <surname>Small</surname> <forename>L</forename>, <surname>Wilcox</surname> <forename>L</forename>, <surname>Kraus</surname> <forename>R</forename></author>
+
+						<author><surname>Oda</surname> <forename>T</forename></author>
+
+						<author><surname>Kenilworth</surname>, <forename>NJ</forename></author>
+
+						<author><surname>Wang</surname> <forename>DY</forename>, <surname>Salem</surname> <forename>J</forename>, <surname>Cohen</surname> <forename>JV</forename>, <surname>Chandra</surname> <forename>S</forename>, <surname>Menzer</surname> <forename>C</forename>, <surname>Ye</surname> <forename>F</forename>, <surname>Zhao</surname> <forename>S</forename>, <surname>Das</surname> <forename>S</forename>, <surname>Beckermann</surname> <forename>KE</forename>, <surname>Ha</surname> <forename>L</forename>, <surname>Rathmell</surname> <forename>WK</forename></author>
+
+						<author><surname>Davies</surname> <forename>M</forename>, <surname>Duffield</surname> <forename>EA</forename></author>
+
+						<author><surname>El Majzoub</surname> <forename>I</forename>, <surname>Qdaisat</surname> <forename>A</forename>, <surname>Thein</surname> <forename>KZ</forename>, <surname>Chandra</surname> <forename>S</forename>, <surname>Menzer</surname> <forename>C</forename>, <surname>Ye</surname> <forename>F</forename>, <surname>Zhao</surname> <forename>S</forename>, <surname>Das</surname> <forename>S</forename>, <surname>Beckermann</surname> <forename>KE</forename>, <surname>Ha</surname> <forename>L</forename>, <surname>Rathmell</surname> <forename>WK</forename></author>
+
+						<author><surname>Brahmer</surname> <forename>JR</forename>, <surname>Lacchetti</surname> <forename>C</forename>, <surname>Schneider</surname> <forename>BJ</forename>, <surname>Atkins</surname> <forename>MB</forename>, <surname>Brassil</surname> <forename>KJ</forename>, <surname>Caterino</surname> <forename>JM</forename>, <surname>Chau</surname> <forename>I</forename>, <surname>Ernstoff</surname> <forename>MS</forename>, <surname>Gardner</surname> <forename>JM</forename>, <surname>Ginex</surname> <forename>P</forename>, <surname>Hallmeyer</surname> <forename>S</forename></author>
+
+						<author><surname>Kurata</surname> <forename>T</forename>, <surname>Yosioka</surname> <forename>H</forename>, <surname>Kaneda</surname> <forename>T</forename></author>
+
+						<author><surname>Prochaska</surname> <forename>JO</forename>, <surname>Velicer</surname> <forename>WF</forename></author>
+
+						<author><surname>Kikuchi</surname> <forename>A</forename>, <surname>Harada</surname> <forename>T</forename></author>
+
+						<author><surname>Wood</surname> <forename>LS</forename>, <surname>Moldawer</surname> <forename>NP</forename>, <surname>Lewis</surname> <forename>C</forename></author>
+
+						<author><surname>McGettigan</surname> <forename>S</forename>, <surname>Rubin</surname> <forename>KM</forename></author>
+
+						<author><surname>Londoño</surname> <forename>M</forename>, <surname>Reig</surname> <forename>M</forename></author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</TEI>

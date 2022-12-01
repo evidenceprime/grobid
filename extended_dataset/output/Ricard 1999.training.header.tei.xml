@@ -1,0 +1,42 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Ricard 1999"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<reference>CLINICAL THERAPEUTICSVVOL.<lb/> 2 1, NO. 1, 1999<lb/></reference>
+
+	<note type="doctype">Brief Report<lb/></note>
+
+	<docTitle>
+	<titlePart>Link Between Patient Preferences and Treatment Outcomes<lb/> in Seasonal Allergic Rhinitis: An Empiric Investigation<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Nancy Ricard, MSc,&apos; Paul Kind,2 Sylvie Christian, MSC,~<lb/> Murray Jensen, MSC,~ and John Stewart, MSc4<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>&apos;Health Economics,</affiliation>
+	</byline>
+
+	<address>Hoechst Marion Rouse1 Canada Inc., Laval, Quebec, Canada,<lb/></address>
+
+	<byline>
+	<affiliation>&apos;Center for Health Economics, University of York, York, United Kingdom, -&apos;Clinical<lb/> Research, and 4Biometrics, Hoechst Marion Rouse1 Canada Inc.,</affiliation>
+	</byline>
+
+	<address>Laval, Quebec, Canada</address>
+
+	ABSTRACT<lb/>
+	<div type="abstract">In a multicenter, parallel-group, double-<lb/>masked, randomized study, two question-<lb/>naires were administered to a clinical study<lb/> population to identify which specific<lb/> symptoms of seasonal allergic rhinitis pa-<lb/>tients perceived as most important to re-<lb/>lieve (personal preferences) and to learn<lb/> whether any relationship existed between<lb/> patient preferences and the severity of their<lb/> symptoms during treatment with antihist-<lb/>amines. The group was composed of 256<lb/> males and 3 13 females. Their mean age<lb/> was 32.4 years, and mean duration of sea-<lb/>sonal allergic rhinitis was 14.5 years, with<lb/> mean age of onset of 17.7 years. After re-<lb/>ceiving placebo for 1 week, patients were<lb/> randomly allocated to receive an antihist-<lb/>amine (fexofenadine or loratadine) for 2<lb/> weeks. Patient preferences for relief of in-<lb/>dividual allergy symptoms (rhinitis; sneez-<lb/>ing; itchy, watery, red eyes; itchy nose,<lb/> palate, or throat) and related conditions<lb/> (fatigue, physical limitations) were scored<lb/> using 2 different questionnaires before<lb/> treatment (O-to-10 category rating scale<lb/> for assessing the 4 symptoms of allergic<lb/> rhinitis) and after receiving placebo for 1<lb/> week (Feeling Thermometer). Symptom<lb/> severity was reported in patient diaries af-<lb/>ter 1 and 2 weeks of antihistamine treat-<lb/>ment and was measured by patient self-<lb/>assessment. All symptoms were considered<lb/> by the patients to be important to relieve,<lb/> the most important being itchy, watery,<lb/> red eyes and rhinorrhea. The severity of<lb/> allergy symptoms was consistently related<lb/> to the importance of symptoms identified<lb/> before treatment. Therefore, including pa-<lb/>tient preferences in medical evaluations<lb/> might be a useful tool in evaluating the<lb/> success of their treatment.</div>
+
+	Key words:
+	<keyword>sea-<lb/>sonal allergic rhinitis, patient preferences,<lb/> fexofenadine, loratadine.<lb/></keyword>
+
+	0149.2918/99/$19.00
+		</front>
+	</text>
+</tei>

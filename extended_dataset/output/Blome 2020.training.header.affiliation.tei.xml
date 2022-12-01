@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<orgName type="department">Institute for Health Services Research in<lb/> Dermatology and Nursing (IVDP)</orgName>,
+							<orgName type="institution">University<lb/> Medical Center Hamburg-Eppendorf (UKE)</orgName>,
+							<lb/>
+							<address>
+								<addrLine>Martinistr. 52</addrLine>,
+								<postCode>20246</postCode>
+								<settlement>Hamburg</settlement>,
+								<country>Germany</country>
+							<lb/>
+								<postCode>47475</postCode>
+								<settlement>Kamp-Lintfort</settlement>,
+								<country>Germany</country>
+							<lb/>
+							</address>
+							<orgName type="institution">E. Karagiannis<lb/> Stallergenes Greer</orgName>,
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="institution">Rue Alexis de Tocqueville</orgName>,
+							<lb/>
+							<address>
+								<postCode>92160</postCode>
+								<settlement>Antony</settlement>,
+								<country>France</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>
