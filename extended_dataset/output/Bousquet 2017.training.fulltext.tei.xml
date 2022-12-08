@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="0"/>
+	</teiHeader>
+	<text xml:lang="en">
+			<p>Edited by: Thomas Bieber<lb/></p>
+
+				<formula>K E Y W O R D S<lb/></formula>
+
+			<p>Allergic Rhinitis and its Impact on Asthma, EuroQuol, MACVIA-ARIA Sentinel NetworK, rhinitis,<lb/> Work Productivity and Activity Impairment in allergy<lb/></p>
+
+			<head>1 | INTRODUCTION<lb/></head>
+
+			<p>Measures of allergic rhinitis (AR) control include symptom scores,<lb/> patients&apos; self-administered visual analogue scales (VAS), objective<lb/> measures of nasal obstruction, a recent modification of the ARIA<lb/> severity classification, or patients&apos; reported outcomes such as QOL<lb/> and scores with several items. <ref type="biblio">1,2</ref> Mobile technology has been used<lb/> to appraise AR control. <ref type="biblio">3,4</ref> More information is, however, needed to<lb/> fully understand the importance of these novel approaches.<lb/></p>
+
+			<p>MASK-rhinitis (MACVIA-ARIA Sentinel NetworK for allergic rhini-<lb/>tis), an ICT system centred around the patient, <ref type="biblio">5</ref> is one of the imple-<lb/>mentation tools of the B3 Action Plan of the European Innovation<lb/> Partnership on Active and Healthy Ageing (EIP on AHA). <ref type="biblio">6</ref> A mobile<lb/> phone app (Allergy Diary) central to MASK-rhinitis belongs to the<lb/> Fondation Partenariale FMC VIA-LR (Ministry of Education and<lb/> Research, France). App users are asked to complete a short demo-<lb/>graphic questionnaire, EQ-5D <ref type="biblio">7-10</ref> and WPAI-AS, <ref type="biblio">11,12</ref> thus providing<lb/> baseline characteristics of their disease. The Allergy Diary has been<lb/> launched in 21 countries. <ref type="biblio">3,4</ref> It was found to be an easy and effective<lb/> method of assessing symptoms of AR and work productivity. The<lb/> ARIA score is also available in the Allergy Diary, adding the four<lb/> components of the impact of AR (sleep, work and school perfor-<lb/>mance, daily activities and bothersome symptoms).<lb/></p>
+
+			<p>The ARIA score of the Allergy Diary was compared with QOL<lb/> scores of EQ-5D <ref type="biblio">7-10</ref> and WPAI-AS. <ref type="biblio">11,12<lb/></ref> 2 | ME TH ODS<lb/></p>
+
+			<head>2.1 | Design of the study<lb/></head>
+
+			<p>A cross-sectional study on a self-selected population was carried out<lb/> from 1 June 2016 to 1 June 2017. EQ-5D <ref type="biblio">7-10</ref> and/or WPAI-AS <ref type="biblio">11,12<lb/></ref> questionnaires are only available in some countries, and not all of<lb/> the Allergy Diary users filled in these questionnaires as they are<lb/> optional. All users filled in the ARIA score. The ARIA score was com-<lb/>pared with the EQ-5D VAS and Question 9 (degree allergy affected<lb/> regular activities) of the WPAI-AS.<lb/></p>
+
+			<p>The study is reported according to STROBE.<lb/></p>
+
+			<head>2.2 | Setting and users<lb/></head>
+
+			<p>All consecutive users from 1 June 2016 to 1 June 2017 who<lb/> answered the questions of the EQ-5D <ref type="biblio">7-10</ref> and/or WPAI-AS <ref type="biblio">11,12</ref> were<lb/> included in the study in 18 countries. Some demographic characteris-<lb/>tics (age, sex, country and language) were recorded. The App was<lb/> used by people who found it on Internet, Apple App store, Google<lb/> Play store or in any other way. A few users were clinic patients that<lb/> were asked by their physicians to use the app. However, due to<lb/> anonymization of data, no specific information was gathered.<lb/></p>
+
+			<head>2.3 | Allergy diary<lb/></head>
+
+			<p>The app collects information on AR symptoms experienced (nasal and<lb/> ocular), disease type (intermittent/persistent), how symptoms impact<lb/> users&apos; lives, and type(s) of AR treatment used (Table <ref type="table">S1</ref>). The system<lb/> has been deployed in 21 countries and in 16 languages (translated and<lb/> back-translated, culturally adapted and legally compliant).<lb/></p>
+
+			<head>2.4 | Ethics<lb/></head>
+
+			<p>The Allergy Diary is CE1 registered but not considered by the Ethical<lb/> Committee of the Cologne hospital of the MHRA (Medicines and<lb/> Healthcare products Regulatory Agency-GOV.UK) as a medical<lb/> device as it does not provide recommendations concerning treat-<lb/>ment or diagnosis. The terms of use, translated into all languages<lb/> and customized according to each country&apos;s legislation, allow the use<lb/> of the results for research purposes. The data are anonymized<lb/> except for geolocalized data that are never totally anonymous. An<lb/> Independent Review Board approval was not needed.<lb/></p>
+
+			<head>2.5 | Outcomes<lb/></head>
+
+			<p>The ARIA score was calculated using the four Q4 questions of the<lb/> Allergy Diary which include impact on daily activities, work and sleep<lb/> as well as troublesome symptoms (Table <ref type="table">S1</ref>). Each of the four items<lb/> was ascribed a score of 1 (&quot;Yes&quot;) or 0 (&quot;No&quot;). The total ARIA score<lb/> ranged from 0 (no impairment) to 4 (severe impairment).<lb/></p>
+
+			<p>The electronic form of the EQ-5D-5L questionnaire (https://euro<lb/> qol.org) was applied in the 10 available languages (Danish, Dutch, Eng-<lb/>lish, Finnish, French, German, Italian, Polish, Portuguese, Spanish) (Data<lb/> S1). We assessed the global VAS level and mobility impairment as this<lb/> was an absent domain in the assessment of AR impairment.<lb/></p>
+
+			<p>The electronic form of the WPAI-AS questionnaire was applied<lb/> in the 10 available languages (same as above for EQ-5D) <ref type="biblio">11,12</ref> accord-<lb/>ing to the package obtained from Reilly and associates (www.reillyas<lb/> sociates.net/WPAI_General.html). The percentage of impairment due<lb/> to allergy for daily activities (Q9) was the outcome used. (Data S2).<lb/></p>
+
+			<head>2.6 | Classification of users<lb/></head>
+
+			<p>Users with any positive answer to Q4 (Table <ref type="table">S1</ref>) were classified as<lb/> &quot;rhinitis&quot; (score 0-4). Those with a score of zero were classified as<lb/> &quot;no rhinitis&quot; if they had no symptom (Q3, Table <ref type="table">S1</ref>). Those with a<lb/> positive answer were classified as &quot;rhinitis&quot; (score 0).<lb/></p>
+
+			<head>BOUSQUET ET AL.<lb/></head>
+
+			<p>| 507<lb/></p>
+
+			<head>2.7 | Statistical methods and analyses<lb/></head>
+
+			<p>Some users filled in EQ-5D or WPAI-AS more than once for a single<lb/> day, in which case the first data were used. A non-Gaussian distribu-<lb/>tion was found for some of the data (Shapiro-Wilk test). However,<lb/> EQ-5D data are usually reported in means and SD. Since the number<lb/> of observations was large, we used parametric analyses.<lb/></p>
+
+			<head>3 | RESULTS<lb/> 3.1 | Users<lb/></head>
+
+			<p>Of the 12 179 registered users, 1287 filled in the EQ-5D question-<lb/>naire and 1028 the WPAI-AS questionnaire (Table <ref type="table">S2</ref>). Among the<lb/> 843 users who filled in both questionnaires, there were 507 women<lb/> (60%) and 336 men (40%), with a mean (AESD) age of 35 AE 14 years.<lb/></p>
+
+			<head>3.2 | Main results<lb/></head>
+
+			<p>Similar levels of EQ-5D VAS and WPAI-AS Q9 were found for users<lb/> with no rhinitis and for those with an ARIA score of 0-2. There was<lb/> a significant reduction in EQ-5D VAS levels and a significant increase<lb/> in WPAI-AS Q9 levels in users with an ARIA score of 3 or 4<lb/> (Table <ref type="table">1</ref>).<lb/></p>
+
+			<p>The repartition of users for both EQ-5D and WPAI-AS (Figure <ref type="figure">1</ref>)<lb/></p>
+
+			<p>shows that impairment occurred significantly more commonly for<lb/> ARIA scores of 3 and 4 than for ARIA scores of 0-3. There were<lb/> from 12% to 16% of users with an EQ-5D VAS level ≥60 in ARIA<lb/> scores 0-2 whereas the level increased to 26% and 27% in users<lb/> with an ARIA score of 3 or 4. There were from 19% to 31% of users<lb/> with a Q9 ≥50 in ARIA scores of 0-2 whereas the level increased to<lb/> 51% and 53% in users with a score of 3 or 4.<lb/></p>
+
+			<head>4 | DISCUSSION<lb/></head>
+
+			<p>This pilot study using mobile technology showed that QOL data<lb/> (EQ-5D VAS and WPAI-AS Q9) are similar in users without rhinitis<lb/> as in those with mild rhinitis (scores 0-2). Users with a score of 3 or<lb/> 4 had a significant impairment in QOL.<lb/></p>
+
+			<head>4.1 | Strengths and limitations<lb/></head>
+
+			<p>The strengths and limitations of this study are those of mobile<lb/> technology lengthily discussed previously. <ref type="biblio">3,4</ref> In particular, there is a<lb/> lack of patient characterization that is impossible using an App.<lb/></p>
+
+			<p>However, every observational study we have performed using the<lb/> Allergy Diary has confirmed its interest and was able to identify<lb/> users with a severe disease. It is likely that mobile technology will<lb/> become a very important tool for the understanding and manage-<lb/>ment of AR.<lb/></p>
+
+			<p>One specific problem of the study is that there are more coun-<lb/>tries with EQ-5D or WPAI-AS reporting than translations in the App.<lb/></p>
+
+			<p>It is not known which translations were employed by users.<lb/></p>
+
+			<p>In this study, we did not perform subanalyses assessing the<lb/> importance of symptoms or other factors. We did not investigate<lb/> the treatments received. As this is a pilot study, these analyses will<lb/> be carried out once the number of users will have increased.<lb/></p>
+
+			<figure type="table">T A B L E 1 Mean levels of EuroQuol (EQ-5D) and Work<lb/> Productivity and Activity Impairment in allergy (WPAI-AS) depending<lb/> on the Allergic Rhinitis and its Impact on Asthma (ARIA) score<lb/> EQ-5D VAS<lb/> WPAI-AS Q9<lb/> N<lb/> mAE SD<lb/> N<lb/> m AE SD<lb/> No rhinitis<lb/> 48<lb/> 80.0 AE 19.0<lb/> 49<lb/> 27.5 AE 25.5<lb/> ARIA score<lb/> 0<lb/> 83<lb/> 77.0 AE 21.3 a<lb/> 71<lb/> 29.9 AE 27.3 d<lb/> 1<lb/> 403<lb/> 79.5 AE 19.1<lb/> 308<lb/> 20.4 AE 22.1<lb/> 2<lb/> 368<lb/> 76.2 AE 20.2<lb/> 268<lb/> 30.1 AE 23.9<lb/> 3<lb/> 199<lb/> 72.6 AE 18.7 b<lb/> 164<lb/> 41.4 AE 27.3<lb/> 4<lb/> 186<lb/> 67.7 AE 23.0 c<lb/> 168<lb/> 45.8 AE 27.7 e<lb/> P a/b &lt; .0001, P a/c &lt; .0001, P d/e &lt; .0001, Student&apos;s t test.<lb/></figure>
+
+			<figure>ARIA score<lb/> CumulaƟve prevalence<lb/> 0<lb/> 10<lb/> 20<lb/> 30<lb/> 40<lb/> 50<lb/> 60<lb/> 70<lb/> 80<lb/> 90<lb/> 100<lb/> 30 40 50 60 70 80 90<lb/> 0<lb/> 10<lb/> 20<lb/> 30<lb/> 40<lb/> 50<lb/> 60<lb/> 70<lb/> 80<lb/> 90<lb/> 100<lb/> 0 10 20 30 40 50 60 70 80<lb/> 0<lb/> 1<lb/> 2<lb/> 3<lb/> 4<lb/> EQ-5D VAS<lb/> ≤<lb/> ≥<lb/> WPAI-AS Q9<lb/> P&lt;.0001<lb/> P&lt;.0001<lb/> -100<lb/> (A)<lb/> (B)<lb/> F I G U R E 1 Repartition of users<lb/> depending on EuroQuol (EQ-5D) visual<lb/> analogue scale (A) and Work Productivity<lb/> and Activity Impairment in allergy (WPAI-<lb/>AS) Q9 (B)</figure>
+
+
+	</text>
+</tei>

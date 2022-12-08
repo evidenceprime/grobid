@@ -1,0 +1,21 @@
+<tei>
+    <teiHeader>
+        <fileDesc xml:id="_Bousquet 2017.pdf"/>
+    </teiHeader>
+    <text xml:lang="en">
+
+
+		<figure type="table">
+
+            <figDesc>T A B L E 1 Mean levels of EuroQuol (EQ-5D) and Work<lb/> Productivity and Activity Impairment in allergy (WPAI-AS) depending<lb/> on the Allergic Rhinitis and its Impact on Asthma (ARIA) score<lb/> </figDesc>
+<lb/> 
+            <table>EQ-5D VAS<lb/> WPAI-AS Q9<lb/> N<lb/> mAE SD<lb/> N<lb/> m AE SD<lb/> No rhinitis<lb/> 48<lb/> 80.0 AE 19.0<lb/> 49<lb/> 27.5 AE 25.5<lb/> ARIA score<lb/> 0<lb/> 83<lb/> 77.0 AE 21.3 a<lb/> 71<lb/> 29.9 AE 27.3 d<lb/> 1<lb/> 403<lb/> 79.5 AE 19.1<lb/> 308<lb/> 20.4 AE 22.1<lb/> 2<lb/> 368<lb/> 76.2 AE 20.2<lb/> 268<lb/> 30.1 AE 23.9<lb/> 3<lb/> 199<lb/> 72.6 AE 18.7 b<lb/> 164<lb/> 41.4 AE 27.3<lb/> 4<lb/> 186<lb/> 67.7 AE 23.0 c<lb/> 168<lb/> 45.8 AE 27.7 e<lb/> </table>
+<lb/> 
+            <note>P a/b &lt; .0001, P a/c &lt; .0001, P d/e &lt; .0001, Student&apos;s t test.</note>
+		</figure>
+
+
+
+    </text>
+</tei>
+

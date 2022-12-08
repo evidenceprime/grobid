@@ -1,0 +1,392 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="Bousquet 2017"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">B R I E F C O M M U N I C A T I O N<lb/></note>
+
+	<docTitle>
+	<titlePart>The Allergic Rhinitis and its Impact on Asthma (ARIA) score of<lb/> allergic rhinitis using mobile technology correlates with<lb/> quality of life: The MASK study<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>J. Bousquet 1,2,3 | S. Arnavielhe 4 | A. Bedbrook 1 | J. Fonseca 5,6 | M. Morais Almeida 7 |<lb/> A. Todo Bom 8 | I. Annesi-Maesano 9 | D. Caimmi 10 | P. Demoly 10 | P. Devillier 11 |<lb/> V. Siroux 12 | E. Menditto 13 | G. Passalacqua 14 | C. Stellato 15<lb/> | M. T. Ventura 16 |<lb/></docAuthor>
+	</byline>
+
+	<reference>A. A. Cruz 17 | F. Sarquis Serpa 18 | J. da Silva 19 | D. Larenas-Linnemann 20 | M. Rodriguez<lb/> Gonzalez 21 | M. T. Burguete Caba ñas 22 | K. C. Bergmann 23,24 | T. Keil 25,26 |<lb/> L. Klimek 27 | R. M €<lb/> osges 28 | S. Shamai 28 | T. Zuberbier 23,24 | M. Bewick 29 |<lb/> D. Price 30,31,32 | D. Ryan 33 | A. Sheikh 34 | J. M. Anto 35,36,37 | J. Mullol 7 |<lb/> A. Valero 38 | T. Haahtela 39 | E. Valovirta 38 | W. J. Fokkens 40 | P. Kuna 41 |<lb/> B. Samolinski 55 | C. Bindslev-Jensen 42 | E. Eller 42 | S. Bosnic-Anticevich 43 |<lb/> R. E. O&apos;Hehir 44,45 | P. V. Tomazic 46 | A. Yorgancioglu 47,48 | B. Gemicioglu 49</reference>
+
+	|<lb/>
+	<byline>
+	<docAuthor>C. Bachert 50 | P. W. Hellings 51 | I. Kull 52 | E. Mel<lb/> en 52 | M. Wickman 53 |<lb/> M. van Eerd 54 | G. De Vries 54</docAuthor>
+	</byline>
+
+	|
+	<note type="group">the MASK study group<lb/></note>
+
+	<byline>
+	<affiliation>1 MACVIA-France, Contre les MAladies Chroniques Pour un VIeillissement Actif en France European Innovation Partnership on Active and Healthy Ageing<lb/> Reference Site,</affiliation>
+	</byline>
+
+	<address>Montpellier, France<lb/></address>
+
+	<byline>
+	<affiliation>2 INSERM U 1168, VIMA: Ageing and Chronic Diseases Epidemiological and Public Health Approaches,</affiliation>
+	</byline>
+
+	<address>Villejuif, France<lb/></address>
+
+	<byline>
+	<affiliation>3 UMR-S 1168, Universit e Versailles St-Quentin-en-Yvelines,</affiliation>
+	</byline>
+
+	<address>Montigny le Bretonneux, France<lb/></address>
+
+	<byline>
+	<affiliation>4 Kyomed,</affiliation>
+	</byline>
+
+	<address>Montpellier, France<lb/></address>
+
+	<byline>
+	<affiliation>5 Faculdade de Medicina, Center for Health Technology and Services Research-CINTESIS, Universidade do Porto,</affiliation>
+	</byline>
+
+	<address>Porto, Portugal<lb/></address>
+
+	<byline>
+	<affiliation>6 Allergy Unit, CUF Porto Instituto &amp; Hospital,</affiliation>
+	</byline>
+
+	<address>Porto, Portugal<lb/></address>
+
+	<byline>
+	<affiliation>7 Allergy Center, CUF-Descobertas Hospital,</affiliation>
+	</byline>
+
+	<address>Lisboa, Portugal<lb/></address>
+
+	<byline>
+	<affiliation>8 Faculty of Medicine, Imunoalergologia, Centro Hospitalar Universit ario de Coimbra, University of Coimbra,</affiliation>
+	</byline>
+
+	<address>Coimbra, Portugal<lb/></address>
+
+	<byline>
+	<affiliation>9 EPAR U707 INSERM, Paris and EPAR UMR-S UPMC, Paris VI,</affiliation>
+	</byline>
+
+	<address>Paris, France<lb/></address>
+
+	<byline>
+	<affiliation>10 UPMC Paris 06, UMR-S 1136, IPLESP, Equipe EPAR, CHRU de Montpellier, Sorbonne Universit es,</affiliation>
+	</byline>
+
+	<address>Paris, France<lb/></address>
+
+	<byline>
+	<affiliation>11 Laboratoire de Pharmacologie Respiratoire UPRES EA220, Pôle des Maladies Respiratoires, Hôpital Foch,Universit e Versailles Saint-Quentin,</affiliation>
+	</byline>
+
+	<address>Suresnes, France<lb/></address>
+
+	<byline>
+	<affiliation>12 INSERM, IAB, U 1209, Team of Environmental Epidemiology Applied to Reproduction and Respiratory Health, Universit e Joseph Fourier, Universit e<lb/> Grenoble Alpes,</affiliation>
+	</byline>
+
+	<address>Grenoble, France<lb/></address>
+
+	<byline>
+	<affiliation>13 CIRFF, Center of Pharmacoeconomics, University of Naples Federico II,</affiliation>
+	</byline>
+
+	<address>Naples, Italy<lb/></address>
+
+	<byline>
+	<affiliation>14 Personalized Medicine Clinic Asthma &amp; Allergy, Humanitas Research Hospital, Humanitas University,</affiliation>
+	</byline>
+
+	<address>Milan, Italy<lb/></address>
+
+	<byline>
+	<affiliation>15 Department of Medicine, Surgery and Dentistry &quot;Scuola Medica Salernitana&quot;, University of Salerno,</affiliation>
+	</byline>
+
+	<address>Salerno, Italy<lb/></address>
+
+	<byline>
+	<affiliation>16 Unit of Geriatric Immunoallergology, University of Bari Medical School,</affiliation>
+	</byline>
+
+	<address>Bari, Italy<lb/></address>
+
+	Abbreviations:
+	<reference>AHA, Active and Healthy Ageing; AR, allergic rhinitis; ARIA, Allergic Rhinitis and its Impact on Asthma; EIP on AHA, European Innovation Partnership on Active and Healthy<lb/> Ageing (DG CONNECT, DG Sant e); EQ-5D, EuroQuol; ICT, information and communications technology; MACVIA, Contre les MAladies Chroniques pour un VIellissement Actif; MAFEIP,<lb/> Monitoring and assessment framework for the EIP on AHA; MASK, MACVIA-ARIA Sentinel NetworK; Q9, Question 9 of WPAI-AS; QOL, Quality of life; SF-36, Short Form 36 questions;<lb/> VAS, visual analogue scale; WPAI-AS, Work Productivity and Activity Impairment in allergy.<lb/></reference>
+
+	<note type="submission">Accepted: 7 September 2017<lb/></note>
+
+	<idno>DOI: 10.1111/all.13307<lb/></idno>
+
+	Allergy. 2018;73:505-510.<lb/> wileyonlinelibrary.com/journal/all<lb/>
+	<note type="copyright">© 2017 EAACI and John Wiley and Sons A/S.<lb/> Published by John Wiley and Sons Ltd.<lb/></note>
+
+	| 505<lb/>
+	<byline>
+	<affiliation>17 ProAR -Nucleo de Excelencia em Asma, Brasil and GARD Executive Committee, Federal University of Bahia,</affiliation>
+	</byline>
+
+	<address>Salvador, Brazil<lb/></address>
+
+	<byline>
+	<affiliation>18 Asthma Reference Center,</affiliation>
+	</byline>
+
+	<address>Escola Superior de Ciencias da Santa Casa de Misericordia de Vitoria, Vit oria, Brazil<lb/></address>
+
+	<byline>
+	<affiliation>19 Allergy Service, University Hospital of Federal University of Santa Catarina (HU-UFSC),</affiliation>
+	</byline>
+
+	<address>Florianopolis, Brazil<lb/></address>
+
+	<byline>
+	<affiliation>20 Center of Excellence in Asthma and Allergy, Hospital M edica Sur,</affiliation>
+	</byline>
+
+	<address>M exico, Mexico<lb/></address>
+
+	<byline>
+	<affiliation>21 Pediatric Allergy and Clinical Immunology, Hospital Angeles Pedregal,</affiliation>
+	</byline>
+
+	<address>Mexico City, Mexico<lb/></address>
+
+	<byline>
+	<affiliation>22 Centro M edico Zambrano Hellion,</affiliation>
+	</byline>
+
+	<address>Monterrey, Mexico<lb/></address>
+
+	<byline>
+	<affiliation>23 Comprehensive Allergy-Centre-Charit e, Department of Dermatology and Allergy, Charit e -Universit€ atsmedizin Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany<lb/></address>
+
+	<byline>
+	<affiliation>24 Global Allergy and Asthma European Network (GA 2 LEN),</affiliation>
+	</byline>
+
+	<address>Berlin, Germany<lb/></address>
+
+	<byline>
+	<affiliation>25 Institute of Social Medicine, Epidemiology and Health Economics, Charit e -Universit€ atsmedizin Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany<lb/></address>
+
+	<byline>
+	<affiliation>26 Institute for Clinical Epidemiology and Biometry, University of Wuerzburg,</affiliation>
+	</byline>
+
+	<address>Wuerzburg, Germany<lb/></address>
+
+	<byline>
+	<affiliation>27 Center for Rhinology and Allergology,</affiliation>
+	</byline>
+
+	<address>Wiesbaden, Germany<lb/></address>
+
+	<byline>
+	<affiliation>28 Medical Faculty, Institute of Medical Statistics, Informatics and Epidemiology, University of Cologne,</affiliation>
+	</byline>
+
+	<address>Cologne, Germany<lb/></address>
+
+	<byline>
+	<affiliation>29 iQ4U Consultants Ltd,</affiliation>
+	</byline>
+
+	<address>London, UK<lb/></address>
+
+	<byline>
+	<affiliation>30 Observational and Pragmatic Research Institute,</affiliation>
+	</byline>
+
+	<address>Singapore, Singapore<lb/></address>
+
+	<byline>
+	<affiliation>31 Optimum Patient Care,</affiliation>
+	</byline>
+
+	<address>Cambridge, UK<lb/></address>
+
+	<byline>
+	<affiliation>32 Academic Centre of Primary Care, University of Aberdeen,</affiliation>
+	</byline>
+
+	<address>Aberdeen, UK<lb/></address>
+
+	<byline>
+	<affiliation>33 Allergy and Respiratory Research Group, Usher Institute of Population Health Sciences and Informatics, University of Edinburgh,</affiliation>
+	</byline>
+
+	<address>Edinburgh, UK<lb/></address>
+
+	<byline>
+	<affiliation>34 Asthma UK Centre for Applied Research, Centre of Medical Informatics, Usher Institute of Population Health Sciences and Informatics, The University of<lb/> Edinburgh,</affiliation>
+	</byline>
+
+	<address>Edinburgh, UK<lb/></address>
+
+	<byline>
+	<affiliation>35 Centre for Research in Environmental Epidemiology (CREAL),</affiliation>
+	</byline>
+
+	<address>ISGLoBAL, Barcelona, Spain<lb/></address>
+
+	<byline>
+	<affiliation>36 IMIM (Hospital del Mar Research Institute),</affiliation>
+	</byline>
+
+	<address>Barcelona, Spain<lb/></address>
+
+	<byline>
+	<affiliation>37 CIBER Epidemiolog ıa y Salud P ublica (CIBERESP) &amp; Universitat Pompeu Fabra (UPF),</affiliation>
+	</byline>
+
+	<address>Barcelona, Spain<lb/></address>
+
+	<byline>
+	<affiliation>38 Pneumology and Allergy Department Hospital Cl ınic, Clinical &amp; Experimental Respiratory Immunoallergy, IDIBAPS, CIBERES, University of Barcelona,<lb/></affiliation>
+	</byline>
+
+	<address>Barcelona, Spain<lb/></address>
+
+	<byline>
+	<affiliation>39 Skin and Allergy Hospital, Helsinki University Hospital,</affiliation>
+	</byline>
+
+	<address>Helsinki, Finland<lb/></address>
+
+	<byline>
+	<affiliation>40 Department of Otorhinolaryngology, Academic Medical Centre,</affiliation>
+	</byline>
+
+	<address>Amsterdam, the Netherlands<lb/></address>
+
+	<byline>
+	<affiliation>41 Division of Internal Medicine, Asthma and Allergy, Barlicki University Hospital, Medical University of Lodz,</affiliation>
+	</byline>
+
+	<address>Lodz, Poland<lb/></address>
+
+	<byline>
+	<affiliation>42 Department of Dermatology and Allergy Centre, Odense University Hospital, Odense Research Center for Anaphylaxis (ORCA),</affiliation>
+	</byline>
+
+	<address>Odense, Denmark<lb/></address>
+
+	<byline>
+	<affiliation>43 Woolcock Institute of Medical Research, University of Sydney and Sydney Local Health District,</affiliation>
+	</byline>
+
+	<address>Glebe, NSW, Australia<lb/></address>
+
+	<byline>
+	<affiliation>44 Department of Allergy, Immunology and Respiratory Medicine, Alfred Hospital and Central Clinical School, Monash University,</affiliation>
+	</byline>
+
+	<address>Melbourne, VIC, Australia<lb/></address>
+
+	<byline>
+	<affiliation>45 Department of Immunology, Monash University,</affiliation>
+	</byline>
+
+	<address>Melbourne, VIC, Australia<lb/></address>
+
+	<byline>
+	<affiliation>46 Department of ENT, Medical University of Graz,</affiliation>
+	</byline>
+
+	<address>Graz,Austria<lb/></address>
+
+	<byline>
+	<affiliation>47 Department of Pulmonology, Celal Bayar University,</affiliation>
+	</byline>
+
+	<address>Manisa, Turkey<lb/></address>
+
+	<byline>
+	<affiliation>48 GARD Executive Committee,</affiliation>
+	</byline>
+
+	<address>Manisa, Turkey<lb/></address>
+
+	<byline>
+	<affiliation>49 Cerrahpasa Faculty of Medicine, Department of Pulmonary Diseases, Istanbul University,</affiliation>
+	</byline>
+
+	<address>Istanbul, Turkey<lb/></address>
+
+	<byline>
+	<affiliation>50 Upper Airways Research Laboratory, ENT Department, Ghent University Hospital,</affiliation>
+	</byline>
+
+	<address>Ghent, Belgium<lb/></address>
+
+	<byline>
+	<affiliation>51 Laboratory of Clinical Immunology, Department of Microbiology and Immunology, KU Leuven,</affiliation>
+	</byline>
+
+	<address>Leuven, Belgium<lb/></address>
+
+	<byline>
+	<affiliation>52 Department of Clinical Science and Education, S€ odersjukhuset, Karolinska Institutet,</affiliation>
+	</byline>
+
+	<address>Stockholm, Sweden<lb/></address>
+
+	<byline>
+	<affiliation>53 Sachs&apos; Children and Youth Hospital, S€ odersjukhuset, Stockholm and Institute of Environmental Medicine, Karolinska Institutet,</affiliation>
+	</byline>
+
+	<address>Stockholm, Sweden<lb/></address>
+
+	<byline>
+	<affiliation>54 Peercode DV,</affiliation>
+	</byline>
+
+	<address>Gerdermalsen, the Netherlands<lb/></address>
+
+	<byline>
+	<affiliation>55 Department of Prevention of Environmental Hazards and Allergology, Medical University of Warsaw,</affiliation>
+	</byline>
+
+	<address>Poland<lb/></address>
+
+	Correspondence<lb/>
+	<byline>
+	<docAuthor>Jean Bousquet, MACVIA-France,</docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Contre les<lb/> MAladies Chroniques pour un VIeillissement<lb/> Actif en France European Innovation<lb/> Partnership on Active and Healthy Ageing<lb/> Reference Site,</affiliation>
+	</byline>
+
+	<address>Montpellier, France.<lb/></address>
+
+	Email:
+	<email>jean.bousquet@orange.fr<lb/></email>
+
+	Funding information<lb/>
+	<note type="funding">Unrestricted educational grant from Meda,<lb/> European Union Development and Structural<lb/> funds (R egion Languedoc Roussillon),<lb/> MACVIA-LR</note>
+
+	Abstract<lb/>
+	<div type="abstract">Mobile technology has been used to appraise allergic rhinitis control, but more data<lb/> are needed. To better assess the importance of mobile technologies in rhinitis control,<lb/> the ARIA (Allergic Rhinitis and its Impact on Asthma) score ranging from 0 to 4 of the<lb/> Allergy Diary was compared with EQ-5D (EuroQuol) and WPAI-AS (Work Productivity<lb/> and Activity Impairment in allergy) in 1288 users in 18 countries. This study showed<lb/> that quality-of-life data (EQ-5D visual analogue scale and WPA-IS Question 9) are<lb/> similar in users without rhinitis and in those with mild rhinitis (scores 0-2). Users with<lb/> a score of 3 or 4 had a significant impairment in quality-of-life questionnaires.</div>
+
+		</front>
+	</text>
+</tei>
