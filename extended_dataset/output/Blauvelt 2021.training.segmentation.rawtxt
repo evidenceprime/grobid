@@ -1,0 +1,1595 @@
+Efficacy and Safety of Upadacitinib vs Dupilumab in Adults 
+With Moderate-to-Severe Atopic Dermatitis 
+A Randomized Clinical Trial 
+
+Andrew Blauvelt, MD, MBA; Henrique D. Teixeira, PhD, MBA; Eric L. Simpson, MD, MCR; Antonio Costanzo, MD; 
+Marjolein De Bruin-Weller, MD; Sebastien Barbarot, MD, PhD; Vimal H. Prajapati, MD; Peter Lio, MD; Xiaofei Hu, PhD; 
+Tianshuang Wu, PhD; John Liu, MD, MS; Barry Ladizinski, MD, MPH, MBA; Alvina D. Chu, MD; Kilian Eyerich, MD 
+
+IMPORTANCE Atopic dermatitis (AD) is a chronic, recurrent, inflammatory skin disease with 
+an unmet need for treatments that provide rapid and high levels of skin clearance and itch 
+improvement. 
+
+OBJECTIVE To assess the safety and efficacy of upadacitinib vs dupilumab in adults with 
+moderate-to-severe AD. 
+
+DESIGN, SETTING, AND PARTICIPANTS Heads Up was a 24-week, head-to-head, phase 3b, 
+multicenter, randomized, double-blinded, double-dummy, active-controlled clinical trial 
+comparing the safety and efficacy of upadacitinib with dupilumab among 692 adults with 
+moderate-to-severe AD who were candidates for systemic therapy. The study was conducted 
+from February 21, 2019, to December 9, 2020, at 129 centers located in 22 countries across 
+Europe, North and South America, Oceania, and the Asia-Pacific region. Efficacy analyses 
+were conducted in the intent-to-treat population. 
+
+INTERVENTIONS Patients were randomized 1:1 and treated with oral upadacitinib, 30 mg once 
+daily, or subcutaneous dupilumab, 300 mg every other week. 
+
+MAIN OUTCOMES AND MEASURES The primary end point was achievement of 75% improvement 
+in the Eczema Area and Severity Index (EASI75) at week 16. Secondary end points were 
+percentage change from baseline in the Worst Pruritus Numerical Rating Scale (NRS) (weekly 
+average), proportion of patients achieving EASI100 and EASI90 at week 16, percentage change 
+from baseline in Worst Pruritus NRS at week 4, proportion of patients achieving EASI75 at week 
+2, percentage change from baseline in Worst Pruritus NRS (weekly average) at week 1, and Worst 
+Pruritus NRS (weekly average) improvement of 4 points or more at week 16. End points at week 
+24 included EASI75, EASI90, EASI100, and improvement of 4 points or more in Worst Pruritus 
+NRS from baseline (weekly average). Safety was assessed as treatment-emergent adverse events 
+in all patients receiving 1 or more dose of either drug. 
+
+RESULTS Of 924 patients screened, 348 (183 men [52.6%]; mean [SD] age, 36.6 [14.6] years) 
+were randomized to receive upadacitinib and 344 were randomized to receive dupilumab 
+(194 men [56.4%]; mean [SD] age, 36.9 [14.1] years); demographic and disease characteristics 
+were balanced among treatment groups. At week 16, 247 patients receiving upadacitinib 
+(71.0%) and 210 patients receiving dupilumab (61.1%) achieved EASI75 (P = .006). All ranked 
+secondary end points also demonstrated the superiority of upadacitinib vs dupilumab, 
+including improvement in Worst Pruritus NRS as early as week 1 (mean [SE], 31.4% [1.7%] vs 
+8.8% [1.8%]; P < .001), achievement of EASI75 as early as week 2 (152 [43.7%] vs 60 [17.4%]; 
+P < .001), and achievement of EASI100 at week 16 (97 [27.9%] vs 26 [7.6%]; P < .001). Rates 
+of serious infection, eczema herpeticum, herpes zoster, and laboratory-related adverse 
+events were higher for patients who received upadacitinib, whereas rates of conjunctivitis 
+and injection-site reactions were higher for patients who received dupilumab. 
+
+CONCLUSIONS AND RELEVANCE During 16 weeks of treatment, upadacitinib demonstrated 
+superior efficacy vs dupilumab in patients with moderate-to-severe AD, with no new safety 
+signals. 
+
+TRIAL REGISTRATION ClinicalTrials.gov Identifier: NCT03738397 
+
+JAMA Dermatol. 2021;157(9):1047-1055. doi:10.1001/jamadermatol.2021.3023 
+Published online August 4, 2021. Corrected on December 15, 2021. 
+
+Visual Abstract 
+
+Supplemental content 
+
+CME Quiz at 
+jamacmelookup.com and CME 
+Questions page 1135 
+
+Author Affiliations: Author 
+affiliations are listed at the end of this 
+article. 
+
+Corresponding Author: Andrew 
+Blauvelt, MD, MBA, Oregon Medical 
+Research Center, 9495 SW Locust St, 
+Suite G, Portland, OR 97223 
+(ablauvelt@oregonmedicalresearch. 
+com). 
+
+Research 
+
+JAMA Dermatology | Original Investigation 
+
+(Reprinted) 1047 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
+A 
+
+topic dermatitis (AD) is characterized by a chronic and 
+relapsing nature, eczematous morphology, and intense 
+pruritus. 1,2 It is driven by proinflammatory mediators, 
+such as interleukin 4 (IL-4), IL-13, IL-22, IL-31, interferon gamma 
+(IFN-γ), and thymic stromal lymphopoietin (TSLP), that trans-
+duce signals via the Janus kinase-signal transducer and activa-
+tor of transcription (JAK-STAT) signaling pathway. 3,4 Dupilumab, 
+a fully human monoclonal antibody directed against the shared 
+IL-4 receptor subunit α of IL-4 and IL-13 receptors, is approved 
+for the treatment of moderate-to-severe AD; however, fewer than 
+half of patients achieve clear or almost clear skin after 16 weeks 
+of dupilumab monotherapy, with maximal responses achieved 
+after week 12. 5 Thus, there is a need for additional treatment 
+options that provide improved clinical responses to a greater 
+proportion of patients and in a more rapid manner. 
+Upadacitinib is an oral, reversible, small molecule JAK in-
+hibitor engineered to have increased selectivity for JAK1 vs JAK2, 
+JAK3, and tyrosine kinase 2, with the intention of improving ef-
+ficacy and safety for an improved benefit-risk profile compared 
+with other, less-selective JAK inhibitors. 6 Upadacitinib is ap-
+proved in the United States, European Union, and other coun-
+tries to treat moderately or severely active rheumatoid arthri-
+tis, and is being developed for the treatment of AD and other 
+immune-mediated inflammatory diseases. 6 Results from 1 phase 
+2b 7 and 3 pivotal phase 3 clinical trials (Measure Up 1, Measure 
+Up 2, and AD Up) 8,9 demonstrated that once-daily upadacitinib 
+(15 or 30 mg) is a well-tolerated and effective treatment option 
+for patients with moderate-to-severe AD. Here, we assess the 
+safety and efficacy of upadacitinib vs dupilumab in adults with 
+moderate-to-severe AD. 
+
+Methods 
+
+Study Design 
+
+Heads Up (NCT03738397) was a 24-week, head-to-head, phase 
+3b, multicenter, randomized, double-blinded, double-dummy, 
+active-controlled clinical trial comparing the safety and efficacy 
+of upadacitinib with dupilumab in adults with moderate-to-
+severe AD. This clinical trial was conducted from February 21, 
+2019, to December 9, 2020, at 129 centers located in 22 countries 
+across Europe, North and South America, Oceania, and the Asia-
+Pacific region. Heads Up had a 35-day screening period, a 24-
+week double-blinded treatment period, and a 12-week follow-up 
+visit or the option to enter an open-label upadacitinib extension 
+study. Independent ethics committees or institutional review 
+boards approved the trial protocol, informed consent form(s), 
+and recruitment materials before patient enrollment. This clinical 
+trial was conducted in accord with the International Conference 
+for Harmonisation guidelines, applicable regulations, and the 
+Declaration of Helsinki. 10 Patients provided written informed 
+consent before screening. This study followed the Consolidated 
+Standards of Reporting Trials (CONSORT) guideline (trial protocol 
+in Supplement 1). 
+
+Patients 
+
+Eligible patients were adults aged 18 to 75 years with diag-
+nosed AD using the Hanifin and Rajka criteria 11 who were can-
+
+didates for systemic therapy (inadequate response to topical 
+treatments for AD, documented use of systemic treatment for 
+AD, or topical treatments for AD otherwise medically inadvis-
+able) and who had moderate-to-severe disease (defined as 
+≥10% of body surface area affected by AD, Eczema Area and 
+Severity Index [EASI] ≥16, validated Investigator's Global As-
+sessment for AD score ≥3 at screening and baseline visits, and 
+weekly average Worst Pruritus Numerical Rating Scale [NRS] 
+score ≥4 at baseline). Prior use of JAK inhibitors or dupil-
+umab was prohibited. eTable 1 in Supplement 2 has complete 
+patient eligibility criteria. 
+
+Clinical Trial Procedures 
+
+Patients were randomized 1:1 to receive 30 mg of upadaci-
+tinib via extended-release tablet administered orally once 
+daily until week 24 or 300 mg of dupilumab administered as 
+a subcutaneous injection every 2 weeks after a loading dose 
+of 600 mg, starting at week 2 and until week 22 (eFigure 1 in 
+Supplement 2). Rescue therapy, defined as any topical or 
+systemic immunomodulatory treatment initiated for AD, 
+could be given at any time per investigator discretion. 
+Patients who received rescue therapy were considered non-
+responders for binary end points after the initiation of 
+rescue therapy. 
+
+Efficacy Parameters 
+
+Efficacy was assessed as upadacitinib superiority compared 
+with dupilumab, with the primary end point being 75% im-
+provement in EASI (EASI75) at week 16. Ranked secondary end 
+points were: percentage change from baseline in Worst Pruri-
+tus NRS, achievement of EASI100 and EASI90 at week 16, per-
+centage change from baseline in Worst Pruritus NRS at week 
+4, achievement of EASI75 at week 2, percentage change from 
+baseline in Worst Pruritus NRS at week 1, and Worst Pruritus 
+NRS improvement of 4 points or more at week 16. Additional 
+unranked end points were assessed at week 24, including 
+achievement of EASI75, EASI90, and EASI100, as well as im-
+provement of 4 points or more in Worst Pruritus NRS. The Worst 
+Pruritus NRS end points were based on weekly averages of daily 
+pruritus scores. Dermatology Life Quality Index and Patient-
+Oriented Eczema Measure data were not collected after base-
+line in this study. 
+
+Key Points 
+
+Question Are the efficacy and safety of oral upadacitinib superior 
+to subcutaneous dupilumab in adults with moderate-to-severe 
+atopic dermatitis (AD)? 
+
+Findings This randomized, blinded, head-to-head comparator 
+clinical trial of 692 patients with moderate-to-severe AD 
+demonstrated clinically meaningful skin clearance and itch relief, 
+with statistically significant superiority for upadacitinib compared 
+with dupilumab. There were no new safety signals reported for 
+either upadacitinib or dupilumab. 
+
+Meaning Upadacitinib provides superior and more rapid skin 
+clearance and itch relief with tolerable safety compared with 
+dupilumab in patients with moderate-to-severe AD. 
+
+Research Original Investigation 
+Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis 
+
+1048 
+JAMA Dermatology September 2021 Volume 157, Number 9 (Reprinted) 
+jamadermatology.com 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
+Safety Parameters 
+
+Safety was assessed as treatment-emergent adverse events 
+(TEAEs) in all patients who received 1 or more dose of study 
+drug through follow-up (30 days after the last dose of upa-
+dacitinib or 84 days after the last dose of dupilumab); a TEAE 
+was defined as any adverse event (AE) that began or worsened 
+in severity after initiation of upadacitinib or dupilumab. All 
+AEs presented were treatment-emergent, unless otherwise 
+noted. 
+
+Statistical Analysis 
+
+Statistical analysis was conducted on an intent-to-treat basis. 
+The primary approach for evaluating categorical end points was 
+NRI-C (Nonresponder Imputation incorporating Multiple Im-
+putation [MI] to handle missing data due to COVID-19). The 
+initial NRI approach was revised to NRI-C because of the 
+COVID-19 pandemic, which may have prevented visits owing 
+to logistical restrictions; additional details regarding the NRI-C 
+approach are outlined in the eMethods in Supplement 2. Mul-
+tiplicity-adjusted results were obtained via a hierarchical test-
+ing procedure, controlling the overall type I error rate of all pri-
+mary and ranked secondary end points at the 2-sided 0.05 level 
+(eFigure 2 in Supplement 2). 
+
+Results 
+
+Patient Disposition 
+
+A total of 924 patients were screened, of whom 232 were ex-
+cluded and 692 were enrolled and treated; 348 (183 men [52.6%]; 
+mean [SD] age, 36.6 [14.6] years) received upadacitinib, and 344 
+(194 men [56.4%]; mean [SD] age, 36.9 [14.1] years) received du-
+pilumab. The number of patients who discontinued treatment 
+was low overall; 316 (90.8%) completed upadacitinib treat-
+ment, and 319 (92.7%) completed dupilumab treatment 
+(Figure 1); 336 patients (96.6%) completed 16 weeks of upadaci-
+tinib treatment, and 328 patients (95.3%) completed 16 weeks 
+of dupilumab treatment. Eighty-seven upadacitinib-treated pa-
+tients (25.0%) and 85 dupilumab-treated patients (24.7%) re-
+ceived rescue therapy and were considered nonresponders for 
+visits after receiving rescue therapy. 
+Demographic and baseline characteristics were balanced 
+among the upadacitinib-treated and dupilumab-treated 
+groups, including key measures of disease activity: mean (SD) 
+EASI (30.8 [12.5] and 28.8 [11.5], respectively) and proportion 
+of patients with severe validated Investigator's Global Assess-
+ment for AD (174 [50.0%] and 173 [50.3%], respectively) 
+(Table 1). 
+
+Efficacy Outcomes 
+
+The proportion of patients who achieved EASI75 at week 16 
+was significantly greater for patients receiving upadacitinib 
+than those receiving dupilumab (247 [71.0%] vs 210 [61.1%]; 
+adjusted difference, 10.0% (95% CI, 2.9%-17.0%; P = .006) 
+(Table 2), thereby meeting the primary end point of EASI75 at 
+week 16 for superiority of upadacitinib compared with dupil-
+umab. The response rate was calculated using the NRI-C 
+approach. The results based on NRI-C were consistent with 
+
+those based on NRI-NC (the traditional NRI approach), given 
+that the number of patients with missing values owing to 
+COVID-19 for the primary end point was low (1.6% [11 of 692]) 
+(eTables 2 and 3 in Supplement 2). Most patients in both 
+treatment groups did not receive rescue therapy (eTable 4 in 
+Supplement 2). 
+Onset of action was more rapid for upadacitinib, with the 
+proportion of patients achieving EASI75 at week 2 signifi-
+cantly greater for those receiving upadacitinib compared with 
+those receiving dupilumab (152 of 348 [43.7%] vs 60 of 344 
+[17.4%]; P < .001) (Table 2). Significantly greater proportions 
+of patients achieved high levels of efficacy (EASI90 and 
+EASI100) at week 16 with upadacitinib compared with dupi-
+lumab (EASI90, 211 [60.6%] vs 133 [38.7%]; P < .001; EASI100, 
+97 [27.9%] vs 26 [7.6%]; P < .001). The mean (SD) percentage 
+improvement from baseline Worst Pruritus NRS was signifi-
+cantly greater for upadacitinib-treated patients compared with 
+dupilumab-treated patients as early as week 1 (31.4% [1.7%] vs 
+8.8% [1.8%]; P < .001) and week 4 (59.5% [2.2%] vs 31.7% 
+[2.2%]; P < .001), and significant differences were main-
+tained through week 16 (66.9% [1.9%] vs 49.0% [2.0%]; 
+P < .001). Furthermore, the proportion of patients achieving 
+a clinically meaningful improvement in itch (Worst Pruritus 
+
+Figure 1. Patient Disposition Through Week 24 
+
+924 Patients assessed for eligibility 
+via physical examination 
+
+232 Excluded 
+
+692 Patients randomized and treated 
+
+344 Assigned to dupilumab 
+344 Treated with active treatment 
+70 Received rescue medication 
+before week 16 
+
+348 Assigned to upadacitinib 
+348 Treated with active treatment 
+61 Received rescue medication 
+before week 16 
+
+328 Completed study drug 
+through week 16 
+15 Received rescue medication 
+after week 16 
+
+336 Completed study drug 
+through week 16 
+27 Received rescue medication 
+after week 16 
+
+319 Completed study drug through 
+week 24 
+
+316 Completed study drug through 
+week 24 
+
+16 Discontinued treatment 
+2 Adverse event 
+7 Withdrew consent 
+4 Lost to follow-up 
+3 Other 
+
+9 Discontinued treatment 
+2 Adverse event 
+
+3 Lack of efficacy 
+
+1 Withdrew consent 
+1 Lost to follow-up 
+
+2 Other 
+
+20 Discontinued treatment 
+7 Adverse event 
+
+6 Lack of efficacy 
+
+3 Withdrew consent 
+3 Lost to follow-up 
+
+1 Other 
+
+12 Discontinued treatment 
+3 Adverse event 
+5 Withdrew consent 
+1 Lost to follow-up 
+1 COVID-19 logistics 
+2 Other 
+
+CONSORT diagram for patient enrollment, randomization, and discontinuation. 
+The primary reason for discontinuation is listed. EASI indicates Eczema Area and 
+Severity Index. 
+
+Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis 
+Original Investigation Research 
+
+jamadermatology.com 
+(Reprinted) JAMA Dermatology September 2021 Volume 157, Number 9 
+1049 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
+NRS improvement ≥4 points from baseline) at week 16 was 
+higher for those who received upadacitinib compared with 
+those who received dupilumab (188 of 340 [55.3%] vs 120 of 
+336 [35.7%]; P < .001). Thus, the study met all ranked sec-
+ondary efficacy end points, demonstrating that upadaci-
+tinib achieved significantly greater improvements in both 
+investigator-and patient-reported outcomes compared with 
+dupilumab. 
+Numerically greater proportions of upadacitinib-treated vs 
+dupilumab-treated patients achieved EASI75 as early as week 1 
+(55 of 348 [15.9%] vs 19 of 344 [5.5%]) and at week 4 (243 of 348 
+[69.9%] vs 123 of 344 [35.9%]) (Figure 2A). Similar differences 
+were observed for achievement of EASI90 at week 2 (64 of 348 
+[18.5%] vs 20 of 344 [5.8%]) and week 8 (206 of 48 [59.2%] vs 86 
+of 344 [25.1%]) (Figure 2B). Positive differences between propor-
+tions of upadacitinib-treated vs dupilumab-treated patients for 
+achievement of EASI100 were also observed at week 4 (29 of 348 
+[8.3%] vs 6 of 344 [1.7%]) and maintained through week 16 (97 
+of 348 [27.9%] vs 26 of 344 [7.6%]) (Figure 2C). In addition, 
+upadacitinib-treated patients had significantly greater reductions 
+than dupilumab-treated patients in mean (SE) Worst Pruritus NRS 
+as early as week 1 (−31.4% [1.7%] vs −8.8% [1.8%]) and maintained 
+through week 16 (−66.9% [1.9%] vs −49.0% [2.0%]) (Figure 2D). 
+A greater proportion of upadacitinib-treated than dupilumab-
+treated patients achieved EASI75 (223 of 348 [64.2%] vs 205 of 
+
+344 [59.5%]; P = .21 for upadacitinib vs dupilumab without ad-
+justment for multiplicity) at week 24 (eTable 5 in Supplement 2). 
+In addition, EASI90 was achieved at week 24 by 194 of 348 
+upadacitinib-treated patients (55.6%) and EASI100 was achieved 
+at week 24 by 95 of 348 upadacitinib-treated patients (27.3%), 
+while EASI90 was achieved at week 24 by 164 of 344 dupilumab-
+treated patients (47.6%; P = .04 for upadacitinib vs dupilumab 
+without adjustment for multiplicity) and EASI100 was achieved 
+at week 24 by 45 of 344 dupilumab-treated patients (13.1%; P < 
+.001 for upadacitinib vs dupilumab without adjustment for mul-
+tiplicity). Upadacitinib-treated patients also had greater improve-
+ment from baseline in mean (SD) Worst Pruritus NRS than 
+dupilumab-treated patients at week 24 (63.1% [2.7%] vs 54.7% 
+[2.8%]; P = .03 for upadacitinib vs dupilumab without adjustment 
+for multiplicity). 
+
+Safety Outcomes 
+
+The safety profile of upadacitinib in this study was consistent 
+with that observed in 1 phase 2b 7 and 3 pivotal phase 3 clini-
+cal trials (Measure Up 1, Measure Up 2, and AD Up) 8,9 (Table 3). 
+No new safety risks of upadacitinib were observed in this AD 
+study compared with other AD studies. The 16-week inci-
+dence rates of TEAEs were 71.6% in upadacitinib-treated pa-
+tients (249 of 348) and 62.8% in dupilumab-treated patients 
+(216 of 344). The rates of serious TEAEs and AEs leading to 
+study drug discontinuation were 2.9% (10 of 348) and 2.0% (7 
+of 348) for upadacitinib and 1.2% (4 of 344) and 1.2% (4 of 344) 
+for dupilumab, respectively. One death due to influenza-
+associated bronchopneumonia was reported in a 40-year-old 
+upadacitinib-treated patient. 
+Through 16 weeks of treatment, the most frequently re-
+ported AE among patients treated with upadacitinib was acne 
+(55 [15.8%]), whereas acne was reported by 9 patients treated 
+with dupilumab (2.6%) (Table 3). All acne events were mild or 
+moderate in severity, primarily involved the face and trunk, and 
+did not result in scarring; none led to study drug discontinua-
+tion. The most frequently reported AE among patients treated 
+with dupilumab was conjunctivitis (29 [8.4%]), whereas con-
+junctivitis was reported by 5 patients treated with upadacitinib 
+(1.4%). All conjunctivitis cases were mild or moderate in sever-
+ity, and none led to study drug discontinuation. 
+Among AEs of special interest, rates of serious infection (4 
+[1.1%] vs 2 [0.6%]), eczema herpeticum (1 [0.3%] vs 0%), and her-
+pes zoster (7 [2.0%] vs 3 [0.9%]) were numerically higher for pa-
+tients treated with upadacitinib than those treated with 
+dupilumab, all at generally low levels (Table 3). Each of the se-
+rious infections was reported in a single patient. No eczema her-
+peticum or herpes zoster event was considered to be serious. All 
+herpes zoster events were mild or moderate in severity, and none 
+led to study drug discontinuation. Most herpes zoster events in-
+volved a single dermatome; 2 herpes zoster events involved 3 
+or more dermatomes, and 1 had ophthalmic involvement (peri-
+orbital skin) in the upadacitinib group. 
+The rate of hepatic disorders was higher among patients 
+treated with upadacitinib than those treated with dupil-
+umab (10 [2.9%] vs 4 [1.2%]) (Table 3). Most of the hepatic 
+disorders were transaminase elevations that were mild or 
+moderate in severity, transient, and reported as singular 
+
+Table 1. Baseline Demographic and Disease Characteristics of Patients a 
+
+Characteristic 
+
+Patients, No. (%) 
+
+Dupilumab, 300 mg 
+(n = 344) 
+
+Upadacitinib, 30 mg 
+(n = 348) 
+
+Sex 
+
+Male 
+194 (56.4) 
+183 (52.6) 
+
+Female 
+150 (43.6) 
+165 (47.4) 
+
+Age, mean (SD) [range], y 
+36.9 (14.09) 
+[18-76] 
+
+36.6 (14.61) [18-76] 
+
+Age group, y 
+
+<40 
+226 (65.7) 
+228 (65.5) 
+
+≥40 to <65 
+101 (29.4) 
+102 (29.3) 
+
+≥65 
+17 (4.9) 
+18 (5.2) 
+
+Disease duration since 
+diagnosis, mean (SD), y 
+
+25.0 (14.8) 
+23.5 (14.7) 
+
+Weight, mean (SD), kg 
+75.6 (18.4) 
+78.8 (22.3) 
+
+BMI, mean (SD) 
+25.99 (5.72) 
+26.99 (6.53) b 
+
+BSA, mean (SD), % 
+44.4 (22.8) 
+48.2 (24.0) 
+
+vIGA-AD score 
+
+3 (Moderate) 
+171 (49.7) 
+174 (50.0) 
+
+4 (Severe) 
+173 (50.3) 
+174 (50.0) 
+
+EASI, mean (SD) 
+28.8 (11.5) 
+30.8 (12.5) 
+
+Worst Pruritus NRS [weekly 
+average], mean (SD) 
+
+7.5 (1.7) 
+7.4 (1.6) 
+
+Abbreviations: BMI, body mass index (calculated as weight in kilograms divided 
+by height in meters squared); BSA, body surface area; EASI, Eczema Area and 
+Severity Index; NRS, Numerical Rating Scale; vIGA-AD, validated Investigator's 
+Global Assessment. 
+a Baseline demographic and disease characteristics assessed upon entry to 
+Heads Up (study M16-046). 
+b Data shown for 347 patients. 
+
+Research Original Investigation 
+Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis 
+
+1050 
+JAMA Dermatology September 2021 Volume 157, Number 9 (Reprinted) 
+jamadermatology.com 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
+abnormalities without recurrence; none were serious, and 2 
+upadacitinib-treated patients discontinued study drug 
+owing to transaminase elevation. Rates of anemia (7 [2.0%] 
+vs 1 [0.3%]), neutropenia (6 [1.7%] vs 2 [0.6%]), and creati-
+nine phosphokinase elevations (23 [6.6%] vs 10 [2.9%]) 
+were higher for patients treated with upadacitinib than 
+those treated with dupilumab, respectively. There was a 
+single event of thrombocytopenia (grade 1 in severity) 
+reported in a patient treated with upadacitinib. Most of 
+these laboratory test-related AEs were mild or moderate in 
+severity, transient, and reported as singular abnormalities 
+without recurrence, with only 1 event deemed serious (de-
+creased hemoglobin reported in the dupilumab-treated 
+group); none of these events led to study drug discontinua-
+tion. No drug-induced liver injury or rhabdomyolysis events 
+were reported. 
+One case of malignant neoplasm was reported in each 
+treatment group: 1 breast carcinoma in a 68-year-old 
+upadacitinib-treated patient (after week 16; eTable 6 in 
+Supplement 2) and 1 keratoacanthoma in a 69-year-old 
+dupilumab-treated patient. No cases of adjudicated venous 
+thromboembolic events, major adverse cardiovascular 
+events, active tuberculosis, or gastrointestinal perforation 
+were reported in either treatment group. Safety data through 
+the end of the monitoring period are summarized in eTable 6 
+in Supplement 2. 
+Five nonserious cases of COVID-19 were reported during 
+the study-4 in the upadacitinib group and 1 in the dupil-
+umab group. Treatment was temporarily interrupted for 3 upa-
+
+dacitinib patients and resumed after resolution of the infec-
+tion. Treatment was not interrupted for the fourth upadacitinib 
+patient or the dupilumab patient. 
+
+Discussion 
+
+To our knowledge, Heads Up is the first study directly com-
+paring upadacitinib with dupilumab for AD and is now the 
+sixth clinical trial examining upadacitinib for the indication. 
+This study met the primary end point of EASI75 at week 16 
+and all ranked secondary end points, demonstrating superi-
+ority of upadacitinib vs dupilumab for the treatment of 
+adults with moderate-to-severe AD. The most significant dif-
+ferences between upadacitinib and dupilumab were in the 
+rapidity of onset and the ability to better achieve high levels 
+of skin clearance (eg, EASI90 and EASI100). At week 24, 
+upadacitinib-treated patients continued to show numerically 
+better results compared with dupilumab-treated patients for 
+measures of skin clearance and itch relief. Upadacitinib was 
+generally safe and well tolerated with no new safety risks 
+observed. 
+Despite the approval of dupilumab in recent years, there 
+remains an unmet need for therapies that provide better effi-
+cacy outcomes, such as clear or almost clear skin, for 
+patients with moderate-to-severe AD. Achievement of 
+higher levels of efficacy in AD is associated with greater 
+improvements in health-related quality of life. 12 The rela-
+tively high proportions of patients treated with upadacitinib 
+
+Table 2. Primary and Ranked Secondary End Points 
+
+End point 
+Time point 
+Dupilumab, 300 mg (n = 344) 
+Upadacitinib, 30 mg (n = 348) 
+Difference 
+P value 
+Primary end point 
+
+Achievement of 
+EASI75 a 
+
+Week 16 
+210 (61.1) [55.9 to 66.2] 
+247 (71.0) [66.2 to 75.8] 
+10 
+.006 
+
+Secondary end points 
+in order of ranking 
+
+% Change from 
+baseline in worst 
+pruritus NRS b 
+
+Week 16 
+−49.0 (2.0) [-52.9 to −45.2] 
+−66.9 (1.9) [-70.6 to −63.2] 
+−17.84 
+<.001 
+
+No. 
+251 
+258 
+
+Achievement of 
+EASI100 a 
+
+Week 16 
+26 (7.6) [4.8 to10.4] 
+97 (27.9) [23.2 to 32.6] 
+20.3 
+<.001 
+
+Achievement of 
+EASI90 a 
+
+Week 16 
+133 (38.7) [33.6 to 43.9] 
+211 (60.6) [55.4 to 65.7] 
+21.8 
+<.001 
+
+% Change from 
+baseline in Worst 
+Pruritus NRS b 
+
+Week 4 
+−31.7 (2.2) [-36.1 to −27.3] 
+−59.5 (2.2) [-63.8 to −55.2] 
+−27.8 
+<.001 
+
+No. 
+310 
+333 
+
+Achievement of 
+EASI75 a 
+
+Week 2 
+60 (17.5) [13.5 to 21.5] 
+152 (43.7) [38.4 to 48.8] 
+26.0 
+<.001 
+
+% Change from 
+baseline in Worst 
+Pruritus NRS b 
+
+Week 1 
+−8.8 (1.8) [-12.3 to −5.3] 
+−31.4 (1.7) [-34.9 to −28.0] 
+−22.7 
+<.001 
+
+No. 
+327 
+337 
+
+Worst Pruritus NRS 
+improvement ≥4 
+points a,c 
+
+Week 16 
+120 (35.7) [30.7 to 41.0] 
+188 (55.3) [49.9 to 60.5] 
+19.3 
+<.001 
+
+No. 
+NA 
+336 
+340 
+NA 
+NA 
+
+Abbreviations: EASI75, 75% improvement in the Eczema Area and Severity 
+Index; NA, not applicable; NRS, Numerical Rating Scale. 
+a No. (%) [95% CI]. 
+
+b Least-squares mean (SD) [95% CI]. 
+
+c Analyzed for patients with Worst Pruritus NRS of 4 points or higher at 
+baseline. 
+
+Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis 
+Original Investigation Research 
+
+jamadermatology.com 
+(Reprinted) JAMA Dermatology September 2021 Volume 157, Number 9 
+1051 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
+achieving EASI90 and EASI100 at week 16, reported here 
+and elsewhere, 7-9 may become important regarding future 
+AD treatment goals. A similar shift has occurred in recent 
+years with the treatment of patients with another chronic 
+inflammatory skin disease, psoriasis, where treatment suc-
+cess shifted from 75% improvement in the Psoriasis Area and 
+Severity Index to 90% and 100% improvement (PASI90 and 
+PASI100, respectively). As the effectiveness of new drugs for 
+psoriasis have improved, the higher relative improvement 
+scores PASI90 and PASI100 have become the benchmark for 
+systemic therapies, and we expect to see a similar trend in 
+AD treatment benchmarks. 
+Treatment effect (including skin and itch improvement) 
+was also experienced more rapidly with upadacitinib com-
+pared with dupilumab. Statistically significant skin improve-
+ment as measured by EASI75 was attained as early as week 2 
+with upadacitinib, and significantly higher rates of clinically 
+meaningful improvements in itch were reported as early as 
+week 1. It is well established that patients prefer treatments 
+
+with a rapid onset of action. 13-15 Upadacitinib-treated patients 
+achieved significantly higher rates of the stringent skin 
+improvement thresholds EASI90 and EASI100 compared with 
+dupilumab. 
+Several key inflammatory cytokines are involved in the 
+pathogenesis of AD signal via JAK1, including IL-4 and IL-13 
+(epidermal barrier dysfunction), IL-22 (epidermal hyperpro-
+liferation), IL-31 (itch neuron stimulation), IFN-γ (lesion chro-
+nicity), and TSLP (T H 2 cell differentiation). 3,4,16 Dupilumab tar-
+gets the shared IL-4 and IL-13 receptor. By selectively inhibiting 
+JAK1, upadacitinib abrogates the signaling of a wider range of 
+proinflammatory mediators, including IL-4, IL-13, IL-22, IL-
+31, IFN-γ, and TSLP. The simultaneous inhibition of multiple 
+pathways may contribute to the efficacy and rapidity effects 
+of upadacitinib compared with dupilumab. 
+The safety profile of upadacitinib in this study was con-
+sistent with that noted in 1 phase 2b trial 7 and 3 pivotal 
+phase 3 clinical trials (Measure Up 1, Measure Up 2, and AD 
+Up), 8,9 with no new safety risks observed. In contrast to pre-
+
+Figure 2. Efficacy Over Time 
+
+100 
+
+80 
+
+60 
+
+40 
+
+20 
+
+0 
+
+Proportion of patients, % 
+
+Week 
+
+EASI75 
+
+A 
+
+0 
+
+a 
+
+1 
+
+a 
+
+2 
+
+a 
+
+4 
+
+a 
+
+8 
+
+a 
+
+12 
+
+a 
+
+16 
+
+b 
+
+Upadacitinib (n = 348) 
+
+Dupilumab (n = 344) 
+
+100 
+
+80 
+
+60 
+
+40 
+
+20 
+
+0 
+
+Proportion of patients, % 
+
+Week 
+
+EASI90 
+
+B 
+
+0 1 
+
+c 
+
+2 
+
+a 
+
+4 
+
+a 
+
+8 
+
+a 
+
+12 
+
+a 
+
+16 
+
+a 
+
+Upadacitinib (n = 348) 
+
+Dupilumab (n = 344) 
+
+100 
+
+80 
+
+60 
+
+40 
+
+20 
+
+0 
+
+Proportion of patients, % 
+
+Week 
+
+EASI100 
+
+C 
+
+0 1 2 
+4 
+
+a 
+
+8 
+
+a 
+
+12 
+
+a 
+
+16 
+
+a 
+
+Upadacitinib (n = 348) 
+
+Dupilumab (n = 344) 
+
+0 
+
+-20 
+
+-40 
+
+-60 
+
+-80 
+
+-100 
+
+Change from baseline, % 
+
+Week 
+
+Worst pruritus NRS 
+
+D 
+
+0 
+2 
+
+a 
+
+4 
+
+a 
+
+6 
+
+a 
+
+8 
+
+a 
+
+12 
+
+a 
+
+10 
+
+a 
+
+14 
+
+a 
+
+a 
+
+a 
+a 
+a 
+a 
+a 
+a 
+a 
+
+16 
+
+a 
+Upadacitinib (n = 348) 
+
+Dupilumab (n = 344) 
+
+A, Proportion of patients achieving 75% improvement in Eczema Area and 
+Severity Index (EASI75) B, Proportion of patients achieving 90% improvement 
+in EASI (EASI90). C Proportion of patients achieving 100% improvement in 
+EASI (EASI100). D, Mean percentage change in Worst Pruritus Numerical Rating 
+Scale (NRS) for patients treated with upadacitinib or dupilumab by 
+nonresponder imputation incorporating multiple imputation to handle missing 
+data due to COVID-19. Error bars indicate 95% CIs (synthetic result based on t 
+
+test distribution from the PROC MIANALYZE procedure in SAS if there were 
+missing data due to COVID-19 or was based on the normal approximation to the 
+binomial distribution if there were no missing data due to COVID-19). 
+a P Յ .001. 
+
+b P Յ .01. 
+
+c P Յ .05. 
+
+Research Original Investigation 
+Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis 
+
+1052 
+JAMA Dermatology September 2021 Volume 157, Number 9 (Reprinted) 
+jamadermatology.com 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
+vious studies of JAK inhibitors in patients with rheumatoid 
+arthritis, higher rates of acne were reported in studies of upa-
+dacitinib in patients with AD. Of note, acne has also been 
+among the most frequently reported TEAEs for other JAK 
+inhibitors in AD (abrocitinib and baricitinib); the mechanism 
+underlying this AE is unclear. 17-19 The rate of study drug dis-
+continuation secondary to AEs was numerically higher with 
+upadacitinib. Rates of serious infection, eczema herpeticum, 
+herpes zoster, and laboratory test-related AEs were numeri-
+cally higher with upadacitinib, while the rates of conjunc-
+tivitis and injection-site reactions were numerically higher 
+with dupilumab. No venous thromboembolic events, major 
+adverse cardiovascular events, or gastrointestinal perfora-
+tions were reported with either treatment. Overall, these 
+observations were consistent with the known safety profile 
+of each drug. 
+
+Limitations 
+
+This study has some limitations. The data reported here are 
+results through 24 weeks of treatment, with primary and 
+ranked secondary end points at week 16. Longer-term data are 
+being collected in a separate open-label extension study. Al-
+though not necessarily a limitation, this study evaluated both 
+upadacitinib and dupilumab as monotherapy treatments, and 
+patients who received any topical agent as rescue therapy were 
+treated as nonresponders after receipt of rescue therapy. In real-
+world practice, many patients use systemic therapies in com-
+bination with topical therapies 20 ; concomitant use of topical 
+corticosteroids is addressed in a separate study of upadaci-
+tinib for AD. 9 
+To maintain blinding, the monotherapy treatments of oral 
+upadacitinib and subcutaneous dupilumab were each accom-
+panied by a placebo for the opposite therapy, but there was no 
+comparison against placebo as tested in the pivotal studies of 
+these treatments. When dupilumab, 300 mg every 2 weeks, 
+was given as monotherapy in SOLO1 and SOLO2, 51% and 44% 
+of patients, respectively, achieved EASI75 at week 16 when 
+compared with 15% and 12% for placebo, respectively. 5 Higher 
+response rates for dupilumab may have been observed in the 
+present study owing to the lack of a placebo comparator and 
+subsequent responder or efficacy assessor bias. However, this 
+potential bias did not seem to impact response rates in the upa-
+dacitinib group; in the upadacitinib placebo-controlled mono-
+therapy studies, Measure Up 1 and Measure Up 2, 79.7% and 
+72.9% of patients treated with upadacitinib, 30 mg once daily, 
+achieved EASI75 at week 16, respectively, compared with 16.3% 
+and 13.3% for placebo, respectively. 8 
+
+Conclusions 
+
+Overall, upadacitinib was well tolerated and provided supe-
+rior efficacy compared with dupilumab after 16 weeks of treat-
+ment in adults with moderate-to-severe AD. Upadacitinib 
+achieved higher levels of skin clearance and itch relief with a 
+more rapid onset of action vs dupilumab. Upadacitinib is an 
+effective treatment option for patients with moderate-to-
+severe AD and may help inform future treatment decisions. 
+
+Table 3. TEAEs Through Week 16 for All Patients Receiving 
+1 Dose or More of Study Drug 
+
+TEAE 
+
+Patients, No. (%) 
+
+Dupilumab, 
+300 mg (n = 344) 
+
+Upadacitinib, 
+30 mg (n = 348) 
+
+AE 
+216 (62.8) 
+249 (71.6) 
+
+AE with reasonable possibility of 
+being drug-related a 
+
+122 (35.5) 
+153 (44.0) 
+
+Severe AE 
+14 (4.1) 
+25 (7.2) 
+
+SAE 
+4 (1.2) 
+10 (2.9) 
+
+SAE with reasonable possibility 
+of being drug related a 
+
+2 (0.6) 
+4 (1.1) 
+
+AE leading to discontinuation of 
+study drug 
+
+4 (1.2) 
+7 (2.0) 
+
+AE leading to death b 
+0 
+1 (0.3) 
+
+AEs of special interest 
+
+Serious infections 
+2 (0.6) 
+4 (1.1) 
+
+Opportunistic infection, 
+excluding tuberculosis and 
+herpes zoster c 
+
+0 
+1 (0.3) 
+
+Herpes zoster 
+3 (0.9) 
+7 (2.0) 
+
+Active tuberculosis 
+0 
+0 
+
+Nonmelanoma skin cancer d 
+1 (0.3) 
+0 
+
+Malignant neoplasm, excluding 
+NMSC 
+
+0 
+0 
+
+Lymphoma 
+0 
+0 
+
+Hepatic disorder e 
+4 (1.2) 
+10 (2.9) 
+
+Adjudicated gastrointestinal 
+perforations 
+
+0 
+0 
+
+Anemia 
+1 (0.3) 
+7 (2.0) 
+
+Neutropenia 
+2 (0.6) 
+6 (1.7) 
+
+Lymphopenia 
+0 
+2 (0.6) 
+
+Creatine phosphokinase 
+elevation 
+
+10 (2.9) 
+23 (6.6) 
+
+Renal dysfunction 
+1 (0.3) 
+1 (0.3) 
+
+Adjudicated major adverse 
+cardiovascular events 
+
+0 
+0 
+
+Adjudicated venous 
+thromboembolic events 
+
+0 
+0 
+
+TEAEs reported by ≥5% in either 
+treatment group 
+
+Acne f 
+9 (2.6) 
+55 (15.8) 
+
+Dermatitis atopic 
+29 (8.4) 
+24 (6.9) 
+
+Upper respiratory tract infection 13 (3.8) 
+22 (6.3) 
+
+Blood CPK level increased 
+10 (2.9) 
+23 (6.6) 
+
+Nasopharyngitis 
+22 (6.4) 
+20 (5.7) 
+
+Headache 
+21 (6.1) 
+14 (4.0) 
+
+Conjunctivitis 
+29 (8.4) 
+5 (1.4) 
+
+Abbreviations: AE, adverse event; CPK, creatine phosphokinase; 
+NMSC, nonmelanoma skin cancer; SAE, serious AE; TB, tuberculosis; 
+TEAE, treatment-emergent adverse event. 
+a As assessed by investigator. 
+
+b A 40-year-old woman who had bronchopneumonia associated with influenza 
+A was found deceased at home on study day 70. 
+c All opportunistic infections were eczema herpeticum. 
+
+d Keratoacanthoma, no reasonable possibility of association with study drug 
+according to the investigator. 
+e Hepatic disorders: most were elevated transaminase levels. 
+
+f Most acne events consisted primarily of inflammatory papules, pustules, and 
+comedones, involving the face. All events were nonserious. None led to 
+treatment discontinuation. 
+
+Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis 
+Original Investigation Research 
+
+jamadermatology.com 
+(Reprinted) JAMA Dermatology September 2021 Volume 157, Number 9 
+1053 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
+ARTICLE INFORMATION 
+
+Accepted for Publication: June 26, 2021. 
+
+Published Online: August 4, 2021. 
+doi:10.1001/jamadermatol.2021.3023 
+
+Correction: This article was corrected on December 
+15, 2021, to fix a percentage and include P values at 
+week 24 in the Results section and to add more 
+data to eTable 5 in Supplement 2. 
+
+Open Access: This is an open access article 
+distributed under the terms of the CC-BY-NC-ND 
+License. © 2021 Blauvelt A et al. JAMA 
+Dermatology. 
+
+Author Affiliations: Oregon Medical Research 
+Center, Portland (Blauvelt); AbbVie Inc, North 
+Chicago, Illinois (Teixeira, Hu, Wu, Liu, Ladizinski, 
+Chu); Department of Dermatology, Oregon Health 
+& Science University, Portland (Simpson); 
+Dermatology Unit, Department of Biomedical 
+Sciences, Humanitas University, Pieve Emanuele, 
+Italy (Costanzo); Humanitas Clinical and Research 
+Center, Scientific Institute for Research, 
+Hospitalization and Healthcare, Rozzano, Italy 
+(Costanzo); Department of Dermatology and 
+Allergology, University Medical Center Utrecht, 
+Utrecht, the Netherlands (De Bruin-Weller); 
+Department of Dermatology, Nantes Université, 
+Centre Hospitalier Universitaire de Nantes, Nantes, 
+France (Barbarot); Division of Dermatology, 
+Department of Medicine, University of Calgary, 
+Calgary, Alberta, Canada (Prajapati); Division of 
+Community Pediatrics, Department of Pediatrics, 
+University of Calgary, Alberta, Canada 
+(Prajapati); Division of Pediatric Rheumatology, 
+Department of Pediatrics, University of Calgary, 
+Calgary, Alberta, Canada (Prajapati); Skin Health & 
+Wellness Centre, Calgary, Alberta, Canada 
+(Prajapati); Dermatology Research Institute, 
+Calgary, Alberta, Canada (Prajapati); Probity 
+Medical Research, Calgary, Alberta, Canada 
+(Prajapati); Department of Dermatology, Feinberg 
+School of Medicine, Northwestern University, 
+Chicago, Illinois (Lio); Medical Dermatology 
+Associates of Chicago, Chicago, Illinois (Lio); 
+Karolinska Institutet and Karolinska University 
+Hospital, Stockholm, Sweden (Eyerich); 
+Department of Dermatology and Allergy, Technical 
+University of Munich, Munich, Germany (Eyerich). 
+
+Author Contributions: Drs Ladizinski and Chu had 
+full access to all of the data in the study and take 
+responsibility for the integrity of the data and the 
+accuracy of the data analysis. 
+Concept and design: Teixeira, Hu, Ladizinski, Chu. 
+Acquisition, analysis, or interpretation of data: All 
+authors. 
+Drafting of the manuscript: Teixeira, Prajapati, Hu, 
+Liu, Ladizinski, Chu. 
+Critical revision of the manuscript for important 
+intellectual content: All authors. 
+Statistical analysis: Teixeira, Hu, Wu. 
+Obtained funding: Teixeira, Chu. 
+Administrative, technical, or material support: 
+Teixeira, Simpson, Liu, Eyerich. 
+Supervision: Blauvelt, Teixeira, de Bruin-Weller, 
+Barbarot, Prajapati, Chu, Eyerich. 
+
+Conflict of Interest Disclosures: Dr Blauvelt 
+reported receiving personal fees and 
+reimbursement for performing clinical studies from 
+AbbVie and Regeneron; and personal fees from 
+Sanofi during the conduct of the study; and served 
+
+as a scientific adviser and/or clinical study 
+investigator for Abcentra, Aligos, Almirall, Amgen, 
+Arcutis, Arena, ASLAN, Athenex, Boehringer 
+Ingelheim, Bristol Myers Squibb, Dermavant, Eli 
+Lilly and Company, Evommune, Forte, Galderma, 
+Incyte, Janssen, Landos, Leo, Novartis, Pfizer, Rapt, 
+Sun Pharma, and UCB Pharma. Drs Teixeira, Hu, 
+Wu, Liu, Ladizinski, and Chu are full-time 
+employees of AbbVie Inc, and may hold AbbVie 
+stock and/or stock options. Dr Simpson reported 
+receiving grants from AbbVie, Amgen, Eli Lilly, 
+Incyte, Kyowa Hakko Kirin, Leo Pharmaceuticals, 
+Merck, Novartis, Pfizer, Regeneron, Sanofi, Tioga, 
+and Vanda; personal fees from AbbVie, Amgen, 
+Arena, BenevolentAI Bio Limited, BiomX Ltd, 
+Bluefin Biomedicine Inc, Boehringer Ingelheim, 
+Boston Consulting Group, Collective Acumen LLC 
+(CA), Coronado, Dermira, Eli Lilly, Evidera, 
+ExcerptaMedica, Forte Bio RX, Incyte, Janssen, 
+Kyowa Kirin Pharmaceutical Development, Leo 
+Pharm, Medscape LLC, Novartis, Ortho 
+Dermatologics, Pfizer, Pierre Fabre Dermo 
+Cosmetique, Regeneron, Roivant, Sanofi Genzyme, 
+SPARC India, and Valeant outside the submitted 
+work. Dr Costanzo reported receiving grants from 
+AbbVie during the conduct of the study; grants 
+from Novartis and Galderma; and personal fees 
+from Janssen, UCB, Lilly, and Sanofi outside the 
+submitted work. Dr de Bruin-Weller reported 
+receiving grants from and serving as a speaker, 
+advisory board member, and consultant for AbbVie; 
+serving as a speaker and consultant for Almirall; 
+serving as an advisory board member for Arena; 
+serving as an advisory board member for ASLAN; 
+serving as a speaker and advisory board member 
+for Galderma; serving as an advisory board member 
+for Janssen; serving as a speaker, advisory board 
+member, and consultant for Pfizer; grants from Eli 
+Lilly, Leo Pharma, Regeneron, and Sanofi Genzyme 
+outside the submitted work. Dr Barbarot reported 
+receiving grants from Novartis; and personal fees 
+from Sanofi, Leo Pharma, AbbVie, Janssen, Lilly, 
+Pfizer, UCB, and Almirall during the conduct of the 
+study. Dr Prajapati reported receiving personal fees 
+from AbbVie, Actelion, Amgen, AnaptysBio, Aralez, 
+Arcutis, Aspen, Bausch Health, Boehringer 
+Ingelheim, Bristol Myers Squibb, Celgene, Cipher, 
+Concert, Dermira, Eli Lilly, Galderma, 
+GlaxoSmithKline, Homeocan, Incyte, Janssen, Leo 
+Pharma, Medexus, Novartis, Pediapharm, Pfizer, 
+Regeneron, Sanofi Genzyme, Sun Pharma, Tribute, 
+UCB, and Valeant outside the submitted work. Dr 
+Lio reported receiving grants from AOBiome, 
+Regeneron/Sanofi Genzyme, and AbbVie; personal 
+fees from Regeneron/Sanofi Genzyme, Leo, Eli Lilly, 
+Pfizer, Galderma, L'Oreal, Almirall, ASLAN Pharma 
+Advisory board, Dermavant, Pierre Fabre, Menlo 
+Therapeutics, IntraDerm, Exeltis, AOBiome, 
+Arbonne, and Amyris; stock options from Micreos 
+and; other royalties from patented product from 
+Theraplex; in addition, Dr Lio had a patent for 
+Theraplex AIM moisturizer pending Theraplex 
+company. Dr Chu reported receiving personal fees 
+from AbbVie during the conduct of the study; and 
+personal fees from AbbVie outside the submitted 
+work. Dr Eyerich reported receiving grants and 
+personal fees from AbbVie during the conduct of 
+the study; personal fees from Almirall, BMS, Lilly, 
+Leo, Janssen, Novartis, UCB, and Sanofi; and grants 
+from Lilly, Leo, Janssen, Novartis, and UCB outside 
+the submitted work. No other disclosures were 
+reported. 
+
+Funding/Support: AbbVie funded the research for 
+these studies and provided writing support for this 
+manuscript. 
+
+Role of the Funder/Sponsor: AbbVie Inc 
+participated in the study design; study research; 
+collection, analysis, and interpretation of data; and 
+writing, reviewing, and approving this manuscript 
+for submission. 
+
+Data Sharing Statement: See Supplement 3. 
+
+Additional Information: AbbVie and the authors 
+thank all study investigators for their contributions 
+and the patients who participated in this study. 
+Priya S. Mathur, PhD, AbbVie, provided medical 
+writing support in production of this publication; 
+she was compensated as a full-time employee of 
+AbbVie Inc. 
+
+REFERENCES 
+
+1. Weidinger S, Beck LA, Bieber T, Kabashima K, 
+Irvine AD. Atopic dermatitis. Nat Rev Dis Primers. 
+2018;4(1):1. doi:10.1038/s41572-018-0001-z 
+
+2. Langan SM, Irvine AD, Weidinger S. Atopic 
+dermatitis. Lancet. 2020;396(10247):345-360. 
+doi:10.1016/S0140-6736(20)31286-1 
+
+3. Howell MD, Kuo FI, Smith PA. Targeting the 
+Janus kinase family in autoimmune skin diseases. 
+Front Immunol. 2019;10:2342. doi:10.3389/ 
+fimmu.2019.02342 
+
+4. He H, Guttman-Yassky E. JAK inhibitors for 
+atopic dermatitis: an update. Am J Clin Dermatol. 
+2019;20(2):181-192. doi:10.1007/ 
+s40257-018-0413-2 
+
+5. Simpson EL, Bieber T, Guttman-Yassky E, et al; 
+SOLO 1 and SOLO 2 Investigators. Two phase 3 trials 
+of dupilumab versus placebo in atopic dermatitis. 
+N Engl J Med. 2016;375(24):2335-2348. doi:10. 
+1056/NEJMoa1610020 
+
+6. Parmentier JM, Voss J, Graff C, et al. In vitro and 
+in vivo characterization of the JAK1 selectivity of 
+upadacitinib (ABT-494). BMC Rheumatol. 2018;2:23. 
+doi:10.1186/s41927-018-0031-x 
+
+7. Guttman-Yassky E, Thaçi D, Pangan AL, et al. 
+Upadacitinib in adults with moderate to severe 
+atopic dermatitis: 16-week results from a 
+randomized, placebo-controlled trial. J Allergy Clin 
+Immunol. 2020;145(3):877-884. doi:10.1016/ 
+j.jaci.2019.11.025 
+
+8. Guttman-Yassky E, Teixeira HD, Simpson EL, 
+et al. Once-daily upadacitinib versus placebo in 
+adolescents and adults with moderate-to-severe 
+atopic dermatitis (Measure Up 1 and Measure Up 2): 
+results from two replicate double-blind, 
+randomised controlled phase 3 trials. Lancet. 2021; 
+397(10290):2151-2168. doi:10.1016/ 
+S0140-6736(21)00588-2 
+
+9. Reich K, Teixeira HD, de Bruin-Weller M, et al. 
+Safety and efficacy of upadacitinib in combination 
+with topical corticosteroids in adolescents and 
+adults with moderate-to-severe atopic dermatitis 
+(AD Up): results from a randomised, double-blind, 
+placebo-controlled, phase 3 trial. Lancet. 2021;397 
+(10290):2169-2181. doi:10.1016/ 
+S0140-6736(21)00589-4 
+
+10. World Medical Association. World Medical 
+Association Declaration of Helsinki: ethical 
+principles for medical research involving human 
+
+Research Original Investigation 
+Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis 
+
+1054 
+JAMA Dermatology September 2021 Volume 157, Number 9 (Reprinted) 
+jamadermatology.com 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
+subjects. JAMA. 2013;310(20):2191-2194. doi:10. 
+1001/jama.2013.281053 
+
+11. Hanifin JM, Rajka G. Diagnostic features of 
+atopic dermatitis. Acta Dermatovener (Stockholm). 
+1980;60(92):44-47. 
+
+12. Silverberg JI, Lei D, Yousaf M, et al. What are the 
+best endpoints for Eczema Area and Severity Index 
+and Scoring Atopic Dermatitis in clinical practice? a 
+prospective observational study. Br J Dermatol. 
+2021;184(5):888-895. doi:10.1111/bjd.19457 
+
+13. Schmitt J, Csötönyi F, Bauer A, Meurer M. 
+Determinants of treatment goals and satisfaction of 
+patients with atopic eczema. J Dtsch Dermatol Ges. 
+2008;6(6):458-465. doi:10.1111/j.1610-0387.2007. 
+06609.x 
+
+14. Silverberg JI, Kantor RW, Dalal P, et al. A 
+comprehensive conceptual model of the 
+experience of chronic itch in adults. Am J Clin 
+Dermatol. 2018;19(5):759-769. doi:10.1007/s40257-
+018-0381-6 
+
+15. Augustin M, Langenbruch A, Blome C, et al. 
+Characterizing treatment-related patient needs in 
+atopic eczema: insights for personalized goal 
+orientation. J Eur Acad Dermatol Venereol. 2020;34 
+(1):142-152. doi:10.1111/jdv.15919 
+
+16. Leung DY, Guttman-Yassky E. Deciphering the 
+complexities of atopic dermatitis: shifting 
+paradigms in treatment approaches. J Allergy Clin 
+Immunol. 2014;134(4):769-779. doi:10.1016/j.jaci. 
+2014.08.008 
+
+17. Silverberg JI, Simpson EL, Thyssen JP, et al. 
+Efficacy and safety of abrocitinib in patients with 
+moderate-to-severe atopic dermatitis: 
+a randomized clinical trial. JAMA Dermatol. 
+2020;156(8):863-873. doi:10.1001/ 
+jamadermatol.2020.1406 
+
+18. Simpson EL, Sinclair R, Forman S, et al. Efficacy 
+and safety of abrocitinib in adults and adolescents 
+with moderate-to-severe atopic dermatitis (JADE 
+
+MONO-1): a multicentre, double-blind, randomised, 
+placebo-controlled, phase 3 trial. Lancet. 2020;396 
+(10246):255-266. doi:10.1016/ 
+S0140-6736(20)30732-7 
+
+19. Simpson EL, Lacour JP, Spelman L, et al. 
+Baricitinib in patients with moderate-to-severe 
+atopic dermatitis and inadequate response to 
+topical corticosteroids: results from two 
+randomized monotherapy phase III trials. Br J 
+Dermatol. 2020;183(2):242-255. doi:10.1111/ 
+bjd.18898 
+
+20. Eichenfield LF, Tom WL, Berger TG, et al. 
+Guidelines of care for the management of atopic 
+dermatitis, section 2: management and treatment 
+of atopic dermatitis with topical therapies. J Am 
+Acad Dermatol. 2014;71(1):116-132. doi:10.1016/j. 
+jaad.2014.03.023 
+
+Upadacitinib vs Dupilumab in Adults With Moderate-to-Severe Atopic Dermatitis 
+Original Investigation Research 
+
+jamadermatology.com 
+(Reprinted) JAMA Dermatology September 2021 Volume 157, Number 9 
+1055 
+
+Downloaded From: https://jamanetwork.com/ on 06/20/2022 
+
+
