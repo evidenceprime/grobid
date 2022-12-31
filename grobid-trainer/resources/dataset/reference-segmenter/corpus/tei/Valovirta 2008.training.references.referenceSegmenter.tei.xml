@@ -1,0 +1,28 @@
+<tei xml:space="preserve">
+    <teiHeader>
+        <fileDesc xml:id="_0"/>
+    </teiHeader>
+    <text xml:lang="en">
+        <listBibl>
+
+        References and recommended reading<lb/> Papers of particular interest, published within the annual period of review, have<lb/> been highlighted as:<lb/> of special interest<lb/> of outstanding interest<lb/> Additional references related to this topic can also be found in the Current<lb/> World Literature section in this issue (p. 89).<lb/>
+        <bibl><label>1</label> Dahl R, Andersen PS, Chivato T, et al. National prevalence of respiratory<lb/> allergic disorders. Respir Med 2004; 98:398-403.<lb/> </bibl>
+        <bibl><label>2</label> The International Study of Asthma and Allergies in Childhood (ISAAC)<lb/> Steering Committee. Worldwide variation in prevalence of symptoms of asthma,<lb/> allergic rhinoconjunctivitis, and atopic eczema: ISAAC. Lancet 1998; 351:<lb/> 1225-1232.<lb/> </bibl>
+        <bibl><label>3</label> Skoner DP. Allergic rhinitis: definition, epidemiology, pathophysiology,<lb/> detection, and diagnosis. J Allergy Clin Immunol 2001; 108 (1 suppl):<lb/> S2-S8.<lb/> </bibl>
+        <bibl><label>4</label> Eichenfield LF, Hanifin JM, Beck LA, et al. Atopic dermatitis and asthma:<lb/> parallels in the evolution of treatment. Pediatrics 2003; 111:608-616.<lb/> </bibl>
+        <bibl><label>5</label> Meltzer EO. Quality of life in adults and children with allergic rhinitis. J Allergy<lb/> Clin Immunol 2001; 108:S45-S53.<lb/> </bibl>
+        <bibl><label>6</label> Bousquet J, Van Cauwenberge P, Khaltaev N, Aria Workshop Group; World<lb/> Health Organisation. Allergic rhinitis and its impact on asthma. J Allergy Clin<lb/> Immunol 2001; 108 (5 suppl):S147-S334.<lb/> </bibl>
+        <bibl><label>7</label><lb/> Thomas M. Allergic rhinitis: evidence for impact on asthma. BMC Pulmonary<lb/> Medicine 2006; suppl 1:S4.<lb/> </bibl>This paper suggests that comorbid allergic rhinitis is a marker for treatment-<lb/>resistant asthma and worsened asthma outcomes.<lb/> 
+        <bibl><label>8</label> Settipane RA. Complications of allergic rhinitis. Allergy Asthma Proc 1999;<lb/> 20:209-213.<lb/> </bibl>
+        <bibl><label>9</label> Storms W, Meltzer E, Nathan R, Selner J. Allergic rhinitis: the patient&apos;s<lb/> perspective. J Allergy Clin Immunol 1997; 99:S825-S828.<lb/> </bibl>
+        <bibl><label>10</label> Hongbo Y, Thomas CL, Harrison MA, et al. Translating the science of quality of<lb/> life into practice: what do dermatology life quality index scores mean? J Invest<lb/> Dermatol 2005; 125:659-664.<lb/> </bibl>
+        <bibl><label>11</label> Testa MA. Interpretation of quality-of-life outcomes: issues that affect<lb/> magnitude and meaning. Med Care 2000; 38 (9 Suppl):II166-<lb/>II174.<lb/> </bibl>
+        <bibl><label>12</label> Topp R, Thefeld W, Wichmann HE, Heinrich J. The effect of environmental<lb/> tobacco smoke exposure on allergic sensitization and allergic rhinitis in adults.<lb/> Indoor Air 2005; 15:222-227.<lb/> </bibl>
+        <bibl><label>13</label> Bauchau V, Durham SR. Epidemiological characterization of the inter-<lb/>mittent and persistent types of allergic rhinitis. Allergy 2005; 60:350-<lb/>353.<lb/> </bibl>
+        <bibl><label>14</label> Sheikh A, Hurwitz B. House dust mite avoidance measures for perennial<lb/> allergic rhinitis: a systematic review of efficacy. Br J Gen Pract 2003; 53:<lb/> 318-322.<lb/> </bibl>
+        <bibl><label>15</label> Terreehorst I, Hak E, Oosting AJ, et al. Evaluation of impermeable covers for<lb/> bedding in patients with allergic rhinitis. N Engl J Med 2003; 17;349:237-246.<lb/> </bibl>
+        <bibl><label>16</label><lb/> Van Cauvenberge P, Watelet J-B, Van Zele T. Does rhinitis lead to asthma.<lb/> Rhinology 2007; 45:112-121.<lb/> </bibl>
+This important review provides evidence that rhinitis and asthma are intimately<lb/> linked but some major gaps remain in our knowledge.
+        </listBibl>
+    </text>
+</tei>
