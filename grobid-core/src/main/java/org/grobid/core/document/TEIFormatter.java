@@ -1374,7 +1374,6 @@ public class TEIFormatter {
                 }
 
                 if (notesSamePage == null) {
-                    String clusterContent = LayoutTokensUtil.normalizeDehyphenizeText(clusterTokens);
                     if (isNewParagraph(lastClusterLabel, curParagraph)) {
                         if (curParagraph != null && config.isWithSentenceSegmentation()) {
                             segmentIntoSentences(curParagraph, curParagraphTokens, config, doc.getLanguage());
@@ -1389,7 +1388,6 @@ public class TEIFormatter {
                         curDiv.appendChild(curParagraph);
                         curParagraphTokens = new ArrayList<>();
                     }
-                    curParagraph.appendChild(clusterContent);
                     appendClusterTokens(curParagraph, clusterTokens, config);
                     curParagraphTokens.addAll(clusterTokens);
                 } else {
@@ -1453,13 +1451,12 @@ public class TEIFormatter {
                         OffsetPosition matchingPosition = matching.getRight();
 
                         List<LayoutToken> before = clusterTokens.subList(pos, matchingPosition.start);
-                        String clusterContentBefore = LayoutTokensUtil.normalizeDehyphenizeText(before);
 
                         if (CollectionUtils.isNotEmpty(before) && before.get(0).getText().equals(" ")) {
                             curParagraph.appendChild(new Text(" "));
                         }
 
-                        curParagraph.appendChild(clusterContentBefore);
+                        appendClusterTokens(curParagraph, before, config);
                         curParagraphTokens.addAll(before);
 
                         List<LayoutToken> calloutTokens = clusterTokens.subList(matchingPosition.start, matchingPosition.end);
@@ -1483,14 +1480,12 @@ public class TEIFormatter {
 
                     // add last chunk of paragraph stuff (or whole paragraph if no note callout matching)
                     List<LayoutToken> remaining = clusterTokens.subList(pos, clusterTokens.size());
-                    String remainingClusterContent = LayoutTokensUtil.normalizeDehyphenizeText(remaining);
 
                     if (CollectionUtils.isNotEmpty(remaining) && remaining.get(0).getText().equals(" ")) {
                         curParagraph.appendChild(new Text(" "));
                     }
 
-                    curParagraph.appendChild(remainingClusterContent);
-                    appendClusterTokens(curParagraph, clusterTokens, config);
+                    appendClusterTokens(curParagraph, remaining, config);
                     curParagraphTokens.addAll(remaining);
                 }
             } else if (MARKER_LABELS.contains(clusterLabel)) {
