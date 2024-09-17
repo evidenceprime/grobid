@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<TEI xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" 
+ xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc xml:id="0"/>
+	</teiHeader>
+	<text>
+		<front/>
+		<body/>
+		<back>
+<listBibl>
+	<bibl><author>Dahl R, Andersen PS, Chivato T, et al.</author> <title level="a">National prevalence of respiratory allergic disorders</title>. <title level="j">Respir Med</title> <date>2004</date>; <biblScope unit="volume">98</biblScope>:<biblScope unit="page">398-403</biblScope>.</bibl>
+	<bibl><orgName>The International Study of Asthma and Allergies in Childhood (ISAAC) Steering Committee</orgName>. <title level="a">Worldwide variation in prevalence of symptoms of asthma, allergic rhinoconjunctivitis, and atopic eczema: ISAAC</title>. <title level="j">Lancet</title> <date>1998</date>; <biblScope unit="volume">351</biblScope>: <biblScope unit="page">1225-1232</biblScope>.</bibl>
+	<bibl><author>Skoner DP</author>. <title level="a">Allergic rhinitis: definition, epidemiology, pathophysiology, detection, and diagnosis</title>. <title level="j">J Allergy Clin Immunol</title> <date>2001</date>; <biblScope unit="volume">108</biblScope> (<biblScope unit="issue">1</biblScope> <note>suppl</note>): <biblScope unit="page">S2-S8</biblScope>.</bibl>
+	<bibl><author>Eichenfield LF, Hanifin JM, Beck LA, et al.</author> <title level="a">Atopic dermatitis and asthma: parallels in the evolution of treatment</title>. <title level="j">Pediatrics</title> <date>2003</date>; <biblScope unit="volume">111</biblScope>:<biblScope unit="page">608-616</biblScope>.</bibl>
+	<bibl><author>Meltzer EO</author>. <title level="a">Quality of life in adults and children with allergic rhinitis</title>. <title level="j">J Allergy Clin Immunol</title> <date>2001</date>; <biblScope unit="volume">108</biblScope>:<biblScope unit="page">S45-S53</biblScope>.</bibl>
+	<bibl><author>Bousquet J, Van Cauwenberge P, Khaltaev N, Aria Workshop Group; World Health Organisation</author>. <title level="a">Allergic rhinitis and its impact on asthma</title>. <title level="j">J Allergy Clin Immunol</title> <date>2001</date>; <biblScope unit="volume">108</biblScope> (<biblScope unit="issue">5</biblScope> <note>suppl</note>):<biblScope unit="page">S147-S334</biblScope>.</bibl>
+	<bibl><author>Thomas M.</author> <title level="a">Allergic rhinitis: evidence for impact on asthma</title>. <title level="j">BMC Pulmonary Medicine</title> <date>2006</date>; <note>suppl</note> <biblScope unit="volume">1</biblScope>:<biblScope unit="page">S4</biblScope>.</bibl>
+	<bibl><author>Settipane RA</author>. <title level="a">Complications of allergic rhinitis</title>. <title level="j">Allergy Asthma Proc</title> <date>1999</date>; <biblScope unit="volume">20</biblScope>:<biblScope unit="page">209-213</biblScope>.</bibl>
+	<bibl><author>Storms W, Meltzer E, Nathan R, Selner J</author>. <title level="a">Allergic rhinitis: the patient&apos;s perspective</title>. <title level="j">J Allergy Clin Immunol</title> <date>1997</date>; <biblScope unit="volume">99</biblScope>:<biblScope unit="page">S825-S828</biblScope>.</bibl>
+	<bibl><author>Hongbo Y, Thomas CL, Harrison MA, et al.</author> <title level="a">Translating the science of quality of life into practice: what do dermatology life quality index scores mean?</title> <title level="j">J Invest Dermatol</title> <date>2005</date>; <biblScope unit="volume">125</biblScope>:<biblScope unit="page">659-664</biblScope>.</bibl>
+	<bibl><author>Testa MA.</author> <title level="a">Interpretation of quality-of-life outcomes: issues that affect magnitude and meaning</title>. <title level="j">Med Care</title> <date>2000</date>; <biblScope unit="volume">38</biblScope> (<biblScope unit="issue">9</biblScope> <note>Suppl</note>):<biblScope unit="page">II166-II174</biblScope>.</bibl>
+	<bibl><author>Topp R, Thefeld W, Wichmann HE, Heinrich J</author>. <title level="a">The effect of environmental tobacco smoke exposure on allergic sensitization and allergic rhinitis in adults</title>. <title level="j">Indoor Air</title> <date>2005</date>; <biblScope unit="volume">15</biblScope>:<biblScope unit="page">222-227</biblScope>.</bibl>
+	<bibl><author>Bauchau V, Durham SR</author>. <title level="a">Epidemiological characterization of the inter-mittent and persistent types of allergic rhinitis</title>. <title level="j">Allergy</title> <date>2005</date>; <biblScope unit="volume">60</biblScope>:<biblScope unit="page">350-353</biblScope>.</bibl>
+	<bibl><author>Sheikh A, Hurwitz B</author>. <title level="a">House dust mite avoidance measures for perennial allergic rhinitis: a systematic review of efficacy</title>. <title level="j">Br J Gen Pract</title> <date>2003</date>; <biblScope unit="volume">53</biblScope>: <biblScope unit="page">318-322</biblScope>.</bibl>
+	<bibl><author>Terreehorst I, Hak E, Oosting AJ, et al.</author> <title level="a">Evaluation of impermeable covers for bedding in patients with allergic rhinitis</title>. <title level="j">N Engl J Med</title> <date>2003</date>; <biblScope unit="volume">17</biblScope>;<biblScope unit="volume">349</biblScope>:<biblScope unit="page">237-246</biblScope>.</bibl>
+	<bibl><author>Van Cauvenberge P, Watelet J-B, Van Zele T</author>. <title level="a">Does rhinitis lead to asthma</title>. <title level="j">Rhinology</title> <date>2007</date>; <biblScope unit="volume">45</biblScope>:<biblScope unit="page">112-121</biblScope>.</bibl>
+
+		</listBibl>
+	</back>
+	</text>
+</TEI>

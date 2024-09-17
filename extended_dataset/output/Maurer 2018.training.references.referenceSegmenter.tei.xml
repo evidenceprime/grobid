@@ -1,0 +1,47 @@
+<tei xml:space="preserve">
+    <teiHeader>
+        <fileDesc xml:id="_0"/>
+    </teiHeader>
+    <text xml:lang="en">
+        <listBibl>
+
+        References<lb/> 
+        <bibl><label>1</label>. Rapezzi C, Quarta CC, Riva L, et al.<lb/> Transthyretin-related amyloidoses and the<lb/> heart: a clinical overview. Nat Rev Cardiol<lb/> 2010; 7: 398-408.<lb/> </bibl>
+        <bibl><label>2</label>. Ruberg FL, Berk JL. Transthyretin<lb/> (TTR) cardiac amyloidosis. Circulation<lb/> 2012; 126: 1286-300.<lb/> </bibl>
+        <bibl><label>3</label>. Maurer MS, Hanna M, Grogan M, et<lb/> al. Genotype and phenotype of trans-<lb/>thyretin cardiac amyloidosis: THAOS<lb/> (Transthyretin Amyloid Outcome Survey).<lb/> </bibl>
+<bibl>J Am Coll Cardiol 2016; 68: 161-72.<lb/> </bibl>
+        <bibl><label>4</label>. Gillmore JD, Maurer MS, Falk RH, et al.<lb/> Nonbiopsy diagnosis of cardiac transthyre-<lb/>tin amyloidosis. Circulation 2016; 133:<lb/> 2404-12.<lb/> </bibl>
+        <bibl><label>5</label>. Castano A, Haq M, Narotsky DL, et al.<lb/> Multicenter study of planar technetium<lb/> 99m pyrophosphate cardiac imaging: pre-<lb/>dicting survival for patients with ATTR<lb/> cardiac amyloidosis. JAMA Cardiol 2016;<lb/> 1: 880-9.<lb/> </bibl>
+        <bibl><label>6</label>. González-López E, Gallego-Delgado<lb/> M, Guzzo-Merello G, et al. Wild-type<lb/> transthyretin amyloidosis as a cause of<lb/> heart failure with preserved ejection frac-<lb/>tion. Eur Heart J 2015; 36: 2585-94.<lb/> </bibl>
+        <bibl><label>7</label>. Castaño A, Narotsky DL, Hamid N, et<lb/> al. Unveiling transthyretin cardiac amy-<lb/>loidosis and its predictors among elderly<lb/> patients with severe aortic stenosis under-<lb/>going transcatheter aortic valve replace-<lb/>ment. Eur Heart J 2017; 38: 2879-87.<lb/> </bibl>
+        <bibl><label>8</label>. Damy T, Costes B, Hagège AA, et al.<lb/> Prevalence and clinical phenotype of he-<lb/>reditary transthyretin amyloid cardiomy-<lb/>opathy in patients with increased left ven-<lb/>tricular wall thickness. Eur Heart J 2016;<lb/> 37: 1826-34.<lb/> </bibl>
+        <bibl><label>9</label>. Grogan M, Scott CG, Kyle RA, et al.<lb/> Natural history of wild-type transthyre-<lb/>tin cardiac amyloidosis and risk stratifi-<lb/>Tafamidis for Tr ansthyretin Amyloid Cardiomyopathy<lb/> cation using a novel staging system. J Am<lb/> Coll Cardiol 2016; 68: 1014-20.<lb/> </bibl>
+        <bibl><label>10</label>. Gillmore JD, Damy T, Fontana M, et<lb/> al. A new staging system for cardiac trans-<lb/>thyretin amyloidosis. Eur Heart J 2017 Oc-<lb/>tober 18 (Epub ahead of print).<lb/> </bibl>
+        <bibl><label>11</label>. Blake CC, Geisow MJ, Oatley SJ, Rérat<lb/> B, Rérat C. Structure of prealbumin: sec-<lb/>ondary, tertiary and quaternary interac-<lb/>tions determined by Fourier refinement at<lb/> 1.</bibl>
+        <bibl><label>8</label> A. J Mol Biol 1978; 121: 339-56.<lb/> </bibl>
+        <bibl><label>12</label>. Monaco HL, Rizzi M, Coda A. Struc-<lb/>ture of a complex of two plasma proteins:<lb/> transthyretin and retinol-binding protein.<lb/> Science 1995; 268: 1039-41.<lb/> </bibl>
+        <bibl><label>13</label>. Colon W, Kelly JW. Partial denatur-<lb/>ation of transthyretin is sufficient for<lb/> amyloid fibril formation in vitro. Bio-<lb/>chemistry 1992; 31: 8654-60.<lb/> </bibl>
+        <bibl><label>14</label>. Castaño A, Drachman BM, Judge D,<lb/> Maurer MS. Natural history and therapy<lb/> of TTR-cardiac amyloidosis: emerging<lb/> disease-modifying therapies from organ<lb/> transplantation to stabilizer and silencer<lb/> drugs. Heart Fail Rev 2015; 20: 163-78.<lb/> </bibl>
+        <bibl><label>15</label>. Hammarström P, Schneider F, Kelly<lb/> JW. Trans-suppression of misfolding in<lb/> an amyloid disease. Science 2001; 293:<lb/> 2459-62.<lb/> </bibl>
+        <bibl><label>16</label>. Coelho T, Merlini G, Bulawa CE, et al.<lb/> Mechanism of action and clinical applica-<lb/>tion of tafamidis in hereditary transthyre-<lb/>tin amyloidosis. Neurol Ther 2016; 5: 1-25.<lb/> </bibl>
+        <bibl><label>17</label>. Maurer MS, Grogan DR, Judge DP, et<lb/> al. Tafamidis in transthyretin amyloid<lb/> cardiomyopathy: effects on transthyretin<lb/> stabilization and clinical outcomes. Circ<lb/> Heart Fail 2015; 8: 519-26.<lb/> </bibl>
+        <bibl><label>18</label>. Rosenblum H, Castano A, Alvarez J,<lb/> Goldsmith J, Helmke S, Maurer MS. TTR<lb/> (transthyretin) stabilizers are associated<lb/> with improved survival in patients with<lb/> TTR cardiac amyloidosis. Circ Heart Fail<lb/> 2018; 11(4): e004769.<lb/> </bibl>
+        <bibl><label>19</label>. Maurer MS, Elliott P, Merlini G, et al.<lb/> Design and rationale of the phase 3<lb/> ATTR-ACT clinical trial (Tafamidis in<lb/> Transthyretin Cardiomyopathy Clinical<lb/> Trial). Circ Heart Fail 2017; 10(6): e003815.<lb/> </bibl>
+        <bibl><label>20</label>. ATS Committee on Proficiency Stan-<lb/>dards for Clinical Pulmonary Function<lb/> Laboratories. ATS statement: guidelines<lb/> for the six-minute walk test. Am J Respir<lb/> Crit Care Med 2002; 166: 111-7.<lb/> </bibl>
+        <bibl><label>21</label>. Green CP, Porter CB, Bresnahan DR,<lb/> Spertus JA. Development and evaluation<lb/> of the Kansas City Cardiomyopathy Ques-<lb/>tionnaire: a new health status measure<lb/> for heart failure. J Am Coll Cardiol 2000;<lb/> 35: 1245-55.<lb/> </bibl>
+        <bibl><label>22</label>. Finkelstein DM, Schoenfeld DA. Com-<lb/>bining mortality and longitudinal mea-<lb/>sures in clinical trials. Stat Med 1999; 18:<lb/> 1341-54.<lb/> </bibl>
+        <bibl><label>23</label>. Wolfinger RD. An example of using<lb/> mixed models and PROC MIXED for lon-<lb/>gitudinal data. J Biopharm Stat 1997; 7:<lb/> 481-500.<lb/> </bibl>
+        <bibl><label>24</label>. Pocock SJ, Ariti CA, Collier TJ, Wang<lb/> D. The win ratio: a new approach to the<lb/> analysis of composite endpoints in clini-<lb/>cal trials based on clinical priorities. Eur<lb/> Heart J 2012; 33: 176-82.<lb/> </bibl>
+        <bibl><label>25</label>. Coelho T, Maia LF, Martins da Silva A,<lb/> et al. Tafamidis for transthyretin familial<lb/> amyloid polyneuropathy: a randomized,<lb/> controlled trial. Neurology 2012; 79: 785-<lb/>92.<lb/> </bibl>
+        <bibl><label>26</label>. Groenning BA, Nilsson JC, Sonder-<lb/>gaard L, Fritz-Hansen T, Larsson HB, Hil-<lb/>debrandt PR. Antiremodeling effects on<lb/> the left ventricle during beta-blockade<lb/> with metoprolol in the treatment of<lb/> chronic heart failure. J Am Coll Cardiol<lb/> 2000; 36: 2072-80.<lb/> </bibl>
+        <bibl><label>27</label>. Solomon SD, Foster E, Bourgoun M,<lb/> et al. Effect of cardiac resynchronization<lb/> therapy on reverse remodeling and rela-<lb/>tion to outcome: Multicenter Automatic<lb/> Defibrillator Implantation Trial: cardiac<lb/> resynchronization therapy. Circulation<lb/> 2010; 122: 985-92.<lb/> </bibl>
+        <bibl><label>28</label>. Konstam MA, Rousseau MF, Kronen-<lb/>berg MW, et al. Effects of the angiotensin<lb/> converting enzyme inhibitor enalapril on<lb/> the long-term progression of left ventric-<lb/>ular dysfunction in patients with heart<lb/> failure. Circulation 1992; 86: 431-8.<lb/> </bibl>
+        <bibl><label>29</label>. Sultan MB, Gundapaneni B, Schu-<lb/>macher J, Schwartz JH. Treatment with<lb/> tafamidis slows disease progression in<lb/> early-stage transthyretin cardiomyopathy.<lb/> Clin Med Insights Cardiol 2017; 11:<lb/> 1179546817730322.<lb/> </bibl>
+        <bibl><label>30</label>. Keohane D, Schwartz J, Gundapaneni<lb/> B, Stewart M, Amass L. Tafamidis delays<lb/> disease progression in patients with early<lb/> stage transthyretin familial amyloid poly-<lb/>neuropathy: additional supportive analy-<lb/>ses from the pivotal trial. Amyloid 2017;<lb/> 24: 30-6.<lb/> </bibl>
+        <bibl><label>31</label>. Bokhari S, Castaño A, Pozniakoff T,<lb/> Deslisle S, Latif F, Maurer MS. (99m)Tc-<lb/>pyrophosphate scintigraphy for differen-<lb/>tiating light-chain cardiac amyloidosis<lb/> from the transthyretin-related familial<lb/> and senile cardiac amyloidoses. Circ Car-<lb/>diovasc Imaging 2013; 6: 195-201.<lb/> </bibl>
+        <bibl><label>32</label>. Haq M, Pawar S, Berk JL, Miller EJ,<lb/> Ruberg FL. Can 99m Tc-pyrophosphate aid<lb/> in early detection of cardiac involvement<lb/> in asymptomatic variant TTR amyloido-<lb/>sis? JACC Cardiovasc Imaging 2017; 10:<lb/> 713-4.<lb/> </bibl>
+        <bibl><label>33</label>. Glaudemans AW, van Rheenen RW,<lb/> van den Berg MP, et al. Bone scintigraphy<lb/> with (99m)technetium-hydroxymethylene<lb/> diphosphonate allows early diagnosis of<lb/> cardiac involvement in patients with<lb/> transthyretin-derived systemic amyloido-<lb/>sis. Amyloid 2014; 21: 35-44.<lb/> </bibl>
+        <bibl><label>34</label>. Galat A, Rosso J, Guellich A, et al.<lb/> Usefulness of (99m)Tc-HMDP scintigra-<lb/>phy for the etiologic diagnosis and prog-<lb/>nosis of cardiac amyloidosis. Amyloid<lb/> 2015; 22: 210-20.</bibl>
+        </listBibl>
+    </text>
+</tei>
