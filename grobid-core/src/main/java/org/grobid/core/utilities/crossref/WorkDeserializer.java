@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 
 /**
  * Convert a JSON Work model - from a glutton or crossref response - to a BiblioItem 
- * (understandable by this stupid GROBID
+ * (understandable by this stupid GROBID)
  *
  */
 public class WorkDeserializer extends CrossrefDeserializer<BiblioItem> {
@@ -26,7 +26,17 @@ public class WorkDeserializer extends CrossrefDeserializer<BiblioItem> {
 			biblio = new BiblioItem();
 			//System.out.println(item.toString());			
 			
-			biblio.setDOI(item.get("DOI").asText());
+			JsonNode doiNode = item.get("DOI");
+            if (doiNode != null && (!doiNode.isMissingNode()) ) {
+                String doi = doiNode.asText();
+                biblio.setDOI(doi);
+            }
+
+            JsonNode halNode = item.get("halId");
+            if (halNode != null && (!halNode.isMissingNode()) ) {
+                String halId = halNode.asText();
+                biblio.setHalId(halId);
+            }
 
 			// the following are usually provided by biblio-glutton which index augmented/aggregated 
 			// metadata 
@@ -169,6 +179,9 @@ public class WorkDeserializer extends CrossrefDeserializer<BiblioItem> {
 			}
 			if (publishPrintNode == null || publishPrintNode.isMissingNode()) {
 				publishPrintNode = item.get("published-print");
+			}
+			if (publishPrintNode == null || publishPrintNode.isMissingNode()) {
+				publishPrintNode = item.get("published");
 			}
 			if (publishPrintNode != null && (!publishPrintNode.isMissingNode())) {
 				JsonNode datePartNode = publishPrintNode.get("date-parts");

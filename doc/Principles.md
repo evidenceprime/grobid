@@ -2,17 +2,17 @@
 
 GROBID is a machine learning library for extracting, parsing, and re-structuring raw documents, in particular PDF, into structured XML/TEI encoded documents and focusing on technical and scientific publications. The goal of GROBID is to facilitate text mining, information extraction, and semantic analysis of scientific publications by transforming them into machine-friendly, structured, and predictable representations. 
 
-In large scale scientific document ingestion tasks, the large majority of documents are only available in PDF (in particular decades of backfiles before the year 2000). Scholar articles are today more frequently available as XML, but often require particular agreements and long negotiations with publishers. PDF remains today the most important format usable under fair-use or under the recent copyrights exception for text mining in the EU. When publisher XML are available, they remain challenging to process because they are encoded in a variety of different native publisher XML formats, often incomplete and inconsistent from one to another, difficult to use at scale.
+In large scale scientific document ingestion tasks, the large majority of documents are only available in PDF (in particular decades of backfiles before the year 2000). Scholar articles are today more frequently available as XML as before, but often require particular agreements and long negotiations with publishers. PDF remains today the most important format usable under fair-use or under the recent copyrights exception for text mining in the EU. When publisher XML are available, they remain challenging to process because they are encoded in a variety of different native publisher XML formats, often incomplete and inconsistent from one to another, difficult to use at scale.
 
 ![Ingesting scientific documents with GROBID](img/ingestion.png)
 
 <p align = "center">
-<b>Fig. 1</b> - Ingesting scientific documents with GROBID
+<b>Fig. 1</b> - Ingesting scientific documents with GROBID, Pub2TEI and LaTeXML
 </p>
 
-To process publisher XML, complementary to GROBID, we built [Pub2TEI](https://github.com/kermitt2/Pub2TEI), a collection of style sheets developed over 11 years able to transform a variety of publisher XML format to the same TEI XML format as produced by GROBID. This common format, which supersedes a dozen of publisher formats and many of their flavors, can centralize further any processing across PDF and heterogeneous XML sources, and support various applications (see __Fig. 1__). 
+To process publisher XML, complementary to GROBID, we built [Pub2TEI](https://github.com/kermitt2/Pub2TEI), a collection of style sheets developed over 11 years able to transform a variety of publisher XML formats to the same TEI XML format as produced by GROBID. This common format, which supersedes a dozen of publisher formats and many of their flavors, can centralize further any processing across PDF and heterogeneous XML sources without information loss, and support various applications (see __Fig. 1__). Similarly, LaTeX sources (typically all available arXiv sources) can be processed with our fork of [LaTeXML](https://github.com/kermitt2/LaTeXML) to produce a TEI representation compatible with GROBID and Pub2TEI output, without information loss from LaTeXML XML.
 
-The rest of this page gives an overview of the main GROBID design principles. Skip it if you are not interested in the technical details. Functionalities are described in the [User Manual](https://grobid.readthedocs.io/en/latest/). Recent benchmarking are available [here](https://grobid.readthedocs.io/en/latest/Benchmarking/).
+The rest of this page gives an overview of the main GROBID design principles. Skip it if you are not interested in the technical details. Functionalities are described in the [User Manual](index.md). Recent benchmarking are available [here](Benchmarking.md).
 
 ## Document parsing as a cascade of sequence labeling models
 
@@ -79,13 +79,13 @@ GROBID does not use a vast amount of training data derived from existing publish
 
 - A lower amount of training data can keep models smaller (e.g. with CRF), faster to train and thus easier for setting hyperparameters.
 
-In practice, the size of GROBID training data is smaller than the ones of CERMINE _(Tkaczyk et al., 2015)_ by a factor 30 to 100, and smaller than ScienceParse 2 by a factor 2500 to 10000. Still GROBID provides comparable or better accuracy scores. To help to ensure high-quality training data, we develop detailed [annotation guidelines](training/General-principles/) to remove as much as possible disagreements/inconsistencies regarding the annotation decision. The training data is reviewed regularly. We do not use double-blind annotation with reconciliation and do not compute Inter Annotator Agreement (as we should), because the average size of the annotation team is under 2 :)
+In practice, the size of GROBID training data is smaller than the ones of CERMINE _(Tkaczyk et al., 2015)_ by a factor 30 to 100, and smaller than ScienceParse 2 by a factor 2500 to 10000. Still GROBID provides comparable or better accuracy scores. To help to ensure high-quality training data, we develop detailed [annotation guidelines](training/General-principles.md) to remove as much as possible disagreements/inconsistencies regarding the annotation decision. The training data is reviewed regularly. We do not use double-blind annotation with reconciliation and do not compute Inter Annotator Agreement (as we should), because the average size of the annotation team is under 2 :)
 
 ## Evaluation
 
 As the training data is crafted for accuracy and coverage, training data is strongly biased by undersampling non-edge cases. Or to rephrase it maybe more clearly: the less "informative" training examples, which are the most common ones, are less represented in our training data. Because of this bias, our manually labeled data cannot be used for evaluation. Evaluations of GROBID models are thus done with separated and stable holdout sets from publishers, which follow more realistic distributions of document variations. 
 
-See the current evaluations with [PubMed Central holdout set](https://grobid.readthedocs.io/en/latest/Benchmarking-pmc/) (1,943 documents, 90,125 bibliographical references in 139,835 citation contexts) and [bioarXiv holdout set](https://grobid.readthedocs.io/en/latest/Benchmarking-biorxiv/) (2,000 documents, 98,753 bibliographical references in 142,796 citation contexts). 
+See the current evaluations with [PubMed Central holdout set](Benchmarking-pmc.md) (1,943 documents, 90,125 bibliographical references in 139,835 citation contexts), [bioarXiv holdout set](Benchmarking-biorxiv.md) (2,000 documents, 98,753 bibliographical references in 142,796 citation contexts), [eLife holdout set](Benchmarking-elife.md) (984 documents, 63,664 bibliographical references in 109,022 reference contexts) and [PLOS holdout set](Benchmarking-plos.md) (1,000 documents, 48,449 bibliographical references in 69,755 reference contexts). 
 
 Our evaluation approach, however, raises two main issues: 
 
@@ -105,7 +105,7 @@ However, these approaches are very promising. In GROBID, it is possible to run B
 
 We develop a tool to process the full scholar literature corpus (several ten million PDF documents), but also to allow interactive usage, e.g. processing the header of a PDF article in sub-second. It's why the default configuration of GROBID is still set to CRF to maintain the ability to process PDF quickly, with commodity hardware, with low memory usage to ensure good parallelization and scalability capacities.
 
-However, if the priority is accuracy, we also make possible custom settings to maximize the accuracy with deep learning models. Using some deep learning models will improve results by a few additional F1-score points (nothing extraordinary to be honest), but at the price of a slower runtime (2 to 5 times slower), the price of a GPU and more limited parallelization. 
+However, if the priority is accuracy, we also make possible custom settings to maximize the accuracy with deep learning models. Using some deep learning models will improve results by a few additional F1-score points (significant for bibliographical extraction and parsing for instance), but at the price of a possible slower runtime (but limited if a GPU is available), the price of a GPU and more limited parallelization. 
 
 ## References
 
