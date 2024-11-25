@@ -30,19 +30,13 @@ jobs:
           cache: 'gradle'
       - name: Build with Gradle
         run: ./gradlew clean assemble --info --stacktrace --no-daemon
-      - name: Test with Gradle Jacoco and Coveralls
-        run: ./gradlew test jacocoTestReport coveralls --no-daemon
+      - name: Test with Gradle Jacoco
+        run: ./gradlew test jacocoTestReport --no-daemon
       - name: Publish Test Report
         uses: mikepenz/action-junit-report@v4
         if: ${{ !cancelled() }}
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          format: jacoco
-          file: build/reports/jacoco/codeCoverageReport/codeCoverageReport.xml
   docker-build-crf:
     needs:
       - build
@@ -57,6 +51,7 @@ jobs:
           username: ${{ secrets.DOCKER_PUBLIC_LOGIN }}
           password: ${{ secrets.DOCKER_PUBLIC_PASSWORD }}
       - name: Build and push image to registry
+        id: docker_build
         uses: docker/build-push-action@v6
         with:
           context: '.'
