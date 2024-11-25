@@ -44,7 +44,7 @@ jobs:
         with:
           context: '.'
           file: Dockerfile.crf
-          tags: docker.evidenceprime.com/grobid-nonroot-dexter:${{ github.event.inputs.custom_tag }}
+          tags: docker.evidenceprime.com/grobid:${{ github.event.inputs.custom_tag }}
           push: true
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
