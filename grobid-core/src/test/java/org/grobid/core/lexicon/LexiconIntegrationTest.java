@@ -1,13 +1,16 @@
 package org.grobid.core.lexicon;
 
+import org.apache.commons.lang3.StringUtils;
 import org.grobid.core.analyzers.GrobidAnalyzer;
+import org.grobid.core.layout.BoundingBox;
+import org.grobid.core.layout.PDFAnnotation;
 import org.grobid.core.utilities.OffsetPosition;
 import org.grobid.core.utilities.LayoutTokensUtil;
 import org.grobid.core.layout.LayoutToken;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -395,5 +398,16 @@ public class LexiconIntegrationTest {
         assertThat(positions.get(0).end, is(24));
         assertThat(positions.get(1).start, is(27));
         assertThat(positions.get(1).end, is(33));
+    }
+
+    @Test
+    public void testinFunders1Match() throws Exception {
+        final String input = "Thank you Deutsche Forschungsgemeinschaft for the money.";
+        List<LayoutToken> tokenisedInput = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
+        final List<OffsetPosition> positions = target.tokenPositionsFunderNames(tokenisedInput);
+        
+        assertThat(positions, hasSize(1));
+        assertThat(positions.get(0).start, is(4));
+        assertThat(positions.get(0).end, is(6));
     }
 }

@@ -7,7 +7,7 @@ import com.google.common.collect.Lists;
 import org.apache.lucene.analysis.standard.ClassicAnalyzer;
 import org.apache.lucene.util.Version;
 import org.grobid.core.data.BibDataSet;
-import org.grobid.core.data.BiblioItem;;
+import org.grobid.core.data.BiblioItem;
 import org.grobid.core.layout.LayoutToken;
 import org.grobid.core.utilities.LayoutTokensUtil;
 import org.grobid.core.utilities.Pair;
@@ -176,7 +176,7 @@ public class ReferenceMarkerMatcher {
     }*/
 
     private List<MatchResult> matchNumberedCitation(String input, List<LayoutToken> refTokens) throws EntityMatcherException {
-        List<Pair<String, List<LayoutToken>>> labels = getNumberedLabels(refTokens);
+        List<Pair<String, List<LayoutToken>>> labels = getNumberedLabels(refTokens, true);
         List<MatchResult> results = new ArrayList<>();
         for (Pair<String, List<LayoutToken>> label : labels) {
             String text = label.a;
@@ -209,7 +209,7 @@ public class ReferenceMarkerMatcher {
         return results;
     }
 
-    private static List<Pair<String, List<LayoutToken>>> getNumberedLabels(List<LayoutToken> layoutTokens) {
+    public static List<Pair<String, List<LayoutToken>>> getNumberedLabels(List<LayoutToken> layoutTokens, boolean addWrappingSymbol) {
         List<List<LayoutToken>> split = LayoutTokensUtil.split(layoutTokens, NUMBERED_CITATIONS_SPLIT_PATTERN, true);
         List<Pair<String, List<LayoutToken>>> res = new ArrayList<>();
         // return [ ] or () depending on (1 - 2) or [3-5])
@@ -241,11 +241,14 @@ public class ReferenceMarkerMatcher {
                                 tokPtr = Collections.singletonList(minusTok);
                             }
 
-                            res.add(new Pair<>(wrappingSymbols.a + String.valueOf(i) + wrappingSymbols.b, tokPtr));
+                            if (addWrappingSymbol)
+                                res.add(new Pair<>(wrappingSymbols.a + String.valueOf(i) + wrappingSymbols.b, tokPtr));
+                            else
+                                res.add(new Pair<>(String.valueOf(i), tokPtr));
                         }
                     }
                 } catch (Exception e) {
-                    LOGGER.warn("Cannot parse citation reference range: " + s);
+                    LOGGER.debug("Cannot parse citation reference range: " + s);
                 }
 
             }
