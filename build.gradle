@@ -238,7 +238,7 @@ project("grobid-core") {
 
         // Logs
         api 'org.slf4j:slf4j-api:1.7.36'
-        implementation 'ch.qos.logback:logback-classic:1.2.3'
+        implementation 'ch.qos.logback:logback-classic:1.4.12'
 
         implementation "org.apache.pdfbox:pdfbox:2.0.31"
 
@@ -252,7 +252,7 @@ project("grobid-core") {
         implementation "org.apache.lucene:lucene-analyzers-common:4.5.1"
         implementation 'black.ninia:jep:4.0.2'
         implementation 'org.apache.opennlp:opennlp-tools:1.9.1'
-        implementation group: 'org.jruby', name: 'jruby-complete', version: '9.3.15.0'
+        implementation group: 'org.jruby', name: 'jruby-complete', version: '9.4.10.0'
 
         shadedLib "org.apache.lucene:lucene-analyzers-common:4.5.1"
     }
@@ -384,19 +384,19 @@ project(":grobid-service") {
         implementation project(':grobid-trainer')
 
         //Dropwizard
-        implementation 'ru.vyarus:dropwizard-guicey:7.0.0'
+        implementation 'ru.vyarus:dropwizard-guicey:7.1.4'
 
-        implementation 'io.dropwizard:dropwizard-bom:4.0.0'
-        implementation 'io.dropwizard:dropwizard-core:4.0.0'
-        implementation 'io.dropwizard:dropwizard-assets:4.0.0'
-        implementation 'io.dropwizard:dropwizard-testing:4.0.0'
-        implementation 'io.dropwizard.modules:dropwizard-testing-junit4:4.0.0'
-        implementation 'io.dropwizard:dropwizard-forms:4.0.0'
-        implementation 'io.dropwizard:dropwizard-client:4.0.0'
-        implementation 'io.dropwizard:dropwizard-auth:4.0.0'
-        implementation 'io.dropwizard.metrics:metrics-core:4.2.22'
-        implementation 'io.dropwizard.metrics:metrics-servlets:4.2.22'
-        implementation 'io.dropwizard:dropwizard-json-logging:4.0.0'
+        implementation 'io.dropwizard:dropwizard-bom:4.0.12'
+        implementation 'io.dropwizard:dropwizard-core:4.0.12'
+        implementation 'io.dropwizard:dropwizard-assets:4.0.12'
+        implementation 'io.dropwizard:dropwizard-testing:4.0.12'
+        implementation 'io.dropwizard.modules:dropwizard-testing-junit4:4.0.12'
+        implementation 'io.dropwizard:dropwizard-forms:4.0.12'
+        implementation 'io.dropwizard:dropwizard-client:4.0.12'
+        implementation 'io.dropwizard:dropwizard-auth:4.0.12'
+        implementation 'io.dropwizard.metrics:metrics-core:4.2.30'
+        implementation 'io.dropwizard.metrics:metrics-servlets:4.2.30'
+        implementation 'io.dropwizard:dropwizard-json-logging:4.0.12'
 
         implementation "org.apache.pdfbox:pdfbox:2.0.26"
         implementation "javax.activation:activation:1.1.1"
@@ -457,7 +457,7 @@ project(":grobid-trainer") {
 
         // logs
         implementation 'org.slf4j:slf4j-api:1.7.30'
-        implementation 'ch.qos.logback:logback-classic:1.2.3'
+        implementation 'ch.qos.logback:logback-classic:1.4.12'
     }
 
     configurations {
