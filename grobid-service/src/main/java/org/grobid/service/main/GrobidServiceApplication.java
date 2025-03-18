@@ -14,7 +14,7 @@ import jakarta.servlet.DispatcherType;
 import jakarta.servlet.FilterRegistration;
 import jakarta.servlet.ServletRegistration;
 import org.apache.commons.lang3.ArrayUtils;
-import org.eclipse.jetty.servlets.CrossOriginFilter;
+import org.eclipse.jetty.ee10.servlets.CrossOriginFilter;
 import org.grobid.service.GrobidServiceConfiguration;
 import org.grobid.service.modules.GrobidServiceModule;
 import org.grobid.service.resources.HealthResource;
