@@ -405,6 +405,8 @@ project(":grobid-service") {
         implementation 'io.dropwizard:dropwizard-json-logging:4.0.12'
 
         implementation "org.apache.pdfbox:pdfbox:2.0.26"
+        implementation "org.apache.httpcomponents.client5:httpclient5:5.4.4"
+
         implementation "javax.activation:activation:1.1.1"
         implementation "io.prometheus:simpleclient_dropwizard:0.16.0"
         implementation "io.prometheus:simpleclient_servlet:0.16.0"
