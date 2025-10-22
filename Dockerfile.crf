@@ -36,6 +36,14 @@ COPY grobid-core/ ./grobid-core/
 COPY grobid-service/ ./grobid-service/
 COPY grobid-trainer/ ./grobid-trainer/
 
+# Validate localLibs checksums
+RUN cd grobid-core/localLibs && \
+    echo "075ac10182fdab59aac46ce2e0e2ae5f69ec29eafa787a08b8c14cd8c7bfd875  crfpp-1.0.2.jar"                    | sha256sum --check && \ 
+    echo "8cd07ba9c4b2ff0b23ea04b96d4f89e4e618dd4c550f5329669ff55e5b8af6f1  grobid-lucene-analysers-0.0.2.jar"  | sha256sum --check && \
+    echo "20c546819884737f4a8a328378f0e21341771e3710885858b357dbdf62f364b7  imageio-pnm-1.0.jar"                | sha256sum --check && \
+    echo "f692f03ecd2dc926ae79ddca689ccd24c66576a9eacb05d99ee191930e1257b3  langdetect-1.1-20120112.jar"        | sha256sum --check && \
+    echo "d103df377c450c5b155992015acb1161823c98bcd1e71b1c56bf9a1ee3726c32  wapiti-1.5.0.jar"                   | sha256sum --check
+    
 # cleaning unused native libraries before packaging
 RUN rm -rf grobid-home/pdf2xml
 RUN rm -rf grobid-home/pdfalto/lin-32
