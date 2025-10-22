@@ -105,7 +105,7 @@ subprojects {
         // to avoid missing dependencies from the projects that include grobid-core (see 'jar' task in grobid-core)
         localLibs = ['crfpp-1.0.2.jar',
                      'langdetect-1.1-20120112.jar',
-                     'grobid-lucene-analysers-0.0.1.jar',
+                     'grobid-lucene-analysers-0.0.2.jar',
                      'imageio-pnm-1.0.jar',
                      'wapiti-1.5.0.jar']
     }
@@ -390,16 +390,16 @@ project(":grobid-service") {
         implementation project(':grobid-trainer')
 
         //Dropwizard
-        implementation 'ru.vyarus:dropwizard-guicey:8.0.0-rc.1'
+        implementation 'ru.vyarus:dropwizard-guicey:8.0.0-rc.5'
 
-        implementation 'io.dropwizard:dropwizard-bom:5.0.0-rc.1'
-        implementation 'io.dropwizard:dropwizard-core:5.0.0-rc.1'
-        implementation 'io.dropwizard:dropwizard-assets:5.0.0-rc.1'
-        implementation 'io.dropwizard:dropwizard-testing:5.0.0-rc.1'
+        implementation 'io.dropwizard:dropwizard-bom:5.0.0'
+        implementation 'io.dropwizard:dropwizard-core:5.0.0'
+        implementation 'io.dropwizard:dropwizard-assets:5.0.0'
+        implementation 'io.dropwizard:dropwizard-testing:5.0.0'
         implementation 'io.dropwizard.modules:dropwizard-testing-junit4:4.0.12'
-        implementation 'io.dropwizard:dropwizard-forms:5.0.0-rc.1'
-        implementation 'io.dropwizard:dropwizard-client:5.0.0-rc.1'
-        implementation 'io.dropwizard:dropwizard-auth:5.0.0-rc.1'
+        implementation 'io.dropwizard:dropwizard-forms:5.0.0'
+        implementation 'io.dropwizard:dropwizard-client:5.0.0'
+        implementation 'io.dropwizard:dropwizard-auth:5.0.0'
         implementation 'io.dropwizard.metrics:metrics-core:4.2.30'
         implementation 'io.dropwizard.metrics:metrics-servlets:4.2.30'
         implementation 'io.dropwizard:dropwizard-json-logging:4.0.12'
