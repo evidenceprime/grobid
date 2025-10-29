@@ -8,7 +8,7 @@ buildscript {
     }
     dependencies {
         classpath 'gradle.plugin.org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.12.0'
-        classpath "gradle.plugin.com.github.jengelman.gradle.plugins:shadow:7.0.0"
+        classpath "com.gradleup.shadow:com.gradleup.shadow.gradle.plugin:8.3.0"
         classpath 'com.adarshr:gradle-test-logger-plugin:2.0.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.20"
         classpath group: 'net.researchgate', name: 'gradle-release', version: '3.0.2'
@@ -225,7 +225,7 @@ subprojects {
 /** SUBPROJECTS **/
 
 project("grobid-core") {
-    apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'com.gradleup.shadow'
     apply plugin: 'jacoco'
 
     configurations {
@@ -244,7 +244,7 @@ project("grobid-core") {
 
         // Logs
         api 'org.slf4j:slf4j-api:1.7.36'
-        implementation 'ch.qos.logback:logback-classic:1.4.12'
+        implementation 'ch.qos.logback:logback-classic:1.5.19'
 
         implementation "org.apache.pdfbox:pdfbox:2.0.31"
 
@@ -339,7 +339,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 project(":grobid-service") {
     apply plugin: 'application'
     apply plugin: 'jacoco'
-    apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'com.gradleup.shadow'
 
     mainClassName = 'org.grobid.service.main.GrobidServiceApplication'
 
@@ -450,7 +450,7 @@ project(":grobid-service") {
 }
 
 project(":grobid-trainer") {
-    apply plugin: 'com.github.johnrengelman.shadow'
+    apply plugin: 'com.gradleup.shadow'
     apply plugin: 'jacoco'
 
     dependencies {
@@ -468,7 +468,7 @@ project(":grobid-trainer") {
 
         // logs
         implementation 'org.slf4j:slf4j-api:1.7.30'
-        implementation 'ch.qos.logback:logback-classic:1.4.12'
+        implementation 'ch.qos.logback:logback-classic:1.5.19'
     }
 
     configurations {
