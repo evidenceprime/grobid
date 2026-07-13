@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - update-from-upstream
   pull_request:
     branches:
       - master
