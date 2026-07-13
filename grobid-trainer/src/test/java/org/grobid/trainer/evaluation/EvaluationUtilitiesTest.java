@@ -1,14 +1,27 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.evaluation;
-
-import org.apache.commons.io.IOUtils;
-import org.hamcrest.core.Is;
-import org.junit.Test;
-
-import java.nio.charset.StandardCharsets;
-import java.util.TreeMap;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+
+import java.nio.charset.StandardCharsets;
+
+import org.apache.commons.io.IOUtils;
+import org.junit.Test;
 
 public class EvaluationUtilitiesTest {
 
@@ -46,8 +59,6 @@ public class EvaluationUtilitiesTest {
         assertThat(labelstat2.getFalsePositive(), is(5));
         assertThat(labelstat2.getSupport(), is(0L));
     }
-
-
 
     @Test
     public void testTokenLevelStats_mixed() throws Exception {
@@ -136,7 +147,8 @@ public class EvaluationUtilitiesTest {
 
     @Test
     public void testTokenLevelStats_realCase() throws Exception {
-        String result = IOUtils.toString(this.getClass().getResourceAsStream("/sample.wapiti.output.1.txt"), StandardCharsets.UTF_8);
+        String result = IOUtils
+                .toString(this.getClass().getResourceAsStream("/sample.wapiti.output.1.txt"), StandardCharsets.UTF_8);
         result = result.replace(System.lineSeparator(), "\n");
 
         Stats wordStats = EvaluationUtilities.tokenLevelStats(result);
@@ -155,11 +167,10 @@ public class EvaluationUtilitiesTest {
 
     }
 
-
-
     @Test
     public void testTokenLevelStats2_realCase() throws Exception {
-        String result = IOUtils.toString(this.getClass().getResourceAsStream("/sample.wapiti.output.2.txt"), StandardCharsets.UTF_8);
+        String result = IOUtils
+                .toString(this.getClass().getResourceAsStream("/sample.wapiti.output.2.txt"), StandardCharsets.UTF_8);
 
         Stats stats = EvaluationUtilities.tokenLevelStats(result);
 
@@ -212,17 +223,16 @@ public class EvaluationUtilitiesTest {
         assertThat(personLabelStats.getFalsePositive(), is(1));
     }
 
-
-
     @Test
     public void testTokenLevelStats4_realCase() throws Exception {
-        String result = IOUtils.toString(this.getClass().getResourceAsStream("/sample.wapiti.output.3.txt"), StandardCharsets.UTF_8);
+        String result = IOUtils
+                .toString(this.getClass().getResourceAsStream("/sample.wapiti.output.3.txt"), StandardCharsets.UTF_8);
 
         ModelStats fieldStats = EvaluationUtilities.computeStats(result);
 
         assertThat(fieldStats.getTotalInstances(), is(4));
         assertThat(fieldStats.getCorrectInstance(), is(1));
-        assertThat(fieldStats.getInstanceRecall(), is(1.0/4));
+        assertThat(fieldStats.getInstanceRecall(), is(1.0 / 4));
         assertThat(fieldStats.getSupportSum(), is(6L));
     }
 }

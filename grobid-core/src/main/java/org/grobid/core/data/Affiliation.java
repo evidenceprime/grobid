@@ -1,14 +1,31 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.data;
 
-import org.grobid.core.utilities.TextUtilities;
-import org.grobid.core.lexicon.Lexicon;
-import org.grobid.core.layout.LayoutToken;
-import org.grobid.core.utilities.OffsetPosition;
-import org.grobid.core.engines.label.TaggingLabel;
-import org.grobid.core.engines.config.GrobidAnalysisConfig;
-import org.grobid.core.utilities.LayoutTokensUtil;
-
 import java.util.*;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import org.grobid.core.engines.config.GrobidAnalysisConfig;
+import org.grobid.core.engines.label.TaggingLabel;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.lexicon.Lexicon;
+import org.grobid.core.utilities.LayoutTokensUtil;
+import org.grobid.core.utilities.TextUtilities;
 
 /**
  * Class for representing and exchanging affiliation information.
@@ -74,10 +91,10 @@ public class Affiliation {
         isInfrastructure = aff.isInfrastructure();
     }
 
-    public String getAcronym() { 
-		return acronym; 
-	}
-	
+    public String getAcronym() {
+        return acronym;
+    }
+
     public String getName() {
         return name;
     }
@@ -142,10 +159,10 @@ public class Affiliation {
         return key;
     }
 
-    public void setAcronym(String s) { 
-		acronym = s; 
-	}
-	
+    public void setAcronym(String s) {
+        acronym = s;
+    }
+
     public void setName(String s) {
         name = s;
     }
@@ -159,7 +176,7 @@ public class Affiliation {
     }
 
     public void setCountry(String s) {
-        s = TextUtilities.removeLeadingAndTrailingChars(s, "[({.,])}: \n","[({.,])}: \n");
+        s = TextUtilities.removeLeadingAndTrailingChars(s, "[({.,])}: \n", "[({.,])}: \n");
         country = s;
     }
 
@@ -176,12 +193,12 @@ public class Affiliation {
     }
 
     public void setRegion(String s) {
-        s = TextUtilities.removeLeadingAndTrailingChars(s, "[({.,])}: \n","[({.,])}: \n");
+        s = TextUtilities.removeLeadingAndTrailingChars(s, "[({.,])}: \n", "[({.,])}: \n");
         region = s;
     }
 
     public void setSettlement(String s) {
-        s = TextUtilities.removeLeadingAndTrailingChars(s, "[({.,])}: \n","[({.,])}: \n");
+        s = TextUtilities.removeLeadingAndTrailingChars(s, "[({.,])}: \n", "[({.,])}: \n");
         settlement = s;
     }
 
@@ -330,7 +347,7 @@ public class Affiliation {
                 (region == null) &&
                 (settlement == null) &&
                 (addrLine == null) &&
-                (affiliationString == null)  &&
+                (affiliationString == null) &&
                 (rawAffiliationString == null) &&
                 (addressString == null));
     }
@@ -344,15 +361,15 @@ public class Affiliation {
     }
 
     public boolean hasAddress() {
-        if (country != null || 
-            postCode != null ||
-            postBox != null ||
-            settlement != null ||
-            addrLine != null ||
-            region != null ||
-            addressString != null) {
+        if (country != null ||
+                postCode != null ||
+                postBox != null ||
+                settlement != null ||
+                addrLine != null ||
+                region != null ||
+                addressString != null) {
             return true;
-        } else 
+        } else
             return false;
     }
 
@@ -418,10 +435,10 @@ public class Affiliation {
 
         if (country != null) {
             country = TextUtilities.cleanField(country, true);
-			if (country != null && country.endsWith(")")) {
-				// for some reason the ) at the end of this field is not removed
-				country = country.substring(0,country.length()-1);
-			}
+            if (country != null && country.endsWith(")")) {
+                // for some reason the ) at the end of this field is not removed
+                country = country.substring(0, country.length() - 1);
+            }
             if (country != null && country.length() < 2)
                 country = null;
         }
@@ -463,7 +480,7 @@ public class Affiliation {
         if (marker != null) {
             marker = TextUtilities.cleanField(marker, true);
             if (marker != null)
-    			marker = marker.replace(" ", "");
+                marker = marker.replace(" ", "");
         }
     }
 
@@ -513,19 +530,19 @@ public class Affiliation {
         StringBuffer tei = new StringBuffer();
         TextUtilities.appendN(tei, '\t', nbTag + 1);
 
-        boolean withAffCoords = (config != null) && 
-                                (config.getGenerateTeiCoordinates() != null) && 
-                                (config.getGenerateTeiCoordinates().contains("affiliation"));
-        boolean orgNameCoords = (config != null) && 
-                                (config.getGenerateTeiCoordinates() != null) && 
-                                (config.getGenerateTeiCoordinates().contains("orgName"));
+        boolean withAffCoords = (config != null) &&
+                (config.getGenerateTeiCoordinates() != null) &&
+                (config.getGenerateTeiCoordinates().contains("affiliation"));
+        boolean orgNameCoords = (config != null) &&
+                (config.getGenerateTeiCoordinates() != null) &&
+                (config.getGenerateTeiCoordinates().contains("orgName"));
 
         tei.append("<affiliation");
         if (aff.getKey() != null)
             tei.append(" key=\"").append(aff.getKey()).append("\"");
         if (withAffCoords) {
             String coords = LayoutTokensUtil.getCoordsString(aff.getLayoutTokens());
-            if (coords != null && coords.length()>0) {
+            if (coords != null && coords.length() > 0) {
                 tei.append(" coords=\"" + coords + "\"");
             }
         }
@@ -534,14 +551,22 @@ public class Affiliation {
         if (aff.getDepartments() != null) {
             if (aff.getDepartments().size() == 1) {
                 TextUtilities.appendN(tei, '\t', nbTag + 2);
-                tei.append("<orgName type=\"department\">" +
-                        TextUtilities.HTMLEncode(aff.getDepartments().get(0)) + "</orgName>\n");
+                tei.append(
+                        "<orgName type=\"department\">"
+                                +
+                                TextUtilities.HTMLEncode(aff.getDepartments().get(0))
+                                + "</orgName>\n");
             } else {
                 int q = 1;
                 for (String depa : aff.getDepartments()) {
                     TextUtilities.appendN(tei, '\t', nbTag + 2);
-                    tei.append("<orgName type=\"department\" key=\"dep" + q + "\">" +
-                            TextUtilities.HTMLEncode(depa) + "</orgName>\n");
+                    tei.append(
+                            "<orgName type=\"department\" key=\"dep"
+                                    + q
+                                    + "\">"
+                                    +
+                                    TextUtilities.HTMLEncode(depa)
+                                    + "</orgName>\n");
                     q++;
                 }
             }
@@ -550,14 +575,22 @@ public class Affiliation {
         if (aff.getLaboratories() != null) {
             if (aff.getLaboratories().size() == 1) {
                 TextUtilities.appendN(tei, '\t', nbTag + 2);
-                tei.append("<orgName type=\"laboratory\">" +
-                        TextUtilities.HTMLEncode(aff.getLaboratories().get(0)) + "</orgName>\n");
+                tei.append(
+                        "<orgName type=\"laboratory\">"
+                                +
+                                TextUtilities.HTMLEncode(aff.getLaboratories().get(0))
+                                + "</orgName>\n");
             } else {
                 int q = 1;
                 for (String labo : aff.getLaboratories()) {
                     TextUtilities.appendN(tei, '\t', nbTag + 2);
-                    tei.append("<orgName type=\"laboratory\" key=\"lab" + q + "\">" +
-                            TextUtilities.HTMLEncode(labo) + "</orgName>\n");
+                    tei.append(
+                            "<orgName type=\"laboratory\" key=\"lab"
+                                    + q
+                                    + "\">"
+                                    +
+                                    TextUtilities.HTMLEncode(labo)
+                                    + "</orgName>\n");
                     q++;
                 }
             }
@@ -566,29 +599,35 @@ public class Affiliation {
         if (aff.getInstitutions() != null) {
             if (aff.getInstitutions().size() == 1) {
                 TextUtilities.appendN(tei, '\t', nbTag + 2);
-                tei.append("<orgName type=\"institution\">" +
-                        TextUtilities.HTMLEncode(aff.getInstitutions().get(0)) + "</orgName>\n");
+                tei.append(
+                        "<orgName type=\"institution\">"
+                                +
+                                TextUtilities.HTMLEncode(aff.getInstitutions().get(0))
+                                + "</orgName>\n");
             } else {
                 int q = 1;
                 for (String inst : aff.getInstitutions()) {
                     TextUtilities.appendN(tei, '\t', nbTag + 2);
-                    tei.append("<orgName type=\"institution\" key=\"instit" + q + "\">" +
-                            TextUtilities.HTMLEncode(inst) + "</orgName>\n");
+                    tei.append(
+                            "<orgName type=\"institution\" key=\"instit"
+                                    + q
+                                    + "\">"
+                                    +
+                                    TextUtilities.HTMLEncode(inst)
+                                    + "</orgName>\n");
                     q++;
                 }
             }
         }
 
-        if (
-                aff.getAddrLine() != null ||
+        if (aff.getAddrLine() != null ||
                 aff.getPostBox() != null ||
                 aff.getPostCode() != null ||
                 aff.getSettlement() != null ||
                 aff.getRegion() != null ||
-                aff.getCountry() != null
-            ) {
+                aff.getCountry() != null) {
             TextUtilities.appendN(tei, '\t', nbTag + 2);
-            
+
             tei.append("<address>\n");
             /*if (aff.getAddressString() != null) {
                 TextUtilities.appendN(tei, '\t', nbTag + 3);
@@ -597,28 +636,43 @@ public class Affiliation {
             }*/
             if (aff.getAddrLine() != null) {
                 TextUtilities.appendN(tei, '\t', nbTag + 3);
-                tei.append("<addrLine>" + TextUtilities.HTMLEncode(aff.getAddrLine()) +
-                        "</addrLine>\n");
+                tei.append(
+                        "<addrLine>"
+                                + TextUtilities.HTMLEncode(aff.getAddrLine())
+                                +
+                                "</addrLine>\n");
             }
             if (aff.getPostBox() != null) {
                 TextUtilities.appendN(tei, '\t', nbTag + 3);
-                tei.append("<postBox>" + TextUtilities.HTMLEncode(aff.getPostBox()) +
-                        "</postBox>\n");
+                tei.append(
+                        "<postBox>"
+                                + TextUtilities.HTMLEncode(aff.getPostBox())
+                                +
+                                "</postBox>\n");
             }
             if (aff.getPostCode() != null) {
                 TextUtilities.appendN(tei, '\t', nbTag + 3);
-                tei.append("<postCode>" + TextUtilities.HTMLEncode(aff.getPostCode()) +
-                        "</postCode>\n");
+                tei.append(
+                        "<postCode>"
+                                + TextUtilities.HTMLEncode(aff.getPostCode())
+                                +
+                                "</postCode>\n");
             }
             if (aff.getSettlement() != null) {
                 TextUtilities.appendN(tei, '\t', nbTag + 3);
-                tei.append("<settlement>" + TextUtilities.HTMLEncode(aff.getSettlement()) +
-                        "</settlement>\n");
+                tei.append(
+                        "<settlement>"
+                                + TextUtilities.HTMLEncode(aff.getSettlement())
+                                +
+                                "</settlement>\n");
             }
             if (aff.getRegion() != null) {
                 TextUtilities.appendN(tei, '\t', nbTag + 3);
-                tei.append("<region>" + TextUtilities.HTMLEncode(aff.getRegion()) +
-                        "</region>\n");
+                tei.append(
+                        "<region>"
+                                + TextUtilities.HTMLEncode(aff.getRegion())
+                                +
+                                "</region>\n");
             }
             if (aff.getCountry() != null) {
                 String code = Lexicon.getInstance().getCountryCode(aff.getCountry());
@@ -626,8 +680,11 @@ public class Affiliation {
                 tei.append("<country");
                 if (code != null)
                     tei.append(" key=\"" + code + "\"");
-                tei.append(">" + TextUtilities.HTMLEncode(aff.getCountry()) +
-                        "</country>\n");
+                tei.append(
+                        ">"
+                                + TextUtilities.HTMLEncode(aff.getCountry())
+                                +
+                                "</country>\n");
             }
 
             TextUtilities.appendN(tei, '\t', nbTag + 2);
@@ -642,26 +699,26 @@ public class Affiliation {
 
     @Override
     public String toString() {
-        return "Affiliation{" +
-                "name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                ", key='" + key + '\'' +
-                ", institutions=" + institutions +
-                ", departments=" + departments +
-                ", laboratories=" + laboratories +
-                ", country='" + country + '\'' +
-                ", postCode='" + postCode + '\'' +
-                ", postBox='" + postBox + '\'' +
-                ", region='" + region + '\'' +
-                ", settlement='" + settlement + '\'' +
-                ", addrLine='" + addrLine + '\'' +
-                ", marker='" + marker + '\'' +
-                ", addressString='" + addressString + '\'' +
-                ", affiliationString='" + affiliationString + '\'' +
-                ", rawAffiliationString='" + rawAffiliationString + '\'' +
-                ", failAffiliation=" + failAffiliation + '\'' +
-                ", isInfrastructure=" + isInfrastructure + 
-                '}';
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("name", name)
+                .append("url", url)
+                .append("key", key)
+                .append("institutions", institutions)
+                .append("departments", departments)
+                .append("laboratories", laboratories)
+                .append("country", country)
+                .append("postCode", postCode)
+                .append("postBox", postBox)
+                .append("region", region)
+                .append("settlement", settlement)
+                .append("addrLine", addrLine)
+                .append("marker", marker)
+                .append("addressString", addressString)
+                .append("affiliationString", affiliationString)
+                .append("rawAffiliationString", rawAffiliationString)
+                .append("failAffiliation", failAffiliation)
+                .append("isInfrastructure", isInfrastructure)
+                .toString();
     }
 
     public void addLabeledResult(TaggingLabel label, List<LayoutToken> tokenizations) {
@@ -671,7 +728,7 @@ public class Affiliation {
         List<LayoutToken> theTokenList = null;
         if (tokenizations == null)
             theTokenList = new ArrayList<>();
-        else 
+        else
             theTokenList = tokenizations;
 
         List<LayoutToken> theExistingTokenList = labeledTokens.get(label.getLabel());

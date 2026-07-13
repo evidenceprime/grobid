@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Irene</forename>
+								 <surname>Falgas-Bague</surname> ID
+								 <marker>1,2,3,4 *</marker>,
+							</persName>
+							<persName>
+								 <forename>Maria</forename>
+								 <surname>Melero-Dominguez</surname>
+								 <marker>1,3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Daniela</forename>
+								 <surname>de Vernisy-Romero</surname>
+								 <marker>1,5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Thandiwe</forename>
+								 <surname>Tembo</surname> ID
+								 <marker>6</marker> ,
+							</persName>
+							<persName>
+								 <forename>Mpela</forename>
+								 <surname>Chembe</surname>
+								 <marker>7</marker> ,
+							</persName>
+							<persName>
+								 <forename>Theresa</forename>
+								 <surname>Lubozha</surname>
+								 <marker>7</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ravi</forename>
+								 <surname>Paul</surname>
+								 <marker>8</marker> ,
+							</persName>
+							<persName>
+								 <forename>Doug</forename>
+								 <surname>Parkerson</surname>
+								 <marker>7</marker> ,
+							</persName>
+							<persName>
+								 <forename>Peter</forename>
+								 <middlename>C</middlename>.
+								 <surname>Rockers</surname>
+								 <marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Dorothy</forename>
+								 <surname>Sikazwe</surname>
+								 <marker>9</marker> ,
+							</persName>
+							<persName>
+								 <forename>Gu</forename>
+								 <surname>¨nther Fink</surname> ID
+								 <marker>1,2</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

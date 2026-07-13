@@ -1,0 +1,122 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Psychosocial interventions for improving the physical health of young people and adults with attention deficit hyperactivity disorder: a scoping review</title>
+      <author>
+        <persName>
+          <forename>John Headley</forename>
+          <surname>Ward</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Audrey</forename>
+          <surname>McBride</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Anna</forename>
+          <surname>Price</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Tamsin Newlove</forename>
+          <surname>Delgado</surname>
+        </persName>
+      </author>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-11-12T17:26:22.996Z">11/12/2025 5:26:22 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher>Springer Science and Business Media LLC</publisher>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication">2024</date>
+      <idno type="DOI">10.1186/s12888-024-06009-2</idno>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>John Headley Ward, Audrey McBride, Anna Price, Tamsin Newlove Delgado. (2024). Psychosocial interventions for improving the physical health of young people and adults with attention deficit hyperactivity disorder: a scoping review. BMC Psychiatry, 24(1), None. DOI: 10.1186/s12888-024-06009-2</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-11-12T17:26:10.760578Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.segmentation</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-11-12T17:26:10.760578Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+    <front>Review began 04/08/2024 <lb/>Review ended 05/31/2024 <lb/>Published 06/08/2024 <lb/>© Copyright 2024 <lb/>George et al. This is an open access article <lb/>distributed under the terms of the Creative <lb/>Commons Attribution License CC-BY 4.0., <lb/>which permits unrestricted use, distribution, <lb/>and reproduction in any medium, provided <lb/>the original author and source are credited. <lb/>Takes Two to Tangle: A Rare Case of Type IV <lb/>Dual Left Anterior Descending Artery (LAD) and <lb/>Dual Ostia of the LAD and Left Circumflex (LCx) <lb/>Artery <lb/>Riya George , Linle Hou , Parth Patel , John Makaryus <lb/>1. Internal Medicine, Northwell Health, New York City, USA 2. Cardiology, Northwell Health, Manhasset, USA 3. <lb/>Cardiology, North Shore University Hospital, Donald and Barbara Zucker School of Medicine at Hofstra/Northwell, <lb/>Manhasset, USA <lb/>Corresponding author: Riya George, georgeriya16@gmail.com <lb/>Abstract <lb/>The dual left anterior descending (LAD) artery is a rare anatomic variant of the LAD artery that refers to the <lb/>duplication of the LAD into a short and long LAD. These two vessels, differentiated based on their lengths, <lb/>ultimately provide blood supply to the areas normally covered by the LAD. In this case report, we describe an <lb/>unusual case of a type IV dual LAD system with an additional finding of a separate origin for the short LAD <lb/>and left circumflex (LCx) artery. These two findings have not been reported together in the literature <lb/>previously. During diagnostic procedures like coronary angiography or when interpreting cardiac imaging, <lb/>awareness of these anomalies prevents confusion with pathological conditions such as coronary artery <lb/>disease or stenosis. Additionally, it is crucial for cardiologists and surgeons to identify these aberrant vessels <lb/>to avoid any wrongful interventions. <lb/>Categories: Anatomy, Internal Medicine, Cardiology <lb/>Keywords: left anterior descending artery origin from rca, coronary artery angiogram, coronary computed <lb/>tomography angiogram (ccta), dual ostia, dual lad, caa: coronary artery anomaly <lb/></front>
+
+    <body>Introduction <lb/>Coronary artery anomalies (CAAs) describe a wide range of rare anatomic variants that are still being studied <lb/>and discovered due to the sheer variations that we are encountering given advancements in cardiovascular <lb/>imaging. Embryologically, the evolution of an immature coronary plexus from the sinus venosus, <lb/>endocardium, and proepicardial cells forms the groundwork of coronary vessel formation. Under the <lb/>guidance of growth factors and transcription pathways, this immature plexus connects with the aorta <lb/>forming a primitive coronary artery ostia that further cascades into blood flow initiation and arterial <lb/>remodeling that ultimately leads to mature coronary arteries. This embryologic complexity involving a <lb/>myriad of molecular processes, cell migration, and angiogenesis gives us an insight into the various points <lb/>that could deviate from normal development leading to different types of coronary artery anomalies that <lb/>have been identified [1,2]. <lb/>CAAs are broadly categorized into anomalies of origin and course, anomalies of intrinsic coronary artery <lb/>(CA) anatomy, and anomalies of termination, as it relates to the three epicardial arteries, namely, the right <lb/>coronary artery (RCA), the left anterior descending (LAD) artery, and the left circumflex (LCx) artery [2,3]. <lb/>Studies that have reviewed angiograms and autopsies have reported the prevalence of these anomalies to <lb/>range from 1-5.6% [3]. Though CAAs are congenital malformations, most tend to remain quiescent and are <lb/>often found incidentally later in adulthood. <lb/>Among the wide range of CAAs, the dual LAD system can be categorized under anomalies of intrinsic CA <lb/>anatomy and is a rare phenomenon referring to the duplication of the LAD into a short and long LAD. Type <lb/>IV dual LAD is differentiated by the short course of the LAD arising from the left main coronary artery, giving <lb/>off septal and diagonal branches prior to terminating proximally in the anterior interventricular groove. This <lb/>type is particularly rare and is notably associated with congenital cardiac conditions such as tetralogy of <lb/>Fallot or transposition of great arteries. Additionally, this case features an anomaly of origin, with the short <lb/>LAD and LCx having separate origins. The increasingly widespread use of coronary computed tomography <lb/>angiography (CCTA) makes the identification of these anomalies more accessible for clinicians. Even though <lb/>many of these anomalies are found incidentally, recognizing them is crucial to prevent misinterpretation on <lb/>imaging and avoid unnecessary interventions on these aberrant vessels. Optimal patient care includes the <lb/>recognition of these CAAs as they influence diagnostic, interventional, and surgical strategies. <lb/>This case report highlights a rare type IV dual LAD system, accompanied by the unique finding of separate <lb/>origins for the short LAD and LCx. This combination of anomalies has not been previously reported, <lb/>underscoring its significance not only in literature but also in clinical practice. Accurately identifying these <lb/>1 <lb/>2 <lb/>2 <lb/>3 <lb/></body>
+
+    <front>Open Access Case <lb/>Report <lb/>DOI: 10.7759/cureus.61953 <lb/>How to cite this article <lb/>George R, Hou L, Patel P, et al. (June 08, 2024) Takes Two to Tangle: A Rare Case of Type IV Dual Left Anterior Descending Artery (LAD) and <lb/>Dual Ostia of the LAD and Left Circumflex (LCx) Artery. Cureus 16(6): e61953. DOI 10.7759/cureus.61953 <lb/></front>
+
+    <body>anomalies not only aids in differentiation from other coronary artery diseases but is also crucial in the <lb/>planning of interventional procedures to avoid complications as well as guiding surgical strategies to ensure <lb/>correct vessel targeting and graft placement. <lb/>Case Presentation <lb/>A 69-year-old woman of South Asian descent with hypertension (HTN), hyperlipidemia (HLD), <lb/>hypothyroidism, and asthma presented to the clinic with atypical chest pain (CP). Her symptoms began <lb/>three months prior to presentation and were associated with mild dyspnea on exertion. Chest pain was <lb/>described as sharp, intermittent, located in the substernal region, lasting for five minutes per episode, non-<lb/>radiating, non-pleuritic, 5/10 in severity, not associated with any activity, and no relieving factors. Further <lb/>review of systems was non-contributory. Vital signs showed a blood pressure of 130/80, heart rate of 78, <lb/>oxygen saturation of 100% on room air, respiratory rate of 10, and temperature of 97.5 Fahrenheit. Physical <lb/>examination revealed normal S1/S2, no murmurs were appreciated, lungs were clear to auscultation, no <lb/>evidence of jugular venous distention, and no lower extremity edema. <lb/>Electrocardiogram (EKG) showed normal sinus rhythm at 70 beats per minute, normal axis, and new T-wave <lb/>inversions in leads V1-V3 as shown in Figure 1. <lb/>FIGURE 1: EKG showing normal sinus rhythm with T-wave inversions in <lb/>leads V1-V3 <lb/>Given her atypical CP along with new T-wave inversions, there was concern for underlying coronary artery <lb/>disease (CAD). For risk stratification, she underwent a coronary computed tomography angiography (CCTA), <lb/>which showed evidence of a dual LAD system with the short LAD arising from the left sinus of Valsalva and <lb/>terminating on the left ventricular side of the interventricular septum without evidence of obstructive <lb/>disease. The long LAD was seen to arise from a common ostium with the right coronary artery (RCA) from <lb/>the right sinus of Valsalva and traveling anteriorly to the right ventricle before entering the anterior <lb/>interventricular groove. There was no evidence of obstructive disease seen in this long LAD as well, which <lb/>continued to travel toward the left ventricular apex as shown in Figure 2. <lb/></body>
+
+    <note place="footnote">2024 George et al. Cureus 16(6): e61953. DOI 10.7759/cureus.61953 <lb/></note>
+
+    <page>2 of 6 <lb/></page>
+
+    <body>FIGURE 2: Three-dimensional volume-rendered cardiac computed <lb/>tomography (CT) depicting long LAD (red arrow) arising from the right <lb/>sinus of Valsalva and eventually traveling into the anterior <lb/>interventricular groove. Additionally, the short LAD (yellow arrow) is <lb/>shown to arise from the left sinus of Valsalva and course along the <lb/>interventricular septum. <lb/>LAD: left anterior descending <lb/>Additionally, the short LAD and LCx were noted to arise from separate but adjacent ostia in the left sinus of <lb/>Valsalva as shown in Figure 3. <lb/></body>
+
+    <note place="footnote">2024 George et al. Cureus 16(6): e61953. DOI 10.7759/cureus.61953 <lb/></note>
+
+    <page>3 of 6 <lb/></page>
+
+    <body>FIGURE 3: CTA with a white arrow showing the separate ostia arising <lb/>from the left sinus of Valsalva that is giving rise to a short LAD and LCx <lb/>CTA: computed tomography angiography; LAD: left anterior descending; LCx: left circumflex <lb/>As these vessels did not have any evidence of obstruction or compression from surrounding structures, these <lb/>anatomic variants could not fully explain this patient&apos;s symptoms. Interestingly, CCTA also showed evidence <lb/>of tracheomalacia, which was followed by pulmonary function testing showing an obstructive pattern of <lb/>lung disease. To further evaluate this finding as a possible explanation of her dyspnea, a bronchoscopy was <lb/>done, which showed evidence of significant flattening of the distal tracheal rings and approximately 80% to <lb/>90% of airway occlusion throughout the respiratory cycle. She was referred to cardiothoracic surgery, and <lb/>given that her symptoms were not severe, intervention was deferred. A sleep study was also done, which <lb/>confirmed obstructive sleep apnea and consequently, she was started on nocturnal continuous positive <lb/>airway pressure. Ultimately, the patient underwent further medical management with a focus on controlling <lb/>her risk factors to prevent further complications from her underlying chronic medical conditions. During <lb/>subsequent outpatient visits, she reported that her chest pain had resolved and her dyspnea had improved. <lb/>Discussion <lb/>Normal coronary anatomy and the unique aspect of this case <lb/>In normal coronary anatomy, the left sinus of Valsalva gives rise to the left main stem, which then bifurcates <lb/>into the LAD and the LCx. The LAD then travels through the anterior interventricular groove, giving off <lb/>diagonal and septal branches providing blood supply to the territory consisting of the anterolateral <lb/>myocardium and apex along with the anterior two-thirds of the interventricular septum [4,5]. <lb/>This case report explores the presence of two separate CAAs that made this case unique. In addition to the <lb/>separation of the LAD referred to as the dual LAD, we see that there is no common left main coronary; the <lb/>short LAD and LCx have separate but adjacent origins from the left sinus of Valsalva. Though there are many <lb/>variants of the dual ostia, for this paper, we will be referring to the separate origins of the LAD and LCx as <lb/>the dual ostia [6]. <lb/>Initial identification and epidemiology <lb/>From a historical perspective, dual LAD was distinctly first defined in 1983 by Spindola-Franco et al. who <lb/>described four different types based on the derivation and the course of the short and long LAD [4]. After the <lb/>publication of this paper, thirteen variants have since been described and proposed in the literature [4,7]. As <lb/>mentioned previously, type IV dual LAD is differentiated by the short course of the LAD arising from the left <lb/></body>
+
+    <note place="footnote">2024 George et al. Cureus 16(6): e61953. DOI 10.7759/cureus.61953 <lb/></note>
+
+    <page>4 of 6 <lb/></page>
+
+    <body>main coronary artery, giving off septal and diagonal branches prior to terminating proximally in the anterior <lb/>interventricular groove. In our patient&apos;s case, the short LAD was seen to arise from the left sinus of Valsalva <lb/>separate from the origin of the LCx due to the absence of a common left main coronary artery. Additionally, <lb/>the long LAD arises from the right sinus of Valsalva and terminates in the distal anterior interventricular <lb/>groove [4]. <lb/>In terms of epidemiology, the prevalence of the dual LAD system was estimated to be 1% with the type IV <lb/>dual LAD system being recognized as the rarest of the subtypes reportedly found in 0.004% of patients <lb/>undergoing cardiac catheterization [4,8]. Conversely, a dual ostia is considered one of the most common <lb/>anomalies with an incidence of 0.41% [9]. <lb/>Clinical findings <lb/>From a clinical perspective, CAAs have been associated with a wide array of presentations, including acute <lb/>coronary syndrome (ACS), arrhythmias, dyspnea on exertion, or sudden cardiac death in young individuals; <lb/>interestingly, many CAAs are often found incidentally with no associated symptoms [3]. Dual LAD is usually <lb/>a hemodynamically insignificant finding that is only prominent in variants that have structures in close <lb/>proximity or tortuous pathways prone to compression. Specifically, the type IV dual LAD has largely been <lb/>reported to be an incidental finding but there are rare reports associating it with stable angina, ACS, and <lb/>heart failure [9,10]. In a case report by Papadopoulos et al., a patient with subacute symptoms of angina <lb/>pectoris and a positive stress test was found to have a type IV dual LAD system. His symptoms were thought <lb/>to be due to systolic compression of an intraseptal segment. This article highlights the importance of the <lb/>identification of the dual LAD system and how it relates to the surrounding structures, which could offer an <lb/>explanation of atypical symptomatology. It also highlights how easy it is to misinterpret this variation of the <lb/>LAD as having total occlusion, thereby potentially adversely affecting management [11]. Additionally, the <lb/>dual ostia is considered a benign anatomic anomaly with no symptoms described in literature thus far. <lb/>Diagnosis <lb/>Though the clinical significance of these anomalies requires further exploration, the technological advances <lb/>made in the field of cardiac imaging have helped in the identification of these anomalies at an expedited <lb/>rate. Invasive coronary angiography (ICA) was previously considered to be the most definitive tool in <lb/>identifying CAAs, however, CCTA is now considered the gold standard for the diagnosis of CAAs [3]. CCTA <lb/>allows for non-invasive identification in addition to mapping an accurate course for these vessels while <lb/>providing information regarding the surrounding structures. <lb/>Clinical relevance <lb/>In our case, the patient&apos;s symptoms are not explained by this anatomic variant given that her coronaries <lb/>showed a non-obstructive pattern and there was no compression of the coronaries by the surrounding <lb/>structures. Though the clinical significance of these anomalies is not fully described, accurate identification <lb/>can prevent interventions in the wrong vessels. Incorrect placement during an arteriotomy due to improper <lb/>identification or even grafting of a short LAD due to its misinterpretation as a total occlusion can be <lb/>detrimental to patient care [12]. Cardiologists and surgeons should therefore be well-versed in the <lb/>identification of these anomalies. <lb/>Conclusions <lb/>This case explores the concomitant presence of a rare anatomical abnormality with a relatively common <lb/>anomaly. A type IV dual LAD along with a dual ostia has never been reported together in the literature <lb/>previously. CCTA is considered the gold standard for the identification and delineation of these <lb/>abnormalities. The continued advancements in imaging will bring to the forefront many more variations and <lb/>combinations of CAAs, highlighting the need for clinicians to be familiar with these anomalies. <lb/>It remains pertinent for clinicians to accurately identify variations of coronary vessels, as it can guide <lb/>interventions in symptomatic patients and ensure appropriate management. Beyond individualized patient <lb/>care, developing databases that can identify these anomalies and chart clinical events, interventions, and <lb/>outcomes can help future clinicians answer challenging questions posed by these anomalies. This can <lb/>ultimately improve diagnostic accuracy, which will inevitably translate into personalized treatment plans <lb/>and better patient outcomes. <lb/></body>
+
+    <div type="annex">Additional Information <lb/></div>
+
+    <div type="contribution">Author Contributions <lb/>All authors have reviewed the final version to be published and agreed to be accountable for all aspects of the <lb/>work. <lb/>Concept and design: Riya George, Linle Hou, Parth Patel <lb/></div>
+
+    <note place="footnote">2024 George et al. Cureus 16(6): e61953. DOI 10.7759/cureus.61953 <lb/></note>
+
+    <page>5 of 6 <lb/></page>
+
+    <div type="contribution">Drafting of the manuscript: Riya George, Linle Hou, Parth Patel <lb/>Critical review of the manuscript for important intellectual content: Riya George, Linle Hou, Parth <lb/>Patel, John Makaryus <lb/>Supervision: Parth Patel, John Makaryus <lb/>Acquisition, analysis, or interpretation of data: John Makaryus <lb/></div>
+
+    <div type="annex">Disclosures <lb/>Human subjects: Consent was obtained or waived by all participants in this study. </div>
+
+    <div type="conflict">Conflicts of interest: In <lb/>compliance with the ICMJE uniform disclosure form, all authors declare the following: Payment/services <lb/>info: All authors have declared that no financial support was received from any organization for the <lb/>submitted work. Financial relationships: All authors have declared that they have no financial <lb/>relationships at present or within the previous three years with any organizations that might have an <lb/>interest in the submitted work. Other relationships: All authors have declared that there are no other <lb/>relationships or activities that could appear to have influenced the submitted work. <lb/></div>
+
+    <listBibl>References <lb/>1. Sharma B, Chang A, Red-Horse K: Coronary artery development: progenitor cells and differentiation <lb/>pathways. Annu Rev Physiol. 2017, 79:1-19. 10.1146/annurev-physiol-022516-033953 <lb/>2. Pérez-Pomares JM, de la Pompa JL, Franco D, et al.: Congenital coronary artery anomalies: a bridge from <lb/>embryology to anatomy and pathophysiology--a position statement of the development, anatomy, and <lb/>pathology ESC Working Group. Cardiovasc Res. 2016, 109:204-16. 10.1093/cvr/cvv251 <lb/>3. Gentile F, Castiglione V, De Caterina R: Coronary artery anomalies. Circulation. 2021, 144:983-96. <lb/>10.1161/circulationaha.121.055347 <lb/>4. Spindola-Franco H, Grose R, Solomon N: Dual left anterior descending coronary artery: angiographic <lb/>description of important variants and surgical implications. Am Heart J. 1983, 105:445-55. 10.1016/0002-<lb/>8703(83)90363-0 <lb/>5. Angelini P: Coronary artery anomalies. An entity in search of an identity . Circulation. 2007, 115:1296-305. <lb/>10.1161/CIRCULATIONAHA.106.618082 <lb/>6. Kastellanos S, Aznaouridis K, Vlachopoulos C, Tsiamis E, Oikonomou E, Tousoulis D: Overview of coronary <lb/>artery variants, aberrations and anomalies. World J Cardiol. 2018, 10:127-40. 10.4330/wjc.v10.i10.127 <lb/>7. Pellegrini JR, Munshi R, Alvarez Betancourt A, Tokhi B, Makaryus AN: &quot;Two for one&quot;, novel dual left <lb/>anterior descending artery (LAD) variant: type XIII. Cureus. 2021, 13:e14717. 10.7759/cureus.14717 <lb/>8. Tuncer C, Batyraliev T, Yilmaz R, Gokce M, Eryonucu B, Koroglu S: Origin and distribution anomalies of the <lb/>left anterior descending artery in 70,850 adult patients: multicenter data collection. Catheter Cardiovasc <lb/>Interv. 2006, 68:574-85. 10.1002/ccd.20858 <lb/>9. Yamanaka O, Hobbs RE: Coronary artery anomalies in 126,595 patients undergoing coronary arteriography . <lb/>Cathet Cardiovasc Diagn. 1990, 21:28-40. 10.1002/ccd.1810210110 <lb/>10. Çanga Y, Güvenç TS, Karataş MB, Bezgin T, Güngör B, Çetin R, Bolca O: Clinical presentation and outcomes <lb/>in type IV dual left anterior descending artery anomaly. Interv Med Appl Sci. 2016, 8:32-6. <lb/>10.1556/1646.8.2016.1.7 <lb/>11. Papadopoulos K, Georgiou GM, Nicolaides E: Symptomatic type IV dual left anterior descending coronary <lb/>artery. J Investig Med High Impact Case Rep. 2016, 4:2324709616683723. 10.1177/2324709616683723 <lb/>12. Sajja LR, Farooqi A, Shaik MS, Yarlagadda RB, Baruah DK, Pothineni RB: Dual left anterior descending <lb/>coronary artery: surgical revascularization in 4 patients. Tex Heart Inst J. 2000, 27:292-6. <lb/></listBibl>
+
+    <note place="footnote">2024 George et al. Cureus 16(6): e61953. DOI 10.7759/cureus.61953 <lb/></note>
+
+    <page>6 of 6 </page>
+
+  </text>
+
+</TEI>

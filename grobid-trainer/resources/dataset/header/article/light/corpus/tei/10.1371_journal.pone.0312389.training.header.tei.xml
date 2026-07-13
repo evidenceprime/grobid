@@ -1,0 +1,136 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-04T11:22:22.112Z">12/4/2025 11:22:22 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-04T11:22:10.718471Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-04T11:22:10.718471Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Prevalence of multimorbidity in Brazilian<lb/> individuals: A population-based study<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Ana Daniela Silva da SilveiraID 1 *, Jonas Eduardo Monteiro dos SantosID 2 , Marianna de<lb/> Camargo Cancela 3 , Dyego Leandro Bezerra de Souza 4<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 School of Dentistry, Federal University of Para ´-UFPA,</affiliation>
+	</byline>
+
+	<address>Bele ´m, Para ´, Brazil,</address>
+
+	<byline>
+	<affiliation>2 Department of Quantitative<lb/> Methods in Health, Se ´rgio Arouca National School of Health,</affiliation>
+	</byline>
+
+	<address>Rio de Janeiro, Rio de Janeiro, Brazil,</address>
+
+	<byline>
+	<affiliation>3 Division<lb/> of Population Research, National Cancer Institute, Division of Population Research,</affiliation>
+	</byline>
+
+	<address>Rio de Janeiro, Brazil,<lb/></address>
+
+	<byline>
+	<affiliation>4 Department of Public Health, Federal University of Rio Grande do Norte,</affiliation>
+	</byline>
+
+	<address>Natal, Rio Grande do Norte, Brazil<lb/></address>
+
+	*
+	<email>anadanielass@gmail.com</email>
+
+	Abstract<lb/>
+	<div type="abstract">This study aimed to estimate the prevalence of multimorbidity in Brazilian individuals and its<lb/> association with sociodemographic and lifestyle factors. This cross-sectional study used<lb/> data from the National Health Survey conducted in 2019 with 88,531 Brazilian adults Multi-<lb/>morbidity is the presence of two or more non-communicable chronic diseases. Associated<lb/> factors were assessed by calculating the prevalence ratio (PR) obtained using Poisson<lb/> regression with robust variance. Multimorbidity was estimated in 29.9% (95%CI: 29.33% to<lb/> 30.48%) of Brazilian individuals. In the multiple models, the prevalence was high in women<lb/> ( PR: 1.37; 95%CI: 1.32 to 1.42), individuals over 60 years (PR: 4.26; 95%CI: 3.87 to 4.69),<lb/> non-employed (PR: 1.20; 95%CI: 1.15 to 1.26), individuals with obesity (PR: 1.49; 95%CI:<lb/> 1.43 to 1.56), and smokers (PR: 1.24; 95%CI: 1.19 to 1.29). This study identified a high<lb/> prevalence of multimorbidity and its association with sociodemographic and lifestyle factors.<lb/> The monitoring of these outcomes may support the development of policies and services.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0296381 January 2, 2024<lb/></reference>
+
+	<page>1 / 10<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Silva da Silveira AD, Monteiro dos Santos<lb/> JE, de Camargo Cancela M, de Souza DLB (2024)<lb/> Prevalence of multimorbidity in Brazilian<lb/> individuals: A population-based study. PLoS ONE<lb/> 19(1): e0296381.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0296381<lb/></idno>
+
+	Editor:
+	<editor>Bruno Pereira Nunes,</editor>
+
+	<byline>
+	<affiliation>Universidade Federal<lb/> de Pelotas,</affiliation>
+	</byline>
+
+	<address>BRAZIL<lb/></address>
+
+	<note type="submission">Received: November 15, 2022<lb/> Accepted: December 12, 2023<lb/></note>
+
+	Published:
+	<date>January 2, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0296381<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Silva da Silveira et al. This is an<lb/> open access article distributed under the terms of<lb/> the Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All data files are<lb/> available from the IBGE-Instituto Brasileiro de<lb/> Geografia e Estatı ´stica database (https://www.ibge.<lb/> gov.br/estatisticas/downloads-estatisticas.html).<lb/></note>
+
+	Funding:
+	<note type="funding">The author(s) received no specific<lb/> funding for this work.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

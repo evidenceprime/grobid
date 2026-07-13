@@ -1,22 +1,33 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.sax;
 
-import org.grobid.core.lexicon.Lexicon;
-import org.grobid.core.utilities.OffsetPosition;
-import org.grobid.core.utilities.TextUtilities;
-import org.grobid.core.utilities.UnicodeUtil;
-import org.grobid.core.lang.Language;
-import org.grobid.core.engines.label.TaggingLabel;
-import org.grobid.core.layout.LayoutToken;
-import org.grobid.core.analyzers.*;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+import org.grobid.core.analyzers.*;
+import org.grobid.core.lang.Language;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.utilities.UnicodeUtil;
 
 /**
  * SAX parser for the XML format for citation data. Normally all training data should be in this unique format which
@@ -65,9 +76,10 @@ public class TEICitationSaxParser extends DefaultHandler {
         return allTokens;
     }
 
-    public void endElement(java.lang.String uri,
-                           java.lang.String localName,
-                           java.lang.String qName) throws SAXException {
+    public void endElement(
+            java.lang.String uri,
+            java.lang.String localName,
+            java.lang.String qName) throws SAXException {
         qName = qName.toLowerCase();
 
         if ((qName.equals("author")) || (qName.equals("authors")) || (qName.equals("orgname")) ||
@@ -78,8 +90,7 @@ public class TEICitationSaxParser extends DefaultHandler {
                 (qName.equals("note")) || (qName.equals("web")) || (qName.equals("pages")) ||
                 (qName.equals("publisher")) || (qName.equals("idno") || qName.equals("issue")) ||
                 (qName.equals("pubnum")) || (qName.equals("biblscope")) || (qName.equals("ptr")) ||
-                (qName.equals("keyword")) || (qName.equals("keywords"))
-                ) {
+                (qName.equals("keyword")) || (qName.equals("keywords"))) {
             String text = getText();
             writeField(text);
         } else if (qName.equals("lb")) {
@@ -102,10 +113,11 @@ public class TEICitationSaxParser extends DefaultHandler {
         accumulator.setLength(0);
     }
 
-    public void startElement(String namespaceURI,
-                             String localName,
-                             String qName,
-                             Attributes atts)
+    public void startElement(
+            String namespaceURI,
+            String localName,
+            String qName,
+            Attributes atts)
             throws SAXException {
         String text = getText();
         if (text.length() > 0) {
@@ -274,7 +286,7 @@ public class TEICitationSaxParser extends DefaultHandler {
         if (isEmpty(localTokens)) {
             return;
         }
-        
+
         boolean begin = true;
         for (LayoutToken token : localTokens) {
             tokens.add(token);
@@ -285,11 +297,11 @@ public class TEICitationSaxParser extends DefaultHandler {
             }
 
             content = UnicodeUtil.normaliseTextAndRemoveSpaces(content);
-            if (content.trim().length() == 0) { 
+            if (content.trim().length() == 0) {
                 labeled.add(null);
                 continue;
             }
-            
+
             if (content.length() > 0) {
                 if (begin) {
                     labeled.add("I-" + currentTag);
@@ -300,6 +312,5 @@ public class TEICitationSaxParser extends DefaultHandler {
             }
         }
     }
-
 
 }

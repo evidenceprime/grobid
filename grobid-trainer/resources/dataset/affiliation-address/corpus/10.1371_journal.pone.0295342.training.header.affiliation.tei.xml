@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Alberta Respiratory Centre</orgName>,
+							<orgName type="institution">University of Alberta</orgName>,
+							<address>
+								<settlement>Edmonton</settlement>,
+								<region>Alberta</region>,
+								<country>Canada,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="laboratory">Division of Pulmonary<lb/> Medicine</orgName>,
+							<orgName type="department">Department of Medicine</orgName>,
+							<orgName type="institution">University of Alberta</orgName>,
+							<address>
+								<settlement>Edmonton</settlement>,
+								<region>Alberta</region>,
+								<country>Canada,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Department of<lb/> Laboratory Medicine</orgName>,
+							<orgName type="institution">University of Alberta</orgName>,
+							<address>
+								<settlement>Edmonton</settlement>,
+								<region>Alberta</region>,
+								<country>Canada,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">Departments of Pediatrics and<lb/> Pharmacology</orgName>,
+							<orgName type="department">Rainbow Babies and Children&apos;s Hospital</orgName>,
+							<orgName type="institution">Case Western Reserve University</orgName>,
+							<orgName type="department">School of<lb/> Medicine</orgName>,
+							<address>
+								<settlement>Cleveland</settlement>,
+								<region>Ohio</region>,
+								<country>United States of America,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="laboratory">Division of Pediatric Cardiology</orgName>,
+							<orgName type="department">Department of<lb/> Pediatrics, Rainbow Babies and Children&apos;s Hospital</orgName>,
+							<orgName type="institution">Case Western Reserve University</orgName>,
+							<orgName type="department">School of Medicine</orgName>,
+							<lb/>
+							<address>
+								<settlement>Cleveland</settlement>,
+								<region>Ohio</region>,
+								<country>United States of America,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="institution">GB Diagnostics</orgName>,
+							<address>
+								<settlement>Montreal</settlement>,
+								<region>Quebec</region>,
+								<country>Canada</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>7</marker>
+							<orgName type="institution">GB<lb/> Diagnostics</orgName>,
+							<address>
+								<settlement>Albuquerque</settlement>,
+								<region>New Mexico</region>,
+								<country>United States of America</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>8</marker>
+							<orgName type="institution">Northern Alberta Institute of<lb/> Technology</orgName>,
+							<address>
+								<settlement>Edmonton</settlement>,
+								<region>Alberta</region>,
+								<country>Canada</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">Alexandria University</orgName>,
+							<lb/>
+							<address>
+								<country>EGYPT</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

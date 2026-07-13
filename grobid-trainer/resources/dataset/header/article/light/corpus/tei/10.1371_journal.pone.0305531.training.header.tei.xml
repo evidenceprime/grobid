@@ -1,0 +1,118 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T15:06:53.333Z">12/3/2025 3:06:53 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T15:06:40.496467Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T15:06:40.496467Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Hepatitis E virus infections among patients<lb/> with acute febrile jaundice in two regions of<lb/> Cameroon: First molecular characterization of<lb/> hepatitis E virus genotype 4<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Abdou Fatawou Modiyinji, Lange Tchamba Amorgathe Tankeu, Chavely<lb/> Gwladys Monamele, Moise Henri Yifomnjou Moumbeket ID , Paul Alain Tagnouokam<lb/> Ngoupo ID , Huguette Tchetgna Simo, Abanda Njei Ngu, Kazanji Mirdad,<lb/> Richard Njouom ID *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Virology Unit, Centre Pasteur du Cameroun,</affiliation>
+	</byline>
+
+	<address>Yaounde ´, Cameroon<lb/></address>
+
+	*
+	<email>njouom@pasteur-yaounde.org</email>
+
+	Abstract
+	<div type="abstract">Background<lb/> Febrile jaundice is a common indicator of certain infectious diseases, including hepatitis E.<lb/> In Cameroon, the yellow fever virus is the only pathogen that is monitored in patients who<lb/> present with this symptom. However, more than 90% of the samples received as part of this<lb/> surveillance are negative for yellow fever. This study aimed to describe the prevalence and<lb/> hepatitis E virus (HEV) genotype among yellow fever-negative patients in the Far North and<lb/> West regions of Cameroon. Methods<lb/> In a cross-sectional study, yellow fever surveillance-negative samples collected between<lb/> January 2021 and January 2023 were retrospectively analyzed. Anti-HEV IgM and IgG anti-<lb/>bodies were tested using commercially available ELISA kits. Anti-HEV IgM and/or IgG posi-<lb/>tive samples were tested for HEV RNA by real-time RT-PCR, followed by nested RT-PCR,<lb/> sequencing and phylogenetic analysis. Results<lb/> Overall, 121 of the 543 samples (22.3%, 95% CI: 19.0% -26.0%) were positive for at least<lb/> one anti-HEV marker. Amongst these, 8.1% (44/543) were positive for anti-HEV IgM, 5.9%<lb/> (32/543) for anti-HEV IgG, and 8.3% (45/544) for both markers. A total of 15.2% (12/79)<lb/> samples were positive for HEV RNA real-time RT-PCR and 8 samples were positive for<lb/> HEV RNA by nested RT-PCR. Phylogenetic analysis showed that the retrieved sequences<lb/> clustered within HEV genotypes/subtypes 1/1e, 3/3f and 4/4b.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0298723 February 12, 2024<lb/></reference>
+
+	<page>1 / 12<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Modiyinji AF, Tankeu LTA, Monamele CG,<lb/> Yifomnjou Moumbeket MH, Tagnouokam Ngoupo<lb/> PA, Tchetgna Simo H, et al. (2024) Hepatitis E virus<lb/> infections among patients with acute febrile<lb/> jaundice in two regions of Cameroon: First<lb/> molecular characterization of hepatitis E virus<lb/> genotype 4. PLoS ONE 19(2): e0298723.</reference>
+
+	<idno>https://<lb/> doi.org/10.1371/journal.pone.0298723<lb/></idno>
+
+	Editor:
+    <editor>Pierre Roques</editor>
+
+    ,
+    <byline>
+        <affiliation>CEA</affiliation>,
+    </byline>,
+
+    <address>FRANCE<lb/></address>
+
+	<note type="submission">Received: October 13, 2023<lb/> Accepted: January 29, 2024<lb/></note>
+
+	Published:
+	<date>February 12, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Modiyinji et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the manuscript and its Supporting<lb/> information files.<lb/></note>
+
+	Funding:
+	<note type="funding">The author(s) received no specific<lb/> funding for this work.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+	<div type="abstract">Conclusion<lb/> Our results showed that HEV is one of the causes of acute febrile jaundice in patients<lb/> enrolled in the yellow fever surveillance program in two regions of Cameroon. We described<lb/> the circulation of three HEV genotypes, including two zoonotic genotypes. Further studies<lb/> will be important to elucidate the transmission routes of these zoonotic HEV genotypes to<lb/> humans in Cameroon.</div>
+
+		</front>
+	</text>
+
+</TEI>

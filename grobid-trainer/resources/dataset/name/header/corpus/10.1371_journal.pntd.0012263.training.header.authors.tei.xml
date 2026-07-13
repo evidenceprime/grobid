@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Lynnette</forename>
+								 <middlename>C</middlename>.
+								 <surname>Goatley</surname>
+								 <marker>1☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Graham</forename>
+								 <surname>Freimanis</surname>
+								 <marker>1☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Chandana</forename>
+								 <surname>Tennakoon</surname>
+								 <marker>1☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Thomas</forename>
+								 <middlename>J</middlename>.
+								 <surname>Foster</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Mehnaz</forename>
+								 <surname>Quershi</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Linda</forename>
+								 <middlename>K</middlename>.
+								 <surname>Dixon</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								<forename>Carrie</forename>
+								<surname>Batten</surname>
+							 	<marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jan</forename>
+								 <middlename>Hendrik</middlename>
+								 <surname>Forth</surname>
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Abel</forename>
+								 <surname>Wade</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Christopher</forename>
+								 <surname>NethertonID</surname>
+								 <marker>1 *</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

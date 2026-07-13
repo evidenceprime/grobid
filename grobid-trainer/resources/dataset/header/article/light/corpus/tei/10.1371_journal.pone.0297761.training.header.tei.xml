@@ -1,0 +1,119 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T15:36:57.361Z">12/2/2025 3:36:57 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T15:36:29.052152Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T15:36:29.052152Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">UPDATE ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Behavioral adjustment of C. elegans to<lb/> mechanosensory loss requires intact<lb/> mechanosensory neurons<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Michal Staum, Ayelet-Chen Abraham, Reema Arbid, Varun Sanjay Birari,<lb/> Matanel Dominitz, Ithai RabinowitchID*<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Department of Medical Neurobiology, Institute for Medical Research Israel-Canada, Faculty of Medicine,<lb/> Hebrew University of Jerusalem,</affiliation>
+	</byline>
+
+	<address>Jerusalem, Israel<lb/></address>
+
+	*
+	<email>ithai.rabinowitch@mail.huji.ac.il</email>
+
+	Abstract<lb/> AU : Pleaseconfirmthatallheadinglevelsarerepresentedcorrectly:<lb/>
+	<div type="abstract">Sensory neurons specialize in detecting and signaling the presence of diverse environmen-<lb/>tal stimuli. Neuronal injury or disease may undermine such signaling, diminishing the avail-<lb/>ability of crucial information. Can animals distinguish between a stimulus not being present<lb/> and the inability to sense that stimulus in the first place? To address this question, we stud-<lb/>ied Caenorhabditis elegans nematode worms that lack gentle body touch sensation due to<lb/> genetic mechanoreceptor dysfunction. We previously showed that worms can compensate<lb/> for the loss of touch by enhancing their sense of smell, via an FLP-20 neuropeptide path-<lb/>way. Here, we find that touch-deficient worms exhibit, in addition to sensory compensation,<lb/> also cautious-like behavior, as if preemptively avoiding potential undetectable hazards.<lb/> Intriguingly, these behavioral adjustments are abolished when the touch neurons are<lb/> removed, suggesting that touch neurons are required for signaling the unavailability of touch<lb/> information, in addition to their conventional role of signaling touch stimulation. Furthermore,<lb/> we found that the ASE taste neurons, which similarly to the touch neurons, express the<lb/> FLP-20 neuropeptide, exhibit altered FLP-20 expression levels in a touch-dependent man-<lb/>ner, thus cooperating with the touch circuit. These results imply a novel form of neuronal sig-<lb/>naling that enables C. elegans to distinguish between lack of touch stimulation and loss of<lb/> touch sensation, producing adaptive behavioral adjustments that could overcome the inabil-<lb/>ity to detect potential threats.<lb/></div>
+
+	<reference>PLOS Biology | https://doi.org/10.1371/journal.pbio.3002729 July 18, 2024<lb/></reference>
+
+	<page>1 / 17<lb/></page>
+    a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/> The Editors encourage authors to publish<lb/> research updates to this article type. Please<lb/> follow the link in the citation below to view<lb/> any related articles.<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Staum M, Abraham A-C, Arbid R, Birari<lb/> VS, Dominitz M, Rabinowitch I (2024) Behavioral<lb/> adjustment of C. elegans to mechanosensory loss<lb/> requires intact mechanosensory neurons. PLoS<lb/> Biol 22(7): e3002729.</reference>
+
+	<idno>https://doi.org/10.1371/<lb/> journal.pbio.3002729<lb/></idno>
+
+	Academic Editor:
+	<editor>Piali Sengupta,</editor>
+
+	<byline>
+	<affiliation>Brandeis<lb/> University,</affiliation>
+	</byline>
+
+	<address>UNITED STATES OF AMERICA<lb/></address>
+
+	<note type="submission">Received: November 23, 2023<lb/> Accepted: July 2, 2024<lb/></note>
+
+	Published:
+	<date>July 18, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pbio.3002729<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Staum et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the paper and its Supporting Information<lb/> files. Custom code used in the study is available at<lb/> Github at the following locations: https://github.<lb/> com/RabinowitchLab/RecordGUI.git (10.5281/<lb/> zenodo.12193290) https://github.com/<lb/> RabinowitchLab/TREX.git (10.5281/zenodo.<lb/> 12193275) https://github.com/RabinowitchLab/<lb/> NeuroShine.git (10.5281/zenodo.12193342).<lb/></note>
+
+	Funding:
+	<note type="funding">IR received funding for this study from<lb/> the Israel Science Foundation (https://www.isf.org.<lb/> il) Grant No. 1465/20 and from Horizon Europe,<lb/> PathFinder European Innovation Council (https://<lb/> eic.ec.europa.eu/eic-funding-opportunities/eic-<lb/>pathfinder_en) Grant No. 101098722. Neither<lb/> funder played any role in the study design, data<lb/> collection and analysis, decision to publish, or<lb/> preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+	Abbreviations: AU : Anabbreviationlisthasbeencompiledforthoseusedinthetext:Pleaseverifythatallentriesarecorrect:<lb/>CI, chemotaxis index; NGM,<lb/> nematode growth medium; NP, neuropeptide; ROI,<lb/> region of interest; TRN, touch receptor neuron.
+
+		</front>
+	</text>
+
+</TEI>

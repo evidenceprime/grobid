@@ -1,32 +1,46 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.visualization;
 
-import org.apache.commons.io.FileUtils;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
+import org.junit.AfterClass;
+import org.junit.Test;
+
 import org.grobid.core.document.Document;
 import org.grobid.core.engines.Engine;
 import org.grobid.core.engines.config.GrobidAnalysisConfig;
 import org.grobid.core.factory.GrobidFactory;
-import org.junit.AfterClass;
-import org.junit.Test;
-
-import java.io.File;
-import java.io.InputStream;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-
-import com.fasterxml.jackson.core.Versioned;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
 
 public class TestCitationsVisualizer {
 
     static final ObjectMapper mapper = new ObjectMapper();
 
     @AfterClass
-    public static void tearDown(){
+    public static void tearDown() {
         GrobidFactory.reset();
     }
 
@@ -100,7 +114,7 @@ public class TestCitationsVisualizer {
     // XXX: copied from TestFullTextParser
     private File getInputDocument(String inputPath) throws IOException {
         InputStream is = this.getClass().getResourceAsStream(inputPath);
-        File inputTmpFile  = File.createTempFile("tmpFileTest", "testFullTextParser");
+        File inputTmpFile = File.createTempFile("tmpFileTest", "testFullTextParser");
         inputTmpFile.deleteOnExit();
 
         FileUtils.copyToFile(is, inputTmpFile);

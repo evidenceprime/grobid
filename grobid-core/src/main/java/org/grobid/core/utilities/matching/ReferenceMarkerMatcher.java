@@ -1,4 +1,27 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities.matching;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
@@ -6,24 +29,16 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import org.apache.lucene.analysis.standard.ClassicAnalyzer;
 import org.apache.lucene.util.Version;
-import org.grobid.core.data.BibDataSet;
-import org.grobid.core.data.BiblioItem;
-import org.grobid.core.layout.LayoutToken;
-import org.grobid.core.utilities.LayoutTokensUtil;
-import org.grobid.core.utilities.Pair;
-import org.grobid.core.utilities.TextUtilities;
-import org.grobid.core.utilities.counters.CntManager;
-import org.grobid.core.engines.counters.ReferenceMarkerMatcherCounters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-import java.util.HashSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import org.grobid.core.data.BibDataSet;
+import org.grobid.core.data.BiblioItem;
+import org.grobid.core.engines.counters.ReferenceMarkerMatcherCounters;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.utilities.LayoutTokensUtil;
+import org.grobid.core.utilities.Pair;
+import org.grobid.core.utilities.counters.CntManager;
 
 /**
  * Matching reference markers to extracted citations
@@ -36,15 +51,17 @@ public class ReferenceMarkerMatcher {
     //public static final Pattern AUTHOR_NAME_PATTERN = Pattern.compile("[A-Z][A-Za-z]+");
     public static final Pattern AUTHOR_NAME_PATTERN = Pattern.compile("[A-Z][\\p{L}]+");
     //public static final Pattern NUMBERED_CITATION_PATTERN = Pattern.compile(" *[\\(\\[]? *(?:\\d+[-–]\\d+,|\\d+, *)*[ ]*(?:\\d+[-–]\\d+|\\d+)[\\)\\]]? *");
-    public static final Pattern NUMBERED_CITATION_PATTERN = Pattern.compile("[\\(\\[]?\\s*(?:\\d+[-−–]\\d+,|\\d+,[ ]*)*[ ]*(?:\\d+[-–]\\d+|\\d+)\\s*[\\)\\]]?");
+    public static final Pattern NUMBERED_CITATION_PATTERN = Pattern
+            .compile("[\\(\\[]?\\s*(?:\\d+[-−–]\\d+,|\\d+,[ ]*)*[ ]*(?:\\d+[-–]\\d+|\\d+)\\s*[\\)\\]]?");
     public static final Pattern AUTHOR_SEPARATOR_PATTERN = Pattern.compile(";");
     public static final ClassicAnalyzer ANALYZER = new ClassicAnalyzer(Version.LUCENE_45);
     public static final int MAX_RANGE = 20;
     public static final Pattern NUMBERED_CITATIONS_SPLIT_PATTERN = Pattern.compile("[,;]");
     public static final Pattern AND_WORD_PATTERN = Pattern.compile("(and)|&");
+    public static final Pattern FIGURE_TABLES_REF_SEPARATORS = Pattern.compile("(and)|(&)|(,)");
     public static final Pattern DASH_PATTERN = Pattern.compile("[–−-]");
 
-    public class MatchResult {  
+    public class MatchResult {
         private String text;
         private List<LayoutToken> tokens;
         private BibDataSet bibDataSet;
@@ -68,7 +85,6 @@ public class ReferenceMarkerMatcher {
         }
     }
 
-
     public static final Function<String, Object> IDENTITY = new Function<String, Object>() {
         @Override
         public Object apply(String s) {
@@ -85,8 +101,8 @@ public class ReferenceMarkerMatcher {
             throws EntityMatcherException {
         allLabels = new HashSet<String>();
         allFirstAuthors = new HashSet<String>();
-        if ( (bds != null) && (bds.size() > 0) ) {
-            for(BibDataSet bibDataSet : bds) {
+        if ((bds != null) && (bds.size() > 0)) {
+            for (BibDataSet bibDataSet : bds) {
                 allLabels.add(bibDataSet.getRefSymbol());
                 //System.out.println(bibDataSet.getRefSymbol());
                 String authorString = bibDataSet.getResBib().getFirstAuthorSurname();
@@ -104,12 +120,11 @@ public class ReferenceMarkerMatcher {
                         if (bibDataSet.getResBib().getPublicationDate() != null) {
                             authorString += " " + bibDataSet.getResBib().getPublicationDate();
                         }
-//                        System.out.println("Indexing: " + authorString);
+                        //                        System.out.println("Indexing: " + authorString);
                         return authorString;
                     }
                 },
-                IDENTITY
-        );
+                IDENTITY);
 
         authorMatcher.setMustMatchPercentage(1.0);
         if (bds != null)
@@ -121,8 +136,7 @@ public class ReferenceMarkerMatcher {
                         return bibDataSet.getRefSymbol();
                     }
                 },
-                IDENTITY
-        );
+                IDENTITY);
 
         labelMatcher.setMustMatchPercentage(1.0);
         if (bds != null)
@@ -131,26 +145,27 @@ public class ReferenceMarkerMatcher {
 
     public List<MatchResult> match(List<LayoutToken> refTokens) throws EntityMatcherException {
         cntManager.i(ReferenceMarkerMatcherCounters.INPUT_REF_STRINGS_CNT);
-        String text = LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(LayoutTokensUtil.enrichWithNewLineInfo(refTokens)));
+        String text = LayoutTokensUtil
+                .toText(LayoutTokensUtil.dehyphenize(LayoutTokensUtil.enrichWithNewLineInfo(refTokens)));
 
         if (isAuthorCitationStyle(text)) {
             cntManager.i(ReferenceMarkerMatcherCounters.STYLE_AUTHORS);
-//System.out.println("STYLE_AUTHORS: " + text);    
+            //System.out.println("STYLE_AUTHORS: " + text);
             return matchAuthorCitation(text, refTokens);
         } else if (isNumberedCitationReference(text)) {
             cntManager.i(ReferenceMarkerMatcherCounters.STYLE_NUMBERED);
-//System.out.println("STYLE_NUMBERED: " + text);            
+            //System.out.println("STYLE_NUMBERED: " + text);
             return matchNumberedCitation(text, refTokens);
         } else {
             cntManager.i(ReferenceMarkerMatcherCounters.STYLE_OTHER);
-//System.out.println("STYLE_OTHER: " + text);   
-//            LOGGER.info("Other style: " + text);
+            //System.out.println("STYLE_OTHER: " + text);
+            //            LOGGER.info("Other style: " + text);
             return Collections.singletonList(new MatchResult(text, refTokens, null));
         }
     }
 
     /*public boolean isAuthorCitationStyle(String text) {
-        return ( YEAR_PATTERN.matcher(text.trim()).find() || 
+        return ( YEAR_PATTERN.matcher(text.trim()).find() ||
                  NUMBERED_CITATION_PATTERN.matcher(text.trim()).find() )
             && AUTHOR_NAME_PATTERN.matcher(text.trim()).find();
     }*/
@@ -166,8 +181,8 @@ public class ReferenceMarkerMatcher {
 
     // number matching for number alone or in combination with author for cases "Naze et al. [5]"
     public boolean isNumberedCitationReference(String t) {
-        return NUMBERED_CITATION_PATTERN.matcher(t.trim()).matches() || 
-                 ( NUMBERED_CITATION_PATTERN.matcher(t.trim()).find() && AUTHOR_NAME_PATTERN.matcher(t.trim()).find() );
+        return NUMBERED_CITATION_PATTERN.matcher(t.trim()).matches() ||
+                (NUMBERED_CITATION_PATTERN.matcher(t.trim()).find() && AUTHOR_NAME_PATTERN.matcher(t.trim()).find());
     }
 
     // string number matching
@@ -175,7 +190,8 @@ public class ReferenceMarkerMatcher {
         return NUMBERED_CITATION_PATTERN.matcher(t.trim()).matches();
     }*/
 
-    private List<MatchResult> matchNumberedCitation(String input, List<LayoutToken> refTokens) throws EntityMatcherException {
+    private List<MatchResult> matchNumberedCitation(String input, List<LayoutToken> refTokens)
+            throws EntityMatcherException {
         List<Pair<String, List<LayoutToken>>> labels = getNumberedLabels(refTokens, true);
         List<MatchResult> results = new ArrayList<>();
         for (Pair<String, List<LayoutToken>> label : labels) {
@@ -184,24 +200,24 @@ public class ReferenceMarkerMatcher {
             List<BibDataSet> matches = labelMatcher.match(text);
             if (matches.size() == 1) {
                 cntManager.i(ReferenceMarkerMatcherCounters.MATCHED_REF_MARKERS);
-//                System.out.println("MATCHED: " + text + "\n" + matches.get(0).getRefSymbol() + "\n" + matches.get(0).getRawBib());
+                //                System.out.println("MATCHED: " + text + "\n" + matches.get(0).getRefSymbol() + "\n" + matches.get(0).getRawBib());
 
-//                System.out.println("-----------");
+                //                System.out.println("-----------");
                 results.add(new MatchResult(text, labelToks, matches.get(0)));
             } else {
                 cntManager.i(ReferenceMarkerMatcherCounters.UNMATCHED_REF_MARKERS);
                 if (matches.size() != 0) {
                     cntManager.i(ReferenceMarkerMatcherCounters.MANY_CANDIDATES);
-//                    LOGGER.info("MANY CANDIDATES: " + input + "\n" + text + "\n");
+                    //                    LOGGER.info("MANY CANDIDATES: " + input + "\n" + text + "\n");
                     for (BibDataSet bds : matches) {
-//                        LOGGER.info("  " + bds.getRawBib());
+                        //                        LOGGER.info("  " + bds.getRawBib());
                     }
 
-//                    LOGGER.info("----------");
+                    //                    LOGGER.info("----------");
                 } else {
                     cntManager.i(ReferenceMarkerMatcherCounters.NO_CANDIDATES);
-//                    LOGGER.info("NO CANDIDATES: " + text + "\n" + text);
-//                    LOGGER.info("++++++++++++");
+                    //                    LOGGER.info("NO CANDIDATES: " + text + "\n" + text);
+                    //                    LOGGER.info("++++++++++++");
                 }
                 results.add(new MatchResult(text, labelToks, null));
             }
@@ -209,7 +225,9 @@ public class ReferenceMarkerMatcher {
         return results;
     }
 
-    public static List<Pair<String, List<LayoutToken>>> getNumberedLabels(List<LayoutToken> layoutTokens, boolean addWrappingSymbol) {
+    public static List<Pair<String, List<LayoutToken>>> getNumberedLabels(
+            List<LayoutToken> layoutTokens,
+            boolean addWrappingSymbol) {
         List<List<LayoutToken>> split = LayoutTokensUtil.split(layoutTokens, NUMBERED_CITATIONS_SPLIT_PATTERN, true);
         List<Pair<String, List<LayoutToken>>> res = new ArrayList<>();
         // return [ ] or () depending on (1 - 2) or [3-5])
@@ -227,8 +245,12 @@ public class ReferenceMarkerMatcher {
                     Integer a;
                     Integer b;
 
-                    a = Integer.valueOf(LuceneUtil.tokenizeString(ANALYZER, LayoutTokensUtil.toText(leftNumberToks)).get(0), 10);
-                    b = Integer.valueOf(LuceneUtil.tokenizeString(ANALYZER, LayoutTokensUtil.toText(rightNumberToks)).get(0), 10);
+                    a = Integer.valueOf(
+                            LuceneUtil.tokenizeString(ANALYZER, LayoutTokensUtil.toText(leftNumberToks)).get(0),
+                            10);
+                    b = Integer.valueOf(
+                            LuceneUtil.tokenizeString(ANALYZER, LayoutTokensUtil.toText(rightNumberToks)).get(0),
+                            10);
 
                     if (a < b && b - a < MAX_RANGE) {
                         for (int i = a; i <= b; i++) {
@@ -271,7 +293,8 @@ public class ReferenceMarkerMatcher {
         return new Pair<>('[', ']');
     }
 
-    private List<MatchResult> matchAuthorCitation(String text, List<LayoutToken> refTokens) throws EntityMatcherException {
+    private List<MatchResult> matchAuthorCitation(String text, List<LayoutToken> refTokens)
+            throws EntityMatcherException {
         List<Pair<String, List<LayoutToken>>> split = splitAuthors(refTokens);
         List<MatchResult> results = new ArrayList<>();
 
@@ -282,7 +305,7 @@ public class ReferenceMarkerMatcher {
             List<BibDataSet> matches = authorMatcher.match(c);
             if (matches.size() == 1) {
                 cntManager.i(ReferenceMarkerMatcherCounters.MATCHED_REF_MARKERS);
-//System.out.println("MATCHED: " + text + "\n" + c + "\n" + matches.get(0).getRawBib());
+                //System.out.println("MATCHED: " + text + "\n" + c + "\n" + matches.get(0).getRawBib());
                 results.add(new MatchResult(c, splitItem, matches.get(0)));
             } else {
                 if (matches.size() != 0) {
@@ -334,14 +357,17 @@ public class ReferenceMarkerMatcher {
                 }
             } else if (matchCount > 1) {
                 List<List<LayoutToken>> yearSplit = LayoutTokensUtil.split(splitTokens, YEAR_PATTERN, true, false);
-                List<List<LayoutToken>> yearSplitWithLeftOver = LayoutTokensUtil.split(splitTokens, YEAR_PATTERN, true, true);
+                List<List<LayoutToken>> yearSplitWithLeftOver = LayoutTokensUtil
+                        .split(splitTokens, YEAR_PATTERN, true, true);
                 // do we have a leftover to be added?
                 List<LayoutToken> leftover = null;
                 if (yearSplit.size() < yearSplitWithLeftOver.size()) {
-                    leftover = yearSplitWithLeftOver.get(yearSplitWithLeftOver.size()-1);
+                    leftover = yearSplitWithLeftOver.get(yearSplitWithLeftOver.size() - 1);
                 }
                 if (yearSplit.isEmpty()) {
-                    result.add(new Pair<>(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(splitTokens)), splitTokens));
+                    result.add(
+                            new Pair<>(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(splitTokens)),
+                                    splitTokens));
                 } else {
                     if (matchCount(splitTokens, AUTHOR_NAME_PATTERN) == 1) {
                         // cases like Grafton et al. 1995, 1998;
@@ -353,33 +379,50 @@ public class ReferenceMarkerMatcher {
 
                         List<LayoutToken> firstYearSplitItem;
                         firstYearSplitItem = yearSplit.get(0);
-                        result.add(new Pair<>(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(firstYearSplitItem)), firstYearSplitItem));
+                        result.add(
+                                new Pair<>(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(firstYearSplitItem)),
+                                        firstYearSplitItem));
 
-                        List<LayoutToken> excludedYearToks = firstYearSplitItem.subList(0, firstYearSplitItem.size() - 1);
+                        List<LayoutToken> excludedYearToks = firstYearSplitItem
+                                .subList(0, firstYearSplitItem.size() - 1);
                         String authorName = LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(excludedYearToks));
 
                         for (int i = 1; i < yearSplit.size(); i++) {
                             List<LayoutToken> toksI = yearSplit.get(i);
-                            if (i == yearSplit.size()-1 && leftover != null) {
+                            if (i == yearSplit.size() - 1 && leftover != null) {
                                 List<LayoutToken> lastSegmentTokens = toksI.subList(toksI.size() - 1, toksI.size());
                                 lastSegmentTokens.addAll(leftover);
-                                result.add(new Pair<>(authorName + " " + LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(toksI)) + LayoutTokensUtil.toText(leftover), 
-                                    lastSegmentTokens));
+                                result.add(
+                                        new Pair<>(
+                                                authorName
+                                                        + " "
+                                                        + LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(toksI))
+                                                        + LayoutTokensUtil.toText(leftover),
+                                                lastSegmentTokens));
                             } else {
-                                result.add(new Pair<>(authorName + " " + LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(toksI)), 
-                                    toksI.subList(toksI.size() - 1, toksI.size())));
+                                result.add(
+                                        new Pair<>(
+                                                authorName
+                                                        + " "
+                                                        + LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(toksI)),
+                                                toksI.subList(toksI.size() - 1, toksI.size())));
                             }
                         }
                     } else {
                         // case when two authors still appear
-                        for(int k=0; k<yearSplit.size(); k++) {
+                        for (int k = 0; k < yearSplit.size(); k++) {
                             List<LayoutToken> item = yearSplit.get(k);
-                            if (k == yearSplit.size()-1 && leftover != null) {
+                            if (k == yearSplit.size() - 1 && leftover != null) {
                                 List<LayoutToken> lastSegmentTokens = item;
                                 lastSegmentTokens.addAll(leftover);
-                                result.add(new Pair<>(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(lastSegmentTokens)), lastSegmentTokens));
+                                result.add(
+                                        new Pair<>(
+                                                LayoutTokensUtil
+                                                        .toText(LayoutTokensUtil.dehyphenize(lastSegmentTokens)),
+                                                lastSegmentTokens));
                             } else
-                                result.add(new Pair<>(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(item)), item));
+                                result.add(
+                                        new Pair<>(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(item)), item));
                         }
                     }
                 }
@@ -409,13 +452,14 @@ public class ReferenceMarkerMatcher {
             String[] sp = c.trim().split(" ");
             //callouts often include parentheses as seen in https://grobid.readthedocs.io/en/latest/training/fulltext/
             final String author = sp[0].replaceAll("[\\(\\[]", "").toLowerCase();
-            ArrayList<BibDataSet> bibDataSets = Lists.newArrayList(Iterables.filter(matches, new Predicate<BibDataSet>() {
-                @Override
-                public boolean apply(BibDataSet bibDataSet) {
-                    // first author last name formatted raw bib
-                    return bibDataSet.getRawBib().trim().toLowerCase().startsWith(author);
-                }
-            }));
+            ArrayList<BibDataSet> bibDataSets = Lists
+                    .newArrayList(Iterables.filter(matches, new Predicate<BibDataSet>() {
+                        @Override
+                        public boolean apply(BibDataSet bibDataSet) {
+                            // first author last name formatted raw bib
+                            return bibDataSet.getRawBib().trim().toLowerCase().startsWith(author);
+                        }
+                    }));
 
             if (bibDataSets.size() == 1) {
                 return bibDataSets;
@@ -444,7 +488,8 @@ public class ReferenceMarkerMatcher {
             return Lists.newArrayList(Iterables.filter(bibDataSets, new Predicate<BibDataSet>() {
                 @Override
                 public boolean apply(BibDataSet bibDataSet) {
-                    return (bibDataSet.getResBib().getFullAuthors() != null && bibDataSet.getResBib().getFullAuthors().size() > 1);
+                    return (bibDataSet.getResBib().getFullAuthors() != null
+                            && bibDataSet.getResBib().getFullAuthors().size() > 1);
                 }
             }));
         } else {
@@ -452,13 +497,14 @@ public class ReferenceMarkerMatcher {
             return Lists.newArrayList(Iterables.filter(matches, new Predicate<BibDataSet>() {
                 @Override
                 public boolean apply(BibDataSet bibDataSet) {
-                    return bibDataSet.getResBib().getFullAuthors() != null && bibDataSet.getResBib().getFullAuthors().size() == 1;
+                    return bibDataSet.getResBib().getFullAuthors() != null
+                            && bibDataSet.getResBib().getFullAuthors().size() == 1;
                 }
             }));
         }
     }
 
-    /** 
+    /**
      * Return true if the text is a known label from the bibliographical reference list
      */
     public boolean isKnownLabel(String text) {
@@ -472,9 +518,9 @@ public class ReferenceMarkerMatcher {
      * Return true if the text is a known first author from the bibliographical reference list
      */
     public boolean isKnownFirstAuthor(String text) {
-        if ( (allFirstAuthors != null) && (allFirstAuthors.contains(text.trim())) )
+        if ((allFirstAuthors != null) && (allFirstAuthors.contains(text.trim())))
             return true;
-        else 
+        else
             return false;
     }
 

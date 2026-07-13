@@ -1,16 +1,31 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines;
-
-import org.grobid.core.engines.entities.ChemicalParser;
-import org.grobid.core.engines.patent.ReferenceExtractor;
-import org.grobid.core.GrobidModels.Flavor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.Closeable;
 import java.io.IOException;
-import java.util.Map;
-import java.util.HashMap;
 import java.util.EnumMap;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.grobid.core.GrobidModels.Flavor;
+import org.grobid.core.engines.entities.ChemicalParser;
+import org.grobid.core.engines.patent.ReferenceExtractor;
 
 public class EngineParsers implements Closeable {
     public static final Logger LOGGER = LoggerFactory.getLogger(EngineParsers.class);
@@ -18,7 +33,7 @@ public class EngineParsers implements Closeable {
     private AuthorParser authorParser = null;
     private AffiliationAddressParser affiliationAddressParser = null;
     private HeaderParser headerParser = null;
-    private Map<Flavor,HeaderParser> headerParsers = null;
+    private Map<Flavor, HeaderParser> headerParsers = null;
     private DateParser dateParser = null;
     private CitationParser citationParser = null;
     private FullTextParser fullTextParser = null;
@@ -26,8 +41,8 @@ public class EngineParsers implements Closeable {
     private ReferenceExtractor referenceExtractor = null;
     private ChemicalParser chemicalParser = null;
     private Segmentation segmentationParser = null;
-    private Map<Flavor,Segmentation> segmentationParsers = null;
-    private Map<Flavor,FullTextParser> fullTextParsers = null;
+    private Map<Flavor, Segmentation> segmentationParsers = null;
+    private Map<Flavor, FullTextParser> fullTextParsers = null;
     private ReferenceSegmenterParser referenceSegmenterParser = null;
     private FigureParser figureParser = null;
     private TableParser tableParser = null;
@@ -106,7 +121,6 @@ public class EngineParsers implements Closeable {
         return citationParser;
     }
 
-
     public FullTextParser getFullTextParser(Flavor flavor) {
         if (flavor == null) {
             if (fullTextParser == null) {
@@ -117,7 +131,8 @@ public class EngineParsers implements Closeable {
                 }
             }
             return fullTextParser;
-        } {
+        }
+        {
             synchronized (this) {
                 if (fullTextParsers == null || fullTextParsers.get(flavor) == null) {
                     FullTextParser localFulltextParser = new FullTextParser(this, flavor);
@@ -168,7 +183,8 @@ public class EngineParsers implements Closeable {
                 }
             }
             return segmentationParser;
-        } {
+        }
+        {
             synchronized (this) {
                 if (segmentationParsers == null || segmentationParsers.get(flavor) == null) {
                     Segmentation localSegmentationParser = new Segmentation(flavor);
@@ -256,25 +272,34 @@ public class EngineParsers implements Closeable {
             }
         }
         return fundingAcknowledgementParser;
-    } 
+    }
 
     /**
-     * Init all model, this will also load the model into memory
+     * Init all model, this will also load the model into memory.
+     * Each parser is initialized independently so that one failure doesn't prevent others from loading.
      */
     public void initAll() {
-        affiliationAddressParser = getAffiliationAddressParser();
-        authorParser = getAuthorParser();
-        headerParser = getHeaderParser();
-        dateParser = getDateParser();
-        citationParser = getCitationParser();
-        fullTextParser = getFullTextParser();
-        //referenceExtractor = getReferenceExtractor();
-        segmentationParser = getSegmentationParser();
-        referenceSegmenterParser = getReferenceSegmenterParser();
-        figureParser = getFigureParser();
-        tableParser = getTableParser();
-        //MonographParser monographParser = getMonographParser();
-        fundingAcknowledgementParser = getFundingAcknowledgementParser();
+        tryInit(() -> affiliationAddressParser = getAffiliationAddressParser(), "affiliationAddress");
+        tryInit(() -> authorParser = getAuthorParser(), "author");
+        tryInit(() -> headerParser = getHeaderParser(), "header");
+        tryInit(() -> dateParser = getDateParser(), "date");
+        tryInit(() -> citationParser = getCitationParser(), "citation");
+        tryInit(() -> fullTextParser = getFullTextParser(), "fullText");
+        //tryInit(() -> referenceExtractor = getReferenceExtractor(), "referenceExtractor");
+        tryInit(() -> segmentationParser = getSegmentationParser(), "segmentation");
+        tryInit(() -> referenceSegmenterParser = getReferenceSegmenterParser(), "referenceSegmenter");
+        tryInit(() -> figureParser = getFigureParser(), "figure");
+        tryInit(() -> tableParser = getTableParser(), "table");
+        //tryInit(() -> monographParser = getMonographParser(), "monograph");
+        tryInit(() -> fundingAcknowledgementParser = getFundingAcknowledgementParser(), "fundingAcknowledgement");
+    }
+
+    private void tryInit(Runnable init, String parserName) {
+        try {
+            init.run();
+        } catch (Exception e) {
+            LOGGER.error("Failed to initialize " + parserName + " parser", e);
+        }
     }
 
     @Override

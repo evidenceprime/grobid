@@ -1,13 +1,28 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.process;
 
-import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 import java.io.*;
 import java.util.List;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ProcessPdfToXml {
 
@@ -23,19 +38,19 @@ public class ProcessPdfToXml {
         String message = "error message cannot be retrieved";
         try {
             builder = new ProcessBuilder(cmd);
-            builder.redirectErrorStream(true);  
+            builder.redirectErrorStream(true);
             process = builder.start();
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));  
-            String output = null;  
+            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String output = null;
             String previousOutput = null;
-            while (null != (output = br.readLine())) {  
+            while (null != (output = br.readLine())) {
                 // writing the pdfalto stderr in the GROBID logs as warning
                 if (!output.equals(previousOutput)) {
                     LOGGER.warn("pdfalto stderr: " + output);
                     previousOutput = output;
                 }
-            } 
+            }
             exit = process.waitFor();
             message = IOUtils.toString(process.getErrorStream(), UTF_8);
 
@@ -51,8 +66,11 @@ public class ProcessPdfToXml {
                 process.destroy();
 
                 if (exit == null || exit != 0) {
-                    LOGGER.error("pdfalto process finished with error code: "
-                            + exit + ". " + cmd);
+                    LOGGER.error(
+                            "pdfalto process finished with error code: "
+                                    + exit
+                                    + ". "
+                                    + cmd);
                     LOGGER.error("pdfalto return message: \n" + message);
                 }
             }

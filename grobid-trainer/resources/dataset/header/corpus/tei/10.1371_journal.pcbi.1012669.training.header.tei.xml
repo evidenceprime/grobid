@@ -1,0 +1,287 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Tree polynomials identify a link between co-transcriptional R-loops and nascent RNA folding</title>
+      <author>
+        <persName>
+          <forename>Pengyu</forename>
+          <surname>Liu</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jacob</forename>
+          <surname>Lusk</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Nataša</forename>
+          <surname>Jonoska</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Mariel</forename>
+          <surname>Vázquez</surname>
+        </persName>
+      </author>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-04T17:32:42.669Z">12/4/2025 5:32:42 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher>Public Library of Science (PLoS)</publisher>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication">2024</date>
+      <idno type="DOI">10.1371/journal.pcbi.1012669</idno>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>Pengyu Liu, Jacob Lusk, Nataša Jonoska, Mariel Vázquez. (2024). Tree polynomials identify a link between co-transcriptional R-loops and nascent RNA folding. PLOS Computational Biology, 20(12), e1012669. DOI: 10.1371/journal.pcbi.1012669</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-04T17:28:11.157699Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-04T17:28:11.157699Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Clinical features, socioeconomic status,<lb/> management, short and long-term outcomes<lb/> of patients with acute myocardial infarction:<lb/> Phase I results of PEACE MENA registry<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Ayman Al Saleh 1 , Amal Jamee 2,3 , Kadhim Sulaiman 4 , Mohamed Sobhy 5 , Habib Gamra 6 ,<lb/> Fahad Alkindi 7 , Salim Benkhedda ID 8<lb/> , Ahmed Al-Motarreb 9 , Mohammad I. Amin 10 ,<lb/> Wael Almahmeed 11 , Ayman Hammoudeh 12 , Hadi Skouri 13 , Hasan A. Farhan 14 ,<lb/> Mohammad Al Jarallah 15 , Nadia Fellat 16 , Prashanth Panduranga 4 , Bayan K. Alnajm 17 ,<lb/> Magdy Abdelhamid 18 , Rafik Refaat ID 5<lb/> , Hassen Amor ID 19<lb/> , Salma Messaous 6 , Hosameldin<lb/> S. AhmedID 7 , Ahcene Chibane 20 , Azzouz AbdulMalek 8 , Nora K. Alsagheer 21 , Sobhi Dada 22 ,<lb/> Zaki Mokhtar 23 , Muhammad Ali 24 , Anhar Ullah 1,25 , Hanan AlBackr 1 , Khalid F. AlhabibID 1 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Cardiac Sciences, King Fahad Cardiac Center, College of Medicine, King Saud Medical City,<lb/> King Saud University,</affiliation>
+	</byline>
+
+	<address>Riyadh, Saudi Arabia,</address>
+
+	<byline>
+	<affiliation>2 Nassar Medical Complex Hospital, Ministry of Health,</affiliation>
+	</byline>
+
+	<address>Khan<lb/> Younes, Gaza Strip, Palestine,</address>
+
+	<byline>
+	<affiliation>3 Al-Quds Hospital,</affiliation>
+	</byline>
+
+	<address>Gaza, Palestine,</address>
+
+	<byline>
+	<affiliation>4 National Heart Center, Royal<lb/> Hospital,</affiliation>
+	</byline>
+
+	<address>Muscat, Oman,</address>
+
+	<byline>
+	<affiliation>5 International Cardiac Center (ICC),</affiliation>
+	</byline>
+
+	<address>Alexandria, Egypt,</address>
+
+	<byline>
+	<affiliation>6 Research Laboratory<lb/> LR, Fattouma Bourguiba University Hospital, University of Monastir,</affiliation>
+	</byline>
+
+	<address>Monastir, Tunisia,</address>
+
+	<byline>
+	<affiliation>7 Heart Hospital,<lb/> Hamad Medical Corporation,</affiliation>
+	</byline>
+
+	<address>Doha, Qatar,</address>
+
+	<byline>
+	<affiliation>8 Cardiology Department, Mustapha Hospital, COCRG<lb/> Laboratory University Benyoucef Benkhedda,</affiliation>
+	</byline>
+
+	<address>Algiers, Algeria,</address>
+
+	<byline>
+	<affiliation>9 Faculty of Medicine, Sana&apos;a University,<lb/></affiliation>
+	</byline>
+
+	<address>Sana&apos;a, Yemen,</address>
+
+	<byline>
+	<affiliation>10 Mohamed Bin Khalifa Cardiac Centre,</affiliation>
+	</byline>
+
+	<address>Awali, Bahrain,</address>
+
+	<byline>
+	<affiliation>11 Heart and Vascular Institute,<lb/> Cleveland Clinic Abu Dhabi, </affiliation>
+	</byline>
+
+	<address>United Arab Emirate,</address>
+
+	<byline>
+	<affiliation>12 Cardiology Department, Istishari Hospital,</affiliation>
+	</byline>
+
+	<address>Amman,<lb/> Jordan,</address>
+
+	<byline>
+	<affiliation>13 Cardiology Division, Internal Medicine Department at American University of Beirut Medical<lb/> Center,</affiliation>
+	</byline>
+
+	<address>Beirut, Lebanon,</address>
+
+	<byline>
+	<affiliation>14 Iraqi Board for Medical Specializations, Scientific Council of Cardiology.<lb/> Baghdad Heart Center, Medical City,</affiliation>
+	</byline>
+
+	<address>Baghdad, Iraq,</address>
+
+	<byline>
+	<affiliation>15 Sabah Al Ahmed Cardia Center,</affiliation>
+	</byline>
+
+	<address>Kuwait City, Kuwait,<lb/></address>
+
+	<byline>
+	<affiliation>16 IBN SINA University Hospital,</affiliation>
+	</byline>
+
+	<address>Rabat, Morocco,</address>
+
+	<byline>
+	<affiliation>17 Al Nahdha Hospital,</affiliation>
+	</byline>
+
+	<address>Muscat, Oman,</address>
+
+	<byline>
+	<affiliation>18 Faculty of<lb/> Medicine, Kasr Al Ainy Hospital, Cairo University,</affiliation>
+	</byline>
+
+	<address>Giza Governorate, Egypt,</address>
+
+	<byline>
+	<affiliation>19 Taher Sfar University<lb/> Hospital,</affiliation>
+	</byline>
+
+	<address>Mahdia, Tunisia,</address>
+
+	<byline>
+	<affiliation>20 Internal Medicine and Cardiology Department, CHU Doue ´ra, Algiers, University<lb/> Saad Dahlab,</affiliation>
+	</byline>
+
+	<address>Blida, Algeria,</address>
+
+	<byline>
+	<affiliation>21 Althawra Modern General Hospital,</affiliation>
+	</byline>
+
+	<address>Sana&apos;a, Yemen,</address>
+
+	<byline>
+	<affiliation>22 Hammoud University<lb/> Medical Center,</affiliation>
+	</byline>
+
+	<address>Saida, Lebanon,</address>
+
+	<byline>
+	<affiliation>23 King Saud Hospital, Unizah, Qaseem,</affiliation>
+	</byline>
+
+	<address>Saudi Arabia,</address>
+
+	<byline>
+	<affiliation>24 Saudi Heart<lb/> Association,</affiliation>
+	</byline>
+
+	<address>Riyadh, Saudi Arabia,</address>
+
+	<byline>
+	<affiliation>25 National Heart and Lung Institute, Imperial College London,</affiliation>
+	</byline>
+
+	<address>London,<lb/> United Kingdom<lb/></address>
+
+	*
+	<email>khalidalhabib13@hotmail.com</email>
+
+	Abstract
+	<div type="abstract">Background<lb/> The Program for the Evaluation and Management of Cardiac Events in the Middle East and<lb/> North Africa (PEACE MENA) is a prospective registry program in Arabian countries that<lb/> involves in patients with acute myocardial infarction (AMI) or acute heart failure (AHF). Methods<lb/> This prospective, multi-center, multi-country study is the first report of the baseline charac-<lb/>teristics and outcomes of inpatients with AMI who were enrolled during the first 14-month<lb/> recruitment phase. We report the clinical characteristics, socioeconomic, educational levels,<lb/> and management, in-hospital, one month and one-year outcomes.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0296056 January 11, 2024<lb/></reference>
+
+	<page>1 / 16<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Al Saleh A, Jamee A, Sulaiman K, Sobhy<lb/> M, Gamra H, Alkindi F, et al. (2024) Clinical<lb/> features, socioeconomic status, management,<lb/> short and long-term outcomes of patients with<lb/> acute myocardial infarction: Phase I results of<lb/> PEACE MENA registry. PLoS ONE 19(1):<lb/> e0296056.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0296056<lb/></idno>
+
+	Editor:
+	<editor>Sana Sadiq Sheikh,</editor>
+
+	<byline>
+	<affiliation>Tabba Heart Institute,</affiliation>
+	</byline>
+
+	<address>PAKISTAN<lb/></address>
+
+	<note type="submission">Received: February 15, 2023<lb/> Accepted: December 6, 2023<lb/></note>
+
+	Published:
+	<date>January 11, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Al Saleh et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the paper and its Supporting Information<lb/> files.<lb/></note>
+
+	Funding:
+	<note type="funding">KS, MS, SB, SD, AH, HG, AM, FA, MA,<lb/> MY, HF, NF, WA, MA, PP, MA, IG, DD, AC, HA, MJ,<lb/> HA, NA, MA, HA -30 $ paid for each submitted<lb/> online CRF for data collection -This work was<lb/> supported by Roche Diagnostic Middle East FZCO<lb/> (https://www.roche-middleeast.com/) via a grant to</note>
+
+	<div type="abstract">Results<lb/> Between April 2019 and June 2020, 1377 patients with AMI were enrolled (79.1% males)<lb/> from 16 Arabian countries. The mean age (± SD) was 58 ± 12 years. Almost half of the popu-<lb/>lation had a net income &lt; $500/month, and 40% had limited education. Nearly half of the<lb/> cohort had a history of diabetes mellitus, hypertension, or hypercholesterolemia; 53% had<lb/> STEMI, and almost half (49.7%) underwent a primary percutaneous intervention (PCI) (low-<lb/>est 4.5% and highest 100%). Thrombolytics were used by 36.2%. (Lowest 6.45% and high-<lb/>est (90.9%). No reperfusion occurred in 13.8% of patients (lowest was 0% and highest<lb/> 72.7%).Primary PCI was performed less frequently in the lower income group vs. high<lb/> income group (26.3% vs. 54.7%; P&lt;0.001). Recurrent ischemia occurred more frequently in<lb/> the low-income group (10.9% vs. 7%; P = 0.018). Re-admission occurred in 9% at 1 month<lb/> and 30% at 1 year, whereas 1-month mortality was 0.7% and 1-year mortality 4.7%. Conclusion<lb/> In the MENA region, patients with AMI present at a young age and have a high burden of<lb/> cardiac risk factors. Most of the patients in the registry have a low income and low educa-<lb/>tional status. There is heterogeneity among key performance indicators of AMI manage-<lb/>ment among various Arabian countries.<lb/></div>
+
+    <note type="funding">KH based on the milestones action plan and was<lb/> paid to data collectors for their online-submitted<lb/> CRF. -The funder had no role in the study design,<lb/> data collection, or analysis.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

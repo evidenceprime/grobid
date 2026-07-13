@@ -1,18 +1,30 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.sax;
-
-import org.grobid.core.exceptions.GrobidException;
-import org.grobid.core.utilities.TextUtilities;
-import org.grobid.core.utilities.OffsetPosition;
-import org.grobid.core.analyzers.GrobidAnalyzer;
-import org.grobid.core.layout.LayoutToken;
-
-import org.xml.sax.*;
-import org.xml.sax.helpers.*;
 
 import java.util.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.xml.sax.*;
+import org.xml.sax.helpers.*;
+
+import org.grobid.core.analyzers.GrobidAnalyzer;
+import org.grobid.core.exceptions.GrobidException;
+import org.grobid.core.layout.LayoutToken;
 
 /**
  * SAX parser initially made for XML CLEF IP data (collection, training and topics),
@@ -20,7 +32,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class ST36SaxParser extends DefaultHandler {
-	public static final Logger LOGGER = LoggerFactory.getLogger(ST36SaxParser.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(ST36SaxParser.class);
 
     private StringBuilder accumulator = new StringBuilder(); // Accumulate parsed text
     private StringBuilder accumulatorRef = new StringBuilder(); // Accumulate parsed text
@@ -38,7 +50,7 @@ public class ST36SaxParser extends DefaultHandler {
 
     // working variables
     private String cited_number = null;
-	
+
     public Map<String, ArrayList<String>> referencesPatent = null;
     public List<String> referencesNPL = null;
     public List<String> citations = null; // search report citations
@@ -49,8 +61,8 @@ public class ST36SaxParser extends DefaultHandler {
     // if a reference has been found in the current considered text segment
     private boolean refFound = false;
 
-    // this boolean keeps track of possible content outside paragraph, that might require some 
-    // further segmentations 
+    // this boolean keeps track of possible content outside paragraph, that might require some
+    // further segmentations
     private boolean outsideParagraph = true;
 
     private int nbNPLRef = 0;
@@ -58,8 +70,8 @@ public class ST36SaxParser extends DefaultHandler {
     public int nbAllRef = 0;
 
     private int window = -1;  // window of text to be output around the reference strings
-	// value at -1 means no window considered - everything will be outputed
-	
+    // value at -1 means no window considered - everything will be outputted
+
     public boolean patentReferences = false;
     public boolean nplReferences = false;
 
@@ -72,8 +84,8 @@ public class ST36SaxParser extends DefaultHandler {
     // the current segment to be labeled or with labels for training
     public List<LayoutToken> accumulatedTokens = null;
     public List<String> accumulatedLabels = null;
-	
-	private GrobidAnalyzer analyzer = GrobidAnalyzer.getInstance(); 
+
+    private GrobidAnalyzer analyzer = GrobidAnalyzer.getInstance();
 
     public ST36SaxParser() {
     }
@@ -116,13 +128,13 @@ public class ST36SaxParser extends DefaultHandler {
         referencesPatent.put(name, new ArrayList<String>());
     }
 
-    public void endElement(java.lang.String uri,
-                           java.lang.String localName,
-                           java.lang.String qName) throws SAXException {
+    public void endElement(
+            java.lang.String uri,
+            java.lang.String localName,
+            java.lang.String qName) throws SAXException {
         if (qName.equals("date")) {
             accumulator.setLength(0);
-        } 
-		else if (qName.equals("ref") || qName.equals("bibl")) {
+        } else if (qName.equals("ref") || qName.equals("bibl")) {
             String refString = getRefText();
             refString = refString.replace("\n", " ");
             refString = refString.replace("\t", " ");
@@ -155,24 +167,22 @@ public class ST36SaxParser extends DefaultHandler {
 
             if (refFound) {
                 // we tokenize the text
-				List<String> tokenizations = new ArrayList<String>();
-				try {
-					// TBD: pass a language object to the tokenize method call 
-					tokenizations = analyzer.tokenize(refString);
-				}
-				catch(Exception e) {
-					LOGGER.debug("Tokenization for XML patent document has failed.");
-				}
-				
+                List<String> tokenizations = new ArrayList<String>();
+                try {
+                    // TBD: pass a language object to the tokenize method call
+                    tokenizations = analyzer.tokenize(refString);
+                } catch (Exception e) {
+                    LOGGER.debug("Tokenization for XML patent document has failed.");
+                }
+
                 int i = 0;
-				for(String token : tokenizations) {	
+                for (String token : tokenizations) {
                     //token = st.nextToken().trim();
-	                if ( (token.trim().length() == 0) || 
-						 (token.equals(" ")) || 
-					     (token.equals("\t")) || 
-						 (token.equals("\n")) ||
-						 (token.equals("\r"))
-						 ) {
+                    if ((token.trim().length() == 0) ||
+                            (token.equals(" ")) ||
+                            (token.equals("\t")) ||
+                            (token.equals("\n")) ||
+                            (token.equals("\r"))) {
                         continue;
                     }
                     try {
@@ -203,7 +213,7 @@ public class ST36SaxParser extends DefaultHandler {
                             }
                         }
                     } catch (Exception e) {
-                        throw new GrobidException("An exception occured while running Grobid.", e);
+                        throw new GrobidException("An exception occurred while running Grobid.", e);
                     }
                     i++;
                 }
@@ -217,11 +227,10 @@ public class ST36SaxParser extends DefaultHandler {
             accumulator.setLength(0);
         } /*else if (qName.equals("heading")) {
             accumulator.append(" ");
-        }*/ 
+          }*/
         else if (qName.equals("description")) {
             // In case we have no paragraph structures, we will get the whole description in a huge single text block
             // this text needs to be segmented in to paragraph-like blocks to be used by Deep Learning approaches.
-
 
         } else if (qName.equals("p") || qName.equals("heading")) {
             accumulator.append("\n");
@@ -230,32 +239,30 @@ public class ST36SaxParser extends DefaultHandler {
             String content = getText();
 
             // we tokenize the text
-			List<String> tokenization = new ArrayList<>();
-			try {
-				// TBD: pass a language object to the tokenize method call 
-				tokenization = analyzer.tokenize(content);	
-			}
-			catch(Exception e) {
-				LOGGER.debug("Tokenization for XML patent document has failed.");
-			}
+            List<String> tokenization = new ArrayList<>();
+            try {
+                // TBD: pass a language object to the tokenize method call
+                tokenization = analyzer.tokenize(content);
+            } catch (Exception e) {
+                LOGGER.debug("Tokenization for XML patent document has failed.");
+            }
 
             // we could introduce here some further sub-segmentation
             allTokenizations.add(tokenization);
 
-            for(List<String> tokenizations : allTokenizations) {
+            for (List<String> tokenizations : allTokenizations) {
                 int i = 0;
-    			for(String token : tokenizations) {	
+                for (String token : tokenizations) {
                     //token = st.nextToken().trim();
-                    if ( (token.trim().length() == 0) || 
-    					 (token.equals(" ")) || 
-    				     (token.equals("\t")) || 
-    					 (token.equals("\n")) ||
-    					 (token.equals("\r"))
-    					 ) {
+                    if ((token.trim().length() == 0) ||
+                            (token.equals(" ")) ||
+                            (token.equals("\t")) ||
+                            (token.equals("\n")) ||
+                            (token.equals("\r"))) {
                         continue;
                     }
                     // we print only a window of N words
-                    if ( (i > window) && (window != -1) ) {
+                    if ((i > window) && (window != -1)) {
                         token = token.trim();
                         if (token.length() > 0) {
                             accumulatedTokens.add(new LayoutToken(token));
@@ -269,7 +276,7 @@ public class ST36SaxParser extends DefaultHandler {
                                 accumulatedLabels.add("<other>");
                             }
                         } catch (Exception e) {
-                            throw new GrobidException("An exception occured while running Grobid.", e);
+                            throw new GrobidException("An exception occurred while running Grobid.", e);
                         }
                     }
                     i++;
@@ -317,16 +324,17 @@ public class ST36SaxParser extends DefaultHandler {
         } else if (qName.equals("classification-ecla")) {
             accumulator.setLength(0);
         } else if (qName.equals("patent-document") || qName.equals("fulltext-document")) {
-            
+
         } else if (qName.equals("row")) {
             accumulator.append(" ");
-        } 
+        }
     }
 
-    public void startElement(String namespaceURI,
-                             String localName,
-                             String qName,
-                             Attributes atts) throws SAXException {
+    public void startElement(
+            String namespaceURI,
+            String localName,
+            String qName,
+            Attributes atts) throws SAXException {
         if (qName.equals("patent-document") || qName.equals("fulltext-document")) {
             nbNPLRef = 0;
             nbPatentRef = 0;
@@ -361,7 +369,7 @@ public class ST36SaxParser extends DefaultHandler {
             allAccumulatedLabels = new ArrayList<>();
         } else if (qName.equals("description")) {
             accumulator.setLength(0);
-        } else if (qName.equals("p")  || qName.equals("heading")) {
+        } else if (qName.equals("p") || qName.equals("heading")) {
             // possible text read outside <p> and <heading>?
             outsideParagraph = false;
             accumulatedTokens = new ArrayList<>();
@@ -385,56 +393,55 @@ public class ST36SaxParser extends DefaultHandler {
                             // we output what has been read so far in the description
 
                             // we tokenize the text
-							List<String> tokenization = new ArrayList<String>();
-							try {
-								// TBD: pass a language object to the tokenize method call 
-								tokenization = analyzer.tokenize(content);		
-							}
-							catch(Exception e) {
-								LOGGER.debug("Tokenization for XML patent document has failed.");
-							}
+                            List<String> tokenization = new ArrayList<String>();
+                            try {
+                                // TBD: pass a language object to the tokenize method call
+                                tokenization = analyzer.tokenize(content);
+                            } catch (Exception e) {
+                                LOGGER.debug("Tokenization for XML patent document has failed.");
+                            }
 
-							int nbTokens = tokenization.size();
+                            int nbTokens = tokenization.size();
 
                             // we could introduce here some further sub-segmentation
                             allTokenizations.add(tokenization);
 
-                            //boolean newSegment = false; 
-                            for(List<String> tokenizations : allTokenizations) {
+                            //boolean newSegment = false;
+                            for (List<String> tokenizations : allTokenizations) {
 
                                 /*if (newSegment) {
                                     allAccumulatedTokens.add(accumulatedTokens);
                                     allAccumulatedLabels.add(accumulatedLabels);
                                     accumulatedTokens = new ArrayList<>();
                                     accumulatedLabels = new ArrayList<>();
-                                    newSegment = false; 
+                                    newSegment = false;
                                 }*/
 
                                 int j = 0;
-    							for(String token : tokenizations) {	
-    				                if ( (token.trim().length() == 0) || 
-    									 (token.equals(" ")) || 
-    								     (token.equals("\t")) || 
-    									 (token.equals("\n")) || 
-    									 (token.equals("\r"))
-    									 ) {
+                                for (String token : tokenizations) {
+                                    if ((token.trim().length() == 0) ||
+                                            (token.equals(" ")) ||
+                                            (token.equals("\t")) ||
+                                            (token.equals("\n")) ||
+                                            (token.equals("\r"))) {
                                         continue;
                                     }
 
                                     if (window == -1 ||
-                                        ((j > (nbTokens - window) && (window != -1)) || (refFound && (j < window) && (window != -1)))) {
+                                            ((j > (nbTokens - window) && (window != -1))
+                                                    || (refFound && (j < window) && (window != -1)))) {
                                         try {
                                             accumulatedTokens.add(new LayoutToken(token));
                                             accumulatedLabels.add("<other>");
                                         } catch (Exception e) {
-                                            throw new GrobidException("An exception occured while running Grobid.", e);
+                                            throw new GrobidException("An exception occurred while running Grobid.", e);
                                         }
                                     } else {
                                         try {
                                             accumulatedTokens.add(new LayoutToken(token));
                                             accumulatedLabels.add("<ignore>");
                                         } catch (Exception e) {
-                                            throw new GrobidException("An exception occured while running Grobid.", e);
+                                            throw new GrobidException("An exception occurred while running Grobid.", e);
                                         }
                                     }
                                     j++;
@@ -453,56 +460,54 @@ public class ST36SaxParser extends DefaultHandler {
                             // we output what has been read so far in the description
 
                             // we tokenize the text
-							List<String> tokenization = new ArrayList<String>();
-							try {
-								// TBD: pass a language object to the tokenize method call 
-								tokenization = analyzer.tokenize(content);		
-							}
-							catch(Exception e) {
-								LOGGER.debug("Tokenization for XML patent document has failed.");
-							}
-							
-							int nbTokens = tokenization.size();
+                            List<String> tokenization = new ArrayList<String>();
+                            try {
+                                // TBD: pass a language object to the tokenize method call
+                                tokenization = analyzer.tokenize(content);
+                            } catch (Exception e) {
+                                LOGGER.debug("Tokenization for XML patent document has failed.");
+                            }
+
+                            int nbTokens = tokenization.size();
 
                             // we could introduce here some further sub-segmentation
                             allTokenizations.add(tokenization);
 
-                            //boolean newSegment = false; 
-                            for(List<String> tokenizations : allTokenizations) {
+                            //boolean newSegment = false;
+                            for (List<String> tokenizations : allTokenizations) {
 
                                 /*if (newSegment) {
                                     allAccumulatedTokens.add(accumulatedTokens);
                                     allAccumulatedLabels.add(accumulatedLabels);
                                     accumulatedTokens = new ArrayList<>();
                                     accumulatedLabels = new ArrayList<>();
-                                    newSegment = false; 
+                                    newSegment = false;
                                 }*/
 
                                 int j = 0;
-    							for(String token : tokenizations) {
-    				                if ( (token.trim().length() == 0) || 
-    									 (token.equals(" ")) || 
-    								     (token.equals("\t")) || 
-    									 (token.equals("\n")) ||
-    									 (token.equals("\r"))
-    									 ) {
+                                for (String token : tokenizations) {
+                                    if ((token.trim().length() == 0) ||
+                                            (token.equals(" ")) ||
+                                            (token.equals("\t")) ||
+                                            (token.equals("\n")) ||
+                                            (token.equals("\r"))) {
                                         continue;
                                     }
 
                                     if (window == -1 ||
-                                        ((j > (nbTokens - window)) || (refFound && (j < window)))) {
+                                            ((j > (nbTokens - window)) || (refFound && (j < window)))) {
                                         try {
                                             accumulatedTokens.add(new LayoutToken(token));
                                             accumulatedLabels.add("<other>");
                                         } catch (Exception e) {
-                                            throw new GrobidException("An exception occured while running Grobid.", e);
+                                            throw new GrobidException("An exception occurred while running Grobid.", e);
                                         }
                                     } else {
                                         try {
                                             accumulatedTokens.add(new LayoutToken(token));
                                             accumulatedLabels.add("<ignore>");
                                         } catch (Exception e) {
-                                            throw new GrobidException("An exception occured while running Grobid.", e);
+                                            throw new GrobidException("An exception occurred while running Grobid.", e);
                                         }
                                     }
                                     j++;

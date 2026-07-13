@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Melissa</forename>
+								 <surname>Lopez Varon</surname> ID
+								 <marker>1,2 *</marker>,
+							</persName>
+							<persName>
+								 <forename>Yimin</forename>
+								 <surname>Geng</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Bryan</forename>
+								 <middlename>M</middlename>.
+								 <surname>Fellman</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Catherine</forename>
+								 <surname>Troisi</surname>
+								 <marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Maria</forename>
+								 <middlename>E</middlename>.
+								 <surname>Fernandez</surname>
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ruosha</forename>
+								 <surname>Li</surname>
+								 <marker>6</marker> ,
+							</persName>
+							<persName>
+								 <forename>Belinda</forename>
+								 <surname>Reininger</surname>
+								 <marker>7</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kathleen</forename>
+								 <middlename>M</middlename>.
+								 <surname>Schmeler</surname> ID
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Emma</forename>
+								 <surname>Allanson</surname>
+								 <marker>8</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

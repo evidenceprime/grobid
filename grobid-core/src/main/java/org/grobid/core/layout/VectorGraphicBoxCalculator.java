@@ -1,4 +1,25 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.layout;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.HashMultimap;
@@ -9,21 +30,14 @@ import com.google.common.collect.Multimap;
 import net.sf.saxon.om.Item;
 import net.sf.saxon.om.SequenceIterator;
 import net.sf.saxon.trans.XPathException;
-import org.grobid.core.document.Document;
-import org.grobid.core.exceptions.GrobidException;
-import org.grobid.core.utilities.XQueryProcessor;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.grobid.core.document.Document;
+import org.grobid.core.utilities.XQueryProcessor;
+
 /**
- * Workign with vector graphics
+ * Working with vector graphics
  */
 public class VectorGraphicBoxCalculator {
     private static final Logger LOGGER = LoggerFactory.getLogger(VectorGraphicBoxCalculator.class);
@@ -40,10 +54,12 @@ public class VectorGraphicBoxCalculator {
             BoundingBox mainPageArea = document.getPage(pageNum).getMainArea();
 
             String q = XQueryProcessor.getQueryFromResources("vector-coords.xq");
-            File vecFile = new File(document.getDocumentSource().getXmlFile().getAbsolutePath() + "_data", "image-" + pageNum + ".svg");
+            File vecFile = new File(document.getDocumentSource().getXmlFile().getAbsolutePath() + "_data",
+                    "image-" + pageNum + ".svg");
             if (vecFile.exists()) {
                 if (vecFile.length() > VEC_GRAPHICS_FILE_SIZE_LIMIT) {
-                    LOGGER.error("The vector file " + vecFile + " is too large to be processed, size: " + vecFile.length());
+                    LOGGER.error(
+                            "The vector file " + vecFile + " is too large to be processed, size: " + vecFile.length());
                     continue;
                 }
 
@@ -71,11 +87,12 @@ public class VectorGraphicBoxCalculator {
                 for (int i = 0; i < remainingBoxes.size(); i++) {
                     Collection<Block> col = blockMultimap.get(pageNum);
                     for (Block bl : col) {
-//                    if (!bl.getPage().getMainArea().contains(b)) {
-//                        continue;
-//                    }
+                        //                    if (!bl.getPage().getMainArea().contains(b)) {
+                        //                        continue;
+                        //                    }
 
-                        BoundingBox b = BoundingBox.fromPointAndDimensions(pageNum, bl.getX(), bl.getY(), bl.getWidth(), bl.getHeight());
+                        BoundingBox b = BoundingBox
+                                .fromPointAndDimensions(pageNum, bl.getX(), bl.getY(), bl.getWidth(), bl.getHeight());
                         if (remainingBoxes.get(i).intersect(b)) {
                             remainingBoxes.set(i, remainingBoxes.get(i).boundBox(b));
                         }
@@ -100,7 +117,8 @@ public class VectorGraphicBoxCalculator {
             allMerged = true;
             for (int i = 0; i < boxes.size(); i++) {
                 BoundingBox a = boxes.get(i);
-                if (a == null) continue;
+                if (a == null)
+                    continue;
                 for (int j = i + 1; j < boxes.size(); j++) {
                     BoundingBox b = boxes.get(j);
                     if (b != null) {

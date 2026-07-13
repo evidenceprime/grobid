@@ -1,3 +1,18 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines
 
 import org.grobid.core.engines.config.GrobidAnalysisConfig
@@ -27,11 +42,9 @@ class FundingAcknowledgementParserIntegrationTest {
 
     @Test
     fun testXmlFragmentProcessing_withoutSentenceSegmentation_shouldReturnSameXML() {
-
         val input = "\n\t\t\t<div type=\"acknowledgement\">\n<div><head>Acknowledgments</head><p>This research was " +
             "funded by the NASA Land-Cover and Land-Use Change Program (Grant Number: 80NSSC18K0315), the NASA " +
             "Carbon Monitoring System (Grant Number: 80NSSC20K0022), and </p></div>\n\t\t\t</div>\n\n"
-
 
         // Expected
 //        val output = "\n\t\t\t<div type=\"acknowledgement\">\n<div><head>Acknowledgments</head><p>This research was " +
@@ -266,7 +279,7 @@ class FundingAcknowledgementParserIntegrationTest {
         @JvmStatic
         @BeforeClass
         @Throws(java.lang.Exception::class)
-        fun setInitialContext(): Unit {
+        fun setInitialContext() {
             AbstractEngineFactory.init()
         }
     }

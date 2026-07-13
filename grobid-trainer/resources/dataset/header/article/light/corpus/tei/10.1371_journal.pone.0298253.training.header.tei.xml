@@ -1,0 +1,169 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T16:04:38.915Z">12/2/2025 4:04:38 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T16:03:18.234892Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T16:03:18.234892Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Test-retest reliability of Latin American Group<lb/> for Maturity (GDLAM) protocol in older women<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>A ´lvaro Huerta Ojeda ID 1☯<lb/> *, Emilio Jofre ´-Saldı ´a2☯ , Jimena Arriagada Molina 3,4☯ ,<lb/> Patricia Rojas Quinchavil 1☯ , Marı ´a Paz Parada Toledo 5☯ , Sergio Galdames Maliqueo 6☯ ,<lb/> Marı ´a-Mercedes Yeomans-CabreraID 7☯ , Carlos Jorquera-Aguilera 8☯ , Frano Giakoni-<lb/>Ramirez 9☯ , Maximiliano Bravo 10☯<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Nu ´cleo de Investigacio ´n en Salud, Actividad Fı ´sica y Deporte ISAFYD, Universidad de Las Ame ´ricas,</affiliation>
+	</byline>
+
+	<address>Viña<lb/> del Mar, Chile,</address>
+
+	<byline>
+	<affiliation>2 Escuela de Ciencias de la Actividad Fı ´sica, el Deporte y la Salud, Universidad de Santiago<lb/> de Chile USACH,</affiliation>
+	</byline>
+
+	<address>Santiago, Chile,</address>
+
+	<byline>
+	<affiliation>3 Facultad de Ciencias, Escuela de Nutricio ´n y Diete ´tica, Magı ´ster en<lb/> Nutricio ´n para la Actividad Fı ´sica y el Deporte, Universidad Mayor,</affiliation>
+	</byline>
+
+	<address>Santiago, Chile,</address>
+
+	<byline>
+	<affiliation>4 Centro de Salud<lb/> Familiar Las Ame ´ricas,</affiliation>
+	</byline>
+
+	<address>Talca, Chile,</address>
+
+	<byline>
+	<affiliation>5 Centro de Salud Familiar Faustino Gonza ´lez,</affiliation>
+	</byline>
+
+	<address>Talca, Chile,</address>
+
+	<byline>
+	<affiliation>6 Facultad<lb/> Ciencias de la Actividad Fı ´sica y del Deporte, Universidad de Playa Ancha de Ciencias de la Educacio ´n,<lb/></affiliation>
+	</byline>
+
+	<address>Valparaı ´so, Chile,</address>
+
+	<byline>
+	<affiliation>7 Facultad de Salud y Ciencias Sociales, Universidad de Las Ame ´ricas, Viña del Mar,<lb/></affiliation>
+	</byline>
+
+	<address>Chile,</address>
+
+	<byline>
+	<affiliation>8 Facultad de Ciencias, Escuela de Nutricio ´n y Diete ´tica, Universidad Mayor,</affiliation>
+	</byline>
+
+	<address>Santiago, Chile,<lb/></address>
+
+	<byline>
+	<affiliation>9 Facultad de Educacio ´n y Ciencias Sociales, Universidad Andres Bello,</affiliation>
+	</byline>
+
+	<address>Santiago, Chile,</address>
+
+	<byline>
+	<affiliation>10 Servicio de<lb/> Medicina Interna, Departamento de Geriatrı ´a, Hospital Carlos Van Buren,</affiliation>
+	</byline>
+
+	<address>Valparaı ´so, Chile<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> *
+	<email>achuertao@yahoo.es</email>
+
+	Abstract<lb/>
+	<div type="abstract">Functional autonomy (FA) is a critical factor in determining the quality of life of older adults<lb/> (OA), especially in the case of older women (OW), as they face a decline in FA in their later<lb/> years of life. FA should be assessed early, using valid, reliable, and low-cost tests. This<lb/> study evaluated the test-retest reliability of GDLAM and GDLAM autonomy index (GI) in<lb/> OW. Thirty-nine OW (71.2 ± 6.50 years) participated in the study. A repeated measures<lb/> design was used to compare the interday test-retest reliability of the five GDLAM tests (sec-<lb/>onds) and the GI (points). The five tests represent activities of daily living, such as dressing<lb/> or wandering around the house, while the GI provides a weighting of the results of the five<lb/> tests. The analysis consisted of the intraclass correlation coefficient (ICC), standard error of<lb/> measurement (SEM), and coefficient of variation (CV). A CV � 10% and an ICC � 0.80<lb/> were considered acceptable reliability, whereas a CV � 5% and an ICC � 0.90 were consid-<lb/>ered high reliability. The outcome of the five tests, represented by the GI, showed high inter-<lb/>day test-retest reliability (CV = 6.00% and ICC = 0.91). The results of this study demonstrate<lb/> that the five tests of the GDLAM protocol and the GI have high interday test-retest reliability<lb/> and good interday reproducibility. From a practical point of view, the GDLAM protocol allows<lb/> the assessment of FA of community-dwelling OW, providing background for early diagnosis<lb/> and, with it, the possibility of developing an individualized physical exercise prescription.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0302134 April 19, 2024<lb/></reference>
+
+	<page>1 / 14<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Huerta Ojeda A ´, Jofre ´-Saldı ´a E, Arriagada<lb/> Molina J, Rojas Quinchavil P, Parada Toledo MP,<lb/> Galdames Maliqueo S, et al. (2024) Test-retest<lb/> reliability of Latin American Group for Maturity<lb/> (GDLAM) protocol in older women. PLoS ONE<lb/> 19(4): e0302134.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0302134<lb/></idno>
+
+	Editor:
+	<editor>Juan Luis Castillo-Navarrete,</editor>
+
+	<byline>
+	<affiliation>Universidad<lb/> de Concepcio ´n Facultad de Medicina: Universidad<lb/> de Concepcion Facultad de Medicina,</affiliation>
+	</byline>
+
+	<address>CHILE<lb/></address>
+
+	<note type="submission">Received: July 21, 2023<lb/> Accepted: March 25, 2024<lb/></note>
+
+	Published:
+	<date>April 19, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Huerta Ojeda et al. This is an<lb/> open access article distributed under the terms of<lb/> the Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the manuscript and its Supporting<lb/> Information files.<lb/></note>
+
+	Funding:
+	<note type="funding">The author(s) received no specific<lb/> funding for this work.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

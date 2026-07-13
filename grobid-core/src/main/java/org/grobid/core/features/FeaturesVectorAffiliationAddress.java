@@ -1,13 +1,28 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.features;
 
 import java.util.List;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 
-import org.grobid.core.utilities.OffsetPosition;
 import org.grobid.core.exceptions.GrobidException;
-import org.grobid.core.utilities.TextUtilities;
 import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.utilities.OffsetPosition;
+import org.grobid.core.utilities.TextUtilities;
 
 /**
  * Class for features used for parsing a block corresponding to affiliation and address.
@@ -32,8 +47,10 @@ public class FeaturesVectorAffiliationAddress {
     // one of NOPUNCT, OPENBRACKET, ENDBRACKET, DOT, COMMA, HYPHEN, QUOTE, PUNCT (default)
 
     public String printVector() {
-        if (string == null) return null;
-        if (string.length() == 0) return null;
+        if (string == null)
+            return null;
+        if (string.length() == 0)
+            return null;
         StringBuffer res = new StringBuffer();
 
         // token string (1)
@@ -115,17 +132,18 @@ public class FeaturesVectorAffiliationAddress {
     /**
      * Add the features for the affiliation+address model.
      */
-    static public String addFeaturesAffiliationAddress(List<String> lines,
-                                                       List<List<LayoutToken>> allTokens,
-                                                       List<List<OffsetPosition>> locationPlaces,
-                                                       List<List<OffsetPosition>> countriesPositions) throws Exception {
+    static public String addFeaturesAffiliationAddress(
+            List<String> lines,
+            List<List<LayoutToken>> allTokens,
+            List<List<OffsetPosition>> locationPlaces,
+            List<List<OffsetPosition>> countriesPositions) throws Exception {
         if (locationPlaces == null) {
             throw new GrobidException("At least one list of gazetter matches positions is null.");
         }
         if (locationPlaces.size() == 0) {
             throw new GrobidException("At least one list of gazetter matches positions is empty.");
         }
-//System.out.println(lines);
+        //System.out.println(lines);
         StringBuffer result = new StringBuffer();
         List<String> block = null;
         boolean isPlace = false;
@@ -142,18 +160,18 @@ public class FeaturesVectorAffiliationAddress {
 
         for (int i = 0; i < lines.size(); i++) {
             line = lines.get(i);
-			isPlace = false;
+            isPlace = false;
             isCountry = false;
-			if (line.equals("\n")) {
-				result.append("\n \n");
-				continue;
-			}
+            if (line.equals("\n")) {
+                result.append("\n \n");
+                continue;
+            }
 
-            while ( (tokens != null) && (mm < tokens.size()) ) {
+            while ((tokens != null) && (mm < tokens.size())) {
                 LayoutToken token = tokens.get(mm);
                 if (token.getText().equals(" ") || token.getText().equals("\n"))
                     mm++;
-                else 
+                else
                     break;
             }
 
@@ -233,7 +251,11 @@ public class FeaturesVectorAffiliationAddress {
                     }
                 }
 
-                FeaturesVectorAffiliationAddress vector = addFeaturesAffiliationAddress(line, lineStatus, isPlace, isCountry);
+                FeaturesVectorAffiliationAddress vector = addFeaturesAffiliationAddress(
+                        line,
+                        lineStatus,
+                        isPlace,
+                        isCountry);
                 result.append(vector.printVector());
 
                 if (lineStatus.equals("LINESTART")) {
@@ -245,14 +267,15 @@ public class FeaturesVectorAffiliationAddress {
             }
             mm++;
         }
-//System.out.println(result.toString());
+        //System.out.println(result.toString());
         return result.toString();
     }
 
-    static private FeaturesVectorAffiliationAddress addFeaturesAffiliationAddress(String line,
-                                                                                  String lineStatus,
-                                                                                  boolean isPlace,
-                                                                                  boolean isCountry) {
+    static private FeaturesVectorAffiliationAddress addFeaturesAffiliationAddress(
+            String line,
+            String lineStatus,
+            boolean isPlace,
+            boolean isCountry) {
         FeatureFactory featureFactory = FeatureFactory.getInstance();
         FeaturesVectorAffiliationAddress featuresVector = new FeaturesVectorAffiliationAddress();
 
@@ -320,10 +343,10 @@ public class FeaturesVectorAffiliationAddress {
             if (featuresVector.punctType == null)
                 featuresVector.punctType = "NOPUNCT";
 
-            if (isPlace) 
+            if (isPlace)
                 featuresVector.locationName = true;
 
-            //if (featureFactory.test_country(word)) 
+            //if (featureFactory.test_country(word))
             if (isCountry)
                 featuresVector.countryName = true;
 

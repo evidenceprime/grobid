@@ -1,0 +1,121 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T09:47:10.515Z">12/2/2025 9:47:10 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T09:43:37.880986Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T09:43:37.880986Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Modeling trajectories of physical aggression<lb/> from infancy to pre-school age, their early<lb/> predictors, and school-age outcomes<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Ane Naerde ID 1<lb/> *, Harald Janson ID 1<lb/> , Mike Stoolmiller 1,2<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 The Norwegian Center for Child Behavioral Development,</affiliation>
+	</byline>
+
+	<address>Oslo, Norway,</address>
+
+	<byline>
+	<affiliation>2 Oregon Research Institute,<lb/></affiliation>
+	</byline>
+
+	<address>Eugene, Oregon, United States of America<lb/></address>
+
+	*
+	<email>ane.narde@nubu.no</email>
+
+	Abstract<lb/>
+	<div type="abstract">This study identified latent trajectories of physical aggression (TPA) from infancy to pre-<lb/>school age and evaluated (a) effects of early parent, parenting and child predictors on TPA<lb/> as well as on social, behavioral, and academic functioning in Grade 2, and (b) TPA effects<lb/> net of early predictor effects on Grade 2 functioning. We used data from the Behavior Out-<lb/>look Norwegian Developmental Study (BONDS), which included 1,159 children (559 girls).<lb/> Parents reported on risk and protective factors, and on physical aggression from 1 to 5<lb/> years of age; teachers reported on Grade 2 outcomes. We employed latent class growth<lb/> curve analyses and identified nine TPA. In fully adjusted models simultaneously testing all<lb/> associations among predictors, trajectories, and outcomes, maternal and paternal harsh<lb/> parenting, child gender, and sibling presence predicted TPA, which significantly predicted<lb/> externalizing and academic competence in Grade 2. Child gender had a pervasive influence<lb/> on all outcomes as well as on TPA. To our knowledge, this is the first trajectory study to<lb/> determine which predictors are most proximal, more distal, or just confounded, with their rel-<lb/>ative direct effect sizes, and to link early paternal as well as maternal harsh parenting prac-<lb/>tices with children&apos;s TPA. Our findings underscore the need to include fathers in<lb/> developmental research and early prevention and intervention efforts.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0291704 June 3, 2024<lb/></reference>
+
+	<page>1 / 24<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Naerde A, Janson H, Stoolmiller M (2024)<lb/> Modeling trajectories of physical aggression from<lb/> infancy to pre-school age, their early predictors,<lb/> and school-age outcomes. PLoS ONE 19(6):<lb/> e0291704.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0291704<lb/></idno>
+
+	Editor:
+	<editor>Umberto Simeoni,</editor>
+
+	<byline>
+	<affiliation>University of Lausanne:<lb/> Universite de Lausanne,</affiliation>
+	</byline>
+
+	<address>SWITZERLAND<lb/></address>
+
+	<note type="submission">Received: September 4, 2023<lb/> Accepted: May 16, 2024<lb/></note>
+
+	Published:
+	<date>June 3, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Naerde et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+    <note type="availability">Our data is part of an<lb/> ongoing longitudinal study and contains potentially<lb/> sensitive information. The consent of the<lb/> participants of the Behavior Outlook Norwegian<lb/> Developmental Study (BONDS), as approved by<lb/> the Regional Committee for Medical and Health<lb/> Research Ethics in South-East Norway, does not<lb/> include sharing a de-identified data set on an open<lb/> server. However, upon request the dataset may be<lb/> made accessible in our secure data server to<lb/> researchers who meet the criteria for access to<lb/> confidential data, under a data processing<lb/> agreement. Requests should be addressed to the<lb/> Norwegian Center for Child Behavioral<lb/> Development (NUBU), Oslo, Norway (mail:<lb/> post@nubu.no) or to the project leader Ane Naerde<lb/> (ane.narde@nubu.no).<lb/></note>
+
+	Funding:
+	<note type="funding">AN received a grant from The Research<lb/> Council of Norway (Grant 283438/H20). https://<lb/> www.forskningsradet.no/en/. The funders had no<lb/> role in study design, data collection or analysis,<lb/> decisions to publish, or preparation of the<lb/> manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

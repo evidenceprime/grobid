@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Stephen</forename>
+								 <surname>Raverty</surname> ID
+								 <marker>1☯¤ *</marker>,
+							</persName>
+							<persName>
+								 <forename>Pa</forename>
+								 <surname>´draig Duignan</surname>
+								 <marker>2☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Denise</forename>
+								 <surname>Greig</surname>
+								 <marker>3,4☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jessica</forename>
+								 <middlename>L</middlename>.
+								 <surname>Huggins</surname>
+								 <marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kathy</forename>
+								 <surname>Burek</surname>
+								<surname>Huntington</surname> ID
+								<marker>6</marker> ,
+							</persName>
+							<persName>
+								 <forename>Michael</forename>
+								 <surname>Garner</surname>
+								 <marker>7</marker> ,
+							</persName>
+							<persName>
+								 <forename>John</forename>
+								 <surname>Calambokidis</surname> ID
+								<marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Paul</forename>
+								 <surname>Cottrell</surname>
+								 <marker>8</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kerri</forename>
+								 <surname>Danil</surname>
+								 <marker>9</marker> ,
+							</persName>
+							<persName>
+								 <forename>Dalin</forename>
+								 <surname>D&apos;Alessandro</surname>
+								 <marker>10</marker> ,
+							</persName>
+							<persName>
+								 <forename>Deborah</forename>
+								 <surname>Duffield</surname>
+								 <marker>10</marker> ,
+							</persName>
+							<persName>
+								 <forename>Moe</forename>
+								 <surname>Flannery</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Frances</forename>
+								 <middlename>MD</middlename>
+								 <surname>Gulland</surname>
+								 <marker>11</marker> ,
+							</persName>
+							<persName>
+								 <forename>Barbie</forename>
+								 <surname>Halaska</surname>
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Dyanna</forename>
+								 <middlename>M</middlename>.
+								 <surname>Lambourn</surname>
+								 <marker>12</marker> ,
+							</persName>
+							<persName>
+								 <forename>Taylor</forename>
+								 <surname>Lehnhart</surname>
+								 <marker>8</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jorge</forename>
+								 <surname>Urba ´n</surname>
+								 <forename>R</forename>.
+								 <surname>13</surname> ,
+							</persName>
+							<persName>
+								 <forename>Teri</forename>
+								 <surname>Rowles</surname>
+								 <marker>14</marker> ,
+							</persName>
+							<persName>
+								 <forename>James</forename>
+								 <surname>Rice</surname>
+								 <marker>15</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kate</forename>
+								 <surname>Savage</surname>
+								 <marker>16</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kristin</forename>
+								 <surname>Wilkinson</surname>
+								 <marker>17</marker> ,
+							</persName>
+							<persName>
+								 <forename>Justin</forename>
+								 <surname>Greenman</surname>
+								 <marker>18</marker> ,
+							</persName>
+							<persName>
+								 <forename>Justin</forename>
+								 <surname>Viezbicke</surname>
+								 <marker>18</marker> ,
+							</persName>
+							<persName>
+								 <forename>Brendan</forename>
+								 <surname>Cottrell</surname>ID
+								 <marker>19</marker> ,
+							</persName>
+							<persName>
+								 <forename>P</forename>.
+								 <middlename>Dawn</middlename>
+								 <surname>Goley</surname>
+								 <marker>20</marker> ,
+							</persName>
+							<persName>
+								 <forename>Maggie</forename>
+								 <surname>Martinez</surname>ID
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Deborah</forename>
+								 <surname>Fauquier</surname>
+								 <marker>14</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

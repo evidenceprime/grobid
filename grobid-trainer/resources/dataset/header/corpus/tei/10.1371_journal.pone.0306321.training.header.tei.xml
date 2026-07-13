@@ -1,0 +1,155 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T15:45:07.644Z">12/3/2025 3:45:07 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T15:44:54.850642Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T15:44:54.850642Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Alternative TSS use is widespread in<lb/> Cryptococcus fungi in response to<lb/> environmental cues and regulated genome-<lb/>wide by the transcription factor Tur1<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Thi Tuong Vi Dang 1¤a , Corinne Maufrais 2 , Jessie Colin 1,3 , Fre ´de ´rique Moyrand 1 ,<lb/> Isabelle Mouyna 1 , Jean-Yves Coppe ´e1 , Chinaemerem U. Onyishi 4¤b , Joanna Lipecka 5 , Ida<lb/> Chiara Guerrera 5 , Robin C. May 4 , Guilhem Janbon ID 1 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Universite ´Paris Cite ´, Institut Pasteur, Unite ´Biologie des ARN des Pathogènes Fongiques, De ´partement de<lb/> Mycologie,</affiliation>
+	</byline>
+
+	<address>Paris, France,</address>
+
+	<byline>
+	<affiliation>2 Universite ´Paris Cite ´, Institut Pasteur, HUB Bioinformatique et Biostatistique,<lb/> C3BI, USR 3756 IP CNRS,</affiliation>
+	</byline>
+
+	<address>Paris, France</address>,
+
+	<byline>
+	<affiliation>3 Ecole Pratique des Hautes Etudes, PSL Research University,<lb/></affiliation>
+	</byline>
+
+	<address>Paris, France</address>,
+
+	<byline>
+	<affiliation>4 Institute of Microbiology and Infection and School of Biosciences, University of Birmingham,<lb/></affiliation>
+	</byline>
+
+	<address>Birmingham, United Kingdom</address>,
+
+	<byline>
+	<affiliation>5 Universite ´Paris Cite ´, SFR Necker INSERM US24/CNRS UAR3633,<lb/> Proteomics Platform,</affiliation>
+	</byline>
+
+	<address>Paris, France<lb/></address>
+
+	<byline>
+	<affiliation>¤a Current address: TUD Dresden University of Technology,</affiliation>
+	</byline>
+
+	<address>Dresden, Germany<lb/></address>
+
+	<byline>
+	<affiliation>¤b Current address: Molecular Mycology and Immunity Section, Laboratory of Host Immunity and<lb/> Microbiome, National Institute of Allergy and Infectious Diseases (NIAID), National Institutes of Health,<lb/></affiliation>
+	</byline>
+
+	<address>Bethesda, Maryland, United States of America<lb/></address>
+
+	*
+	<email>Guilhem.Janbon@pasteur.fr</email>
+
+	Abstract<lb/>AU : Pleaseconfirmthatallheadinglevelsarerepresentedcorrectly:<lb/>
+	<div type="abstract">Alternative transcription start site (TSS) usage regulation has been identified as a major<lb/> means of gene expression regulation in metazoans. However, in fungi, its impact remains<lb/> elusive as its study has thus far been restricted to model yeasts. Here, we first re-analyzed<lb/> TSS-seq data to define genuine TSS clusters in 2 species of pathogenic Cryptococcus. We<lb/> identified 2 types of TSS clusters associated with specific DNA sequence motifs. Our analy-<lb/>sis also revealed that alternative TSS usage regulation in response to environmental cues is<lb/> widespread in Cryptococcus, altering gene expression and protein targeting. Importantly,<lb/> we performed a forward genetic screen to identify a unique transcription factor (TF) named<lb/> Tur1, which regulates alternative TSS (altTSS) usage genome-wide when cells switch from<lb/> exponential phase to stationary phase. ChiP-Seq and DamID-Seq analyses suggest that at<lb/> some loci, the role of Tur1 might be direct. Tur1 has been previously shown to be essential<lb/> for virulence in C. neoformans. We demonstrated here that a tur1Δ mutant strain is more<lb/> sensitive to superoxide stress and phagocytosed more efficiently by macrophages than the<lb/> wild-type (WT) strain.<lb/></div>
+
+	<reference>PLOS Biology | https://doi.org/10.1371/journal.pbio.3002724 July 25, 2024<lb/></reference>
+
+	<page>1 / 35<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Dang TTV, Maufrais C, Colin J, Moyrand<lb/> F, Mouyna I, Coppe ´e J-Y, et al. (2024) Alternative<lb/> TSS use is widespread in Cryptococcus fungi in<lb/> response to environmental cues and regulated<lb/> genome-wide by the transcription factor Tur1.<lb/> PLoS Biol 22(7): e3002724.</reference>
+
+	<idno>https://doi.org/<lb/> 10.1371/journal.pbio.3002724<lb/></idno>
+
+	Academic Editor:
+	<editor>Aaron P. Mitchell,</editor>
+
+	<byline>
+	<affiliation>University of<lb/> Georgia,</affiliation>
+	</byline>
+
+	<address>UNITED STATES OF AMERICA<lb/></address>
+
+	<note type="submission">Received: July 27, 2023<lb/> Accepted: June 28, 2024<lb/></note>
+
+	Published:
+	<date>July 25, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pbio.3002724<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Dang et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">Raw and<lb/> summarized sequencing data are available on GEO<lb/> under accession number GSE237320 (RNA-seq,<lb/> TSS-seq, DNA-seq, ChIP-Seq, DamID-Seq).<lb/> Proteomic data has been submitted to<lb/> ProteomeXchange via the PRIDE database under<lb/> the accession number PXD045272.<lb/></note>
+
+	Funding:
+	<note type="funding">TT VD was supported by the Pasteur-<lb/>Paris University (PPU) International PhD Program.<lb/> The funders had no role in study design, data<lb/> collection and analysis, decision to publish, or<lb/> preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+	Abbreviations: AU : Anabbreviationlisthasbeencompiledforthoseusedinthetext:Pleaseverifythatallentriesarecorrect:<lb/> CFW, calcofluor white; CuRE, Cu-<lb/>responsive element; DMEM, Dulbecco&apos;s modified<lb/> Eagle medium; FBS, fetal bovine serum; FDR, false<lb/> discovery rate; HCD, higher-energy collisional<lb/> dissociation; LUTI, long undecoded transcript<lb/> isoform; MOI, multiplicity of infection; MTS,<lb/> mitochondrial targeting signal; PI, phagocytic<lb/> index; PIC, preinitiation complex; ROS, reactive<lb/> oxygen species; SI, shape index; TAILS, terminal<lb/> amine isotopic labeling of substrates; TF,<lb/> transcription factor; TL, transcript leader; TSS,<lb/> transcription start site; WT, wild type; uORF,<lb/> upstream open reading frame.
+
+		</front>
+	</text>
+
+</TEI>

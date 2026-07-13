@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Department of Physical Geography and Ecosystem Science</orgName>,
+							<orgName type="institution">Lund University</orgName>,
+							<address>
+								<settlement>Lund</settlement>,
+								<postCode>223 62</postCode>,
+								<country>Sweden</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">Department of Earth Sciences</orgName>,
+							<orgName type="institution">University of Gothenburg</orgName>,
+							<address>
+								<settlement>Gothenburg</settlement>,
+								<postCode>405 30</postCode>,
+								<country>Sweden</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="institution">Gothenburg Global Biodiversity Centre</orgName>,
+							<address>
+								<settlement>Gothenburg</settlement>,
+								<postCode>405 30</postCode>,
+								<country>Sweden</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="institution">Swedish Meteorological and Hydrological Institute</orgName>,
+							<address>
+								<settlement>Norrköping</settlement>,
+								<postCode>601 76</postCode>,
+								<country>Sweden</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="department">Department of Geophysics</orgName>,
+							<orgName type="department">Faculty of Science</orgName>,
+							<orgName type="institution">University of Zagreb</orgName>,
+							<address>
+								<settlement>Zagreb</settlement>,
+								<addrLine>10 000</addrLine>,
+								<country>Croatia</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="department">Department of Biological and Environmental Sciences</orgName>,
+							<orgName type="institution">University of Gothenburg</orgName>,
+							<address>
+								<settlement>Gothenburg</settlement>,
+								<postCode>405 30</postCode>,
+								<country>Sweden</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>7</marker>
+							<orgName type="department">Department of Physical Geography</orgName>,
+							<orgName type="institution">Stockholm University</orgName>,
+							<address>
+								<settlement>Stockholm</settlement>,
+								<postCode>106 91</postCode>,
+								<country>Sweden</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>a</marker> now at:
+							<orgName type="department">Department of Biological and Environmental Sciences</orgName>,
+							<orgName type="institution">University of Gothenburg</orgName>,
+							<address>
+								<settlement>Gothenburg</settlement>,
+								<postCode>405 30</postCode>,
+								<country>Sweden</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

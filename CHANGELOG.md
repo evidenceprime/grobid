@@ -4,15 +4,100 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [0.8.2] - TBD
+## [Unreleased]
 
 ### Added
-- New model specialisation/variants (flavors) mechanism #1151
-- Specialisation/variant process for a lightweight processing that covers other type of scientific articles that are not following the general segmentation schema (e.g. corrections, editorial letters, etc.) #1202
-- Additional training data covering edge cases where the Data Availability statements are over multiple pages #1200
-- Added a flag that allow output the raw copyright information in TEI #1181
+- Training web API: list ongoing trainings (`GET /api/allTraining`) and interrupt a running training (`DELETE /api/killTraining`). Killing a training releases the per-model lock so the model can be retrained; interruption is best-effort for native (Wapiti/DeLFT) back-ends.
 
 ### Changed
+- Lexicon: introduced `Lexicon.builder()` to optionally pre-load chosen gazetteers *eagerly* (`.withDefaults()`, `.withJournals()`, `.withFunders()`, `.withOrganisations()`, etc.). Loading stays **lazy by default**: any gazetteer not named in the builder loads transparently on first lookup, so a `Lexicon` from any entry point is always fully functional and never throws for a missing gazetteer — `withX()` only controls *when* a gazetteer loads, not whether a lookup succeeds. `withDefaults()` eagerly loads the original constructor's set (wordforms, people, countries). `Lexicon.getInstance()` is now `@Deprecated` (prefer the builder) but its behavior is unchanged: eager wordforms/people/countries, everything else lazy.
+- Lexicon: added 4 missing ISO 3166-1 country codes (BQ, CW, SS, SX) and migrated AN (Netherlands Antilles) to its ISO 3166-3 transitional form ANHH.
+
+### Security
+- Prevent command injection through crafted PDF file names in the non-server `pdfalto` path: the command is no longer interpolated into a `bash -c` string but passed as positional parameters and exec'd via `"$@"` (GHSA-mgxf-7mg7-qpmf).
+- Stop leaking a JVM thread per request on the `/api/modelTraining` endpoint by shutting down the per-request executor (GHSA-g2r5-4c8r-c84f).
+- Remove the vulnerable JLine telnet server module from the classpath by depending on `jline-terminal` only instead of the `org.jline:jline` uber-jar pulled in transitively by `progressbar` (GHSA-47qp-hqvx-6r3f, GHSA-2r2c-cx56-8933).
+- Upgrade jackson (core, databind, afterburner, dataformat-yaml) to 2.21.4 to address CVE-2026-54513 (array-element type allowlist bypass in polymorphic type validation).
+
+## [0.9.0] - 2026-04-07
+
+### Added
+- Conflict of interest and author contributions statement extraction in header and segmentation models #1319
+- Extract figures, tables and equations from back/annex sections #1215
+- Extract URLs from PDF annotations in fulltext #1315
+- Mark consolidated bibliographical references and header explicitly in TEI output #1313
+- Include middle name and format initials in BibTeX output #1356
+- Fetch ORCID from Crossref when not extracted by Grobid #1406
+- Timeout configuration for consolidation requests (separate glutton and Crossref timeout) #1340
+- Lingua as an alternative for language recognition #1239
+- Blingfire as an alternative sentence segmentation engine #1378
+- Native support for Linux ARM 64 architecture
+- Multi-architecture Docker builds with ARM64 support (pdfalto and wapiti binaries for Linux ARM 64)
+- Support for Python environment managers (virtualenv, conda) for DeLFT integration #1010
+- Added version and revision information in the web UI #1390
+- Added health status indicator with periodic updates in the web UI #1403
+- Added more explanation and links to documentation in the web UI #1391
+- More informative `/api/health` endpoint, failing early when models are partially initialised #1373
+- `-modelPath` CLI argument for training and eval-mode model loading #1383, #1389
+- Evaluation script for running end-to-end evaluation from the repository root
+- Enabled trivy security code scanning #1295
+- Updated Citation.cff and SWID metadata #1341
+
+### Changed
+- Revised and updated the Crossref integration, with better handling of API limits and errors, in collaboration with Crossref team #1398
+- Upgraded to JDK 21 and Gradle 9 #1321
+- Updated TensorFlow to 2.17 with Python 3.10-3.11 support #1188
+- Updated pdfalto to 0.6.0
+- Updated wapiti to 1.5.1
+- Updated JEP to 4.3.1 #1332
+- Updated DeLFT to > 0.4.1 in documentation and Dockerfiles #1400
+- Updated JRuby to 9.4.12.1 and pragmatic segmenter #1293
+- Updated Docker base images from deprecated openjdk to eclipse-temurin (21.0.10_7)
+- Updated Dropwizard to address Trivy vulnerability in Docker image
+- Updated grobid-lucene-analyzers #1346
+- Updated dependency versions in build.gradle #1377
+- Extensive model retraining: header, segmentation, fulltext, article-light, and article-light-ref models updated across CRF, BidLSTM_CRF_FEATURES, and BidLSTM_ChainCRF_FEATURES architectures
+- Significant expansion of training data for segmentation, fulltext, header, name, and affiliation-address models
+- Refactored training framework for clearer extensibility #1393
+- Updated benchmark results #1392
+- Removed obsolete and unused models #1367
+- Enhanced documentation structure and clarity for newcomers #1310, #1382
+- Return XML by default when no HTTP Accept header is provided #1405
+- CI speed-up #1374
+
+### Fixed
+- Figures, tables and equations identifier uniqueness and overlapping IDs in body and annex #1342
+- IndexOutOfBoundException in ORCID search by annotation #1369
+- Missing logic to correctly get conflicts and credits in the output TEI
+- BibTeX index bug #1409
+- Revision link format in the web UI #1404
+- German wordforms failing to load in the Lexicon #1362
+- Honour instance-level Wapiti params in `train()` #1383
+- Evaluation script now works from the repository root
+- Docker build crash caused by dynamic Python environment version fetching #1348
+- Dockerfile for ARM Linux #1395
+- Full Docker image build restored #1371
+- `preload_embeddings.py` crash when download directory doesn't exist
+- Security-oriented regex improvements #1366
+- Coveralls build and Gradle deprecations #1347
+- Numerous training data corrections across all models
+
+## [0.8.2] - 2025-05-11
+
+### Added
+- New model specialization/variants (flavors) mechanism #1151
+- Specialization/variant process for a lightweight processing that covers other types of scientific articles that are not following the general segmentation schema (e.g., corrections, editorial letters, etc.) #1202
+- Additional training data covering additional cases where the Data Availability statements are over multiple pages #1200
+- Added a flag that allows output the raw copyright information in TEI #1181
+- New docker container for running end-to-end evaluation #1255
+- New Grobid client in Go #1159
+- Make the start/end page for header processing customizable #282
+- Return configuration processing parameters in TEI XML response header #1274 
+
+### Changed
+- Update pdfalto recognition of non-standard fonts #1216
+- Revert text that does not belong to graphics as paragraphs instead of dropping it #1266
+- Updated Grobid lucene analyzers for CJK languages #1228
 
 ### Fixed
 - Fix URL identification for certain edge cases #1190, #1191, #1185
@@ -20,9 +105,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Fix header model training data #1128
 - Updated the docker image's packages to reduce the vulnerabilities #1173
 - Fixed a bug in the handling of badly formatted figures/tables #1207
-- Fixed various security vulnerabilities #1125 #1123 #1205
 - Correct replacement in the filenames of the fulltext generated files #1204
-- Fixed fulltext block start #1203
+- Fixed full-text block start #1203
+- Fix affiliation missing when using DL affiliation-address model #1166
+- Fixed various security vulnerabilities #1125 #1123 #1205
+- Avoid NPE when iterating over annotations that might have null bounding Boxes #1194
 
 
 ## [0.8.1] - 2024-09-14
@@ -33,7 +120,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
  - Copyrights owner and licenses identification models #1078 
  - Add research infrastructure recognition for funding processing #1085
  - Add paragraphs coordinates in the TEI output #1068
- - Specify configuration file with DL models enabled for the full docker image #1117
+ - Specify the configuration file with DL models enabled for the full docker image #1117
  - Support for biblio-glutton 0.3 #1086
 
 ### Changed
@@ -93,7 +180,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 + Support for JDK beyond 1.11, tested up to Java 17, thanks to removal of dynamic native library loading after the start of the JVM
 + Incremental training (all models and ML engines), add this option in training command line and training web service (#971)
-+ Systematic benchmarking on two new sets: PLOS (1000 artilces) and eLife (984 articles)
++ Systematic benchmarking on two new sets: PLOS (1000 articles) and eLife (984 articles)
 + All end-to-end evaluation datasets are now available from the same place: https://zenodo.org/record/7708580
 + Option to output coordinates in notes and figure/table captions
 + Support for Mac ARM architecture (#975)

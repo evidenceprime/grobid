@@ -1,0 +1,123 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T12:38:48.962Z">12/2/2025 12:38:48 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T12:38:39.075653Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T12:38:39.075653Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Lhx3/4 initiates a cardiopharyngeal-specific<lb/> transcriptional program in response to<lb/> widespread FGF signaling<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>C. J. Pickett ID , Hannah N. Gruner, Bradley Davidson ID *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Department of Biology, Swarthmore College</affiliation>,
+	</byline>
+
+	<address>Swarthmore, Pennsylvania, United States of America<lb/></address>
+
+	*
+	<email>bdavids1@swarthmore.edu</email>
+
+	Abstract<lb/>AU : Pleaseconfirmthatallheadinglevelsarerepresentedcorrectly:<lb/>
+	<div type="abstract">Individual signaling pathways, such as fibroblast growth factors (FGFs), can regulate a<lb/> plethora of inductive events. According to current paradigms, signal-dependent transcription<lb/> factors (TFs), such as FGF/MapK-activated Ets family factors, partner with lineage-deter-<lb/>mining factors to achieve regulatory specificity. However, many aspects of this model have<lb/> not been rigorously investigated. One key question relates to whether lineage-determining<lb/> factors dictate lineage-specific responses to inductive signals or facilitate these responses<lb/> in collaboration with other inputs. We utilize the chordate model Ciona robusta to investigate<lb/> mechanisms generating lineage-specific induction. Previous studies in C. robusta have<lb/> shown that cardiopharyngeal progenitor cells are specified through the combined activity of<lb/> FGF-activated Ets1/2.b and an inferred ATTA-binding transcriptional cofactor. Here, we<lb/> show that the homeobox TF Lhx3/4 serves as the lineage-determining TF that dictates car-<lb/>diopharyngeal-specific transcription in response to pleiotropic FGF signaling. Targeted<lb/> knockdown of Lhx3/4 leads to loss of cardiopharyngeal gene expression. Strikingly, ectopic<lb/> expression of Lhx3/4 in a neuroectodermal lineage subject to FGF-dependent specification<lb/> leads to ectopic cardiopharyngeal gene expression in this lineage. Furthermore, ectopic<lb/> Lhx3/4 expression disrupts neural plate morphogenesis, generating aberrant cell behaviors<lb/> associated with execution of incompatible morphogenetic programs. Based on these find-<lb/>ings, we propose that combinatorial regulation by signal-dependent and lineage-determi-<lb/>nant factors represents a generalizable, previously uncategorized regulatory subcircuit we<lb/> term &quot;cofactor-dependent induction.&quot; Integration of this subcircuit into theoretical models will<lb/> facilitate accurate predictions regarding the impact of gene regulatory network rewiring on<lb/> evolutionary diversification and disease ontogeny.<lb/></div>
+
+	<reference>PLOS Biology | https://doi.org/10.1371/journal.pbio.3002169 January 25, 2024<lb/></reference>
+
+	<page>1 / 33<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Pickett CJ, Gruner HN, Davidson B (2024)<lb/> Lhx3/4 initiates a cardiopharyngeal-specific<lb/> transcriptional program in response to widespread<lb/> FGF signaling. PLoS Biol 22(1): e3002169.</reference>
+
+	<idno>https://<lb/> doi.org/10.1371/journal.pbio.3002169<lb/></idno>
+
+	Academic Editor:
+	<editor>Anna Kostadinova Kicheva</editor>,<lb/>
+
+	<byline>
+	<affiliation>Institute of Science and Technology Austria</affiliation>,
+	</byline>
+
+	<address>AUSTRIA<lb/></address>
+
+	<note type="submission">Received: May 4, 2023<lb/> Accepted: December 21, 2023<lb/></note>
+
+	Published:
+	<date>January 25, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pbio.3002169<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Pickett et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">Raw and processed<lb/> RNA sequencing data available from NCBI Gene<lb/> Expression Omnibus (accession number<lb/> GSE250325).<lb/> PLOS BIOLOGY<lb/> Lhx3/4 acts as a cardiopharyngeal lineage determinant<lb/></note>
+
+	<reference>PLOS Biology | https://doi.org/10.1371/journal.pbio.3002169 January 25, 2024<lb/></reference>
+
+    <page>2 / 33<lb/></page>
+
+	Funding:
+	<note type="funding">This work was supported by two grants<lb/> received by BD. The American Heart Association<lb/> grant number 20AIREA35080013 (https://<lb/> professional.heart.org/en/research-programs/aha-<lb/>funding-opportunities) along with the National<lb/> Science Foundation grant number 8077804<lb/> (https://www.nsf.gov/). The funders had no role in<lb/> study design, data collection and analysis, decision<lb/> to publish, or preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+	Abbreviations: ANP, AU : Anabbreviationlisthasbeencompiledforthoseusedthroughoutthetext:Pleaseverifythatallentriesarecorrectlyabbreviated:<lb/>anterior neural plate; ASMF,<lb/> atrial siphon muscle founder; ASV, anterior<lb/> sensory vesicle; CPF, cardiopharyngeal founder;<lb/> CPP, cardiopharyngeal progenitor; EGF, epidermal<lb/> growth factor; FFL, feed-forward loop; FGF,<lb/> fibroblast growth factor; FGFR, FGF receptor; GRN,<lb/> gene regulatory network; HP, heart precursor; HPF,<lb/> hours postfertilization; LSA, lineage-specific<lb/> coactivator; LSR, lineage-specific repressor; MapK,<lb/> Map kinase; MG, motor ganglion; NE,<lb/> neuroectodermal; PBS, phosphate-buffered saline;<lb/> RTK, receptor tyrosine kinase; TF, transcription<lb/> factor; VEGF, vascular/endothelial growth factor.
+
+		</front>
+	</text>
+
+</TEI>

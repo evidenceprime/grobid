@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="institution">Instituto Mixto de Investigacio ´n en Biodiversidad (IMIB-CSIC)</orgName>,
+							<address>
+								<settlement>Mieres</settlement>,
+								<country>Spain,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="institution">Universidad Internacional<lb/> Mene ´ndez Pelayo</orgName>,
+							<address>
+								<settlement>Madrid</settlement>,
+								<country>Spain</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Departamento de Biologı ´a y Geologı ´a, Fı ´sica y Quı ´mica Inorga ´nica</orgName>,
+							<lb/>
+							<orgName type="department">ESCET</orgName>,
+							<orgName type="institution">Universidad Rey Juan Carlos</orgName>,
+							<address>
+								<settlement>Mo ´stoles</settlement>,
+								<country>Spain,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">Departamento de Ciencias Biolo ´gicas y<lb/> Agropecuarias</orgName>,
+							<orgName type="laboratory">EcoSs Lab</orgName>,
+							<orgName type="institution">Universidad Te ´cnica Particular de Loja</orgName>,
+							<address>
+								<settlement>Loja</settlement>,
+								<country>Ecuador</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="institution">Universidad<lb/> Intercultural de Chiapas</orgName>,
+							<address>
+								<settlement>Corral de Piedra</settlement>,
+								<country>Mexico</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="institution">Universidad Nacional Auto ´noma de Nicaragua, UNAN-<lb/>Leo ´n</orgName>,
+							<address>
+								<settlement>Leo ´n</settlement>,
+								<country>Nicaragua</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>7</marker>
+							<orgName type="institution">Instituto Polite ´cnico Nacional</orgName>,
+							<orgName type="institution">CIIDIR Oaxaca</orgName>,
+							<address>
+								<addrLine>Santa Cruz Xoxocotla ´n</addrLine>,
+								<settlement>Oaxaca</settlement>,
+							<lb/>
+								<country>Mexico</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>8</marker>
+							<orgName type="department">Departamento de Ecologı ´a y Recursos Naturales</orgName>,
+							<orgName type="institution">Centro Universitario de la Costa Sur</orgName>,
+							<lb/>
+							<orgName type="institution">Universidad de Guadalajara</orgName>,
+							<address>
+								<settlement>Autla ´n de Navarro</settlement>,
+								<region>Jalisco</region>,
+								<country>Mexico</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>9</marker>
+							<orgName type="institution">Universidad Nacional Auto ´noma de Costa<lb/> Rica</orgName>,
+							<address>
+								<settlement>Santa Lucı ´a</settlement>,
+								<region>Barva</region>,
+								<region>Heredia</region>,
+								<country>Costa Rica</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>10</marker>
+							<orgName type="department">Departmento de Bota ´nica</orgName>,
+							<orgName type="institution">Universidad de Panama<lb/> ´</orgName>,
+							<orgName type="department">Campus Universitario Ciudad de Panama ´</orgName>,
+							<lb/>
+							<address>
+								<country>Panama ´</country>,
+								<country>Repu ´blica de Panama ´</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>11</marker>
+							<orgName type="department">Department of Botany</orgName>,
+							<orgName type="department">Trinity<lb/> College</orgName>,
+							<orgName type="institution">University of Dublin</orgName>,
+							<address>
+								<settlement>Dublin</settlement>,
+								<country>Ireland,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>12</marker>
+							<orgName type="department">College of the Atlantic</orgName>,
+							<address>
+								<addrLine>Bar Harbor</addrLine>,
+								<settlement>Maine</settlement>,
+								<country>United States of<lb/> America</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>13</marker>
+							<orgName type="department">Facultad de Ciencias</orgName>,
+							<orgName type="institution">Universidad Nacional Auto ´noma de Me ´xico</orgName>,
+							<address>
+								<settlement>Ciudad de Me ´xico</settlement>,
+								<country>Mexico,</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>14</marker>
+							<orgName type="institution">Instituto de Investigacio ´n y Servicios Forestales</orgName>,
+							<orgName type="institution">Universidad Nacional de Costa Rica</orgName>,
+							<orgName type="department">Campus Omar<lb/> Dengo</orgName>,
+							<address>
+								<settlement>Heredia</settlement>,
+								<country>Costa Rica,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>15</marker>
+							<orgName type="institution">El Colegio de la Frontera Sur</orgName>,
+							<orgName type="laboratory">Unidad Campeche</orgName>,
+							<address>
+								<settlement>Lerma</settlement>,
+								<settlement>Campeche</settlement>,
+							<lb/>
+								<country>Mexico</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>16</marker>
+							<orgName type="institution">El Colegio de la Frontera Sur</orgName>,
+							<address>
+								<settlement>San Cristo ´bal de Las Casas</settlement>,
+								<region>Chiapas</region>,
+								<country>Mexico</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>17</marker>
+							<orgName type="department">Centro de<lb/> Investigacio ´n Cientı ´fica de Yucata ´n</orgName>,
+							<orgName type="institution">Chuburna de Hidalgo</orgName>,
+							<address>
+								<addrLine>Me ´rida</addrLine>,
+								<addrLine>Yucata ´n</addrLine>,
+								<country>Mexico</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>18</marker>
+							<orgName type="department">Herbario,<lb/> Departamento Conservacio ´n de la Biodiversidad</orgName>,
+							<orgName type="institution">El Colegio de la Frontera Sur</orgName>,
+							<address>
+								<settlement>Chetumal</settlement>,
+								<country>Mexico</country>,
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>19</marker>
+							<orgName type="department">Departamento de Produccio ´n Vegetal y Recursos Forestales</orgName>,
+							<orgName type="institution">Instituto Universitario de Gestio ´n Forestal<lb/> Sostenible</orgName>,
+							<orgName type="institution">Universidad de Valladolid</orgName>
+							(<orgName type="department">Campus de Palencia</orgName>),
+							<address>
+								<settlement>Palencia</settlement>,
+								<country>Spain</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>20</marker>
+							<orgName type="institution">Emeritus Faculty, Program<lb/> in the Environment</orgName>,
+							<orgName type="institution">Loyola University</orgName>,
+							<address>
+								<settlement>New Orleans</settlement>,
+								<settlement>New Orleans</settlement>,
+								<region>Louisiana</region>,
+								<country>United States of America</country>,
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>21</marker>
+							<orgName type="institution">Instituto de Ecologı ´a, A.C. (INECOL)</orgName>,
+							<address>
+								<settlement>Xalapa</settlement>,
+								<region>Veracruz</region>,
+								<settlement>Mexico</settlement>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>22</marker>
+							<orgName type="institution">Charles Darwin Foundation</orgName>,
+							<address>
+								<settlement>Puerto<lb/> Ayora</settlement>,
+								<region>Gala ´pagos</region>,
+								<country>Ecuador</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>23</marker>
+							<orgName type="institution">Real Jardı ´n Bota ´nico (RJB-CSIC)</orgName>,
+							<address>
+								<settlement>Madrid</settlement>,
+								<country>Spain</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="laboratory">Instituto de Investigacio ´n en Cambio Global (IIGC-URJC)</orgName>,
+							<orgName type="institution">Universidad Rey Juan Carlos</orgName>,
+							<lb/>
+							<address>
+								<addrLine>Mo ´stoles</addrLine>,
+								<country>Spain</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">University of<lb/> Deusto</orgName>:
+							<orgName type="institution">Universidad de Deusto</orgName>,
+							<address>
+								<country>SPAIN</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

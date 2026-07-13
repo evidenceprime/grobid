@@ -1,0 +1,262 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="origin7775951795907707881"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Identifying delays in healthcare seeking and<lb/> provision: The Three Delays-in-Healthcare and<lb/> mortality among infants and children aged<lb/> 1-59 months<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Elisa Garcia Gomez 1☯ , Kitiezo Aggrey Igunza 2☯ , Zachary J. Madewell ID 3<lb/> , Victor Akelo 4 ,<lb/> Dickens Onyango 5 , Shams El Arifeen 6 , Emily S. Gurley 7 , Mohammad Zahid Hossain ID<lb/> 6 ,<lb/> Md Atique Iqbal Chowdhury 6 , Kazi Munisul Islam 6 , Nega Assefa 8,9,10 , J. Anthony G. Scott 8 ,<lb/> Lola Madrid 8,9,10 , Yenenesh Tilahun 9,10 , Stian Orlien ID<lb/> 11,12 , Karen L. Kotloff 13 , Milagritos<lb/> D. Tapia 13 , Adama Mamby Keita 14 , Ashka Mehta 13 , Amilcar Magac ¸o15 , David Torres-<lb/>FernandezID 15,16 , Ariel Nhacolo 15 , Quique BassatID 15,16,17,18,19 , Ina ´cio Mandomando 15,16,20 ,<lb/> Ikechukwu OgbuanuID 21 , Carrie Jo Cain 22 , Ronita Luke 23 , Sorie I. B. Kamara 21 ,<lb/> Hailemariam LegesseID 24 , Shabir Madhi 25 , Ziyaad Dangor 25 , Sana MahtabID 25 ,<lb/> Amy Wise 26 , Yasmin Adam 27 , Cynthia G. Whitney 28 , Portia C. Mutevedzi 28 , Dianna<lb/> M. BlauID 3 , Robert F. BreimanID 29 , Beth A. Tippett BarrID 30 , Chris A. ReesID 31,32 *, Child<lb/> Health and Mortality Prevention Surveillance Network ¶<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Emory University School of Medicine, Emory University,</affiliation>
+	</byline>
+
+	<address>Atlanta, Georgia, United States of America,<lb/></address>
+
+	<byline>
+	<affiliation>2 Kenya Medical Research Institute-Center for Global Health Research,</affiliation>
+	</byline>
+
+	<address>Kisumu, Kenya,</address>
+
+	<byline>
+	<affiliation>3 Global Health<lb/> Center, Centers for Disease Control and Prevention,</affiliation>
+	</byline>
+
+	<address>Atlanta, Georgia, United States of America,</address>
+
+	<byline>
+	<affiliation>4 Centers<lb/> for Disease Control and Prevention-Kenya,</affiliation>
+	</byline>
+
+	<address>Kisumu, Kenya,</address>
+
+	<byline>
+	<affiliation>5 Kisumu County Department of Health,</affiliation>
+	</byline>
+
+	<address>Kisumu,<lb/> Kenya,</address>
+
+	<byline>
+	<affiliation>6 International Centre for Diarrhoeal Disease Research Bangladesh (icddr,b),</affiliation>
+	</byline>
+
+	<address>Dhaka, Bangladesh,<lb/></address>
+
+	<byline>
+	<affiliation>7 Bloomberg School of Public Health, Johns Hopkins University,</affiliation>
+	</byline>
+
+	<address>Baltimore, Maryland, United States of<lb/> America,</address>
+
+	<byline>
+	<affiliation>8 London School of Hygiene and Tropical Medicine,</affiliation>
+	</byline>
+
+	<address>London, United Kingdom,</address>
+
+	<byline>
+	<affiliation>9 College of Health<lb/> and Medical Sciences, Haramaya University,</affiliation>
+	</byline>
+
+	<address>Harar, Ethiopia,</address>
+
+	<byline>
+	<affiliation>10 Hararghe Health Research, Haramaya<lb/> University,</affiliation>
+	</byline>
+
+	<address>Harar, Ethiopia,</address>
+
+	<byline>
+	<affiliation>11 College of Medicine and Health Sciences, University of Hargeisa,</affiliation>
+	</byline>
+
+	<address>Hargeisa,<lb/> Somaliland,</address>
+
+	<byline>
+	<affiliation>12 Department of Paediatrics, Vestfold Hospital Trust,</affiliation>
+	</byline>
+
+	<address>Tønsberg, Norway,</address>
+
+	<byline>
+	<affiliation>13 Department of<lb/> Pediatrics, Center for Vaccine Development and Global Health, University of Maryland School of Medicine,<lb/></affiliation>
+	</byline>
+
+	<address>Baltimore, Maryland, United States of America,</address>
+
+	<byline>
+	<affiliation>14 Centre pour le De ´veloppement des Vaccins-Mali,<lb/></affiliation>
+	</byline>
+
+	<address>Bamako, Mali,</address>
+
+	<byline>
+	<affiliation>15 Centro de Investigac ¸ão em Sau ´de de Manhic ¸a (CISM),</affiliation>
+	</byline>
+
+	<address>Maputo, Mozambique,</address>
+
+	<byline>
+	<affiliation>16 ISGlobal<lb/> -Hospital Clı ´nic, Universitat de Barcelona,</affiliation>
+	</byline>
+
+	<address>Barcelona, Spain,</address>
+
+	<byline>
+	<affiliation>17 Institucio ´Catalana de Recerca I Estudis<lb/> Avanc ¸ats (ICREA),</affiliation>
+	</byline>
+
+	<address>Barcelona, Spain,</address>
+
+	<byline>
+	<affiliation>18 Pediatrics Department, Hospital Sant Joan de De ´u, Universitat de<lb/> Barcelona,</affiliation>
+	</byline>
+
+	<address>Esplugues, Barcelona, Spain,</address>
+
+	<byline>
+	<affiliation>19 Consorcio de Investigacio ´n Biome ´dica en Red de<lb/> Epidemiologı ´a y Salud Pu ´blica (CIBERESP),</affiliation>
+	</byline>
+
+	<address>Madrid, Spain,</address>
+
+	<byline>
+	<affiliation>20 Instituto Nacional de Sau ´de, Ministe ´rio de<lb/> Sau ´de,</affiliation>
+	</byline>
+
+	<address>Maputo, Moc ¸ambique</address>,
+
+    <byline>
+    <affiliation>21 Crown Agents</affiliation>
+    </byline>,
+
+    <address>Freetown, Sierra Leone</address>,
+
+	<byline>
+	<affiliation>22 World Hope International,<lb/></affiliation>
+	</byline>
+
+	<address>Freetown, Sierra Leone,</address>
+
+	<byline>
+	<affiliation>23 Ministry of Health and Sanitation,</affiliation>
+	</byline>
+
+	<address>Freetown, Sierra Leone,</address>
+
+	<byline>
+	<affiliation>24 UNICEF,<lb/></affiliation>
+	</byline>
+
+	<address>Freetown, Sierra Leone,</address>
+
+	<byline>
+	<affiliation>25 South African Medical Research Council Vaccines and Infectious Diseases<lb/> Analytics Research Unit, University of the Witwatersrand,</affiliation>
+	</byline>
+
+	<address>Johannesburg, South Africa,</address>
+
+	<byline>
+	<affiliation>26 Department of<lb/> Obstetrics and Gynaecology, Rahima Mossa Mother and Child Hospital, University of the Witwatersrand,<lb/></affiliation>
+	</byline>
+
+	<address>Johannesburg, South Africa,</address>
+
+	<byline>
+	<affiliation>27 Department of Obstetrics and Gynaecology, Chris Hani Baragwanath<lb/> Academic Hospital, University of the Witwatersrand,</affiliation>
+	</byline>
+
+	<address>Johannesburg, South Africa,</address>
+
+	<byline>
+	<affiliation>28 Global Health Institute,<lb/> Emory University,</affiliation>
+	</byline>
+
+	<address>Atlanta, Georgia, United States of America,</address>
+
+	<byline>
+	<affiliation>29 Hubert Department of Global Health,<lb/> Rollins School of Public Health, Emory University,</affiliation>
+	</byline>
+
+	<address>Atlanta, Georgia, United States of America,</address>
+
+	<byline>
+	<affiliation>30 Nyanja<lb/> Health Research Institute,</affiliation>
+	</byline>
+
+	<address>Salima, Malawi,</address>
+
+	<byline>
+	<affiliation>31 Department of Pediatrics, Emory University School of<lb/> Medicine,</affiliation>
+	</byline>
+
+	<address>Atlanta, Georgia, United States of America,</address>
+
+	<byline>
+	<affiliation>32 Children&apos;s Healthcare of Atlanta,</affiliation>
+	</byline>
+
+	<address>Atlanta, Georgia,<lb/> United States of America<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> ¶ Membership of the Child Health and Mortality Prevention Surveillance Network is provided in the Supporting<lb/> information file in S1 Acknowledgments.<lb/> *
+	<email>chris.rees@emory.edu<lb/></email>
+
+    <note type="doctype">PLOS GLOBAL PUBLIC HEALTH<lb/></note>
+
+	<reference>PLOS Global Public Health | https://doi.org/10.1371/journal.pgph.0002494 February 8, 2024<lb/></reference>
+
+	<page>1 / 18<lb/></page>
+
+    a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Garcia Gomez E, Igunza KA, Madewell ZJ,<lb/> Akelo V, Onyango D, El Arifeen S, et al. (2024)<lb/> Identifying delays in healthcare seeking and<lb/> provision: The Three Delays-in-Healthcare and<lb/> mortality among infants and children aged 1-59<lb/> months. PLOS Glob Public Health 4(2): e0002494.<lb/></reference>
+
+	<idno>https://doi.org/10.1371/journal.pgph.0002494<lb/></idno>
+
+	Editor:
+	<editor>Julia Robinson</editor>
+
+	, PLOS:
+	<byline>
+	<affiliation>Public Library of<lb/> Science,</affiliation>
+	</byline>
+
+	<address>UNITED STATES<lb/></address>
+
+	<note type="submission">Received: June 26, 2023<lb/> Accepted: January 10, 2024<lb/></note>
+
+	Published:
+	<date>February 8, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">This is an open access article, free of all<lb/> copyright, and may be freely reproduced,<lb/> distributed, transmitted, modified, built upon, or<lb/> otherwise used by anyone for any lawful purpose.<lb/> The work is made available under the Creative<lb/> Commons CC0 public domain dedication.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">CHAMPS data may<lb/> be accessed through requests at https://<lb/> champshealth.org/data/.<lb/></note>
+
+	Funding:
+	<note type="funding">CHAMPS is funded by The Bill &amp; Melinda<lb/> Gates Foundation (OPP1126780 to CGW) which<lb/> provided input into site selection decisions and<lb/> methodology and scope of CHAMPS. The funders<lb/> had no role in study design, data collection and<lb/> analysis, decision to publish, or preparation of the</note>
+
+	Abstract<lb/>
+	<div type="abstract">Delays in illness recognition, healthcare seeking, and in the provision of appropriate clinical<lb/> care are common in resource-limited settings. Our objective was to determine the frequency<lb/> of delays in the &quot;Three Delays-in-Healthcare&quot;, and factors associated with delays, among<lb/> deceased infants and children in seven countries with high childhood mortality. We con-<lb/>ducted a retrospective, descriptive study using data from verbal autopsies and medical rec-<lb/>ords for infants and children aged 1-59 months who died between December 2016 and<lb/> February 2022 in six sites in sub-Saharan Africa and one in South Asia (Bangladesh) and<lb/> were enrolled in Child Health and Mortality Prevention Surveillance (CHAMPS). Delays in 1)<lb/> illness recognition in the home/decision to seek care, 2) transportation to healthcare facili-<lb/>ties, and 3) the receipt of clinical care in healthcare facilities were categorized according to<lb/> the &quot;Three Delays-in-Healthcare&quot;. Comparisons in factors associated with delays were<lb/> made using Chi-square testing. Information was available for 1,326 deaths among infants<lb/> and under 5 children. The majority had at least one identified delay (n = 854, 64%). Waiting<lb/> &gt;72 hours after illness recognition to seek health care (n = 422, 32%) was the most common<lb/> delay. Challenges in obtaining transportation occurred infrequently when seeking care (n =<lb/> 51, 4%). In healthcare facilities, prescribed medications were sometimes unavailable (n =<lb/> 102, 8%). Deceased children aged 12-59 months experienced more delay than infants<lb/> aged 1-11 months (68% vs. 61%, P = 0.018). Delays in seeking clinical care were common<lb/> among deceased infants and children. Additional study to assess the frequency of delays in<lb/> seeking clinical care and its provision among children who survive is warranted.<lb/></div>
+
+    <note type="funding">manuscript. None of the authors receive a salary<lb/> from any of the funders.<lb/></note>
+
+    Competing interests:
+	<note type="conflict">I have read the journal&apos;s<lb/> policy and the authors of this manuscript have the<lb/> following competing interests: CGW received<lb/> honoraria from the University of St. Andrews for<lb/> speaking to alumni about CHAMPS and global<lb/> health work. JAGS reports receiving funding from<lb/> the Wellcome Trust, UK FCDO, European Union,<lb/> and the National Institute for Health Research. SM<lb/> has received grants from the Bill &amp; Melinda Gates<lb/> Foundation, GSK, Pfizer, Minervax, Novavax,<lb/> Providence, Gritstone, and ImmunityBio. SM has<lb/> received honoraria from GSK for lecturing. CGW<lb/> and SM report serving on data safety monitoring<lb/> boards for SPEAC (CGW) and PATH and CAPRISA<lb/> (SM). DT-F reports having received the support of<lb/> a fellowship from &quot;La Caixa&quot; Foundation (ID<lb/> 100010434, &quot;LCF/BQ/DR21/11880018&quot;). All other<lb/> investigators declare no competing interests.</note>
+
+		</front>
+	</text>
+</tei>

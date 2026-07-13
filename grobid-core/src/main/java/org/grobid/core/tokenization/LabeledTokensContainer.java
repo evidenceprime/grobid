@@ -1,10 +1,28 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.tokenization;
 
-import org.grobid.core.engines.label.TaggingLabel;
-import org.grobid.core.engines.tagging.GenericTaggerUtils;
-import org.grobid.core.layout.LayoutToken;
-
 import java.util.List;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
+import org.grobid.core.engines.label.TaggingLabel;
+import org.grobid.core.engines.label.TaggingLabels;
+import org.grobid.core.layout.LayoutToken;
 
 /**
  * Representing labeled tokens and stuff
@@ -19,7 +37,8 @@ public class LabeledTokensContainer {
     private boolean trailingNewLine;
     private String featureString;
 
-    public LabeledTokensContainer(List<LayoutToken> layoutTokens, String token, TaggingLabel taggingLabel, boolean beginning) {
+    public LabeledTokensContainer(List<LayoutToken> layoutTokens, String token, TaggingLabel taggingLabel,
+            boolean beginning) {
         this.layoutTokens = layoutTokens;
         this.token = token;
         this.taggingLabel = taggingLabel;
@@ -47,7 +66,7 @@ public class LabeledTokensContainer {
     }
 
     public String getFullLabel() {
-        return isBeginning() ? GenericTaggerUtils.START_ENTITY_LABEL_PREFIX + taggingLabel.getLabel()
+        return isBeginning() ? TaggingLabels.GROBID_START_ENTITY_LABEL_PREFIX + taggingLabel.getLabel()
                 : taggingLabel.getLabel();
     }
 
@@ -77,6 +96,9 @@ public class LabeledTokensContainer {
 
     @Override
     public String toString() {
-        return token + " (" + getFullLabel() + ")";
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("token", token)
+                .append("fullLabel", getFullLabel())
+                .toString();
     }
 }

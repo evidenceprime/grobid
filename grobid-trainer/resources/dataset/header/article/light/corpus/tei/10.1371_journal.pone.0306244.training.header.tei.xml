@@ -1,0 +1,135 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T15:36:26.564Z">12/3/2025 3:36:26 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T15:35:27.077528Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T15:35:27.077528Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>TIR domains of TLR family-from the cell<lb/> culture to the protein sample for structural studies<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Vladislav A. Lushpa ☯ , Marina V. Goncharuk ☯ , Irina A. Talyzina ¤a , Alexander S. Arseniev,<lb/> Eduard V. Bocharov, Konstantin S. Mineev ¤b *, Sergey A. GoncharukID*<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Shemyakin-Ovchinnikov Institute of Bioorganic Chemistry of the Russian Academy of Sciences,</affiliation>
+	</byline>
+
+	<address>Moscow, Russia<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/>
+	<byline>
+	<affiliation>¤a Current address: Department of Biochemistry and Molecular Biophysics, Columbia University,</affiliation>
+	</byline>
+
+	<address>New York,<lb/> NY, United States of America<lb/></address>
+
+
+	<byline>
+	<affiliation>¤b Current address: Institute of Organic Chemistry and Chemical Biology, Goethe University Frankfurt,<lb/></affiliation>
+	</byline>
+
+	<address>Frankfurt am Main, Germany<lb/></address>
+
+	*
+	<email>konstantin.mineev@gmail.com</email>
+
+	(K.S.M.);
+	<email>ms.goncharuk@gmail.com</email>
+
+	(S.A.G.) Abstract<lb/>
+	<div type="abstract">Toll-like receptors (TLRs) are key players in the innate immune system. Despite the great<lb/> efforts in TLR structural biology, today we know the spatial structures of only four human<lb/> TLR intracellular TIR domains. All of them belong to one of five subfamilies of receptors.<lb/> One of the main bottlenecks is the high-level production of correctly folded proteins in solu-<lb/>ble form. Here we used a rational approach to find the optimal parameters to produce TIR<lb/> domains of all ten human TLR family members in soluble form in E. coli cells. We showed<lb/> that dozens of milligrams of soluble His-tagged TLR2/3/6/7 TIR and MBP-tagged TLR3/5/7/<lb/> 8 TIR can be produced. We also developed the purification protocols and demonstrated by<lb/> CD and NMR spectroscopy that purified TLR2/3/7 TIR demonstrate a structural organization<lb/> inherent to TIR domains. This illustrates the correct folding of produced proteins and their<lb/> suitability for further structural and functional investigations.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0304997 July 5, 2024<lb/></reference>
+
+	<page>1 / 14<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Lushpa VA, Goncharuk MV, Talyzina IA,<lb/> Arseniev AS, Bocharov EV, Mineev KS, et al. (2024)<lb/> TIR domains of TLR family-from the cell culture to<lb/> the protein sample for structural studies. PLoS<lb/> ONE 19(7): e0304997.</reference>
+
+	<idno>https://doi.org/10.1371/<lb/> journal.pone.0304997<lb/></idno>
+
+	Editor:
+	<editor>Peter J. Bond,</editor>
+
+	<byline>
+	<affiliation>Bioinformatics Institute,</affiliation>
+	</byline>
+
+	<address>SINGAPORE<lb/></address>
+
+	<note type="submission">Received: February 7, 2024<lb/> Accepted: June 14, 2024<lb/></note>
+
+	Published:
+	<date>July 5, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0304997<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Lushpa et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the manuscript and its Supporting<lb/> Information files.<lb/></note>
+
+	Funding:
+	<note type="funding">The work was supported by the Russian<lb/> Science Foundation grant #22-14-00020. The<lb/> funders had no role in study design, data collection<lb/> and analysis, decision to publish, or preparation of<lb/> the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

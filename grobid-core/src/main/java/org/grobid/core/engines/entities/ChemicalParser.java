@@ -1,4 +1,23 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines.entities;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 import org.grobid.core.GrobidModels;
 import org.grobid.core.data.ChemicalEntity;
@@ -7,28 +26,24 @@ import org.grobid.core.exceptions.GrobidException;
 import org.grobid.core.features.FeaturesVectorChemicalEntity;
 import org.grobid.core.utilities.TextUtilities;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-
 /**
  * Chemical entities extraction.
  *
  */
 public class ChemicalParser extends AbstractParser {
 
-//    private FeatureFactory featureFactory = null;
+    //    private FeatureFactory featureFactory = null;
 
     public ChemicalParser() {
         super(GrobidModels.ENTITIES_CHEMISTRY);
-//        featureFactory = FeatureFactory.getInstance();
+        //        featureFactory = FeatureFactory.getInstance();
     }
 
     /**
      * Extract all reference from a simple piece of text.
      */
     public List<ChemicalEntity> extractChemicalEntities(String text) throws Exception {
-//        int nbRes = 0;
+        //        int nbRes = 0;
         if (text == null)
             return null;
         if (text.length() == 0)
@@ -63,7 +78,7 @@ public class ChemicalParser extends AbstractParser {
             String res = label(ress);
             entities = resultExtraction(res, tokenizations);
         } catch (Exception e) {
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
         return entities;
     }
@@ -71,8 +86,9 @@ public class ChemicalParser extends AbstractParser {
     /**
      * Extract results from a labelled header.
      */
-    public List<ChemicalEntity> resultExtraction(String result,
-                                                 ArrayList<String> tokenizations) {
+    public List<ChemicalEntity> resultExtraction(
+            String result,
+            ArrayList<String> tokenizations) {
         List<ChemicalEntity> entities = new ArrayList<ChemicalEntity>();
 
         StringTokenizer stt = new StringTokenizer(result, "\n");

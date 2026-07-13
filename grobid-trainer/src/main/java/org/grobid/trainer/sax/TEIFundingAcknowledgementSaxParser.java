@@ -1,19 +1,33 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.sax;
 
-import org.grobid.core.utilities.TextUtilities;
-import org.grobid.core.layout.LayoutToken;
-import org.grobid.core.analyzers.GrobidAnalyzer;
-import org.grobid.core.lang.Language;
-import org.grobid.core.utilities.UnicodeUtil;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+import org.grobid.core.analyzers.GrobidAnalyzer;
+import org.grobid.core.lang.Language;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.utilities.UnicodeUtil;
 
 /**
  * SAX parser for funding and acknowledgement sequences encoded in the TEI format data.
@@ -53,15 +67,18 @@ public class TEIFundingAcknowledgementSaxParser extends DefaultHandler {
         return allTokens;
     }
 
-    public void endElement(java.lang.String uri,
-                           java.lang.String localName,
-                           java.lang.String qName) throws SAXException {
-        if (( (qName.equals("funder")) || (qName.equals("grantName")) || (qName.equals("grantNumber")) || (qName.equals("projectName")) || 
-              (qName.equals("programName")) || (qName.equals("individual")) || (qName.equals("institution")) || (qName.equals("affiliation"))) 
-            && (currentTag != null)) {
+    public void endElement(
+            java.lang.String uri,
+            java.lang.String localName,
+            java.lang.String qName) throws SAXException {
+        if (((qName.equals("funder")) || (qName.equals("grantName")) || (qName.equals("grantNumber"))
+                || (qName.equals("projectName")) ||
+                (qName.equals("programName")) || (qName.equals("individual")) || (qName.equals("institution"))
+                || (qName.equals("affiliation")))
+                && (currentTag != null)) {
             String text = getText();
             writeField(text);
-        } else if (qName.equals("funding") || qName.equals("acknowledgment") ) {
+        } else if (qName.equals("funding") || qName.equals("acknowledgment")) {
             String text = getText();
             currentTag = "<other>";
             if (text.length() > 0) {
@@ -77,10 +94,11 @@ public class TEIFundingAcknowledgementSaxParser extends DefaultHandler {
         accumulator.setLength(0);
     }
 
-    public void startElement(String namespaceURI,
-                             String localName,
-                             String qName,
-                             Attributes atts)
+    public void startElement(
+            String namespaceURI,
+            String localName,
+            String qName,
+            Attributes atts)
             throws SAXException {
 
         String text = getText();
@@ -119,13 +137,13 @@ public class TEIFundingAcknowledgementSaxParser extends DefaultHandler {
                         if (value.equals("infrastructure")) {
                             currentTag = "<infrastructure>";
                             break;
-                        } 
+                        }
                     }
                 }
             }
         } else if (qName.equals("affiliation")) {
             currentTag = "<affiliation>";
-        } else if (qName.equals("funding") || qName.equals("acknowledgment") ) {
+        } else if (qName.equals("funding") || qName.equals("acknowledgment")) {
             accumulator = new StringBuffer();
             labeled = new ArrayList<String>();
             tokens = new ArrayList<LayoutToken>();
@@ -150,7 +168,7 @@ public class TEIFundingAcknowledgementSaxParser extends DefaultHandler {
         if (isEmpty(localTokens)) {
             return;
         }
-        
+
         boolean begin = true;
         for (LayoutToken token : localTokens) {
             tokens.add(token);
@@ -161,11 +179,11 @@ public class TEIFundingAcknowledgementSaxParser extends DefaultHandler {
             }
 
             content = UnicodeUtil.normaliseTextAndRemoveSpaces(content);
-            if (content.trim().length() == 0) { 
+            if (content.trim().length() == 0) {
                 labeled.add(null);
                 continue;
             }
-            
+
             if (content.length() > 0) {
                 if (begin) {
                     labeled.add("I-" + currentTag);
@@ -178,4 +196,3 @@ public class TEIFundingAcknowledgementSaxParser extends DefaultHandler {
     }
 
 }
-    

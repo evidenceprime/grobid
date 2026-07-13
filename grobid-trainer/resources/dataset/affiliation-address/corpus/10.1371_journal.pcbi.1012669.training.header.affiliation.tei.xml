@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Department of Cardiac Sciences</orgName>,
+							<orgName type="department">King Fahad Cardiac Center</orgName>,
+							<orgName type="department">College of Medicine</orgName>,
+							<orgName type="institution">King Saud Medical City</orgName>,
+							<lb/>
+							<orgName type="institution">King Saud University</orgName>,
+							<address>
+								<settlement>Riyadh</settlement>,
+								<country>Saudi Arabia,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">Nassar Medical Complex Hospital</orgName>,
+							<orgName type="institution">Ministry of Health</orgName>,
+							<address>
+								<settlement>Khan<lb/> Younes</settlement>,
+								<region>Gaza Strip</region>,
+								<country>Palestine</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="institution">Al-Quds Hospital</orgName>,
+							<address>
+								<settlement>Gaza</settlement>,
+								<country>Palestine,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="institution">National Heart Center</orgName>,
+							<orgName type="institution">Royal<lb/> Hospital</orgName>,
+							<address>
+								<settlement>Muscat</settlement>,
+								<country>Oman,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="department">International Cardiac Center (ICC)</orgName>,
+							<address>
+								<settlement>Alexandria</settlement>,
+								<country>Egypt</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="laboratory">Research Laboratory<lb/> LR</orgName>,
+							<orgName type="institution">Fattouma Bourguiba University Hospital</orgName>,
+							<orgName type="institution">University of Monastir</orgName>,
+							<address>
+								<settlement>Monastir</settlement>,
+								<country>Tunisia</country>,
+							<lb/>
+							</address>
+                        </affiliation>
+                        <affiliation>
+                            <marker>7</marker>
+                            <orgName type="institution">Heart Hospital</orgName>,
+                            <orgName type="institution">Hamad Medical Corporation</orgName>,
+                            <address>
+                                <settlement>Doha</settlement>,
+                                <country>Qatar</country>,
+                            </address>
+						</affiliation>
+						<affiliation>
+							<marker>8</marker>
+							<orgName type="department">Cardiology Department</orgName>,
+							<orgName type="institution">Mustapha Hospital</orgName>,
+							<orgName type="institution">COCRG<lb/> Laboratory University Benyoucef Benkhedda</orgName>,
+							<address>
+								<settlement>Algiers</settlement>,
+								<country>Algeria,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>9</marker>
+							<orgName type="department">Faculty of Medicine</orgName>,
+							<orgName type="institution">Sana&apos;a University</orgName>,
+							<lb/>
+							<address>
+								<settlemtn>Sana&apos;a</settlemtn>,
+								<country>Yemen</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>10</marker>
+							<orgName type="institution">Mohamed Bin Khalifa Cardiac Centre</orgName>,
+							<address>
+								<settlement>Awali</settlement>,
+								<country>Bahrain</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>11</marker>
+							<orgName type="department">Heart and Vascular Institute</orgName>,
+                            <orgName type="institution">Cleveland Clinic Abu Dhabi</orgName>,
+							<lb/>
+							<address>
+								<country>United Arab Emirate</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>12</marker>
+							<orgName type="department">Cardiology Department</orgName>,
+							<orgName type="institution">Istishari Hospital</orgName>,
+							<address>
+								<settlement>Amman</settlement>,
+							<lb/>
+								<country>Jordan,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>13</marker>
+							<orgName type="laboratory">Cardiology Division</orgName>,
+							<orgName type="department">Internal Medicine Department</orgName> at
+							<orgName type="institution">American University of Beirut Medical<lb/> Center</orgName>,
+							<address>
+								<settlement>Beirut</settlement>,
+								<country>Lebanon</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>14</marker>
+							<orgName type="department">Iraqi Board for Medical Specializations</orgName>,
+							<orgName type="department">Scientific Council of Cardiology.<lb/></orgName>
+							<orgName type="institution">Baghdad Heart Center</orgName>,
+							<address>
+                                <addrLine>Medical City</addrLine>,
+								<settlement>Baghdad</settlement>,
+								<country>Iraq</country>,
+							</address>
+						</affiliation>
+                        <affiliation>
+                            <marker>15</marker>
+                            <orgName type="institution">Sabah Al Ahmed Cardia Center</orgName>,
+                            <address>
+								<settlement>Kuwait City</settlement>,
+								<country>Kuwait</country>,
+							<lb/>
+                            </address>
+                        </affiliation>
+						<affiliation>
+							<marker>16</marker>
+							<orgName type="institution">IBN SINA University Hospital</orgName>,
+							<address>
+								<settlement>Rabat</settlement>,
+								<country>Morocco</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>17</marker>
+							<orgName type="institution">Al Nahdha Hospital</orgName>,
+							<address>
+								<settlement>Muscat</settlement>,
+								<country>Oman</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>18</marker>
+							<orgName type="department">Faculty of<lb/> Medicine</orgName>,
+							<orgName type="institution">Kasr Al Ainy Hospital</orgName>,
+							<orgName type="institution">Cairo University</orgName>,
+							<address>
+								<region>Giza Governorate</region>,
+								<country>Egypt</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>19</marker>
+							<orgName type="institution">Taher Sfar University<lb/> Hospital</orgName>,
+							<address>
+								<settlement>Mahdia</settlement>,
+								<country>Tunisia</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>20</marker>
+							<orgName type="department">Internal Medicine and Cardiology Department</orgName>,
+							<orgName type="institution">CHU Doue ´ra</orgName>,
+							<address>
+								<settlement>Algiers</settlement>,
+							</address>
+                        </affiliation>
+                        <affiliation>
+							<orgName type="institution">University<lb/> Saad Dahlab</orgName>,
+							<address>
+								<settlement>Blida</settlement>,
+								<country>Algeria</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>21</marker>
+							<orgName type="institution">Althawra Modern General Hospital</orgName>,
+							<address>
+								<settlement>Sana&apos;a</settlement>,
+								<country>Yemen</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>22</marker>
+							<orgName type="institution">Hammoud University<lb/> Medical Center</orgName>,
+							<address>
+								<settlement>Saida</settlement>,
+								<country>Lebanon</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>23</marker>
+							<orgName type="institution">King Saud Hospital</orgName>,
+							<address>
+                                <settlment>Unizah</settlment>,
+								<region>Qaseem</region>,
+								<country>Saudi Arabia</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>24</marker>
+							<orgName type="institution">Saudi Heart<lb/> Association</orgName>,
+							<address>
+								<settlement>Riyadh</settlement>,
+								<country>Saudi Arabia</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>25</marker>
+							<orgName type="institution">National Heart and Lung Institute</orgName>,
+							<orgName type="institution">Imperial College London</orgName>,
+							<address>
+								<settlement>London</settlement>,
+							<lb/>
+								<country>United Kingdom</country>
+							<lb/>
+                            </address>
+                        </affiliation>
+                        <affiliation>
+							<orgName type="institution">Tabba Heart Institute</orgName>,
+							<lb/>
+							<address>
+								<country>PAKISTAN</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

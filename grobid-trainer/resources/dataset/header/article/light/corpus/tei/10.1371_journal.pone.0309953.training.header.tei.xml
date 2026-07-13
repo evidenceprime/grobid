@@ -1,0 +1,163 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-04T10:35:29.110Z">12/4/2025 10:35:29 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-04T10:35:17.506390Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-04T10:35:17.506390Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>SRPK2 Mediates HBV Core Protein<lb/> Phosphorylation and Capsid Assembly via<lb/> Docking Interaction<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Ryan Pak Hong YIP 1 , Doris Ching Ying Kwok 1 , Louis Tung Faat Lai 1¤a , Siu-Ming Ho 2,3 ,<lb/> Ivan Chun Kit Wong 1 , Chi-Ping Chan 2,3 , Wilson Chun Yu Lau 1,4¤b , Jacky Chi<lb/> Ki NgoID 1,4,5,6 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 School of Life Sciences, The Chinese University of Hong Kong,</affiliation>
+	</byline>
+
+	<address>Shatin, N.T., Hong Kong SAR, China,<lb/></address>
+
+	<byline>
+	<affiliation>2 School of Biomedical Sciences, The University of Hong Kong,</affiliation>
+	</byline>
+
+	<address>Pokfulam, Hong Kong, Hong Kong SAR,<lb/> China,</address>
+
+	<byline>
+	<affiliation>3 State Key Laboratory of Liver Research (The University of Hong Kong),</affiliation>
+	</byline>
+
+	<address>Pokfulam, Hong Kong,<lb/> Hong Kong SAR, China,</address>
+
+	<byline>
+	<affiliation>4 Center for Soybean Research of the State Key Laboratory of Agrobiotechnology,<lb/> The Chinese University of Hong Kong,</affiliation>
+	</byline>
+
+	<address>Shatin N.T., Hong Kong SAR, China,</address>
+
+	<byline>
+	<affiliation>5 Center for Novel Biomaterials,<lb/> The Chinese University of Hong Kong,</affiliation>
+	</byline>
+
+	<address>Shatin N.T., Hong Kong SAR, China,</address>
+
+	<byline>
+	<affiliation>6 Center for Protein Science and<lb/> Crystallography, The Chinese University of Hong Kong,</affiliation>
+	</byline>
+
+	<address>Shatin N.T., Hong Kong SAR, China<lb/></address>
+
+
+	<byline>
+	<affiliation>¤a Current address: Unit on Structural Biology; Division of Basic and Translational Biophysics, Eunice<lb/> Kennedy Shriver National Institute of Child Health and Human Development, National Institutes of Health,<lb/></affiliation>
+	</byline>
+
+	<address>Bethesda, Maryland 20892, U.S.A.<lb/></address>
+
+
+	<byline>
+	<affiliation>¤b Current address: State Key Laboratory of Chemical Biology and Drug Discovery, Department of Applied<lb/> Biology and Chemical Technology, The Hong Kong Polytechnic University,</affiliation>
+	</byline>
+
+	<address>Hung Hom, Hong Kong SAR,<lb/> China<lb/></address>
+
+	*
+	<email>jackyngo@cuhk.edu.hk</email>
+
+	Abstract<lb/>
+	<div type="abstract">Members of the serine-arginine protein kinase (SRPK) family, SRPK1 and SRPK2, phos-<lb/>phorylate the hepatitis B core protein (Cp) and are crucial for pregenomic RNA encapsida-<lb/>tion during viral nucleocapsid assembly. Among them, SRPK2 exhibits higher kinase<lb/> activity toward Cp. In this study, we identified Cp sites that are phosphorylated by SRPK2<lb/> and demonstrated that the kinase utilizes an SRPK-specific docking groove to interact with<lb/> and regulate the phosphorylation of the C-terminal arginine rich domain of Cp. We deter-<lb/>mined that direct interaction between the docking groove of SRPK2 and unphosphorylated<lb/> Cp inhibited premature viral capsid assembly in vitro, whereas the phosphorylation of the<lb/> viral protein reactivated the process. Pull-down assays together with the new cryo-electron<lb/> microscopy structure of the HBV capsid in complex with SRPK2 revealed that the kinases<lb/> decorate the surface of the viral capsid by interacting with the C-terminal domain of Cp,<lb/> underscoring the importance of the docking interaction in regulating capsid assembly and<lb/> pregenome packaging. Moreover, SRPK2-knockout in HepG2 cells suppressed Cp phos-<lb/>phorylation, indicating that SRPK2 is an important cellular kinase for HBV life cycle.<lb/></div>
+
+	<div type="abstract">Author summary<lb/> Hepatitis B virus (HBV) is an enveloped DNA virus that causes hepatitis B, a common<lb/> liver infection. HBV infection is highly associated with the development of both acute and<lb/></div>
+
+	<title level="j">PLOS PATHOGENS<lb/></title>
+	<reference>PLOS Pathogens | https://doi.org/10.1371/journal.ppat.1011978 February 7, 2024<lb/></reference>
+
+	<page>1 / 27<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>YIP RPH, Kwok DCY, Lai LTF, Ho S-M,<lb/> Wong ICK, Chan C-P, et al. (2024) SRPK2<lb/> Mediates HBV Core Protein Phosphorylation and<lb/> Capsid Assembly via Docking Interaction. PLoS<lb/> Pathog 20(2): e1011978.</reference>
+
+	<idno>https://doi.org/10.1371/<lb/> journal.ppat.1011978<lb/></idno>
+
+	Editor:
+	<editor>Jianming Hu,</editor>
+
+	<byline>
+	<affiliation>Pennsylvania State University<lb/> College of Medicine: Penn State College of<lb/> Medicine,</affiliation>
+	</byline>
+
+	<address>UNITED STATES<lb/></address>
+
+	<note type="submission">Received: December 22, 2022<lb/> Accepted: January 17, 2024<lb/></note>
+
+	Published:
+	<date>February 7, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">This is an open access article, free of all<lb/> copyright, and may be freely reproduced,<lb/> distributed, transmitted, modified, built upon, or<lb/> otherwise used by anyone for any lawful purpose.<lb/> The work is made available under the Creative<lb/> Commons CC0 public domain dedication.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">Cryo-EM maps for<lb/> Hepatitis B virus capsid (HBV core protein) and<lb/> Hepatitis B virus capsid in complex with SR protein<lb/> kinase 2 were deposited in the Electron Microscopy<lb/> Data Bank (EMDB) under the access codes EMD-<lb/>37631 (full map, apo form of Hepatitis B virus<lb/> capsid), EMD-38062 (full map, Hepatitis B virus<lb/> capsid in complex with SR protein kinase 2) and<lb/> EMD-37634 (local map, SR protein kinase 2 bound<lb/> at 2-fold vertex of Hepatitis B virus capsid).<lb/></note>
+			
+	<div type="abstract">chronic liver diseases, ranging from cirrhosis to liver cancer and liver failure. Like many<lb/> viruses, HBV does not possess adequate endogenous factors for self-replication. Thus, it<lb/> relies on host metabolism and machinery. Members of the SRPK family have been identi-<lb/>fied to the host cellular kinases that interact with HBV core protein during viral core<lb/> assembly. Here we report the mechanism of how SRPK2 interacts with and phosphory-<lb/>lates HBV core protein. We also highlight the role of SRPK2 in the phosphorylation of<lb/> HBV core protein in cells. Our research laid the foundation to targeting this host cellular<lb/> kinase and developing new means to combat HBV infection.<lb/></div>
+
+	Funding:
+	<note type="funding">This work was supported by the General<lb/> Research Fund (GRF) grants, 17126017 and<lb/> 14177317, from the Hong Kong Research Grants<lb/> Council (https://www.ugc.edu.hk/eng/rgc/) to C.P.<lb/> C. and J.C.K.N., respectively; the Collaborative<lb/> Research Fund (CRF) grants C4012-16E and<lb/> C4033-19E from the Hong Kong Research Grants<lb/> Council to J.C.K.N.; the Chinese University of Hong<lb/> Kong Faculty of Science direct grant scheme (grant<lb/> number 4053259), the Research Committee Group<lb/> Research Scheme, and the State Key Laboratory of<lb/> Agrobiotechnology ITC Fund to J.C.K.N. The<lb/> funders had no role in study design, data collection<lb/> and analysis, decision to publish, or preparation of<lb/> the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

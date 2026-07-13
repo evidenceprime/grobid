@@ -1,21 +1,37 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.layout;
-
-import org.grobid.core.utilities.UnicodeUtil;
-import org.grobid.core.engines.label.TaggingLabel;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import org.grobid.core.engines.label.TaggingLabel;
 
 /**
  * Class for representing the layout information associated to a PDF object.
  *
  */
 public class LayoutToken implements Comparable<LayoutToken>, Serializable {
-	
-	private static final long serialVersionUID = 1L;
-	
-	private String text = null;
+
+    private static final long serialVersionUID = 1L;
+
+    private String text = null;
     public double y = -1.0;
     public double x = -1.0;
     public double width = 0.0;
@@ -29,14 +45,14 @@ public class LayoutToken implements Comparable<LayoutToken>, Serializable {
     private int page = -1;
     private boolean newLineAfter;
     private int blockPtr;
-	private int offset = 0;
+    private int offset = 0;
     private boolean subscript = false;
     private boolean superscript = false;
-	
-	/**
-	 * All TaggingLabel accumulated for this token
-	 */
-	private ArrayList<TaggingLabel> labels = null;
+
+    /**
+     * All TaggingLabel accumulated for this token
+     */
+    private ArrayList<TaggingLabel> labels = null;
 
     public LayoutToken() {
     }
@@ -67,15 +83,15 @@ public class LayoutToken implements Comparable<LayoutToken>, Serializable {
         // deep copy of the TaggingLabel list
         if (token.labels != null) {
             this.labels = new ArrayList<TaggingLabel>();
-            for(TaggingLabel l : token.labels) {
+            for (TaggingLabel l : token.labels) {
                 this.labels.add(l);
             }
         }
     }
-    
+
     public LayoutToken(String text, TaggingLabel label) {
-    	this(text);
-    	this.addLabel(label);
+        this(text);
+        this.addLabel(label);
     }
 
     public void setFont(String f) {
@@ -88,7 +104,7 @@ public class LayoutToken implements Comparable<LayoutToken>, Serializable {
 
     public void setText(String f) {
         //text = f.replaceAll("\n", "");
-		text = f;
+        text = f;
     }
 
     public void setRotation(boolean b) {
@@ -223,39 +239,39 @@ public class LayoutToken implements Comparable<LayoutToken>, Serializable {
         this.blockPtr = blockPtr;
     }
 
-	public int getOffset() {
-		return offset;
-	}
-	
-	public void setOffset(int offset) {
-		this.offset = offset;
-	}
-	
-	/**
-	 * Get all TaggingLabel accumulated for this token
-	 */
-	public List<TaggingLabel> getLabels() {
-		if (this.labels == null)
-			return new ArrayList<TaggingLabel>();
-		return this.labels;
-	}
-	
-	/**
-	 * Check if a given TaggingLabel is associated with this token
-	 */
-	public boolean hasLabel(TaggingLabel label) {
-		return this.labels.contains(label);
-	}
-	
-	/**
-	 * Add a TaggingLabel to this token
-	 */
-	public void addLabel(TaggingLabel label) {
-		if (this.labels == null)
-			this.labels = new ArrayList<TaggingLabel>();
-		if (!hasLabel(label))
-			this.labels.add(label);
-	}
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
+
+    /**
+     * Get all TaggingLabel accumulated for this token
+     */
+    public List<TaggingLabel> getLabels() {
+        if (this.labels == null)
+            return new ArrayList<TaggingLabel>();
+        return this.labels;
+    }
+
+    /**
+     * Check if a given TaggingLabel is associated with this token
+     */
+    public boolean hasLabel(TaggingLabel label) {
+        return this.labels.contains(label);
+    }
+
+    /**
+     * Add a TaggingLabel to this token
+     */
+    public void addLabel(TaggingLabel label) {
+        if (this.labels == null)
+            this.labels = new ArrayList<TaggingLabel>();
+        if (!hasLabel(label))
+            this.labels.add(label);
+    }
 
     @Override
     public String toString() {
@@ -264,26 +280,20 @@ public class LayoutToken implements Comparable<LayoutToken>, Serializable {
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = text != null ? text.hashCode() : 0;
-        temp = Double.doubleToLongBits(y);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(x);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(width);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(height);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (font != null ? font.hashCode() : 0);
-        result = 31 * result + (bold ? 1 : 0);
-        result = 31 * result + (italic ? 1 : 0);
-        result = 31 * result + (colorFont != null ? colorFont.hashCode() : 0);
-        temp = Double.doubleToLongBits(fontSize);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        result = 31 * result + (rotation ? 1 : 0);
-        result = 31 * result + page;
-        return result;
+        return new HashCodeBuilder(17, 37)
+                .append(text)
+                .append(x)
+                .append(y)
+                .append(width)
+                .append(height)
+                .append(font)
+                .append(bold)
+                .append(italic)
+                .append(colorFont)
+                .append(fontSize)
+                .append(rotation)
+                .append(page)
+                .toHashCode();
     }
 
     @Override
@@ -291,18 +301,16 @@ public class LayoutToken implements Comparable<LayoutToken>, Serializable {
         if (y != token2.y) {
             if (y < token2.y)
                 return -1;
-            else 
+            else
                 return 1;
-        }
-        else if (x != token2.x) {
+        } else if (x != token2.x) {
             if (x < token2.x)
                 return -1;
-            else 
+            else
                 return 1;
-        }
-        else {
-            double area1 = height*width;
-            double area2 = token2.height*token2.width;
+        } else {
+            double area1 = height * width;
+            double area2 = token2.height * token2.width;
 
             return Double.compare(area1, area2);
         }

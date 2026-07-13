@@ -1,7 +1,29 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines;
 
-import eugfc.imageio.plugins.PNMRegistry;
-import org.apache.commons.io.FileUtils;
+import static org.apache.commons.lang3.StringUtils.*;
+
+import java.io.*;
+import java.util.*;
+import java.util.regex.Matcher;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.grobid.core.GrobidModels;
 import org.grobid.core.document.BasicStructureBuilder;
 import org.grobid.core.document.Document;
@@ -11,38 +33,27 @@ import org.grobid.core.engines.config.GrobidAnalysisConfig;
 import org.grobid.core.exceptions.GrobidException;
 import org.grobid.core.exceptions.GrobidExceptionStatus;
 import org.grobid.core.exceptions.GrobidResourceException;
-import org.grobid.core.utilities.GrobidProperties;
 import org.grobid.core.features.FeatureFactory;
 import org.grobid.core.features.FeaturesVectorMonograph;
 import org.grobid.core.layout.*;
 import org.grobid.core.utilities.GrobidProperties;
 import org.grobid.core.utilities.LanguageUtilities;
 import org.grobid.core.utilities.TextUtilities;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.*;
-import java.util.regex.Matcher;
-
-import static org.apache.commons.lang3.StringUtils.*;
 
 /**
- * Realise a high level segmentation of a monograph. Monograph is to be understood here in the context library cataloging, 
- * basically as a standalone book. The monograph could be an ebook (novels), a conference proceedings volume, a book 
+ * Realise a high level segmentation of a monograph. Monograph is to be understood here in the context library cataloging,
+ * basically as a standalone book. The monograph could be an ebook (novels), a conference proceedings volume, a book
  * collection volume, a phd/msc thesis, a standalone report (with toc, etc.), a manual (with multiple chapters).
  * Monographs, here, are NOT magazine volumes, journal issues, newspapers, standalone chapters, standalone scholar articles,
  * tables of content, reference works, dictionaries, encyclopedia volumes, graphic novels.
  *
  */
 public class MonographParser extends AbstractParser {
-	/**
+    /**
      *   16 labels for this model:
      *       cover page (front of the book)
      *       title page (secondary title page)
-     *       publisher page (publication information, including usually the copyrights info) 
+     *       publisher page (publication information, including usually the copyrights info)
      *       summary (include executive summary)
      *       biography
      *       advertising (other works by the author/publisher)
@@ -57,7 +68,7 @@ public class MonographParser extends AbstractParser {
      *       glossary (also abbreviations and acronyms)
      *       back cover page
      *       other
-	 */
+     */
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MonographParser.class);
 
@@ -88,7 +99,7 @@ public class MonographParser extends AbstractParser {
         super(GrobidModels.MONOGRAPH);
         tmpPath = GrobidProperties.getTempPath();
     }
-    
+
     /**
      * Segment a PDF document into high level subdocuments.
      *
@@ -127,7 +138,11 @@ public class MonographParser extends AbstractParser {
 
         List<LayoutToken> tokenizations = doc.getTokenizations();
         if (tokenizations.size() > GrobidProperties.getPdfTokensMax()) {
-            throw new GrobidException("The document has " + tokenizations.size() + " tokens, but the limit is " + GrobidProperties.getPdfTokensMax(),
+            throw new GrobidException(
+                    "The document has "
+                            + tokenizations.size()
+                            + " tokens, but the limit is "
+                            + GrobidProperties.getPdfTokensMax(),
                     GrobidExceptionStatus.TOO_MANY_TOKENS);
         }
 
@@ -141,7 +156,6 @@ public class MonographParser extends AbstractParser {
         }
         return doc;
     }
-
 
     /**
      * Addition of the features at line level for the complete document.
@@ -162,7 +176,8 @@ public class MonographParser extends AbstractParser {
 
         //guaranteeing quality of service. Otherwise, there are some PDF that may contain 300k blocks and thousands of extracted "images" that ruins the performance
         if (blocks.size() > GrobidProperties.getPdfBlocksMax()) {
-            throw new GrobidException("Postprocessed document is too big, contains: " + blocks.size(), GrobidExceptionStatus.TOO_MANY_BLOCKS);
+            throw new GrobidException("Postprocessed document is too big, contains: " + blocks.size(),
+                    GrobidExceptionStatus.TOO_MANY_BLOCKS);
         }
 
         //boolean graphicVector = false;
@@ -176,8 +191,8 @@ public class MonographParser extends AbstractParser {
         for (Page page : doc.getPages()) {
             // we just look at the two first and last blocks of the page
             if ((page.getBlocks() != null) && (page.getBlocks().size() > 0)) {
-                for(int blockIndex=0; blockIndex < page.getBlocks().size(); blockIndex++) {
-                    if ( (blockIndex < 2) || (blockIndex > page.getBlocks().size()-2)) {
+                for (int blockIndex = 0; blockIndex < page.getBlocks().size(); blockIndex++) {
+                    if ((blockIndex < 2) || (blockIndex > page.getBlocks().size() - 2)) {
                         Block block = page.getBlocks().get(blockIndex);
                         String localText = block.getText();
                         if ((localText != null) && (localText.length() > 0)) {
@@ -190,9 +205,8 @@ public class MonographParser extends AbstractParser {
                                     if (nb == null) {
                                         patterns.put(pattern, Integer.valueOf("1"));
                                         firstTimePattern.put(pattern, false);
-                                    }
-                                    else
-                                        patterns.put(pattern, Integer.valueOf(nb+1));
+                                    } else
+                                        patterns.put(pattern, Integer.valueOf(nb + 1));
                                 }
                             }
                         }
@@ -201,8 +215,10 @@ public class MonographParser extends AbstractParser {
             }
         }
 
-        String featuresAsString = getFeatureVectorsAsString(doc,
-                patterns, firstTimePattern);
+        String featuresAsString = getFeatureVectorsAsString(
+                doc,
+                patterns,
+                firstTimePattern);
 
         return featuresAsString;
     }
@@ -210,7 +226,7 @@ public class MonographParser extends AbstractParser {
     /**
      * Addition of the features at block level for the complete document.
      * <p/>
-     * This is an alternative to the token and line level, where the unit for labeling is the block - so allowing even 
+     * This is an alternative to the token and line level, where the unit for labeling is the block - so allowing even
      * faster processing and involving less features.
      * Lexical features becomes block prefix and suffix, the feature text unit is the first 10 characters of the
      * block without space.
@@ -226,7 +242,8 @@ public class MonographParser extends AbstractParser {
 
         //guaranteeing quality of service. Otherwise, there are some PDF that may contain 300k blocks and thousands of extracted "images" that ruins the performance
         if (blocks.size() > GrobidProperties.getPdfBlocksMax()) {
-            throw new GrobidException("Postprocessed document is too big, contains: " + blocks.size(), GrobidExceptionStatus.TOO_MANY_BLOCKS);
+            throw new GrobidException("Postprocessed document is too big, contains: " + blocks.size(),
+                    GrobidExceptionStatus.TOO_MANY_BLOCKS);
         }
 
         //boolean graphicVector = false;
@@ -240,8 +257,8 @@ public class MonographParser extends AbstractParser {
         for (Page page : doc.getPages()) {
             // we just look at the two first and last blocks of the page
             if ((page.getBlocks() != null) && (page.getBlocks().size() > 0)) {
-                for(int blockIndex=0; blockIndex < page.getBlocks().size(); blockIndex++) {
-                    if ( (blockIndex < 2) || (blockIndex > page.getBlocks().size()-2)) {
+                for (int blockIndex = 0; blockIndex < page.getBlocks().size(); blockIndex++) {
+                    if ((blockIndex < 2) || (blockIndex > page.getBlocks().size() - 2)) {
                         Block block = page.getBlocks().get(blockIndex);
                         String localText = block.getText();
                         if ((localText != null) && (localText.length() > 0)) {
@@ -251,9 +268,8 @@ public class MonographParser extends AbstractParser {
                                 if (nb == null) {
                                     patterns.put(pattern, Integer.valueOf("1"));
                                     firstTimePattern.put(pattern, false);
-                                }
-                                else
-                                    patterns.put(pattern, Integer.valueOf(nb+1));
+                                } else
+                                    patterns.put(pattern, Integer.valueOf(nb + 1));
                             }
                         }
                     }
@@ -261,14 +277,18 @@ public class MonographParser extends AbstractParser {
             }
         }
 
-        String featuresAsString = getFeatureVectorsAsString(doc,
-                patterns, firstTimePattern);
+        String featuresAsString = getFeatureVectorsAsString(
+                doc,
+                patterns,
+                firstTimePattern);
 
         return featuresAsString;
     }
 
-    private String getFeatureVectorsAsString(Document doc, Map<String, Integer> patterns,
-                                     Map<String, Boolean> firstTimePattern) {
+    private String getFeatureVectorsAsString(
+            Document doc,
+            Map<String, Integer> patterns,
+            Map<String, Boolean> firstTimePattern) {
         StringBuilder fulltext = new StringBuilder();
         int documentLength = doc.getDocumentLenghtChar();
 
@@ -295,11 +315,11 @@ public class MonographParser extends AbstractParser {
             BoundingBox pageBoundingBox = page.getMainArea();
             mm = 0;
             //endPage = true;
-            
-            if ((page.getBlocks() == null) || (page.getBlocks().size() == 0)) 
+
+            if ((page.getBlocks() == null) || (page.getBlocks().size() == 0))
                 continue;
 
-            for(int blockIndex=0; blockIndex < page.getBlocks().size(); blockIndex++) {
+            for (int blockIndex = 0; blockIndex < page.getBlocks().size(); blockIndex++) {
                 Block block = page.getBlocks().get(blockIndex);
                 /*if (start) {
                     newPage = true;
@@ -307,17 +327,17 @@ public class MonographParser extends AbstractParser {
                 }*/
                 boolean graphicVector = false;
                 boolean graphicBitmap = false;
-                
+
                 boolean lastPageBlock = false;
                 boolean firstPageBlock = false;
-                if (blockIndex == page.getBlocks().size()-1) {        
+                if (blockIndex == page.getBlocks().size() - 1) {
                     lastPageBlock = true;
                 }
-                
+
                 if (blockIndex == 0) {
                     firstPageBlock = true;
                 }
-                
+
                 //endblock = false;
 
                 /*if (endPage) {
@@ -328,7 +348,7 @@ public class MonographParser extends AbstractParser {
                 // check if we have a graphical object connected to the current block
                 List<GraphicObject> localImages = Document.getConnectedGraphics(block, doc);
                 if (localImages != null) {
-                    for(GraphicObject localImage : localImages) {
+                    for (GraphicObject localImage : localImages) {
                         if (localImage.getType() == GraphicObjectType.BITMAP)
                             graphicBitmap = true;
                         if (localImage.getType() == GraphicObjectType.VECTOR)
@@ -336,8 +356,8 @@ public class MonographParser extends AbstractParser {
                     }
                 }
 
-                if (lowestPos >  block.getY()) {
-                    // we have a vertical shift, which can be due to a change of column or other particular layout formatting 
+                if (lowestPos > block.getY()) {
+                    // we have a vertical shift, which can be due to a change of column or other particular layout formatting
                     spacingPreviousBlock = doc.getMaxBlockSpacing() / 5.0; // default
                 } else
                     spacingPreviousBlock = block.getY() - lowestPos;
@@ -348,25 +368,30 @@ public class MonographParser extends AbstractParser {
 
                 // character density of the block
                 double density = 0.0;
-                if ( (block.getHeight() != 0.0) && (block.getWidth() != 0.0) && 
-                     (block.getText() != null) && (!block.getText().contains("@PAGE")) && 
-                     (!block.getText().contains("@IMAGE")) )
-                    density = (double)block.getText().length() / (block.getHeight() * block.getWidth());
+                if ((block.getHeight() != 0.0) && (block.getWidth() != 0.0) &&
+                        (block.getText() != null) && (!block.getText().contains("@PAGE")) &&
+                        (!block.getText().contains("@IMAGE")))
+                    density = (double) block.getText().length() / (block.getHeight() * block.getWidth());
 
                 // is the current block in the main area of the page or not?
                 boolean inPageMainArea = true;
-                BoundingBox blockBoundingBox = BoundingBox.fromPointAndDimensions(page.getNumber(), 
-                    block.getX(), block.getY(), block.getWidth(), block.getHeight());
-                if (pageBoundingBox == null || (!pageBoundingBox.contains(blockBoundingBox) && !pageBoundingBox.intersect(blockBoundingBox)))
+                BoundingBox blockBoundingBox = BoundingBox.fromPointAndDimensions(
+                        page.getNumber(),
+                        block.getX(),
+                        block.getY(),
+                        block.getWidth(),
+                        block.getHeight());
+                if (pageBoundingBox == null || (!pageBoundingBox.contains(blockBoundingBox)
+                        && !pageBoundingBox.intersect(blockBoundingBox)))
                     inPageMainArea = false;
 
                 String[] lines = localText.split("[\\n\\r]");
-    			// set the max length of the lines in the block, in number of characters
-    			int maxLineLength = 0;
-    			for(int p=0; p<lines.length; p++) {
-    				if (lines[p].length() > maxLineLength) 
-    					maxLineLength = lines[p].length();
-    			}
+                // set the max length of the lines in the block, in number of characters
+                int maxLineLength = 0;
+                for (int p = 0; p < lines.length; p++) {
+                    if (lines[p].length() > maxLineLength)
+                        maxLineLength = lines[p].length();
+                }
                 List<LayoutToken> tokens = block.getTokens();
                 if ((tokens == null) || (tokens.size() == 0)) {
                     continue;
@@ -381,19 +406,19 @@ public class MonographParser extends AbstractParser {
                     if (endPage)
                         lastPageBlock = true;
                     */
-                    
-                    // for the layout information of the block, we take simply the first layout token
-    				LayoutToken token = null;
-    				if (tokens.size() > 0)
-    					token = tokens.get(0);
 
-    				double coordinateLineY = token.getY();
+                    // for the layout information of the block, we take simply the first layout token
+                    LayoutToken token = null;
+                    if (tokens.size() > 0)
+                        token = tokens.get(0);
+
+                    double coordinateLineY = token.getY();
 
                     features = new FeaturesVectorMonograph();
                     features.token = token;
                     features.line = line;
 
-                    if ( (blockIndex < 2) || (blockIndex > page.getBlocks().size()-2)) {
+                    if ((blockIndex < 2) || (blockIndex > page.getBlocks().size() - 2)) {
                         String pattern = featureFactory.getPattern(line);
                         Integer nb = patterns.get(pattern);
                         if ((nb != null) && (nb > 1)) {
@@ -425,10 +450,10 @@ public class MonographParser extends AbstractParser {
                     text = text.replaceAll("[ \n]", "");
                     text = text.trim();
 
-                    if ( (text.length() == 0) ||
-//                            (text.equals("\n")) ||
-//                            (text.equals("\r")) ||
-//                            (text.equals("\n\r")) ||
+                    if ((text.length() == 0) ||
+                    //                            (text.equals("\n")) ||
+                    //                            (text.equals("\r")) ||
+                    //                            (text.equals("\n\r")) ||
                             (TextUtilities.filterLine(line))) {
                         continue;
                     }
@@ -441,14 +466,14 @@ public class MonographParser extends AbstractParser {
                     //features.lineLength = line.length() / LINESCALE;
                     features.lineLength = featureFactory
                             .linearScaling(line.length(), maxLineLength, LINESCALE);
-    				
+
                     features.punctuationProfile = TextUtilities.punctuationProfile(line);
 
                     if (graphicBitmap) {
-                    	features.bitmapAround = true;
+                        features.bitmapAround = true;
                     }
                     if (graphicVector) {
-                    	features.vectorAround = true;
+                        features.vectorAround = true;
                     }
 
                     features.lineStatus = null;
@@ -547,10 +572,10 @@ public class MonographParser extends AbstractParser {
                         currentFontSize = newFontSize;
                     }
 
-                    if (token.getBold())
+                    if (token.isBold())
                         features.bold = true;
 
-                    if (token.getItalic())
+                    if (token.isItalic())
                         features.italic = true;
 
                     // HERE horizontal information
@@ -569,29 +594,35 @@ public class MonographParser extends AbstractParser {
 
                     features.relativeDocumentPosition = featureFactory
                             .linearScaling(nn, documentLength, NBBINS_POSITION);
-//System.out.println(nn + " " + documentLength + " " + NBBINS_POSITION + " " + features.relativeDocumentPosition); 
+                    //System.out.println(nn + " " + documentLength + " " + NBBINS_POSITION + " " + features.relativeDocumentPosition);
                     features.relativePagePositionChar = featureFactory
-                            .linearScaling(mm, pageLength, NBBINS_POSITION); 
-//System.out.println(mm + " " + pageLength + " " + NBBINS_POSITION + " " + features.relativePagePositionChar);                     			
-    				int pagePos = featureFactory
+                            .linearScaling(mm, pageLength, NBBINS_POSITION);
+                    //System.out.println(mm + " " + pageLength + " " + NBBINS_POSITION + " " + features.relativePagePositionChar);
+                    int pagePos = featureFactory
                             .linearScaling(coordinateLineY, pageHeight, NBBINS_POSITION);
-//System.out.println(coordinateLineY + " " + pageHeight + " " + NBBINS_POSITION + " " + pagePos);  
-    				if (pagePos > NBBINS_POSITION)
-    					pagePos = NBBINS_POSITION;
+                    //System.out.println(coordinateLineY + " " + pageHeight + " " + NBBINS_POSITION + " " + pagePos);
+                    if (pagePos > NBBINS_POSITION)
+                        pagePos = NBBINS_POSITION;
                     features.relativePagePosition = pagePos;
-//System.out.println(coordinateLineY + "\t" + pageHeight);
+                    //System.out.println(coordinateLineY + "\t" + pageHeight);
 
                     if (spacingPreviousBlock != 0.0) {
                         features.spacingWithPreviousBlock = featureFactory
-                            .linearScaling(spacingPreviousBlock-doc.getMinBlockSpacing(), doc.getMaxBlockSpacing()-doc.getMinBlockSpacing(), NBBINS_SPACE);                          
+                                .linearScaling(
+                                        spacingPreviousBlock - doc.getMinBlockSpacing(),
+                                        doc.getMaxBlockSpacing() - doc.getMinBlockSpacing(),
+                                        NBBINS_SPACE);
                     }
 
                     features.inMainArea = inPageMainArea;
 
                     if (density != -1.0) {
                         features.characterDensity = featureFactory
-                            .linearScaling(density-doc.getMinCharacterDensity(), doc.getMaxCharacterDensity()-doc.getMinCharacterDensity(), NBBINS_DENSITY);
-//System.out.println((density-doc.getMinCharacterDensity()) + " " + (doc.getMaxCharacterDensity()-doc.getMinCharacterDensity()) + " " + NBBINS_DENSITY + " " + features.characterDensity);             
+                                .linearScaling(
+                                        density - doc.getMinCharacterDensity(),
+                                        doc.getMaxCharacterDensity() - doc.getMinCharacterDensity(),
+                                        NBBINS_DENSITY);
+                        //System.out.println((density-doc.getMinCharacterDensity()) + " " + (doc.getMaxCharacterDensity()-doc.getMinCharacterDensity()) + " " + NBBINS_DENSITY + " " + features.characterDensity);
                     }
 
                     if (previousFeatures != null) {
@@ -601,8 +632,8 @@ public class MonographParser extends AbstractParser {
                     previousFeatures = features;
                 }
 
-//System.out.println((spacingPreviousBlock-doc.getMinBlockSpacing()) + " " + (doc.getMaxBlockSpacing()-doc.getMinBlockSpacing()) + " " + NBBINS_SPACE + " " 
-//    + featureFactory.linearScaling(spacingPreviousBlock-doc.getMinBlockSpacing(), doc.getMaxBlockSpacing()-doc.getMinBlockSpacing(), NBBINS_SPACE));    
+                //System.out.println((spacingPreviousBlock-doc.getMinBlockSpacing()) + " " + (doc.getMaxBlockSpacing()-doc.getMinBlockSpacing()) + " " + NBBINS_SPACE + " "
+                //    + featureFactory.linearScaling(spacingPreviousBlock-doc.getMinBlockSpacing(), doc.getMaxBlockSpacing()-doc.getMinBlockSpacing(), NBBINS_SPACE));
 
                 // lowest position of the block
                 lowestPos = block.getY() + block.getHeight();
@@ -620,7 +651,6 @@ public class MonographParser extends AbstractParser {
         return fulltext.toString();
     }
 
-
     /**
      * Process the specified pdf and format the result as training data for the monograph model.
      *
@@ -629,32 +659,37 @@ public class MonographParser extends AbstractParser {
      * @param pathTEI path to TEI
      * @param id id
      */
-    public Document createTrainingFromPDF(File inputFile,
-                                   String pathRaw,
-                                   String pathTEI,
-                                   int id) {
+    public Document createTrainingFromPDF(
+            File inputFile,
+            String pathRaw,
+            String pathTEI,
+            int id) {
         if (tmpPath == null)
             throw new GrobidResourceException("Cannot process pdf file, because temp path is null.");
         if (!tmpPath.exists()) {
-            throw new GrobidResourceException("Cannot process pdf file, because temp path '" +
-                    tmpPath.getAbsolutePath() + "' does not exists.");
+            throw new GrobidResourceException("Cannot process pdf file, because temp path '"
+                    +
+                    tmpPath.getAbsolutePath()
+                    + "' does not exists.");
         }
         DocumentSource documentSource = null;
         Document doc = null;
         try {
             if (!inputFile.exists()) {
-                throw new GrobidResourceException("Cannot train for monograph, because file '" +
-                       inputFile.getAbsolutePath() + "' does not exists.");
+                throw new GrobidResourceException("Cannot train for monograph, because file '"
+                        +
+                        inputFile.getAbsolutePath()
+                        + "' does not exists.");
             }
             String pdfFileName = inputFile.getName();
 
-            File outputTEIFile = new File(pathTEI+"/"+pdfFileName.replace(".pdf", "training.monograph.tei.xml"));
-            /* // commented out because it was making a test of the existence of a file before it was even created 
+            File outputTEIFile = new File(pathTEI + "/" + pdfFileName.replace(".pdf", "training.monograph.tei.xml"));
+            /* // commented out because it was making a test of the existence of a file before it was even created
                if (!outputTEIFile.exists()) {
                 throw new GrobidResourceException("Cannot train for monograph, because directory '" +
                        pathTEI + "' is not valid.");
             }*/
-            File outputRawFile = new File(pathRaw+"/"+pdfFileName.replace(".pdf", ".monograph.raw"));
+            File outputRawFile = new File(pathRaw + "/" + pdfFileName.replace(".pdf", ".monograph.raw"));
             /*if (!outputRawFile.exists()) {
                 throw new GrobidResourceException("Cannot train for monograph, because directory '" +
                        pathRaw + "' is not valid.");
@@ -673,8 +708,13 @@ public class MonographParser extends AbstractParser {
 
             doc.produceStatistics();
             StringBuilder builder = new StringBuilder();
-            builder.append("<?xml version=\"1.0\" ?>\n<tei xml:space=\"preserve\">\n\t<teiHeader>\n\t\t<fileDesc xml:id=\"" + id + 
-                "\"/>\n\t</teiHeader>\n\t<text xml:lang=\""+ lang + "\">\n");
+            builder.append(
+                    "<?xml version=\"1.0\" ?>\n<tei xml:space=\"preserve\">\n\t<teiHeader>\n\t\t<fileDesc xml:id=\""
+                            + id
+                            +
+                            "\"/>\n\t</teiHeader>\n\t<text xml:lang=\""
+                            + lang
+                            + "\">\n");
 
             // get the document outline
             DocumentNode outlineRoot = doc.getOutlineRoot();
@@ -684,14 +724,14 @@ public class MonographParser extends AbstractParser {
 
             DocumentNode currentNode = outlineRoot;
             // get the first node
-            while(currentNode.getChildren() != null) {
+            while (currentNode.getChildren() != null) {
                 List<DocumentNode> children = currentNode.getChildren();
                 if (children.size() == 0)
                     break;
                 currentNode = children.get(0);
             }
 
-            for(LayoutToken token : tokens) {
+            for (LayoutToken token : tokens) {
                 builder.append(token.getText());
             }
 
@@ -702,11 +742,10 @@ public class MonographParser extends AbstractParser {
             writer.write(builder.toString());
             writer.close();
 
-
-
         } catch (Exception e) {
             e.printStackTrace();
-            throw new GrobidException("An exception occured while running Grobid training" +
+            throw new GrobidException("An exception occurred while running Grobid training"
+                    +
                     " data generation for monograph.", e);
         } finally {
             DocumentSource.close(documentSource, true, true, true);

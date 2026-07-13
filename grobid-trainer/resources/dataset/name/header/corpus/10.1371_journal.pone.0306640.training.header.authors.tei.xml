@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Saltanat</forename>
+								 <middlename>T</middlename>.
+								 <surname>Urazayeva</surname> ID
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Saulesh</forename>
+								 <middlename>S</middlename>.
+								 <surname>Kurmangaliyeva</surname>
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Asset</forename>
+								 <middlename>A</middlename>.
+								 <surname>Kaliyev</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kymbat</forename>
+								 <middlename>Sh</middlename>.
+								 <surname>Tussupkaliyeva</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Arman</forename>
+								 <surname>Issimov</surname> ID
+								 <marker>4 *</marker>,
+							</persName>
+							<persName>
+								 <forename>Aisha</forename>
+								 <middlename>B</middlename>.
+								 <surname>Urazayeva</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Zhuldyz</forename>
+								 <middlename>K</middlename>.
+								 <surname>Tashimova</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Nadiar</forename>
+								 <middlename>M</middlename>.
+								 <surname>Mussin</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Toleukhan</forename>
+								 <surname>Begalin</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Aimeken</forename>
+								 <middlename>A</middlename>.
+								 <surname>Amanshiyeva</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Gulaiym</forename>
+								 <middlename>Zh</middlename>.
+								 <surname>Nurmaganbetova</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Shara</forename>
+								 <middlename>M</middlename>.
+								 <surname>Nurmukhamedova</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Saule</forename>
+								 <surname>Balmagambetova</surname> ID
+								 <marker>5 *</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

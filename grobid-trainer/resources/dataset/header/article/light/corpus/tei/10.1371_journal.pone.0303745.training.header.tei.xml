@@ -1,0 +1,137 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T14:53:17.256Z">12/3/2025 2:53:17 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T14:53:04.690518Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T14:53:04.690518Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Pharmacological induction of autophagy<lb/> reduces inflammation in macrophages by<lb/> degrading immunoproteasome subunits<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Jiao Zhou ID<lb/> 1,2☯<lb/> , Chunxia Li 1☯ , Meng Lu 1 , Gaoyue Jiang 1 , Shanze Chen 3 , Huihui Li 4 ,<lb/> Kefeng LuID 1 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Neurosurgery, State Key Laboratory of Biotherapy, West China Hospital, Sichuan University<lb/> and the Research Units of West China, Chinese Academy of Medical Sciences,</affiliation>
+	</byline>
+
+	<address>Chengdu, China,</address>
+
+	<byline>
+	<affiliation>2 National<lb/> Clinical Research Center for Geriatrics, West China Hospital, Sichuan University and Collaborative Innovation<lb/> Center of Biotherapy,</affiliation>
+	</byline>
+
+	<address>Chengdu, China,</address>
+
+	<byline>
+	<affiliation>3 Department of Respiratory and Critical Care Medicine, First<lb/> Affiliated Hospital of Southern University of Science and Technology, Second Clinical Medical College of<lb/> Jinan University, Shenzhen People&apos;s Hospital, Shenzhen Institute of Respiratory Diseases,</affiliation>
+	</byline>
+
+	<address>Shenzhen, China,<lb/></address>
+
+	<byline>
+	<affiliation>4 West China Second University Hospital, Sichuan University,</affiliation>
+	</byline>
+
+	<address>Chengdu, China<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> *
+	<email>lukf@scu.edu.cn</email>
+
+	Abstract<lb/>AU : Pleaseconfirmthatallheadinglevelsarerepresentedcorrectly:<lb/>
+	<div type="abstract">Defective autophagy is linked to proinflammatory diseases. However, the mechanisms by<lb/> which autophagy limits inflammation remain elusive. Here, we found that the pan-FGFR<lb/> inhibitor LY2874455 efficiently activated autophagy and suppressed expression of proin-<lb/>flammatory factors in macrophages stimulated by lipopolysaccharide (LPS). Multiplex prote-<lb/>omic profiling identified the immunoproteasome, which is a specific isoform of the 20s<lb/> constitutive proteasome, as a substrate that is degraded by selective autophagy. SQSTM1/<lb/> p62 was found to be a selective autophagy-related receptor that mediated this degradation.<lb/> Autophagy deficiency or p62 knockdown blocked the effects of LY2874455, leading to the<lb/> accumulation of immunoproteasomes and increases in inflammatory reactions. Expression<lb/> of proinflammatory factors in autophagy-deficient macrophages could be reversed by immu-<lb/>noproteasome inhibitors, confirming the pivotal role of immunoproteasome turnover in the<lb/> autophagy-mediated suppression on the expression of proinflammatory factors. In mice,<lb/> LY2874455 protected against LPS-induced acute lung injury and dextran sulfate sodium<lb/> (DSS)-induced colitis and caused low levels of proinflammatory cytokines and immunopro-<lb/>teasomes. These findings suggested that selective autophagy of the immunoproteasome<lb/> was a key regulator of signaling via the innate immune system.<lb/></div>
+
+	<reference>PLOS Biology | https://doi.org/10.1371/journal.pbio.3002537 March 6, 2024<lb/></reference>
+
+	<page>1 / 34<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Zhou J, Li C, Lu M, Jiang G, Chen S, Li H,<lb/> et al. (2024) Pharmacological induction of<lb/> autophagy reduces inflammation in macrophages<lb/> by degrading immunoproteasome subunits. PLoS<lb/> Biol 22(3): e3002537.</reference>
+
+	<idno>https://doi.org/10.1371/<lb/> journal.pbio.3002537<lb/></idno>
+
+	Academic Editor:
+	<editor>Hans-Uwe Simon,</editor>
+
+	<byline>
+	<affiliation>University of<lb/> Bern,</affiliation>
+	</byline>
+
+	<address>SWITZERLAND<lb/></address>
+
+	<note type="submission">Received: February 5, 2023<lb/> Accepted: February 5, 2024<lb/></note>
+
+	Published:
+	<date>March 6, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pbio.3002537<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Zhou et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the paper and its Supporting Information<lb/> files.<lb/></note>
+
+	Funding:
+	<note type="funding">This work was supported by the National<lb/> Key R&amp;D Program of China under grant<lb/> 2017YFA0506300 (to K.L.) and the National<lb/> Natural Science Foundation under grant 32022020<lb/> (to K.L.) and 81902997 (to H.L.). The funders had<lb/> no role in study design, data collection and<lb/> analysis, decision to publish, or preparation of the<lb/> manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+	Abbreviations: AU : Anabbreviationlisthasbeencompiledforthoseusedinthetext:Pleaseverifythatallentriesarecorrect:<lb/> BMDM, bone marrow-derived<lb/> macrophage; COVID-19, Coronavirus Disease<lb/> 2019; DSS, dextran sulfate sodium; gRNA, guide<lb/> RNA; HE, hematoxylineosin; IBD, inflammatory<lb/> bowel disease; ICU, intensive care unit; iNOS,<lb/> inducible nitric oxide synthase; LMP2, low<lb/> molecular mass polypeptide; LPS,<lb/> lipopolysaccharide; NO, nitric oxide; PAMP,<lb/> pathogen-associated molecular pattern; PASEF,<lb/> parallel accumulation serial fragmentatio; PBS,<lb/> phosphate-buffered saline; PM, peritoneal<lb/> macrophage; qRT-PCR, quantitative real-time<lb/> polymerase chain reaction; ROS, reactive oxygen<lb/> species; SARS-CoV-2, Severe Acute Respiratory<lb/> Syndrome Coronavirus 2; TNF-α, tumor necrosis<lb/> factor-α.
+
+		</front>
+	</text>
+
+</TEI>

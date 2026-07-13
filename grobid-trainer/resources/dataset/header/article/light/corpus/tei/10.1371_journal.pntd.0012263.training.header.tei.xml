@@ -1,0 +1,132 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T12:34:00.294Z">12/2/2025 12:34:00 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T12:33:47.535187Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T12:33:47.535187Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Full genome sequence analysis of African<lb/> swine fever virus isolates from Cameroon<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Lynnette C. Goatley 1☯ , Graham Freimanis 1☯ , Chandana Tennakoon 1☯ , Thomas J. Foster 1 ,<lb/> Mehnaz Quershi 1 , Linda K. Dixon 1 , Carrie Batten 1 , Jan Hendrik Forth 2 , Abel Wade 3 ,<lb/> Christopher NethertonID 1 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 The Pirbright Institute,</affiliation>
+	</byline>
+
+	<address>Ash Road, Pirbright, Woking, Surrey, United Kingdom,</address>
+
+	<byline>
+	<affiliation>2 Institute of Diagnostic<lb/> Virology, Friedrich-Loeffler-Institut,</affiliation>
+	</byline>
+
+	<address>Greifswald, Insel Riems, Germany,</address>
+
+	<byline>
+	<affiliation>3 National Veterinary Laboratory<lb/> (LANAVET),</affiliation>
+	</byline>
+
+	<address>Garoua, Cameroon<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> *
+	<email>Chris.netherton@pirbright.ac.uk</email>
+
+	Abstract<lb/>
+	<div type="abstract">African swine fever (ASF) is a devastating disease of domestic pigs that has spread across<lb/> the globe since its introduction into Georgia in 2007. The etiological agent is a large double-<lb/>stranded DNA virus with a genome of 170 to 180 kb in length depending on the isolate.<lb/> Much of the differences in genome length between isolates are due to variations in the copy<lb/> number of five different multigene families that are encoded in repetitive regions that are<lb/> towards the termini of the covalently closed ends of the genome. Molecular epidemiology of<lb/> African swine fever virus (ASFV) is primarily based on Sanger sequencing of a few con-<lb/>served and variable regions, but due to the stability of the dsDNA genome changes in the<lb/> variable regions occur relatively slowly. Observations in Europe and Asia have shown that<lb/> changes in other genetic loci can occur and that this could be useful in molecular tracking.<lb/> ASFV has been circulating in Western Africa for at least forty years. It is therefore reason-<lb/>able to assume that changes may have accumulated in regions of the genome other than<lb/> the standard targets over the years. At present only one full genome sequence is available<lb/> for an isolate from Western Africa, that of a highly virulent isolate collected from Benin during<lb/> an outbreak in 1997. In Cameroon, ASFV was first reported in 1981 and outbreaks have<lb/> been reported to the present day and is considered endemic. Here we report three full<lb/> genome sequences from Cameroon isolates of 1982, 1994 and 2018 outbreaks and identify<lb/> novel single nucleotide polymorphisms and insertion-deletions that may prove useful for<lb/> molecular epidemiology studies in Western Africa and beyond.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0293049 March 21, 2024<lb/></reference>
+
+	<page>1 / 9<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Goatley LC, Freimanis G, Tennakoon C,<lb/> Foster TJ, Quershi M, Dixon LK, et al. (2024) Full<lb/> genome sequence analysis of African swine fever<lb/> virus isolates from Cameroon. PLoS ONE 19(3):<lb/> e0293049.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0293049<lb/></idno>
+
+	Editor:
+	<editor>Douglas Gladue</editor>,
+
+	<byline>
+	<affiliation>Plum Island Animal<lb/> Disease Center,</affiliation>
+	</byline>
+
+	<address>UNITED STATES<lb/></address>
+
+	<note type="submission">Received: October 3, 2023<lb/> Accepted: March 6, 2024<lb/></note>
+
+	Published:
+	<date>March 21, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0293049<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Goatley et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">The assembled<lb/> genomes generated in this study have been<lb/> deposited in the NCBI GenBank database (www.<lb/> ncbi.nlm.nih.gov) as OR387519, OR387520 and<lb/> OR387521 and the raw data are available in<lb/> BioProject PRJNA943480.<lb/></note>
+
+	Funding:
+	<note type="availability">ASFV full genome sequencing at Pirbright<lb/> has been supported by UKRI grants BBS/E/I/<lb/> 00007037, BBS/E/I/00007039, BBS/OS/GC/200015<lb/> and BBS/OS/GC/200015A and DEFRA grant<lb/> SE1517.</note>
+
+	<note type="funding">This project has received funding from the<lb/> European Union&apos;s Horizon 2020 research and<lb/> innovation programme under grant agreement No<lb/> 773701. The funders had no role in study design,<lb/> data collection and analysis, decision to publish, or<lb/> preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Dept of Nursing and Health Promotion</orgName>,
+							<orgName type="department">Faculty of Health Sciences</orgName>,
+							<orgName type="institution">Oslo Metropolitan University</orgName>,
+							<address>
+								<settlement>Oslo</settlement>,
+							<lb/>
+								<region>Norway</region>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">Dept of Oral Surgery and Oral Medicine</orgName>,
+							<orgName type="department">Institute for Clinical Dentistry</orgName>,
+							<orgName type="institution">Oslo University</orgName>,
+							<address>
+								<settlement>Oslo</settlement>,
+							<lb/>
+								<country>Norway</country>
+							<lb/>
+							</address>
+						</affiliation>
+                        <affiliation>
+                            <orgName type="institution">University of Science and Technology</orgName>,
+							<address>
+								<country>GHANA</country>
+							</address>
+                        </affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

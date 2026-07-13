@@ -1,3 +1,18 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.layout;
 
 import java.util.ArrayList;
@@ -30,7 +45,9 @@ public class Block {
     // the page in the document where the block is located
     private Page page = null;
 
-    public enum Type {DEFAULT, BULLET, FIGURE, TABLE, REFERENCE}
+    public enum Type {
+        DEFAULT, BULLET, FIGURE, TABLE, REFERENCE
+    }
 
     private Type type;
 
@@ -69,7 +86,7 @@ public class Block {
             return text;
         else {
             StringBuilder localText = new StringBuilder();
-            for(LayoutToken token : tokens) {
+            for (LayoutToken token : tokens) {
                 localText.append(token.getText());
             }
             text = localText.toString();
@@ -139,7 +156,7 @@ public class Block {
     public double getX() {
         if (boundingBox != null)
             return boundingBox.getX();
-        else 
+        else
             return 0.0;
     }
 
@@ -150,7 +167,7 @@ public class Block {
     public double getY() {
         if (boundingBox != null)
             return boundingBox.getY();
-        else 
+        else
             return 0.0;
     }
 
@@ -161,7 +178,7 @@ public class Block {
     public double getHeight() {
         if (boundingBox != null)
             return boundingBox.getHeight();
-        else 
+        else
             return 0.0;
     }
 
@@ -172,7 +189,7 @@ public class Block {
     public double getWidth() {
         if (boundingBox != null)
             return boundingBox.getWidth();
-        else 
+        else
             return 0.0;
     }
 
@@ -186,8 +203,8 @@ public class Block {
                 return getStartToken();
             } else {
                 return getStartToken() + tokens.size();
-            }   
-        } else 
+            }
+        } else
             return endToken;
     }
 
@@ -210,27 +227,30 @@ public class Block {
             return -1;
         }
     }
-    
+
     public void setPage(Page page) {
         this.page = page;
     }
 
     public boolean isNull() {
-        if ( (tokens == null) && (startToken == -1) && (endToken == -1) && (type == null) ) {
+        if ((tokens == null) && (startToken == -1) && (endToken == -1) && (type == null)) {
             return true;
-        }
-        else 
+        } else
             return false;
     }
 
     @Override
     public String toString() {
-        String res = "Block{" +
-                ", startToken=" + startToken +
-                ", endToken=" + endToken +
-                ", type=" + type;
-        if (boundingBox != null)
-            res += ", boundingBox=" + boundingBox.toString() + '}';
-        return res;
+        StringBuilder sb = new StringBuilder();
+        sb.append("Block{");
+        sb.append(", startToken=").append(startToken);
+        sb.append(", endToken=").append(endToken);
+        sb.append(", type=").append(type);
+        if (boundingBox != null) {
+            sb.append(", boundingBox=").append(boundingBox.toString()).append('}');
+        } else {
+            sb.append('}');
+        }
+        return sb.toString();
     }
 }

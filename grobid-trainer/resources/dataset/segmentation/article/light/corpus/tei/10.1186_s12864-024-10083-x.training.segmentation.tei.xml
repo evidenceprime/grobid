@@ -1,0 +1,177 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Phenotypic divergence between broiler and layer chicken lines is regulated at the molecular level during development</title>
+      <author>
+        <persName>
+          <forename>Renata Erbert</forename>
+          <surname>Contriciani</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Carla Vermeulen Carvalho</forename>
+          <surname>Grade</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Igor</forename>
+          <surname>Buzzatto-Leite</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Fernanda Cristina</forename>
+          <surname>da Veiga</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Mônica Corrêa</forename>
+          <surname>Ledur</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Antonio</forename>
+          <surname>Reverter</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Pamela Almeida</forename>
+          <surname>Alexandre</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Aline Silva Mello</forename>
+          <surname>Cesar</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Luiz Lehmann</forename>
+          <surname>Coutinho</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Lúcia Elvira</forename>
+          <surname>Alvares</surname>
+        </persName>
+      </author>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-11-12T16:32:16.545Z">11/12/2025 4:32:16 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher>Springer Science and Business Media LLC</publisher>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication">2024</date>
+      <idno type="DOI">10.1186/s12864-024-10083-x</idno>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>Renata Erbert Contriciani, Carla Vermeulen Carvalho Grade, Igor Buzzatto-Leite, Fernanda Cristina da Veiga, Mônica Corrêa Ledur, Antonio Reverter, Pamela Almeida Alexandre, Aline Silva Mello Cesar, Luiz Lehmann Coutinho, Lúcia Elvira Alvares. (2024). Phenotypic divergence between broiler and layer chicken lines is regulated at the molecular level during development. BMC Genomics, 25(1), None. DOI: 10.1186/s12864-024-10083-x</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-11-12T16:32:02.991493Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.segmentation</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-11-12T16:32:02.991493Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+    <front>Review began 01/19/2024 <lb/>Review ended 01/28/2024 <lb/>Published 02/02/2024 <lb/>© Copyright 2024 <lb/>Sivaraman et al. This is an open access <lb/>article distributed under the terms of the <lb/>Creative Commons Attribution License CC-<lb/>BY 4.0., which permits unrestricted use, <lb/>distribution, and reproduction in any <lb/>medium, provided the original author and <lb/>source are credited. <lb/>Effects of Oil Pulling and Chlorhexidine Mouth <lb/>Rinse on the Force Decay of Orthodontic <lb/>Elastomeric Chains: A Comparative In Vitro Study <lb/>Keerthana Sivaraman , Rajasekaran UB , Neetika Prabu , Arun Deepak , Nagaland T , <lb/>Anusha Sreedharan <lb/>1. Orthodontics and Dentofacial Orthopaedics, RVS Dental College and Hospital, Coimbatore, IND 2. Orthodontics, <lb/>RVS Dental College and Hospital, Coimbatore, IND 3. Public Health Dentistry, Chettinad Dental College and Research <lb/>Institute, Chennai, IND <lb/>Corresponding author: Keerthana Sivaraman, sivakeerthana16@gmail.com <lb/>Abstract <lb/>Background and objectives: Oil pulling is a traditional Indian folk remedy for maintaining oral hygiene <lb/>among orthodontic patients. This study aimed to assess the effects of oil pulling and compare them with <lb/>those of chlorhexidine (CHX) and distilled water on the force decay of elastomeric chains. <lb/>Methods: Twenty-one samples were tested in three groups. Each of these groups contained seven samples <lb/>per group. The samples evaluated contained distilled water, 0.2% CHX, and sesame oil. The samples were <lb/>dipped in various mouth rinses, and force degradation was measured using a dynamometer (dynamic <lb/>universal testing machine, Instron 8801, Instron, Norwood, MA) during days 0, 1, 7, 14, 21, and 28. The <lb/>significance level was considered at 1%. <lb/>Results: Force degradation was observed more in distilled water, followed by sesame oil, and less in CHX at <lb/>the end of 28 days. Significant differences in values (p &lt; 0.01) were found among the three groups in all the <lb/>timelines in the study except on days 14 and 21. <lb/>Conclusion: Chlorhexidine showed the least amount of force decay, followed by oil pulling and distilled <lb/>water. However, if oil pulling is practiced daily as a household remedy along with regular oral hygiene <lb/>practices, it can save time and money and enhance general health. <lb/>Categories: Public Health, Dentistry, Therapeutics <lb/>Keywords: mouth rinse, force decay, elastomeric chains, oil pulling, chlorhexidine <lb/></front>
+
+    <body>Introduction <lb/>Individuals with orthodontic appliances must exercise extra care when maintaining oral hygiene because <lb/>appliances increase the buildup of bacteria around brackets and bands [1, 2]. Orthodontists must make extra <lb/>efforts to provide preventive education to each patient. For those who are unable to maintain good oral <lb/>hygiene, chemical plaque management should be employed in addition to mechanical control [3]. <lb/>Chlorhexidine (CHX) is one of the most potent and extensively researched antibacterial mouth rinses. <lb/>Despite being considered the &apos;gold standard&apos;, it has several adverse effects associated with its prolonged use, <lb/>such as impaired taste perception and tooth discoloration. It also affects the physical and mechanical <lb/>characteristics of certain orthodontic components, such as the staining of modules and the force <lb/>deterioration of elastics over time [4-6]. <lb/>Commercial mouthwashes can facilitate antibiotic resistance. This notion has motivated the search for <lb/>natural products to preserve dental health. Dr. Karach F. popularized the practice of oil pulling with edible <lb/>oils in contemporary medicine [7]. Oil pulling is the traditional Ayurvedic practice of gargling with oil to <lb/>prevent decay, foul breath, bleeding gums, and cracked lips, in addition to strengthening teeth, gums, and <lb/>jaws. It is known to have therapeutic local as well as systemic effects and is considered an effective <lb/>alternative to CHX for routine oral hygiene practices [6, 8]. The procedure of oil pulling involves swishing a <lb/>measured volume of oil around the mouth for a period, forcing the oil in between all the teeth and around <lb/>the mouth. Examples of organic oils that are used include sunflower oil, sesame oil, and coconut oil [9]. <lb/>Sesame oil has the following advantages over CHX: no staining, no lingering aftertaste, and no allergy. <lb/>Sesame oil is readily available in most homes and is five to six times more affordable than CHX [10]. <lb/>The British Society of Periodontology states that &quot;antiplaque agents like CHX are useful for managing acute <lb/>periods when cleaning is difficult but not needed as a routine&quot; [11]. Additionally, it must be noted that the <lb/>use of CHX mouthwash is licensed only for 30 days of use [12]. Therefore, for patients receiving fixed <lb/>orthodontic therapy, a safe, cost-effective, and frequently used substitute for CHX mouth rinse is needed. <lb/>Though oil pulling is an obsolete procedure, it should be reinstated as a regular dental hygiene measure. <lb/></body>
+
+    <front>1 <lb/>1 <lb/>1 <lb/>2 <lb/>3 <lb/>1 <lb/>Open Access Original <lb/>Article <lb/>DOI: 10.7759/cureus.53456 <lb/>How to cite this article <lb/>Sivaraman K, UB R, Prabu N, et al. (February 02, 2024) Effects of Oil Pulling and Chlorhexidine Mouth Rinse on the Force Decay of Orthodontic <lb/>Elastomeric Chains: A Comparative In Vitro Study. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></front>
+
+    <body>Elastomeric chains have been widely used in orthodontics since the 1960s because they do not require <lb/>patient cooperation and are relatively hygienic, affordable, and simple to use [13, 14]. Elastic devices are <lb/>important sources for the transmission of force to teeth but are not considered ideal because the force <lb/>diminishes with activation time, oral media, and other dietary-related characteristics [15]. <lb/>However, there is no scientific research in support of oil pulling that compares the effects of force <lb/>degradation on elastomeric chains. Hence, the present study was designed to assess the effects of oil pulling <lb/>and compare them with those of CHX and distilled water for one month. <lb/>Materials And Methods <lb/>A laboratory study was conducted at the PSG Centre for Research and Consultancy, Coimbatore, India, for 28 <lb/>days to test the force degradation of elastomeric chains using a dynamometer (dynamic universal testing <lb/>machine, Instron 8801, Instron, Norwood, MA) (Figure 1). <lb/>FIGURE 1: Dynamometer (dynamic universal testing machine, Instron <lb/>8801, Instron, Norwood, MA) <lb/>The following armamentarium was used: distilled water, 0.2% CHX mouth rinse (Hexidrin brand), sesame oil <lb/>(Idhayam brand), artificial saliva (Xerostat brand), and orthodontic elastomeric chains (short, American <lb/>Orthodontics brand). This study did not involve the use of any animals, human data, or tissues; therefore, <lb/>consent and ethical approval were not required. <lb/>Twenty-one samples were tested in three groups. There were seven samples per group. The samples <lb/>evaluated were distilled water (Group 1: control), 0.2% CHX (Group 2: experimental group), and sesame oil <lb/>(Group 3: experimental group) (Figure 2). <lb/></body>
+
+    <note place="footnote">2024 Sivaraman et al. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></note>
+
+    <page>2 of 9 <lb/></page>
+
+    <body>FIGURE 2: Control (distilled water) and experimental groups <lb/>(chlorhexidine and sesame oil) <lb/>A customized wooden template was fabricated with seven pairs of supporting rods arranged row-wise, with <lb/>23.5 mm gap between each set of rods. Short elastomeric chains of five links each were pre-stretched 1.5 <lb/>times the original length and fixed to the supporting rod (Figure 3). <lb/>FIGURE 3: Orthodontic elastomeric chains in a fabricated template <lb/>These were immersed in the artificial saliva solution at a controlled temperature (Figure 4). <lb/></body>
+
+    <note place="footnote">2024 Sivaraman et al. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></note>
+
+    <page>3 of 9 <lb/></page>
+
+    <body>FIGURE 4: Samples immersed in artificial saliva <lb/>The wooden template was dipped in the corresponding experimental and control solutions for one minute <lb/>daily. These were then dipped in separate water baths for 10 seconds and placed back in the artificial saliva. <lb/>The level of saliva in the template was verified every day to ensure the elastics were covered by this solution <lb/>at all times. Six force measurements were taken during the experimental period at the following time <lb/>intervals: days 0, 1, 7, 14, 21, and 28. <lb/>Statistical analysis <lb/>Data were entered in a Microsoft Excel sheet (Microsoft Corp., Redmond, WA), and statistical analysis was <lb/>conducted using IBM SPSS software version 20.0 (IBM Corp., Armonk, NY). Mean and standard deviation <lb/>were used to summarize the data. The effects of the groups (distilled water, CHX 0.2%, and sesame oil) and <lb/>time (days 0, 1, 7, 14, 21, and 28) on force decay were analyzed using ANOVA and Tukey&apos;s post hoc test. The <lb/>significance level was considered at 1% (&lt; 0.01). <lb/>Results <lb/>Factors influencing the force decay of elastomeric chains were time duration, type of elastomeric chain, and <lb/>exposure to test solutions. The maximum force (0.572 kg) was observed in CHX, followed by sesame oil <lb/>(0.460 kg), and the least force (0.435 kg) was observed in distilled water at the end of 28 days (Table 1). <lb/>Time interval <lb/>Distilled water mean (SD) <lb/>Chlorhexidine mean (SD) <lb/>Sesame oil mean (SD) <lb/>Day 0 <lb/>0.728 (0.10) <lb/>0.827 (0.02) <lb/>0.715 (0.03) <lb/>Day 1 <lb/>0.524 (0.07) <lb/>0.647 (0.00) <lb/>0.533 (0.00) <lb/>Day 7 <lb/>0.490 (0.05) <lb/>0.610 (0.01) <lb/>0.518 (0.05) <lb/>Day 14 <lb/>0.471 (0.12) <lb/>0.587 (0.05) <lb/>0.487 (0.09) <lb/>Day 21 <lb/>0.455 (0.05) <lb/>0.586 (0.05) <lb/>0.482 (0.00) <lb/>Day 28 <lb/>0.435 (0.05) <lb/>0.572 (0.06) <lb/>0.460 (0.01) <lb/>TABLE 1: Force (Kg) measured for elastomeric chains with different mouth rinses at different time <lb/>periods <lb/>When the groups were compared with one another in the same period, no statistical difference was found on <lb/>days 14 and 21 (p &gt; 0.01). Statistically significant differences in force levels were noted during the initial <lb/>hours, during 24 hours, on day seven, and after day 28 (p &lt; 0.01) (Table 2). <lb/></body>
+
+    <note place="footnote">2024 Sivaraman et al. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></note>
+
+    <page>4 of 9 <lb/></page>
+
+    <body>Timeline <lb/>Groups * <lb/>Mean <lb/>SD <lb/>95% confidence interval for mean <lb/>p-value # <lb/>Lower bound <lb/>Upper bound <lb/>Initial <lb/>1 <lb/>.70100 <lb/>.021517 <lb/>.64755 <lb/>.75445 <lb/>0.001 <lb/>2 <lb/>.80500 <lb/>.018028 <lb/>.76022 <lb/>.84978 <lb/>3 <lb/>.70433 <lb/>.007506 <lb/>.68569 <lb/>.72298 <lb/>24 hours <lb/>1 <lb/>.51567 <lb/>.022279 <lb/>.46032 <lb/>.57101 <lb/>0.002 <lb/>2 <lb/>.63100 <lb/>.027074 <lb/>.56374 <lb/>.69826 <lb/>3 <lb/>.51367 <lb/>.023671 <lb/>.45486 <lb/>.57247 <lb/>7 days <lb/>1 <lb/>.43500 <lb/>.054083 <lb/>.30065 <lb/>.56935 <lb/>0.012 <lb/>2 <lb/>.59333 <lb/>.037859 <lb/>.49929 <lb/>.68738 <lb/>3 <lb/>.53767 <lb/>.036828 <lb/>.44618 <lb/>.62915 <lb/>14 days <lb/>1 <lb/>.45167 <lb/>.045369 <lb/>.33896 <lb/>.56437 <lb/>0.065 <lb/>2 <lb/>.56000 <lb/>.052000 <lb/>.43082 <lb/>.68918 <lb/>3 <lb/>.45867 <lb/>.051598 <lb/>.33049 <lb/>.58684 <lb/>21 days <lb/>1 <lb/>.43500 <lb/>.030414 <lb/>.35945 <lb/>.51055 <lb/>0.028 <lb/>2 <lb/>.57300 <lb/>.066461 <lb/>.40790 <lb/>.73810 <lb/>3 <lb/>.45233 <lb/>.045347 <lb/>.33969 <lb/>.56498 <lb/>28 days <lb/>1 <lb/>.42167 <lb/>.019088 <lb/>.37425 <lb/>.46908 <lb/>0.001 <lb/>2 <lb/>.57267 <lb/>.006429 <lb/>.55670 <lb/>.58864 <lb/>3 <lb/>.46000 <lb/>.010000 <lb/>.43516 <lb/>.48484 <lb/>TABLE 2: One-way ANOVA test among the groups at different time intervals <lb/>*Distilled water (Group 1: control), chlorhexidine (Group 2: experimental group), and sesame oil (Group 3: experimental group). # p &lt; 0.01: significant <lb/>A sudden decline in the force levels during the initial 24 hours, followed by a gradual reduction of force over <lb/>a period, was noted (Figure 5). <lb/>FIGURE 5: Force levels of various mouth rinses at each time interval <lb/></body>
+
+    <note place="footnote">2024 Sivaraman et al. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></note>
+
+    <page>5 of 9 <lb/></page>
+
+    <body>Multiple group comparison was done using Tukey&apos;s post hoc test. Statistically significant differences (p &lt; <lb/>0.01) were noted in force levels when comparing Group 1 with Group 2, Group 2 with Groups 1 and 3, and <lb/>Group 3 with Group 2 during the initial hours; when comparing Group 1 with Group 2, Group 2 with Groups <lb/>1 and 3, and Group 3 with Group 2 during 24 hours; when comparing Group 1 with Group 2 and Group 2 with <lb/>Group 1 on the seventh day; and Group 1 with Group 2, Group 2 with Groups 1 and 3, and Group 3 with <lb/>Group 2 on the 28th day. No significant differences (p &gt; 0.01) were noted in force levels when multiple <lb/>groups were compared on days 14 and 21; when Group 1 was compared with Group 3 and Group 3 was <lb/>compared with Group 1 during the initial hours, during 24 hours, and on the day 28; and when Group 1 was <lb/>compared with Group 3, Group 2 with Group 3, and Group 3 with Groups 1 and 2 on the day seven (Table 3). <lb/>Dependent variable <lb/>(I) Group <lb/>(J) Group <lb/>Mean difference (I-J) <lb/>p-value * <lb/>Initial <lb/>1 <lb/>2 <lb/>-.104000 * <lb/>.001 <lb/>3 <lb/>-.003333 <lb/>1.000 <lb/>2 <lb/>1 <lb/>.104000 * <lb/>.001 <lb/>3 <lb/>.100667 * <lb/>.001 <lb/>3 <lb/>1 <lb/>.003333 <lb/>1.000 <lb/>2 <lb/>-.100667 * <lb/>.001 <lb/>24 hours <lb/>1 <lb/>2 <lb/>-.115333 * <lb/>.004 <lb/>3 <lb/>.002000 <lb/>1.000 <lb/>2 <lb/>1 <lb/>.115333 * <lb/>.004 <lb/>3 <lb/>.117333 * <lb/>.003 <lb/>3 <lb/>1 <lb/>-.002000 <lb/>1.000 <lb/>2 <lb/>-.117333 * <lb/>.003 <lb/>7 days <lb/>1 <lb/>2 <lb/>-.158333 * <lb/>.013 <lb/>3 <lb/>-.102667 <lb/>.084 <lb/>2 <lb/>1 <lb/>.158333 * <lb/>.013 <lb/>3 <lb/>.055667 <lb/>.508 <lb/>3 <lb/>1 <lb/>.102667 <lb/>.084 <lb/>2 <lb/>-.055667 <lb/>.508 <lb/>14 days <lb/>1 <lb/>2 <lb/>-.108333 <lb/>.112 <lb/>3 <lb/>-.007000 <lb/>1.000 <lb/>2 <lb/>1 <lb/>.108333 <lb/>.112 <lb/>3 <lb/>.101333 <lb/>.141 <lb/>3 <lb/>1 <lb/>.007000 <lb/>1.000 <lb/>2 <lb/>-.101333 <lb/>.141 <lb/>21 days <lb/>1 <lb/>2 <lb/>-.138000 * <lb/>.043 <lb/>3 <lb/>-.017333 <lb/>1.000 <lb/>2 <lb/>1 <lb/>.138000 * <lb/>.043 <lb/>3 <lb/>.120667 <lb/>.074 <lb/>3 <lb/>1 <lb/>.017333 <lb/>1.000 <lb/>2 <lb/>-.120667 <lb/>.074 <lb/></body>
+
+    <note place="footnote">2024 Sivaraman et al. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></note>
+
+    <page>6 of 9 <lb/></page>
+
+    <body>28 days <lb/>1 <lb/>2 <lb/>-.151000 * <lb/>.000 <lb/>3 <lb/>-.038333 * <lb/>.033 <lb/>2 <lb/>1 <lb/>.151000 * <lb/>.000 <lb/>3 <lb/>.112667 * <lb/>.000 <lb/>3 <lb/>1 <lb/>.038333 * <lb/>.033 <lb/>2 <lb/>-.112667 * <lb/>.000 <lb/>TABLE 3: Tukey&apos;s post hoc test; multiple group comparisons <lb/>*p &lt; 0.01: significant <lb/>Discussion <lb/>Orthodontic appliances attached to tooth surfaces make it difficult to practice oral hygiene and act as <lb/>additional bacterial plaque reservoirs. The enamel is demineralized as a result, leading to white spots, dental <lb/>cavities, and gingivitis [1]. To prevent enamel demineralization, various mouth rinses are being prescribed. <lb/>Out of these, chlorhexidine is a highly effective synthetic antibacterial agent [3]. Oil pulling can be used as <lb/>an alternative method to maintain oral hygiene in orthodontic patients [9]. <lb/>In the present study, elastomeric chain usage was considered to be 28 days because this matched the average <lb/>amount of time between orthodontic consultations, as Motta et al. [16] and Pithon et al. [17] noted. The <lb/>elastomeric chain segment was kept submerged in artificial saliva because force degradation in a humid <lb/>medium is substantially greater than in a dry environment [18-20]. Short elastomeric chains were used to <lb/>maintain a higher percentage of force over time [21]. <lb/>The latex elastics in the present investigation displayed a force relaxation in the range of 22%-27% in the <lb/>first 24 hours. Force levels at the end of 24 hours were 0.64 kg, 0.53 kg, and 0.52 kg in chlorhexidine (Group <lb/>2), sesame oil (Group 3), and distilled water (Group 1), respectively (Table 1). This result was similar to those <lb/>of Pithon et al. [17], with a 20%-30% force decay. In contrast, Singh et al. [21] and Sam et al. [22] showed that <lb/>the rates of force decay were 50% to 70% and 17% to 24%, respectively, for the first 24 hours. There was a <lb/>large decrease in force during the first 24 hours, followed by mostly stable levels of force up to four weeks <lb/>(Figure 5). This result is in line with those of Pithon et al. [17], Sufarnap et al. [23], Issa et al. [24], Samuels et <lb/>al. [25], and Balhoff et al. [26]. <lb/>However, results may vary depending on whether other biological components are present in the oral <lb/>environment. Because this study was conducted in vitro under static conditions, the elastomeric chain&apos;s <lb/>performance could not replicate the degradation observed in vivo. Further studies in clinical settings, where <lb/>the oral environment is varied because of dietary habits, microbial activity, different stretching conditions, <lb/>and different brands of elastomeric chains, are necessary. This would help us better comprehend elastic <lb/>materials&apos; physical characteristics in various clinical settings. Studies using different organic oils and herbal <lb/>mouth rinses should be carried out in the future so that they can be used as an alternative to chlorhexidine <lb/>in assessing the force decay of orthodontic elastomeric chains. <lb/>Conclusions <lb/>Chlorhexidine showed the least amount of force decay compared to oil and distilled water. Similarly, oil <lb/>pulling had a significantly lower force decay on elastomeric chains compared to distilled water. It is thus <lb/>concluded that, though CHX showed the least amount of force decay, it had certain adverse effects on <lb/>prolonged usage. Hence, oil pulling can be recommended as a preventive oral hygiene practice with minimal <lb/>adverse effects in fixed orthodontic patients because the treatment takes place over a longer duration. If oil <lb/>pulling is practiced daily as a household remedy along with regular oral hygiene practices, it can save time <lb/>and money and enhance general health. <lb/></body>
+
+    <div type="annex">Additional Information <lb/></div>
+
+    <div type="contribution">Author Contributions <lb/>All authors have reviewed the final version to be published and agreed to be accountable for all aspects of the <lb/>work. <lb/>Concept and design: Keerthana Sivaraman, Rajasekaran UB, Neetika Prabu, Arun Deepak, Anusha <lb/></div>
+
+    <note place="footnote">2024 Sivaraman et al. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></note>
+
+    <page>7 of 9 <lb/></page>
+
+    <div type="contribution">Sreedharan <lb/>Acquisition, analysis, or interpretation of data: Keerthana Sivaraman, Nagaland T <lb/>Drafting of the manuscript: Keerthana Sivaraman, Neetika Prabu, Arun Deepak, Nagaland T, Anusha <lb/>Sreedharan <lb/>Critical review of the manuscript for important intellectual content: Rajasekaran UB, Nagaland T, <lb/>Anusha Sreedharan <lb/>Supervision: Rajasekaran UB, Neetika Prabu, Arun Deepak, Anusha Sreedharan <lb/></div>
+
+    <div type="annex">Disclosures <lb/>Human subjects: All authors have confirmed that this study did not involve human participants or tissue. <lb/>Animal subjects: All authors have confirmed that this study did not involve animal subjects or tissue. <lb/></div>
+
+    <div type="conflict">Conflicts of interest: In compliance with the ICMJE uniform disclosure form, all authors declare the <lb/>following: Payment/services info: All authors have declared that no financial support was received from <lb/>any organization for the submitted work. Financial relationships: All authors have declared that they have <lb/>no financial relationships at present or within the previous three years with any organizations that might <lb/>have an interest in the submitted work. Other relationships: All authors have declared that there are no <lb/>other relationships or activities that could appear to have influenced the submitted work. <lb/></div>
+
+    <listBibl>References <lb/>1. Ai H, Lu HF, Liang HY, Wu J, Li RL, Liu GP, Xi Y: Influences of bracket bonding on mutans streptococcus in <lb/>plaque detected by real time fluorescence-quantitative polymerase chain reaction. Chin Med J (Engl). 2005, <lb/>118:2005-10. <lb/>2. dos Santos RL, Pithon MM, Vaitsman DS, Araújo MT, de Souza MM, Nojima MG: Long-term fluoride release <lb/>from resin-reinforced orthodontic cements following recharge with fluoride solution. Braz Dent J. 2010, <lb/>21:98-103. 10.1590/s0103-64402010000200002 <lb/>3. Oltramari-Navarro PV, Titarelli JM, Marsicano JA, Henriques JF, Janson G, Lauris JR, Buzalaf MA: <lb/>Effectiveness of 0.50% and 0.75% chlorhexidine dentifrices in orthodontic patients: a double-blind and <lb/>randomized controlled trial. Am J Orthod Dentofacial Orthop. 2009, 136:651-6. 10.1016/j.ajodo.2008.01.017 <lb/>4. Du MQ, Tai BJ, Jiang H, Lo EC, Fan MW, Bian Z: A two-year randomized clinical trial of chlorhexidine <lb/>varnish on dental caries in Chinese preschool children. J Dent Res. 2006, 85:557-9. <lb/>10.1177/154405910608500615 <lb/>5. Lobo PL, de Carvalho CB, Fonseca SG, de Castro RS, Monteiro AJ, Fonteles MC, Fonteles CS: Sodium fluoride <lb/>and chlorhexidine effect in the inhibition of mutans streptococci in children with dental caries: a <lb/>randomized, double-blind clinical trial. Oral Microbiol Immunol. 2008, 23:486-91. 10.1111/j.1399-<lb/>302X.2008.00458.x <lb/>6. Ribeiro LG, Hashizume LN, Maltz M: Effect of different 1% chlorhexidine varnish regimens on mutans <lb/>streptococci levels in saliva and dental biofilm. Am J Dent. 2008, 21:295-9. <lb/>7. Peedikayil FC, Sreenivasan P, Narayanan A: Effect of coconut oil in plaque related gingivitis -a preliminary <lb/>report. Niger Med J. 2015, 56:143-7. 10.4103/0300-1652.153406 <lb/>8. Kolhe SA, Patani S, Gulve N, Pawar R, Dhope SV, Gajeshwar H: Oil pulling as an adjunct to improve oral <lb/>health in orthodontic patients: a clinicomicrobial study. Int J Orthod Rehabil. 2019, 10:152-5. <lb/>10.4103/ijor.ijor_34_19 <lb/>9. Shanbhag VK: Oil pulling for maintaining oral hygiene -a review . J Tradit Complement Med. 2017, 7:106-9. <lb/>10.1016/j.jtcme.2016.05.004 <lb/>10. Asokan S, Emmadi P, Chamundeswari R: Effect of oil pulling on plaque induced gingivitis: a randomized, <lb/>controlled, triple-blind study. Indian J Dent Res. 2009, 20:47-51. 10.4103/0970-9290.49067 <lb/>11. British Society of Periodontology: The Good Practitioner&apos;s Guide to Periodontology. Needleman I (ed): <lb/>British Society of Periodontology, Liverpool, GBR; 2016. <lb/>https://www.bsperio.org.uk/assets/downloads/good_practitioners_guide_2016.pdf. <lb/>12. Brookes ZL, Bescos R, Belfield LA, Ali K, Roberts A: Current uses of chlorhexidine for management of oral <lb/>disease: a narrative review. J Dent. 2020, 103:103497. 10.1016/j.jdent.2020.103497 <lb/>13. Bousquet JA Jr, Tuesta O, Flores-Mir C: In vivo comparison of force decay between injection molded and die-<lb/>cut stamped elastomers. Am J Orthod Dentofacial Orthop. 2006, 129:384-9. 10.1016/j.ajodo.2005.09.002 <lb/>14. Halimi A, Azeroual MF, Doukkali A, El Mabrouk K, Zaoui F: Elastomeric chain force decay in artificial saliva: <lb/>an in vitro study. Int Orthod. 2013, 11:60-70. 10.1016/j.ortho.2012.12.007 <lb/>15. Araujo FBC, Ursi WJS: Study of the degradation of force generated by synthetic orthodontic elastics [Article <lb/>in Portugese]. Rev Dent Press Ortodon Ortop Facial. 2006, 11:52-61. 10.1590/S1415-54192006000600008 <lb/>16. da Motta AFJ, Cury-Saramago AD, Nojima LI: In vitro evaluation of force delivered by elastomeric chains . <lb/>Dental Press J Orthod. 2011, 16:e1-8. <lb/>17. Pithon MM, Santana DA, Sousa KH, Farias IM: Does chlorhexidine in different formulations interfere with <lb/>the force of orthodontic elastics?. Angle Orthod. 2013, 83:313-8. 10.2319/061312-493.1 <lb/>18. Kanchana P, Godfrey K: Calibration of force extension and force degradation characteristics of orthodontic <lb/>latex elastics. Am J Orthod Dentofacial Orthop. 2000, 118:280-7. 10.1067/mod.2000.104493 <lb/>19. Ash JL, Nikolai RJ: Relaxation of orthodontic elastomeric chains and modules in vitro and in vivo . J Dent <lb/>Res. 1978, 57:685-90. 10.1177/00220345780570050301 <lb/>20. Hwang CJ, Cha JY: Mechanical and biological comparison of latex and silicone rubber bands . Am J Orthod <lb/></listBibl>
+
+    <note place="footnote">2024 Sivaraman et al. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></note>
+
+    <page>8 of 9 <lb/></page>
+
+    <listBibl>Dentofacial Orthop. 2003, 124:379-86. 10.1016/s0889-5406(03)00564-x <lb/>21. Singh VP, Pokharel PR, Pariekh K, et al.: Elastics in orthodontics: a review . Health Renaissance. 2012, 10:49-<lb/>56. 10.3126/hren.v10i1.6008 <lb/>22. Sam RJ, Mishra V, Yadav A, Yadav D, Joshi D, Martina K: Effect of chlorhexidine mouth rinse in force decay <lb/>of closed, short, and long elastomeric chain -an in vitro study. Indian J Orthod Dentofacial Res. 2022, <lb/>8(4):237-44. 10.18231/j.ijodr.2022.041 <lb/>23. Sufarnap E, Harahap KI, Terry T: Effect of sodium fluoride in chlorhexidine mouthwashes on force decay <lb/>and permanent deformation of orthodontic elastomeric chain. PJoD. 2021, 33:74-80. <lb/>10.24198/pjd.vol33no1.26370 <lb/>24. Issa AR, Kadhum AS, Mohammed SA: The effects of zinc-containing mouthwashes on the force degradation <lb/>of orthodontic elastomeric chains: an in vitro study. Int J Dent. 2022, 2022:3557317. 10.1155/2022/3557317 <lb/>25. Samuels RHA, Orth M, Rudge SJ, Mair LH: A comparison of the rate of space closure using a nickel-titanium <lb/>spring and an elastic module: a clinical study. Am J Orthod Dentofacial Orthop. 1993, 103:464-7. <lb/>10.1016/S0889-5406(05)81798-6 <lb/>26. Balhoff DA, Shuldberg M, Hagan JL, Ballard RW, Armbruster PC: Force decay of elastomeric chains -a <lb/>mechanical design and product comparison study. J Orthod. 2011, 38:40-7. 10.1179/14653121141227 <lb/></listBibl>
+
+    <note place="footnote">2024 Sivaraman et al. Cureus 16(2): e53456. DOI 10.7759/cureus.53456 <lb/></note>
+
+    <page>9 of 9 </page>
+
+
+  </text>
+
+</TEI>

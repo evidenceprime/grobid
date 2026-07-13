@@ -1,13 +1,29 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer;
 
-import org.grobid.trainer.evaluation.LabelStat;
-import org.grobid.trainer.evaluation.Stats;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
+import org.grobid.trainer.evaluation.LabelStat;
+import org.grobid.trainer.evaluation.Stats;
 
 public class StatsTest {
     Stats target;
@@ -87,7 +103,6 @@ public class StatsTest {
         assertThat(target.getLabelStat("ZIAO").getPrecision(), is(0.75));
     }
 
-
     // Average measures
 
     @Test
@@ -110,7 +125,6 @@ public class StatsTest {
 
         assertThat(target.getMicroAveragePrecision(), is(((double) 4 + 0 + 1 + 0) / (4 + 0 + 3 + 1 + 0 + 2)));
     }
-
 
     @Test
     public void testMacroAvgPrecision_shouldWork() throws Exception {
@@ -135,10 +149,10 @@ public class StatsTest {
         final double precisionMiao = target.getLabelStat("MIAO").getPrecision();
         final double precisionCiao = target.getLabelStat("CIAO").getPrecision();
         final double precisionZiao = target.getLabelStat("ZIAO").getPrecision();
-        assertThat(target.getMacroAveragePrecision(),
-            is((precisionBao + precisionMiao + precisionCiao + precisionZiao) / (4)));
+        assertThat(
+                target.getMacroAveragePrecision(),
+                is((precisionBao + precisionMiao + precisionCiao + precisionZiao) / (4)));
     }
-
 
     @Test
     public void testMicroAvgRecall_shouldWork() throws Exception {
@@ -185,8 +199,9 @@ public class StatsTest {
         final double recallMiao = target.getLabelStat("MIAO").getRecall();
         final double recallCiao = target.getLabelStat("CIAO").getRecall();
         final double recallZiao = target.getLabelStat("ZIAO").getRecall();
-        assertThat(target.getMacroAverageRecall(),
-            is((recallBao + recallMiao + recallCiao + recallZiao) / (4)));
+        assertThat(
+                target.getMacroAverageRecall(),
+                is((recallBao + recallMiao + recallCiao + recallZiao) / (4)));
     }
 
     @Test
@@ -208,10 +223,12 @@ public class StatsTest {
         target.getLabelStat("ZIAO").setObserved(0);
         target.getLabelStat("ZIAO").setFalsePositive(2);
 
-        assertThat(target.getMicroAverageF1(),
-            is(((double) 2 * target.getMicroAveragePrecision()
-                * target.getMicroAverageRecall())
-                / (target.getMicroAveragePrecision() + target.getMicroAverageRecall())));
+        assertThat(
+                target.getMicroAverageF1(),
+                is(
+                        ((double) 2 * target.getMicroAveragePrecision()
+                                * target.getMicroAverageRecall())
+                                / (target.getMicroAveragePrecision() + target.getMicroAverageRecall())));
     }
 
     @Test
@@ -238,10 +255,10 @@ public class StatsTest {
         final double f1Ciao = target.getLabelStat("CIAO").getF1Score();
         final double f1Ziao = target.getLabelStat("ZIAO").getRecall();
 
-        assertThat(target.getMacroAverageF1(),
-            is((f1Bao + f1Miao + f1Ciao + f1Ziao) / (4)));
+        assertThat(
+                target.getMacroAverageF1(),
+                is((f1Bao + f1Miao + f1Ciao + f1Ziao) / (4)));
     }
-
 
     @Ignore("Not really useful")
     @Test
@@ -309,7 +326,6 @@ public class StatsTest {
         System.out.println(target.getMicroAveragePrecision());
     }
 
-
     @Test
     public void testMicroMacroAverageMeasures_realTest() throws Exception {
         LabelStat otherLabelStats = target.getLabelStat("O");
@@ -320,7 +336,6 @@ public class StatsTest {
         assertThat(otherLabelStats.getPrecision(), is(1.0));
         assertThat(otherLabelStats.getRecall(), is(1.0));
 
-
         LabelStat conceptualLabelStats = target.getLabelStat("CONCEPTUAL");
         conceptualLabelStats.setObserved(2);
         conceptualLabelStats.setExpected(3);
@@ -330,7 +345,6 @@ public class StatsTest {
         assertThat(conceptualLabelStats.getPrecision(), is(0.6666666666666666));
         assertThat(conceptualLabelStats.getRecall(), is(0.6666666666666666));
 
-
         LabelStat periodLabelStats = target.getLabelStat("PERIOD");
         periodLabelStats.setObserved(8);
         periodLabelStats.setExpected(8);
@@ -338,14 +352,12 @@ public class StatsTest {
         assertThat(periodLabelStats.getPrecision(), is(1.0));
         assertThat(periodLabelStats.getRecall(), is(1.0));
 
-
         LabelStat mediaLabelStats = target.getLabelStat("MEDIA");
         mediaLabelStats.setObserved(7);
         mediaLabelStats.setExpected(7);
 
         assertThat(mediaLabelStats.getPrecision(), is(1.0));
         assertThat(mediaLabelStats.getRecall(), is(1.0));
-
 
         LabelStat personTypeLabelStats = target.getLabelStat("PERSON_TYPE");
         personTypeLabelStats.setObserved(0);
@@ -355,8 +367,6 @@ public class StatsTest {
         assertThat(personTypeLabelStats.getPrecision(), is(0.0));
         assertThat(personTypeLabelStats.getRecall(), is(0.0));
 
-
-
         LabelStat locationTypeLabelStats = target.getLabelStat("LOCATION");
         locationTypeLabelStats.setObserved(2);
         locationTypeLabelStats.setExpected(2);
@@ -364,14 +374,12 @@ public class StatsTest {
         assertThat(locationTypeLabelStats.getPrecision(), is(1.0));
         assertThat(locationTypeLabelStats.getRecall(), is(1.0));
 
-
         LabelStat organisationTypeLabelStats = target.getLabelStat("ORGANISATION");
         organisationTypeLabelStats.setObserved(2);
         organisationTypeLabelStats.setExpected(2);
 
         assertThat(locationTypeLabelStats.getPrecision(), is(1.0));
         assertThat(locationTypeLabelStats.getRecall(), is(1.0));
-
 
         LabelStat personLabelStats = target.getLabelStat("PERSON");
         personLabelStats.setFalsePositive(1);
@@ -390,6 +398,85 @@ public class StatsTest {
 
         // same as above
         assertThat(target.getMacroAveragePrecision(), is(0.7777777777777777)); //77.78
+    }
+
+    @Test
+    public void testMerge_shouldCombineStats() throws Exception {
+        target.getLabelStat("FOO").setExpected(4);
+        target.getLabelStat("FOO").setObserved(3);
+        target.getLabelStat("FOO").setFalsePositive(1);
+        target.getLabelStat("FOO").setFalseNegative(1);
+
+        Stats other = new Stats();
+        other.getLabelStat("FOO").setExpected(2);
+        other.getLabelStat("FOO").setObserved(1);
+        other.getLabelStat("FOO").setFalsePositive(2);
+        other.getLabelStat("FOO").setFalseNegative(1);
+        other.getLabelStat("BAR").setExpected(3);
+        other.getLabelStat("BAR").setObserved(3);
+
+        target.merge(other);
+
+        assertThat(target.getLabelStat("FOO").getExpected(), is(6));
+        assertThat(target.getLabelStat("FOO").getObserved(), is(4));
+        assertThat(target.getLabelStat("FOO").getFalsePositive(), is(3));
+        assertThat(target.getLabelStat("FOO").getFalseNegative(), is(2));
+        assertThat(target.getLabelStat("BAR").getExpected(), is(3));
+        assertThat(target.getLabelStat("BAR").getObserved(), is(3));
+    }
+
+    @Test
+    public void testMerge_emptySourceShouldNotChange() throws Exception {
+        target.getLabelStat("FOO").setExpected(4);
+        target.getLabelStat("FOO").setObserved(3);
+
+        target.merge(new Stats());
+
+        assertThat(target.getLabelStat("FOO").getExpected(), is(4));
+        assertThat(target.getLabelStat("FOO").getObserved(), is(3));
+    }
+
+    @Test
+    public void testSupportOverride_changesDisplayedSupportAndTotalOnly() throws Exception {
+        target.getLabelStat("FOO").setExpected(4);
+        target.getLabelStat("FOO").setObserved(4);
+
+        target.getLabelStat("AFF").setExpected(10);
+        target.getLabelStat("AFF").setObserved(8);
+        target.getLabelStat("AFF").setFalseNegative(2);
+        target.getLabelStat("AFF").setFalsePositive(2);
+
+        double microPrecisionBefore = target.getMicroAveragePrecision();
+
+        String before = target.getMarkDownReport();
+        assertThat(supportCellOf("| AFF ", before), is("10"));
+        assertThat(supportCellOf("micro avg", before), is("14"));
+
+        // Report AFF's support as an article count (3) instead of its 10 links.
+        target.setSupportOverride(java.util.Collections.singletonMap("AFF", 3L));
+        String after = target.getMarkDownReport();
+
+        // Displayed support for AFF and the support column total now reflect the override...
+        assertThat(supportCellOf("| AFF ", after), is("3"));
+        assertThat(supportCellOf("micro avg", after), is("7"));
+        // ...while precision/recall/F1 are computed from the underlying counts, unchanged.
+        assertThat(target.getMicroAveragePrecision(), is(microPrecisionBefore));
+        assertThat(target.getLabelStat("AFF").getPrecision(), is(0.8));
+        assertThat(target.getLabelStat("AFF").getRecall(), is(0.8));
+    }
+
+    /** Returns the trimmed support (last markdown cell) of the row whose text contains {@code needle}. */
+    private static String supportCellOf(String needle, String markdownReport) {
+        for (String line : markdownReport.split("\n")) {
+            if (line.contains(needle)) {
+                String trimmed = line.trim();
+                if (trimmed.endsWith("|")) {
+                    trimmed = trimmed.substring(0, trimmed.length() - 1).trim();
+                }
+                return trimmed.substring(trimmed.lastIndexOf('|') + 1).trim();
+            }
+        }
+        return null;
     }
 
 }

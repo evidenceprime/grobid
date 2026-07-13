@@ -1,0 +1,139 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T15:21:50.066Z">12/3/2025 3:21:50 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T15:21:10.844567Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T15:21:10.844567Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Monitoring forest cover and land use change<lb/> in the Congo Basin under IPCC climate change scenarios<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Yisa Ginath Yuh ID<lb/> 1,2<lb/> *, Kouame ´Paul N&apos;Goran ID 2<lb/> , Angela Kross 1 , Marco Heurich 3,4 , H.<lb/> Damon Matthews 1 ‡ , Sarah E. Turner 1 ‡<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Geography, Planning and Environment, University of Concordia,</affiliation>
+	</byline>
+
+	<address>Montreal, Canada,<lb/></address>
+
+	<byline>
+	<affiliation>2 World Wide Fund for Nature, Regional Office for Africa/Cameroon Country Program Office,</affiliation>
+	</byline>
+
+	<address>Yaounde<lb/> ´,<lb/> Republic of Cameroon,</address>
+
+	<byline>
+	<affiliation>3 Faculty of Environment and Natural Resource, University of Freiburg,</affiliation>
+	</byline>
+
+	<address>Freiburg,<lb/> Germany,</address>
+
+	<byline>
+	<affiliation>4 Institute for Forest and Wildlife Management, Inland Norway University of Applied Sciences,<lb/></affiliation>
+	</byline>
+
+	<address>Koppang, Norway<lb/></address>
+
+	‡ HDM and SET are joint senior authors and contributed equally to this work.<lb/> *
+	<email>ginathyuh.yisa@concordia.ca</email>
+
+	,
+	<email>yginath@wwfcam.org</email>
+
+	,
+	<email>yisaginath80@yahoo.com</email>
+
+	Abstract<lb/>
+	<div type="abstract">The Congo Basin tropical forests are home to many endemic and endangered species, and<lb/> a global hotspot for forest fragmentation and loss. Yet, little has been done to document the<lb/> region&apos;s rapid deforestation, assess its effects and consequences, or project future forest<lb/> cover loss to aid in effective planning. Here we applied the Random Forest (RF) supervised<lb/> classification algorithm in Google Earth Engine (GEE) to map and quantify decadal changes<lb/> in forest cover and land use (LCLU) in the Congo Basin between 1990 and 2020. We cross-<lb/>validated our LCLU maps with existing global land cover products, and projected our vali-<lb/>dated results to 2050 under three climate change scenarios, using the Multiperceptron Artifi-<lb/>cial Neural Network and Markov chain algorithms of the Idrissi Land Change modeller from<lb/> TerrSet. We found that, over 5.2% (215,938 km 2 ), 1.2% (50,046 km 2 ), and a 2.1% (86,658<lb/> km 2 ) of dense forest cover were lost in the Congo Basin between 1990-2000, 2000-2010,<lb/> and 2010-2020, totaling approximately 8.5% (352,642 km 2 ) loss estimated between 1990-<lb/>2020. For the period 2020-2050, we estimated a projected 3.7-4.0% (174,860-204,161<lb/> km 2 ) loss in dense forest cover under all three climate change scenarios (i.e., 174,860 km 2<lb/> loss projected for SSP1-2.6, 199,608 km 2 for SSP2-4.5, and 204,161 km 2 for SSP5-8.5),<lb/> suggesting that approximately 12.3-12.6% (527,502 km 2 -556,803 km 2 ) of dense forest<lb/> cover could be lost over a 60-year period (1990-2050). Our study represents a novel appli-<lb/>cation of spatial modeling tools and Machine Learning algorithms for assessing long-term<lb/> deforestation and forest degradation within the Congo Basin, under human population<lb/> growth and IPCC climate change scenarios. We provide spatial and quantitative results<lb/> required for supporting long-term deforestation and forest degradation monitoring within<lb/> Congo Basin countries, especially under the United Nations Framework Convention on Cli-<lb/>mate Change (UNFCCC) REDD+ (Reduce Emissions from Deforestation and Forest Deg-<lb/>radation) program.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0311816 December 2, 2024<lb/></reference>
+
+	<page>1 / 43<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Yuh YG, N&apos;Goran KP, Kross A, Heurich M,<lb/> Matthews HD, Turner SE (2024) Monitoring forest<lb/> cover and land use change in the Congo Basin<lb/> under IPCC climate change scenarios. PLoS ONE<lb/> 19(12): e0311816.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0311816<lb/></idno>
+
+	Editor:
+	<editor>Long Chu,</editor>
+
+	<byline>
+	<affiliation>The Australian National<lb/> University,</affiliation>
+	</byline>
+
+	<address>AUSTRALIA<lb/></address>
+
+	<note type="submission">Received: June 11, 2024<lb/> Accepted: September 25, 2024<lb/></note>
+
+	Published:
+	<date>December 2, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Yuh et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All datasets used and<lb/> reported in this study have been made available<lb/> within the Mendeley Data repository, and are freely<lb/> accessible with the following DOI: 10.17632/<lb/> 7gskp92yx6.1, and web link: https://dx.doi.org/10.<lb/> 17632/7gskp92yx6.1.<lb/></note>
+
+	Funding:
+	<note type="funding">&quot;Funding for this research was obtained<lb/> from the Canadian MITACS Accelerate research<lb/> award (Grant number: IT26262), the German<lb/> Academic Exchange (DAAD) short term research<lb/> award (Grant number: 91820597), and the British<lb/> Ecological Society Ecologist for Africa award (Grant<lb/> number: EA21/1322). The funders had no role in<lb/> study design, data collection and analysis, decision<lb/> to publish, or preparation of the manuscript&quot;.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+		</front>
+	</text>
+
+</TEI>

@@ -1,15 +1,29 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.jni;
+
+import java.io.File;
 
 import fr.limsi.wapiti.SWIGTYPE_p_mdl_t;
 import fr.limsi.wapiti.Wapiti;
-import org.grobid.core.GrobidModel;
-import org.grobid.core.GrobidModels;
-import org.grobid.core.exceptions.GrobidException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
+import org.grobid.core.GrobidModel;
+import org.grobid.core.exceptions.GrobidException;
 
 public class WapitiModel {
     private static final Logger LOGGER = LoggerFactory.getLogger(WapitiModel.class);
@@ -62,11 +76,13 @@ public class WapitiModel {
     }
 
     public static void train(File template, File trainingData, File outputModel, String params) {
-		String args = String.format("train " + params + " -p %s %s %s", template.getAbsolutePath(), trainingData.getAbsolutePath(), outputModel.getAbsolutePath());
-		//System.out.println("Training with equivalent command line: \n" + "wapiti " + args);
-		Wapiti.runWapiti(args);
+        String args = String.format(
+                "train " + params + " -p %s %s %s",
+                template.getAbsolutePath(),
+                trainingData.getAbsolutePath(),
+                outputModel.getAbsolutePath());
+        //System.out.println("Training with equivalent command line: \n" + "wapiti " + args);
+        Wapiti.runWapiti(args);
     }
-
-
 
 }

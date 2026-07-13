@@ -1,6 +1,25 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.data;
 
 import java.util.*;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import org.grobid.core.engines.config.GrobidAnalysisConfig;
 
 /**
@@ -92,19 +111,24 @@ public class BibDataSet {
         return offsets;
     }
 
-	@Override
-	public String toString() {
-		return "BibDataSet [resBib=" + resBib.toString() + ", sourceBib=" + sourceBib
-				+ ", refSymbol=" + refSymbol + ", rawBib=" + rawBib
-				+ ", confidence=" + confidence + ", offsets=" + offsets + "]";
-	}
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("resBib", resBib)
+                .append("sourceBib", sourceBib)
+                .append("refSymbol", refSymbol)
+                .append("rawBib", rawBib)
+                .append("confidence", confidence)
+                .append("offsets", offsets)
+                .toString();
+    }
 
     public String toTEI() {
         return toTEI(false);
     }
-    
-	public String toTEI(boolean includeRawCitations) {
-		if (resBib != null) {
+
+    public String toTEI(boolean includeRawCitations) {
+        if (resBib != null) {
             GrobidAnalysisConfig config = GrobidAnalysisConfig.builder()
                     .includeRawCitations(includeRawCitations)
                     .build();
@@ -112,14 +136,14 @@ public class BibDataSet {
         } else {
             return "";
         }
-	}
-    
+    }
+
     public String toTEI(int p) {
         return toTEI(p, false);
     }
 
-	public String toTEI(int p, boolean includeRawCitations) {
-		if (resBib != null) {
+    public String toTEI(int p, boolean includeRawCitations) {
+        if (resBib != null) {
             GrobidAnalysisConfig config = GrobidAnalysisConfig.builder()
                     .includeRawCitations(includeRawCitations)
                     .build();
@@ -127,5 +151,5 @@ public class BibDataSet {
         } else {
             return "";
         }
-	}
+    }
 }

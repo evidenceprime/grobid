@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">College of Science and Technology (CST)</orgName>,
+							<orgName type="institution">Ningbo University</orgName>,
+							<address>
+								<settlement>Ningbo</settlement>,
+								<postCode>315000</postCode>,
+								<country>China</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="institution">Dadong Power Supply Company</orgName>,
+							<orgName type="institution">State Grid Liaoning Electric Power Co., Ltd.</orgName>,
+							<address>
+								<settlement>Dandong</settlement>,
+								<postCode>118000</postCode>,
+								<country>China</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="institution">Dalian Power Supply Company</orgName>,
+							<orgName type="institution">State Grid Liaoning Electric Power Co., Ltd.</orgName>,
+							<address>
+								<settlement>Dalian</settlement>,
+								<postCode>116000</postCode>,
+								<country>China</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="institution">Yanbian Power Supply Company</orgName>,
+							<orgName type="institution">State Grid Jilin Electric Power Co., Ltd.</orgName>,
+							<address>
+								<settlement>Yanji</settlement>,
+								<postCode>133000</postCode>,
+								<country>China</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="institution">Liaoyuan Power Supply Company</orgName>,
+							<orgName type="institution">State Grid Jilin Electric Power Co., Ltd.</orgName>,
+							<address>
+								<settlement>Liaoyuan</settlement>,
+								<postCode>136200</postCode>,
+								<country>China</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

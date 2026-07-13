@@ -1,7 +1,22 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.evaluation;
 
-/** 
- *  Model the results for each label 
+/**
+ *  Model the results for each label
  */
 public final class LabelStat {
     private int falsePositive = 0;
@@ -98,7 +113,8 @@ public final class LabelStat {
     }
 
     public double getAccuracy() {
-        double accuracy = (double) (observed + trueNegative) / (observed + falsePositive + trueNegative + falseNegative);
+        double accuracy = (double) (observed + trueNegative)
+                / (observed + falsePositive + trueNegative + falseNegative);
         if (accuracy < 0.0)
             accuracy = 0.0;
 
@@ -135,11 +151,10 @@ public final class LabelStat {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder
-            .append("falsePositive: ").append(falsePositive)
-            .append("; falseNegative: ").append(falseNegative)
-            .append("; observed: ").append(observed)
-            .append("; expected: ").append(expected);
+        builder.append("falsePositive: ").append(falsePositive);
+        builder.append("; falseNegative: ").append(falseNegative);
+        builder.append("; observed: ").append(observed);
+        builder.append("; expected: ").append(expected);
         return builder.toString();
     }
 

@@ -1,17 +1,33 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.sax;
 
-import org.grobid.core.data.Affiliation;
-import org.grobid.core.data.BiblioItem;
-import org.grobid.core.data.Person;
+import java.util.ArrayList;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.ArrayList;
+import org.grobid.core.data.Affiliation;
+import org.grobid.core.data.BiblioItem;
+import org.grobid.core.data.Person;
 
 /**
  * SAX parser for the NLM XML format - the PubMed XML full text format.
- * This class covers only the header of the NLM file. 
+ * This class covers only the header of the NLM file.
  *
  * @author Patrice Lopez
  */
@@ -23,7 +39,7 @@ public class NLMHeaderSaxHandler extends DefaultHandler {
     private Person author = null;
     private Affiliation affiliation = null;
     private StringBuffer accumulator = new StringBuffer(); // Accumulate parsed text
-    private String media = null; // print or electronic, for ISSN 
+    private String media = null; // print or electronic, for ISSN
     private String current_id = null;
 
     public boolean journalMetadataBlock = false;
@@ -51,10 +67,10 @@ public class NLMHeaderSaxHandler extends DefaultHandler {
     public NLMHeaderSaxHandler(BiblioItem b) {
         biblio = b;
     }
-	
-	public BiblioItem getBiblio() {
-		return biblio;
-	}
+
+    public BiblioItem getBiblio() {
+        return biblio;
+    }
 
     public void characters(char[] ch, int start, int length) {
         accumulator.append(ch, start, length);
@@ -64,7 +80,8 @@ public class NLMHeaderSaxHandler extends DefaultHandler {
         return accumulator.toString().trim();
     }
 
-    public void endElement(java.lang.String uri, java.lang.String localName, java.lang.String qName) throws SAXException {
+    public void endElement(java.lang.String uri, java.lang.String localName, java.lang.String qName)
+            throws SAXException {
         if (qName.equals("journal-title")) {
             biblio.setJournal(getText());
             biblio.setItem(BiblioItem.Periodical);
@@ -210,18 +227,19 @@ public class NLMHeaderSaxHandler extends DefaultHandler {
         accumulator.setLength(0);
     }
 
-    public void startElement(String namespaceURI,
-                             String localName,
-                             String qName,
-                             Attributes atts)
+    public void startElement(
+            String namespaceURI,
+            String localName,
+            String qName,
+            Attributes atts)
             throws SAXException {
 
         if (qName.equals("article")) {
             int length = atts.getLength();
-			
-			if (biblio == null) {
-				biblio = new BiblioItem();
-			}
+
+            if (biblio == null) {
+                biblio = new BiblioItem();
+            }
 
             // Process each attribute
             for (int i = 0; i < length; i++) {
@@ -338,6 +356,4 @@ public class NLMHeaderSaxHandler extends DefaultHandler {
         accumulator.setLength(0);
     }
 
-
 }
-

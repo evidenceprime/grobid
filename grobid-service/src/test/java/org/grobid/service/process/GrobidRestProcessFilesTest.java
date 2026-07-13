@@ -1,95 +1,147 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.service.process;
 
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.nullable;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.io.File;
+import java.util.List;
+
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.easymock.EasyMock;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+
 import org.grobid.core.document.Document;
 import org.grobid.core.document.DocumentSource;
 import org.grobid.core.visualization.BlockVisualizer;
 import org.grobid.core.visualization.CitationsVisualizer;
 import org.grobid.core.visualization.FigureTableVisualizer;
 import org.grobid.service.util.GrobidRestUtils;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.api.easymock.PowerMock;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
 
-import java.io.File;
-import java.util.List;
-
-import static org.easymock.EasyMock.*;
-
-@RunWith(PowerMockRunner.class)
-@PrepareForTest({CitationsVisualizer.class, BlockVisualizer.class, FigureTableVisualizer.class})
 public class GrobidRestProcessFilesTest {
-
-//    static {
-//        JerseyGuiceUtils.install((s, serviceLocator) -> null);
-//    }
 
     DocumentSource documentSourceMock;
     GrobidRestProcessFiles target;
 
     @Before
     public void setUp() {
-        documentSourceMock = createMock(DocumentSource.class);
+        documentSourceMock = mock(DocumentSource.class);
         target = new GrobidRestProcessFiles();
     }
 
     @Test
     public void dispatchProcessing_selectionCitation_shouldWork() throws Exception {
-        PowerMock.mockStatic(CitationsVisualizer.class);
+        try (MockedStatic<CitationsVisualizer> citationsVisualizer = Mockito.mockStatic(CitationsVisualizer.class)) {
+            citationsVisualizer.when(
+                    () -> CitationsVisualizer.annotatePdfWithCitations(
+                            nullable(PDDocument.class),
+                            nullable(Document.class),
+                            nullable(List.class)))
+                    .thenReturn(null);
 
-        expect(CitationsVisualizer.annotatePdfWithCitations(anyObject(PDDocument.class), anyObject(Document.class), anyObject(List.class))).andReturn(null);
+            target.dispatchProcessing(
+                    GrobidRestUtils.Annotation.CITATION,
+                    null,
+                    null,
+                    null);
 
-        PowerMock.replay(CitationsVisualizer.class);
-
-        target.dispatchProcessing(GrobidRestUtils.Annotation.CITATION,
-                null, null, null);
-
-        PowerMock.verify(CitationsVisualizer.class);
+            citationsVisualizer.verify(
+                    () -> CitationsVisualizer.annotatePdfWithCitations(
+                            nullable(PDDocument.class),
+                            nullable(Document.class),
+                            nullable(List.class)));
+        }
     }
 
     @Test
     public void dispatchProcessing_selectionBlock_shouldWork() throws Exception {
-        PowerMock.mockStatic(BlockVisualizer.class);
+        try (MockedStatic<BlockVisualizer> blockVisualizer = Mockito.mockStatic(BlockVisualizer.class)) {
+            blockVisualizer.when(
+                    () -> BlockVisualizer.annotateBlocks(
+                            nullable(PDDocument.class),
+                            nullable(File.class),
+                            nullable(Document.class),
+                            anyBoolean(),
+                            anyBoolean(),
+                            anyBoolean()))
+                    .thenReturn(null);
 
-        expect(BlockVisualizer.annotateBlocks((PDDocument) anyObject(), EasyMock.<File>anyObject(), EasyMock.<Document>anyObject(),
-                anyBoolean(), anyBoolean(), anyBoolean())).andReturn(null);
+            File fakeFile = File.createTempFile("justForTheTest", "baomiao");
+            fakeFile.deleteOnExit();
+            when(documentSourceMock.getXmlFile()).thenReturn(fakeFile);
 
-        File fakeFile = File.createTempFile("justForTheTest", "baomiao");
-        fakeFile.deleteOnExit();
-        expect(documentSourceMock.getXmlFile()).andReturn(fakeFile);
+            target.dispatchProcessing(
+                    GrobidRestUtils.Annotation.BLOCK,
+                    null,
+                    documentSourceMock,
+                    null);
 
-        PowerMock.replay(BlockVisualizer.class);
-        replay(documentSourceMock);
-
-        target.dispatchProcessing(GrobidRestUtils.Annotation.BLOCK,
-                null, documentSourceMock, null);
-
-        PowerMock.verify(BlockVisualizer.class);
-        verify(documentSourceMock);
+            blockVisualizer.verify(
+                    () -> BlockVisualizer.annotateBlocks(
+                            nullable(PDDocument.class),
+                            nullable(File.class),
+                            nullable(Document.class),
+                            anyBoolean(),
+                            anyBoolean(),
+                            anyBoolean()));
+            Mockito.verify(documentSourceMock).getXmlFile();
+        }
     }
 
     @Test
     public void dispatchProcessing_selectionFigure_shouldWork() throws Exception {
-        PowerMock.mockStatic(FigureTableVisualizer.class);
+        try (MockedStatic<FigureTableVisualizer> figureTableVisualizer = Mockito
+                .mockStatic(FigureTableVisualizer.class)) {
+            File fakeFile = File.createTempFile("justForTheTest", "baomiao");
+            fakeFile.deleteOnExit();
+            figureTableVisualizer.when(
+                    () -> FigureTableVisualizer.annotateFigureAndTables(
+                            nullable(PDDocument.class),
+                            nullable(File.class),
+                            nullable(Document.class),
+                            anyBoolean(),
+                            anyBoolean(),
+                            anyBoolean(),
+                            anyBoolean(),
+                            anyBoolean()))
+                    .thenReturn(null);
+            when(documentSourceMock.getXmlFile()).thenReturn(fakeFile);
 
-        File fakeFile = File.createTempFile("justForTheTest", "baomiao");
-        fakeFile.deleteOnExit();
-        expect(FigureTableVisualizer.annotateFigureAndTables(anyObject(), EasyMock.anyObject(),
-                EasyMock.anyObject(), anyBoolean(), anyBoolean(), anyBoolean(), anyBoolean(), anyBoolean()))
-                .andReturn(null);
-        expect(documentSourceMock.getXmlFile()).andReturn(fakeFile);
+            target.dispatchProcessing(
+                    GrobidRestUtils.Annotation.FIGURE,
+                    null,
+                    documentSourceMock,
+                    null);
 
-        PowerMock.replay(FigureTableVisualizer.class);
-        replay(documentSourceMock);
-
-        target.dispatchProcessing(GrobidRestUtils.Annotation.FIGURE,
-                null, documentSourceMock, null);
-
-        PowerMock.verify(FigureTableVisualizer.class);
-        verify(documentSourceMock);
+            figureTableVisualizer.verify(
+                    () -> FigureTableVisualizer.annotateFigureAndTables(
+                            nullable(PDDocument.class),
+                            nullable(File.class),
+                            nullable(Document.class),
+                            anyBoolean(),
+                            anyBoolean(),
+                            anyBoolean(),
+                            anyBoolean(),
+                            anyBoolean()));
+            Mockito.verify(documentSourceMock).getXmlFile();
+        }
     }
 }

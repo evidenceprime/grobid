@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Yisa</forename>
+								 <surname>Ginath</surname>
+								<forename>Yuh</forename> ID
+								<marker>1,2 *</marker>,
+							</persName>
+							<persName>
+								<forename>Kouame ´</forename>
+								<middlename>Paul</middlename>
+								<surname>N&apos;Goran</surname> ID
+								<marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Angela</forename>
+								 <surname>Kross</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Marco</forename>
+								 <surname>Heurich</surname>
+								 <marker>3,4</marker> ,
+							</persName>
+							<persName>
+								 <forename>H</forename>.
+								 <middlename>Damon</middlename>
+								 <surname>Matthews</surname>
+								 <marker>1 ‡</marker> ,
+							</persName>
+							<persName>
+								 <forename>Sarah</forename>
+								 <middlename>E</middlename>.
+								 <surname>Turner</surname>
+								 <marker>1 ‡</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

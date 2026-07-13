@@ -1,10 +1,28 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.layout;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 /**
- * Class for representing an annotation present in a PDF source file. Annotations are area in the PDF document 
+ * Class for representing an annotation present in a PDF source file. Annotations are area in the PDF document
  * associated with an action (URI for external web link, goto for internal document link).
  *
  */
@@ -12,16 +30,18 @@ public class PDFAnnotation {
     private String destination = null;
     private List<BoundingBox> boundingBoxes = null;
 
-    // start position of the block in the original tokenization, if known 
+    // start position of the block in the original tokenization, if known
     private int startToken = -1;
-    // end position of the block in the original tokenization, if known 
+    // end position of the block in the original tokenization, if known
     private int endToken = -1;
 
     // the page in the document where the annotation is located
-	// warning: in PDF, the page numbers start at 1 
+    // warning: in PDF, the page numbers start at 1
     private int pageNumber = -1;
 
-    public enum Type {UNKNOWN, GOTO, URI, GOTOR};
+    public enum Type {
+        UNKNOWN, GOTO, URI, GOTOR
+    };
     private Type type = Type.UNKNOWN; // default
 
     public PDFAnnotation() {
@@ -43,11 +63,11 @@ public class PDFAnnotation {
         boundingBoxes = boxes;
     }
 
-	public void addBoundingBox(BoundingBox box) {
+    public void addBoundingBox(BoundingBox box) {
         if (boundingBoxes == null) {
-        	boundingBoxes = new ArrayList<BoundingBox>();
-        };
-		boundingBoxes.add(box);
+            boundingBoxes = new ArrayList<>();
+        } ;
+        boundingBoxes.add(box);
     }
 
     public int getStartToken() {
@@ -69,75 +89,71 @@ public class PDFAnnotation {
     public int getPageNumber() {
         return pageNumber;
     }
-    
+
     public void setPageNumber(int pageNumber) {
         this.pageNumber = pageNumber;
     }
 
     public boolean isNull() {
-        if ( (boundingBoxes == null) && (startToken == -1) && (endToken == -1) && (type == null) ) {
-            return true;
-        }
-        else 
-            return false;
+        return (boundingBoxes == null) && (startToken == -1) && (endToken == -1) && (type == null);
     }
 
-	public String getDestination() {
-		return destination;
-	}
-	
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
 
     @Override
     public String toString() {
-        String res = "PDFAnnotation{" +
-				", pageNumber=" + pageNumber +
-                ", startToken=" + startToken +
-                ", endToken=" + endToken +
-                ", type=" + type;
-        if (boundingBoxes != null)
-            res += ", boundingBoxes=" + boundingBoxes.toString() + '}';
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("type", type)
+                .append("destination", destination)
+                .append("pageNumber", pageNumber)
+                .append("startToken", startToken)
+                .append("endToken", endToken)
+                .append("boundingBoxes", boundingBoxes)
+                .toString();
+    }
+
+    /**
+      * Return true if the annotation covers the given LayoutToken, based on their
+      * respective coordinates.
+      */
+    public boolean cover(LayoutToken token) {
+        if (token == null)
+            return false;
+        boolean res = false;
+        // do we have an entity annotation at this location?
+        // we need to check the coordinates
+        int pageToken = token.getPage();
+        if (pageToken == pageNumber && boundingBoxes != null) {
+            BoundingBox tokenBox = BoundingBox.fromLayoutToken(token);
+            for (BoundingBox box : boundingBoxes) {
+                if (box.intersect(tokenBox)) {
+                    // bounding boxes are at least touching, but we need to further check if we
+                    // have also a significant surface covered
+                    if (box.contains(tokenBox)) {
+                        res = true;
+                        break;
+                    }
+                    double areaToken = tokenBox.area();
+                    // the bounding box of the intersection
+                    BoundingBox intersectionBox = box.boundingBoxIntersection(tokenBox);
+                    if (intersectionBox != null) {
+                        double intersectionArea = intersectionBox.area();
+                        if (intersectionArea > (areaToken / 4)) {
+                            res = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         return res;
     }
-	
-	/**
-	  * Return true if the annotation covers the given LayoutToken, based on their
-	  * respective coordinates.
-	  */
-	public boolean cover(LayoutToken token) {
-		if (token == null)
-			return false;
-		boolean res = false;
-		// do we have an entity annotation at this location?
-		// we need to check the coordinates
-		int pageToken = token.getPage();
-		if (pageToken == pageNumber) {
-			BoundingBox tokenBox = BoundingBox.fromLayoutToken(token);
-			for(BoundingBox box : boundingBoxes) {
-				if (box.intersect(tokenBox)) {
-					// bounding boxes are at least touching, but we need to further check if we 
-					// have also a significant surface covered 
-					if (box.contains(tokenBox)) {
-						res = true;
-						break;
-					}
-					double areaToken = tokenBox.area();
-					// the bounding box of the intersection
-					BoundingBox intersectionBox = box.boundingBoxIntersection(tokenBox);
-					if (intersectionBox != null) {
-						double intersectionArea = intersectionBox.area();
-						if (intersectionArea > (areaToken / 4)) {
-							res = true;
-							break;
-						}
-					}
-				}
-			}
-		}
-		return res;
-	}
 
     /**
      * Return the intersection box between token and annotation
@@ -147,9 +163,9 @@ public class PDFAnnotation {
             return null;
         BoundingBox intersectBox = null;
         int pageToken = token.getPage();
-        if (pageToken == pageNumber) {
+        if (pageToken == pageNumber && boundingBoxes != null) {
             BoundingBox tokenBox = BoundingBox.fromLayoutToken(token);
-            for(BoundingBox box : boundingBoxes) {
+            for (BoundingBox box : boundingBoxes) {
                 if (box.intersect(tokenBox)) {
                     if (box.contains(tokenBox)) {
                         intersectBox = tokenBox;

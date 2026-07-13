@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="institution">Universite ´Paris Cite ´</orgName>,
+							<orgName type="institution">Institut Pasteur</orgName>,
+							<orgName type="department">Unite ´Biologie des ARN des Pathogènes Fongiques</orgName>,
+							<orgName type="department">De ´partement de<lb/> Mycologie</orgName>,
+							<address>
+								<settlement>Paris</settlement>,
+								<country>France</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="institution">Universite ´Paris Cite ´</orgName>,
+							<orgName type="institution">Institut Pasteur</orgName>,
+							<orgName type="institution">HUB Bioinformatique et Biostatistique</orgName>,
+							<lb/>
+							<orgName type="laboratory">C3BI, USR 3756 IP CNRS</orgName>,
+							<address>
+								<settlement>Paris</settlement>,
+								<country>France</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="institution">Ecole Pratique des Hautes Etudes</orgName>,
+							<orgName type="institution">PSL Research University</orgName>,
+							<lb/>
+							<address>
+								<settlement>Paris</settlement>,
+								<country>France</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">Institute of Microbiology and Infection and School of Biosciences</orgName>,
+							<orgName type="institution">University of Birmingham</orgName>,
+							<lb/>
+							<address>
+								<settlement>Birmingham</settlement>,
+								<country>United Kingdom</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="institution">Universite ´Paris Cite ´</orgName>,
+							<orgName type="laboratory">SFR Necker INSERM US24/CNRS UAR3633, Proteomics Platform</orgName>,
+							<lb/>
+							<address>
+								<settlement>Paris</settlement>,
+								<country>France</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤a</marker> Current address:
+							<orgName type="institution">TUD Dresden University of Technology</orgName>,
+							<address>
+								<settlement>Dresden</settlement>,
+								<country>Germany</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤b</marker> Current address:
+							<orgName type="laboratory">Molecular Mycology and Immunity Section</orgName>,
+							<orgName type="laboratory">Laboratory of Host Immunity and<lb/> Microbiome</orgName>,
+							<orgName type="institution">National Institute of Allergy and Infectious Diseases (NIAID)</orgName>,
+							<orgName type="institution">National Institutes of Health</orgName>,
+							<lb/>
+							<address>
+								<settlement>Bethesda</settlement>,
+								<region>Maryland</region>,
+								<country>United States of America</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">University of<lb/> Georgia</orgName>,
+							<address>
+								<country>UNITED STATES OF AMERICA</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

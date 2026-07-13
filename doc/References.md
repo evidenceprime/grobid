@@ -3,7 +3,7 @@
 If you want to cite this work, please simply refer to the github project:
 
 ```
-GROBID (2008-2024) <https://github.com/kermitt2/grobid>
+GROBID (2008-2025) <https://github.com/grobidOrg/grobid>
 ```
 
 Please do not include a particular person name to emphasize the project and the tool ! 
@@ -15,9 +15,9 @@ Here's a BibTeX entry using the [Software Heritage](https://www.softwareheritage
 ```bibtex
 @misc{GROBID,
     title = {GROBID},
-    howpublished = {\url{https://github.com/kermitt2/grobid}},
+    howpublished = {\url{https://github.com/grobidOrg/grobid}},
     publisher = {GitHub},
-    year = {2008--2024},
+    year = {2008--2025},
     archivePrefix = {swh},
     eprint = {1:dir:dab86b296e3c3216e2241968f0d63b68e8209d3c}
 }
@@ -55,7 +55,7 @@ For archeological purposes, the following first paper has been the main motivati
 
 - Fuchun Peng and Andrew McCallum. [Accurate Information Extraction from Research Papers using Conditional Random Fields](https://www.aclweb.org/anthology/N04-1042.pdf). Proceedings of Human Language Technology Conference and North American Chapter of the Association for Computational Linguistics (HLT-NAACL), 2004.
 
-- Isaac G. Councill, C. Lee Giles, Min-Yen Kan. [ParsCit: An open-source CRF reference string parsing package](http://www.lrec-conf.org/proceedings/lrec2008/pdf/166_paper.pdf). In Proceedings of the Language Resources and Evaluation Conference (LREC), Marrakesh, Morrocco, 2008.
+- Isaac G. Councill, C. Lee Giles, Min-Yen Kan. [ParsCit: An open-source CRF reference string parsing package](http://www.lrec-conf.org/proceedings/lrec2008/pdf/166_paper.pdf). In Proceedings of the Language Resources and Evaluation Conference (LREC), Marrakesh, Morocco, 2008.
 
 ## Datasets
 

@@ -1,0 +1,131 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T17:03:04.544Z">12/3/2025 5:03:04 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T17:02:50.313521Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T17:02:50.313521Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Retinoic acid signaling regulates<lb/> spatiotemporal specification of human green<lb/> and red cones<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Sarah E. Hadyniak 1 , Joanna F. D. Hagen 1☯ , Kiara C. Eldred 1,2☯ , Boris Brenerman 1 ,<lb/> Katarzyna A. Hussey 1 , Rajiv C. McCoy 1 , Michael E. G. Sauria 1 , James A. Kuchenbecker 3 ,<lb/> Thomas Reh 2 , Ian Glass 2 , Maureen Neitz 3 , Jay Neitz 3 , James Taylor 1 † , Robert J. Johnston,<lb/> JrID 1 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Biology, Johns Hopkins University,</affiliation>
+	</byline>
+
+	<address>Baltimore, Maryland, United States,</address>
+
+	<byline>
+	<affiliation>2 Department of<lb/> Biological Structure, University of Washington,</affiliation>
+	</byline>
+
+	<address>Seattle, Washington State, United States,</address>
+
+	<byline>
+	<affiliation>3 Department of<lb/> Ophthalmology, University of Washington,</affiliation>
+	</byline>
+
+	<address>Seattle, Washington State, United States<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> † Deceased.<lb/> *
+	<email>robertjohnston@jhu.edu</email>
+
+	Abstract<lb/>
+	<div type="abstract">Trichromacy is unique to primates among placental mammals, enabled by blue (short/S),<lb/> green (medium/M), and red (long/L) cones. In humans, great apes, and Old World monkeys,<lb/> cones make a poorly understood choice between M and L cone subtype fates. To determine<lb/> mechanisms specifying M and L cones, we developed an approach to visualize expression<lb/> of the highly similar M-and L-opsin mRNAs. M-opsin was observed before L-opsin expres-<lb/>sion during early human eye development, suggesting that M cones are generated before L<lb/> cones. In adult human tissue, the early-developing central retina contained a mix of M and L<lb/> cones compared to the late-developing peripheral region, which contained a high proportion<lb/> of L cones. Retinoic acid (RA)-synthesizing enzymes are highly expressed early in retinal<lb/> development. High RA signaling early was sufficient to promote M cone fate and suppress L<lb/> cone fate in retinal organoids. Across a human population sample, natural variation in the<lb/> ratios of M and L cone subtypes was associated with a noncoding polymorphism in the<lb/> NR2F2 gene, a mediator of RA signaling. Our data suggest that RA promotes M cone fate<lb/> early in development to generate the pattern of M and L cones across the human retina.<lb/></div>
+
+	<reference>PLOS Biology | https://doi.org/10.1371/journal.pbio.3002464 January 11, 2024<lb/></reference>
+
+	<page>1 / 28<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Hadyniak SE, Hagen JFD, Eldred KC,<lb/> Brenerman B, Hussey KA, McCoy RC, et al. (2024)<lb/> Retinoic acid signaling regulates spatiotemporal<lb/> specification of human green and red cones. PLoS<lb/> Biol 22(1): e3002464.</reference>
+
+	<idno>https://doi.org/10.1371/<lb/> journal.pbio.3002464<lb/></idno>
+
+	Academic Editor:
+	<editor>Tom Baden,</editor>
+
+	<byline>
+	<affiliation>University of<lb/> Sussex,</affiliation>
+	</byline>
+
+	<address>UNITED KINGDOM<lb/></address>
+
+	<note type="submission">Received: February 4, 2023<lb/> Accepted: December 6, 2023<lb/></note>
+
+	Published:
+	<date>January 11, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pbio.3002464<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Hadyniak et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">Bulk organoid, WERI-<lb/>Rb-1 RNA sequencing, and association study<lb/> sequencing and genotype data are available upon<lb/> request from Johns Hopkins University Data<lb/> Services (dataservices@jhu.edu). These data have<lb/> not been deposited to a publicly available<lb/> repository because patients involved in the<lb/> association study did not consent to include the<lb/> release of raw sequencing or genotype data. The<lb/> pipeline to analyze the M-versus L-opsin pileups is<lb/> available at https://github.com/bbrener1/johnston_<lb/> retina. The pipeline to analyze the association data<lb/> is available at https://github.com/bxlab/2018.09.<lb/> 01_Eldred_GWAS/releases/tag/v1.0. All other<lb/> relevant data are within the paper and its<lb/> Supporting Information files. All reagents are<lb/> available upon request to the authors which can be<lb/> directed to Robert Johnston Jr.<lb/> ( robertjohnston@jhu.edu ). There are restrictions to<lb/> the availability of cell lines listed in Table 1 due to<lb/> Material Transfer Agreement (MTA).<lb/></note>
+			
+	Funding:
+	<note type="funding">S.E.H. was an F31 Ruth L. Kirschstein<lb/> NRSA Fellow and supported by the National Eye<lb/> Institute under grant 5F31EY029157-02. J.F.D.H<lb/> was supported by the EMBO Postdoctoral<lb/> Fellowship ALTF 318-2021. K.C.E. was supported<lb/> by the HHMI Gilliam Fellowship, the National<lb/> Science Foundation Graduate Research Fellowship<lb/> Program under grant 174689, the Damon Runyon<lb/> Cancer Research Foundation (DRG-# 32-20), and<lb/> the Hanna H. Gray Fellows Program Award from<lb/> the HHMI (GT15994). K.A.H. was supported by the<lb/> National Science Foundation Graduate Research<lb/> Fellowship Program under grant 1746891. R.C.M.<lb/> was supported by R35GM133747 from NIH/<lb/> NIGMS. M.N. and J.N. were supported by NEI<lb/> grants R01EY021242 and P30EY001730, and<lb/> unrestricted funds from Research to Prevent<lb/> Blindness to ophthalmology at UW. R.J.J. was<lb/> supported by the National Eye Institute<lb/> R01EY030872, the BrightFocus foundation<lb/> G2019300, and MSCRF 140841.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+	Abbreviations: ALDH, aldehyde dehydrogenase;<lb/> ATRA, all-trans retinoic acid; CPM, counts per<lb/> million; ERG, electroretinogram; FP-ERG, flicker-<lb/>photometric electroretinogram; LCR, locus control<lb/> region; LD, linkage disequilibrium; NDRI, National<lb/> Disease Research Interchange; NRL, neural retina<lb/> leucine; ONL, outer nuclear layer; RA, retinoic acid;<lb/> SEM, standard error of the mean; THRB, thyroid<lb/> hormone receptor beta; TPM, transcripts per<lb/> million.
+
+		</front>
+	</text>
+
+</TEI>

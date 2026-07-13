@@ -1,14 +1,28 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.sax;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
 
 public class TEISegmentationArticleLightSaxParser extends TEISegmentationSaxParser {
 
@@ -20,7 +34,7 @@ public class TEISegmentationArticleLightSaxParser extends TEISegmentationSaxPars
     private String upperQname = null;
     private String upperTag = null;
     private List<String> labeled = null; // store line by line the labeled data
-
+    private boolean inTeiHeader = false; // flag to track when we're inside teiHeader
 
     public TEISegmentationArticleLightSaxParser() {
         labeled = new ArrayList<String>();
@@ -29,6 +43,9 @@ public class TEISegmentationArticleLightSaxParser extends TEISegmentationSaxPars
     }
 
     public void characters(char[] buffer, int start, int length) {
+        if (this.inTeiHeader) {
+            return;
+        }
         accumulator.append(buffer, start, length);
     }
 
@@ -45,40 +62,59 @@ public class TEISegmentationArticleLightSaxParser extends TEISegmentationSaxPars
         return labeled;
     }
 
-    public void endElement(java.lang.String uri,
-                           java.lang.String localName,
-                           java.lang.String qName) throws SAXException {
+    public void endElement(
+            String uri,
+            String localName,
+            String qName) throws SAXException {
+        if (qName.equals("teiHeader")) {
+            inTeiHeader = false;
+            return;
+        }
+
+        if (inTeiHeader) {
+            // Skip processing of all content inside teiHeader
+            return;
+        }
+
         if ((!qName.equals("lb")) && (!qName.equals("pb"))) {
             writeData(qName, currentTag);
         }
         if (qName.equals("body") ||
-            qName.equals("cover") ||
-            qName.equals("front") ||
-            qName.equals("div") ||
-            qName.equals("toc") ||
-            qName.equals("other") ||
-            qName.equals("listBibl")) {
+                qName.equals("cover") ||
+                qName.equals("front") ||
+                qName.equals("div") ||
+                qName.equals("toc") ||
+                qName.equals("other") ||
+                qName.equals("listBibl")) {
             currentTag = null;
             upperTag = null;
         } else if (qName.equals("note") ||
-            qName.equals("page") ||
-            qName.equals("pages") ||
-            qName.equals("titlePage") ) {
+                qName.equals("page") ||
+                qName.equals("pages") ||
+                qName.equals("titlePage")) {
             currentTag = upperTag;
         }
     }
 
-    public void startElement(String namespaceURI,
-                             String localName,
-                             String qName,
-                             Attributes atts)
-        throws SAXException {
+    public void startElement(
+            String namespaceURI,
+            String localName,
+            String qName,
+            Attributes atts)
+            throws SAXException {
+        if (inTeiHeader) {
+            // Skip processing of all elements inside teiHeader
+            return;
+        }
+
         if (qName.equals("lb")) {
             accumulator.append(" +L+ ");
         } else if (qName.equals("pb")) {
             accumulator.append(" +PAGE+ ");
         } else if (qName.equals("space")) {
             accumulator.append(" ");
+        } else if (qName.equals("teiHeader")) {
+            inTeiHeader = true;
         } else {
             // we have to write first what has been accumulated yet with the upper-level tag
             String text = getText();
@@ -121,7 +157,7 @@ public class TEISegmentationArticleLightSaxParser extends TEISegmentationSaxPars
                 currentTag = "<body>";
                 upperTag = null;
                 upperQname = "body";
-            }else if (qName.equals("div")) {
+            } else if (qName.equals("div")) {
                 currentTag = "<body>";
                 upperTag = currentTag;
                 upperQname = "body";
@@ -135,10 +171,9 @@ public class TEISegmentationArticleLightSaxParser extends TEISegmentationSaxPars
             surfaceTag = "<other>";
         }
         if ((qName.equals("front")) || (qName.equals("titlePage")) || (qName.equals("note")) ||
-            (qName.equals("page")) || (qName.equals("pages")) || (qName.equals("body")) ||
-            (qName.equals("listBibl")) || (qName.equals("div")) ||
-            (qName.equals("other")) || (qName.equals("toc"))
-        ) {
+                (qName.equals("page")) || (qName.equals("pages")) || (qName.equals("body")) ||
+                (qName.equals("listBibl")) || (qName.equals("div")) ||
+                (qName.equals("other")) || (qName.equals("toc"))) {
             String text = getText();
             text = text.replace("\n", " ");
             text = text.replace("\r", " ");

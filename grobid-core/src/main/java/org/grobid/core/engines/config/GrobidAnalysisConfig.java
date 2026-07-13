@@ -1,8 +1,24 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines.config;
 
 import java.io.File;
 import java.util.List;
 
+import org.grobid.core.GrobidModels;
 import org.grobid.core.analyzers.Analyzer;
 
 /**
@@ -24,9 +40,9 @@ import org.grobid.core.analyzers.Analyzer;
  * generateIDs if true, generate random attribute id on the textual elements of
  * the resulting TEI
  * generateTeiCoordinates give the list of TEI elements for which the coordinates
- * of the corresponding element in the original PDF should be included in the 
+ * of the corresponding element in the original PDF should be included in the
  * resulting TEI
- * analyzer in case a particular Grobid Analyzer to be used for 
+ * analyzer in case a particular Grobid Analyzer to be used for
  * tokenizing/filtering text
  */
 public class GrobidAnalysisConfig {
@@ -59,6 +75,9 @@ public class GrobidAnalysisConfig {
     // if the raw copyrights/license string should be included in the parsed results
     private boolean includeRawCopyrights = false;
 
+    //if the text marked as <other> in fulltext and header should be retained
+    private boolean includeDiscardedText = false;
+
     /// === TEI-specific settings ==
 
     // if true, generate random attribute id on the textual elements of
@@ -87,8 +106,22 @@ public class GrobidAnalysisConfig {
     // a particular Grobid Analyzer to be used for tokenizing/filtering text
     private Analyzer analyzer = null;
 
-    // if true, the TEI text will be segmented into sentences 
+    // if true, the TEI text will be segmented into sentences
     private boolean withSentenceSegmentation = false;
+
+    // when non-null, parsers append their raw CRF labelling output to this collector
+    // so the REST layer can return it in debug mode instead of the TEI XML
+    private DebugLabelingCollector debugLabelingCollector = null;
+
+    public boolean isIncludeDiscardedText() {
+        return includeDiscardedText;
+    }
+
+    public void setIncludeDiscardedText(boolean includeDiscardedText) {
+        this.includeDiscardedText = includeDiscardedText;
+    }
+
+    private String flavor = null;
 
     // BUILDER
 
@@ -136,6 +169,11 @@ public class GrobidAnalysisConfig {
 
         public GrobidAnalysisConfigBuilder includeRawCopyrights(boolean rawCopyrights) {
             config.includeRawCopyrights = rawCopyrights;
+            return this;
+        }
+
+        public GrobidAnalysisConfigBuilder includeDiscardedText(boolean includeDiscardedText) {
+            config.includeDiscardedText = includeDiscardedText;
             return this;
         }
 
@@ -189,6 +227,18 @@ public class GrobidAnalysisConfig {
             return this;
         }
 
+        public GrobidAnalysisConfigBuilder flavor(GrobidModels.Flavor a) {
+            if (a != null) {
+                config.flavor = a.getLabel();
+            }
+            return this;
+        }
+
+        public GrobidAnalysisConfigBuilder debugLabelingCollector(DebugLabelingCollector collector) {
+            config.debugLabelingCollector = collector;
+            return this;
+        }
+
         public GrobidAnalysisConfig build() {
             postProcessAndValidate();
             return config;
@@ -200,7 +250,8 @@ public class GrobidAnalysisConfig {
             }
 
             if (config.generateImageReferences && config.getPdfAssetPath() == null) {
-                throw new InvalidGrobidAnalysisConfig("Generating image references is switched on, but no pdf asset path is provided");
+                throw new InvalidGrobidAnalysisConfig(
+                        "Generating image references is switched on, but no pdf asset path is provided");
             }
         }
 
@@ -216,6 +267,25 @@ public class GrobidAnalysisConfig {
 
     public static GrobidAnalysisConfig defaultInstance() {
         return new GrobidAnalysisConfig();
+    }
+
+    public String toStringTEI() {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("startPage=").append(startPage);
+        sb.append(", endPage=").append(endPage);
+        sb.append(", consolidateCitations=").append(consolidateCitations);
+        sb.append(", consolidateHeader=").append(consolidateHeader);
+        sb.append(", consolidateFunders=").append(consolidateFunders);
+        sb.append(", includeRawAffiliations=").append(includeRawAffiliations);
+        sb.append(", includeRawCitations=").append(includeRawCitations);
+        sb.append(", includeRawCopyrights=").append(includeRawCopyrights);
+        sb.append(", generateTeiIds=").append(generateTeiIds);
+        sb.append(", generateTeiCoordinates=").append(generateTeiCoordinates);
+        sb.append(", flavor=").append(flavor);
+        sb.append(", debugLabelingCollector=").append(debugLabelingCollector != null ? "enabled" : "disabled");
+
+        return sb.toString();
     }
 
     public int getStartPage() {
@@ -259,7 +329,7 @@ public class GrobidAnalysisConfig {
     }
 
     public boolean isGenerateTeiCoordinates() {
-        return getGenerateTeiCoordinates() != null && getGenerateTeiCoordinates().size()>0;
+        return getGenerateTeiCoordinates() != null && getGenerateTeiCoordinates().size() > 0;
     }
 
     public boolean isGenerateTeiCoordinates(String type) {
@@ -292,5 +362,13 @@ public class GrobidAnalysisConfig {
 
     public boolean isWithSentenceSegmentation() {
         return withSentenceSegmentation;
+    }
+
+    public String getFlavor() {
+        return flavor;
+    }
+
+    public DebugLabelingCollector getDebugLabelingCollector() {
+        return debugLabelingCollector;
     }
 }

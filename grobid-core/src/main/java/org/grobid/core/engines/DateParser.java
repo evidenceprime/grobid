@@ -1,10 +1,37 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines;
+
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+
 import org.grobid.core.GrobidModel;
 import org.grobid.core.GrobidModels;
 import org.grobid.core.data.Date;
+import org.grobid.core.engines.config.GrobidAnalysisConfig;
 import org.grobid.core.engines.label.TaggingLabel;
 import org.grobid.core.engines.label.TaggingLabels;
 import org.grobid.core.exceptions.GrobidException;
@@ -15,16 +42,6 @@ import org.grobid.core.tokenization.TaggingTokenCluster;
 import org.grobid.core.tokenization.TaggingTokenClusteror;
 import org.grobid.core.utilities.LayoutTokensUtil;
 import org.grobid.core.utilities.TextUtilities;
-
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.StringTokenizer;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
 public class DateParser extends AbstractParser {
 
@@ -37,7 +54,7 @@ public class DateParser extends AbstractParser {
     DateParser(GrobidModel model) {
         super(model);
     }
-    
+
     /**
      * Deprecated, @Use process(String input)
      **/
@@ -45,8 +62,13 @@ public class DateParser extends AbstractParser {
     public List<Date> processing(String input) {
         return process(input);
     }
-    
+
     public List<Date> process(String input) {
+        warnIfDebugUncaptured("DateParser.process(String)");
+        return process(input, null);
+    }
+
+    public List<Date> process(String input, GrobidAnalysisConfig config) {
         List<String> dateBlocks = new ArrayList<>();
         // force English language for the tokenization only
         List<String> tokenizations = analyzer.tokenize(input, new Language("en", 1.0));
@@ -54,46 +76,57 @@ public class DateParser extends AbstractParser {
             return null;
         }
 
-        for(String tok : tokenizations) {
+        for (String tok : tokenizations) {
             if (!" ".equals(tok) && !"\n".equals(tok)) {
                 // para final sanitisation
-                tok = NEWLINE_REGEX_PATTERN.matcher(tok).replaceAll( "");
+                tok = NEWLINE_REGEX_PATTERN.matcher(tok).replaceAll("");
                 dateBlocks.add(tok + " <date>");
             }
         }
-        
-        return processCommon(dateBlocks);
+
+        return processCommon(dateBlocks, config);
     }
 
     public List<Date> process(List<LayoutToken> input) {
+        warnIfDebugUncaptured("DateParser.process(List<LayoutToken>)");
+        return process(input, null);
+    }
+
+    public List<Date> process(List<LayoutToken> input, GrobidAnalysisConfig config) {
         List<String> dateBlocks = new ArrayList<>();
-        for(LayoutToken tok : input) {
+        for (LayoutToken tok : input) {
             if (!" ".equals(tok.getText()) && !"\n".equals(tok.getText())) {
                 // para final sanitisation
                 String normalizedText = tok.getText().replaceAll("[ \n]", "");
                 dateBlocks.add(normalizedText + " <date>");
-            } 
+            }
         }
 
-        return processCommon(dateBlocks);
+        return processCommon(dateBlocks, config);
     }
-    
+
     protected List<Date> processCommon(List<String> input) {
+        return processCommon(input, null);
+    }
+
+    protected List<Date> processCommon(List<String> input, GrobidAnalysisConfig config) {
         if (CollectionUtils.isEmpty(input))
             return null;
-        
+
         try {
             String features = FeaturesVectorDate.addFeaturesDate(input);
-            String res = label(features);
+            String res = labelAndCapture(features, config);
 
             List<LayoutToken> tokenization = input.stream()
-                .map(token -> new LayoutToken(token.split(" ")[0]))
-                .collect(Collectors.toList());
-            
+                    .map(token -> new LayoutToken(token.split(" ")[0]))
+                    .collect(Collectors.toList());
+
             // extract results from the processed file
             return resultExtraction(res, tokenization);
         } catch (Exception e) {
-            throw new GrobidException("An exception on " + this.getClass().getName() + " occured while running Grobid.", e);
+            throw new GrobidException(
+                    "An exception on " + this.getClass().getName() + " occurred while running Grobid.",
+                    e);
         }
     }
 
@@ -111,44 +144,44 @@ public class DateParser extends AbstractParser {
             }
             TaggingLabel clusterLabel = cluster.getTaggingLabel();
             Engine.getCntManager().i(clusterLabel);
-            
+
             String clusterText = LayoutTokensUtil.toText(cluster.concatTokens());
             if (clusterLabel.equals(TaggingLabels.DATE_YEAR)) {
                 if (isNotBlank(date.getYearString())) {
-                        if (date.isNotNull()) {
-                            Date normalizedDate = normalizeAndClean(date);
-                            dates.add(normalizedDate);
-                            date = new Date();
-                        }
-                        date.setYearString(clusterText);
+                    if (date.isNotNull()) {
+                        Date normalizedDate = normalizeAndClean(date);
+                        dates.add(normalizedDate);
+                        date = new Date();
+                    }
+                    date.setYearString(clusterText);
 
                 } else {
                     date.setYearString(clusterText);
                 }
             } else if (clusterLabel.equals(TaggingLabels.DATE_DAY)) {
                 if (isNotBlank(date.getDayString())) {
-                        if (date.isNotNull()) {
-                            Date normalizedDate = normalizeAndClean(date);
-                            dates.add(normalizedDate);
-                            date = new Date();
-                        }
-                        date.setDayString(clusterText);
+                    if (date.isNotNull()) {
+                        Date normalizedDate = normalizeAndClean(date);
+                        dates.add(normalizedDate);
+                        date = new Date();
+                    }
+                    date.setDayString(clusterText);
                 } else {
                     date.setDayString(clusterText);
                 }
-               
+
             } else if (clusterLabel.equals(TaggingLabels.DATE_MONTH)) {
                 if (isNotBlank(date.getMonthString())) {
-                        if (date.isNotNull()) {
-                            Date normalizedDate = normalizeAndClean(date);
-                            dates.add(normalizedDate);
-                            date = new Date();
-                        }
-                        date.setMonthString(clusterText);
+                    if (date.isNotNull()) {
+                        Date normalizedDate = normalizeAndClean(date);
+                        dates.add(normalizedDate);
+                        date = new Date();
+                    }
+                    date.setMonthString(clusterText);
                 } else {
                     date.setMonthString(clusterText);
                 }
-            } 
+            }
         }
 
         if (date.isNotNull()) {
@@ -158,40 +191,40 @@ public class DateParser extends AbstractParser {
         return dates;
     }
 
-    public static final Pattern jan =
-            Pattern.compile("([Jj]an$|[Jj]anuary$|[Jj]anvier$|[Jj]annewaori$|[Jj]anuar$|[Ee]nero$|[Jj]anuaro$|[Jj]anuari$|[Jj]aneiro$|[Gg]ennaio$|[Gg]en$|[Oo]cak$|[Jj]a$|(^1$)|(^01$)|(1月))");
-    public static final Pattern feb =
-            Pattern.compile("([Ff]eb$|[Ff]ebruary$|[Ff][eé]vrier$|[Ff]ebruar$|[Ff]ebrewaori$|[Ff]ebrero$|[Ff]evereiro$|[Ff]ebbraio$|[Ll]uty$|[Ss]tyczeń$|Ş$|ubat$|[Ff]e$|^2$|^02$|2月)");
-    public static final Pattern mar =
-            Pattern.compile("([Mm]ar$|[Mm]arch$|[Mm]ars$|[Mm]eert$|[Mm]ärz$|[Mm]arzo$|[Mm]arço$|[Mm]art$|[Mm]a$|[Mm]a$|^3$|^03$|3月)");
-    public static final Pattern apr =
-            Pattern.compile("([Aa]pr$|[Aa]br$|[Aa]vr$|[Aa]pril$|[Aa]vril$|[Aa]pril$|[Aa]prile$|[Aa]bril$|[Nn]isan$|[Aa]p$|^4$|^04$|4月)");
-    public static final Pattern may =
-            Pattern.compile("([Mm]ay$|[Mm]ai$|[Mm]ay$|[Mm]ayıs$|[Mm]ei$|[Mm]aio$|[Mm]aggio$|[Mm]eie$|[Mm]a$|^5$|^05$|5月)");
-    public static final Pattern jun =
-            Pattern.compile("([Jj]un$|[Jj]une$|[Jj]uin$|[Jj]uni$|[Jj]unho$|[Gg]iugno$|[Hh]aziran$|^6$|^06$|6月)");
-    public static final Pattern jul =
-            Pattern.compile("([Jj]ul$|[Jj]uly$|[Jj]uillet$|[Jj]uli$|[Tt]emmuz$|[Ll]uglio$|[Jj]ulho$|^7$|^07$|7月)");
-    public static final Pattern aug =
-            Pattern.compile("([Aa]ug$|[Aa]ugust$|[Aa]o[uû]t$|[Aa]ugust$|[Aa]gosto$|[Aa]ugustus$|[Aa]ğustos$|^8$|^08$|8月)");
-    public static final Pattern sep =
-            Pattern.compile("([Ss]ep$|[Ss]ept$|[Ss]eptember$|[Ss]eptembre$|[Ss]eptember$|[Ss]ettembre$|[Ss]etembro$|[Ee]ylül$|^9$|^09$|9月)");
-    public static final Pattern oct =
-            Pattern.compile("([Oo]ct$|[Oo]cto$|[Oo]ctober$|[Oo]ctobre$|[Ee]kim$|[Oo]ktober$|[Oo]ttobre$|[Oo]utubro$|^10$|10月)");
-    public static final Pattern nov =
-            Pattern.compile("([Nn]ov$|[Nn]ovember$|[Nn]ovembre$|[Kk]asım$|[Nn]oviembre$|[Nn]ovembro$|^11$|11月)");
-    public static final Pattern dec =
-            Pattern.compile("([Dd]ec$|[Dd]ecember$|[Dd][eé]cembre$|[Dd]iciembre$|[Aa]ralık$|^12$|12月)");
+    public static final Pattern jan = Pattern.compile(
+            "([Jj]an$|[Jj]anuary$|[Jj]anvier$|[Jj]annewaori$|[Jj]anuar$|[Ee]nero$|[Jj]anuaro$|[Jj]anuari$|[Jj]aneiro$|[Gg]ennaio$|[Gg]en$|[Oo]cak$|[Jj]a$|(^1$)|(^01$)|(1月))");
+    public static final Pattern feb = Pattern.compile(
+            "([Ff]eb$|[Ff]ebruary$|[Ff][eé]vrier$|[Ff]ebruar$|[Ff]ebrewaori$|[Ff]ebrero$|[Ff]evereiro$|[Ff]ebbraio$|[Ll]uty$|[Ss]tyczeń$|Ş$|ubat$|[Ff]e$|^2$|^02$|2月)");
+    public static final Pattern mar = Pattern.compile(
+            "([Mm]ar$|[Mm]arch$|[Mm]ars$|[Mm]eert$|[Mm]ärz$|[Mm]arzo$|[Mm]arço$|[Mm]art$|[Mm]a$|[Mm]a$|^3$|^03$|3月)");
+    public static final Pattern apr = Pattern.compile(
+            "([Aa]pr$|[Aa]br$|[Aa]vr$|[Aa]pril$|[Aa]vril$|[Aa]pril$|[Aa]prile$|[Aa]bril$|[Nn]isan$|[Aa]p$|^4$|^04$|4月)");
+    public static final Pattern may = Pattern
+            .compile("([Mm]ay$|[Mm]ai$|[Mm]ay$|[Mm]ayıs$|[Mm]ei$|[Mm]aio$|[Mm]aggio$|[Mm]eie$|[Mm]a$|^5$|^05$|5月)");
+    public static final Pattern jun = Pattern
+            .compile("([Jj]un$|[Jj]une$|[Jj]uin$|[Jj]uni$|[Jj]unho$|[Gg]iugno$|[Hh]aziran$|^6$|^06$|6月)");
+    public static final Pattern jul = Pattern
+            .compile("([Jj]ul$|[Jj]uly$|[Jj]uillet$|[Jj]uli$|[Tt]emmuz$|[Ll]uglio$|[Jj]ulho$|^7$|^07$|7月)");
+    public static final Pattern aug = Pattern
+            .compile("([Aa]ug$|[Aa]ugust$|[Aa]o[uû]t$|[Aa]ugust$|[Aa]gosto$|[Aa]ugustus$|[Aa]ğustos$|^8$|^08$|8月)");
+    public static final Pattern sep = Pattern.compile(
+            "([Ss]ep$|[Ss]ept$|[Ss]eptember$|[Ss]eptembre$|[Ss]eptember$|[Ss]ettembre$|[Ss]etembro$|[Ee]ylül$|^9$|^09$|9月)");
+    public static final Pattern oct = Pattern.compile(
+            "([Oo]ct$|[Oo]cto$|[Oo]ctober$|[Oo]ctobre$|[Ee]kim$|[Oo]ktober$|[Oo]ttobre$|[Oo]utubro$|^10$|10月)");
+    public static final Pattern nov = Pattern
+            .compile("([Nn]ov$|[Nn]ovember$|[Nn]ovembre$|[Kk]asım$|[Nn]oviembre$|[Nn]ovembro$|^11$|11月)");
+    public static final Pattern dec = Pattern
+            .compile("([Dd]ec$|[Dd]ecember$|[Dd][eé]cembre$|[Dd]iciembre$|[Aa]ralık$|^12$|12月)");
 
     public static final Pattern[] months = {jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec};
 
     public Date normalizeAndClean(Date date) {
         return cleaning(normalize(date));
     }
-    
+
     public Date normalize(Date date) {
         Date normalizedDate = new Date();
-        
+
         // normalize day
         if (isNotBlank(date.getDayString())) {
             StringBuilder dayStringBis = new StringBuilder();
@@ -251,12 +284,13 @@ public class DateParser extends AbstractParser {
 
         // if we don't have day and month, but a year with 8 digits, we might have a YYYYMMDD pattern
         int maxYear = Calendar.getInstance().getWeekYear() + 4;
-        if (date.getDay() == -1 && date.getMonth() == -1 && date.getYear() != -1 && date.getYear() > 19000000 && date.getYear() < maxYear * 10000+1231) {
+        if (date.getDay() == -1 && date.getMonth() == -1 && date.getYear() != -1 && date.getYear() > 19000000
+                && date.getYear() < maxYear * 10000 + 1231) {
             int yearPart = date.getYear() / 10000;
             if (yearPart > 1900 && yearPart < maxYear) {
-                String yearString = ""+date.getYear();
-                String theMonthString = yearString.substring(4,6);
-                String theDayString = yearString.substring(6,8);
+                String yearString = "" + date.getYear();
+                String theMonthString = yearString.substring(4, 6);
+                String theDayString = yearString.substring(6, 8);
 
                 int dayPart = -1;
                 try {
@@ -283,22 +317,22 @@ public class DateParser extends AbstractParser {
                 }
             }
         }
-        
+
         return normalizedDate;
     }
 
     /**
-     * Simple and loose date validation, checking: 
+     * Simple and loose date validation, checking:
      *  - the year has not more than 4 digits
-     *  - the month and day has not more than 2 digits 
-     *  
+     *  - the month and day has not more than 2 digits
+     *
      *  Assuming that incomplete dates of any form and nature can pass by here, only the information that are "out of bounds" will be reverted.
-     *  
+     *
      * @return the date where invalid information are removed or reverted
      */
     public static Date cleaning(Date originalDate) {
         Date validatedDate = new Date();
-        
+
         if (originalDate.getDay() > -1) {
             if (String.valueOf(originalDate.getDay()).length() < 3) {
                 validatedDate.setDay(originalDate.getDay());
@@ -312,18 +346,16 @@ public class DateParser extends AbstractParser {
                 validatedDate.setMonthString(originalDate.getMonthString());
             }
         }
-        
+
         if (originalDate.getYear() > -1) {
             if (String.valueOf(originalDate.getYear()).length() < 5) {
                 validatedDate.setYear(originalDate.getYear());
                 validatedDate.setYearString(originalDate.getYearString());
             }
         }
-        
+
         return validatedDate;
     }
-    
-
 
     /**
      * Extract results from a date string in the training format without any string modification.
@@ -345,14 +377,14 @@ public class DateParser extends AbstractParser {
 
                 //StringTokenizer st = new StringTokenizer(input, " \t\n"+TextUtilities.fullPunctuations, true);
                 //StringTokenizer st = new StringTokenizer(input, "([" + TextUtilities.punctuations, true);
-				tokenizations = analyzer.tokenize(input);
-				
+                tokenizations = analyzer.tokenize(input);
+
                 //if (st.countTokens() == 0)
-				if (tokenizations.size() == 0)
+                if (tokenizations.size() == 0)
                     return null;
                 //while (st.hasMoreTokens()) {
                 //    String tok = st.nextToken();
-				for(String tok : tokenizations) {
+                for (String tok : tokenizations) {
                     if (tok.equals("\n")) {
                         dateBlocks.add("@newline");
                     } else if (!tok.equals(" ")) {
@@ -414,8 +446,8 @@ public class DateParser extends AbstractParser {
                         s2 = TextUtilities.HTMLEncode(s); // string
                     } /*else if (i == ll - 2) {
                         s3 = s; // pre-label, in this case it should always be <date>
-                    } */
-					else if (i == ll - 1) {
+                      } */
+                    else if (i == ll - 1) {
                         s1 = s; // label
                     }
                     i++;
@@ -523,19 +555,20 @@ public class DateParser extends AbstractParser {
                 buffer.append("</date>\n");
             }
         } catch (Exception e) {
-//			e.printStackTrace();
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            //			e.printStackTrace();
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
         return buffer;
     }
 
-    private String writeField(String s1,
-                              String lastTag0,
-                              String s2,
-                              String field,
-                              String outField,
-                              boolean addSpace,
-                              int nbIndent) {
+    private String writeField(
+            String s1,
+            String lastTag0,
+            String s2,
+            String field,
+            String outField,
+            boolean addSpace,
+            int nbIndent) {
         String result = null;
         if ((s1.equals(field)) || (s1.equals("I-" + field))) {
             if ((s1.equals("<other>") || s1.equals("I-<other>"))) {
@@ -562,9 +595,10 @@ public class DateParser extends AbstractParser {
         return result;
     }
 
-    private boolean testClosingTag(StringBuilder buffer,
-                                   String currentTag0,
-                                   String lastTag0) {
+    private boolean testClosingTag(
+            StringBuilder buffer,
+            String currentTag0,
+            String lastTag0) {
         boolean res = false;
         if (!currentTag0.equals(lastTag0)) {
             res = true;

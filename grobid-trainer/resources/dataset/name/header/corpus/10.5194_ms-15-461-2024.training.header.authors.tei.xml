@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Pramod</forename>
+								 <surname>Kumar</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Christopher</forename>
+								 <surname>Caldow</surname>
+								 <marker>1,2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Grégoire</forename>
+								 <surname>Broquet</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Adil</forename>
+								 <surname>Shah</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Olivier</forename>
+								 <surname>Laurent</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Camille</forename>
+								 <surname>Yver-Kwok</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Sebastien</forename>
+								 <surname>Ars</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Sara</forename>
+								 <surname>Defratyka</surname>
+								 <marker>1,a,b</marker> ,
+							</persName>
+							<persName>
+								 <forename>Susan</forename>
+								 <middlename>Warao</middlename>
+								 <surname>Gichuki</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Luc</forename>
+								 <surname>Lienhardt</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Mathis</forename>
+								 <surname>Lozano</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jean-Daniel</forename>
+								 <surname>Paris</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Felix</forename>
+								 <surname>Vogel</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Caroline</forename>
+								 <surname>Bouchet</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Elisa</forename>
+								 <surname>Allegrini</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Robert</forename>
+								 <surname>Kelly</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Catherine</forename>
+								 <surname>Juery</surname>
+								 <marker>5</marker> , and
+							</persName>
+							<persName>
+								 <forename>Philippe</forename>
+								 <surname>Ciais</surname>
+								 <marker>1</marker>
+							</persName>
+							<persName>
+								 <forename>Pramod</forename>
+								 <surname>Kumar</surname>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

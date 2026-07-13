@@ -1,0 +1,128 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T10:56:01.404Z">12/3/2025 10:56:01 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T10:55:50.619873Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T10:55:50.619873Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Barriers to accessibility of medicines for<lb/> hyperlipidemia in low-and middle-income countries<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Chaoyang Li 1 *, Garrison Spencer 2 , Muhammad Jami Husain 1 , Rachel Nugent 2 ,<lb/> Deon Auzenne 3 , Deliana Kostova 1 , Patricia RichterID 1<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Division of Global Health Protection, Global Health Center, Centers for Disease Control and Prevention,<lb/></affiliation>
+	</byline>
+
+	<address>Atlanta, Georgia, United States of America,</address>
+
+	<byline>
+	<affiliation>2 Center for Global Noncommunicable Diseases, RTI<lb/> International, Research Triangle Park,</affiliation>
+	</byline>
+
+	<address>North Carolina, United States of America,</address>
+
+	<byline>
+	<affiliation>3 Department of<lb/> Psychology, Howard University,</affiliation>
+	</byline>
+
+	<address>Washington, District of Columbia, United States of America<lb/></address>
+
+	*
+	<email>cli@cdc.gov.</email>
+
+	Abstract<lb/>
+	<div type="abstract">Despite the high burden of hyperlipidemia and the effectiveness of treatment, evidence sug-<lb/>gests that the accessibility of hyperlipidemia medicines can be low in many low-and middle-<lb/>income countries (LMICs). The aim of this study was to identify common barriers to the<lb/> accessibility of medicines for hyperlipidemia in LMICs. A multimethod analysis and multiple<lb/> data sources were used to assess the accessibility and barriers of medicines for hyperlipid-<lb/>emia in selected LMICs. The overall median availability of statins for hyperlipidemia in public<lb/> facilities was 0% and 5.4%, for originators and generics, respectively. In private facilities,<lb/> median availability was 13.3% and 35.9%, for originators and generics, respectively. Statin<lb/> availability was lowest in Africa and South-East Asia. Private facilities generally had higher<lb/> availability than public facilities. Statins are less affordable in lower-income countries, cost-<lb/>ing around 6 days&apos; wages per month. Originator statins are less affordable than generics in<lb/> countries of all income-levels. The median cost for statin medications per month ranges<lb/>	from a low of $1 in Kenya to a high of $62 in Mexico, with most countries having a median<lb/> monthly cost between $3.6 and $17.0. The key informant interviews suggested that accessi-<lb/>bility to hyperlipidemia medicines in LMICs faces barriers in multiple dimensions of health<lb/> systems. The availability and affordability of statins are generally low in LMICs. Several<lb/> steps could be implemented to improve the accessibility of hyperlipidemia medicines,<lb/> including private sector engagement, physician education, investment in technology, and<lb/> enhancement of health systems.<lb/></div>
+
+	<title level="j">PLOS GLOBAL PUBLIC HEALTH<lb/></title>
+	<reference>PLOS Global Public Health | https://doi.org/10.1371/journal.pgph.0002905 February 12, 2024<lb/></reference>
+
+	<page>1 / 23<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Li C, Spencer G, Husain MJ, Nugent R,<lb/> Auzenne D, Kostova D, et al. (2024) Barriers to<lb/> accessibility of medicines for hyperlipidemia in<lb/> low-and middle-income countries. PLOS Glob<lb/> Public Health 4(2): e0002905.</reference>
+
+	<idno>https://doi.org/<lb/> 10.1371/journal.pgph.0002905<lb/></idno>
+
+	Editor:
+	<editor>Julia Robinson</editor>,
+
+	<byline>
+	<affiliation>PLOS: Public Library of<lb/> Science,</affiliation>
+	</byline>
+
+	<address>UNITED STATES<lb/></address>
+
+	<note type="submission">Received: March 8, 2023<lb/> Accepted: January 22, 2024<lb/></note>
+
+	Published:
+	<date>February 12, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">This is an open access article, free of all<lb/> copyright, and may be freely reproduced,<lb/> distributed, transmitted, modified, built upon, or<lb/> otherwise used by anyone for any lawful purpose.<lb/> The work is made available under the Creative<lb/> Commons CC0 public domain dedication.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All data and related<lb/> metadata underlying the findings reported in a<lb/> submitted manuscript are provided as part of the<lb/> submitted article.<lb/></note>
+
+	Funding:
+	<note type="funding">Funding for this project was provided by<lb/> the CDC Foundation through support from Amgen.<lb/> The funders had no role in study design, data<lb/> collection and analysis, decision to publish, or<lb/> preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+
+		</front>
+	</text>
+
+</TEI>

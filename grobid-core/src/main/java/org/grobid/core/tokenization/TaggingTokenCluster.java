@@ -1,14 +1,30 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.tokenization;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
+
 import org.grobid.core.engines.label.TaggingLabel;
 import org.grobid.core.layout.LayoutToken;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Cluster of related tokens
@@ -22,7 +38,8 @@ public class TaggingTokenCluster {
             }
 
             if (labeledTokensContainer.getFeatureString() == null) {
-                throw new IllegalStateException("This method must be called when feature string is not empty for " +
+                throw new IllegalStateException("This method must be called when feature string is not empty for "
+                        +
                         "LabeledTokenContainers");
             }
             return labeledTokensContainer.getFeatureString();
@@ -67,12 +84,13 @@ public class TaggingTokenCluster {
 
     public List<LayoutToken> concatTokens() {
 
-        Iterable<LayoutToken> it = Iterables.concat(Iterables.transform(labeledTokensContainers, new Function<LabeledTokensContainer, List<LayoutToken>>() {
-            @Override
-            public List<LayoutToken> apply(LabeledTokensContainer labeledTokensContainer) {
-                return labeledTokensContainer.getLayoutTokens();
-            }
-        }));
+        Iterable<LayoutToken> it = Iterables.concat(
+                Iterables.transform(labeledTokensContainers, new Function<LabeledTokensContainer, List<LayoutToken>>() {
+                    @Override
+                    public List<LayoutToken> apply(LabeledTokensContainer labeledTokensContainer) {
+                        return labeledTokensContainer.getLayoutTokens();
+                    }
+                }));
         return Lists.newArrayList(it);
     }
 

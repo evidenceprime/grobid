@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Miguel</forename>
+								 <middlename>A</middlename>.
+								 <surname>Ortega</surname>
+								 <marker>1,2 *</marker>,
+							</persName>
+							<persName>
+								 <forename>Luis</forename>
+								 <surname>Cayuela</surname>
+								 <marker>3¤</marker> ,
+							</persName>
+							<persName>
+								 <forename>Daniel</forename>
+								 <middlename>M</middlename>.
+								 <surname>Griffith</surname> ID
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ange</forename>
+								 <surname>´lica Camacho</surname>
+								 <marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Indiana</forename>
+								 <middlename>M</middlename>.
+								 <surname>Coronado</surname>
+								 <marker>6</marker> ,
+							</persName>
+							<persName>
+								 <forename>Rafael</forename>
+								 <middlename>F</middlename>.
+								 <surname>del Castillo</surname>ID
+								 <marker>7</marker> ,
+							</persName>
+							<persName>
+								 <forename>Blanca</forename>
+								 <middlename>L</middlename>.
+								 <surname>Figueroa-Rangel</surname>
+								 <marker>8</marker> ,
+							</persName>
+							<persName>
+								 <forename>William</forename>
+								 <surname>Fonseca</surname>
+								 <marker>9</marker> ,
+							</persName>
+							<persName>
+								 <forename>Cristina</forename>
+								 <surname>Garibaldi</surname>
+								 <marker>10</marker> ,
+							</persName>
+							<persName>
+								 <forename>Daniel</forename>
+								 <middlename>L</middlename>.
+								 <surname>Kelly</surname>
+								 <marker>11</marker> ,
+							</persName>
+							<persName>
+								 <forename>Susan</forename>
+								 <middlename>G</middlename>.
+								 <surname>LetcherID</surname>
+								 <marker>12</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jorge</forename>
+								 <middlename>A</middlename>.
+								 <surname>MeaveID</surname>
+								 <marker>13</marker> ,
+							</persName>
+							<persName>
+								 <forename>Luis</forename>
+								 <surname>Merino-Martı ´n</surname>
+								 <marker>3¤</marker> ,
+							</persName>
+							<persName>
+								 <forename>Vı ´ctor</forename>
+								 <middlename>H</middlename>.
+								 <surname>Meza</surname>
+								 <marker>14</marker> ,
+							</persName>
+							<persName>
+								 <forename>Susana</forename>
+								 <surname>Ochoa-Gaona</surname>
+								 <marker>15</marker> ,
+							</persName>
+							<persName>
+								 <forename>Miguel</forename>
+								 <surname>Olvera-Vargas</surname>
+								 <marker>8</marker> ,
+							</persName>
+							<persName>
+								 <forename>Neptalı</forename>
+								 <surname>´Ramı ´rez-Marcial</surname>
+								 <marker>16</marker> ,
+							</persName>
+							<persName>
+								 <forename>Fernando</forename>
+								 <middlename>J</middlename>.
+								 <surname>Tun-Dzul</surname>
+								 <marker>17</marker> ,
+							</persName>
+							<persName>
+								 <forename>Mirna</forename>
+								 <surname>Valdez-Herna ´ndez</surname>
+								 <marker>18</marker> ,
+							</persName>
+							<persName>
+								 <forename>Eduardo</forename>
+								 <surname>Vela ´zquez</surname>
+								 <marker>19</marker> ,
+							</persName>
+							<persName>
+								 <forename>David</forename>
+								 <middlename>A</middlename>.
+								 <surname>White</surname>
+								 <marker>20</marker> ,
+							</persName>
+							<persName>
+								 <forename>Guadalupe</forename>
+								 <surname>Williams-Linera</surname>
+								 <marker>21</marker> ,
+							</persName>
+							<persName>
+								 <forename>Rakan</forename>
+								 <middlename>A</middlename>.
+								 <surname>Zahawi</surname>ID
+								 <marker>22</marker> ,
+							</persName>
+							<persName>
+								<forename>Jesu ´s</forename>
+								 <surname>MuñozID</surname>
+								 <marker>23 *</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

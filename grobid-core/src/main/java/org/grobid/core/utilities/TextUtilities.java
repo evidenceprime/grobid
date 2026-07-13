@@ -1,9 +1,19 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities;
-
-import org.grobid.core.analyzers.GrobidAnalyzer;
-import org.grobid.core.exceptions.GrobidException;
-import org.grobid.core.layout.LayoutToken;
-import org.grobid.core.lexicon.Lexicon;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,8 +25,14 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.rockymadden.stringmetric.similarity.RatcliffObershelpMetric;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
+import scala.Option;
+
+import org.grobid.core.analyzers.GrobidAnalyzer;
+import org.grobid.core.exceptions.GrobidException;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.lexicon.Lexicon;
 
 /**
  * Class for holding static methods for text processing.
@@ -48,43 +64,46 @@ public class TextUtilities {
     public static final String ESC_AND = "&amp;";
     public static final String SLASH = "/";
 
-    // note: be careful of catastrophic backtracking here as a consequence of PDF noise! 
-  
-    private static final String ORCIDRegex =
-        "^\\s*(?:(?:https?://)?orcid.org/)?([0-9]{4})\\-?([0-9]{4})\\-?([0-9]{4})\\-?([0-9]{3}[\\dX])\\s*$";
+    // note: be careful of catastrophic backtracking here as a consequence of PDF noise!
+
+    private static final String ORCIDRegex = "^\\s*(?:(?:https?://)?orcid.org/)?([0-9]{4})\\-?([0-9]{4})\\-?([0-9]{4})\\-?([0-9]{3}[\\dX])\\s*$";
     static public final Pattern ORCIDPattern = Pattern.compile(ORCIDRegex);
 
     // the magical DOI regular expression...
     static public final Pattern DOIPattern = Pattern
-        .compile("(10\\.\\d{4,5}\\/[\\S]+[^;,.\\s])");
+            .compile("(10\\.\\d{4,5}\\/[\\S]+[^;,.\\s])");
 
     // a regular expression for arXiv identifiers
     // see https://arxiv.org/help/arxiv_identifier and https://arxiv.org/help/arxiv_identifier_for_services
     static public final Pattern arXivPattern = Pattern
-        .compile("(arXiv\\s?(\\.org)?\\s?\\:\\s?\\d{4}\\s?\\.\\s?\\d{4,5}(v\\d+)?)|(arXiv\\s?(\\.org)?\\s?\\:\\s?[ a-zA-Z\\-\\.]*\\s?/\\s?\\d{7}(v\\d+)?)");
+            .compile(
+                    "(arXiv\\s?(\\.org)?\\s?\\:\\s?\\d{4}\\s?\\.\\s?\\d{4,5}(v\\d+)?)|(arXiv\\s?(\\.org)?\\s?\\:\\s?[ a-zA-Z\\-\\.]*\\s?/\\s?\\d{7}(v\\d+)?)");
 
     // regular expression for PubMed identifiers, last group gives the PMID digits
-    static public final Pattern pmidPattern = Pattern.compile("((PMID)|(Pub(\\s)?Med(\\s)?(ID)?))(\\s)?(\\:)?(\\s)*(\\d{1,8})");
+    static public final Pattern pmidPattern = Pattern
+            .compile("((PMID)|(Pub(\\s)?Med(\\s)?(ID)?))(\\s)?(\\:)?(\\s)*(\\d{1,8})");
 
-    // regular expression for PubMed Central identifiers (note: contrary to PMID, we include the prefix PMC here, see 
-    // https://www.ncbi.nlm.nih.gov/pmc/pmctopmid/ for instance), last group gives the PMC ID digits   
+    // regular expression for PubMed Central identifiers (note: contrary to PMID, we include the prefix PMC here, see
+    // https://www.ncbi.nlm.nih.gov/pmc/pmctopmid/ for instance), last group gives the PMC ID digits
     static public final Pattern pmcidPattern = Pattern
-        .compile("((PMC\\s?(ID)?)|(Pub(\\s)?Med(\\s)?(Central)?(\\s)?(ID)?))(\\s)?(\\:)?(\\s)*(\\d{1,9})");
+            .compile("((PMC\\s?(ID)?)|(Pub(\\s)?Med(\\s)?(Central)?(\\s)?(ID)?))(\\s)?(\\:)?(\\s)*(\\d{1,9})");
 
     // a regular expression for identifying url pattern in text
     // TODO: maybe find a better regex (better == more robust, not more "standard")
     static public final Pattern urlPattern0 = Pattern
-        .compile("(?i)(https?|ftp)\\s?:\\s?//\\s?[-A-Z0-9+&@#/%?=~_()|!:,.;]*[-A-Z0-9+&@#/%=~_()|]");
+            .compile("(?i)(https?|ftp)\\s?:\\s?//\\s?[-A-Z0-9+&@#/%?=~_()|!:,.;]*[-A-Z0-9+&@#/%=~_()|]");
     static public final Pattern urlPattern = Pattern
-        .compile("(?i)(https?|ftp)\\s{0,2}:\\s{0,2}//\\s{0,2}[-A-Z0-9+&@#/%?=~_()|!:.;]*[-A-Z0-9+&@#/%=~_()]");
+            .compile("(?i)(https?|ftp)\\s{0,2}:\\s{0,2}//\\s{0,2}[-A-Z0-9+&@#/%?=~_()|!:.;]*[-A-Z0-9+&@#/%=~_()]");
     static public final Pattern urlPattern1 = Pattern
-        .compile("(?i)(https?|ftp)\\s{0,2}:\\s{0,2}//\\s{0,2}[-A-Z0-9+&@#/%?=~_()|!:.;]*[-A-Z0-9+&@#/%=~_()]|www\\s{0,2}\\.\\s{0,2}[-A-Z0-9+&@#/%?=~_()|!:.;]*[-A-Z0-9+&@#/%=~_()]");
+            .compile(
+                    "(?i)(https?|ftp)\\s{0,2}:\\s{0,2}//\\s{0,2}[-A-Z0-9+&@#/%?=~_()|!:.;]*[-A-Z0-9+&@#/%=~_()]|www\\s{0,2}\\.\\s{0,2}[-A-Z0-9+&@#/%?=~_()|!:.;]*[-A-Z0-9+&@#/%=~_()]");
 
     // a regular expression for identifying email pattern in text
     // TODO: maybe find a better regex (better == more robust, not more "standard")
-    static public final Pattern emailPattern = Pattern.compile("\\w+((\\.|-|_|,)\\w+)?\\s?((\\.|-|_|,)\\w+)?\\s?@\\s?\\w+(\\s?(\\.|-)\\s?\\w+)+");
+    static public final Pattern emailPattern = Pattern
+            .compile("\\w+((\\.|-|_|,)\\w+)?\\s?((\\.|-|_|,)\\w+)?\\s?@\\s?\\w+(\\s?(\\.|-)\\s?\\w+)+");
     // variant: \w+(\s?(\.|-|_|,)\w+)?(\s?(\.|-|_|,)\w+)?\s?@\s?\w+(\s?(\.|\-)\s?\w+)+
-    
+
     /**
      * Replace numbers in the string by a dummy character for string distance evaluations
      *
@@ -142,8 +161,8 @@ public class TextUtilities {
         int lastSpaceIndex = section.lastIndexOf(' ');
 
         //The last parenthesis cover the case 'this is a (special-one) case'
-        // where the lastToken before the hypen should be 'special' and not '(special'
-/*        int lastParenthesisIndex = section.lastIndexOf('(');
+        // where the lastToken before the hyphen should be 'special' and not '(special'
+        /*        int lastParenthesisIndex = section.lastIndexOf('(');
         if (lastParenthesisIndex > lastSpaceIndex)
             lastSpaceIndex = lastParenthesisIndex;*/
 
@@ -166,7 +185,6 @@ public class TextUtilities {
             return section.substring(0, section.length());
         }
     }
-
 
     /**
      * Text extracted from a PDF is usually hyphenized, which is not desirable.
@@ -209,7 +227,7 @@ public class TextUtilities {
                     Lexicon lex = Lexicon.getInstance();
 
                     if (lex.inDictionary(hyphenToken.toLowerCase()) &
-                        !(test_digit(hyphenToken))) {
+                            !(test_digit(hyphenToken))) {
                         // if yes, it is hyphenization
                         res += firstToken;
                         section = section.substring(firstToken.length(), section.length());
@@ -314,132 +332,155 @@ public class TextUtilities {
      * @param input the string to be processed.
      * @return Returns the string without accent.
      */
+    /**
+     * Ratcliff/Obershelp similarity ratio in [0,1] between two strings. Blank input yields 0.0,
+     * identical strings yield 1.0. When caseDependent is false the strings are lowercased and
+     * accent-folded (e.g. "Martín" vs "Martin") before comparison so diacritics do not lower the
+     * score. This is the same metric the end-to-end evaluation reports as "Ratcliff/Obershelp".
+     */
+    public static double getRatcliffObershelpSimilarity(String string1, String string2, boolean caseDependent) {
+        if (StringUtils.isBlank(string1) || StringUtils.isBlank(string2))
+            return 0.0;
+        if (!caseDependent) {
+            string1 = removeAccents(string1.toLowerCase());
+            string2 = removeAccents(string2.toLowerCase());
+        }
+        if (string1.equals(string2))
+            return 1.0;
+        double similarity = 0.0;
+        Option<Object> similarityObject = RatcliffObershelpMetric.compare(string1, string2);
+        if (similarityObject.isDefined()) {
+            similarity = (Double) similarityObject.get();
+        }
+        return similarity;
+    }
+
     public final static String removeAccents(String input) {
         if (input == null)
             return null;
         final StringBuffer output = new StringBuffer();
         for (int i = 0; i < input.length(); i++) {
             switch (input.charAt(i)) {
-                case '\u00C0': // Ã€
-                case '\u00C1': // Ã
-                case '\u00C2': // Ã‚
-                case '\u00C3': // Ãƒ
-                case '\u00C5': // Ã…
+                case '\u00C0' : // Ã€
+                case '\u00C1' : // Ã
+                case '\u00C2' : // Ã‚
+                case '\u00C3' : // Ãƒ
+                case '\u00C5' : // Ã…
                     output.append("A");
                     break;
-                case '\u00C4': // Ã„
-                case '\u00C6': // Ã†
+                case '\u00C4' : // Ã„
+                case '\u00C6' : // Ã†
                     output.append("AE");
                     break;
-                case '\u00C7': // Ã‡
+                case '\u00C7' : // Ã‡
                     output.append("C");
                     break;
-                case '\u00C8': // Ãˆ
-                case '\u00C9': // Ã‰
-                case '\u00CA': // ÃŠ
-                case '\u00CB': // Ã‹
+                case '\u00C8' : // Ãˆ
+                case '\u00C9' : // Ã‰
+                case '\u00CA' : // ÃŠ
+                case '\u00CB' : // Ã‹
                     output.append("E");
                     break;
-                case '\u00CC': // ÃŒ
-                case '\u00CD': // Ã
-                case '\u00CE': // ÃŽ
-                case '\u00CF': // Ã
+                case '\u00CC' : // ÃŒ
+                case '\u00CD' : // Ã
+                case '\u00CE' : // ÃŽ
+                case '\u00CF' : // Ã
                     output.append("I");
                     break;
-                case '\u00D0': // Ã
+                case '\u00D0' : // Ã
                     output.append("D");
                     break;
-                case '\u00D1': // Ã‘
+                case '\u00D1' : // Ã‘
                     output.append("N");
                     break;
-                case '\u00D2': // Ã’
-                case '\u00D3': // Ã“
-                case '\u00D4': // Ã”
-                case '\u00D5': // Ã•
-                case '\u00D8': // Ã˜
+                case '\u00D2' : // Ã’
+                case '\u00D3' : // Ã“
+                case '\u00D4' : // Ã”
+                case '\u00D5' : // Ã•
+                case '\u00D8' : // Ã˜
                     output.append("O");
                     break;
-                case '\u00D6': // Ã–
-                case '\u0152': // Å’
+                case '\u00D6' : // Ã–
+                case '\u0152' : // Å’
                     output.append("OE");
                     break;
-                case '\u00DE': // Ãž
+                case '\u00DE' : // Ãž
                     output.append("TH");
                     break;
-                case '\u00D9': // Ã™
-                case '\u00DA': // Ãš
-                case '\u00DB': // Ã›
+                case '\u00D9' : // Ã™
+                case '\u00DA' : // Ãš
+                case '\u00DB' : // Ã›
                     output.append("U");
                     break;
-                case '\u00DC': // Ãœ
+                case '\u00DC' : // Ãœ
                     output.append("UE");
                     break;
-                case '\u00DD': // Ã
-                case '\u0178': // Å¸
+                case '\u00DD' : // Ã
+                case '\u0178' : // Å¸
                     output.append("Y");
                     break;
-                case '\u00E0': // Ã
-                case '\u00E1': // Ã¡
-                case '\u00E2': // Ã¢
-                case '\u00E3': // Ã£
-                case '\u00E5': // Ã¥
+                case '\u00E0' : // Ã
+                case '\u00E1' : // Ã¡
+                case '\u00E2' : // Ã¢
+                case '\u00E3' : // Ã£
+                case '\u00E5' : // Ã¥
                     output.append("a");
                     break;
-                case '\u00E4': // Ã¤
-                case '\u00E6': // Ã¦
+                case '\u00E4' : // Ã¤
+                case '\u00E6' : // Ã¦
                     output.append("ae");
                     break;
-                case '\u00E7': // Ã§
+                case '\u00E7' : // Ã§
                     output.append("c");
                     break;
-                case '\u00E8': // Ã¨
-                case '\u00E9': // Ã©
-                case '\u00EA': // Ãª
-                case '\u00EB': // Ã«
+                case '\u00E8' : // Ã¨
+                case '\u00E9' : // Ã©
+                case '\u00EA' : // Ãª
+                case '\u00EB' : // Ã«
                     output.append("e");
                     break;
-                case '\u00EC': // Ã¬
-                case '\u00ED': // Ã
-                case '\u00EE': // Ã®
-                case '\u00EF': // Ã¯
+                case '\u00EC' : // Ã¬
+                case '\u00ED' : // Ã
+                case '\u00EE' : // Ã®
+                case '\u00EF' : // Ã¯
                     output.append("i");
                     break;
-                case '\u00F0': // Ã°
+                case '\u00F0' : // Ã°
                     output.append("d");
                     break;
-                case '\u00F1': // Ã±
+                case '\u00F1' : // Ã±
                     output.append("n");
                     break;
-                case '\u00F2': // Ã²
-                case '\u00F3': // Ã³
-                case '\u00F4': // Ã´
-                case '\u00F5': // Ãµ
-                case '\u00F8': // Ã¸
+                case '\u00F2' : // Ã²
+                case '\u00F3' : // Ã³
+                case '\u00F4' : // Ã´
+                case '\u00F5' : // Ãµ
+                case '\u00F8' : // Ã¸
                     output.append("o");
                     break;
-                case '\u00F6': // Ã¶
-                case '\u0153': // Å“
+                case '\u00F6' : // Ã¶
+                case '\u0153' : // Å“
                     output.append("oe");
                     break;
-                case '\u00DF': // ÃŸ
+                case '\u00DF' : // ÃŸ
                     output.append("ss");
                     break;
-                case '\u00FE': // Ã¾
+                case '\u00FE' : // Ã¾
                     output.append("th");
                     break;
-                case '\u00F9': // Ã¹
-                case '\u00FA': // Ãº
-                case '\u00FB': // Ã»
+                case '\u00F9' : // Ã¹
+                case '\u00FA' : // Ãº
+                case '\u00FB' : // Ã»
                     output.append("u");
                     break;
-                case '\u00FC': // Ã¼
+                case '\u00FC' : // Ã¼
                     output.append("ue");
                     break;
-                case '\u00FD': // Ã½
-                case '\u00FF': // Ã¿
+                case '\u00FD' : // Ã½
+                case '\u00FF' : // Ã¿
                     output.append("y");
                     break;
-                default:
+                default :
                     output.append(input.charAt(i));
                     break;
             }
@@ -448,8 +489,8 @@ public class TextUtilities {
     }
 
     // ad hoc stopword list for the cleanField method
-    public final static List<String> stopwords =
-        Arrays.asList("the", "of", "and", "du", "de le", "de la", "des", "der", "an", "und", "for");
+    public final static List<String> stopwords = Arrays
+            .asList("the", "of", "and", "du", "de le", "de la", "des", "der", "an", "und", "for");
 
     /**
      * Remove useless punctuation at the end and beginning of a metadata field.
@@ -471,14 +512,14 @@ public class TextUtilities {
         for (int i = input.length() - 1; i > 0; i--) {
             char c = input.charAt(i);
             if ((c == ',') ||
-                (c == ' ') ||
-                (c == '.') ||
-                (c == '-') ||
-                (c == '_') ||
-                (c == '/') ||
-                //(c == ')') ||
-                //(c == '(') ||
-                (c == ':')) {
+                    (c == ' ') ||
+                    (c == '.') ||
+                    (c == '-') ||
+                    (c == '_') ||
+                    (c == '/') ||
+                    //(c == ')') ||
+                    //(c == '(') ||
+                    (c == ':')) {
                 n = i;
             } else if (c == ';') {
                 // we have to check if we have an html entity finishing
@@ -507,26 +548,28 @@ public class TextUtilities {
                     }
                 }
                 n = i;
-            } else break;
+            } else
+                break;
         }
 
         input = input.substring(0, n);
 
-        // characters at the begining
+        // characters at the beginning
         n = 0;
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
             if ((c == ',') ||
-                (c == ' ') ||
-                (c == '.') ||
-                (c == ';') ||
-                (c == '-') ||
-                (c == '_') ||
-                //(c == ')') ||
-                //(c == '(') ||
-                (c == ':')) {
+                    (c == ' ') ||
+                    (c == '.') ||
+                    (c == ';') ||
+                    (c == '-') ||
+                    (c == '_') ||
+                    //(c == ')') ||
+                    //(c == '(') ||
+                    (c == ':')) {
                 n = i;
-            } else break;
+            } else
+                break;
         }
 
         input = input.substring(n, input.length()).trim();
@@ -536,8 +579,8 @@ public class TextUtilities {
         }
 
         if ((input.length() > 12) &&
-            (input.endsWith("&quot;")) &&
-            (input.startsWith("&quot;"))) {
+                (input.endsWith("&quot;")) &&
+                (input.startsWith("&quot;"))) {
             input = input.substring(6, input.length() - 6).trim();
         }
 
@@ -601,12 +644,11 @@ public class TextUtilities {
         return result;
     }
 
-
     /**
      * Encode a string to be displayed in HTML
      * <p/>
      * If fullHTML encode, then all unicode characters above 7 bits are converted into
-     * HTML entitites
+     * HTML entities
      */
     public static String HTMLEncode(String string) {
         return HTMLEncode(string, false);
@@ -695,10 +737,10 @@ public class TextUtilities {
                     sb.append("&lt;");
                 else if (c == '>')
                     sb.append("&gt;");
-                    /*else if (c == '\n') {
-                         // warning: this can be too much html!
-                         sb.append("&lt;br/&gt;");
-                     }*/
+                /*else if (c == '\n') {
+                     // warning: this can be too much html!
+                     sb.append("&lt;br/&gt;");
+                 }*/
                 else {
                     int ci = 0xffff & c;
                     if (ci < 160) {
@@ -742,14 +784,14 @@ public class TextUtilities {
                 sb.append(line + "\n");
             }
         } catch (IOException e) {
-//			e.printStackTrace();
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            //			e.printStackTrace();
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         } finally {
             try {
                 is.close();
             } catch (IOException e) {
-//				e.printStackTrace();
-                throw new GrobidException("An exception occured while running Grobid.", e);
+                //				e.printStackTrace();
+                throw new GrobidException("An exception occurred while running Grobid.", e);
             }
         }
 
@@ -785,164 +827,153 @@ public class TextUtilities {
         while (i < token.length()) {
             switch (token.charAt(i)) {
                 // ligature
-                case '\uFB00': {
+                case '\uFB00' : {
                     res += "ff";
                     break;
                 }
-                case '\uFB01': {
+                case '\uFB01' : {
                     res += "fi";
                     break;
                 }
-                case '\uFB02': {
+                case '\uFB02' : {
                     res += "fl";
                     break;
                 }
-                case '\uFB03': {
+                case '\uFB03' : {
                     res += "ffi";
                     break;
                 }
-                case '\uFB04': {
+                case '\uFB04' : {
                     res += "ffl";
                     break;
                 }
-                case '\uFB06': {
+                case '\uFB06' : {
                     res += "st";
                     break;
                 }
-                case '\uFB05': {
+                case '\uFB05' : {
                     res += "ft";
                     break;
                 }
-                case '\u00E6': {
-                    res += "ae";
-                    break;
-                }
-                case '\u00C6': {
-                    res += "AE";
-                    break;
-                }
-                case '\u0153': {
-                    res += "oe";
-                    break;
-                }
-                case '\u0152': {
-                    res += "OE";
-                    break;
-                }
+                // NB: \u00E6/\u00C6 (U+00E6/U+00C6) and \u0153/\u0152 (U+0153/U+0152) are intentionally NOT
+                // folded here. Unlike the typographic ligatures above (\uFB00\uFB01\uFB02\u2026, genuine PDF
+                // rendering artifacts), these are distinct letters used deliberately in
+                // Danish, Norwegian, Icelandic, French, etc. Folding them to "ae"/"oe" was
+                // data loss for those languages (issue #728); they now pass through unchanged.
                 // quote
-                case '\u201C': {
+                case '\u201C' : {
                     res += "\"";
                     break;
                 }
-                case '\u201D': {
+                case '\u201D' : {
                     res += "\"";
                     break;
                 }
-                case '\u201E': {
+                case '\u201E' : {
                     res += "\"";
                     break;
                 }
-                case '\u201F': {
+                case '\u201F' : {
                     res += "\"";
                     break;
                 }
-                case '\u2019': {
+                case '\u2019' : {
                     res += "'";
                     break;
                 }
-                case '\u2018': {
+                case '\u2018' : {
                     res += "'";
                     break;
                 }
                 // bullet uniformity
-                case '\u2022': {
+                case '\u2022' : {
                     res += "•";
                     break;
                 }
-                case '\u2023': {
+                case '\u2023' : {
                     res += "•";
                     break;
                 }
-                case '\u2043': {
+                case '\u2043' : {
                     res += "•";
                     break;
                 }
-                case '\u204C': {
+                case '\u204C' : {
                     res += "•";
                     break;
                 }
-                case '\u204D': {
+                case '\u204D' : {
                     res += "•";
                     break;
                 }
-                case '\u2219': {
+                case '\u2219' : {
                     res += "•";
                     break;
                 }
-                case '\u25C9': {
+                case '\u25C9' : {
                     res += "•";
                     break;
                 }
-                case '\u25D8': {
+                case '\u25D8' : {
                     res += "•";
                     break;
                 }
-                case '\u25E6': {
+                case '\u25E6' : {
                     res += "•";
                     break;
                 }
-                case '\u2619': {
+                case '\u2619' : {
                     res += "•";
                     break;
                 }
-                case '\u2765': {
+                case '\u2765' : {
                     res += "•";
                     break;
                 }
-                case '\u2767': {
+                case '\u2767' : {
                     res += "•";
                     break;
                 }
-                case '\u29BE': {
+                case '\u29BE' : {
                     res += "•";
                     break;
                 }
-                case '\u29BF': {
+                case '\u29BF' : {
                     res += "•";
                     break;
                 }
                 // asterix
-                case '\u2217': {
+                case '\u2217' : {
                     res += " * ";
                     break;
                 }
                 // typical author/affiliation markers
-                case '\u2020': {
+                case '\u2020' : {
                     res += SPACE + '\u2020';
                     break;
                 }
-                case '\u2021': {
+                case '\u2021' : {
                     res += SPACE + '\u2021';
                     break;
                 }
-                case '\u00A7': {
+                case '\u00A7' : {
                     res += SPACE + '\u00A7';
                     break;
                 }
-                case '\u00B6': {
+                case '\u00B6' : {
                     res += SPACE + '\u00B6';
                     break;
                 }
-                case '\u204B': {
+                case '\u204B' : {
                     res += SPACE + '\u204B';
                     break;
                 }
-                case '\u01C2': {
+                case '\u01C2' : {
                     res += SPACE + '\u01C2';
                     break;
                 }
                 // default
-                default: {
+                default : {
                     res += token.charAt(i);
                     break;
                 }
@@ -1030,7 +1061,7 @@ public class TextUtilities {
      * properly.
      * <p/>
      * Convert a string so that each word is made up of a titlecase character and then a series of lowercase
-     * characters. Words are defined as token delimited by one of the character in delimiters or the begining
+     * characters. Words are defined as token delimited by one of the character in delimiters or the beginning
      * of the string.
      */
     public static String capitalizeFully(String input, String delimiters) {
@@ -1134,14 +1165,13 @@ public class TextUtilities {
             middle.append(ch);
         }
 
-
         return middle.toString();
 
     }
 
     /**
      * Give the punctuation profile of a line, i.e. the concatenation of all the punctuations
-     * occuring in the line.
+     * occurring in the line.
      *
      * @param line the string corresponding to a line
      * @return the punctuation profile as a string, empty string is no punctuation
@@ -1174,12 +1204,12 @@ public class TextUtilities {
      * @throws Exception
      */
     public static int getNbTokens(String line, int currentLinePos, List<String> tokenization)
-        throws Exception {
+            throws Exception {
         if ((line == null) || (line.length() == 0))
             return 0;
         String currentToken = tokenization.get(currentLinePos);
         while ((currentLinePos < tokenization.size()) &&
-            (currentToken.equals(" ") || currentToken.equals("\n"))) {
+                (currentToken.equals(" ") || currentToken.equals("\n"))) {
             currentLinePos++;
             currentToken = tokenization.get(currentLinePos);
         }
@@ -1203,22 +1233,18 @@ public class TextUtilities {
      * Ensure that special XML characters are correctly encoded.
      */
     public static String trimEncodedCharaters(String string) {
-        return string.replaceAll("&amp\\s+;", "&amp;").
-            replaceAll("&quot\\s+;|&amp;quot\\s*;", "&quot;").
-            replaceAll("&lt\\s+;|&amp;lt\\s*;", "&lt;").
-            replaceAll("&gt\\s+;|&amp;gt\\s*;", "&gt;").
-            replaceAll("&apos\\s+;|&amp;apos\\s*;", "&apos;");
+        return string.replaceAll("&amp\\s+;", "&amp;")
+                .replaceAll("&quot\\s+;|&amp;quot\\s*;", "&quot;")
+                .replaceAll("&lt\\s+;|&amp;lt\\s*;", "&lt;")
+                .replaceAll("&gt\\s+;|&amp;gt\\s*;", "&gt;")
+                .replaceAll("&apos\\s+;|&amp;apos\\s*;", "&apos;");
     }
 
     public static boolean filterLine(String line) {
         boolean filter = false;
-        if ((line == null) || (line.length() == 0))
+        if (StringUtils.isEmpty(line)) {
             filter = true;
-        else if (line.contains("@IMAGE") || line.contains("@PAGE")) {
-            filter = true;
-        } else if (line.contains(".pbm") || line.contains(".ppm") ||
-            line.contains(".svg") || line.contains(".jpg") ||
-            line.contains(".png")) {
+        } else if (line.contains("@IMAGE") || line.contains("@PAGE")) {
             filter = true;
         }
         return filter;
@@ -1320,7 +1346,7 @@ public class TextUtilities {
     }
 
     /**
-     * Remove indicated leading and trailing characters from a string 
+     * Remove indicated leading and trailing characters from a string
      **/
     public static String removeLeadingAndTrailingChars(String text, String leadingChars, String trailingChars) {
         text = StringUtils.stripStart(text, leadingChars);
@@ -1330,16 +1356,19 @@ public class TextUtilities {
 
     /**
      * Remove indicated leading and trailing characters from a string represented as a list of LayoutToken.
-     * Indicated leading and trailing characters must be matching exactly the layout token text content. 
+     * Indicated leading and trailing characters must be matching exactly the layout token text content.
      **/
-    public static List<LayoutToken> removeLeadingAndTrailingCharsLayoutTokens(List<LayoutToken> tokens, String leadingChars, String trailingChars) {
+    public static List<LayoutToken> removeLeadingAndTrailingCharsLayoutTokens(
+            List<LayoutToken> tokens,
+            String leadingChars,
+            String trailingChars) {
         if (tokens == null)
             return tokens;
         if (tokens.size() == 0)
             return tokens;
 
         int start = 0;
-        for(int i=0; i<tokens.size(); i++) {
+        for (int i = 0; i < tokens.size(); i++) {
             LayoutToken token = tokens.get(i);
             if (token.getText() == null || token.getText().length() == 0) {
                 start++;
@@ -1353,8 +1382,8 @@ public class TextUtilities {
         }
 
         int end = tokens.size();
-        for(int i=end; i>0; i--) {
-            LayoutToken token = tokens.get(i-1);
+        for (int i = end; i > 0; i--) {
+            LayoutToken token = tokens.get(i - 1);
             if (token.getText() == null || token.getText().length() == 0) {
                 end--;
                 continue;
@@ -1380,7 +1409,7 @@ public class TextUtilities {
     public static String removeFieldStopwords(String text) {
         List<String> tokens = GrobidAnalyzer.getInstance().tokenize(text);
         List<String> filteredTokens = new ArrayList<>();
-        for(String token : tokens) {
+        for (String token : tokens) {
             if (!stopwords.contains(token)) {
                 filteredTokens.add(token);
             }
@@ -1394,12 +1423,11 @@ public class TextUtilities {
         return finalText;
     }
 
-
     /**
-     * Detect in a string possible trailing acronyms, introduced in parenthesis after a full name. 
+     * Detect in a string possible trailing acronyms, introduced in parenthesis after a full name.
      * We can typically use it on the affiliation full name, but it can also be applied to longer
-     * texts. 
-     * 
+     * texts.
+     *
      * Return a Map with an acronym position and the corresponding full name position
      **/
     public static Map<OffsetPosition, OffsetPosition> acronymCandidates(List<LayoutToken> tokens) {
@@ -1429,7 +1457,7 @@ public class TextUtilities {
             }
 
             if ((acronym != null) && (!openParenthesis)) {
-                // check if this possible acronym matches an immediately preceeding term
+                // check if this possible acronym matches an immediately preceding term
                 int j = posParenthesis;
                 int k = acronym.getText().length();
                 boolean stop = false;
@@ -1494,13 +1522,14 @@ public class TextUtilities {
     }
 
     /**
-     * Detect in a short string field a possible trailing acronyms, introduced in parenthesis after a full name. 
-     * We can typically use it on the affiliation full name. 
-     * 
+     * Detect in a short string field a possible trailing acronyms, introduced in parenthesis after a full name.
+     * We can typically use it on the affiliation full name.
+     *
      * Return the token offset positions of the acronym and the corresponding full name, null otherwise
      **/
-    public static org.apache.commons.lang3.tuple.Pair<OffsetPosition, OffsetPosition> fieldAcronymCandidate(List<LayoutToken> tokens) {
-        if (tokens == null || tokens.size() == 0) 
+    public static org.apache.commons.lang3.tuple.Pair<OffsetPosition, OffsetPosition> fieldAcronymCandidate(
+            List<LayoutToken> tokens) {
+        if (tokens == null || tokens.size() == 0)
             return null;
 
         boolean openParenthesis = false;
@@ -1536,7 +1565,7 @@ public class TextUtilities {
                 acronymPosition.end = acronymStartIndex + 1;
 
                 int j = posParenthesis;
-                boolean stop =false;
+                boolean stop = false;
                 while ((j > 0) && (!stop)) {
                     j--;
                     String tok = tokens.get(j).getText();
@@ -1547,7 +1576,7 @@ public class TextUtilities {
 
                 basePosition = new OffsetPosition();
                 basePosition.start = 0;
-                basePosition.end = j+1;
+                basePosition.end = j + 1;
             }
 
             i++;
@@ -1559,7 +1588,10 @@ public class TextUtilities {
             return null;
     }
 
-    public static List<OffsetPosition> matchTokenAndString(List<LayoutToken> layoutTokens, String text, List<OffsetPosition> positions) {
+    public static List<OffsetPosition> matchTokenAndString(
+            List<LayoutToken> layoutTokens,
+            String text,
+            List<OffsetPosition> positions) {
         List<OffsetPosition> newPositions = new ArrayList<>();
         StringBuilder accumulator = new StringBuilder();
         int pos = 0;

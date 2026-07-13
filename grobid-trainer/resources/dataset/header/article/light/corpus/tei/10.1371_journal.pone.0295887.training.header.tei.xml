@@ -1,0 +1,139 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T13:50:06.020Z">12/2/2025 1:50:06 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T13:49:54.875989Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T13:49:54.875989Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Landscape of toxin-neutralizing therapeutics<lb/> for snakebite envenoming (2015-2022):<lb/> Setting the stage for an R&amp;D agenda<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Juliette Borri ID 1<lb/> *, Jose ´Marı ´a Gutie ´rrez 2 , Cecilie Knudsen 3 , Abdulrazaq G. Habib 4 ,<lb/> Maya Goldstein 1 , Andrew Tuttle 1<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Policy Cures Research,</affiliation>
+	</byline>
+
+	<address>Sydney, New South Wales, Australia,</address>
+
+	<byline>
+	<affiliation>2 Instituto Clodomiro Picado, Facultad de<lb/> Microbiologı ´a, Universidad de Costa Rica,</affiliation>
+	</byline>
+
+	<address>San Jose ´, Costa Rica,</address>
+
+	<byline>
+	<affiliation>3 VenomAid Diagnostics, </affiliation>
+	</byline>
+
+	<address>Lyngby,<lb/> Denmark,</address>
+
+	<byline>
+	<affiliation>4 Infectious and Tropical Diseases Unit, Department of Medicine, Bayero University,</affiliation>
+	</byline>
+
+	<address>Kano, Nigeria<lb/></address>
+
+	*
+	<email>jborri@policycuresresearch.org</email>
+
+	Abstract
+	<div type="abstract">Background<lb/> Progress in snakebite envenoming (SBE) therapeutics has suffered from a critical lack of<lb/> data on the research and development (R&amp;D) landscape. A database characterising this<lb/> information would be a powerful tool for coordinating and accelerating SBE R&amp;D. To<lb/> address this need, we aimed to identify and categorise all active investigational candidates<lb/> in development for SBE and all available or marketed products.<lb/> Methodology/Principal findings<lb/> In this landscape study, publicly available data and literature were reviewed to canvas the<lb/> state of the SBE therapeutics market and research pipeline by identifying, characterising,<lb/> and validating all investigational drug and biologic candidates with direct action on snake<lb/> venom toxins, and all products available or marketed from 2015 to 2022. We identified 127<lb/> marketed products and 196 candidates in the pipeline, describing a very homogenous mar-<lb/>ket of similar but geographically bespoke products and a diverse but immature pipeline, as<lb/> most investigational candidates are at an early stage of development, with only eight candi-<lb/>dates in clinical development.<lb/> Conclusions/Significance<lb/> Further investment and research is needed to address the shortfalls in products already on<lb/> the market and to accelerate R&amp;D for new therapeutics. This should be accompanied by<lb/> efforts to converge on shared priorities and reshape the current SBE R&amp;D ecosystem to<lb/> ensure translation of innovation and access.<lb/></div>
+
+	<title level="j">PLOS NEGLECTED TROPICAL DISEASES<lb/></title>
+
+	<reference>PLOS Neglected Tropical Diseases | https://doi.org/10.1371/journal.pntd.0012052 March 26, 2024<lb/></reference>
+
+	<page>1 / 13<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Borri J, Gutie ´rrez JM, Knudsen C, Habib<lb/> AG, Goldstein M, Tuttle A (2024) Landscape of<lb/> toxin-neutralizing therapeutics for snakebite<lb/> envenoming (2015-2022): Setting the stage for an<lb/> R&amp;D agenda. PLoS Negl Trop Dis 18(3):<lb/> e0012052.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pntd.0012052<lb/></idno>
+
+	Editor:
+	<editor>Wuelton M. Monteiro,</editor>
+
+	<byline>
+	<affiliation>Fundac ¸ão de<lb/> Medicina Tropical Doutor Heitor Vieira Dourado,</affiliation>
+	</byline>
+
+	<address>BRAZIL<lb/></address>
+
+	<note type="submission">Received: October 5, 2023<lb/> Accepted: March 5, 2024<lb/></note>
+
+	Published:
+	<date>March 26, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Borri et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">Product and<lb/> candidate data and methodology that underly the<lb/> results reported in this article are already publicly<lb/> available at https://www.policycuresresearch.org/<lb/> sbe-medicines-database/. Requests for further<lb/> information and questions can be sent to Policy<lb/> Cures Research, requests should be directed to<lb/> info@policycuresresearch.org. Separately, financial<lb/> information on funding for SBE R&amp;D is publicly<lb/></note>
+
+	Author summary<lb/>
+	<div type="abstract">Snakebite envenoming (SBE) is a neglected tropical disease that exerts a high impact<lb/> worldwide, especially in sub-Saharan Africa, Asia, and Latin America. Animal-derived<lb/> antivenoms constitute the only specific, scientifically validated treatment for envenom-<lb/>ings, although new therapeutic alternatives are being pursued. Despite the relevance of<lb/> this disease, there is a critical lack of data on the research and development landscape in<lb/> antivenoms and novel therapeutics. This study describes a thorough search of the state of<lb/> SBE therapeutic market and research pipeline. A total of 127 marketed products and 196<lb/> candidates were identified. The current antivenom landscape is characterised by a homo-<lb/>geneous market of similar but geographically bespoke products needing improvement.<lb/> The R&amp;D pipeline analysis component revealed a diverse but immature picture since only<lb/> eight candidates are in clinical development. This article interprets the findings of the<lb/> study to provide an initial list of priority areas that sets the stage for further development<lb/> of an R&amp;D agenda to ensure translation of innovation to reduce the impact of SBE.<lb/></div>
+			
+	<note type="availability">available through the G-FINDER portal at https://<lb/> gfinderdata.policycuresresearch.org/.<lb/></note>
+
+	Funding:
+	<note type="funding">This analysis was commissioned by<lb/> Wellcome (www.wellcome.org). JB, MG and AT<lb/> received funding from Wellcome for this project.<lb/> The funder provided high-level input to determine<lb/> the scope of the work (inclusion criteria, product<lb/> types and sub-types, timeframe) and signed-off on<lb/> the matrix for data collection which was put<lb/> together by Policy Cures Research with advice<lb/> from the Advisory Committee. The funder had no<lb/> role in the methodology design, data collection,<lb/> data analysis, data interpretation, or writing of the<lb/> article.<lb/></note>
+
+	Competing interests: 
+	<note type="conflict">I have read the journal&apos;s<lb/> policy and the authors of this manuscript have the<lb/> following competing interests: JMG works at<lb/> Instituto Clodomiro Picado (Universidad de Costa<lb/> Rica), a public research centre and antivenom<lb/> manufacturer. CK works at VenomAid Diagnostics,<lb/> a private company researching diagnostics for<lb/> snakebite.</note>
+
+		</front>
+	</text>
+
+</TEI>

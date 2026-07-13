@@ -41,9 +41,75 @@ var grobid = (function($) {
 			$('#gbdForm3').attr('action', baseUrl);
 	}
 
+	function fetchVersion() {
+		$.ajax({
+			type: 'GET',
+			url: defineBaseURL('version'),
+			dataType: 'json',
+			success: function(data) {
+				var versionHtml = '- version: ' + data.version;
+				if (data.revision && data.revision !== 'unknown') {
+					var commitHash = data.revision;
+					var match = data.revision.match(/-\d+-g([0-9a-f]+)$/);
+					if (match) commitHash = match[1];
+					versionHtml += ' (<a href="https://github.com/grobidOrg/grobid/commit/' + encodeURIComponent(commitHash) + '" target="_blank" style="color:#848484;">' + data.revision + '</a>)';
+				}
+				$('#grobid-version').html(versionHtml);
+			}
+		});
+	}
+
+	function fetchHealth() {
+		$.ajax({
+			type: 'GET',
+			url: defineBaseURL('health'),
+			dataType: 'json',
+			success: function(data) {
+				updateHealthIndicator(data);
+			},
+			error: function(jqXHR) {
+				try {
+					var data = JSON.parse(jqXHR.responseText);
+					updateHealthIndicator(data);
+				} catch (e) {
+					var indicator = $('#health-indicator');
+					indicator.removeClass('healthy unhealthy');
+					indicator.addClass('unhealthy');
+					indicator.attr('title', 'Service unreachable');
+				}
+			}
+		});
+	}
+
+	function updateHealthIndicator(data) {
+		var indicator = $('#health-indicator');
+		indicator.removeClass('healthy unhealthy');
+
+		var hasFailedModels = data.models && data.models.totalFailed > 0;
+		var isHealthy = data.ready && !hasFailedModels;
+
+		if (isHealthy) {
+			indicator.addClass('healthy');
+			indicator.attr('title', 'Service is ready');
+		} else {
+			indicator.addClass('unhealthy');
+			var reasons = [];
+			if (!data.initialized) reasons.push('service not initialized');
+			if (data.pool && !data.pool.initialized) reasons.push('engine pool not ready');
+			if (hasFailedModels)
+				reasons.push(data.models.totalFailed + ' model(s) failed to load');
+			if (data.initializationError) reasons.push(data.initializationError);
+			var title = 'Service is not ready';
+			if (reasons.length > 0) title += ': ' + reasons.join(', ');
+			indicator.attr('title', title);
+		}
+	}
+
 	$(document).ready(function() {
-		$("#subTitle").html("About");
 		$("#divAbout").show();
+		fetchVersion();
+		fetchHealth();
+		setInterval(fetchHealth, 10000);
 		//$("#divAdmin").hide();
 
 		// for TEI-based results
@@ -55,7 +121,6 @@ var grobid = (function($) {
         // for patent processing
         $("#divRestIII").hide();
 
-		$("#divDoc").hide();
 		$('#consolidateBlock').show();
         $("#btn_download").hide();
         $("#btn_download3").hide();
@@ -112,42 +177,33 @@ var grobid = (function($) {
 			$("#rest").attr('class', 'section-not-active');
 			$("#pdf").attr('class', 'section-not-active');
 			//$("#admin").attr('class', 'section-not-active');
-			$("#doc").attr('class', 'section-not-active');
 			$("#patent").attr('class', 'section-not-active');
-
-			$("#subTitle").html("About");
-			$("#subTitle").show();
 
 			$("#divAbout").show();
 			$("#divRestI").hide();
 			$("#divRestII").hide();
 			$("#divRestIII").hide();
 			//$("#divAdmin").hide();
-			$("#divDoc").hide();
-			$("#divDemo").hide();
+			$("#sideLinks").show();
 			return false;
 		});
 		$("#rest").click(function() {
 			$("#rest").attr('class', 'section-active');
 			$("#pdf").attr('class', 'section-not-active');
-			$("#doc").attr('class', 'section-not-active');
 			$("#about").attr('class', 'section-not-active');
 			//$("#admin").attr('class', 'section-not-active');
 			$("#patent").attr('class', 'section-not-active');
 
-			$("#subTitle").hide();
 			block = 0;
-			//$("#subTitle").html("TEI output service");
-			//$("#subTitle").show();
 			processChange();
 
 			$("#divRestI").show();
 			$("#divRestII").hide();
 			$("#divRestIII").hide();
 			$("#divAbout").hide();
-			$("#divDoc").hide();
 			//$("#divAdmin").hide();
-			$("#divDemo").hide();
+			$("#sideLinks").hide();
+
 			return false;
 		});
 		/*$("#admin").click(function() {
@@ -171,47 +227,24 @@ var grobid = (function($) {
 			$("#divDemo").hide();
 			return false;
 		});*/
-		$("#doc").click(function() {
-			$("#doc").attr('class', 'section-active');
-			$("#rest").attr('class', 'section-not-active');
-			$("#pdf").attr('class', 'section-not-active');
-			$("#patent").attr('class', 'section-not-active');
-			$("#about").attr('class', 'section-not-active');
-			//$("#admin").attr('class', 'section-not-active');
-
-			$("#subTitle").html("Doc");
-			$("#subTitle").show();
-
-			$("#divDoc").show();
-			$("#divAbout").hide();
-			$("#divRestI").hide();
-			$("#divRestII").hide();
-			$("#divRestIII").hide();
-			//$("#divAdmin").hide();
-			$("#divDemo").hide();
-			return false;
-		});
 		$("#pdf").click(function() {
 			$("#pdf").attr('class', 'section-active');
 			$("#rest").attr('class', 'section-not-active');
 			$("#patent").attr('class', 'section-not-active');
 			$("#about").attr('class', 'section-not-active');
 			//$("#admin").attr('class', 'section-not-active');
-			$("#doc").attr('class', 'section-not-active');
 
 			block = 1;
 			setBaseUrl('referenceAnnotations');
-			$("#subTitle").hide();
 			processChange();
-			//$("#subTitle").html("PDF annotation services");
-			//$("#subTitle").show();
 
-			$("#divDoc").hide();
 			$("#divAbout").hide();
 			$("#divRestI").hide();
 			$("#divRestII").show();
 			$("#divRestIII").hide();
 			//$("#divAdmin").hide();
+			$("#sideLinks").hide();
+
 			return false;
 		});
 		$("#patent").click(function() {
@@ -220,19 +253,18 @@ var grobid = (function($) {
 			$("#pdf").attr('class', 'section-not-active');
 			$("#about").attr('class', 'section-not-active');
 			//$("#admin").attr('class', 'section-not-active');
-			$("#doc").attr('class', 'section-not-active');
 
 			block = 2;
 			setBaseUrl('processCitationPatentST36');
-			$("#subTitle").hide();
 			processChange();
 
-			$("#divDoc").hide();
 			$("#divAbout").hide();
 			$("#divRestI").hide();
 			$("#divRestII").hide();
 			$("#divRestIII").show();
 			//$("#divAdmin").hide();
+			$("#sideLinks").hide();
+
 			return false;
 		});
 	});

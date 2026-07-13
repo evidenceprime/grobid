@@ -1,12 +1,27 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.features;
-
-import org.grobid.core.lexicon.Lexicon;
-import org.grobid.core.utilities.OffsetPosition;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
+
+import org.grobid.core.lexicon.Lexicon;
+import org.grobid.core.utilities.OffsetPosition;
 
 /**
  * Class providing a toolkit for managing and creating features or string sequence tagging problems.
@@ -22,8 +37,9 @@ public class FeatureFactory {
     public Pattern year = Pattern.compile("[1,2][0-9][0-9][0-9]");
     public Pattern http = Pattern.compile("http(s)?");
     public Pattern isDigit = Pattern.compile("^\\d+$");
-    public Pattern email2 = Pattern.compile("\\w+((\\.|\\-|_)\\w+)*@\\w+((\\.|\\-)\\w+)+");
-    public Pattern email = Pattern.compile("^(?:[a-zA-Z0-9_'^&amp;/+-])+(?:\\.(?:[a-zA-Z0-9_'^&amp;/+-])+)*@(?:(?:\\[?(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))\\.){3}(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\]?)|(?:[a-zA-Z0-9-]+\\.)+(?:[a-zA-Z]){2,}\\.?)$");
+    public Pattern email2 = Pattern.compile("\\w+([.-]\\w+)*@\\w+([.-]\\w+)+");
+    public Pattern email = Pattern.compile(
+            "^(?:[a-zA-Z0-9_'^&amp;/+-])+(?:\\.(?:[a-zA-Z0-9_'^&amp;/+-])+)*@(?:(?:\\[?(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))\\.){3}(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\]?)|(?:[a-zA-Z0-9-]+\\.)+(?:[a-zA-Z]){2,}\\.?)$");
     public Pattern acronym = Pattern.compile("[A-Z]\\.([A-Z]\\.)*");
     public Pattern isPunct = Pattern.compile("^[\\,\\:;\\?\\.]+$");
 
@@ -41,88 +57,93 @@ public class FeatureFactory {
                     "symposium"
             });
 
-    static public List<String> MONTHS = new ArrayList<String>() {{
-        add("january");
-        add("february");
-        add("march");
-        add("april");
-        add("may");
-        add("june");
-        add("july");
-        add("august");
-        add("september");
-        add("october");
-        add("november");
-        add("december");
-        add("jan");
-        add("feb");
-        add("mar");
-        add("apr");
-        add("may");
-        add("jun");
-        add("jul");
-        add("aug");
-        add("sep");
-        add("oct");
-        add("nov");
-        add("dec");
-    }};
+    static public List<String> MONTHS = new ArrayList<String>() {
+        {
+            add("january");
+            add("february");
+            add("march");
+            add("april");
+            add("may");
+            add("june");
+            add("july");
+            add("august");
+            add("september");
+            add("october");
+            add("november");
+            add("december");
+            add("jan");
+            add("feb");
+            add("mar");
+            add("apr");
+            add("may");
+            add("jun");
+            add("jul");
+            add("aug");
+            add("sep");
+            add("oct");
+            add("nov");
+            add("dec");
+        }
+    };
 
-    static public List<String> COUNTRY_CODES = new ArrayList<String>() {{
-        add("US");
-        add("EP");
-        add("WO");
-        add("DE");
-        add("AU");
-        add("GB");
-        add("DK");
-        add("BE");
-        add("AT");
-        add("CN");
-        add("KR");
-        add("EA");
-        add("CH");
-        add("JP");
-        add("FR");
-        add("UK");
-        add("RU");
-        add("CA");
-        add("NL");
-        add("DD");
-        add("SE");
-        add("FI");
-        add("MX");
-        add("OA");
-        add("AP");
-        add("AR");
-        add("BR");
-        add("BG");
-        add("CL");
-        add("GR");
-        add("HU");
-        add("IS");
-        add("IN");
-        add("IE");
-        add("IL");
-        add("IT");
-        add("LU");
-        add("NO");
-        add("NZ");
-        add("PL");
-        add("RU");
-        add("ES");
-        add("TW");
-        add("TR");
-    }};
+    static public List<String> COUNTRY_CODES = new ArrayList<String>() {
+        {
+            add("US");
+            add("EP");
+            add("WO");
+            add("DE");
+            add("AU");
+            add("GB");
+            add("DK");
+            add("BE");
+            add("AT");
+            add("CN");
+            add("KR");
+            add("EA");
+            add("CH");
+            add("JP");
+            add("FR");
+            add("UK");
+            add("RU");
+            add("CA");
+            add("NL");
+            add("DD");
+            add("SE");
+            add("FI");
+            add("MX");
+            add("OA");
+            add("AP");
+            add("AR");
+            add("BR");
+            add("BG");
+            add("CL");
+            add("GR");
+            add("HU");
+            add("IS");
+            add("IN");
+            add("IE");
+            add("IL");
+            add("IT");
+            add("LU");
+            add("NO");
+            add("NZ");
+            add("PL");
+            add("RU");
+            add("ES");
+            add("TW");
+            add("TR");
+        }
+    };
 
-    static public List<String> KIND_CODES = new ArrayList<String>() {{
-        add("A");
-        add("B");
-        add("C");
-        add("U");
-        add("P");
-    }};
-    ;
+    static public List<String> KIND_CODES = new ArrayList<String>() {
+        {
+            add("A");
+            add("B");
+            add("C");
+            add("U");
+            add("P");
+        }
+    };;
 
     // hidden constructor
     private FeatureFactory() {
@@ -204,7 +225,6 @@ public class FeatureFactory {
         return false;
     }
 
-
     /**
      * Test for the current string contains only digit
      */
@@ -221,7 +241,6 @@ public class FeatureFactory {
         }
         return true;
     }
-
 
     /**
      * Test for the current string is a number or a decimal number, i.e. containing only digits or ",", "."
@@ -342,14 +361,14 @@ public class FeatureFactory {
      * Given an double value between 0.0 and total, discretized into nbBins following a log scale
      */
     public int logScaling(double pos, double total, int nbBins) {
-//System.out.println("total: " + total + " / pos: " + pos);         
+        //System.out.println("total: " + total + " / pos: " + pos);
         if (pos >= total)
             return nbBins;
         if (pos <= 0)
             return 0;
         double max = Math.log(total + 1);
         double val = Math.log(pos + 1);
-//System.out.println("max: " + max + " / val: " + val);        
+        //System.out.println("max: " + max + " / val: " + val);
         double rel = val / max;
         double rel2 = (rel * nbBins);
         return ((int) rel2);

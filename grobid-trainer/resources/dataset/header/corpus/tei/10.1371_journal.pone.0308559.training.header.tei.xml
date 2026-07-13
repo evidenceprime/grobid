@@ -1,0 +1,115 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T17:11:37.754Z">12/3/2025 5:11:37 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T17:11:23.844466Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T17:11:23.844466Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Contribution of statistical learning in learning<lb/> to read across languages<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Jinglei Ren, Min WangID*<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>Department of Human Development and Quantitative Methodology, University of Maryland,</affiliation>
+	</byline>
+
+	<address>College Park,<lb/> Maryland, United States of America<lb/></address>
+
+	*
+	<email>minwang@umd.edu</email>
+
+	Abstract<lb/>
+	<div type="abstract">Statistical Learning (SL) refers to human&apos;s ability to detect regularities from environment<lb/> Kirkham, N. Z. (2002) &amp; Saffran, J. R. (1996). There has been a growing interest in under-<lb/>standing how sensitivity to statistical regularities influences learning to read. The current<lb/> study systematically examined whether and how non-linguistic SL, Chinese SL, and English<lb/> SL contribute to Chinese and English word reading among native Chinese-speaking 4th, 6th<lb/> and 8th graders who learn English as a second language (L2). Children showed above-<lb/>chance learning across all SL tasks and across all grades. In addition, developmental<lb/> improvements were shown across at least two of the three grade ranges on all SL tasks. In<lb/> terms of the contribution of SL to reading, non-linguistic auditory SL (ASL), English visual SL<lb/> (VSL), and Chinese ASL accounted for a significant amount of variance in English L2 word<lb/> reading. Non-linguistic ASL, Chinese VSL, English VSL, and English ASL accounted for a<lb/> significant amount of variance in Chinese word reading. Our results provide clear and novel<lb/> evidence for cross-linguistic contribution from Chinese SL to English reading, and from<lb/> English SL to Chinese reading, highlighting a bi-directional relationship between SL in one<lb/> language and reading in another language.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0298670 March 25, 2024<lb/></reference>
+
+	<page>1 / 20<lb/></page>
+    a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Ren J, Wang M (2024) Contribution of<lb/> statistical learning in learning to read across<lb/> languages. PLoS ONE 19(3): e0298670.</reference>
+
+	<idno>https://doi.<lb/> org/10.1371/journal.pone.0298670<lb/></idno>
+
+	Editor:
+	<editor>Jie Wang,</editor>
+
+	<byline>
+	<affiliation>Education University of Hong<lb/> Kong,</affiliation>
+	</byline>
+
+	<address>HONG KONG<lb/></address>
+
+	<note type="submission">Received: May 8, 2023<lb/> Accepted: January 26, 2024<lb/></note>
+
+	Published:
+	<date>March 25, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Ren, Wang. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">The data and original<lb/> codes are available in Open Science Framework<lb/> [https://osf.io/3e45m/?view_only=<lb/> de2df9d61c504129b5d56d9fa12ddc62].<lb/></note>
+
+	Funding:
+	<note type="funding">The present work was partially supported<lb/> by a Grand Challenges Individual Grant from the<lb/> University of Maryland awarded to the second<lb/> author, and by Graduate Research Funding<lb/> awarded to the first author at the Department of<lb/> Human Development and Quantitative<lb/> Methodology, University of Maryland College Park.<lb/> The funders had no role in study design, data<lb/> collection, and analysis, the decision to publish, or<lb/> preparation of the manuscript. The authors have<lb/> declared that no competing interests exist.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

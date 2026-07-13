@@ -1,0 +1,344 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">BharatSim: An agent-based modelling framework for India</title>
+      <author>
+        <persName>
+          <forename>Philip</forename>
+          <surname>Cherian</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jayanta</forename>
+          <surname>Kshirsagar</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Bhavesh</forename>
+          <surname>Neekhra</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Gaurav</forename>
+          <surname>Deshkar</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Harshal</forename>
+          <surname>Hayatnagarkar</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Kshitij</forename>
+          <surname>Kapoor</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Chandrakant</forename>
+          <surname>Kaski</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ganesh</forename>
+          <surname>Kathar</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Swapnil</forename>
+          <surname>Khandekar</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Saurabh</forename>
+          <surname>Mookherjee</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Praveen</forename>
+          <surname>Ninawe</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Riz Fernando</forename>
+          <surname>Noronha</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Pranjal</forename>
+          <surname>Ranka</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Vaibhhav</forename>
+          <surname>Sinha</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Tina</forename>
+          <surname>Vinod</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Chhaya</forename>
+          <surname>Yadav</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Debayan</forename>
+          <surname>Gupta</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Gautam I.</forename>
+          <surname>Menon</surname>
+        </persName>
+      </author>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-04T17:41:08.287Z">12/4/2025 5:41:08 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher>Public Library of Science (PLoS)</publisher>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication">2024</date>
+      <idno type="DOI">10.1371/journal.pcbi.1012682</idno>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>Philip Cherian, Jayanta Kshirsagar, Bhavesh Neekhra, Gaurav Deshkar, Harshal Hayatnagarkar, Kshitij Kapoor, Chandrakant Kaski, Ganesh Kathar, Swapnil Khandekar, Saurabh Mookherjee, Praveen Ninawe, Riz Fernando Noronha, Pranjal Ranka, Vaibhhav Sinha, Tina Vinod, Chhaya Yadav, Debayan Gupta, Gautam I. Menon. (2024). BharatSim: An agent-based modelling framework for India. PLOS Computational Biology, 20(12), e1012682. DOI: 10.1371/journal.pcbi.1012682</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-04T17:40:49.977495Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-04T17:40:49.977495Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">META-RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Shortcut citations in the methods section:<lb/> Frequency, problems, and strategies for<lb/> responsible reuse<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Kai Standvoss 1,2,3 ‡ , Vartan Kazezian 4 ‡ , Britta R. Lewke 5 , Kathleen Bastian 6 ,<lb/> Shambhavi Chidambaram 7 , Subhi Arafat 3,8 , Ubai Alsharif 9 , Ana Herrera-Melendez 10 ,<lb/> Anna-Delia Knipper 11 , Bruna M. S. Seco 12¤ , Nina Nitzan Soto 13 , Orestis Rakitzis 14 ,<lb/> Isa Steinecker 2,15 , Philipp van Kronenberg Till 16 , Fereshteh Zarebidaki 17 , Parya Abbasi 4 ,<lb/> Tracey L. WeissgerberID 4 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Psychiatry, Charite ´-Universita ¨tsmedizin Berlin, Corporate Member of Freie Universita<lb/> ¨t<lb/> Berlin and Humboldt-Universita ¨t zu Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>2 Bernstein Center for Computational<lb/> Neuroscience, Charite ´-Universita ¨tsmedizin Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>3 Einstein Center for Neurosciences<lb/> Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>4 QUEST Center for Responsible Research, Berlin Institute of Health at Charite<lb/> ´-<lb/>Universita ¨tsmedizin-Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>5 Berlin School of Mind and Brain, Humboldt-Universita ¨t zu<lb/> Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>6 CERPOP-UMR1295, Universite ´de Toulouse III,</affiliation>
+	</byline>
+
+	<address>Toulouse, France,</address>
+
+	<byline>
+	<affiliation>7 Department<lb/> of Life Sciences, Humboldt-Universita ¨t zu Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany;</address>
+
+	<byline>
+	<affiliation>Berlin School of Mind and Brain,</affiliation>
+	</byline>
+
+	<address>Berlin,<lb/> Germany,</address>
+
+	<byline>
+	<affiliation>8 Department of Neurology, Charite ´-Universita ¨tsmedizin Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>9 Department<lb/> of Oral and Maxillofacial Surgery, Dortmund General Hospital,</affiliation>
+	</byline>
+
+	<address>Dortmund, Germany,</address>
+
+	<byline>
+	<affiliation>10 Department of<lb/> Psychiatry and Psychotherapy, Campus Benjamin Franklin, Charite ´-Universita ¨tsmedizin Berlin, Corporate<lb/> Member of Freie Universita ¨t Berlin and Humboldt-Universita ¨t zu Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>11 German Federal<lb/> Institute for Risk Assessment (BfR), Department of Biological Safety,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+    <!-- former affiliation is there because we need the marker -->
+	<byline>
+	<affiliation>12 Former affiliation:<lb/> Department of Biomolecular Systems, Max Planck Institute of Colloids and Interfaces,</affiliation>
+	</byline>
+
+	<address>Potsdam, Germany,<lb/></address>
+
+	<byline>
+	<affiliation>13 Institute du Cerveau-Paris brain institute (ICM),</affiliation>
+	</byline>
+
+	<address>Paris, France</address>;
+	<byline>
+	<affiliation>E ´cole doctorale Cerveau, cognition,<lb/>, comportement (ED3C), Sorbonne Universite ´Paris,</affiliation>
+	</byline>
+
+	<address>Paris, France,</address>
+
+	<byline>
+	<affiliation>14 Department of Psychiatry and<lb/> Neurosciences, Charite ´-Universita ¨tsmedizin Berlin, Corporate Member of Freie Universita ¨t Berlin and<lb/> Humboldt-Universita ¨t zu Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>15 Biological Psychology and Neuroergonomics, Berlin<lb/> Institute of Technology,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>16 Berlin Institute of Health and Neuroscience Research Center,<lb/> Charite ´-Universita ¨tsmedizin Berlin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>17 Former affiliation: Institute of Neurophysiology,<lb/> Charite ´-Universita ¨tsmedizin,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany<lb/></address>
+
+	¤ Current address:
+	<byline>
+	<affiliation>Biontech SE,</affiliation>
+	</byline>
+
+	<address>Mainz, Germany<lb/></address>
+
+	‡ These authors share first authorship on this work.<lb/> *
+	<email>tracey.weissgerber@bih-charite.de</email>
+
+	Abstract<lb/>
+	<div type="abstract">Methods sections are often missing essential details. Methodological shortcut citations, in<lb/> which authors cite previous papers instead of describing the method in detail, may contrib-<lb/>ute to this problem. This meta-research study used 3 approaches to examine shortcut cita-<lb/>tion use in neuroscience, biology, and psychiatry. First, we assessed current practices in<lb/> more than 750 papers. More than 90% of papers used shortcut citations. Other common<lb/> reasons for using citations in the methods included giving credit or specifying what was<lb/> used (who or what citation) and providing context or a justification (why citation). Next, we<lb/> reviewed 15 papers to determine what can happen when readers follow shortcut citations to<lb/> find methodological details. While shortcut citations can be used effectively, they can also<lb/> deprive readers of essential methodological details. Problems encountered included diffi-<lb/>culty identifying or accessing the cited materials, missing or insufficient descriptions of the<lb/> cited method, and shortcut citation chains. Third, we examined journal policies. Fewer than<lb/></div>
+
+	<reference>PLOS Biology | https://doi.org/10.1371/journal.pbio.3002562 April 2, 2024<lb/></reference>
+
+	<page>1 / 23<lb/></page>
+          a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Standvoss K, Kazezian V, Lewke BR,<lb/> Bastian K, Chidambaram S, Arafat S, et al. (2024)<lb/> Shortcut citations in the methods section:<lb/> Frequency, problems, and strategies for<lb/> responsible reuse. PLoS Biol 22(4): e3002562.<lb/></reference>
+
+	<idno>https://doi.org/10.1371/journal.pbio.3002562<lb/></idno>
+
+	Academic Editor:
+	<editor>Cilene Lino de Oliveira,<lb/></editor>
+
+	<byline>
+	<affiliation>Universidade Federal de Santa Catarina,</affiliation>
+	</byline>
+
+	<address>BRAZIL<lb/></address>
+
+	<note type="submission">Received: January 23, 2023<lb/> Accepted: February 26, 2024<lb/></note>
+
+	Published:
+	<date>April 2, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pbio.3002562<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Standvoss et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">The abstraction<lb/> protocols, data and code for the methodological<lb/> citations study and journal policy study were<lb/></note>
+          
+    <div type="abstract">one quarter of journals had policies describing how authors should report previously<lb/> described methods. We propose that methodological shortcut citations should meet 3 crite-<lb/>ria; cited resources should provide (1) a detailed description of (2) the method used by the<lb/> citing authors&apos;, and (3) be open access. Resources that do not meet these criteria should be<lb/> cited to give credit, but not as shortcut citations. We outline actions that authors and journals<lb/> can take to use shortcut citations responsibly, while fostering a culture of open and repro-<lb/>ducible methods reporting.<lb/></div>
+          
+    <note type="availability">deposited on the Open Science Framework (RRID:<lb/> SCR_003238) at https://osf.io/d2sa3/.<lb/></note>
+
+	Funding:
+	<note type="funding">This study was completed through a<lb/> participant guided, learn-by doing meta-research<lb/> course funded by the Berlin University Alliance<lb/> within the Excellence Strategy of the federal and<lb/> state governments (301_TrainIndik to TLW). VK<lb/> received salary support from the Berlin University<lb/> Alliance grant. The funders had no role in study<lb/> design, data collection and analysis, decision to<lb/> publish, or preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

@@ -1,7 +1,32 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines;
 
-import org.apache.commons.lang3.StringUtils;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.regex.Matcher;
+
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.grobid.core.GrobidModels;
 import org.grobid.core.data.BibDataSet;
@@ -14,32 +39,22 @@ import org.grobid.core.engines.citations.ReferenceSegmenter;
 import org.grobid.core.engines.config.GrobidAnalysisConfig;
 import org.grobid.core.engines.counters.CitationParserCounters;
 import org.grobid.core.engines.label.SegmentationLabels;
+import org.grobid.core.engines.label.TaggingLabel;
+import org.grobid.core.engines.label.TaggingLabels;
 import org.grobid.core.exceptions.GrobidException;
 import org.grobid.core.features.FeaturesVectorCitation;
-import org.grobid.core.lexicon.Lexicon;
-import org.grobid.core.utilities.Consolidation;
 import org.grobid.core.layout.LayoutToken;
 import org.grobid.core.layout.PDFAnnotation;
 import org.grobid.core.layout.PDFAnnotation.Type;
+import org.grobid.core.lexicon.Lexicon;
+import org.grobid.core.tokenization.TaggingTokenCluster;
+import org.grobid.core.tokenization.TaggingTokenClusteror;
+import org.grobid.core.utilities.Consolidation;
 import org.grobid.core.utilities.LayoutTokensUtil;
 import org.grobid.core.utilities.OffsetPosition;
 import org.grobid.core.utilities.TextUtilities;
 import org.grobid.core.utilities.UnicodeUtil;
 import org.grobid.core.utilities.counters.CntManager;
-import org.grobid.core.tokenization.TaggingTokenCluster;
-import org.grobid.core.tokenization.TaggingTokenClusteror;
-import org.grobid.core.engines.label.TaggingLabel;
-import org.grobid.core.engines.label.TaggingLabels;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-import java.util.regex.Matcher;
 
 public class CitationParser extends AbstractParser {
     private static final Logger LOGGER = LoggerFactory.getLogger(CitationParser.class);
@@ -59,13 +74,13 @@ public class CitationParser extends AbstractParser {
 
     /**
      * Process one single raw reference string
-     */ 
+     */
     public BiblioItem processingString(String input, int consolidate) {
         List<String> inputs = new ArrayList<>();
-        input = TextUtilities.removeLeadingAndTrailingChars(input, "[({.,])}: \n"," \n");
+        input = TextUtilities.removeLeadingAndTrailingChars(input, "[({.,])}: \n", " \n");
         inputs.add(input);
         List<BiblioItem> result = processingStringMultiple(inputs, consolidate);
-        if (result != null && result.size()>0) 
+        if (result != null && result.size() > 0)
             return result.get(0);
         else
             return null;
@@ -74,21 +89,25 @@ public class CitationParser extends AbstractParser {
     /**
      * Process a list of raw reference strings by taking advantage of batch processing
      * when a DeLFT deep learning model is used
-     */ 
+     */
     public List<BiblioItem> processingStringMultiple(List<String> inputs, int consolidate) {
         if (inputs == null || inputs.size() == 0)
             return null;
         List<List<LayoutToken>> tokenList = new ArrayList<>();
-        for(String input : inputs) {
-            if (StringUtils.isBlank(input)) 
+        for (String input : inputs) {
+            // normalize first so non-breaking spaces etc. become regular spaces
+            input = UnicodeUtil.normaliseText(input);
+            if (StringUtils.isBlank(input)) {
                 tokenList.add(new ArrayList<LayoutToken>());
-            else {
-                // some cleaning
-                input = UnicodeUtil.normaliseText(input);
-                input = TextUtilities.removeLeadingAndTrailingChars(input, "[({.,])}: \n"," \n");
-                List<LayoutToken> tokens = analyzer.tokenizeWithLayoutToken(input);
-                tokens = analyzer.retokenizeSubdigitsFromLayoutToken(tokens);
-                tokenList.add(tokens);
+            } else {
+                input = TextUtilities.removeLeadingAndTrailingChars(input, "[({.,])}: \n", " \n");
+                if (StringUtils.isBlank(input)) {
+                    tokenList.add(new ArrayList<LayoutToken>());
+                } else {
+                    List<LayoutToken> tokens = analyzer.tokenizeWithLayoutToken(input);
+                    tokens = analyzer.retokenizeSubdigitsFromLayoutToken(tokens);
+                    tokenList.add(tokens);
+                }
             }
         }
 
@@ -99,7 +118,7 @@ public class CitationParser extends AbstractParser {
             for (BiblioItem result : results) {
                 if (result != null) {
                     String localInput = inputs.get(i);
-                    localInput = TextUtilities.removeLeadingAndTrailingChars(localInput, "[({.,])}: \n"," \n");
+                    localInput = TextUtilities.removeLeadingAndTrailingChars(localInput, "[({.,])}: \n", " \n");
                     result.setReference(localInput);
                 }
                 i++;
@@ -110,29 +129,37 @@ public class CitationParser extends AbstractParser {
 
     /**
      * Process one single raw reference string tokenized as layout objects
-     */ 
+     */
     public BiblioItem processingLayoutToken(List<LayoutToken> tokens, int consolidate) {
         List<List<LayoutToken>> tokenList = new ArrayList<>();
         tokenList.add(tokens);
         List<BiblioItem> result = processingLayoutTokenMultiple(tokenList, consolidate);
-        if (result != null && result.size()>0) 
+        if (result != null && result.size() > 0)
             return result.get(0);
         else
             return null;
     }
 
     /**
-     * Process a list of raw reference string, each one tokenized as layout objects, and taking advantage 
+     * Process a list of raw reference string, each one tokenized as layout objects, and taking advantage
      * of batch processing when a DeLFT deep learning model is used
-     */ 
+     */
     public List<BiblioItem> processingLayoutTokenMultiple(List<List<LayoutToken>> tokenList, int consolidate) {
+        warnIfDebugUncaptured("CitationParser.processingLayoutTokenMultiple(List, int)");
+        return processingLayoutTokenMultiple(tokenList, consolidate, null);
+    }
+
+    public List<BiblioItem> processingLayoutTokenMultiple(
+            List<List<LayoutToken>> tokenList,
+            int consolidate,
+            GrobidAnalysisConfig config) {
         if (tokenList == null || tokenList.size() == 0)
             return null;
         List<BiblioItem> results = new ArrayList<>();
         StringBuilder featuredInput = new StringBuilder();
 
         int p = 0;
-        for(List<LayoutToken> tokens : tokenList) {
+        for (List<LayoutToken> tokens : tokenList) {
             tokenList.set(p, analyzer.retokenizeSubdigitsFromLayoutToken(tokens));
             p++;
         }
@@ -151,27 +178,35 @@ public class CitationParser extends AbstractParser {
             List<OffsetPosition> urlPositions = lexicon.tokenPositionsUrlPattern(tokens);
 
             try {
-                String featuredBlock = FeaturesVectorCitation.addFeaturesCitation(tokens, null, journalsPositions, 
-                    abbrevJournalsPositions, conferencesPositions, publishersPositions, locationsPositions,
-                    collaborationsPositions, identifiersPositions, urlPositions);
+                String featuredBlock = FeaturesVectorCitation.addFeaturesCitation(
+                        tokens,
+                        null,
+                        journalsPositions,
+                        abbrevJournalsPositions,
+                        conferencesPositions,
+                        publishersPositions,
+                        locationsPositions,
+                        collaborationsPositions,
+                        identifiersPositions,
+                        urlPositions);
 
                 featuredInput.append(featuredBlock);
                 featuredInput.append("\n\n");
             } catch (Exception e) {
-                LOGGER.error("An exception occured while adding features for processing a citation.", e);
+                LOGGER.error("An exception occurred while adding features for processing a citation.", e);
             }
         }
-        
-        if (featuredInput.toString().length() == 0) 
+
+        if (featuredInput.toString().length() == 0)
             return null;
 
         String allRes = null;
         try {
-            allRes = label(featuredInput.toString());
+            allRes = labelAndCapture(featuredInput.toString(), config);
         } catch (Exception e) {
-            LOGGER.error("An exception occured while labeling a citation.", e);
+            LOGGER.error("An exception occurred while labeling a citation.", e);
             throw new GrobidException(
-                    "An exception occured while labeling a citation.", e);
+                    "An exception occurred while labeling a citation.", e);
         }
 
         if (allRes == null || allRes.length() == 0)
@@ -185,20 +220,25 @@ public class CitationParser extends AbstractParser {
                 String res = resBlocks[i];
                 i++;
                 BiblioItem resCitation = resultExtractionLayoutTokens(res, true, tokens);
-            
+
                 // post-processing (additional field parsing and cleaning)
                 if (resCitation != null) {
                     BiblioItem.cleanTitles(resCitation);
 
                     resCitation.setOriginalAuthors(resCitation.getAuthors());
                     try {
-                        resCitation.setFullAuthors(parsers.getAuthorParser().processingCitation(resCitation.getAuthors()));
+                        resCitation
+                                .setFullAuthors(
+                                        parsers.getAuthorParser().processingCitation(resCitation.getAuthors(), config));
                     } catch (Exception e) {
-                        LOGGER.error("An exception occured when processing author names of a citation.", e);
+                        LOGGER.error("An exception occurred when processing author names of a citation.", e);
                     }
                     if (resCitation.getPublicationDate() != null) {
-                        List<Date> dates = parsers.getDateParser().processing(resCitation
-                                .getPublicationDate());
+                        List<Date> dates = parsers.getDateParser()
+                                .process(
+                                        resCitation
+                                                .getPublicationDate(),
+                                        config);
                         if (dates != null) {
                             Date bestDate = null;
                             if (dates.size() > 0) {
@@ -219,20 +259,28 @@ public class CitationParser extends AbstractParser {
                         }
                     }
 
-                    resCitation.setPageRange(TextUtilities.cleanField(
-                            resCitation.getPageRange(), true));
-                    resCitation.setPublisher(TextUtilities.cleanField(
-                            resCitation.getPublisher(), true));
-                    resCitation.setJournal(TextUtilities.cleanField(
-                            resCitation.getJournal(), true));
+                    resCitation.setPageRange(
+                            TextUtilities.cleanField(
+                                    resCitation.getPageRange(),
+                                    true));
+                    resCitation.setPublisher(
+                            TextUtilities.cleanField(
+                                    resCitation.getPublisher(),
+                                    true));
+                    resCitation.setJournal(
+                            TextUtilities.cleanField(
+                                    resCitation.getJournal(),
+                                    true));
                     resCitation.postProcessPages();
 
                     // editors (they are human persons in theory)
                     resCitation.setOriginalEditors(resCitation.getEditors());
                     try {
-                        resCitation.setFullEditors(parsers.getAuthorParser().processingCitation(resCitation.getEditors()));
+                        resCitation
+                                .setFullEditors(
+                                        parsers.getAuthorParser().processingCitation(resCitation.getEditors(), config));
                     } catch (Exception e) {
-                        LOGGER.error("An exception occured when processing editor names of a citation.", e);
+                        LOGGER.error("An exception occurred when processing editor names of a citation.", e);
                     }
                 }
 
@@ -244,7 +292,9 @@ public class CitationParser extends AbstractParser {
         return results;
     }
 
-    public List<BibDataSet> processingReferenceSection(String referenceTextBlock, ReferenceSegmenter referenceSegmenter) {
+    public List<BibDataSet> processingReferenceSection(
+            String referenceTextBlock,
+            ReferenceSegmenter referenceSegmenter) {
         List<LabeledReferenceResult> segm = referenceSegmenter.extract(referenceTextBlock);
 
         List<BibDataSet> results = new ArrayList<>();
@@ -255,11 +305,13 @@ public class CitationParser extends AbstractParser {
             if (ref.getTokens() == null || ref.getTokens().size() == 0)
                 continue;
             List<LayoutToken> localTokens = ref.getTokens();
-            localTokens = TextUtilities.removeLeadingAndTrailingCharsLayoutTokens(localTokens, "[({.,])}: \n"," \n");
+            localTokens = TextUtilities.removeLeadingAndTrailingCharsLayoutTokens(localTokens, "[({.,])}: \n", " \n");
             allRefBlocks.add(localTokens);
         }
 
         List<BiblioItem> bibList = processingLayoutTokenMultiple(allRefBlocks, 0);
+        if (bibList == null)
+            return results;
         int i = 0;
         for (LabeledReferenceResult ref : segm) {
             if (ref.getTokens() == null || ref.getTokens().size() == 0)
@@ -269,13 +321,13 @@ public class CitationParser extends AbstractParser {
             if ((bib != null) && !bib.rejectAsReference()) {
                 BibDataSet bds = new BibDataSet();
                 String localLabel = ref.getLabel();
-                if (localLabel != null && localLabel.length()>0) {
+                if (localLabel != null && localLabel.length() > 0) {
                     // cleaning the label for matching
                     localLabel = TextUtilities.removeLeadingAndTrailingChars(localLabel, "([{<,. \n", ")}]>,.: \n");
                 }
 
                 String localRef = ref.getReferenceText();
-                localRef = TextUtilities.removeLeadingAndTrailingChars(localRef, "[({.,])}: \n"," \n");
+                localRef = TextUtilities.removeLeadingAndTrailingChars(localRef, "[({.,])}: \n", " \n");
                 bds.setRefSymbol(localLabel);
                 bib.setReference(localRef);
                 bds.setResBib(bib);
@@ -287,7 +339,18 @@ public class CitationParser extends AbstractParser {
         return results;
     }
 
-    public List<BibDataSet> processingReferenceSection(Document doc, ReferenceSegmenter referenceSegmenter, int consolidate) {
+    public List<BibDataSet> processingReferenceSection(
+            Document doc,
+            ReferenceSegmenter referenceSegmenter,
+            int consolidate) {
+        return processingReferenceSection(doc, referenceSegmenter, consolidate, null);
+    }
+
+    public List<BibDataSet> processingReferenceSection(
+            Document doc,
+            ReferenceSegmenter referenceSegmenter,
+            int consolidate,
+            GrobidAnalysisConfig config) {
         List<BibDataSet> results = new ArrayList<>();
 
         String referencesStr = doc.getDocumentPartText(SegmentationLabels.REFERENCES);
@@ -299,7 +362,9 @@ public class CitationParser extends AbstractParser {
 
         cntManager.i(CitationParserCounters.NOT_EMPTY_REFERENCES_BLOCKS);
 
-        List<LabeledReferenceResult> references = referenceSegmenter.extract(doc);
+        List<LabeledReferenceResult> references = (referenceSegmenter instanceof ReferenceSegmenterParser)
+                ? ((ReferenceSegmenterParser) referenceSegmenter).extract(doc, config)
+                : referenceSegmenter.extract(doc);
 
         if (references == null) {
             cntManager.i(CitationParserCounters.NULL_SEGMENTED_REFERENCES_LIST);
@@ -308,13 +373,13 @@ public class CitationParser extends AbstractParser {
             cntManager.i(CitationParserCounters.SEGMENTED_REFERENCES, references.size());
         }
 
-        // consolidation: if selected, it is NOT done individually for each citation but 
+        // consolidation: if selected, it is NOT done individually for each citation but
         // in a second stage for all citations
         if (references != null) {
             /*List<String> refTexts = new ArrayList<>();
             for (LabeledReferenceResult ref : references) {
                 // paranoiac check
-                if (ref == null) 
+                if (ref == null)
                     continue;
 
                 String localRef = ref.getReferenceText();
@@ -326,53 +391,54 @@ public class CitationParser extends AbstractParser {
             List<List<LayoutToken>> allRefBlocks = new ArrayList<>();
             for (LabeledReferenceResult ref : references) {
                 // paranoiac check
-                if (ref == null) 
+                if (ref == null)
                     continue;
 
                 List<LayoutToken> localTokens = ref.getTokens();
-                localTokens = TextUtilities.removeLeadingAndTrailingCharsLayoutTokens(localTokens, "[({.,])}: \n"," \n");
+                localTokens = TextUtilities
+                        .removeLeadingAndTrailingCharsLayoutTokens(localTokens, "[({.,])}: \n", " \n");
                 allRefBlocks.add(localTokens);
             }
-            List<BiblioItem> bibList = processingLayoutTokenMultiple(allRefBlocks, 0);
+            List<BiblioItem> bibList = processingLayoutTokenMultiple(allRefBlocks, 0, config);
 
-            if (bibList != null && bibList.size()>0) {
+            if (bibList != null && bibList.size() > 0) {
                 int i = 0;
                 for (LabeledReferenceResult ref : references) {
                     // paranoiac check
-                    if (ref == null) 
+                    if (ref == null)
                         continue;
 
                     //BiblioItem bib = processingString(ref.getReferenceText(), 0);
                     BiblioItem bib = bibList.get(i);
                     i++;
-                    if (bib == null) 
+                    if (bib == null)
                         continue;
 
                     // check if we have an interesting url annotation over this bib. ref.
                     List<LayoutToken> refTokens = ref.getTokens();
                     if ((refTokens != null) && (refTokens.size() > 0)) {
                         List<Integer> localPages = new ArrayList<Integer>();
-                        for(LayoutToken token : refTokens) {
+                        for (LayoutToken token : refTokens) {
                             if (!localPages.contains(token.getPage())) {
                                 localPages.add(token.getPage());
                             }
                         }
-                        for(PDFAnnotation annotation : doc.getPDFAnnotations()) {
-                            if (annotation.getType() != Type.URI) 
+                        for (PDFAnnotation annotation : doc.getPDFAnnotations()) {
+                            if (annotation.getType() != Type.URI)
                                 continue;
                             if (!localPages.contains(annotation.getPageNumber()))
                                 continue;
-                            for(LayoutToken token : refTokens) {
+                            for (LayoutToken token : refTokens) {
                                 if (annotation.cover(token)) {
                                     // annotation covers tokens, let's look at the href
                                     String uri = annotation.getDestination();
                                     // is it a DOI?
                                     Matcher doiMatcher = TextUtilities.DOIPattern.matcher(uri);
-                                    if (doiMatcher.find()) { 
-                                        // the BiblioItem setter will take care of the prefix and doi cleaninng 
+                                    if (doiMatcher.find()) {
+                                        // the BiblioItem setter will take care of the prefix and doi cleaninng
                                         bib.setDOI(uri);
                                     }
-                                    // TBD: is it something else? 
+                                    // TBD: is it something else?
                                 }
                             }
                         }
@@ -381,13 +447,14 @@ public class CitationParser extends AbstractParser {
                     if (!bib.rejectAsReference()) {
                         BibDataSet bds = new BibDataSet();
                         String localLabel = ref.getLabel();
-                        if (localLabel != null && localLabel.length()>0) {
+                        if (localLabel != null && localLabel.length() > 0) {
                             // cleaning the label for matching
-                            localLabel = TextUtilities.removeLeadingAndTrailingChars(localLabel, "([{<,. \n", ")}]>,.: \n");
+                            localLabel = TextUtilities
+                                    .removeLeadingAndTrailingChars(localLabel, "([{<,. \n", ")}]>,.: \n");
                         }
 
                         String localRef = ref.getReferenceText();
-                        localRef = TextUtilities.removeLeadingAndTrailingChars(localRef, "[({.,])}: \n"," \n");
+                        localRef = TextUtilities.removeLeadingAndTrailingChars(localRef, "[({.,])}: \n", " \n");
 
                         bds.setRefSymbol(localLabel);
                         bds.setResBib(bib);
@@ -404,16 +471,16 @@ public class CitationParser extends AbstractParser {
         if (consolidate != 0) {
             Consolidation consolidator = Consolidation.getInstance();
             if (consolidator.getCntManager() == null)
-                consolidator.setCntManager(cntManager);       
-            Map<Integer,BiblioItem> resConsolidation = null;
+                consolidator.setCntManager(cntManager);
+            Map<Integer, BiblioItem> resConsolidation = null;
             try {
                 resConsolidation = consolidator.consolidate(results);
-            } catch(Exception e) {
+            } catch (Exception e) {
                 throw new GrobidException(
-                "An exception occured while running consolidation on bibliographical references.", e);
-            } 
+                        "An exception occurred while running consolidation on bibliographical references.", e);
+            }
             if (resConsolidation != null) {
-                for(int i=0; i<results.size(); i++) {
+                for (int i = 0; i < results.size(); i++) {
                     BiblioItem resCitation = results.get(i).getResBib();
                     BiblioItem bibo = resConsolidation.get(Integer.valueOf(i));
                     if (bibo != null) {
@@ -431,41 +498,66 @@ public class CitationParser extends AbstractParser {
         return results;
     }
 
-    public List<BibDataSet> processingReferenceSection(File input,
-                                                       ReferenceSegmenter referenceSegmenter,
-                                                       int consolidate) {
+    public List<BibDataSet> processingReferenceSection(
+            File input,
+            ReferenceSegmenter referenceSegmenter,
+            int consolidate) {
         DocumentSource documentSource = DocumentSource.fromPdf(input);
         return processingReferenceSection(documentSource, referenceSegmenter, consolidate);
     }
 
-    public List<BibDataSet> processingReferenceSection(File input,
-                                                       String md5Str,
-                                                       ReferenceSegmenter referenceSegmenter,
-                                                       int consolidate) {
+    public List<BibDataSet> processingReferenceSection(
+            File input,
+            String md5Str,
+            ReferenceSegmenter referenceSegmenter,
+            int consolidate) {
+        return processingReferenceSection(input, md5Str, referenceSegmenter, consolidate, null);
+    }
+
+    public List<BibDataSet> processingReferenceSection(
+            File input,
+            String md5Str,
+            ReferenceSegmenter referenceSegmenter,
+            int consolidate,
+            GrobidAnalysisConfig config) {
         DocumentSource documentSource = DocumentSource.fromPdf(input);
         documentSource.setMD5(md5Str);
-        return processingReferenceSection(documentSource, referenceSegmenter, consolidate);
+        return processingReferenceSection(documentSource, referenceSegmenter, consolidate, config);
     }
 
-    public List<BibDataSet> processingReferenceSection(DocumentSource documentSource,
-                                                       ReferenceSegmenter referenceSegmenter,
-                                                       int consolidate) {
+    public List<BibDataSet> processingReferenceSection(
+            DocumentSource documentSource,
+            ReferenceSegmenter referenceSegmenter,
+            int consolidate) {
+        return processingReferenceSection(documentSource, referenceSegmenter, consolidate, null);
+    }
+
+    public List<BibDataSet> processingReferenceSection(
+            DocumentSource documentSource,
+            ReferenceSegmenter referenceSegmenter,
+            int consolidate,
+            GrobidAnalysisConfig debugConfig) {
         List<BibDataSet> results;
         try {
-            Document doc = parsers.getSegmentationParser().processing(documentSource,
-                    GrobidAnalysisConfig.builder().consolidateCitations(consolidate).build());
-            results = processingReferenceSection(doc, referenceSegmenter, consolidate);
+            // Build a segmentation config that carries any debug collector forward so the
+            // segmentation model's labelling is captured even on the references-only endpoint.
+            GrobidAnalysisConfig.GrobidAnalysisConfigBuilder builder = GrobidAnalysisConfig.builder()
+                    .consolidateCitations(consolidate);
+            if (debugConfig != null) {
+                builder.debugLabelingCollector(debugConfig.getDebugLabelingCollector());
+            }
+            Document doc = parsers.getSegmentationParser().processing(documentSource, builder.build());
+            results = processingReferenceSection(doc, referenceSegmenter, consolidate, debugConfig);
         } catch (GrobidException e) {
-            LOGGER.error("An exception occured while running Grobid.", e);
+            LOGGER.error("An exception occurred while running Grobid.", e);
             throw e;
         } catch (Exception e) {
-            LOGGER.error("An exception occured while running Grobid.", e);
+            LOGGER.error("An exception occurred while running Grobid.", e);
             throw new GrobidException("An exception occurred while running Grobid.", e);
         }
 
         return results;
     }
-
 
     /**
      * Extract results from a labeled sequence.
@@ -475,9 +567,10 @@ public class CitationParser extends AbstractParser {
      * @param tokenizations     list of tokens
      * @return biblio item
      */
-    public BiblioItem resultExtractionLayoutTokens(String result,
-                                       boolean volumePostProcess,
-                                       List<LayoutToken> tokenizations) {
+    public BiblioItem resultExtractionLayoutTokens(
+            String result,
+            boolean volumePostProcess,
+            List<LayoutToken> tokenizations) {
         BiblioItem biblio = new BiblioItem();
 
         TaggingLabel lastClusterLabel = null;
@@ -502,9 +595,9 @@ public class CitationParser extends AbstractParser {
                 if (biblio.getTitle() == null)
                     biblio.setTitle(clusterContent);
                 else if (biblio.getTitle().length() >= clusterContent.length())
-                    biblio.setNote(clusterContent);
+                    biblio.setNoteOrConcatenateIfNotEmpty(clusterContent);
                 else {
-                    biblio.setNote(biblio.getTitle());
+                    biblio.setNoteOrConcatenateIfNotEmpty(biblio.getTitle());
                     biblio.setTitle(clusterContent);
                 }
             } else if (clusterLabel.equals(TaggingLabels.CITATION_AUTHOR)) {
@@ -528,18 +621,18 @@ public class CitationParser extends AbstractParser {
                 if (biblio.getBookTitle() == null)
                     biblio.setBookTitle(clusterContent);
                 else if (biblio.getBookTitle().length() >= clusterContent.length())
-                    biblio.setNote(clusterContent);
+                    biblio.setNoteOrConcatenateIfNotEmpty(clusterContent);
                 else {
-                    biblio.setNote(biblio.getBookTitle());
+                    biblio.setNoteOrConcatenateIfNotEmpty(biblio.getBookTitle());
                     biblio.setBookTitle(clusterContent);
                 }
             } else if (clusterLabel.equals(TaggingLabels.CITATION_SERIES)) {
                 if (biblio.getSerieTitle() == null)
                     biblio.setSerieTitle(clusterContent);
-                else if (biblio.getSerieTitle().length() >= clusterContent.length())
-                    biblio.setNote(clusterContent);
-                else {
-                    biblio.setNote(biblio.getSerieTitle());
+                else if (biblio.getSerieTitle().length() >= clusterContent.length()) {
+                    biblio.setNoteOrConcatenateIfNotEmpty(clusterContent);
+                } else {
+                    biblio.setNoteOrConcatenateIfNotEmpty(biblio.getSerieTitle());
                     biblio.setSerieTitle(clusterContent);
                 }
             } else if (clusterLabel.equals(TaggingLabels.CITATION_PAGES)) {
@@ -553,32 +646,32 @@ public class CitationParser extends AbstractParser {
                 else
                     biblio.setCollaboration(clusterContent);
             } else if (clusterLabel.equals(TaggingLabels.CITATION_JOURNAL)) {
-                if (biblio.getJournal() == null)
+                if (biblio.getJournal() == null) {
                     biblio.setJournal(clusterContent);
-                else if (biblio.getJournal().length() >= clusterContent.length())
-                    biblio.setNote(clusterContent);
-                else {
-                    biblio.setNote(biblio.getJournal());
+                } else if (biblio.getJournal().length() >= clusterContent.length()) {
+                    biblio.setNoteOrConcatenateIfNotEmpty(clusterContent);
+                } else {
+                    biblio.setNoteOrConcatenateIfNotEmpty(biblio.getJournal());
                     biblio.setJournal(clusterContent);
                 }
             } else if (clusterLabel.equals(TaggingLabels.CITATION_VOLUME)) {
-                if (biblio.getVolumeBlock() == null)
-                   biblio.setVolumeBlock(clusterContent, volumePostProcess);
+                if (biblio.getVolumeBlock() == null) {
+                    biblio.setVolumeBlock(clusterContent, volumePostProcess);
+                }
             } else if (clusterLabel.equals(TaggingLabels.CITATION_ISSUE)) {
-                if (biblio.getIssue() == null)
+                if (biblio.getIssue() == null) {
                     biblio.setIssue(clusterContent);
+                }
             } else if (clusterLabel.equals(TaggingLabels.CITATION_EDITOR)) {
                 biblio.setEditors(clusterContent);
             } else if (clusterLabel.equals(TaggingLabels.CITATION_INSTITUTION)) {
-                if (biblio.getInstitution() != null)
+                if (biblio.getInstitution() != null) {
                     biblio.setInstitution(biblio.getInstitution() + " ; " + clusterContent);
-                else
-                   biblio.setInstitution(clusterContent);
-            } else if (clusterLabel.equals(TaggingLabels.CITATION_NOTE)) {             
-                if (biblio.getNote() != null)
-                    biblio.setNote(biblio.getNote()+ ". " + clusterContent);
-                else    
-                   biblio.setNote(clusterContent);
+                } else {
+                    biblio.setInstitution(clusterContent);
+                }
+            } else if (clusterLabel.equals(TaggingLabels.CITATION_NOTE)) {
+                biblio.setNoteOrConcatenateIfNotEmpty(clusterContent);
             } else if (clusterLabel.equals(TaggingLabels.CITATION_PUBNUM)) {
                 String clusterNonDehypenizedContent = LayoutTokensUtil.toText(cluster.concatTokens());
                 biblio.setPubnum(clusterNonDehypenizedContent);
@@ -587,7 +680,7 @@ public class CitationParser extends AbstractParser {
                 String clusterNonDehypenizedContent = LayoutTokensUtil.toText(cluster.concatTokens());
                 biblio.setWeb(clusterNonDehypenizedContent);
             }
-        }        
+        }
 
         return biblio;
     }
@@ -601,19 +694,19 @@ public class CitationParser extends AbstractParser {
      */
     public BiblioItem consolidateCitation(BiblioItem resCitation, String rawCitation, int consolidate) {
         if (consolidate == 0) {
-            // no consolidation 
+            // no consolidation
             return resCitation;
         }
         Consolidation consolidator = null;
         try {
             consolidator = Consolidation.getInstance();
             if (consolidator.getCntManager() == null)
-                consolidator.setCntManager(cntManager);  
+                consolidator.setCntManager(cntManager);
             List<BibDataSet> biblios = new ArrayList<BibDataSet>();
             BibDataSet theBib = new BibDataSet();
             theBib.setResBib(resCitation);
             biblios.add(theBib);
-            Map<Integer,BiblioItem> bibis = consolidator.consolidate(biblios);
+            Map<Integer, BiblioItem> bibis = consolidator.consolidate(biblios);
 
             //BiblioItem bibo = consolidator.consolidate(resCitation, rawCitation);
             BiblioItem bibo = bibis.get(0);
@@ -627,7 +720,7 @@ public class CitationParser extends AbstractParser {
             LOGGER.error("An exception occurred while running bibliographical data consolidation.", e);
             throw new GrobidException(
                     "An exception occurred while running bibliographical data consolidation.", e);
-        } 
+        }
         return resCitation;
     }
 
@@ -674,13 +767,19 @@ public class CitationParser extends AbstractParser {
                 identifiersPositions = lexicon.tokenPositionsIdentifierPattern(tokenizations);
                 urlPositions = lexicon.tokenPositionsUrlPattern(tokenizations);
 
-                String ress = FeaturesVectorCitation.addFeaturesCitation(tokenizations,
-                        null, journalsPositions, abbrevJournalsPositions, 
-                        conferencesPositions, publishersPositions, locationsPositions, 
-                        collaborationsPositions, identifiersPositions, urlPositions);
+                String ress = FeaturesVectorCitation.addFeaturesCitation(
+                        tokenizations,
+                        null,
+                        journalsPositions,
+                        abbrevJournalsPositions,
+                        conferencesPositions,
+                        publishersPositions,
+                        locationsPositions,
+                        collaborationsPositions,
+                        identifiersPositions,
+                        urlPositions);
                 String res = label(ress);
 
-                
                 String lastTag = null;
                 String lastTag0;
                 String currentTag0 = null;
@@ -725,7 +824,7 @@ public class CitationParser extends AbstractParser {
                             }
                         } else if (i == ll - 1) {
                             s1 = s;
-                        } 
+                        }
                         i++;
                     }
 
@@ -760,52 +859,59 @@ public class CitationParser extends AbstractParser {
                     }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<author>", "<author>", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<journal>", "<title level=\"j\">", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<series>", "<title level=\"s\">", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<booktitle>", "<title level=\"m\">", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<date>", "<date>", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<volume>", "<biblScope unit=\"volume\">", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<publisher>", "<publisher>", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<location>", "<pubPlace>", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<editor>", "<editor>", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<pages>", "<biblScope unit=\"page\">", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<tech>", "<note type=\"report\">", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<issue>", "<biblScope unit=\"issue\">", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<web>", "<ptr type=\"web\">", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<note>", "<note>", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
                         output = writeField(s1, lastTag0, s2, "<institution>", "<orgName>", addSpace, 0);
-                    } 
+                    }
                     if (output == null) {
-                        output = writeField(s1, lastTag0, s2, "<collaboration>", "<orgName type=\"collaboration\">", addSpace, 0);
-                    } 
+                        output = writeField(
+                                s1,
+                                lastTag0,
+                                s2,
+                                "<collaboration>",
+                                "<orgName type=\"collaboration\">",
+                                addSpace,
+                                0);
+                    }
                     if (output == null) {
                         String localTag = null;
                         String cleanS2 = StringUtils.normalizeSpace(s2);
@@ -820,16 +926,16 @@ public class CitationParser extends AbstractParser {
                             if (arxivMatcher.find())
                                 localTag = "<idno type=\"arXiv\">";
                         }
-                        
+
                         if (localTag == null) {
                             Matcher pmidMatcher = TextUtilities.pmidPattern.matcher(cleanS2);
-                            if (pmidMatcher.find()) 
+                            if (pmidMatcher.find())
                                 localTag = "<idno type=\"PMID\">";
                         }
 
                         if (localTag == null) {
                             Matcher pmcidMatcher = TextUtilities.pmcidPattern.matcher(cleanS2);
-                            if (pmcidMatcher.find()) 
+                            if (pmcidMatcher.find())
                                 localTag = "<idno type=\"PMC\">";
                         }
 
@@ -851,7 +957,7 @@ public class CitationParser extends AbstractParser {
                             localTag = "<idno>";
 
                         output = writeField(s1, lastTag0, s2, "<pubnum>", localTag, addSpace, 0);
-                    } 
+                    }
                     if (output != null) {
                         buffer.append(output);
                         lastTag = s1;
@@ -871,15 +977,21 @@ public class CitationParser extends AbstractParser {
                     buffer.append("</bibl>\n");
                 }
             }
-            
+
         } catch (Exception e) {
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
         return buffer;
     }
 
-    private String writeField(String s1, String lastTag0, String s2,
-                              String field, String outField, boolean addSpace, int nbIndent) {
+    private String writeField(
+            String s1,
+            String lastTag0,
+            String s2,
+            String field,
+            String outField,
+            boolean addSpace,
+            int nbIndent) {
         String result = null;
         if ((s1.equals(field)) || (s1.equals("I-" + field))) {
             if (s1.equals(lastTag0) || s1.equals("I-" + lastTag0)) {
@@ -902,7 +1014,14 @@ public class CitationParser extends AbstractParser {
         return result;
     }
 
-    private boolean writeField2(StringBuilder buffer, String s1, String lastTag0, String s2, String field, String outField, boolean addSpace) {
+    private boolean writeField2(
+            StringBuilder buffer,
+            String s1,
+            String lastTag0,
+            String s2,
+            String field,
+            String outField,
+            boolean addSpace) {
         boolean result = false;
         if ((s1.equals(field)) || (s1.equals("I-" + field))) {
             result = true;
@@ -921,8 +1040,10 @@ public class CitationParser extends AbstractParser {
         return result;
     }
 
-    private boolean testClosingTag(StringBuilder buffer, String currentTag0,
-                                   String lastTag0) {
+    private boolean testClosingTag(
+            StringBuilder buffer,
+            String currentTag0,
+            String lastTag0) {
         boolean res = false;
         if (!currentTag0.equals(lastTag0)) {
             res = true;

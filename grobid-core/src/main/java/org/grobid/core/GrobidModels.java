@@ -1,16 +1,35 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core;
 
-import org.apache.commons.lang3.StringUtils;
-import org.grobid.core.utilities.GrobidProperties;
+import static org.grobid.core.engines.EngineParsers.LOGGER;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
-import static org.grobid.core.engines.EngineParsers.LOGGER;
+import org.apache.commons.lang3.StringUtils;
+
+import org.grobid.core.engines.tagging.GrobidCRFEngine;
+import org.grobid.core.utilities.GrobidProperties;
 
 /**
  * This enum class acts as a registry for all Grobid models.
@@ -71,8 +90,8 @@ public enum GrobidModels implements GrobidModel {
     public static final String DUMMY_FOLDER_LABEL = "none";
 
     // Flavors are dedicated models variant, but using the same base parser.
-    // This is used in particular for scientific or technical documents like standards (SDO) 
-    // which have a particular overall zoning and/or header, while the rest of the content 
+    // This is used in particular for scientific or technical documents like standards (SDO)
+    // which have a particular overall zoning and/or header, while the rest of the content
     // is similar to other general technical and scientific document
     public enum Flavor {
         BLANK("blank"),
@@ -110,8 +129,8 @@ public enum GrobidModels implements GrobidModel {
 
         public static List<String> getLabels() {
             return Arrays.stream(Flavor.values())
-                .map(Flavor::getLabel)
-                .collect(Collectors.toList());
+                    .map(Flavor::getLabel)
+                    .collect(Collectors.toList());
         }
     }
 
@@ -166,8 +185,60 @@ public enum GrobidModels implements GrobidModel {
     public static GrobidModel getModelFlavor(GrobidModel model, Flavor flavor) {
         if (flavor == null) {
             return model;
-        } else
-            return modelFor(model.toString() + "/" + flavor.getLabel().toLowerCase());
+        }
+        GrobidModel grobidModel = modelFor(model.toString() + "/" + flavor.getLabel().toLowerCase());
+        if (flavoredModelExistsOnDisk(grobidModel)) {
+            return grobidModel;
+        }
+        LOGGER.info(
+                "The requested flavor "
+                        + flavor.getLabel()
+                        + " for model "
+                        + model.getModelName()
+                        + " (resolved engine: "
+                        + GrobidProperties.getGrobidEngine(grobidModel)
+                        + ") is not available on disk. Defaulting to the standard model. "
+                        + "Note: a flavor's engine and architecture are inherited from the "
+                        + "base unless explicitly set on the flavor entry.");
+        return model;
+    }
+
+    /**
+     * Returns true when a trained model file/directory for the flavored model exists on disk.
+     *
+     * The check is engine-aware because Wapiti and DeLFT use different on-disk layouts:
+     *   - Wapiti:  <home>/models/<flavor-folder>/model.wapiti          (a file, slash-separated path)
+     *   - DeLFT:   <home>/models/<hyphenated-name>-<architecture>/    (a directory, hyphenated name)
+     *
+     * Both engine and DeLFT architecture are resolved against the flavored model itself.
+     * The field-level prefix-fallback in GrobidProperties means each field is inherited
+     * from the closest ancestor when the flavor entry omits it, or used as-is when the
+     * flavor entry sets it explicitly — so this helper does not need a separate handle
+     * on the base model.
+     *
+     * @param flavoredModel the candidate flavored model whose existence we are testing
+     * @return true if a usable model exists on disk for {@code flavoredModel}
+     */
+    private static boolean flavoredModelExistsOnDisk(GrobidModel flavoredModel) {
+        // A flavor that omits `engine:` inherits from the base; a flavor that sets it
+        // explicitly overrides — e.g. a Wapiti-only flavor of a DeLFT base must set
+        // `engine: "wapiti"` on the flavor entry (see header-sdo-ietf in grobid.yaml).
+        GrobidCRFEngine engine = GrobidProperties.getGrobidEngine(flavoredModel);
+
+        if (engine == GrobidCRFEngine.DELFT) {
+            String architecture = GrobidProperties.getDelftArchitecture(flavoredModel);
+            if (StringUtils.isBlank(architecture)) {
+                return false;
+            }
+            File dlDir = new File(
+                    GrobidProperties.getModelPath(),
+                    flavoredModel.getModelName() + "-" + architecture);
+            return dlDir.isDirectory();
+        }
+
+        // Wapiti (and any non-DL engine): file-based check at the flavor folder path.
+        String path = flavoredModel.getModelPath();
+        return path != null && Files.exists(Paths.get(path));
     }
 
     public static GrobidModel modelFor(final String name) {

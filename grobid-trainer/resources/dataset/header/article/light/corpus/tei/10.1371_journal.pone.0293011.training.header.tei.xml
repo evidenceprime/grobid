@@ -1,0 +1,142 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T13:17:38.406Z">12/2/2025 1:17:38 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T13:17:25.752812Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T13:17:25.752812Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Habitat use of loggerhead (Caretta caretta) and<lb/> green (Chelonia mydas) turtles at the northern<lb/> limit of their distribution range of the<lb/> Northwest Pacific Ocean<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Il-Hun Kim ID 1☯<lb/> , Il-Kook Park 2☯ , Daesik Park 2 , Min-Seop Kim 1 , In-Young Cho 1 ,<lb/> Dongwoo Yang 1 , Dong-Jin Han 3 , Eunvit Cho 3 , Won Joon Shim 4 , Sang Hee Hong 4,5 , Yong-<lb/>Rock An ID 1 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Ecology and Conservation, National Marine Biodiversity Institute of Korea</affiliation>,
+	</byline>
+
+	<address>Seocheon,<lb/> Chungcheongnam-do, Republic of Korea,</address>
+
+	<byline>
+	<affiliation>2 Division of Science Education, Kangwon National University,<lb/></affiliation>
+	</byline>
+
+	<address>Chuncheon, Gangwon-do, Republic of Korea,</address>
+
+	<byline>
+	<affiliation>3 Aqua Team, Aqua Planet Yeosu,</affiliation>
+	</byline>
+
+	<address>Yeosu, Jeollanam-do,<lb/> Republic of Korea,</address>
+
+	<byline>
+	<affiliation>4 Ecological Risk Research Department, Korea Institute of Ocean Science and<lb/> Technology,</affiliation>
+	</byline>
+
+	<address>Geoje, Gyeongsangnam-do, Republic of Korea,</address>
+
+	<byline>
+	<affiliation>5 Department of Ocean Science, University of<lb/> Science and Technology,</affiliation>
+	</byline>
+
+	<address>Daejeon, Republic of Korea<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> *
+	<email>rock@mabik.re.kr</email>
+
+	Abstract<lb/>
+	<div type="abstract">Verifying habitats, including the foraging and nesting areas for sea turtles, enables an under-<lb/>standing of their spatial ecology and successful planning of their conservation and manage-<lb/>ment strategies. Recently, the observation frequency and bycatch of loggerhead (Caretta<lb/> caretta) and green (Chelonia mydas) turtles have increased in the northern limit of their dis-<lb/>tribution range, in the northern part of the East China Sea and East (Japan) Sea. We con-<lb/>ducted satellite tracking to investigate the habitat use of seven loggerhead and eight green<lb/> turtles from June 2016 to August 2022 in this area, where little is known about their spatial<lb/> ecology. We applied a 50 percent volume contour method to determine their main foraging<lb/> areas and analyzed 6 environmental variables to characterize their habitats. Loggerhead<lb/> turtles mainly stayed in and used the East China Sea as a foraging area during the tracking<lb/> period, while two individuals among them also used the East Sea as a seasonal foraging<lb/> area. Most green turtles also used the East China Sea as a foraging area, near South Korea<lb/> and Japan, with one individual among them using the lower area of the East Sea as a sea-<lb/>sonal foraging area. Notably, one green turtle traveled to Hainan Island in the South China<lb/> Sea, a historical nesting area. Our results showed that the two sea turtle species included<lb/> the East Sea as a seasonal foraging area, possibly owing to the abundance of food sources<lb/> available, despite its relatively lower sea temperature. Considering that loggerhead and<lb/> green sea turtles were observed using the northern part of the East China Sea and East<lb/> Sea more frequently than previously known and that the sea temperature gradually<lb/> increases due to climate change, conservation and management activities are required for<lb/> sea turtles in these areas.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0290202 April 4, 2024<lb/></reference>
+
+	<page>1 / 20<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Kim I-H, Park I-K, Park D, Kim M-S, Cho<lb/> I-Y, Yang D, et al. (2024) Habitat use of loggerhead<lb/> (Caretta caretta) and green (Chelonia mydas)<lb/> turtles at the northern limit of their distribution<lb/> range of the Northwest Pacific Ocean. PLoS ONE<lb/> 19(4): e0290202.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0290202<lb/></idno>
+
+	Editor:
+	<editor>Lee W. Cooper,</editor>
+
+	<byline>
+	<affiliation>University of Maryland<lb/> Center for Environmental Science,</affiliation>
+	</byline>
+
+	<address>UNITED STATES<lb/></address>
+
+	<note type="submission">Received: August 9, 2023<lb/> Accepted: January 30, 2024<lb/></note>
+
+	Published:
+	<date>April 4, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0290202<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Kim et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">We have uploaded<lb/> the sea turtle migration data to movebank as<lb/> requested. We will compress the relevant files into<lb/> a ZIP file and submit it to the Supporting<lb/> Information -Compressed/ZIP File Archive section.<lb/> https://www.movebank.org/movebank/#page=<lb/> studies,path=study3030282201.<lb/></note>
+
+	Funding:
+	<note type="funding">Y-R.A. received Grant from National<lb/> Marine Biodiversity Institute of Korea<lb/> (2024M00300), M-S.K. received Grant from<lb/> Ministry of Oceans and Fisheries (2024E00300)<lb/> and W.J.S. received Grant &quot;Development of<lb/> technology for impact assessment of marine<lb/> plastic debris on marine ecosystem(PE99914)&quot; of<lb/> Korea Institute of Ocean Science and Technology.<lb/> The funders had no role in study design, data<lb/> collection and analysis, decision to publish, or<lb/> preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

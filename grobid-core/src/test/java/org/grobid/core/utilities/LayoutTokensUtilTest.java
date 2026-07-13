@@ -1,16 +1,32 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities;
-
-import com.google.common.collect.Iterables;
-import org.grobid.core.analyzers.GrobidAnalyzer;
-import org.grobid.core.layout.LayoutToken;
-import org.junit.Test;
-
-import java.util.List;
-import java.util.stream.IntStream;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
+
+import java.util.List;
+import java.util.stream.IntStream;
+
+import com.google.common.collect.Iterables;
+import org.junit.Test;
+
+import org.grobid.core.analyzers.GrobidAnalyzer;
+import org.grobid.core.layout.LayoutToken;
 
 public class LayoutTokensUtilTest {
 
@@ -19,8 +35,9 @@ public class LayoutTokensUtilTest {
      */
     @Test
     public void testDoesRequireDehyphenization_shouldReturnTrue() throws Exception {
-        String input = "The study of iron-based supercondu- \n" +
-            "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
+        String input = "The study of iron-based supercondu- \n"
+                +
+                "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
 
         List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
 
@@ -29,8 +46,9 @@ public class LayoutTokensUtilTest {
 
     @Test
     public void testDoesRequireDehyphenization2_shouldReturnTrue() throws Exception {
-        String input = "The study of iron-based supercondu - \n" +
-            "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
+        String input = "The study of iron-based supercondu - \n"
+                +
+                "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
 
         List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
 
@@ -39,8 +57,9 @@ public class LayoutTokensUtilTest {
 
     @Test
     public void testDoesRequireDehyphenization_composedWords_shouldReturnFalse() throws Exception {
-        String input = "The study of iron-based supercondu - \n" +
-            "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
+        String input = "The study of iron-based supercondu - \n"
+                +
+                "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
 
         List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
 
@@ -50,8 +69,9 @@ public class LayoutTokensUtilTest {
 
     @Test
     public void testDoesRequireDehyphenization2_composedWords_shouldReturnFalse() throws Exception {
-        String input = "The study of iron- based supercondu - \n" +
-            "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
+        String input = "The study of iron- based supercondu - \n"
+                +
+                "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
 
         List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
 
@@ -60,8 +80,9 @@ public class LayoutTokensUtilTest {
 
     @Test
     public void testDoesRequireDehyphenization3_composedWords_shouldReturnFalse() throws Exception {
-        String input = "The study of iron - based supercondu - \n" +
-            "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
+        String input = "The study of iron - based supercondu - \n"
+                +
+                "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
 
         List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
 
@@ -70,8 +91,9 @@ public class LayoutTokensUtilTest {
 
     @Test
     public void testDoesRequireDehyphenization_usingCoordinates_shouldReturnTrue() throws Exception {
-        String input = "The study of iron-based supercondu -  " +
-            "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
+        String input = "The study of iron-based supercondu -  "
+                +
+                "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
 
         List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
 
@@ -81,19 +103,18 @@ public class LayoutTokensUtilTest {
         assertThat(LayoutTokensUtil.doesRequireDehypenisation(layoutTokens, 12), is(true));
     }
 
-//    @Test
-//    public void testDoesRequireDehyphenization_withoutNewLine() throws Exception {
-//        String input = "The study of iron-based supercondu -  " +
-//            "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
-//
-//        List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
-//
-//        IntStream.range(0, 15).forEach(i -> layoutTokens.get(i).setY(10));
-//        IntStream.range(15, layoutTokens.size()).forEach(i -> layoutTokens.get(i).setY(30));
-//
-//        assertThat(LayoutTokensUtil.doesRequireDehypenisation(layoutTokens, 12), is(true));
-//    }
-
+    //    @Test
+    //    public void testDoesRequireDehyphenization_withoutNewLine() throws Exception {
+    //        String input = "The study of iron-based supercondu -  " +
+    //            "ctors superconductivity in the iron-pnictide LaFeAsO 1-x F x has been expanding and has \n";
+    //
+    //        List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
+    //
+    //        IntStream.range(0, 15).forEach(i -> layoutTokens.get(i).setY(10));
+    //        IntStream.range(15, layoutTokens.size()).forEach(i -> layoutTokens.get(i).setY(30));
+    //
+    //        assertThat(LayoutTokensUtil.doesRequireDehypenisation(layoutTokens, 12), is(true));
+    //    }
 
     @Test
     public void testDoesRequireDehyphenization_hypenAtEndOfString_shouldReturnFalse() throws Exception {
@@ -141,8 +162,9 @@ public class LayoutTokensUtilTest {
     @Test
     public void testMaterialNameWithHypenInFormula_shouldNotDehypenise() throws Exception {
 
-        String text = "based \n" +
-            "(Nd 1-x Ce x ) 2 Fe 14-y Co y B nanostructured magnets";
+        String text = "based \n"
+                +
+                "(Nd 1-x Ce x ) 2 Fe 14-y Co y B nanostructured magnets"; // codespell:ignore nd
 
         List<LayoutToken> layoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(text);
 
@@ -153,7 +175,6 @@ public class LayoutTokensUtilTest {
         layoutTokens.get(6).setSubscript(true);
         layoutTokens.get(6).setY(410.506);
         layoutTokens.get(6).setX(65.2255);
-
 
         layoutTokens.get(7).setSubscript(true);
         layoutTokens.get(7).setY(410.506);
@@ -176,7 +197,5 @@ public class LayoutTokensUtilTest {
 
         System.out.println(result);
     }
-
-
 
 }

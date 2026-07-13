@@ -1,0 +1,126 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T14:03:10.709Z">12/2/2025 2:03:10 PM</date>
+        <title>corrections</title>
+      <idno type="fileref">10.1371_journal.pone.0296867</idno></edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T14:02:58.807421Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T14:02:58.807421Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Dopamine and acetylcholine have distinct<lb/> roles in delay-and effort-based decision-<lb/>making in humans<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Mani Erfanian Abdoust ID<lb/> 1 *, Monja Isabel Frobo ¨se 1 , Alfons Schnitzler 2 ,<lb/> Elisabeth Schreivogel 2 , Gerhard Jocham 1<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Biological Psychology of Decision Making, Institute of Experimental Psychology, Heinrich Heine University<lb/> Du ¨sseldorf,</affiliation>
+	</byline>
+
+	<address>Du ¨sseldorf, Germany,</address>
+
+	<byline>
+	<affiliation>2 Institute of Clinical Neuroscience and Medical Psychology, Medical<lb/> Faculty, Heinrich Heine University Du ¨sseldorf,</affiliation>
+	</byline>
+
+	<address>Germany<lb/></address>
+
+	*
+	<email>erfanian@hhu.de</email>
+
+	Abstract<lb/> AU : Pleaseconfirmthatallheadinglevelsarerepresentedcorrectly:<lb/>
+	<div type="abstract">In everyday life, we encounter situations that require tradeoffs between potential rewards<lb/> and associated costs, such as time and (physical) effort. The literature indicates a prominent<lb/> role for dopamine in discounting of both delay and effort, with mixed findings for delay dis-<lb/>counting in humans. Moreover, the reciprocal antagonistic interaction between dopaminer-<lb/>gic and cholinergic transmission in the striatum suggests a potential opponent role of<lb/> acetylcholine in these processes. We found opposing effects of dopamine D2 (haloperidol)<lb/> and acetylcholine M1 receptor (biperiden) antagonism on specific components of effort-<lb/>based decision-making in healthy humans: haloperidol decreased, whereas biperiden<lb/> increased the willingness to exert physical effort. In contrast, delay discounting was reduced<lb/> under haloperidol, but not affected by biperiden. Together, our data suggest that dopamine,<lb/> acting at D2 receptors, modulates both effort and delay discounting, while acetylcholine, act-<lb/>ing at M1 receptors, appears to exert a more specific influence on effort discounting only.<lb/></div>
+
+	<reference>PLOS Biology | https://doi.org/10.1371/journal.pbio.3002714 July 12, 2024<lb/></reference>
+
+	<page>1 / 29<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Erfanian Abdoust M, Frobo ¨se MI,<lb/> Schnitzler A, Schreivogel E, Jocham G (2024)<lb/> Dopamine and acetylcholine have distinct roles in<lb/> delay-and effort-based decision-making in<lb/> humans. PLoS Biol 22(7): e3002714.</reference>
+
+	<idno>https://doi.<lb/> org/10.1371/journal.pbio.3002714<lb/></idno>
+
+	Academic Editor:
+	<editor>Raphael Samuel Matthew<lb/> Kaplan,</editor>
+
+	<byline>
+	<affiliation>Universitat Jaume 1,</affiliation>
+	</byline>
+
+	<address>SPAIN<lb/></address>
+
+	<note type="submission">Received: December 14, 2023<lb/> Accepted: June 14, 2024<lb/></note>
+
+	Published:
+	<date>July 12, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pbio.3002714<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Erfanian Abdoust et al. This is<lb/> an open access article distributed under the terms<lb/> of the Creative Commons Attribution License,<lb/> which permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">Anonymized and<lb/> preprocessed datasets, along with the regression<lb/> and computational modelling analysis codes, are<lb/> available at https://osf.io/gx76t/.<lb/></note>
+
+	Funding:
+	<note type="funding">This work was supported by a grant (DFG<lb/> JO-787/5-1 to GJ) from the Deutsche<lb/> Forschungsgemeinschaft (DFG; https://www.dfg.<lb/> de/). The funders had no role in study design, data<lb/> collection and analysis, decision to publish, or<lb/> preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+	Abbreviations: AES, AU : Anabbreviationlisthasbeencompiledforthoseusedinthetext:Pleaseverifythatallentriesarecorrect:<lb/> Apathy Evaluation Scale; BDI,<lb/> Beck&apos;s Depression Inventory; BIP, biperiden; BIS,<lb/> Barratt Impulsiveness Scale; GLMM, generalized<lb/> linear mixed model; HAL, haloperidol; HDI, highest<lb/> density interval; LOOIC, leave-one-out information<lb/> criterion; MVC, maximum voluntary contraction;<lb/> PLC, placebo; SD, standard deviation; SV,<lb/> subjective value.<lb/>
+
+		</front>
+	</text>
+
+
+  </TEI>

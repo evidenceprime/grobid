@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Elisa</forename>
+								 <middlename>Garcia</middlename>
+								 <surname>Gomez</surname>
+								 <marker>1☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kitiezo</forename>
+								 <surname>Aggrey</surname>
+							</persName>
+							<persName>
+								 <forename>Igunza</forename>
+								 <surname>2☯</surname> ,
+							</persName>
+							<persName>
+								 <forename>Zachary</forename>
+								 <middlename>J</middlename>.
+								 <surname>Madewell</surname> ID
+                                 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Victor</forename>
+								 <surname>Akelo</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Dickens</forename>
+								 <surname>Onyango</surname>
+								 <marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Shams</forename>
+								 <middlename>El</middlename>
+								 <surname>Arifeen</surname>
+								 <marker>6</marker> ,
+							</persName>
+							<persName>
+								 <forename>Emily</forename>
+								 <middlename>S</middlename>.
+								 <surname>Gurley</surname>
+								 <marker>7</marker> ,
+							</persName>
+							<persName>
+								 <forename>Mohammad</forename>
+								 <middlename>Zahid</middlename>
+								 <surname>Hossain</surname> ID
+                                 <marker>6</marker> ,
+								 <roleName>Md</roleName>
+							</persName>
+							<persName>
+								 <forename>Atique</forename>
+								 <middlename>Iqbal</middlename>
+								 <surname>Chowdhury</surname>
+								 <marker>6</marker> ,
+							</persName>
+							<persName>
+								 <forename>Kazi</forename>
+								 <middlename>Munisul</middlename>
+								 <surname>Islam</surname>
+								 <marker>6</marker> ,
+							</persName>
+							<persName>
+								 <forename>Nega</forename>
+								 <surname>Assefa</surname>
+								 <marker>8,9,10</marker> ,
+							</persName>
+							<persName>
+								 <forename>J</forename>.
+								 <surname>Anthony</surname>
+							</persName>
+							<persName>
+								 <forename>G</forename>.
+								 <surname>Scott</surname>
+								 <marker>8</marker> ,
+							</persName>
+							<persName>
+								 <forename>Lola</forename>
+								 <surname>Madrid</surname>
+								 <marker>8,9,10</marker> ,
+							</persName>
+							<persName>
+								 <forename>Yenenesh</forename>
+								 <surname>Tilahun</surname>
+								 <marker>9,10</marker> ,
+							</persName>
+							<persName>
+								 <forename>Stian</forename>
+								 <surname>Orlien</surname> ID
+								 <marker>11,12</marker> ,
+							</persName>
+							<persName>
+								 <forename>Karen</forename>
+								 <middlename>L</middlename>.
+								 <surname>Kotloff</surname>
+								 <marker>13</marker> ,
+							</persName>
+							<persName>
+								 <forename>Milagritos</forename>
+								 <middlename>D</middlename>.
+								 <surname>Tapia</surname>
+								 <marker>13</marker> ,
+							</persName>
+							<persName>
+								 <forename>Adama</forename>
+								 <surname>Mamby Keita</surname>
+								 <marker>14</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ashka</forename>
+								 <surname>Mehta</surname>
+								 <marker>13</marker> ,
+							</persName>
+							<persName>
+                                <!-- weird -->
+								 <forename>Amilcar</forename>
+								 <surname>Magac</surname>
+								 <marker>¸o15</marker> ,
+							</persName>
+							<persName>
+								 <forename>David</forename>
+								 <surname>Torres- FernandezID</surname>
+								 <marker>15,16</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ariel</forename>
+								 <surname>Nhacolo</surname>
+								 <marker>15</marker> ,
+							</persName>
+							<persName>
+								 <forename>Quique</forename>
+								 <surname>BassatID</surname>
+								 <marker>15,16,17,18,19</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ina´cio</forename>
+								 <surname>Mandomando</surname>
+								 <marker>15,16,20</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ikechukwu</forename>
+								 <surname>OgbuanuID</surname>
+								 <marker>21</marker> ,
+							</persName>
+							<persName>
+								 <forename>Carrie</forename>
+								 <middlename>Jo</middlename>
+								 <surname>Cain</surname>
+								 <marker>22</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ronita</forename>
+								 <surname>Luke</surname>
+								 <marker>23</marker> ,
+							</persName>
+							<persName>
+								 <forename>Sorie</forename>
+								 <middlename>I</middlename>.
+								 <middlename>B</middlename>.
+								 <surname>Kamara</surname>
+								 <marker>21</marker> ,
+							</persName>
+							<persName>
+								 <forename>Hailemariam</forename>
+								 <surname>LegesseID</surname>
+								 <marker>24</marker> ,
+							</persName>
+							<persName>
+								 <forename>Shabir</forename>
+								 <surname>Madhi</surname>
+								 <marker>25</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ziyaad</forename>
+								 <surname>Dangor</surname>
+								 <marker>25</marker> ,
+							</persName>
+							<persName>
+								 <forename>Sana</forename>
+								 <surname>MahtabID</surname>
+								 <marker>25</marker> ,
+							</persName>
+							<persName>
+								 <forename>Amy</forename>
+								 <surname>Wise</surname>
+								 <marker>26</marker> ,
+							</persName>
+							<persName>
+								 <forename>Yasmin</forename>
+								 <surname>Adam</surname>
+								 <marker>27</marker> ,
+							</persName>
+							<persName>
+								 <forename>Cynthia</forename>
+								 <middlename>G</middlename>.
+								 <surname>Whitney</surname>
+								 <marker>28</marker> ,
+							</persName>
+							<persName>
+								 <forename>Portia</forename>
+								 <middlename>C</middlename>.
+								 <surname>Mutevedzi</surname>
+								 <marker>28</marker> ,
+							</persName>
+							<persName>
+								 <forename>Dianna</forename>
+								 <middlename>M</middlename>.
+								 <surname>BlauID</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Robert</forename>
+								 <middlename>F</middlename>.
+								 <surname>BreimanID</surname>
+								 <marker>29</marker> ,
+							</persName>
+							<persName>
+								 <forename>Beth</forename>
+								 <middlename>A</middlename>.
+								 <surname>Tippett BarrID</surname>
+								 <marker>30</marker> ,
+							</persName>
+							<persName>
+								 <forename>Chris</forename>
+								 <middlename>A</middlename>.
+								 <surname>ReesID</surname>
+								 <marker>31,32 *</marker>,
+								 <roleName>Child Health</roleName> and
+							</persName>
+                            <!-- not sure how to annotate this as it's in the author list but it's an institution  -->
+                            Mortality Prevention Surveillance Network ¶
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

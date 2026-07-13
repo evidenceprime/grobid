@@ -1,10 +1,21 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.evaluation;
 
-import org.chasen.crfpp.Tagger;
-import org.grobid.core.engines.tagging.GenericTagger;
-import org.grobid.core.exceptions.GrobidException;
-import org.grobid.core.utilities.OffsetPosition;
-import org.grobid.core.utilities.Pair;
+import static org.grobid.core.engines.tagging.GenericTaggerUtils.getPlainLabel;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -15,10 +26,12 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.function.Function;
 
+import org.chasen.crfpp.Tagger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.grobid.core.engines.tagging.GenericTaggerUtils.getPlainLabel;
+import org.grobid.core.engines.tagging.GenericTagger;
+import org.grobid.core.exceptions.GrobidException;
 
 /**
  * Generic evaluation of a single-CRF model processing given an expected result.
@@ -71,9 +84,9 @@ public class EvaluationUtilities {
                 // get last tag
                 StringTokenizer tokenizer = new StringTokenizer(piece, " \t");
                 while (tokenizer.hasMoreTokens()) {
-                    String toke = tokenizer.nextToken();
+                    String token = tokenizer.nextToken();
                     if (!tokenizer.hasMoreTokens()) {
-                        pretags.add(toke);
+                        pretags.add(token);
                     }
                 }
             }
@@ -106,7 +119,8 @@ public class EvaluationUtilities {
         String theResult = null;
 
         try {
-            final BufferedReader bufReader = new BufferedReader(new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8));
+            final BufferedReader bufReader = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(path), StandardCharsets.UTF_8));
 
             String line = null;
             List<String> instance = new ArrayList<>();
@@ -165,13 +179,12 @@ public class EvaluationUtilities {
             }
 
             processCounters(wordStats, obtainedLabel, expectedLabel);
-			/*if (!obtainedLabel.equals(expectedLabel)) {
+            /*if (!obtainedLabel.equals(expectedLabel)) {
                 logger.warn("Disagreement / expected: " + expectedLabel + " / obtained: " + obtainedLabel);
-			}*/
+            }*/
         }
         return wordStats;
     }
-
 
     private static void processCounters(Stats stats, String obtained, String expected) {
         LabelStat expectedStat = stats.getLabelStat(expected);
