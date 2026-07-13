@@ -70,6 +70,7 @@ jobs:
         with:
           context: '.'
           file: Dockerfile.crf
+          platforms: linux/amd64,linux/arm64
           tags: docker.evidenceprime.com/grobid:${{ github.sha }}
           push: ${{ github.event_name == 'push' }}
           cache-from: type=gha,scope=crf
