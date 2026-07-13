@@ -142,10 +142,10 @@ subprojects {
         implementation "org.apache.httpcomponents:httpclient:4.5.13"
         implementation "black.ninia:jep:4.0.2"
 
-        implementation "com.fasterxml.jackson.core:jackson-core:2.21.4"
-        implementation "com.fasterxml.jackson.core:jackson-databind:2.21.4"
-        implementation "com.fasterxml.jackson.module:jackson-module-afterburner:2.21.4"
-        implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.21.4"
+        implementation "com.fasterxml.jackson.core:jackson-core:2.21.5"
+        implementation "com.fasterxml.jackson.core:jackson-databind:2.21.5"
+        implementation "com.fasterxml.jackson.module:jackson-module-afterburner:2.21.5"
+        implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.21.5"
     }
 
     task sourceJar(type: Jar) {
@@ -244,7 +244,7 @@ project("grobid-core") {
 
         // Logs
         api 'org.slf4j:slf4j-api:1.7.36'
-        implementation 'ch.qos.logback:logback-classic:1.5.29'
+        implementation 'ch.qos.logback:logback-classic:1.5.35'
 
         implementation "org.apache.pdfbox:pdfbox:2.0.31"
 
@@ -258,7 +258,7 @@ project("grobid-core") {
         implementation "org.apache.lucene:lucene-analyzers-common:4.5.1"
         implementation 'black.ninia:jep:4.0.2'
         implementation 'org.apache.opennlp:opennlp-tools:2.5.9'
-        implementation group: 'org.jruby', name: 'jruby-complete', version: '9.4.14.0'
+        implementation group: 'org.jruby', name: 'jruby-complete', version: '9.4.15.0'
 
         shadedLib "org.apache.lucene:lucene-analyzers-common:4.5.1"
     }
