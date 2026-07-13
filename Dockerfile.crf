@@ -114,3 +114,14 @@ LABEL \
     org.label-schema.description="Image with GROBID service" \
     org.label-schema.url="https://github.com/kermitt2/grobid" \
     org.label-schema.version=${GROBID_VERSION}
+
+WORKDIR /opt/grobid
+
+ARG UID=45009
+ARG USER=grobid
+
+RUN useradd -m -u $UID -U $USER && \
+    mkdir -p /opt/grobid/grobid-home/tmp && \
+chown -R -f $USER:$USER /opt/grobid/grobid-home
+
+USER $USER
