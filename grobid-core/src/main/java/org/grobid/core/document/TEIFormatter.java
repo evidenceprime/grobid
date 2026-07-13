@@ -1983,7 +1983,8 @@ public class TEIFormatter {
                         if (ref != null) {
                             curParagraph.appendChild(ref);
                         } else {
-                            LOGGER.warn("Detected empty reference or note after " + clusterContentBefore);
+                            LOGGER.warn("Detected empty reference or note after "
+                                    + LayoutTokensUtil.normalizeDehyphenizeText(before));
                         }
                     }
 
