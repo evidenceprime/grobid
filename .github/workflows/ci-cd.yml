@@ -20,14 +20,18 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
+      - uses: actions/checkout@v7
         with:
-          java-version: '17'
-          distribution: 'temurin'
-          cache: 'gradle'
+          fetch-tags: true
+          fetch-depth: 0
+      - name: Set up JDK
+        uses: actions/setup-java@v5
+        with:
+          java-version: "21"
+          distribution: temurin
+      - uses: gradle/actions/setup-gradle@v6
       - name: Build with Gradle
         run: ./gradlew clean assemble --info --stacktrace --no-daemon
       - name: Test with Gradle Jacoco
@@ -37,28 +41,132 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           report_paths: '**/build/test-results/test/TEST-*.xml'
-  docker-build-crf:
-    needs:
-      - build
+
+  docker-build-amd64:
+    needs: [build]
     runs-on: ubuntu-latest
+    outputs:
+      digest: ${{ steps.build.outputs.digest }}
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Create more disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - name: Compute GROBID version
+        id: version
+        run: |
+          git fetch --tags --force
+          echo "value=$(git describe --tags --always --first-parent)" >> "$GITHUB_OUTPUT"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
       - name: Login to registry
-        uses: docker/login-action@v3
         if: ${{ github.event_name == 'push' }}
+        uses: docker/login-action@v4
         with:
           registry: docker.evidenceprime.com
           username: ${{ secrets.DOCKER_PUBLIC_LOGIN }}
           password: ${{ secrets.DOCKER_PUBLIC_PASSWORD }}
-      - name: Build and push image to registry
-        id: docker_build
-        uses: docker/build-push-action@v6
-        env:
-          DOCKER_BUILD_SUMMARY: false
+      - name: Build AMD64 image
+        id: build
+        uses: docker/build-push-action@v7
         with:
-          context: '.'
+          context: .
           file: Dockerfile.crf
-          tags: docker.evidenceprime.com/grobid:${{ github.sha }}
-          push: ${{ github.event_name == 'push' }}
-      - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+          platforms: linux/amd64
+          build-args: |
+            GROBID_VERSION=${{ steps.version.outputs.value }}
+          outputs: type=image,name=docker.evidenceprime.com/grobid,push-by-digest=true,name-canonical=true,push=${{ github.event_name == 'push' }}
+          cache-from: type=gha,scope=amd64
+          cache-to: type=gha,scope=amd64,mode=max
+
+  docker-build-arm64:
+    needs: [build]
+    runs-on: ubuntu-24.04-arm
+    outputs:
+      digest: ${{ steps.build.outputs.digest }}
+
+    steps:
+      - name: Create more disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+      - name: Compute GROBID version
+        id: version
+        run: |
+          git fetch --tags --force
+          echo "value=$(git describe --tags --always --first-parent)" >> "$GITHUB_OUTPUT"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Login to registry
+        if: ${{ github.event_name == 'push' }}
+        uses: docker/login-action@v4
+        with:
+          registry: docker.evidenceprime.com
+          username: ${{ secrets.DOCKER_PUBLIC_LOGIN }}
+          password: ${{ secrets.DOCKER_PUBLIC_PASSWORD }}
+      - name: Build ARM64 image
+        id: build
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: Dockerfile.crf
+          platforms: linux/arm64
+          build-args: |
+            GROBID_VERSION=${{ steps.version.outputs.value }}
+          outputs: type=image,name=docker.evidenceprime.com/grobid,push-by-digest=true,name-canonical=true,push=${{ github.event_name == 'push' }}
+          cache-from: type=gha,scope=arm64
+          cache-to: type=gha,scope=arm64,mode=max
+
+  docker-merge:
+    if: ${{ github.event_name == 'push' }}
+    needs: [docker-build-amd64, docker-build-arm64]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Login to registry
+        uses: docker/login-action@v4
+        with:
+          registry: docker.evidenceprime.com
+          username: ${{ secrets.DOCKER_PUBLIC_LOGIN }}
+          password: ${{ secrets.DOCKER_PUBLIC_PASSWORD }}
+      - name: Create and push multi-arch manifest
+        run: |
+          docker buildx imagetools create \
+            -t docker.evidenceprime.com/grobid:${{ github.sha }} \
+            docker.evidenceprime.com/grobid@${{ needs.docker-build-amd64.outputs.digest }} \
+            docker.evidenceprime.com/grobid@${{ needs.docker-build-arm64.outputs.digest }}
+      - name: Docker image summary
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          {
+            echo "## 🐳 Docker Image Uploaded Successfully"
+            echo ""
+            echo "**Image Details:**"
+            echo "- **Registry:** docker.evidenceprime.com"
+            echo "- **Image:** grobid"
+            echo "- **Type:** CRF-only build"
+            echo "- **Tags:**"
+            echo "  - \`${IMAGE_TAG}\`"
+            echo "- **Platforms:** linux/amd64, linux/arm64"
+            echo ""
+            echo "**Usage:**"
+            echo '```bash'
+            echo "docker pull docker.evidenceprime.com/grobid:${IMAGE_TAG}"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
