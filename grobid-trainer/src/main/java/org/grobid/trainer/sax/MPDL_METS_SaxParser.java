@@ -1,14 +1,30 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.sax;
 
-import org.grobid.core.data.Person;
-import org.grobid.core.exceptions.GrobidException;
-import org.grobid.core.lang.Language;
+import java.io.*;
+import java.util.ArrayList;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.io.*;
-import java.util.ArrayList;
+import org.grobid.core.data.Person;
+import org.grobid.core.exceptions.GrobidException;
+import org.grobid.core.lang.Language;
 
 /**
  * SAX parser for the MPDL METS catalogue data. The actual format for the bibliographical metadata is MODS.
@@ -78,7 +94,8 @@ public class MPDL_METS_SaxParser extends DefaultHandler {
         return ids;
     }
 
-    public void endElement(java.lang.String uri, java.lang.String localName, java.lang.String qName) throws SAXException {
+    public void endElement(java.lang.String uri, java.lang.String localName, java.lang.String qName)
+            throws SAXException {
         if (qName.equals("mods:title")) {
             // we register in the DB the new entry
             mods_title = getText();
@@ -135,8 +152,13 @@ public class MPDL_METS_SaxParser extends DefaultHandler {
                     File outFile = new File(output + "/" + mods_identifier + "-train.tei");
                     OutputStream os = new FileOutputStream(outFile);
                     Writer writer = new OutputStreamWriter(os, "UTF-8");
-                    writer.write("<tei>\n\t<teiHeader>\n\t<fileDesc xml:id=\"" + mods_identifier +
-                            "\"/>\n\t</teiHeader>\n\t<text xml:lang=\"" + mods_language + "\">\n");
+                    writer.write(
+                            "<tei>\n\t<teiHeader>\n\t<fileDesc xml:id=\""
+                                    + mods_identifier
+                                    +
+                                    "\"/>\n\t</teiHeader>\n\t<text xml:lang=\""
+                                    + mods_language
+                                    + "\">\n");
                     // we can write the title section
                     writer.write("\t\t<front>\n\t\t\t<titlePage>\n\t\t\t\t<docTitle>\n");
                     writer.write("\t\t\t\t\t<titlePart type=\"main\">" + mods_title + "</titlePart>\n");
@@ -146,7 +168,8 @@ public class MPDL_METS_SaxParser extends DefaultHandler {
 
                     writer.write("\t\t\t\t<byline><affiliation><lb/></affiliation></byline>\n");
 
-                    writer.write("\t\t\t\t<docImprint>(<title level=\"j\">Z. Naturforschg.</title> <biblScope type=\"vol\"></biblScope>, <biblScope type=\"pp\"></biblScope> [<date></date>]; <note>eingegangen am</note>)<lb/></docImprint>\n");
+                    writer.write(
+                            "\t\t\t\t<docImprint>(<title level=\"j\">Z. Naturforschg.</title> <biblScope type=\"vol\"></biblScope>, <biblScope type=\"pp\"></biblScope> [<date></date>]; <note>eingegangen am</note>)<lb/></docImprint>\n");
 
                     writer.write("\t\t\t</titlePage>\n");
                     writer.write("\t\t\t<div type=\"abstract\"><lb/></div>\n");
@@ -156,19 +179,19 @@ public class MPDL_METS_SaxParser extends DefaultHandler {
                     os.close();
                 }
             } catch (Exception e) {
-//        		e.printStackTrace();
-                throw new GrobidException("An exception occured while running Grobid.", e);
+                //        		e.printStackTrace();
+                throw new GrobidException("An exception occurred while running Grobid.", e);
             }
             accumulator.setLength(0);
         }
         accumulator.setLength(0);
     }
 
-
-    public void startElement(String namespaceURI,
-                             String localName,
-                             String qName,
-                             Attributes atts)
+    public void startElement(
+            String namespaceURI,
+            String localName,
+            String qName,
+            Attributes atts)
             throws SAXException {
         if (qName.equals("mods:namePart")) {
             int length = atts.getLength();

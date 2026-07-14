@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Robert</forename>
+								 <surname>Harper</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Benedikt</forename>
+								 <surname>Ley</surname> ID 2 ,
+							</persName>
+							<persName>
+								 <forename>Md</forename>
+								 <middlename>Alamgir</middlename>
+								 <surname>Kabir</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Graham</forename>
+								 <surname>Matulis</surname> ID
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Lorenz</forename>
+								 <surname>von Seidlein</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Mohammad</forename>
+								 <middlename>Shafiul</middlename>
+								 <surname>Alam</surname> ID
+								 <marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Bipin</forename>
+								 <surname>Adhikari</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Bernard</forename>
+								 <middlename>A</middlename>.
+								 <surname>Okech</surname>
+								 <marker>6</marker> ,
+							</persName>
+							<persName>
+								 <forename>Alan</forename>
+								 <middlename>L</middlename>.
+								 <surname>Williams</surname> ID
+								 <marker>7</marker> ,
+							</persName>
+							<persName>
+								 <forename>Ric</forename>
+								 <middlename>N</middlename>.
+								 <surname>Price</surname>
+								 <marker>2,4,8</marker> ,
+							</persName>
+							<persName>
+								 <forename>Michael</forename>
+								 <middlename>E</middlename>.
+								 <surname>von Fricken</surname> ID
+								 <marker>3,9 *</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

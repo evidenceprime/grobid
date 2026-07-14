@@ -1,0 +1,144 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T11:21:02.747Z">12/3/2025 11:21:02 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T11:20:50.384341Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T11:20:50.384341Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>The in vitro assessment of rheological<lb/> properties and dentin remineralization of<lb/> saliva substitutes containing propolis and aloe<lb/> vera extracts<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Surapong Srisomboon 1¤a , Thanapong Intharah ID 2<lb/> , Ungkarn Jarujareet ID 3<lb/> ,<lb/> Arnit Toneluck 1 , Piyaphong Panpisut ID 1¤b *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Faculty of Dentistry, Thammasat University,</affiliation>
+	</byline>
+
+	<address>Pathum Thani, Thailand,</address>
+
+	<byline>
+	<affiliation>2 Visual Intelligence Laboratory,<lb/> Department of Statistics, Faculty of Science, Khon Kaen University,</affiliation>
+	</byline>
+
+	<address>Khon Kaen, Thailand,</address>
+
+	<byline>
+	<affiliation>3 NECTEC,<lb/> National Science and Technology Development Agency (NSTDA),</affiliation>
+	</byline>
+
+	<address>Pathum Thani, Thailand<lb/></address>
+
+
+	<byline>
+	<affiliation>¤a Current address: Department of Oral Health, Lamlukka Hospital,</affiliation>
+	</byline>
+
+	<address>Pathum Thani, Thailand<lb/></address>
+
+
+	<byline>
+	<affiliation>¤b Current address: Thammasat University Research Unit in Dental and Bone Substitute Biomaterials,<lb/> Thammasat University,</affiliation>
+	</byline>
+
+	<address>Pathum Thani, Thailand<lb/></address>
+
+	*
+	<email>panpisut@tu.ac.th</email>
+
+	Abstract<lb/>
+	<div type="abstract">Saliva substitutes with enhanced dentin remineralization properties were expected to help<lb/> manage caries progression in patients with xerostomia. This in vitro study examined the rhe-<lb/>ological properties and remineralization action of experimental saliva substitutes containing<lb/> propolis extract and aloe vera extract on demineralized dentin. Four experimental saliva<lb/> substitutes were formulated with varying concentrations of propolis extract (P) and aloe vera<lb/> extract (A) were prepared. A commercial saliva substitute (Biotene Oral Rinse) was used as<lb/> a commercial comparison. The rheological properties and viscosity of these materials were<lb/> measured using a strain-controlled rheometer (n = 3). The remineralizing actions of saliva<lb/> substitutes on demineralized dentin after 2 weeks were determined using ATR-FTIR and<lb/> SEM-EDX (n = 8). The results were expressed as a percentage increase in the mineral-to-<lb/>matrix ratio. Biotene demonstrated a significantly higher viscosity (13.5 mPa�s) than experi-<lb/>mental saliva substitutes (p&lt;0.05). The addition of extracts increased the viscosity of the<lb/> saliva substitutes from 4.7 mPa�s to 5.2 mPa�s. All formulations showed minimal shear thin-<lb/>ning behavior, which was the viscoelastic properties of natural saliva. The formulation con-<lb/>taining 5 wt% of propolis exhibited the highest increase in the median mineral-to-matrix ratio<lb/> (25.48%). The SEM-EDX analysis revealed substantial mineral precipitation in demineral-<lb/>ized dentin, especially in formulations with 5 wt% or 2.5 wt% of propolis. The effect of the<lb/> aloe vera extract was minimal. The addition of propolis and aloe vera extracts increased the<lb/> viscosity of saliva substitutes. the addition of propolis for 2.5 or 5 wt% to saliva substitutes<lb/> increased mineral apatite precipitation and tubule occlusion. To conclude, the saliva substi-<lb/>tute containing propolis extract demonstrated superior remineralizing actions compared<lb/> with those containing only aloe vera extract.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0304156 May 22, 2024<lb/></reference>
+
+	<page>1 / 18<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Srisomboon S, Intharah T, Jarujareet U,<lb/> Toneluck A, Panpisut P (2024) The in vitro<lb/> assessment of rheological properties and dentin<lb/> remineralization of saliva substitutes containing<lb/> propolis and aloe vera extracts. PLoS ONE 19(5):<lb/> e0304156.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0304156<lb/></idno>
+
+	Editor:
+	<editor>Tanay Chaubal,</editor>
+
+	<byline>
+	<affiliation>International Medical<lb/> University,</affiliation>
+	</byline>
+
+	<address>MALAYSIA<lb/></address>
+
+	<note type="submission">Received: February 18, 2024<lb/> Accepted: May 6, 2024<lb/></note>
+
+	Published:
+	<date>May 22, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0304156<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Srisomboon et al. This is an<lb/> open access article distributed under the terms of<lb/> the Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the manuscript and its Supporting<lb/> information files.<lb/></note>
+
+	Funding:
+	<note type="funding">National Science, Research and<lb/> Innovation Fund (NSRF) via the Program<lb/> Management Unit for Human Resources and<lb/> Institutional Development, Research and<lb/> Innovation (Grant number B05F650016) The<lb/> funders had no role in study design, data collection<lb/> and analysis, decision to publish, or preparation of<lb/> the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

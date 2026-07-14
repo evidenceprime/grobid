@@ -1,28 +1,40 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.data;
 
-import nu.xom.Attribute;
+import java.util.ArrayList;
+import java.util.List;
+
 import nu.xom.Element;
 import org.apache.commons.lang3.StringUtils;
+
 import org.grobid.core.document.xml.XmlBuilderUtils;
-import org.grobid.core.engines.Engine;
 import org.grobid.core.engines.config.GrobidAnalysisConfig;
 import org.grobid.core.layout.BoundingBox;
 import org.grobid.core.layout.LayoutToken;
 import org.grobid.core.utilities.BoundingBoxCalculator;
 import org.grobid.core.utilities.LayoutTokensUtil;
-import org.grobid.core.utilities.counters.CntManager;
 import org.grobid.core.utilities.TextUtilities;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.SortedSet;
 
 /**
  * Class for representing an equation.
  *
  */
 public class Equation {
-	protected StringBuilder content = null;
+    protected StringBuilder content = null;
     protected StringBuilder label = null;
     protected String id = null;
     //protected int start = -1; // start position in the full text tokenization
@@ -32,58 +44,59 @@ public class Equation {
     private List<BoundingBox> textArea;
     private List<LayoutToken> layoutTokens;
 
-	private List<LayoutToken> contentTokens = new ArrayList<>();
-	private List<LayoutToken> labelTokens = new ArrayList<>();
+    private List<LayoutToken> contentTokens = new ArrayList<>();
+    private List<LayoutToken> labelTokens = new ArrayList<>();
 
-	//private SortedSet<Integer> blockPtrs;
+    //private SortedSet<Integer> blockPtrs;
 
     public Equation() {
-    	content = new StringBuilder();
-    	label = new StringBuilder();
+        content = new StringBuilder();
+        label = new StringBuilder();
     }
 
     public Element toTEIElement(GrobidAnalysisConfig config) {
-    	if (StringUtils.isEmpty(content)) {
-			return null;
-		}
+        if (StringUtils.isEmpty(content)) {
+            return null;
+        }
 
-		Element formulaElement = XmlBuilderUtils.teiElement("formula");
-		if (id != null) {
-			XmlBuilderUtils.addXmlId(formulaElement, this.getTeiId());
-		}
+        Element formulaElement = XmlBuilderUtils.teiElement("formula");
+        if (id != null) {
+            XmlBuilderUtils.addXmlId(formulaElement, this.getTeiId());
+        }
 
-		if ((config.getGenerateTeiCoordinates() != null) && (config.getGenerateTeiCoordinates().contains("formula"))) {
-			XmlBuilderUtils.addCoords(formulaElement, LayoutTokensUtil.getCoordsStringForOneBox(getLayoutTokens()));
-		}
+        if ((config.getGenerateTeiCoordinates() != null) && (config.getGenerateTeiCoordinates().contains("formula"))) {
+            XmlBuilderUtils.addCoords(formulaElement, LayoutTokensUtil.getCoordsStringForOneBox(getLayoutTokens()));
+        }
 
-		formulaElement.appendChild(LayoutTokensUtil.normalizeText(content.toString()).trim());
+        formulaElement.appendChild(LayoutTokensUtil.normalizeText(content.toString()).trim());
 
-		if ( (label != null) && (label.length()>0) ) {
-			Element labelEl = XmlBuilderUtils.teiElement("label",
-    	    		LayoutTokensUtil.normalizeText(label.toString()));
-			formulaElement.appendChild(labelEl);
-		}
-		
-		return formulaElement;
+        if ((label != null) && (label.length() > 0)) {
+            Element labelEl = XmlBuilderUtils.teiElement(
+                    "label",
+                    LayoutTokensUtil.normalizeText(label.toString()));
+            formulaElement.appendChild(labelEl);
+        }
+
+        return formulaElement;
     }
 
     public String toTEI(GrobidAnalysisConfig config) {
-		Element formulaElement = toTEIElement(config);
-		if (formulaElement != null)
-			return formulaElement.toXML();
-		else
-			return null;
+        Element formulaElement = toTEIElement(config);
+        if (formulaElement != null)
+            return formulaElement.toXML();
+        else
+            return null;
     }
 
-	public List<LayoutToken> getContentTokens() {
-		return contentTokens;
-	}
+    public List<LayoutToken> getContentTokens() {
+        return contentTokens;
+    }
 
-	public List<LayoutToken> getLabelTokens() {
-		return labelTokens;
-	}
+    public List<LayoutToken> getLabelTokens() {
+        return labelTokens;
+    }
 
-	public void appendLabel(String lab) {
+    public void appendLabel(String lab) {
         label.append(lab);
     }
 
@@ -104,10 +117,10 @@ public class Equation {
     }*/
 
     public int getStart() {
-    	if ( (layoutTokens != null) && (layoutTokens.size()>0) )
-	        return layoutTokens.get(0).getOffset();
-	    else 
-	    	return -1;
+        if ((layoutTokens != null) && (layoutTokens.size() > 0))
+            return layoutTokens.get(0).getOffset();
+        else
+            return -1;
     }
 
     /*public void setEnd(int end) {
@@ -115,10 +128,10 @@ public class Equation {
     }*/
 
     public int getEnd() {
-        if ( (layoutTokens != null) && (layoutTokens.size()>0) )
-	        return layoutTokens.get(layoutTokens.size()-1).getOffset();
-	    else 
-	    	return -1;
+        if ((layoutTokens != null) && (layoutTokens.size() > 0))
+            return layoutTokens.get(layoutTokens.size() - 1).getOffset();
+        else
+            return -1;
     }
 
     /*public void setStartToken(LayoutToken start) {
@@ -170,24 +183,24 @@ public class Equation {
     }
 
     public void addLayoutToken(LayoutToken token) {
-    	if (token == null)
-    		return;
-    	if (layoutTokens == null)
-    		layoutTokens = new ArrayList<LayoutToken>();
-    	layoutTokens.add(token);
+        if (token == null)
+            return;
+        if (layoutTokens == null)
+            layoutTokens = new ArrayList<LayoutToken>();
+        layoutTokens.add(token);
     }
 
     public void addLayoutTokens(List<LayoutToken> tokens) {
-    	if (tokens == null)
-    		return;
-    	if (layoutTokens == null)
-    		layoutTokens = new ArrayList<LayoutToken>();
-    	for(LayoutToken token : tokens)
-	    	layoutTokens.add(token);
+        if (tokens == null)
+            return;
+        if (layoutTokens == null)
+            layoutTokens = new ArrayList<LayoutToken>();
+        for (LayoutToken token : tokens)
+            layoutTokens.add(token);
     }
 
     public List<BoundingBox> getCoordinates() {
-        if (layoutTokens == null || layoutTokens.size() == 0) 
+        if (layoutTokens == null || layoutTokens.size() == 0)
             return null;
         else {
             BoundingBox oneBox = BoundingBoxCalculator.calculateOneBox(layoutTokens, true);

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="institution">Mahidol-Oxford Tropical Research Medicine Unit</orgName>,
+							<orgName type="department">Faculty of Tropical Medicine</orgName>,
+							<orgName type="institution">Mahidol University</orgName>,
+							<lb/>
+							<address>
+								<settlement>Bangkok</settlement>,
+								<country>Thailand,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">FIND</orgName>,
+							<address>
+								<addrLine>Campus Biotech</addrLine>,
+								<settlement>Geneva</settlement>,
+								<country>Switzerland,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Centre for Tropical Medicine and<lb/> Global Health</orgName>,
+							<orgName type="department">Nuffield Department of Medicine</orgName>,
+							<orgName type="institution">University of Oxford</orgName>,
+							<address>
+								<settlement>Oxford</settlement>,
+								<country>United Kingdom,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="institution">Lao-Oxford-<lb/>Mahosot Hospital-Wellcome Trust Research Unit</orgName>,
+							<orgName type="laboratory">Microbiology Laboratory</orgName>,
+							<orgName type="institution">Mahosot Hospital</orgName>,
+							<address>
+								<settlement>Vientiane</settlement>,
+								<country>Lao<lb/> PDR<lb/></country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤</marker> Current address:
+							<orgName type="institution">European-Campus-Rottal-Inn</orgName>
+							<address>
+								<settlement>Deggendorf</settlement>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="department">Institut of Technology</orgName>,
+							<address>
+								<settlement>Pfarrkirchen</settlement>,
+								<country>Germany</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">The University of<lb/> Sheffield</orgName>,
+							<address>
+								<country>UNITED KINGDOM</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

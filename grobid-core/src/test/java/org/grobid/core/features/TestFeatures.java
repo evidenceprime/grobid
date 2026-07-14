@@ -1,15 +1,31 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.features;
 
-import org.grobid.core.lexicon.Lexicon;
-import org.grobid.core.utilities.GrobidProperties;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import org.grobid.core.lexicon.Lexicon;
+import org.grobid.core.utilities.GrobidProperties;
 
 public class TestFeatures {
     FeatureFactory target;
@@ -35,7 +51,7 @@ public class TestFeatures {
         int val = 30;
         int total = 100;
         int nbBins = 10;
-//        System.out.println("linear " + nbBins);
+        //        System.out.println("linear " + nbBins);
         assertThat(target.linearScaling(0, total, nbBins), is(0));
         assertThat(target.linearScaling(10, total, nbBins), is(1));
         assertThat(target.linearScaling(20, total, nbBins), is(2));
@@ -53,7 +69,7 @@ public class TestFeatures {
         int total = 100;
         int nbBins = 7;
 
-//        System.out.println("linear " + nbBins);
+        //        System.out.println("linear " + nbBins);
         assertThat(target.linearScaling(10, total, nbBins), is(0));
         assertThat(target.linearScaling(20, total, nbBins), is(1));
         assertThat(target.linearScaling(50, total, nbBins), is(3));
@@ -68,7 +84,7 @@ public class TestFeatures {
         double totalD = 1.0;
         int nbBins = 10;
 
-//        System.out.println("linear (double) " + nbBins);
+        //        System.out.println("linear (double) " + nbBins);
         assertThat(target.linearScaling(0.1, totalD, nbBins), is(1));
         assertThat(target.linearScaling(0.2, totalD, nbBins), is(2));
         assertThat(target.linearScaling(0.5, totalD, nbBins), is(5));
@@ -85,7 +101,7 @@ public class TestFeatures {
         double totalD = 1.0;
         int nbBins = 12;
 
-//        System.out.println("log (double) " + nbBins);
+        //        System.out.println("log (double) " + nbBins);
         assertThat(target.logScaling(0.0, totalD, nbBins), is(0));
         assertThat(target.logScaling(0.1, totalD, nbBins), is(1));
         assertThat(target.logScaling(0.2, totalD, nbBins), is(3));
@@ -103,7 +119,7 @@ public class TestFeatures {
         double totalD = 1.0;
         int nbBins = 8;
 
-//        System.out.println("log (double) " + nbBins);
+        //        System.out.println("log (double) " + nbBins);
         assertThat(target.logScaling(0.0, totalD, nbBins), is(0));
         assertThat(target.logScaling(0.1, totalD, nbBins), is(1));
         assertThat(target.logScaling(0.2, totalD, nbBins), is(2));
@@ -113,6 +129,5 @@ public class TestFeatures {
 
         assertEquals("Discretized value is not the expected one", 3, target.logScaling(valD, totalD, nbBins));
     }
-
 
 }

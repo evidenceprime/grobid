@@ -1,4 +1,28 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.visualization;
+
+import static org.grobid.core.utilities.PathUtil.getOneFile;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import com.google.common.collect.Lists;
 import net.sf.saxon.om.Item;
@@ -6,6 +30,7 @@ import net.sf.saxon.om.SequenceIterator;
 import net.sf.saxon.trans.XPathException;
 import org.apache.commons.io.FileUtils;
 import org.apache.pdfbox.pdmodel.PDDocument;
+
 import org.grobid.core.GrobidModels;
 import org.grobid.core.data.Figure;
 import org.grobid.core.data.Table;
@@ -21,15 +46,6 @@ import org.grobid.core.main.LibraryLoader;
 import org.grobid.core.utilities.BoundingBoxCalculator;
 import org.grobid.core.utilities.GrobidProperties;
 import org.grobid.core.utilities.XQueryProcessor;
-
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import static org.grobid.core.utilities.PathUtil.getOneFile;
 
 /**
  * Visualize figures and tables
@@ -79,7 +95,6 @@ public class FigureTableVisualizer {
 
         File assetPath = new File(contentDir, "tei");
 
-
         GrobidAnalysisConfig config = new GrobidAnalysisConfig.GrobidAnalysisConfigBuilder()
                 .pdfAssetPath(assetPath)
                 .withPreprocessImages(false)
@@ -94,7 +109,9 @@ public class FigureTableVisualizer {
         FileUtils.copyFileToDirectory(input, contentDir);
         File copiedFile = new File(pdfaltoDirectory, "input.xml");
         FileUtils.copyFile(documentSource.getXmlFile(), copiedFile);
-        FileUtils.copyDirectory(new File(documentSource.getXmlFile().getAbsolutePath() + "_data"), new File(pdfaltoDirectory, documentSource.getXmlFile().getName() + "_data"));
+        FileUtils.copyDirectory(
+                new File(documentSource.getXmlFile().getAbsolutePath() + "_data"),
+                new File(pdfaltoDirectory, documentSource.getXmlFile().getName() + "_data"));
 
         System.out.println(documentSource.getXmlFile());
 
@@ -103,8 +120,14 @@ public class FigureTableVisualizer {
         Document teiDoc = engine.fullTextToTEIDoc(documentSource, flavor, config);
 
         PDDocument out = annotateFigureAndTables(
-                document, copiedFile, teiDoc,
-                false, false, true, true, VISUALIZE_VECTOR_BOXES);
+                document,
+                copiedFile,
+                teiDoc,
+                false,
+                false,
+                true,
+                true,
+                VISUALIZE_VECTOR_BOXES);
 
         if (out != null) {
             out.save(outPdf);
@@ -118,9 +141,13 @@ public class FigureTableVisualizer {
         if (outputFolder != null) {
             if (annotated) {
                 Engine.getCntManager().i("TABLES_TEST", "ANNOTATED_PDFS");
-                FileUtils.copyFile(outPdf, new File(outputFolder, annotated ?
-                        (annotatedFigure ? input.getName() + "_annotatedFigure.pdf" : input.getName() + "_annotated.pdf")
-                        : input.getName()));
+                FileUtils.copyFile(
+                        outPdf,
+                        new File(outputFolder,
+                                annotated
+                                        ? (annotatedFigure ? input.getName() + "_annotatedFigure.pdf"
+                                                : input.getName() + "_annotated.pdf")
+                                        : input.getName()));
             }
         }
     }
@@ -134,13 +161,13 @@ public class FigureTableVisualizer {
 
     public static PDDocument annotateFigureAndTables(
             PDDocument document,
-            File xmlFile, Document teiDoc,
+            File xmlFile,
+            Document teiDoc,
             boolean visualizeTeiFigures,
             boolean visualizePdfaltoImages,
             boolean visualizeGraphicObjects,
             boolean visualizeTables,
-            boolean visualizeVectorBoxes
-    ) throws IOException, XPathException {
+            boolean visualizeVectorBoxes) throws IOException, XPathException {
         String q = XQueryProcessor.getQueryFromResources("figure-table-coords.xq");
         String tei = teiDoc.getTei();
         XQueryProcessor pr = new XQueryProcessor(tei);
@@ -183,21 +210,29 @@ public class FigureTableVisualizer {
                     if (f.getTextArea() != null) {
                         for (BoundingBox b : f.getTextArea()) {
                             annotated = true;
-                            AnnotationUtil.annotatePage(document, b.toString(),
-//                        AnnotationUtil.getCoordString(f.getPage(), f.getX(), f.getY(),
-//                                f.getWidth(), f.getHeight()),
-                                    i, boxedGo == null ? 1 : 2
-                            );
+                            AnnotationUtil.annotatePage(
+                                    document,
+                                    b.toString(),
+                                    //                        AnnotationUtil.getCoordString(f.getPage(), f.getX(), f.getY(),
+                                    //                                f.getWidth(), f.getHeight()),
+                                    i,
+                                    boxedGo == null ? 1 : 2);
                         }
                     }
 
                     if (boxedGo != null) {
                         for (GraphicObject go : boxedGo) {
                             annotatedFigure = true;
-                            AnnotationUtil.annotatePage(document,
-                                    AnnotationUtil.getCoordString(go.getPage(), go.getX(), go.getY(),
-                                            go.getWidth(), go.getHeight()), i, 2
-                            );
+                            AnnotationUtil.annotatePage(
+                                    document,
+                                    AnnotationUtil.getCoordString(
+                                            go.getPage(),
+                                            go.getX(),
+                                            go.getY(),
+                                            go.getWidth(),
+                                            go.getHeight()),
+                                    i,
+                                    2);
 
                         }
                     }
@@ -210,10 +245,16 @@ public class FigureTableVisualizer {
                 for (GraphicObject img : teiDoc.getImages()) {
                     if (img.getType() == GraphicObjectType.VECTOR_BOX) {
                         BoundingBox go = img.getBoundingBox();
-                        AnnotationUtil.annotatePage(document,
-                                AnnotationUtil.getCoordString(go.getPage(), go.getX(), go.getY(),
-                                        go.getWidth(), go.getHeight()), 12, 3
-                        );
+                        AnnotationUtil.annotatePage(
+                                document,
+                                AnnotationUtil.getCoordString(
+                                        go.getPage(),
+                                        go.getX(),
+                                        go.getY(),
+                                        go.getWidth(),
+                                        go.getHeight()),
+                                12,
+                                3);
                     }
                 }
             }
@@ -234,10 +275,16 @@ public class FigureTableVisualizer {
                     BoundingBox descBox = BoundingBoxCalculator.calculateOneBox(t.getFullDescriptionTokens());
 
                     System.out.println("Annotating TABLE on page: " + contentBox.getPage());
-                    AnnotationUtil.annotatePage(document,
-                            AnnotationUtil.getCoordString(descBox), 100, 2);
-                    AnnotationUtil.annotatePage(document,
-                            AnnotationUtil.getCoordString(contentBox), 101, 2);
+                    AnnotationUtil.annotatePage(
+                            document,
+                            AnnotationUtil.getCoordString(descBox),
+                            100,
+                            2);
+                    AnnotationUtil.annotatePage(
+                            document,
+                            AnnotationUtil.getCoordString(contentBox),
+                            101,
+                            2);
                     annotatedFigure = true;
                     annotated = true;
                     Engine.getCntManager().i("TABLES_TEST", "ANNOTATED_TABLES");

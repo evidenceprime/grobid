@@ -13,24 +13,33 @@
 # -------------------
 # build builder image
 # -------------------
-FROM eclipse-temurin:17.0.18_8-jdk-noble AS builder
+FROM eclipse-temurin:21.0.10_7-jdk AS builder
 
 USER root
 
 RUN apt-get update && \
     apt-get -y upgrade && \
-    apt-get -y --no-install-recommends install unzip
+    apt-get -y --no-install-recommends install unzip git
 
 WORKDIR /opt/grobid-source
 
-# gradle
+# Layer 1: Gradle wrapper + build config (rarely changes -> long-lived cache)
 COPY gradle/ ./gradle/
 COPY gradlew ./
 COPY gradle.properties ./
 COPY build.gradle ./
 COPY settings.gradle ./
 
-# source
+# Layer 2: Local libs needed for dependency resolution
+COPY grobid-core/localLibs/ ./grobid-core/localLibs/
+
+# Layer 3: Create subproject dirs so Gradle can configure without source
+RUN mkdir -p grobid-home grobid-service grobid-trainer
+
+# Layer 4: Download all dependencies (cached until build.gradle changes)
+RUN ./gradlew dependencies --no-daemon -q
+
+# Layer 5: Source code (changes every commit -> cache bust from here)
 COPY grobid-home/ ./grobid-home/
 COPY grobid-core/ ./grobid-core/
 COPY grobid-service/ ./grobid-service/
@@ -38,28 +47,30 @@ COPY grobid-trainer/ ./grobid-trainer/
 
 # Validate localLibs checksums
 RUN cd grobid-core/localLibs && \
-    echo "075ac10182fdab59aac46ce2e0e2ae5f69ec29eafa787a08b8c14cd8c7bfd875  crfpp-1.0.2.jar"                    | sha256sum --check && \ 
+    echo "075ac10182fdab59aac46ce2e0e2ae5f69ec29eafa787a08b8c14cd8c7bfd875  crfpp-1.0.2.jar"                    | sha256sum --check && \
     echo "8cd07ba9c4b2ff0b23ea04b96d4f89e4e618dd4c550f5329669ff55e5b8af6f1  grobid-lucene-analysers-0.0.2.jar"  | sha256sum --check && \
     echo "20c546819884737f4a8a328378f0e21341771e3710885858b357dbdf62f364b7  imageio-pnm-1.0.jar"                | sha256sum --check && \
     echo "f692f03ecd2dc926ae79ddca689ccd24c66576a9eacb05d99ee191930e1257b3  langdetect-1.1-20120112.jar"        | sha256sum --check && \
     echo "d103df377c450c5b155992015acb1161823c98bcd1e71b1c56bf9a1ee3726c32  wapiti-1.5.0.jar"                   | sha256sum --check
     
+ARG TARGETARCH
+# Layer 6: .git for revision embedding (as late as possible, just before build)
+COPY .git/ ./.git
+
 # cleaning unused native libraries before packaging
 RUN rm -rf grobid-home/pdf2xml
-RUN rm -rf grobid-home/pdfalto/lin-32
-RUN rm -rf grobid-home/pdfalto/mac-64
-RUN rm -rf grobid-home/pdfalto/mac_arm-64
-RUN rm -rf grobid-home/pdfalto/win-*
-RUN rm -rf grobid-home/lib/lin-32
-RUN rm -rf grobid-home/lib/win-*
-RUN rm -rf grobid-home/lib/mac-64
+RUN rm -rf grobid-home/pdfalto/win-* grobid-home/pdfalto/mac-64 grobid-home/pdfalto/mac_arm-64 grobid-home/pdfalto/lin-32
+RUN rm -rf grobid-home/lib/win-* grobid-home/lib/mac-64 grobid-home/lib/mac_arm-64 grobid-home/lib/lin-32
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+      rm -rf grobid-home/pdfalto/lin-64 grobid-home/lib/lin-64; \
+    else \
+      rm -rf grobid-home/pdfalto/lin_arm-64 grobid-home/lib/lin_arm-64; \
+    fi
 
 # cleaning Delft models
-RUN rm -rf grobid-home/models/*-BidLSTM_CRF*
+RUN rm -rf grobid-home/models/*-BidLSTM_*
 
-ENV GROBID_SERVICE_OPTS="-Djava.library.path=grobid-home/lib/lin-64:grobid-home/lib/lin-64/jep"
-
-RUN ./gradlew clean assemble --no-daemon  --info --stacktrace
+RUN ./gradlew assemble --no-daemon --info --stacktrace
 
 WORKDIR /opt/grobid
 RUN unzip -o /opt/grobid-source/grobid-service/build/distributions/grobid-service-*.zip && \
@@ -71,16 +82,18 @@ RUN rm -rf grobid-source
 # -------------------
 # build runtime image
 # -------------------
-FROM eclipse-temurin:17.0.18_8-jre-noble
+FROM eclipse-temurin:21.0.10_7-jre
 
 RUN apt-get update && \
     apt-get -y upgrade && \
     apt-get -y --no-install-recommends install libxml2 libfontconfig && \
     rm -rf /var/lib/apt/lists/*
 
+ARG TARGETARCH
+
 # Add Tini
 ENV TINI_VERSION=v0.19.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-${TARGETARCH} /tini
 RUN chmod +x /tini
 ENTRYPOINT ["/tini", "-s", "--"]
 
@@ -88,7 +101,8 @@ WORKDIR /opt/grobid
 
 COPY --from=builder /opt/grobid .
 
-ENV GROBID_SERVICE_OPTS="-Djava.library.path=grobid-home/lib/lin-64:grobid-home/lib/lin-64/jep --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED"
+ENV LD_LIBRARY_PATH=grobid-home/lib/lin-64:grobid-home/lib/lin_arm-64
+ENV GROBID_SERVICE_OPTS="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/sun.nio.ch=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED"
 
 CMD ["./grobid-service/bin/grobid-service"]
 
@@ -100,3 +114,14 @@ LABEL \
     org.label-schema.description="Image with GROBID service" \
     org.label-schema.url="https://github.com/kermitt2/grobid" \
     org.label-schema.version=${GROBID_VERSION}
+
+WORKDIR /opt/grobid
+
+ARG UID=45009
+ARG USER=grobid
+
+RUN useradd -m -u $UID -U $USER && \
+    mkdir -p /opt/grobid/grobid-home/tmp && \
+chown -R -f $USER:$USER /opt/grobid/grobid-home
+
+USER $USER

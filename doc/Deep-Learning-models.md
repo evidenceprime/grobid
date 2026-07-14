@@ -2,9 +2,9 @@
 
 ## Integration with DeLFT
 
-Since GROBID version `0.5.4` (2018), it is possible to use in GROBID recent Deep Learning sequence labelling models trained with [DeLFT](https://github.com/kermitt2/delft). The available neural models include in particular BidLSTM-CRF with Glove embeddings, with additional feature channel (for layout features), with ELMo, and transformer-based fine-tuned architectures with or without CRF activation layer (e.g. SciBERT-CRF), which can be used as alternative to the default Wapiti CRF.
+Since GROBID version `0.5.4` (2018), it is possible to use in GROBID recent Deep Learning sequence labelling models trained with [DeLFT](https://github.com/kermitt2/delft). The available neural models include in particular BidLSTM-CRF with Glove embeddings, with additional feature channel (for layout features), and transformer-based fine-tuned architectures with or without CRF activation layer (e.g. SciBERT-CRF), which can be used as alternative to the default Wapiti CRF.
 
-These architectures have been tested on Linux 64bit and macOS 64bit. The support to the macOS ARM is in progress.
+These architectures have been tested on Linux 64bit, macOS 64bit (Intel), and macOS ARM.
 
 Integration is realized via Java Embedded Python [JEP](https://github.com/ninia/jep), which uses a JNI of CPython. This integration is two times faster than the Tensorflow Java API and significantly faster than RPC serving (see [here](https://www.slideshare.net/FlinkForward/flink-forward-berlin-2017-dongwon-kim-predictive-maintenance-with-apache-flink). Additionally, it does not require to modify DeLFT as it would be the case with Py4J gateway (socket-based).
 
@@ -20,7 +20,7 @@ Current neural models can be up to 50 times slower than CRF, depending on the ar
 
 By default, only CRF models are used by Grobid. You need to select the Deep Learning models you would like to use in the GROBID configuration yaml file (`grobid/grobid-home/config/grobid.yaml`). See [here](Configuration.md#configuring-the-models) for more details on how to select these models. The most convenient way to use the Deep Learning models is to use the full GROBID Docker image and pass a configuration file at launch of the container describing the selected models to be used instead of the default CRF ones. Note that the full GROBID Docker image is already configured to use Deep Learning models for bibliographical reference and affiliation-address parsing. 
 
-For current GROBID version 0.8.1, we recommend considering the usage of the following Deep Learning models: 
+For current GROBID version 0.9.0, we recommend considering the usage of the following Deep Learning models: 
 
 - `citation` model: for bibliographical parsing, the `BidLSTM_CRF_FEATURES` architecture provides currently the best accuracy, significantly better than CRF (+3 to +5 points in F1-Score). With a GPU, there is normally no runtime impact by selecting this model. SciBERT fine-tuned model performs currently at  lower accuracy. 
 
@@ -28,7 +28,7 @@ For current GROBID version 0.8.1, we recommend considering the usage of the foll
 
 - `reference-segmenter` model: this model segments a bibliographical reference section into individual references, `BidLSTM_ChainCRF_FEATURES` architecture provides better accuracy than CRF (even on very very very long reference sections), but at the cost of a global runtime 2 to 3 times slower. 
 
-- `header` model: this model extracts the header metadata, the `BidLSTM_CRF_FEATURES` or `BidLSTM_ChainCRF_FEATURES` (a faster variant) provides sligthly better results than CRF, especially with less mainstream domains and publisher. With a GPU, there is normally almost no runtime impact by selecting this DL model. 
+- `header` model: this model extracts the header metadata, the `BidLSTM_CRF_FEATURES` or `BidLSTM_ChainCRF_FEATURES` (a faster variant) provides slightly better results than CRF, especially with less mainstream domains and publisher. With a GPU, there is normally almost no runtime impact by selecting this DL model. 
 
 - `funding-acknowledgement` model: this is a typical NER model that extracts funder names, funding information, acknowledged persons and organizations, etc. The `BidLSTM_CRF_FEATURES` provides more accurate results than CRF.
 
@@ -38,7 +38,7 @@ Finally, the model `fulltext` (structuring the content body of a document) is cu
 
 ### Getting started with Deep Learning
 
-Using Deep Learning model in GROBID with a normal installation/build is not straightforward at the present time, due to the required availability of various native libraries and to the Python dynamic linking and packaging mess, which leads to force some strict version and system dependencies. Interfacing natively to a particular Python virtual environment (which is "session-based") is challenging. We are exploring different approach to facilitate this and get a "out-of-the-out" working system. 
+Using Deep Learning model in GROBID with a normal installation/build is not straightforward at the present time, due to the required availability of various native libraries and to the Python dynamic linking and packaging mess, which leads to force some strict version and system dependencies. GROBID 0.9.0 supports Python environment managers (virtualenv, conda) for DeLFT integration, which simplifies the setup compared to earlier versions.
 
 The most simple solution is to use the ["full" GROBID docker image](Grobid-docker.md), which allows to use Deep Learning models without further installation and which provides automatic GPU support. 
 
@@ -48,10 +48,10 @@ However, if you need a "local" library installation and build, prepare a lot of 
 
 <span>0.</span> Install GROBID as indicated [here](Install-Grobid.md).
 
-The following was tested with Java version up to 17.
+The following was tested with Java 21.
 
 <span>1.</span> install [DeLFT](https://github.com/kermitt2/delft), see instructions [here](https://github.com/kermitt2/delft#install).
-DeLFT version `0.3.2` has been tested successfully with Python 3.7 and 3.8. For GPU support, CUDA >=11.2 must be installed. 
+DeLFT version `0.4.4` has been tested successfully with Python 3.10-3.11. For GPU support, CUDA >=11.2 must be installed. 
 
 <span>2.</span> Test your DeLFT installation for GROBID models: 
 
@@ -80,7 +80,7 @@ Indicate the GROBID model that should use a Deep Learning implementation in the 
       architecture: "BidLSTM_CRF_FEATURES"
 ```
 
-The default Deep Learning architecture is `BidLSTM_CRF`, which is the best sequence labelling RNN architecture (basically a slightly revised version of [(Lample et al., 2016)](https://arxiv.org/abs/1603.01360) with Glove embeddings). However for GROBID, an architecture also exploiting features (in particular layout features, which are not captured at all by the pretrained language models) gives usually better results and the prefered choise is `BidLSTM_CRF_FEATURES`. If you wish to use another architecture, you need to specify it in the same config file. 
+The default Deep Learning architecture is `BidLSTM_CRF`, which is the best sequence labelling RNN architecture (basically a slightly revised version of [(Lample et al., 2016)](https://arxiv.org/abs/1603.01360) with Glove embeddings). However for GROBID, an architecture also exploiting features (in particular layout features, which are not captured at all by the pretrained language models) gives usually better results and the preferred choice is `BidLSTM_CRF_FEATURES`. If you wish to use another architecture, you need to specify it in the same config file. 
 
 For instance to use a model integrating a fine-tuned transformer, you can select a `BERT_CRF` fine-tuned model (basically the transformer layers with CRF as final activation layer) and indicate in the field `transformer` the name of the transformer model in the [Hugging Face transformers Hub](https://huggingface.co/models) to be used to instantiate the transformer layer, typically [allenai/scibert_scivocab_cased](https://huggingface.co/allenai/scibert_scivocab_cased) for `SciBERT` in the case of scientific articles:
 

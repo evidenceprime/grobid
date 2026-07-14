@@ -1,0 +1,124 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-04T10:32:35.835Z">12/4/2025 10:32:35 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-04T10:32:22.389878Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-04T10:32:22.389878Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Cat caregivers&apos; perceptions, motivations, and<lb/> behaviours for feeding treats: A cross<lb/> sectional study<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Shelby A. Nielson ID 1<lb/> *, Deep K. Khosa ID 1<lb/> , Adronie Verbrugghe 2 , Katie M. Clow 1<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Population Medicine, Ontario Veterinary College, University of Guelph,</affiliation>
+	</byline>
+
+	<address>Guelph, Ontario,<lb/> Canada,</address>
+
+	<byline>
+	<affiliation>2 Department of Clinical Studies, Ontario Veterinary College, University of Guelph,</affiliation>
+	</byline>
+
+	<address>Guelph, Ontario, Canada<lb/></address>
+
+	*
+	<email>snielson@uoguelph.ca</email>
+
+	Abstract<lb/>
+	<div type="abstract">There is an abundance of research focusing on the nutritional needs of the cat, though<lb/> aspects surrounding treat feeding have received far less attention. Feeding practices have<lb/> the potential to cause nutrient imbalances and adverse health outcomes, including obesity.<lb/> The objective of this study was to identify and describe the perceptions, motivations, and<lb/> behaviours surrounding treats, and factors that influence treat feeding by cat caregivers. A<lb/> 56-question online survey was disseminated to cat caregivers (n = 337) predominantly from<lb/> Canada and the USA to collect data regarding caregiver and cat demographics, the pet-<lb/>caregiver relationship, perceptions surrounding treats, and feeding practices and behav-<lb/>iours. Descriptive statistics, chi-square tests, Kruskal-Wallis one-way ANOVA, Wilcoxon<lb/> signed-rank tests, and multivariable logistic regression models were used to analyze the<lb/> survey data. Caregivers had varying interpretations of the term &apos;treat&apos; and how treats relate<lb/> to the primary diet, and these perceptions appeared to influence the quantity of treats pro-<lb/>vided. Aspects relating to the human-animal bond were highlighted as an important factor in<lb/> decisions and behaviours surrounding treat feeding in our results. Though the majority (224/<lb/> 337, 66%) of respondents indicated they monitor their pet&apos;s treat intake, using an eyeball<lb/> estimate was the most frequent (139/337, 41%) method reported to measure treats. Multi-<lb/>variable logistic regression results revealed feeding jerky, bones, dental treats, and table<lb/> scraps in select frequencies were predictive of caregivers perceiving their cat as over-<lb/>weight/obese. Results provide valuable new insights to cat caregiver feeding practices and<lb/> perceptions of treats and can be used to inform veterinary nutrition support to caregivers.<lb/> More research is warranted to further our understanding and ensure that cats receive opti-<lb/>mal nutrition and care.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0296011 January 10, 2024<lb/></reference>
+
+	<page>1 / 24<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Nielson SA, Khosa DK, Verbrugghe A,<lb/> Clow KM (2024) Cat caregivers&apos; perceptions,<lb/> motivations, and behaviours for feeding treats: A<lb/> cross sectional study. PLoS ONE 19(1): e0296011.<lb/></reference>
+
+	<idno>https://doi.org/10.1371/journal.pone.0296011<lb/></idno>
+
+	Editor:
+	<editor>Harvie P. Portugaliza,</editor>
+
+	<byline>
+	<affiliation>Visayas State<lb/> University,</affiliation>
+	</byline>
+
+	<address>PHILIPPINES<lb/></address>
+
+	<note type="submission">Received: July 5, 2023<lb/> Accepted: December 4, 2023<lb/></note>
+
+	Published:
+	<date>January 10, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0296011<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Nielson et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">The data has been<lb/> uploaded to a public repository. DOI: 10.5683/SP3/<lb/> EEAXSO Reference: Nielson, Shelby, 2023,<lb/> &quot;Supplementary Data: Cat caregivers&apos; perceptions,<lb/> motivations, and behaviours for feeding treats: a<lb/> cross sectional study&quot;, https://doi.org/10.5683/<lb/> SP3/EEAXSO, Borealis, V1, UNF:6:<lb/> bY9XKkmnQgG4QdLd5am8fg== [fileUNF]<lb/></note>
+
+	Funding:
+	<note type="funding">The author(s) received no specific<lb/> funding for this work.<lb/></note>
+
+	Competing interests: 
+	<note type="conflict">A.V. is the Royal Canin<lb/> Veterinary Diets Endowed Chair in Canine and<lb/> Feline Clinical Nutrition and declares that they serve<lb/> on industry advisory boards and received<lb/> honoraria and research funding from various pet<lb/> food manufacturers and ingredient suppliers.</note>
+
+		</front>
+	</text>
+
+</TEI>

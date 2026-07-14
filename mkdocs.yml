@@ -1,43 +1,71 @@
 site_name: GROBID Documentation
-repo_url: https://github.com/kermitt2/grobid/
+repo_url: https://github.com/grobidOrg/grobid/
 repo_name: GitHub
-theme: readthedocs
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
 site_description: Documentation for GROBID
 docs_dir: doc
 extra_css:
   - css/custom.css
+
+extra_javascript:
+    - doc/readthedocs-search.js
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
 plugins:
     - search
 nav:
   - Home: 'index.md'
+  - Getting Started:
+    - 'Quick start': 'getting_started.md'
+    - 'Run with Docker': 'Grobid-docker.md'
+    - 'Troubleshooting and FAQ': 'Frequently-asked-questions.md'
+  - Upgrading:
+    - 'Upgrade guide': 'Upgrading.md'
+  - User Guide:
+    - 'Using the REST API': 'Grobid-service.md'
+    - 'Understanding the output (TEI)': 'TEI-encoding-of-results.md'
+    - 'PDF coordinates': 'Coordinates-in-PDF.md'
+    - 'Configuration': 'Configuration.md'
+    - 'Consolidation service': 'Consolidation.md'
+    - 'Specialized processes': 'Grobid-specialized-processes.md'
+    - 'Monitoring with Prometheus': 'Monitoring.md'
   - About:
     - 'Introduction': 'Introduction.md'
     - 'How GROBID works': 'Principles.md'
+    - 'Benchmarks': 'benchmarks/Benchmarking.md'
     - 'References': 'References.md'
     - 'Licence': 'License.md'
-  - User manual:
-    - 'Run GROBID': 'Run-Grobid.md'
-    - 'GROBID service': 'Grobid-service.md'
-    - 'Build GROBID from source': 'Install-Grobid.md'
-    - 'GROBID with containers': 'Grobid-docker.md'
-    - 'GROBID batch mode': 'Grobid-batch.md'
-    - 'GROBID configuration': 'Configuration.md'
-    - 'GROBID specialized processes': 'Grobid-specialized-processes.md'
-    - 'Troubleshooting and known issues': 'Troubleshooting.md'
-    - 'Java library': 'Grobid-java-library.md'
-    - 'TEI encoding of results': 'TEI-encoding-of-results.md'
-    - 'Coordinates of structures in the PDF': 'Coordinates-in-PDF.md'
-    - 'Adding a consolidation service': 'Consolidation.md'
-    - 'Training the GROBID models': 'Training-the-models-of-Grobid.md'
+    - 'Community': 'Community.md'
+  - Developer Guide:
+    - 'Build from source': 'Install-Grobid.md'
+    - 'Training and evaluating models': 'Training-the-models-of-Grobid.md'
+    - 'Annotating with the PDF-TEI Editor': 'PDF-TEI-Editor.md'
     - 'End-to-end evaluation': 'End-to-end-evaluation.md'
-    - 'Frequently asked Questions': 'Frequently-asked-questions.md'
-  - Benchmarking:
-    - 'Description': 'Benchmarking.md'
-    - 'PubMed Central': 'Benchmarking-pmc.md'
-    - 'bioRxiv': 'Benchmarking-biorxiv.md'
-    - 'PLOS': 'Benchmarking-plos.md'
-    - 'eLife': 'Benchmarking-elife.md'
-  - Annotation guidelines:
+    - 'Deep Learning models': 'Deep-Learning-models.md'
+    - 'Developer notes': 'Notes-grobid-developers.md'
+    - 'Recompiling CRF libraries': 'Recompiling-and-integrating-CRF-libraries.md'
+  - Annotation Guidelines:
     - 'General principles': 'training/General-principles.md'
     - 'Segmentation model': 'training/segmentation.md'
     - 'Fulltext model': 'training/fulltext.md'
@@ -45,7 +73,13 @@ nav:
     - 'Bibliographical references': 'training/Bibliographical-references.md'
     - 'Affiliation-address model': 'training/affiliation-address.md'
     - 'Date model': 'training/date.md'
-  - Developer notes:
-    - 'Notes for the Grobid Developers': 'Notes-grobid-developers.md'
-    - 'Deep Learning models': 'Deep-Learning-models.md'
-    - 'Recompiling CRF libraries': 'Recompiling-and-integrating-CRF-libraries.md'
+  - Benchmarking:
+    - 'Overview': 'benchmarks/Benchmarking.md'
+    - 'PubMed Central': 'benchmarks/Benchmarking-pmc.md'
+    - 'bioRxiv': 'benchmarks/Benchmarking-biorxiv.md'
+    - 'PLOS': 'benchmarks/Benchmarking-plos.md'
+    - 'eLife': 'benchmarks/Benchmarking-elife.md'
+    - 'Model comparison': 'benchmarks/Benchmarking-models.md'
+  - Archive:
+    - 'Batch mode (deprecated)': 'Grobid-batch.md'
+    - 'Java library (deprecated)': 'Grobid-java-library.md'

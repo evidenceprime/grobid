@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="institution">The Pirbright Institute</orgName>,
+							<address>
+								<addrLine>Ash Road</addrLine>,
+								<settlement>Pirbright</settlement>,
+								<settlement>Woking</settlement>,
+								<region>Surrey</region>,
+								<country>United Kingdom</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">Institute of Diagnostic<lb/> Virology</orgName>,
+							<orgName type="institution">Friedrich-Loeffler-Institut</orgName>,
+							<address>
+								<settlement>Greifswald</settlement>,
+							</address>
+							<orgName type="institution">Insel Riems</orgName>,
+							<address>
+								<country>Germany</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="institution">National Veterinary Laboratory<lb/> (LANAVET)</orgName>,
+							<address>
+								<settlement>Garoua</settlement>,
+								<country>Cameroon</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">Plum Island Animal<lb/> Disease Center</orgName>,
+							<address>
+								<country>UNITED STATES</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

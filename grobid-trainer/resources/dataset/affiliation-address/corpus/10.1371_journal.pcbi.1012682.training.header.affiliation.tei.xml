@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Department of Psychiatry</orgName>,
+							<orgName type="institution">Charite ´-Universita ¨tsmedizin Berlin</orgName>,
+							<orgName type="institution">Corporate Member of Freie Universita<lb/> ¨t<lb/> Berlin and Humboldt-Universita ¨t zu Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">Bernstein Center for Computational<lb/> Neuroscience</orgName>,
+							<orgName type="institution">Charite ´-Universita ¨tsmedizin Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Einstein Center for Neurosciences<lb/> Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">QUEST Center for Responsible Research</orgName>,
+							<orgName type="institution">Berlin Institute of Health at Charite<lb/> ´-<lb/>Universita ¨tsmedizin-Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="department">Berlin School of Mind and Brain</orgName>,
+							<orgName type="institution">Humboldt-Universita ¨t zu<lb/> Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="department">CERPOP-UMR1295</orgName>,
+							<orgName type="institution">Universite ´de Toulouse III</orgName>,
+							<address>
+								<settlement>Toulouse</settlement>,
+								<country>France,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>7</marker>
+							<orgName type="department">Department<lb/> of Life Sciences</orgName>,
+							<orgName type="institution">Humboldt-Universita ¨t zu Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany</country>;
+							</address>
+							<orgName type="department">Berlin School of Mind and Brain</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+							<lb/>
+								<country>Germany</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>8</marker>
+							<orgName type="department">Department of Neurology</orgName>,
+							<orgName type="institution">Charite ´-Universita ¨tsmedizin Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>9</marker>
+							<orgName type="department">Department<lb/> of Oral and Maxillofacial Surgery</orgName>,
+							<orgName type="institution">Dortmund General Hospital</orgName>,
+							<address>
+								<settlement>Dortmund</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>10</marker>
+							<orgName type="department">Department of<lb/> Psychiatry and Psychotherapy</orgName>,
+							<address>
+								<addrLine>Campus Benjamin</addrLine>
+								<settlement>Franklin</settlement>,
+							</address>
+							<orgName type="institution">Charite ´-Universita ¨tsmedizin Berlin</orgName>,
+							<orgName type="department">Corporate<lb/> Member of Freie</orgName>
+							<orgName type="institution">Universita ¨t Berlin and Humboldt-Universita ¨t zu Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>11</marker>
+							<orgName type="institution">German Federal<lb/> Institute for Risk Assessment (BfR)</orgName>,
+							<orgName type="department">Department of Biological Safety</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany</country>,
+                            </address>
+                        </affiliation>
+                        <affiliation>
+                            <marker>12</marker>
+                             Former affiliation:<lb/>
+							<orgName type="department">Department of Biomolecular Systems</orgName>,
+							<orgName type="institution">Max Planck Institute of Colloids and Interfaces</orgName>,
+							<address>
+								<settlement>Potsdam</settlement>,
+								<country>Germany,</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>13</marker>
+							<orgName type="department">Institute du Cerveau</orgName>-
+							<orgName type="institution">Paris brain institute (ICM)</orgName>,
+							<address>
+								<settlement>Paris</settlement>,
+								<country>France</country>
+							</address>
+							<orgName type="department">E ´cole doctorale Cerveau, cognition,<lb/>, comportement (ED3C)</orgName>,
+							<orgName type="institution">Sorbonne Universite ´Paris</orgName>,
+							<address>
+								<settlement>Paris</settlement>,
+								<country>France,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>14</marker>
+							<orgName type="department">Department of Psychiatry and<lb/> Neurosciences</orgName>,
+							<orgName type="institution">Charite ´-Universita ¨tsmedizin Berlin</orgName>,
+							<orgName type="department">Corporate Member of Freie</orgName>
+							<orgName type="institution">Universita ¨t Berlin and<lb/> Humboldt-Universita ¨t zu Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>15</marker>
+							<orgName type="department">Biological Psychology and Neuroergonomics</orgName>,
+							<orgName type="institution">Berlin<lb/> Institute of Technology</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>16</marker>
+							<orgName type="institution">Berlin Institute of Health and Neuroscience Research Center</orgName>,
+							<lb/>
+							<orgName type="institution">Charite ´-Universita ¨tsmedizin Berlin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany</country>,
+							</address>
+                        </affiliation>
+                        <affiliation>
+                            <marker>17</marker> Former affiliation:
+							<orgName type="department">Institute of Neurophysiology</orgName>,
+							<lb/>
+							<orgName type="institution">Charite ´-Universita ¨tsmedizin</orgName>,
+							<address>
+								<settlement>Berlin</settlement>,
+								<country>Germany</country>
+							<lb/>
+							</address>
+                        </affiliation>
+                        <affiliation>
+							<orgName type="institution">Biontech SE</orgName>,
+							<address>
+								<settlement>Mainz</settlement>,
+								<country>Germany</country>
+							<lb/>
+							</address>
+							<orgName type="institution">Universidade Federal de Santa Catarina</orgName>,
+							<address>
+								<country>BRAZIL</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

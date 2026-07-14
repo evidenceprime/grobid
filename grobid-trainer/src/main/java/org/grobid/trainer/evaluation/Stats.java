@@ -1,5 +1,22 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.evaluation;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -29,8 +46,24 @@ public final class Stats {
     private double cumulated_expected = 0;
     private int totalValidFields = 0;
 
+    // Optional per-label override for the *displayed* support (and the support column total).
+    // Does not affect precision/recall/F1, which stay computed from the underlying counts. Used
+    // so an add-on metric such as "affiliation_linked" can report its support as a number of
+    // articles - the same unit as the other header fields - rather than its raw per-link count.
+    private Map<String, Long> supportOverride = new HashMap<>();
+
     public Stats() {
         this.labelStats = new TreeMap<>();
+    }
+
+    /**
+     * Overrides the support value <em>displayed</em> for the given labels (and summed into the
+     * support column total). Precision, recall and F1 are unaffected. Intended for add-on metrics
+     * whose natural support unit differs from the plain fields (e.g. reporting article coverage
+     * for {@code affiliation_linked} instead of its per-link count).
+     */
+    public void setSupportOverride(Map<String, Long> overrides) {
+        this.supportOverride = (overrides == null) ? new HashMap<>() : new HashMap<>(overrides);
     }
 
     public Set<String> getLabels() {
@@ -39,6 +72,22 @@ public final class Stats {
 
     public void removeLabel(String label) {
         this.labelStats.remove(label);
+    }
+
+    /**
+     * Merges the counts from another Stats object into this one.
+     * This is used to aggregate results from parallel evaluation tasks.
+     *
+     * @param other the Stats object to merge into this one
+     */
+    public void merge(Stats other) {
+        for (String label : other.getLabels()) {
+            LabelStat otherStat = other.getLabelStat(label);
+            this.incrementExpected(label, otherStat.getExpected());
+            this.incrementObserved(label, otherStat.getObserved());
+            this.incrementFalsePositive(label, otherStat.getFalsePositive());
+            this.incrementFalseNegative(label, otherStat.getFalseNegative());
+        }
     }
 
     public void incrementFalsePositive(String label) {
@@ -208,7 +257,6 @@ public final class Stats {
         return result;
     }
 
-
     public double getMicroAverageAccuracy() {
         computeMetrics();
 
@@ -224,11 +272,11 @@ public final class Stats {
 
         double accuracy = 0.0;
         if (cumulated_tp + cumulated_fp + cumulated_tn + cumulated_fn != 0.0)
-            accuracy = ((double) cumulated_tp + cumulated_tn) / (cumulated_tp + cumulated_fp + cumulated_tn + cumulated_fn);
+            accuracy = ((double) cumulated_tp + cumulated_tn)
+                    / (cumulated_tp + cumulated_fp + cumulated_tn + cumulated_fn);
 
         return Math.min(1.0, accuracy);
     }
-
 
     public double getMicroAveragePrecision() {
         computeMetrics();
@@ -297,13 +345,15 @@ public final class Stats {
         computeMetrics();
 
         StringBuilder report = new StringBuilder();
-        report.append(String.format("\n%-20s %-12s %-12s %-12s %-12s %-7s\n\n",
-            "label",
-            "accuracy",
-            "precision",
-            "recall",
-            "f1",
-            "support"));
+        report.append(
+                String.format(
+                        "\n%-20s %-12s %-12s %-12s %-12s %-7s\n\n",
+                        "label",
+                        "accuracy",
+                        "precision",
+                        "recall",
+                        "f1",
+                        "support"));
 
         long supportSum = 0;
 
@@ -314,36 +364,41 @@ public final class Stats {
 
             LabelStat labelStat = getLabelStat(label);
 
-            long support = labelStat.getSupport();
-            report.append(String.format("%-20s %-12s %-12s %-12s %-12s %-7s\n",
-                label,
-                TextUtilities.formatTwoDecimals(labelStat.getAccuracy() * 100),
-                TextUtilities.formatTwoDecimals(labelStat.getPrecision() * 100),
-                TextUtilities.formatTwoDecimals(labelStat.getRecall() * 100),
-                TextUtilities.formatTwoDecimals(labelStat.getF1Score() * 100),
-                String.valueOf(support))
-            );
+            long support = supportOverride.getOrDefault(label, labelStat.getSupport());
+            report.append(
+                    String.format(
+                            "%-20s %-12s %-12s %-12s %-12s %-7s\n",
+                            label,
+                            TextUtilities.formatTwoDecimals(labelStat.getAccuracy() * 100),
+                            TextUtilities.formatTwoDecimals(labelStat.getPrecision() * 100),
+                            TextUtilities.formatTwoDecimals(labelStat.getRecall() * 100),
+                            TextUtilities.formatTwoDecimals(labelStat.getF1Score() * 100),
+                            String.valueOf(support)));
 
             supportSum += support;
         }
 
         report.append("\n");
 
-        report.append(String.format("%-20s %-12s %-12s %-12s %-12s %-7s\n",
-            "all (micro avg.)",
-            TextUtilities.formatTwoDecimals(getMicroAverageAccuracy() * 100),
-            TextUtilities.formatTwoDecimals(getMicroAveragePrecision() * 100),
-            TextUtilities.formatTwoDecimals(getMicroAverageRecall() * 100),
-            TextUtilities.formatTwoDecimals(getMicroAverageF1() * 100),
-            String.valueOf(supportSum)));
+        report.append(
+                String.format(
+                        "%-20s %-12s %-12s %-12s %-12s %-7s\n",
+                        "all (micro avg.)",
+                        TextUtilities.formatTwoDecimals(getMicroAverageAccuracy() * 100),
+                        TextUtilities.formatTwoDecimals(getMicroAveragePrecision() * 100),
+                        TextUtilities.formatTwoDecimals(getMicroAverageRecall() * 100),
+                        TextUtilities.formatTwoDecimals(getMicroAverageF1() * 100),
+                        String.valueOf(supportSum)));
 
-        report.append(String.format("%-20s %-12s %-12s %-12s %-12s %-7s\n",
-            "all (macro avg.)",
-            TextUtilities.formatTwoDecimals(getMacroAverageAccuracy() * 100),
-            TextUtilities.formatTwoDecimals(getMacroAveragePrecision() * 100),
-            TextUtilities.formatTwoDecimals(getMacroAverageRecall() * 100),
-            TextUtilities.formatTwoDecimals(getMacroAverageF1() * 100),
-            String.valueOf(supportSum)));
+        report.append(
+                String.format(
+                        "%-20s %-12s %-12s %-12s %-12s %-7s\n",
+                        "all (macro avg.)",
+                        TextUtilities.formatTwoDecimals(getMacroAverageAccuracy() * 100),
+                        TextUtilities.formatTwoDecimals(getMacroAveragePrecision() * 100),
+                        TextUtilities.formatTwoDecimals(getMacroAverageRecall() * 100),
+                        TextUtilities.formatTwoDecimals(getMacroAverageF1() * 100),
+                        String.valueOf(supportSum)));
 
         return report.toString();
     }
@@ -363,30 +418,58 @@ public final class Stats {
             }
 
             LabelStat labelStat = getLabelStat(label);
-            long support = labelStat.getSupport();
-            report.append("| "+label+" | "+
-                TextUtilities.formatTwoDecimals(labelStat.getPrecision() * 100)+" | "+
-                TextUtilities.formatTwoDecimals(labelStat.getRecall() * 100)   +" | "+
-                TextUtilities.formatTwoDecimals(labelStat.getF1Score() * 100)  +" | "+
-                String.valueOf(support)+" |\n");
+            long support = supportOverride.getOrDefault(label, labelStat.getSupport());
+            report.append(
+                    "| "
+                            + label
+                            + " | "
+                            +
+                            TextUtilities.formatTwoDecimals(labelStat.getPrecision() * 100)
+                            + " | "
+                            +
+                            TextUtilities.formatTwoDecimals(labelStat.getRecall() * 100)
+                            + " | "
+                            +
+                            TextUtilities.formatTwoDecimals(labelStat.getF1Score() * 100)
+                            + " | "
+                            +
+                            String.valueOf(support)
+                            + " |\n");
             supportSum += support;
         }
 
         report.append("|                  |            |           |            |         |\n");
 
-        report.append("| **all fields (micro avg.)** | **"+
-            TextUtilities.formatTwoDecimals(getMicroAveragePrecision() * 100)+"** | **"+
-            TextUtilities.formatTwoDecimals(getMicroAverageRecall() * 100)+"** | **"+
-            TextUtilities.formatTwoDecimals(getMicroAverageF1() * 100)+"** | "+
-            String.valueOf(supportSum)+" |\n");
+        report.append(
+                "| **all fields (micro avg.)** | **"
+                        +
+                        TextUtilities.formatTwoDecimals(getMicroAveragePrecision() * 100)
+                        + "** | **"
+                        +
+                        TextUtilities.formatTwoDecimals(getMicroAverageRecall() * 100)
+                        + "** | **"
+                        +
+                        TextUtilities.formatTwoDecimals(getMicroAverageF1() * 100)
+                        + "** | "
+                        +
+                        String.valueOf(supportSum)
+                        + " |\n");
 
-        report.append("| all fields (macro avg.) | "+
-            TextUtilities.formatTwoDecimals(getMacroAveragePrecision() * 100)+" | "+
-            TextUtilities.formatTwoDecimals(getMacroAverageRecall() * 100)+" | "+
-            TextUtilities.formatTwoDecimals(getMacroAverageF1() * 100)+" | "+
-            String.valueOf(supportSum)+" |\n\n");
+        report.append(
+                "| all fields (macro avg.) | "
+                        +
+                        TextUtilities.formatTwoDecimals(getMacroAveragePrecision() * 100)
+                        + " | "
+                        +
+                        TextUtilities.formatTwoDecimals(getMacroAverageRecall() * 100)
+                        + " | "
+                        +
+                        TextUtilities.formatTwoDecimals(getMacroAverageF1() * 100)
+                        + " | "
+                        +
+                        String.valueOf(supportSum)
+                        + " |\n\n");
 
         return report.toString();
     }
 }
-

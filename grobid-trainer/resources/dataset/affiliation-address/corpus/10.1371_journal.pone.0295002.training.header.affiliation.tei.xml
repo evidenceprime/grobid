@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Department of Diagnostic and Interventional Radiology</orgName>,
+							<orgName type="institution">University Hospital of Wu ¨rzburg</orgName>,
+							<address>
+								<addrLine>Wu ¨rzburg</addrLine>,
+							<lb/>
+								<country>Germany</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">Institute of Anatomy and Cell Biology</orgName>,
+							<orgName type="institution">University of Wu ¨rzburg</orgName>,
+							<address>
+								<addrLine>Wu ¨rzburg</addrLine>,
+								<country>Germany</country>,
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Department of General, Visceral, Transplant, Vascular, and Pediatric Surgery</orgName>,
+							<orgName type="institution">University Hospital of<lb/> Wu ¨rzburg</orgName>,
+							<address>
+								<addrLine>Wu ¨rzburg</addrLine>,
+								<country>Germany</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">Humanitas Clinical and<lb/> Research Center -IRRCS</orgName>,
+							<address>
+								<country>ITALY</country>
+							<lb/>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

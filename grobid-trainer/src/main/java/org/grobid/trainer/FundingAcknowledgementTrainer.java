@@ -1,20 +1,31 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer;
+
+import java.io.*;
+import java.util.List;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 
 import org.grobid.core.GrobidModels;
 import org.grobid.core.exceptions.GrobidException;
 import org.grobid.core.features.FeaturesVectorFunding;
-import org.grobid.core.utilities.GrobidProperties;
-import org.grobid.trainer.sax.TEIFundingAcknowledgementSaxParser;
 import org.grobid.core.layout.LayoutToken;
-import org.grobid.core.engines.FundingAcknowledgementParser;
-import org.grobid.core.features.FeaturesVectorFunding;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
+import org.grobid.trainer.sax.TEIFundingAcknowledgementSaxParser;
 
 public class FundingAcknowledgementTrainer extends AbstractTrainer {
 
@@ -50,10 +61,11 @@ public class FundingAcknowledgementTrainer extends AbstractTrainer {
      * @return the total number of used corpus items
      */
     @Override
-    public int createCRFPPData(final File corpusDir,
-                            final File trainingOutputPath,
-                            final File evalOutputPath,
-                            double splitRatio) {
+    public int createCRFPPData(
+            final File corpusDir,
+            final File trainingOutputPath,
+            final File evalOutputPath,
+            double splitRatio) {
         int totalExamples = 0;
         try {
             System.out.println("sourcePathLabel: " + corpusDir);
@@ -71,7 +83,8 @@ public class FundingAcknowledgementTrainer extends AbstractTrainer {
             });
 
             if (refFiles == null) {
-                throw new IllegalStateException("Folder " + corpusDir.getAbsolutePath()
+                throw new IllegalStateException("Folder "
+                        + corpusDir.getAbsolutePath()
                         + " does not seem to contain training data. Please check");
             }
 
@@ -113,15 +126,15 @@ public class FundingAcknowledgementTrainer extends AbstractTrainer {
 
                 totalExamples += parser.nbFundings;
 
-                for(int i=0; i<allTokens.size(); i++) {
+                for (int i = 0; i < allTokens.size(); i++) {
                     List<LayoutToken> tokens = allTokens.get(i);
                     List<String> labels = allLabeled.get(i);
 
                     // we can now add the features
                     String fundings = FeaturesVectorFunding.addFeatures(tokens, labels);
-                    if ( (writer2 == null) && (writer3 != null) )
+                    if ((writer2 == null) && (writer3 != null))
                         writer3.write(fundings + "\n \n");
-                    else if ( (writer2 != null) && (writer3 == null) )
+                    else if ((writer2 != null) && (writer3 == null))
                         writer2.write(fundings + "\n \n");
                     else {
                         if (Math.random() <= splitRatio)
@@ -156,13 +169,7 @@ public class FundingAcknowledgementTrainer extends AbstractTrainer {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        GrobidProperties.getInstance();
-        FundingAcknowledgementTrainer trainer = new FundingAcknowledgementTrainer();
-
-        AbstractTrainer.runTraining(trainer);
-        System.out.println(AbstractTrainer.runEvaluation(trainer));
-
-        System.exit(0);
+        AbstractTrainer.trainAndEvaluate(FundingAcknowledgementTrainer::new);
     }
 
 }

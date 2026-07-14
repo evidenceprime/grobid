@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Lucy</forename>
+								 <surname>Kubiak-Martens</surname> ID
+								 <marker>1☯ *</marker>,
+							</persName>
+							<persName>
+								 <forename>Tania</forename>
+								 <middlename>F</middlename>.
+								 <middlename>M</middlename>.
+								 <surname>Oudemans</surname>
+								 <marker>2☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jan</forename>
+								 <middlename>Piet</middlename>
+								 <surname>Brozio</surname>
+								 <marker>3‡</marker> ,
+							</persName>
+							<persName>
+								 <forename>Dragana</forename>
+								 <surname>Filipović</surname> ID
+								 <marker>3 ‡</marker> ,
+							</persName>
+							<persName>
+								 <forename>Johannes</forename>
+								 <surname>Mu ¨ller</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Wiebke</forename>
+								 <surname>Kirleis</surname>
+								 <marker>3 ‡</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

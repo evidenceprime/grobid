@@ -1,0 +1,134 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-03T16:22:26.667Z">12/3/2025 4:22:26 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-03T16:22:08.122961Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-03T16:22:08.122961Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>The risk and risk factors of chikungunya virus<lb/> infection and rheumatological sequelae in a<lb/> cohort of U.S. Military Health System<lb/> beneficiaries: Implications for the vaccine era<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Simon Pollett ID<lb/> 1,2<lb/> *, Hsing-Chuan Hsieh 1,2 , Dan Lu 1,2 , Melissa Grance 1,2 ,<lb/> Stephanie Richard 1,2 , Gosia Nowak 3 , Charlotte Lanteri 1 , David Tribble 1 , Timothy Burgess 1<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Infectious Disease Clinical Research Program, Department of Preventive Medicine and Biostatistics,<lb/> Uniformed Services University of the Health Sciences,</affiliation>
+	</byline>
+
+	<address>Bethesda, Maryland, United States of America,<lb/></address>
+
+	<byline>
+	<affiliation>2 Henry M. Jackson Foundation for the Advancement of Military Medicine, Inc.,</affiliation>
+	</byline>
+
+	<address>Bethesda, Maryland, United<lb/> States of America,</address>
+
+	<byline>
+	<affiliation>3 EpiData Center, Navy and Marine Corps Public Health Center,</affiliation>
+	</byline>
+
+	<address>Portsmouth, Virginia,<lb/> United States of America<lb/></address>
+
+	*
+	<email>spollett@idcrp.org</email>
+
+	Abstract
+	<div type="abstract">Background<lb/> Understanding the risk of chikungunya virus (CHIKV) infection and rheumatic sequelae<lb/> across populations, including travelers and the military, is critical. We leveraged healthcare<lb/> delivery data of over 9 million U.S. Military Health System (MHS) beneficiaries to identify<lb/> cases, and sampled controls, to estimate the risk of post-CHIKV rheumatic sequelae.<lb/> Methodology/Principal findings<lb/> MHS beneficiary CHIKV infections diagnosed 2014-2018 were identified from the Disease<lb/> Reporting System internet, TRICARE Encounter Data Non-Institutional, and Comprehen-<lb/>sive Ambulatory/Professional Encounter Record systems. Non-CHIKV controls were<lb/> matched (1:4) by age, gender, beneficiary status, and encounter date. The frequency of<lb/> comorbidities and incident rheumatic diagnoses through December 2018 were derived from<lb/> International Classification of Diseases codes and compared between cases and controls.<lb/> Poisson regression models estimated the association of CHIKV infection with rheumatic<lb/> sequelae. We further performed a nested case-control study to estimate risk factors for<lb/> post-CHIKV sequelae in those with prior CHIKV. 195 CHIKV cases were diagnosed<lb/> between July 2014 and December 2018. The median age was 42 years, and 43.6% were<lb/> active duty. 63/195 (32.3%) of CHIKV cases had an incident rheumatic diagnosis, including<lb/> arthralgia, polyarthritis, polymyalgia rheumatica, and/or rheumatoid arthritis, compared to<lb/> 156/780 (20.0%) of controls (p &lt; 0.001). CHIKV infection remained associated with rheu-<lb/>matic sequelae (aRR = 1.579, p = 0.008) after adjusting for prior rheumatic disease and<lb/> demography. Those with rheumatic CHIKV sequelae had a median 7 healthcare encounters<lb/> (IQR 3-15). Among CHIKV infections, we found no association between post-CHIKV rheu-<lb/>matic sequelae and demography, service characteristics, or comorbidities.<lb/></div>
+
+	<title level="j">PLOS NEGLECTED TROPICAL DISEASES<lb/></title>
+
+	<reference>PLOS Neglected Tropical Diseases | https://doi.org/10.1371/journal.pntd.0011810 August 5, 2024<lb/></reference>
+
+	<page>1 / 13<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Pollett S, Hsieh H-C, Lu D, Grance M,<lb/> Richard S, Nowak G, et al. (2024) The risk and risk<lb/> factors of chikungunya virus infection and<lb/> rheumatological sequelae in a cohort of U.S.<lb/> Military Health System beneficiaries: Implications<lb/> for the vaccine era. PLoS Negl Trop Dis 18(8):<lb/> e0011810.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pntd.0011810<lb/></idno>
+
+	Editor:
+	<editor>Fernando Lopes,</editor>
+
+	<byline>
+	<affiliation>Broad Institute Harvard:<lb/></affiliation>
+	</byline>
+
+	<address>Broad Institute, UNITED STATES OF AMERICA<lb/></address>
+
+	<note type="submission">Received: November 22, 2023<lb/> Accepted: July 1, 2024<lb/></note>
+
+	Published:
+	<date>August 5, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">This is an open access article, free of all<lb/> copyright, and may be freely reproduced,<lb/> distributed, transmitted, modified, built upon, or<lb/> otherwise used by anyone for any lawful purpose.<lb/> The work is made available under the Creative<lb/> Commons CC0 public domain dedication.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">Data for this study<lb/> are available from the Infectious Disease Clinical<lb/> Research Program (IDCRP), headquartered at the<lb/> Uniformed Services University of the Health<lb/> Sciences (USU), Department of Preventive<lb/> Medicine and Biostatistics. Review by the USU<lb/> Institutional Review Board is required for use of the<lb/> data used in this protocol. Furthermore, the data<lb/> set includes Military Health System data collected<lb/> under a Data Use Agreement that requires<lb/></note>
+			
+	<div type="abstract">Conclusions/Significance<lb/> CHIKV infection is uncommon but associated with rheumatic sequelae among MHS benefi-<lb/>ciaries, with substantial healthcare requirements in a proportion of cases with such<lb/> sequelae. No demographic, clinical, or occupational variables were associated with post-<lb/>CHIKV rheumatic sequelae, suggesting that prediction of these complications is challenging<lb/> in MHS beneficiaries. These findings are important context for future CHIKV vaccine deci-<lb/>sion making in this and other populations.<lb/></div>
+
+	<div type="abstract">Author summary<lb/> We examined U.S. Military Health System (MHS) healthcare delivery data to identify the<lb/> likelihood of rheumatic complications after chikungunya virus (CHIKV) infection. Over-<lb/>all, CHIKV infections were rare in the MHS, with 195 cases found in the records between<lb/> 2014 and 2018 (a period which encompassed the peak of the CHIKV epidemic in the<lb/> Americas). Of these, about 32% received a rheumatic diagnosis after infection, including<lb/> arthralgia, polyarthritis, polymyalgia rheumatica, and rheumatoid arthritis. Patients who<lb/> had a rheumatic diagnosis had on average 7 healthcare encounters for their post-CHIKV<lb/> rheumatic complication, and a quarter had more than 15 healthcare encounters. We did<lb/> not find any demographic, clinical, or occupational characteristics associated with devel-<lb/>oping rheumatic complications after CHIKV, suggesting that predicting rheumatic com-<lb/>plications from CHIKV may be challenging in MHS beneficiaries. These findings may<lb/> provide important context for decisions about implementing an approved chikungunya<lb/> vaccine to military servicemembers and other MHS beneficiaries.<lb/></div>
+
+	<note type="availability">accounting for uses of the data. Data requests may<lb/> be sent to: Address: 6270A Rockledge Drive, Suite<lb/> 250, Bethesda, MD 20817.	Email:<lb/> contactus@idcrp.org.<lb/></note>
+
+	Funding:
+	<note type="funding">The protocol was executed by the<lb/> Infectious Disease Clinical Research Program<lb/> (IDCRP), a Department of Defense program<lb/> executed by the Uniformed Services University of<lb/> the Health Sciences through a cooperative<lb/> agreement by the Henry M. Jackson Foundation for<lb/> the Advancement of Military Medicine, Inc.. This<lb/> project has been funded in part by the National<lb/> Institute of Allergy and Infectious Diseases at the<lb/> National Institutes of Health, under an interagency<lb/> agreement (Y1-AI-5072) (SP, DL, MG, HC-H); and<lb/> the Military Infectious Diseases Research Program<lb/> (DL, MG, HC-H). The funders had no role in study<lb/> design, data collection and analysis, decision to<lb/> publish, or preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

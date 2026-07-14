@@ -1,3 +1,18 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.data;
 
 import org.grobid.core.utilities.TextUtilities;
@@ -34,7 +49,7 @@ public class Date implements Comparable<Date> {
         this.dayString = fromDate.dayString;
         this.monthString = fromDate.monthString;
         this.yearString = fromDate.yearString;
-    }   
+    }
 
     public int getDay() {
         return day;
@@ -139,15 +154,15 @@ public class Date implements Comparable<Date> {
 
         return EQUAL;
     }
-    
+
     public boolean isNotNull() {
         return (rawDate != null) ||
-            (dayString != null) ||
-            (monthString != null) ||
-            (yearString != null) ||
-            (day != -1) ||
-            (month != -1) ||
-            (year != -1);
+                (dayString != null) ||
+                (monthString != null) ||
+                (yearString != null) ||
+                (day != -1) ||
+                (month != -1) ||
+                (year != -1);
     }
 
     public boolean isAmbiguous() {
@@ -187,11 +202,11 @@ public class Date implements Comparable<Date> {
 
     /**
      * Return a new date instance by merging the date information from a first date with
-     * the date information from a second date. 
+     * the date information from a second date.
      * The merging follows the year, month, day sequence. If the years
-     * for instance clash, the merging is stopped. 
+     * for instance clash, the merging is stopped.
      *
-     * Examples of merging: 
+     * Examples of merging:
      * "2010" "2010-10" -> "2010-10"
      * "2010" "2010-10-27" -> "2010-10-27"
      * "2010-10" "2010-10-27" -> "2010-10-27"
@@ -204,11 +219,11 @@ public class Date implements Comparable<Date> {
         if (date1.getYear() == -1) {
             return new Date(date2);
         }
-        
+
         if (date1.getYear() == date2.getYear()) {
             if (date1.getMonth() == -1 && date2.getMonth() != -1) {
                 return new Date(date2);
-            } 
+            }
             if (date1.getMonth() == date2.getMonth()) {
                 if (date1.getDay() == -1 && date2.getDay() != -1) {
                     return new Date(date2);
@@ -220,34 +235,31 @@ public class Date implements Comparable<Date> {
     }
 
     public String toString() {
-        String theDate = "";
+        StringBuilder sb = new StringBuilder();
         if (day != -1) {
-            theDate += day + "-";
+            sb.append(day).append("-");
         }
         if (month != -1) {
-            theDate += month + "-";
+            sb.append(month).append("-");
         }
         if (year != -1) {
-            theDate += year;
+            sb.append(year);
         }
-
-        theDate += " / ";
-
+        sb.append(" / ");
         if (dayString != null) {
-            theDate += dayString + "-";
+            sb.append(dayString).append("-");
         }
         if (monthString != null) {
-            theDate += monthString + "-";
+            sb.append(monthString).append("-");
         }
         if (yearString != null) {
-            theDate += yearString;
+            sb.append(yearString);
         }
-
-        return theDate;
+        return sb.toString();
     }
 
     public String toTEI() {
-		// TEI uses ISO 8601 for date encoding
+        // TEI uses ISO 8601 for date encoding
         String theDate = "<date when=\"";
         if (year != -1) {
             theDate += year;
@@ -259,13 +271,12 @@ public class Date implements Comparable<Date> {
             theDate += "-" + day;
         }
 
-		if (rawDate != null) {
-        	theDate += "\">"+TextUtilities.HTMLEncode(rawDate)+"</date>";
-		}
-		else {
-			theDate += "\" />";
-		}
-			
+        if (rawDate != null) {
+            theDate += "\">" + TextUtilities.HTMLEncode(rawDate) + "</date>";
+        } else {
+            theDate += "\" />";
+        }
+
         return theDate;
     }
 

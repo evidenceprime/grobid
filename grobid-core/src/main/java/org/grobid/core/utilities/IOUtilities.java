@@ -1,18 +1,32 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities;
 
-import org.grobid.core.exceptions.GrobidResourceException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.*;
-import java.util.List;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Date;
+import java.util.List;
 
-import static org.apache.commons.lang3.StringUtils.isEmpty;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.grobid.core.exceptions.GrobidResourceException;
 
 /**
  * Utilities related to file and directory management.
@@ -49,7 +63,7 @@ public class IOUtilities {
         FileWriter filew = new FileWriter(new File(file));
         BufferedWriter buffw = new BufferedWriter(filew);
         boolean start = true;
-        for(String cont : content) {
+        for (String cont : content) {
             if (start) {
                 buffw.write(cont);
                 start = false;
@@ -103,7 +117,9 @@ public class IOUtilities {
         } catch (IOException e) {
             LOGGER.error(
                     "An internal error occurs, while writing to disk (file to write '"
-                            + originFile + "').", e);
+                            + originFile
+                            + "').",
+                    e);
             originFile = null;
         } finally {
             try {
@@ -115,8 +131,11 @@ public class IOUtilities {
                     out.close();
                 }
             } catch (IOException e) {
-                LOGGER.error("An internal error occurs, while writing to disk (file to write '"
-                        + originFile + "').", e);
+                LOGGER.error(
+                        "An internal error occurs, while writing to disk (file to write '"
+                                + originFile
+                                + "').",
+                        e);
                 originFile = null;
             }
         }
@@ -131,8 +150,15 @@ public class IOUtilities {
             return File.createTempFile(fileName, extension, GrobidProperties.getTempPath());
         } catch (IOException e) {
             throw new GrobidResourceException(
-                    "Could not create temprorary file, '" + fileName + "." +
-                            extension + "' under path '" + GrobidProperties.getTempPath() + "'.", e);
+                    "Could not create temporary file, '"
+                            + fileName
+                            + "."
+                            +
+                            extension
+                            + "' under path '"
+                            + GrobidProperties.getTempPath()
+                            + "'.",
+                    e);
         }
     }
 
@@ -145,7 +171,8 @@ public class IOUtilities {
             return newFile.toFile();
         } catch (IOException e) {
             throw new GrobidResourceException(
-                "Could not create temprorary file, with extension '" +  extension + "' under path tmp system path.", e);
+                    "Could not create temporary file, with extension '" + extension + "' under path tmp system path.",
+                    e);
         }
     }
 
@@ -153,7 +180,7 @@ public class IOUtilities {
      * Delete a temporary file
      */
     public static void removeTempFile(final File file) {
-        
+
         try {
             // sanity cleaning
             deleteOldies(GrobidProperties.getTempPath(), 300);
@@ -168,7 +195,7 @@ public class IOUtilities {
      * Delete a system temporary file
      */
     public static void removeSystemTempFile(final File file) {
-        
+
         try {
             // sanity cleaning
             deleteSystemOldies(300);
@@ -183,7 +210,7 @@ public class IOUtilities {
      * Delete temporary directory
      */
     public static void removeTempDirectory(final String path) {
-        
+
         try {
             LOGGER.debug("Removing " + path);
             File theDirectory = new File(path);
@@ -209,7 +236,7 @@ public class IOUtilities {
         long currentDateMillisec = currentDate.getTime();
         boolean empty = true;
         boolean success = true;
-        long threasholdMillisec =  currentDateMillisec - (maxLifeInSeconds*1000);
+        long threasholdMillisec = currentDateMillisec - (maxLifeInSeconds * 1000);
         if (dir.isDirectory() && (StringUtils.isEmpty(prefix) || dir.getName().startsWith(prefix))) {
             File[] children = dir.listFiles();
             if (children != null) {
@@ -218,10 +245,9 @@ public class IOUtilities {
                         long millisec = children[i].lastModified();
                         if (millisec < threasholdMillisec) {
                             success = deleteOldies(children[i], maxLifeInSeconds, prefix, false);
-                            if (!success) 
+                            if (!success)
                                 return false;
-                        }
-                        else
+                        } else
                             empty = false;
                     }
                 }
@@ -236,7 +262,7 @@ public class IOUtilities {
     }
 
     /**
-     * Deletes all files and subdirectories under the system temporary folder if they are older than 
+     * Deletes all files and subdirectories under the system temporary folder if they are older than
      * a given amount of seconds. Returns true if all deletions were successful. If a deletion
      * fails, the method stops attempting to delete and returns false.
      * The grobid system temporary files and folders are all identified with a grobid prefix.

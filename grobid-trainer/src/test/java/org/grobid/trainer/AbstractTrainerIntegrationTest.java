@@ -1,12 +1,23 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer;
 
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.grobid.core.GrobidModels;
-import org.grobid.core.utilities.GrobidProperties;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,10 +28,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
+import org.grobid.core.GrobidModels;
+import org.grobid.core.utilities.GrobidProperties;
 
 public class AbstractTrainerIntegrationTest {
 
@@ -33,7 +48,7 @@ public class AbstractTrainerIntegrationTest {
 
     @BeforeClass
     public static void beforeClass() throws Exception {
-//        LibraryLoader.load();
+        //        LibraryLoader.load();
     }
 
     @Before
@@ -41,25 +56,29 @@ public class AbstractTrainerIntegrationTest {
         target = new AbstractTrainer(GrobidModels.DUMMY) {
 
             @Override
-            public int createCRFPPData(File corpusPath, File outputTrainingFile, File outputEvalFile, double splitRatio) {
+            public int createCRFPPData(
+                    File corpusPath,
+                    File outputTrainingFile,
+                    File outputEvalFile,
+                    double splitRatio) {
                 // the file for writing the training data
-//                if (outputTrainingFile != null) {
-//                    try (OutputStream os = new FileOutputStream(outputTrainingFile)) {
-//                        try (Writer writer = new OutputStreamWriter(os, StandardCharsets.UTF_8)) {
-//
-//                            for (int i = 0; i < 100; i++) {
-//                                double random = Math.random();
-//                                writer.write("blablabla" + random);
-//                                writer.write("\n");
-//                                if (i % 10 == 0) {
-//                                    writer.write("\n");
-//                                }
-//                            }
-//                        }
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
+                //                if (outputTrainingFile != null) {
+                //                    try (OutputStream os = new FileOutputStream(outputTrainingFile)) {
+                //                        try (Writer writer = new OutputStreamWriter(os, StandardCharsets.UTF_8)) {
+                //
+                //                            for (int i = 0; i < 100; i++) {
+                //                                double random = Math.random();
+                //                                writer.write("blablabla" + random);
+                //                                writer.write("\n");
+                //                                if (i % 10 == 0) {
+                //                                    writer.write("\n");
+                //                                }
+                //                            }
+                //                        }
+                //                    } catch (IOException e) {
+                //                        e.printStackTrace();
+                //                    }
+                //                }
 
                 return 100;
             }
@@ -75,29 +94,41 @@ public class AbstractTrainerIntegrationTest {
     public void testLoad_shouldWork() throws Exception {
         Path path = Paths.get("src/test/resources/sample.wapiti.output.date.txt");
         List<String> expected = Arrays.asList(
-            "Available available A Av Ava Avai e le ble able LINESTART INITCAP NODIGIT 0 0 0 NOPUNCT I-<other>\n" +
-                "online online o on onl onli e ne ine line LINEIN NOCAPS NODIGIT 0 0 0 NOPUNCT <other>\n" +
-                "18 18 1 18 18 18 8 18 18 18 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n" +
-                "January january J Ja Jan Janu y ry ary uary LINEIN INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n" +
-                "2010 2010 2 20 201 2010 0 10 010 2010 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
-            "June june J Ju Jun June e ne une June LINESTART INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n" +
-                "16 16 1 16 16 16 6 16 16 16 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n" +
-                ", , , , , , , , , , LINEIN ALLCAP NODIGIT 1 0 0 COMMA I-<other>\n" +
-                "2008 2008 2 20 200 2008 8 08 008 2008 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
-            "November november N No Nov Nove r er ber mber LINESTART INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n" +
-                "4 4 4 4 4 4 4 4 4 4 LINEIN NOCAPS ALLDIGIT 1 0 0 NOPUNCT I-<day>\n" +
-                ", , , , , , , , , , LINEIN ALLCAP NODIGIT 1 0 0 COMMA I-<other>\n" +
-                "2009 2009 2 20 200 2009 9 09 009 2009 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
-            "Published published P Pu Pub Publ d ed hed shed LINESTART INITCAP NODIGIT 0 0 0 NOPUNCT I-<other>\n" +
-                "18 18 1 18 18 18 8 18 18 18 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n" +
-                "May may M Ma May May y ay May May LINEIN INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n" +
-                "2011 2011 2 20 201 2011 1 11 011 2011 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>");
+                "Available available A Av Ava Avai e le ble able LINESTART INITCAP NODIGIT 0 0 0 NOPUNCT I-<other>\n"
+                        +
+                        "online online o on onl onli e ne ine line LINEIN NOCAPS NODIGIT 0 0 0 NOPUNCT <other>\n" // codespell:ignore onl,ine
+                        +
+                        "18 18 1 18 18 18 8 18 18 18 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n"
+                        +
+                        "January january J Ja Jan Janu y ry ary uary LINEIN INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n"
+                        +
+                        "2010 2010 2 20 201 2010 0 10 010 2010 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
+                "June june J Ju Jun June e ne une June LINESTART INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n"
+                        +
+                        "16 16 1 16 16 16 6 16 16 16 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n"
+                        +
+                        ", , , , , , , , , , LINEIN ALLCAP NODIGIT 1 0 0 COMMA I-<other>\n"
+                        +
+                        "2008 2008 2 20 200 2008 8 08 008 2008 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
+                "November november N No Nov Nove r er ber mber LINESTART INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n"
+                        +
+                        "4 4 4 4 4 4 4 4 4 4 LINEIN NOCAPS ALLDIGIT 1 0 0 NOPUNCT I-<day>\n"
+                        +
+                        ", , , , , , , , , , LINEIN ALLCAP NODIGIT 1 0 0 COMMA I-<other>\n"
+                        +
+                        "2009 2009 2 20 200 2009 9 09 009 2009 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
+                "Published published P Pu Pub Publ d ed hed shed LINESTART INITCAP NODIGIT 0 0 0 NOPUNCT I-<other>\n"
+                        +
+                        "18 18 1 18 18 18 8 18 18 18 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n"
+                        +
+                        "May may M Ma May May y ay May May LINEIN INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n"
+                        +
+                        "2011 2011 2 20 201 2011 1 11 011 2011 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>");
 
         List<String> loadedTrainingData = target.load(path);
 
         assertThat(loadedTrainingData, is(expected));
     }
-
 
     @Test
     public void testSplitNFold_n3_shouldWork() throws Exception {
@@ -191,23 +222,36 @@ public class AbstractTrainerIntegrationTest {
     public void testLoadAndShuffle_shouldWork() throws Exception {
         Path path = Paths.get("src/test/resources/sample.wapiti.output.date.txt");
         List<String> orderedTrainingData = Arrays.asList(
-            "Available available A Av Ava Avai e le ble able LINESTART INITCAP NODIGIT 0 0 0 NOPUNCT I-<other>\n" +
-                "online online o on onl onli e ne ine line LINEIN NOCAPS NODIGIT 0 0 0 NOPUNCT <other>\n" +
-                "18 18 1 18 18 18 8 18 18 18 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n" +
-                "January january J Ja Jan Janu y ry ary uary LINEIN INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n" +
-                "2010 2010 2 20 201 2010 0 10 010 2010 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
-            "June june J Ju Jun June e ne une June LINESTART INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n" +
-                "16 16 1 16 16 16 6 16 16 16 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n" +
-                ", , , , , , , , , , LINEIN ALLCAP NODIGIT 1 0 0 COMMA I-<other>\n" +
-                "2008 2008 2 20 200 2008 8 08 008 2008 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
-            "November november N No Nov Nove r er ber mber LINESTART INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n" +
-                "4 4 4 4 4 4 4 4 4 4 LINEIN NOCAPS ALLDIGIT 1 0 0 NOPUNCT I-<day>\n" +
-                ", , , , , , , , , , LINEIN ALLCAP NODIGIT 1 0 0 COMMA I-<other>\n" +
-                "2009 2009 2 20 200 2009 9 09 009 2009 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
-            "Published published P Pu Pub Publ d ed hed shed LINESTART INITCAP NODIGIT 0 0 0 NOPUNCT I-<other>\n" +
-                "18 18 1 18 18 18 8 18 18 18 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n" +
-                "May may M Ma May May y ay May May LINEIN INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n" +
-                "2011 2011 2 20 201 2011 1 11 011 2011 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>");
+                "Available available A Av Ava Avai e le ble able LINESTART INITCAP NODIGIT 0 0 0 NOPUNCT I-<other>\n"
+                        +
+                        "online online o on onl onli e ne ine line LINEIN NOCAPS NODIGIT 0 0 0 NOPUNCT <other>\n" // codespell:ignore onl,ine
+                        +
+                        "18 18 1 18 18 18 8 18 18 18 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n"
+                        +
+                        "January january J Ja Jan Janu y ry ary uary LINEIN INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n"
+                        +
+                        "2010 2010 2 20 201 2010 0 10 010 2010 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
+                "June june J Ju Jun June e ne une June LINESTART INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n"
+                        +
+                        "16 16 1 16 16 16 6 16 16 16 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n"
+                        +
+                        ", , , , , , , , , , LINEIN ALLCAP NODIGIT 1 0 0 COMMA I-<other>\n"
+                        +
+                        "2008 2008 2 20 200 2008 8 08 008 2008 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
+                "November november N No Nov Nove r er ber mber LINESTART INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n"
+                        +
+                        "4 4 4 4 4 4 4 4 4 4 LINEIN NOCAPS ALLDIGIT 1 0 0 NOPUNCT I-<day>\n"
+                        +
+                        ", , , , , , , , , , LINEIN ALLCAP NODIGIT 1 0 0 COMMA I-<other>\n"
+                        +
+                        "2009 2009 2 20 200 2009 9 09 009 2009 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>",
+                "Published published P Pu Pub Publ d ed hed shed LINESTART INITCAP NODIGIT 0 0 0 NOPUNCT I-<other>\n"
+                        +
+                        "18 18 1 18 18 18 8 18 18 18 LINEIN NOCAPS ALLDIGIT 0 0 0 NOPUNCT I-<day>\n"
+                        +
+                        "May may M Ma May May y ay May May LINEIN INITCAP NODIGIT 0 0 1 NOPUNCT I-<month>\n"
+                        +
+                        "2011 2011 2 20 201 2011 1 11 011 2011 LINEEND NOCAPS ALLDIGIT 0 1 0 NOPUNCT I-<year>");
 
         List<String> shuffledTrainingData = target.loadAndShuffle(path);
 

@@ -1,22 +1,34 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.lexicon;
-
-import org.apache.commons.lang3.StringUtils;
-import org.grobid.core.analyzers.GrobidAnalyzer;
-import org.grobid.core.layout.BoundingBox;
-import org.grobid.core.layout.PDFAnnotation;
-import org.grobid.core.utilities.OffsetPosition;
-import org.grobid.core.utilities.LayoutTokensUtil;
-import org.grobid.core.layout.LayoutToken;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import org.grobid.core.analyzers.GrobidAnalyzer;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.utilities.LayoutTokensUtil;
+import org.grobid.core.utilities.OffsetPosition;
 
 public class LexiconIntegrationTest {
     private Lexicon target = null;
@@ -36,7 +48,6 @@ public class LexiconIntegrationTest {
         assertThat(journalsPositions, hasSize(1));
         assertThat(journalsPositions.get(0).start, is(0));
     }
-
 
     @Test
     public void testInAbbrevJournalNames_case2() throws Exception {
@@ -61,7 +72,8 @@ public class LexiconIntegrationTest {
 
     @Test
     public void testJournalNames_case2() throws Exception {
-        String input = "to be published in the official publication of the National Venereology Council " +
+        String input = "to be published in the official publication of the National Venereology Council "
+                +
                 "of Australia, volume 10, 2010.";
         List<OffsetPosition> journalsPositions = target.tokenPositionsJournalNames(input);
 
@@ -138,12 +150,12 @@ public class LexiconIntegrationTest {
         assertThat(positions.get(2).end, is(10));
     }
 
-
     /**
      * ORG Form
      **/
     @Test
     public void testGetPositionInOrgForm() throws Exception {
+        Lexicon.builder().withOrgForms().build();
         final String input = "Matusa Inc. was bought by Bayer";
         final List<OffsetPosition> positions = target.charPositionsOrgForm(input);
 
@@ -154,6 +166,7 @@ public class LexiconIntegrationTest {
 
     @Test
     public void testGetPositionInOrgForm_tokenised() throws Exception {
+        Lexicon.builder().withOrgForms().build();
         final String input = "Matusa Inc. was bought by Bayer";
         List<LayoutToken> tokenisedInput = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
 
@@ -169,6 +182,7 @@ public class LexiconIntegrationTest {
      */
     @Test
     public void testGetPositionInOrganisationNames() throws Exception {
+        Lexicon.builder().withOrganisations().build();
         final String input = "Matusa Inc. was bought by Bayer";
         final List<OffsetPosition> positions = target.charPositionsOrganisationNames(input);
 
@@ -179,6 +193,7 @@ public class LexiconIntegrationTest {
 
     @Test
     public void testGetPositionInOrganisationNames_tokenised() throws Exception {
+        Lexicon.builder().withOrganisations().build();
         final String input = "Matusa Inc. was bought by Bayer";
         List<LayoutToken> tokenisedInput = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
 
@@ -285,8 +300,9 @@ public class LexiconIntegrationTest {
 
     @Test
     public void testInDOIPatternLayoutToken1() {
-        String piece = "Garza, K., Goble, C., Brooke, J., & Jay, C. (2015). Framing the community data system interface. "+
-        "In Proceedings of the 2015 British HCI Conference on - British HCI ’15. ACM Press. 10.1145/2783446.2783605";
+        String piece = "Garza, K., Goble, C., Brooke, J., & Jay, C. (2015). Framing the community data system interface. "
+                +
+                "In Proceedings of the 2015 British HCI Conference on - British HCI ’15. ACM Press. 10.1145/2783446.2783605";
         List<LayoutToken> tokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(piece);
         String text = LayoutTokensUtil.toText(tokens);
         List<OffsetPosition> positions = target.tokenPositionsDOIPattern(tokens, text);
@@ -298,8 +314,9 @@ public class LexiconIntegrationTest {
 
     @Test
     public void testInDOIPatternLayoutToken2() {
-        String piece = "Morey, C. C., Cong, Y., Zheng, Y., Price, M., & Morey, R. D. (2015). The color-sharing bonus: Roles of "+
-        "perceptual organization and attentive processes in visual working memory. Archives of Scientific Psychology, 3, 18–29. https://doi.org/10.1037/arc0000014";
+        String piece = "Morey, C. C., Cong, Y., Zheng, Y., Price, M., & Morey, R. D. (2015). The color-sharing bonus: Roles of "
+                +
+                "perceptual organization and attentive processes in visual working memory. Archives of Scientific Psychology, 3, 18–29. https://doi.org/10.1037/arc0000014";
         List<LayoutToken> tokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(piece);
         String text = LayoutTokensUtil.toText(tokens);
         List<OffsetPosition> positions = target.tokenPositionsDOIPattern(tokens, text);
@@ -311,8 +328,9 @@ public class LexiconIntegrationTest {
 
     @Test
     public void testInArXivPatternLayoutToken1() {
-        String piece = "ATLAS collaboration, Measurements of the Nuclear Modification Factor for Jets in Pb+Pb Collisionsat √ "+
-        "sNN = 2 . 76TeVwith the ATLAS Detector, Phys. Rev. Lett. 114(2015) 072302 [ arXiv: 1411.2357][INSPIRE] .";
+        String piece = "ATLAS collaboration, Measurements of the Nuclear Modification Factor for Jets in Pb+Pb Collisionsat √ "
+                +
+                "sNN = 2 . 76TeVwith the ATLAS Detector, Phys. Rev. Lett. 114(2015) 072302 [ arXiv: 1411.2357][INSPIRE] .";
         List<LayoutToken> tokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(piece);
         String text = LayoutTokensUtil.toText(tokens);
         List<OffsetPosition> positions = target.tokenPositionsArXivPattern(tokens, text);
@@ -350,8 +368,9 @@ public class LexiconIntegrationTest {
 
     @Test
     public void testInIdentifierPatternLayoutToken() {
-        String piece = "ATLAS collaboration, Measurements of the Nuclear Modification Factor for Jets in Pb+Pb Collisionsat √ "+
-        "sNN = 2 . 76TeVwith the ATLAS Detector, Phys. Rev. Lett. 114(2015) 072302 [ arXiv: 1411.2357][INSPIRE] .";
+        String piece = "ATLAS collaboration, Measurements of the Nuclear Modification Factor for Jets in Pb+Pb Collisionsat √ "
+                +
+                "sNN = 2 . 76TeVwith the ATLAS Detector, Phys. Rev. Lett. 114(2015) 072302 [ arXiv: 1411.2357][INSPIRE] .";
         List<LayoutToken> tokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(piece);
         List<OffsetPosition> positions = target.tokenPositionsIdentifierPattern(tokens);
 
@@ -369,8 +388,9 @@ public class LexiconIntegrationTest {
 
     @Test
     public void testInUrlPatternLayoutToken() {
-        String piece = "ATLAS collaboration, . https://doi.org/10.1145/2783446.2783605, https://inria.fr/index.html, http://inria.fr/index.html. " +
-            "wikipedia: httpS://en.wikipedia.org/wiki/Reich_(disambiguation), Ftp://pubmed.truc.edu";
+        String piece = "ATLAS collaboration, . https://doi.org/10.1145/2783446.2783605, https://inria.fr/index.html, http://inria.fr/index.html. "
+                +
+                "wikipedia: httpS://en.wikipedia.org/wiki/Reich_(disambiguation), Ftp://pubmed.truc.edu";
         List<LayoutToken> tokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(piece);
         List<OffsetPosition> positions = target.tokenPositionsUrlPattern(tokens);
 
@@ -405,9 +425,25 @@ public class LexiconIntegrationTest {
         final String input = "Thank you Deutsche Forschungsgemeinschaft for the money.";
         List<LayoutToken> tokenisedInput = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
         final List<OffsetPosition> positions = target.tokenPositionsFunderNames(tokenisedInput);
-        
+
         assertThat(positions, hasSize(1));
         assertThat(positions.get(0).start, is(4));
         assertThat(positions.get(0).end, is(6));
+    }
+
+    /**
+     * Research infrastructure acronym-to-name mapping. Regression test for the map being
+     * loaded from research_infrastructures_map.txt (the ';'-delimited file) rather than
+     * the flat gazetteer research_infrastructures.txt, which left the mapping empty.
+     */
+    @Test
+    public void testGetOrganizationNamingInfo() throws Exception {
+        final List<Lexicon.OrganizationRecord> records = target.getOrganizationNamingInfo("EBRAINS");
+
+        assertNotNull(records);
+        assertThat(records, hasSize(1));
+        assertThat(records.get(0).name, is("EBRAINS"));
+        assertThat(records.get(0).fullName, is("European Brain ReseArch INfrastructureS"));
+        assertThat(records.get(0).lang, is("en"));
     }
 }

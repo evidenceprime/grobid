@@ -1,0 +1,127 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-01T17:33:33.469Z">12/1/2025 5:33:33 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-01T17:33:02.591716Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-01T17:33:02.591716Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>A new point mutation in the HC-Pro of potato<lb/> virus Y is involved in tobacco vein necrosis<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Giuseppe ParrellaID 1 *, Benoit Moury 2 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Institute for Sustainable Plant Protection of The National Research Council (IPSP-CNR),</affiliation>
+	</byline>
+
+	<address>Portici, Italy,<lb/></address>
+
+	<byline>
+	<affiliation>2 INRAE, Pathologie Ve ´ge ´tale,</affiliation>
+	</byline>
+
+	<address>Montfavet, France<lb/></address>
+
+	*
+	<email>giuseppe.parrella@ipsp.cnr.it</email>
+
+	(GP);
+	<email>benoit.moury@inrae.fr</email>
+
+	(BM) Abstract<lb/>
+	<div type="abstract">Tobacco vein necrosis (TVN) is a complex phenomenon regulated by different genetic<lb/> determinants mapped in the HC-Pro protein (amino acids N 330 , K 391 and E 410 ) and in two<lb/> regions of potato virus Y (PVY) genome, corresponding to the cytoplasmic inclusion (CI)<lb/> protein and the nuclear inclusion protein a-protease (NIa-Pro), respectively. A new determi-<lb/>nant of TVN was discovered in the MK isolate of PVY which, although carried the HC-Pro<lb/> determinants associated to TVN, did not induce TVN. The HC-Pro open reading frame<lb/> (ORF) of the necrotic infectious clone PVY N605 was replaced with that of the non-necrotic<lb/> MK isolate, which differed only by one amino acid at position 392 (T 392 instead of I 392 ). The<lb/> cDNA clone N605_MKHCPro inoculated in tobacco induced only weak mosaics at the sys-<lb/>temic level, demostrating that the amino acid at position 392 is a new determinant for TVN.<lb/> No significant difference in accumulation in tobacco was observed between N605 and<lb/> N605_MKHCPro. Since phylogenetic analyses showed that the loss of necrosis in tobacco<lb/> has occurred several times independently during PVY evolution, these repeated evolutions<lb/> strongly suggest that tobacco necrosis is a costly trait in PVY.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0302692 May 9, 2024<lb/></reference>
+
+	<page>1 / 14<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Parrella G, Moury B (2024) A new point<lb/> mutation in the HC-Pro of potato virus Y is involved<lb/> in tobacco vein necrosis. PLoS ONE 19(5):<lb/> e0302692.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0302692<lb/></idno>
+
+	Editor:
+	<editor>Shunmugiah Veluchamy Ramesh,</editor>
+
+	<byline>
+	<affiliation>ICAR-<lb/>Central Plantation Crops Research Institute,</affiliation>
+	</byline>
+
+	<address>INDIA<lb/></address>
+
+	<note type="submission">Received: March 6, 2024<lb/> Accepted: April 8, 2024<lb/></note>
+
+	Published:
+	<date>May 9, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0302692<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Parrella, Moury. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the paper and its Supporting Information<lb/> files.<lb/></note>
+
+	Funding:
+	<note type="funding">This research was partially funded by the<lb/> Italian National Research Council (CNR) with the<lb/> Short Term Mobility (STM) program 2014. The<lb/> funders had no role in study design, data collection<lb/> and analysis, decision to publish, or preparation of<lb/> the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

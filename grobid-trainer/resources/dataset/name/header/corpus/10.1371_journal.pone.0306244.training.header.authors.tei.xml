@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Vladislav</forename>
+								 <middlename>A</middlename>.
+								 <surname>Lushpa</surname>
+								 <marker>☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Marina</forename>
+								 <middlename>V</middlename>.
+								 <surname>Goncharuk</surname>
+								 <marker>☯</marker> ,
+							</persName>
+							<persName>
+								 <forename>Irina</forename>
+								 <middlename>A</middlename>.
+								 <surname>Talyzina</surname>
+								 <marker>¤a</marker> ,
+							</persName>
+							<persName>
+								 <forename>Alexander</forename>
+								 <middlename>S</middlename>.
+								 <surname>Arseniev</surname>,
+							</persName>
+							<persName>
+								 <forename>Eduard</forename>
+								 <middlename>V</middlename>.
+								 <surname>Bocharov</surname>,
+							</persName>
+							<persName>
+								 <forename>Konstantin</forename>
+								 <middlename>S</middlename>.
+								 <surname>Mineev</surname>
+								 <marker>¤b *</marker>,
+							</persName>
+							<persName>
+								 <forename>Sergey</forename>
+								 <middlename>A</middlename>.
+								 <surname>GoncharukID</surname>
+								<marker>*</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

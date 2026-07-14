@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Abdou</forename>
+								 <middlename>Fatawou</middlename>
+								 <surname>Modiyinji</surname>,
+							</persName>
+							<persName>
+								 <forename>Lange</forename>
+								 <middlename>Tchamba</middlename>
+								 <middlename>Amorgathe</middlename>
+								 <surname>Tankeu</surname>,
+							</persName>
+							<persName>
+								 <surname>Chavely</surname>
+								 <forename>Gwladys</forename>
+								<surname>Monamele</surname>,
+							</persName>
+							<persName>
+								<forename>Moise</forename>
+								<middlename>Henri</middlename>
+								<middlename>Yifomnjou</middlename>
+								<surname>Moumbeket</surname> ID ,
+							</persName>
+							<persName>
+								 <forename>Paul</forename>
+								 <middlename>Alain</middlename>
+								 <forename>Tagnouokam</forename>
+								 <surname>Ngoupo</surname> ID ,
+							</persName>
+							<persName>
+								 <forename>Huguette</forename>
+								 <middlename>Tchetgna</middlename>
+								 <surname>Simo</surname>,
+							</persName>
+							<persName>
+								 <forename>Abanda</forename>
+								 <middlename>Njei</middlename>
+								 <surname>Ngu</surname>,
+							</persName>
+							<persName>
+								 <forename>Kazanji</forename>
+								 <surname>Mirdad</surname>,
+							</persName>
+							<persName>
+								<forename>Richard</forename>
+								 <surname>Njouom</surname> ID
+								 <marker>*</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

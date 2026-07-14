@@ -16,6 +16,8 @@ The following TEI elements are used by the segmentation model:
 * `<div type="toc">` for table of content
 * `<div type="acknowledgment">` for acknowledgment annex
 * `<div type="availability">` for data and code availability statement annex (when not placed in the header)
+* `<div type="conflict">` for conflict of interest statement annex (when not placed in the header)
+* `<div type="contribution">` for author contribution statement annex (when not placed in the header)
 * `<div type="funding">` for funding information annex (when not placed in the header)
 * `<div type="annex">` for any other annexes
 
@@ -23,7 +25,8 @@ It is necessary to identify these above substructures when interrupting the `<bo
 
 Note that the mark-up follows overall the [TEI](http://www.tei-c.org). 
 
-> Note: It is highly recommended to study the existing training documents for the segmentation model first to see some examples of how these elements should be used.
+!!! tip
+    It is highly recommended to study the existing training documents for the segmentation model first to see some examples of how these elements should be used.
 
 ## Analysis
 
@@ -68,9 +71,12 @@ The following information blocks sometimes appear inside the article header, so 
 * Funding 
 * Data / code availability statement
 
-However, they rather appear as annexes, after the document body. In this case, they should be annotated as "annex", see next section, and not under `<front>`.
+However, they may appear as annexes, after the document body. 
+In this case, they should be annotated either as "annex" or other statements including "contribution" or "conflict", and not under `<front>`. 
+See next sections for more details.
 
-It is possible that the position of a title in the text flow of a document can be different from the visual layout of the document. The following is an example of annotating the article title in such a case on the front page:
+It is possible that the position of a title in the text flow of a document can be different from the visual layout of the document. 
+The following is an example of annotating the article title in such a case on the front page:
 
 ![title in front 0C4AA21E271A7FF288AE13895EAED540ED582A83](img/title-in-front.png)
 
@@ -91,7 +97,8 @@ survival <lb/></front>
 
 ```
 
-> Note: In general, whether the `<lb/>` (line break) element is inside or outside the `<front>` or other elements is of no importance. However as indicated [here](General-principles.md#correcting-pre-annotated-files), the <lb/> element should not be removed and should follow the stream of text. 
+!!! tip
+    In general, whether the `<lb/>` (line break) element is inside or outside the `<front>` or other elements is of no importance. However as indicated [here](General-principles.md#correcting-pre-annotated-files), the <lb/> element should not be removed and should follow the stream of text. 
 
 The following screenshot shows an example where an article starts mid-page, the end of the preceding one occupying the upper first third of the page. As this content does not belong to the article in question, don't add any elements and remove any `<front>` or `<body>` elements that could appear in the preceding article.
 
@@ -102,11 +109,14 @@ The following screenshot shows an example where an article starts mid-page, the 
 
 Additional and supporting information sections, which are located **after the body** of the article (typically after the conclusion), should be annotated under `<div type="annex">` or the following more specific annex types:
 
-* `<div type="acknowledgment">` for acknowledgment annex (including funding/grant acknowledgement when inside an acknowledgement section)
+* `<div type="acknowledgment">` for acknowledgment annex (including funding/grant acknowledgment when inside an acknowledgment section)
 * `<div type="availability">` for data and code availability statement annex 
+* `<div type="conflict">` for conflict of interests, declaration of interest, or disclaimer statement annex, 
+* `<div type="contribution">` for author contribution or credit statement annex,
 * `<div type="funding">` for funding information annex 
 
-> Note: Different section of annex type should be segmented in separated `<div type="annex">` to capture the start and end of the different section blocks. 
+!!! tip
+    Different section of annex type should be segmented in separated `<div type="annex">` to capture the start and end of the different section blocks. 
 
 Supplementary texts, supplementary figures and tables, and any similar appendix should be all encoded under `<div type="annex">`. 
 
@@ -118,6 +128,10 @@ Any information appearing in the page header needs to be surrounded by a `<note 
 
 The contents of the grey band in the screenshot above should be surrounded by a `<note place="headnote">` except on the first page where this type of information would be inside the `<front>` element.
 
+![vertical-side-item-segmentation.png](img/segmentation-vertical-text.png)
+
+The content in the vertical margin on the left or right of the page, should be also annotated as `<note place="headnote">`. 
+
 Any information appearing in the page footer needs to be put inside a `<note place="footnote">`, as is shown in the following example:
 
 ![example of a footnote - 0C4AA21E271A7FF288AE13895EAED540ED582A83](img/note-place-footnote.png)
@@ -127,10 +141,9 @@ Corresponding TEI XML:
 ```xml
 <note place="footnote">NATURE REVIEWS | IMMUNOLOGY <lb/>VOLUME 12 |
 	SEPTEMBER 2012 <lb/>© 2012 Macmillan Publishers Limited. All rights reserved</note>
-
 ```
 
-The `<page>` element which contains the page number should be outside of any of the above `<note>` elements.
+The `<page>` element which contains the page number should be outside any of the above `<note>` elements.
 
 Any notes to the left of the main body text are to be encoded as `<note>` if they are related to an element of the `<body>`; if they concern header elements they go into a `<front>` element.  See this screenshot as an example:
 
@@ -139,7 +152,7 @@ Any notes to the left of the main body text are to be encoded as `<note>` if the
 
 ### Tables and Figures
 
-Figures and tables belong to the main body structure: they are not to be specifically encoded at the segmentation level.
+Figures and tables **belong to the main body** structure: they are not to be specifically encoded at the segmentation level.
 
 Figures and table, including captions, appearing after the references but related to the body (e.g. list of figures in preprints), should be under `<body>`. If a figure or table appears inside an annex of an article, it should remain inside the `<div type="annex">` element. If a figure or table appears in an abstract (which is rare but might happen), this item should remain within the `<front>` element.
 

@@ -1,0 +1,135 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T10:02:12.067Z">12/2/2025 10:02:12 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T10:01:16.016016Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T10:01:16.016016Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Hand contamination and hand hygiene<lb/> knowledge and practices among commercial<lb/> transport users after the SARS-CoV-2 virus<lb/> (COVID-19) scare, Enugu State, Nigeria<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Ifeanyi O. Aguzie ID 1<lb/> *, Ahaoma M. Obioha 1☯ , Chisom E. Unachukwu 1☯ , Onyekachi<lb/> J. Okpasuo 1 , Toochukwu J. Anunobi ID<lb/> 2 , Kenneth O. Ugwu 3 , Patience O. Ubachukwu 1 , Uju<lb/> M. E. Dibua 3<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Zoology and Environmental Biology, University of Nigeria,</affiliation>
+	</byline>
+
+	<address>Nsukka, Nigeria,</address>
+
+	<byline>
+	<affiliation>2 Department of<lb/> Science Laboratory Technology, Federal Polytechnic, </affiliation>
+	</byline>
+
+	<address>Idah, Kogi State, Nigeria,</address>
+
+	<byline>
+	<affiliation>3 Department of<lb/> Microbiology, University of Nigeria,</affiliation>
+	</byline>
+
+	<address>Nsukka, Nigeria<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> *
+	<email>ifeanyi.aguzie@unn.edu.ng</email>
+
+	Abstract<lb/>
+	<div type="abstract">Contaminated hands are one of the most common modes of microorganism transmission<lb/> that are responsible for many associated infections in healthcare, food industries, and public<lb/> places such as transportation parks. Public health approaches during COVID-19 pandemic<lb/> have shown that hand hygiene practices and associated knowledge are critical measure to<lb/> control the spread of infectious agent. Hence, assessment of commercial transport users&apos;<lb/> knowledge, belief and practices on hand hygiene, and potential contamination with infec-<lb/>tious agents which is the aim of the study, aligns with general health concern of quantifying<lb/> contamination risk levels to predict disease outbreaks. This study utilized a randomized<lb/> sampling approach to select 10 frequently used commercial parks within two districts in the<lb/> State: Enugu and Nsukka. The parameters analysed include a cross-sectional question-<lb/>naire survey, hand swab and hand washed samples collected from dominant hand of partici-<lb/>pants. A total of 600 participants responded to the questionnaire survey, while 100<lb/> participants&apos; hand swabs were examined for microbial contamination. This study recorded a<lb/> high prevalence of fungal (90.0%) and bacterial (87.0%) species; 20 species of fungus were<lb/> identified with prevalence range of 1% to 14%; 21 bacterial species were isolated with prev-<lb/>alence range of 1% to 16%. These species were identified as either opportunistic, non-inva-<lb/>sive, or pathogenic, which may constitute a health concern amongst immunocompromised<lb/> individuals within the population. Aspergillus spp. (14%), was the most common fungal spe-<lb/>cies that was exclusively found amongst Nsukka commercial users, while E. coli was the<lb/> most prevalent isolated bacterial species amongst Nsukka (12%) and Enugu (20%) com-<lb/>mercial park users. Prevalence of fungal contamination in Nsukka (94.0%; 47/50) and<lb/> Enugu (86.0%; 43/50) were both high. Prevalence of bacterial contamination was higher in<lb/> Enugu than Nsukka but not significantly (47[94.0%] vs. 40[80.0%], p = 0.583). A greater<lb/> number of participants (99.3%) were aware of the importance of hand hygiene, however<lb/> with low compliance rate aside &quot;after using the toilet&quot; (80%) and &quot;before eating&quot; (90%), other<lb/></div>
+
+	<title level="j">PLOS GLOBAL PUBLIC HEALTH<lb/></title>
+
+	<reference>PLOS Global Public Health | https://doi.org/10.1371/journal.pgph.0002627 May 31, 2024<lb/></reference>
+
+	<page>1 / 26<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Aguzie IO, Obioha AM, Unachukwu CE,<lb/> Okpasuo OJ, Anunobi TJ, Ugwu KO, et al. (2024)<lb/> Hand contamination and hand hygiene knowledge<lb/> and practices among commercial transport users<lb/> after the SARS-CoV-2 virus (COVID-19) scare,<lb/> Enugu State, Nigeria. PLOS Glob Public Health<lb/> 4(5): e0002627.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pgph.0002627<lb/></idno>
+
+	Editor:
+	<editor>Khadime Sylla,</editor>
+
+	<byline>
+	<affiliation>Cheikh Anta Diop University:<lb/> Universite Cheikh Anta Diop,</affiliation>
+	</byline>
+
+	<address>SENEGAL<lb/></address>
+
+	<note type="submission">Received: October 2, 2023<lb/> Accepted: May 6, 2024<lb/></note>
+
+	Published:
+	<date>May 31, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pgph.0002627<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Aguzie et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement: 
+    <note type="availability">Data is publicly<lb/> available in data repository, and freely accessible:<lb/></note>
+	
+    <div type="abstract">relevant hand washing and sanitizing practices were considered less important. With these<lb/> observations, we can emphatically say that despite the COVID-19 scare, commercial park<lb/> users within the sampled population do not efficiently practice quality hand wash and<lb/> hygiene measures, hence, risking the widespread of infectious agents in situation of disease<lb/> outbreak or among immunocompromised individuals.<lb/></div>
+			
+    <note type="availability">Aguzie, Ifeanyi (2024). Hand contamination and<lb/> hand hygiene knowledge and practices among<lb/> commercial transport users, Enugu State, Nigeria<lb/> [Dataset]. Dryad. https://doi.org/10.5061/dryad.<lb/> h9w0vt4q9.<lb/></note>
+
+	Funding:
+	<note type="funding">The authors received no specific funding<lb/> for this work.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

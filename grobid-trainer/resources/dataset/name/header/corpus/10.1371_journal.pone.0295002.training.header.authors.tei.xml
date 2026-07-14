@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Viktor</forename>
+								 <surname>Hartung</surname> ID
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Anne</forename>
+								 <middlename>Marie</middlename>
+								 <surname>Augustin</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jan-Peter</forename>
+								 <surname>Grunz</surname> ID
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Henner</forename>
+								 <surname>Huflage</surname> ID
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jan- Lucca</forename>
+								 <surname>Hennes</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Florian</forename>
+								 <surname>Kleefeldt</surname> ID
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Su</forename>
+								 <surname>¨leyman Ergu</surname>
+								 <marker>¨n2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Dominik</forename>
+								 <surname>Peter</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Sven</forename>
+								 <surname>Lichthardt</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Thorsten</forename>
+								 <middlename>Alexander</middlename>
+								 <surname>Bley</surname>
+								 <marker>1</marker> ,
+							</persName>
+							<persName>
+								 <forename>Philipp</forename>
+								 <surname>Gruschwitz</surname> ID
+								 <marker>1 *</marker>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

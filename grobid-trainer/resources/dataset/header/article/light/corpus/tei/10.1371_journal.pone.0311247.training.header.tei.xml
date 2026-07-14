@@ -1,0 +1,263 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-04T11:11:54.367Z">12/4/2025 11:11:54 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-04T11:11:41.860004Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-04T11:11:41.860004Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Climate change increases threat to plant<lb/> diversity in tropical forests of Central America<lb/> and southern Mexico<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Miguel A. Ortega 1,2 *, Luis Cayuela 3¤ , Daniel M. Griffith ID 4<lb/> , Ange ´lica Camacho 5 , Indiana<lb/> M. Coronado 6 , Rafael F. del CastilloID 7 , Blanca L. Figueroa-Rangel 8 , William Fonseca 9 ,<lb/> Cristina Garibaldi 10 , Daniel L. Kelly 11 , Susan G. LetcherID 12 , Jorge A. MeaveID 13 ,<lb/> Luis Merino-Martı ´n3¤ , Vı ´ctor H. Meza 14 , Susana Ochoa-Gaona 15 , Miguel Olvera-Vargas 8 ,<lb/> Neptalı ´Ramı ´rez-Marcial 16 , Fernando J. Tun-Dzul 17 , Mirna Valdez-Herna ´ndez 18 ,<lb/> Eduardo Vela ´zquez 19 , David A. White 20 , Guadalupe Williams-Linera 21 , Rakan<lb/> A. ZahawiID 22 , Jesu ´s MuñozID 23 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Instituto Mixto de Investigacio ´n en Biodiversidad (IMIB-CSIC),</affiliation>
+	</byline>
+
+	<address>Mieres, Spain,</address>
+
+	<byline>
+	<affiliation>2 Universidad Internacional<lb/> Mene ´ndez Pelayo,</affiliation>
+	</byline>
+
+	<address>Madrid, Spain,</address>
+
+	<byline>
+	<affiliation>3 Departamento de Biologı ´a y Geologı ´a, Fı ´sica y Quı ´mica Inorga ´nica,<lb/> ESCET, Universidad Rey Juan Carlos,</affiliation>
+	</byline>
+
+	<address>Mo ´stoles, Spain,</address>
+
+	<byline>
+	<affiliation>4 Departamento de Ciencias Biolo ´gicas y<lb/> Agropecuarias, EcoSs Lab, Universidad Te ´cnica Particular de Loja,</affiliation>
+	</byline>
+
+	<address>Loja, Ecuador</address>,
+
+	<byline>
+	<affiliation>5 Universidad<lb/> Intercultural de Chiapas,</affiliation>
+	</byline>
+
+	<address>Corral de Piedra, Mexico</address>,
+
+	<byline>
+	<affiliation>6 Universidad Nacional Auto ´noma de Nicaragua, UNAN-<lb/>Leo ´n,</affiliation>
+	</byline>
+
+	<address>Leo ´n, Nicaragua,</address>
+
+	<byline>
+	<affiliation>7 Instituto Polite ´cnico Nacional, CIIDIR Oaxaca,</affiliation>
+	</byline>
+
+	<address>Santa Cruz Xoxocotla ´n, Oaxaca,<lb/> Mexico,</address>
+
+	<byline>
+	<affiliation>8 Departamento de Ecologı ´a y Recursos Naturales, Centro Universitario de la Costa Sur,<lb/> Universidad de Guadalajara, Autla ´n de Navarro,</affiliation>
+	</byline>
+
+	<address>Jalisco, Mexico</address>,
+
+	<byline>
+	<affiliation>9 Universidad Nacional Auto ´noma de Costa<lb/> Rica,</affiliation>
+	</byline>
+
+	<address>Santa Lucı ´a, Barva, Heredia, Costa Rica</address>,
+
+	<byline>
+	<affiliation>10 Departmento de Bota ´nica, Universidad de Panama<lb/> ´,<lb/> Campus Universitario Ciudad de Panama ´,</affiliation>
+	</byline>
+
+	<address>Panama ´, Repu ´blica de Panama ´,</address>
+
+	<byline>
+	<affiliation>11 Department of Botany, Trinity<lb/> College, University of Dublin,</affiliation>
+	</byline>
+
+	<address>Dublin, Ireland,</address>
+
+	<byline>
+	<affiliation>12 College of the Atlantic,</affiliation>
+	</byline>
+
+	<address>Bar Harbor, Maine, United States of<lb/> America,</address>
+
+	<byline>
+	<affiliation>13 Facultad de Ciencias, Universidad Nacional Auto ´noma de Me ´xico, Ciudad de Me ´xico,</affiliation>
+	</byline>
+
+	<address>Mexico,<lb/></address>
+
+	<byline>
+	<affiliation>14 Instituto de Investigacio ´n y Servicios Forestales, Universidad Nacional de Costa Rica, Campus Omar<lb/> Dengo,</affiliation>
+	</byline>
+
+	<address>Heredia, Costa Rica</address>,
+
+	<byline>
+	<affiliation>15 El Colegio de la Frontera Sur, Unidad Campeche</affiliation>
+	</byline>,
+
+	<address>Lerma, Campeche,<lb/> Mexico</address>,
+
+	<byline>
+	<affiliation>16 El Colegio de la Frontera Sur</affiliation>
+	</byline>,
+
+	<address>San Cristo ´bal de Las Casas, Chiapas, Mexico,</address>
+
+	<byline>
+	<affiliation>17 Centro de<lb/> Investigacio ´n Cientı ´fica de Yucata ´n,</affiliation>
+	</byline>
+
+	<address>Chuburna de Hidalgo, Me ´rida, Yucata ´n, Mexico,</address>
+
+	<byline>
+	<affiliation>18 Herbario,<lb/> Departamento Conservacio ´n de la Biodiversidad, El Colegio de la Frontera Sur,</affiliation>
+	</byline>
+
+	<address>Chetumal, Mexico,<lb/></address>
+
+	<byline>
+	<affiliation>19 Departamento de Produccio ´n Vegetal y Recursos Forestales, Instituto Universitario de Gestio ´n Forestal<lb/> Sostenible, Universidad de Valladolid (Campus de Palencia),</affiliation>
+	</byline>
+
+	<address>Palencia, Spain,</address>
+
+	<byline>
+	<affiliation>20 Emeritus Faculty, Program<lb/> in the Environment, Loyola University,</affiliation>
+	</byline>
+
+	<address>New Orleans, New Orleans, Louisiana, United States of America,<lb/></address>
+
+	<byline>
+	<affiliation>21 Instituto de Ecologı ´a, A.C. (INECOL),</affiliation>
+	</byline>
+
+	<address>Xalapa, Veracruz, Mexico,</address>
+
+	<byline>
+	<affiliation>22 Charles Darwin Foundation,</affiliation>
+	</byline>
+
+	<address>Puerto<lb/> Ayora, Gala ´pagos, Ecuador,</address>
+
+	<byline>
+	<affiliation>23 Real Jardı ´n Bota ´nico (RJB-CSIC),</affiliation>
+	</byline>
+
+	<address>Madrid, Spain<lb/></address>
+
+
+	<byline>
+	<affiliation>¤ Current address: Instituto de Investigacio ´n en Cambio Global (IIGC-URJC), Universidad Rey Juan Carlos,<lb/></affiliation>
+	</byline>
+
+	<address>Mo ´stoles, Spain<lb/></address>
+
+	*
+	<email>miguel.ortega@csic.es</email>
+
+	(MO);
+	<email>jmunoz@rjb.csic.es</email>
+
+	(JM) Abstract<lb/>
+	<div type="abstract">Global biodiversity is negatively affected by anthropogenic climate change. As species dis-<lb/>tributions shift due to increasing temperatures and precipitation fluctuations, many species<lb/> face the risk of extinction. In this study, we explore the expected trend for plant species dis-<lb/>tributions in Central America and southern Mexico under two alternative Representative<lb/> Concentration Pathways (RCPs) portraying moderate (RCP4.5) and severe (RCP8.5)<lb/> increases in greenhouse gas emissions, combined with two species dispersal assumptions<lb/> (limited and unlimited), for the 2061-2080 climate forecast. Using an ensemble approach<lb/> employing three techniques to generate species distribution models, we classified 1924<lb/> plant species from the region&apos;s (sub)tropical forests according to IUCN Red List categories.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0297840 February 29, 2024<lb/></reference>
+
+	<page>1 / 16<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Ortega MA, Cayuela L, Griffith DM,<lb/> Camacho A, Coronado IM, del Castillo RF, et al.<lb/> (2024) Climate change increases threat to plant<lb/> diversity in tropical forests of Central America and<lb/> southern Mexico. PLoS ONE 19(2): e0297840.<lb/></reference>
+
+	<idno>https://doi.org/10.1371/journal.pone.0297840<lb/></idno>
+
+	Editor:
+	<editor>Charlotte Chibuzor Ndiribe,</editor>
+
+	<byline>
+	<affiliation>University of<lb/> Deusto: Universidad de Deusto,</affiliation>
+	</byline>
+
+	<address>SPAIN<lb/></address>
+
+	<note type="submission">Received: July 16, 2023<lb/> Accepted: January 12, 2024<lb/></note>
+
+	Published:
+	<date>February 29, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0297840<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Ortega et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement: 
+	<note type="availability">All relevant data are<lb/> within the paper and its Supporting Information<lb/> files.<lb/></note>
+			
+	<div type="abstract">To infer the spatial and taxonomic distribution of species&apos; vulnerability under each scenario,<lb/> we calculated the proportion of species in a threat category (Vulnerable, Endangered, Criti-<lb/>cally Endangered) at a pixel resolution of 30 arc seconds and by family. Our results show a<lb/> high proportion (58-67%) of threatened species among the four experimental scenarios,<lb/> with the highest proportion under RCP8.5 and limited dispersal. Threatened species were<lb/> concentrated in montane areas and avoided lowland areas where conditions are likely to be<lb/> increasingly inhospitable. Annual precipitation and diurnal temperature range were the main<lb/> drivers of species&apos; relative vulnerability. Our approach identifies strategic montane areas<lb/> and taxa of conservation concern that merit urgent inclusion in management plans to<lb/> improve climatic resilience in the Mesoamerican biodiversity hotspot. Such information is<lb/> necessary to develop policies that prioritize vulnerable elements and mitigate threats to bio-<lb/>diversity under climate change.<lb/></div>
+
+	Funding:
+	<note type="funding">The author(s) received no specific<lb/> funding for this work.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

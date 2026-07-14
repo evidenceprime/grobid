@@ -1,0 +1,103 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="origin573737511926241234"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Liebig&apos;s law of the minimum in the TGF-β/<lb/> SMAD pathway<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Yuchao Li 1☯ , Difan Deng 2 , Chris Tina Ho ¨fer 2 , Jihye Kim 3 , Won Do Heo 3 , Quanbin Xu 4 ,<lb/> Xuedong Liu 4 , Zhike ZiID 1,2,5☯ *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Max Planck Institute for Molecular Genetics, Otto Warburg Laboratory,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,</address>
+
+	<byline>
+	<affiliation>2 German<lb/> Federal Institute for Risk Assessment, Department of Experimental Toxicology and ZEBET,</affiliation>
+	</byline>
+
+	<address>Berlin, Germany,<lb/></address>
+
+	<byline>
+	<affiliation>3 Department of Biological Sciences, KAIST Institute for the BioCentury, Korea Advanced Institute of Science<lb/> and Technology (KAIST),</affiliation>
+	</byline>
+
+	<address>Daejeon, Republic of Korea,</address>
+
+	<byline>
+	<affiliation>4 Department of Biochemistry, University of Colorado<lb/> Boulder,</affiliation>
+	</byline>
+
+	<address>Boulder, Colorado, United States of America,</address>
+
+	<byline>
+	<affiliation>5 Key Laboratory of Quantitative Synthetic Biology,<lb/> Shenzhen Institute of Synthetic Biology, Shenzhen Institute of Advanced Technology, Chinese Academy of<lb/> Sciences,</affiliation>
+	</byline>
+
+	<address>Shenzhen, China<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> *
+	<email>zk.zi@siat.ac.cn</email>
+
+	Abstract<lb/>
+	<div type="abstract">Cells use signaling pathways to sense and respond to their environments. The transforming<lb/> growth factor-β (TGF-β) pathway produces context-specific responses. Here, we combined<lb/> modeling and experimental analysis to study the dependence of the output of the TGF-β<lb/> pathway on the abundance of signaling molecules in the pathway. We showed that the<lb/> TGF-β pathway processes the variation of TGF-β receptor abundance using Liebig&apos;s law of<lb/> the minimum, meaning that the output-modifying factor is the signaling protein that is most<lb/> limited, to determine signaling responses across cell types and in single cells. We found that<lb/> the abundance of either the type I (TGFBR1) or type II (TGFBR2) TGF-β receptor deter-<lb/>mined the responses of cancer cell lines, such that the receptor with relatively low abun-<lb/>dance dictates the response. Furthermore, nuclear SMAD2 signaling correlated with the<lb/> abundance of TGF-β receptor in single cells depending on the relative expression levels of<lb/> TGFBR1 and TGFBR2. A similar control principle could govern the heterogeneity of signal-<lb/>ing responses in other signaling pathways.<lb/></div>
+
+	Author summary<lb/>
+	<div type="abstract">The same cell signal can often initiate different signaling responses depending on the cel-<lb/>lular context, but the underlying control principle remains unclear. In this study, we<lb/> explored the complex world of cell signaling, focusing on the transforming growth factor-<lb/>β (TGF-β) pathway that plays a crucial role in regulating fundamental cellular processes<lb/> such as cell proliferation, migration and differentiation. We were intrigued by how varia-<lb/>tions in the abundance of signaling molecules could impact the responses of the TGF-β<lb/> pathway in different types of cells and within individual cells. Our investigation led to an<lb/> insightful discovery-the &quot;minority control rule&quot; in the TGF-β pathway, similar to Liebig&apos;s<lb/> law of the minimum. This minority control rule suggests that the activity of TGF-β<lb/> PLOS COMPUTATIONAL BIOLOGY<lb/></div>
+
+	<reference>PLOS Computational Biology | https://doi.org/10.1371/journal.pcbi.1012072 May 16, 2024<lb/></reference>
+
+	1 / 21<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Li Y, Deng D, Ho ¨fer CT, Kim J, Do Heo W,<lb/> Xu Q, et al. (2024) Liebig&apos;s law of the minimum in<lb/> the TGF-β/SMAD pathway. PLoS Comput Biol<lb/> 20(5): e1012072.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pcbi.1012072<lb/></idno>
+
+	Editor:
+	<editor>James R. Faeder,</editor>
+
+	<byline>
+	<affiliation>University of Pittsburgh,<lb/></affiliation>
+	</byline>
+
+	<address>UNITED STATES<lb/></address>
+
+	<note type="submission">Received: February 14, 2024<lb/> Accepted: April 11, 2024<lb/></note>
+
+	Published:
+	<date>May 16, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pcbi.1012072<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Li et al. This is an open access<lb/> article distributed under the terms of the Creative<lb/> Commons Attribution License, which permits<lb/> unrestricted use, distribution, and reproduction in<lb/> any medium, provided the original author and<lb/> source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the manuscript and its Supporting<lb/> information files.<lb/></note>
+
+	Funding:
+	<note type="funding">This work was supported by National Key<lb/> Research and Development Program of China<lb/></note>
+
+	<div type="abstract">signaling is governed by the TGF-β receptor present at the lowest level, much like the<lb/> shortest wood plate determining the capacity of a cask. By uncovering this principle, we<lb/> shed light on the significance of considering the relative abundance of signaling proteins,<lb/> especially receptors, in designing strategies aimed at modulating the activities of signaling<lb/> pathways for therapeutic purposes.<lb/></div>
+
+	<note type="funding">(2023YFA0915700) and BMBF e:Bio SyBioT<lb/> project (031A309) to ZZ and by National Institutes<lb/> of Health (R01GM144749) to XL. The funders had<lb/> no role in study design, data collection and<lb/> analysis, decision to publish, or preparation of the<lb/> manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">I have read the journal&apos;s<lb/> policy and the authors of this manuscript have the<lb/> following competing interests: X.L. is a cofounder<lb/> of OnKure Therapeutics, Inc and Vesicle<lb/> Therapeutics, Inc and owns equity in both<lb/> companies. None of these companies has<lb/> relationships or competing interests to this study.<lb/> All other authors declare that they have no conflict<lb/> of interests.</note>
+
+		</front>
+	</text>
+</tei>

@@ -1,46 +1,20 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines.patent;
 
-import org.chasen.crfpp.Tagger;
-import org.grobid.core.GrobidModels;
-import org.grobid.core.data.BibDataSet;
-import org.grobid.core.data.BiblioItem;
-import org.grobid.core.data.PatentItem;
-import org.grobid.core.document.Document;
-import org.grobid.core.document.DocumentSource;
-import org.grobid.core.document.OPSService;
-import org.grobid.core.document.PatentDocument;
-import org.grobid.core.engines.CitationParser;
-import org.grobid.core.engines.EngineParsers;
-import org.grobid.core.engines.tagging.GenericTagger;
-import org.grobid.core.engines.tagging.TaggerFactory;
-import org.grobid.core.exceptions.GrobidException;
-import org.grobid.core.exceptions.GrobidResourceException;
-import org.grobid.core.features.FeaturesVectorReference;
-import org.grobid.core.lexicon.Lexicon;
-import org.grobid.core.sax.PatentAnnotationSaxParser;
-import org.grobid.core.sax.TextSaxParser;
-import org.grobid.core.engines.config.GrobidAnalysisConfig;
-import org.grobid.core.utilities.Consolidation;
-import org.grobid.core.utilities.GrobidProperties;
-import org.grobid.core.utilities.KeyGen;
-import org.grobid.core.utilities.OffsetPosition;
-import org.grobid.core.utilities.TextUtilities;
-import org.grobid.core.utilities.LanguageUtilities;
-import org.grobid.core.utilities.BoundingBoxCalculator;
-import org.grobid.core.utilities.LayoutTokensUtil;
-import org.grobid.core.analyzers.GrobidAnalyzer;
-import org.grobid.core.analyzers.GrobidDefaultAnalyzer;
-import org.grobid.core.lang.Language;
-import org.grobid.core.sax.ST36SaxParser;
-import org.grobid.core.layout.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
-import org.xml.sax.XMLReader;
-import org.xml.sax.helpers.XMLReaderFactory;
-
-import javax.xml.parsers.SAXParserFactory;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.Closeable;
@@ -55,18 +29,58 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 import java.util.StringTokenizer;
 import java.util.zip.GZIPInputStream;
+
+import javax.xml.parsers.SAXParserFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
+
+import org.grobid.core.GrobidModels;
+import org.grobid.core.analyzers.GrobidAnalyzer;
+import org.grobid.core.analyzers.GrobidDefaultAnalyzer;
+import org.grobid.core.data.BibDataSet;
+import org.grobid.core.data.BiblioItem;
+import org.grobid.core.data.PatentItem;
+import org.grobid.core.document.Document;
+import org.grobid.core.document.DocumentSource;
+import org.grobid.core.document.OPSService;
+import org.grobid.core.document.PatentDocument;
+import org.grobid.core.engines.EngineParsers;
+import org.grobid.core.engines.config.GrobidAnalysisConfig;
+import org.grobid.core.engines.tagging.GenericTagger;
+import org.grobid.core.engines.tagging.TaggerFactory;
+import org.grobid.core.exceptions.GrobidException;
+import org.grobid.core.exceptions.GrobidResourceException;
+import org.grobid.core.features.FeaturesVectorReference;
+import org.grobid.core.lang.Language;
+import org.grobid.core.layout.*;
+import org.grobid.core.lexicon.Lexicon;
+import org.grobid.core.sax.PatentAnnotationSaxParser;
+import org.grobid.core.sax.TextSaxParser;
+import org.grobid.core.utilities.BoundingBoxCalculator;
+import org.grobid.core.utilities.Consolidation;
+import org.grobid.core.utilities.GrobidProperties;
+import org.grobid.core.utilities.KeyGen;
+import org.grobid.core.utilities.LanguageUtilities;
+import org.grobid.core.utilities.LayoutTokensUtil;
+import org.grobid.core.utilities.OffsetPosition;
+import org.grobid.core.utilities.TextUtilities;
 
 /**
  * Extraction of patent and NPL references from the content body of patent document with sequence labeling.
  *
  */
 public class ReferenceExtractor implements Closeable {
-	private static final Logger LOGGER = LoggerFactory.getLogger(ReferenceExtractor.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReferenceExtractor.class);
 
     private GenericTagger taggerAll = null;
     private PatentRefParser patentParser = null;
@@ -87,7 +101,7 @@ public class ReferenceExtractor implements Closeable {
     private String path = null;     // path where the patent file is stored
     private EngineParsers parsers;
 
-	private GrobidAnalyzer analyzer = null;
+    private GrobidAnalyzer analyzer = null;
     private LanguageUtilities languageUtilities = LanguageUtilities.getInstance();
 
     public void setDocumentPath(String dirName) {
@@ -101,21 +115,23 @@ public class ReferenceExtractor implements Closeable {
     // constructors
     public ReferenceExtractor(EngineParsers parsers) {
         this.parsers = parsers;
-    	taggerAll = TaggerFactory.getTagger(GrobidModels.PATENT_CITATION);
-		analyzer = GrobidAnalyzer.getInstance();
+        taggerAll = TaggerFactory.getTagger(GrobidModels.PATENT_CITATION);
+        analyzer = GrobidAnalyzer.getInstance();
     }
 
     /**
      * Extract all reference from the full text retrieve via OPS.
      */
-    public String extractAllReferencesOPS(boolean filterDuplicate,
-                                       int consolidate,
-                                       boolean includeRawCitations,
-                                       List<PatentItem> patents,
-                                       List<BibDataSet> articles) {
+    public String extractAllReferencesOPS(
+            boolean filterDuplicate,
+            int consolidate,
+            boolean includeRawCitations,
+            List<PatentItem> patents,
+            List<BibDataSet> articles) {
         try {
-            if (descriptionSegments != null && descriptionSegments.size()>0) {
-                return extractAllReferencesString(descriptionSegments,
+            if (descriptionSegments != null && descriptionSegments.size() > 0) {
+                return extractAllReferencesString(
+                        descriptionSegments,
                         filterDuplicate,
                         consolidate,
                         includeRawCitations,
@@ -131,12 +147,14 @@ public class ReferenceExtractor implements Closeable {
     /**
      * Extract all reference from a patent in XML ST.36 like.
      */
-    public String extractPatentReferencesXMLFile(String pathXML,
-                                              boolean filterDuplicate,
-                                              int consolidate,
-                                              boolean includeRawCitations,
-                                              List<PatentItem> patents) {
-        return extractAllReferencesXMLFile(pathXML,
+    public String extractPatentReferencesXMLFile(
+            String pathXML,
+            boolean filterDuplicate,
+            int consolidate,
+            boolean includeRawCitations,
+            List<PatentItem> patents) {
+        return extractAllReferencesXMLFile(
+                pathXML,
                 filterDuplicate,
                 consolidate,
                 includeRawCitations,
@@ -147,12 +165,13 @@ public class ReferenceExtractor implements Closeable {
     /**
      * Extract all reference from an XML file in ST.36 or MAREC format.
      */
-    public String extractAllReferencesXMLFile(String pathXML,
-                                           boolean filterDuplicate,
-                                           int consolidate,
-                                           boolean includeRawCitations,
-                                           List<PatentItem> patents,
-                                           List<BibDataSet> articles) {
+    public String extractAllReferencesXMLFile(
+            String pathXML,
+            boolean filterDuplicate,
+            int consolidate,
+            boolean includeRawCitations,
+            List<PatentItem> patents,
+            List<BibDataSet> articles) {
         try {
             if (patents == null) {
                 System.out.println("Warning patents List is null!");
@@ -178,34 +197,34 @@ public class ReferenceExtractor implements Closeable {
             });
             reader.setContentHandler(sax);
 
-			InputSource input = null;
+            InputSource input = null;
 
-			if (pathXML.endsWith(".gz")) {
-				InputStream dataInputStream = new FileInputStream(pathXML);
-				GZIPInputStream gzip = new GZIPInputStream(dataInputStream);
-		       	DataInputStream tmp = new DataInputStream(gzip);
-		      	dataInputStream = tmp;
-				input = new InputSource(dataInputStream);
-			}
-			else {
-            	input = new InputSource(pathXML);
-			}
+            if (pathXML.endsWith(".gz")) {
+                InputStream dataInputStream = new FileInputStream(pathXML);
+                GZIPInputStream gzip = new GZIPInputStream(dataInputStream);
+                DataInputStream tmp = new DataInputStream(gzip);
+                dataInputStream = tmp;
+                input = new InputSource(dataInputStream);
+            } else {
+                input = new InputSource(pathXML);
+            }
             input.setEncoding("UTF-8");
 
             reader.parse(input);
 
             List<String> descriptionSegments = sax.getTexts();
 
-/*for(String text : descriptionSegments){
-    System.out.println(text);
-}*/
+            /*for(String text : descriptionSegments){
+                System.out.println(text);
+            }*/
 
             currentPatentNumber = sax.currentPatentNumber;
             consolidate = 0;
             filterDuplicate = true;
 
-            if (descriptionSegments != null && descriptionSegments.size()>0) {
-                return extractAllReferencesString(descriptionSegments,
+            if (descriptionSegments != null && descriptionSegments.size() > 0) {
+                return extractAllReferencesString(
+                        descriptionSegments,
                         filterDuplicate,
                         consolidate,
                         includeRawCitations,
@@ -219,22 +238,22 @@ public class ReferenceExtractor implements Closeable {
         return null;
     }
 
-
     /**
      * Extract all reference from the PDF file of a patent publication.
      */
-    public String extractAllReferencesPDFFile(String inputFile,
-                                           boolean filterDuplicate,
-                                           int consolidate,
-                                           boolean includeRawCitations,
-                                           List<PatentItem> patents,
-                                           List<BibDataSet> articles) {
+    public String extractAllReferencesPDFFile(
+            String inputFile,
+            boolean filterDuplicate,
+            int consolidate,
+            boolean includeRawCitations,
+            List<PatentItem> patents,
+            List<BibDataSet> articles) {
         DocumentSource documentSource = null;
         String result = null;
         try {
             documentSource = DocumentSource.fromPdf(new File(inputFile));
             PatentDocument doc = new PatentDocument(documentSource);
-			doc.addTokenizedDocument(GrobidAnalysisConfig.defaultInstance());
+            doc.addTokenizedDocument(GrobidAnalysisConfig.defaultInstance());
 
             if (doc.getBlocks() == null) {
                 return result;
@@ -243,7 +262,8 @@ public class ReferenceExtractor implements Closeable {
             if (description != null) {
                 List<String> descriptions = new ArrayList<>();
                 descriptions.add(description);
-                result = extractAllReferencesString(descriptions,
+                result = extractAllReferencesString(
+                        descriptions,
                         filterDuplicate,
                         consolidate,
                         includeRawCitations,
@@ -261,24 +281,27 @@ public class ReferenceExtractor implements Closeable {
     /**
      * JSON annotations for all reference from the PDF file of a patent publication.
      */
-    public String annotateAllReferencesPDFFile(String inputFile,
-                                           boolean filterDuplicate,
-                                           int consolidate,
-                                           boolean includeRawCitations,
-                                           List<PatentItem> patents,
-                                           List<BibDataSet> articles) {
+    public String annotateAllReferencesPDFFile(
+            String inputFile,
+            boolean filterDuplicate,
+            int consolidate,
+            boolean includeRawCitations,
+            List<PatentItem> patents,
+            List<BibDataSet> articles) {
         DocumentSource documentSource = null;
         try {
             documentSource = DocumentSource.fromPdf(new File(inputFile));
             PatentDocument doc = new PatentDocument(documentSource);
 
-			List<LayoutToken> tokenizations = doc.addTokenizedDocument(GrobidAnalysisConfig.defaultInstance());
+            List<LayoutToken> tokenizations = doc.addTokenizedDocument(GrobidAnalysisConfig.defaultInstance());
 
             if (doc.getBlocks() == null) {
                 throw new GrobidException("PDF parsing resulted in empty content");
             }
-            if ( (tokenizations != null) && (tokenizations.size() > 0) ) {
-                return annotateAllReferences(doc, tokenizations,
+            if ((tokenizations != null) && (tokenizations.size() > 0)) {
+                return annotateAllReferences(
+                        doc,
+                        tokenizations,
                         filterDuplicate,
                         consolidate,
                         includeRawCitations,
@@ -309,14 +332,15 @@ public class ReferenceExtractor implements Closeable {
         return extractAllReferencesString(texts, filterDuplicate, consolidate, includeRawCitations, patents, articles);
     }*/
 
-    public String extractAllReferencesString(List<String> texts,
-                                          boolean filterDuplicate,
-                                          int consolidate,
-                                          boolean includeRawCitations,
-                                          List<PatentItem> patents,
-                                          List<BibDataSet> articles) {
+    public String extractAllReferencesString(
+            List<String> texts,
+            boolean filterDuplicate,
+            int consolidate,
+            boolean includeRawCitations,
+            List<PatentItem> patents,
+            List<BibDataSet> articles) {
         List<List<LayoutToken>> allTokenizations = new ArrayList<>();
-        
+
         // list of references by index of tokenized text segments
         Map<Integer, List<PatentItem>> patentsBySegment = new HashMap<>();
         Map<Integer, List<BibDataSet>> articlesBySegment = new HashMap<>();
@@ -325,17 +349,18 @@ public class ReferenceExtractor implements Closeable {
         if (GrobidProperties.getGrobidEngineName("patent-citation").equals("delft")) {
             List<String> newTexts = new ArrayList<>();
             int maxSequence = GrobidProperties.getDelftTrainingMaxSequenceLength("patent-citation");
-            for(String text : texts) {
+            for (String text : texts) {
                 List<String> tokenizations = GrobidDefaultAnalyzer.getInstance().tokenize(text);
                 if (tokenizations.size() > maxSequence) {
-//System.out.println(maxSequence + " vs " + tokenizations.size());
+                    //System.out.println(maxSequence + " vs " + tokenizations.size());
                     String[] subtexts = text.split("\n\n");
-                    for(int i=0; i<subtexts.length; i++) {
+                    for (int i = 0; i < subtexts.length; i++) {
                         List<String> subtokenizations = GrobidDefaultAnalyzer.getInstance().tokenize(subtexts[i]);
                         if (subtokenizations.size() > maxSequence) {
                             String[] subsubtexts = subtexts[i].split(".\n");
-                            for(int j=0; j<subsubtexts.length; j++) {
-                                List<String> subsubtokenizations = GrobidDefaultAnalyzer.getInstance().tokenize(subsubtexts[j]);
+                            for (int j = 0; j < subsubtexts.length; j++) {
+                                List<String> subsubtokenizations = GrobidDefaultAnalyzer.getInstance()
+                                        .tokenize(subsubtexts[j]);
                                 newTexts.add(subsubtexts[j]);
                             }
                         } else {
@@ -351,15 +376,15 @@ public class ReferenceExtractor implements Closeable {
 
         try {
             // if parameters are null, these lists will only be valid in the method
-			if (patents == null) {
-				patents = new ArrayList<>();
-			}
+            if (patents == null) {
+                patents = new ArrayList<>();
+            }
 
-			if (articles == null) {
-				articles = new ArrayList<>();
-			}
+            if (articles == null) {
+                articles = new ArrayList<>();
+            }
 
-			// parser for patent and non patent references
+            // parser for patent and non patent references
             if (patentParser == null) {
                 patentParser = new PatentRefParser();
             }
@@ -370,16 +395,16 @@ public class ReferenceExtractor implements Closeable {
 
             // create text buffer
             StringBuilder localText = new StringBuilder();
-            for(String text : texts) {
+            for (String text : texts) {
                 localText.append(text);
-                if (localText.length()> 500) 
+                if (localText.length() > 500)
                     break;
             }
             if (localText.length() == 0)
                 return null;
             Language lang = languageUtilities.runLanguageId(localText.toString(), 500);
             List<String> allPatentBlocks = new ArrayList<>();
-            
+
             for (String text : texts) {
                 //text = TextUtilities.dehyphenize(text); // to be reviewed!
 
@@ -420,19 +445,18 @@ public class ReferenceExtractor implements Closeable {
                 int currentPublisherPositions = 0;
                 boolean skipTest = false;
                 int posit = 0;
-    			for(LayoutToken token : tokenizations)	{
+                for (LayoutToken token : tokenizations) {
                     String tok = token.getText();
                     isJournalToken = false;
                     isAbbrevJournalToken = false;
                     isConferenceToken = false;
                     isPublisherToken = false;
                     skipTest = false;
-                    if ( (tok.trim().length() == 0) ||
-    					 (tok.equals(" ")) ||
-    				     (tok.equals("\t")) ||
-    					 (tok.equals("\n")) ||
-    					 (tok.equals("\r"))
-    					 ) {
+                    if ((tok.trim().length() == 0) ||
+                            (tok.equals(" ")) ||
+                            (tok.equals("\t")) ||
+                            (tok.equals("\n")) ||
+                            (tok.equals("\r"))) {
                         posit++;
                         continue;
                     }
@@ -532,14 +556,15 @@ public class ReferenceExtractor implements Closeable {
                         }
                     }
 
-                    FeaturesVectorReference featureVector =
-                            FeaturesVectorReference.addFeaturesPatentReferences(new LayoutToken(tok), null,
-                                    tokenizations.size(),
-                                    posit,
-                                    isJournalToken,
-                                    isAbbrevJournalToken,
-                                    isConferenceToken,
-                                    isPublisherToken);
+                    FeaturesVectorReference featureVector = FeaturesVectorReference.addFeaturesPatentReferences(
+                            new LayoutToken(tok),
+                            null,
+                            tokenizations.size(),
+                            posit,
+                            isJournalToken,
+                            isAbbrevJournalToken,
+                            isConferenceToken,
+                            isPublisherToken);
                     patentBlocks.append(featureVector.printVector());
                     patentBlocks.append("\n");
                     posit++;
@@ -550,7 +575,7 @@ public class ReferenceExtractor implements Closeable {
             }
 
             String theResults = taggerAll.label(allPatentBlocks);
-//System.out.println(theResults);
+            //System.out.println(theResults);
             String[] theSegmentedResults = theResults.split("\n\n");
 
             List<String> allReferencesPatent = new ArrayList<>();
@@ -560,7 +585,7 @@ public class ReferenceExtractor implements Closeable {
             List<Integer> localIndexSegmentNPL = new ArrayList<>();
 
             //int offset = 0;
-            for(int index=0; index<theSegmentedResults.length; index++) {
+            for (int index = 0; index < theSegmentedResults.length; index++) {
                 String theResult = theSegmentedResults[index];
                 StringTokenizer stt = new StringTokenizer(theResult, "\n");
                 List<LayoutToken> tokenizations = allTokenizations.get(index);
@@ -571,15 +596,15 @@ public class ReferenceExtractor implements Closeable {
                 List<Integer> offsetsPatent = new ArrayList<>();
                 List<Integer> offsetsNPL = new ArrayList<>();
 
-    			List<Double> probPatent = new ArrayList<>();
-    			List<Double> probNPL = new ArrayList<>();
+                List<Double> probPatent = new ArrayList<>();
+                List<Double> probNPL = new ArrayList<>();
 
                 boolean currentPatent = true; // type of current reference
                 String reference = null;
-    			double currentProb = 0.0;
+                double currentProb = 0.0;
                 int offset = 0;
                 int currentOffset = 0;
-    			int addedOffset = 0;
+                int addedOffset = 0;
                 String label = null; // label
                 String actual = null; // token
                 int p = 0; // iterator for the tokenizations for restauring the original tokenization with
@@ -593,7 +618,7 @@ public class ReferenceExtractor implements Closeable {
 
                     StringTokenizer st2 = new StringTokenizer(line, "\t ");
                     boolean start = true;
-    				String separator = "";
+                    String separator = "";
                     label = null;
                     actual = null;
                     while (st2.hasMoreTokens()) {
@@ -604,9 +629,9 @@ public class ReferenceExtractor implements Closeable {
                             boolean strop = false;
                             while ((!strop) && (p < tokenizations.size())) {
                                 String tokOriginal = tokenizations.get(p).getText();
-    							addedOffset += tokOriginal.length();
+                                addedOffset += tokOriginal.length();
                                 if (tokOriginal.equals(" ")) {
-    								separator += tokOriginal;
+                                    separator += tokOriginal;
                                 } else if (tokOriginal.equals(actual)) {
                                     strop = true;
                                 }
@@ -618,25 +643,24 @@ public class ReferenceExtractor implements Closeable {
                     }
 
                     if (label == null) {
-    					offset += addedOffset;
-    					addedOffset = 0;
+                        offset += addedOffset;
+                        addedOffset = 0;
                         continue;
                     }
 
-    				double prob = 0.0;
-    				int segProb = label.lastIndexOf("/");
-    				if (segProb != -1) {
-    					String probString = label.substring(segProb+1, label.length());
-    					//System.out.println("given prob: " + probString);
-    					try {
-    						prob = Double.parseDouble(probString);
-    						//System.out.println("given prob: " + probString + ", parsed: " + prob);
-    					}
-    					catch(Exception e) {
-    						LOGGER.debug(probString + " cannot be parsed.");
-    					}
-    					label = label.substring(0,segProb);
-    				}
+                    double prob = 0.0;
+                    int segProb = label.lastIndexOf("/");
+                    if (segProb != -1) {
+                        String probString = label.substring(segProb + 1, label.length());
+                        //System.out.println("given prob: " + probString);
+                        try {
+                            prob = Double.parseDouble(probString);
+                            //System.out.println("given prob: " + probString + ", parsed: " + prob);
+                        } catch (Exception e) {
+                            LOGGER.debug(probString + " cannot be parsed.");
+                        }
+                        label = label.substring(0, segProb);
+                    }
 
                     // TBD: use TaggingTokenClusteror and TaggingLabel as for the other parsers
                     if (actual != null) {
@@ -645,34 +669,34 @@ public class ReferenceExtractor implements Closeable {
                                 reference = separator + actual;
                                 currentOffset = offset;
                                 currentPatent = true;
-    							currentProb = prob;
+                                currentProb = prob;
                             } else {
                                 if (currentPatent) {
                                     if (label.equals("I-<refPatent>")) {
                                         referencesPatent.add(reference);
                                         offsetsPatent.add(currentOffset);
 
-    									probPatent.add(Double.valueOf(currentProb));
+                                        probPatent.add(Double.valueOf(currentProb));
 
                                         currentPatent = true;
-    		                            reference = separator + actual;
+                                        reference = separator + actual;
                                         currentOffset = offset;
-    									currentProb = prob;
+                                        currentProb = prob;
                                     } else {
                                         reference += separator + actual;
-    									if (prob > currentProb) {
-    										currentProb = prob;
-    									}
+                                        if (prob > currentProb) {
+                                            currentProb = prob;
+                                        }
                                     }
                                 } else {
                                     referencesNPL.add(reference);
                                     offsetsNPL.add(currentOffset);
-    								probNPL.add(Double.valueOf(currentProb));
+                                    probNPL.add(Double.valueOf(currentProb));
 
                                     currentPatent = true;
-    	                            reference = separator + actual;
+                                    reference = separator + actual;
                                     currentOffset = offset;
-    								currentProb = prob;
+                                    currentProb = prob;
                                 }
                             }
                         } else if (label.endsWith("<refNPL>")) {
@@ -680,32 +704,32 @@ public class ReferenceExtractor implements Closeable {
                                 reference = separator + actual;
                                 currentOffset = offset;
                                 currentPatent = false;
-    							currentProb = prob;
+                                currentProb = prob;
                             } else {
                                 if (currentPatent) {
                                     referencesPatent.add(reference);
                                     offsetsPatent.add(currentOffset);
-    								probPatent.add(Double.valueOf(currentProb));
+                                    probPatent.add(Double.valueOf(currentProb));
 
                                     currentPatent = false;
-    	                            reference = separator + actual;
+                                    reference = separator + actual;
                                     currentOffset = offset;
-    								currentProb = prob;
+                                    currentProb = prob;
                                 } else {
                                     if (label.equals("I-<refNPL>")) {
                                         referencesNPL.add(reference);
                                         offsetsNPL.add(currentOffset);
-    									probNPL.add(Double.valueOf(currentProb));
+                                        probNPL.add(Double.valueOf(currentProb));
 
                                         currentPatent = false;
-    		                            reference = separator + actual;
+                                        reference = separator + actual;
                                         currentOffset = offset;
-    									currentProb = prob;
+                                        currentProb = prob;
                                     } else {
                                         reference += separator + actual;
-    									if (prob > currentProb) {
-    										currentProb = prob;
-    									}
+                                        if (prob > currentProb) {
+                                            currentProb = prob;
+                                        }
                                     }
                                 }
                             }
@@ -714,20 +738,20 @@ public class ReferenceExtractor implements Closeable {
                                 if (currentPatent) {
                                     referencesPatent.add(reference);
                                     offsetsPatent.add(currentOffset);
-    								probPatent.add(Double.valueOf(currentProb));
+                                    probPatent.add(Double.valueOf(currentProb));
                                 } else {
                                     referencesNPL.add(reference);
                                     offsetsNPL.add(currentOffset);
-    								probNPL.add(Double.valueOf(currentProb));
+                                    probNPL.add(Double.valueOf(currentProb));
                                 }
                                 currentPatent = false;
                             }
                             reference = null;
-    						currentProb	= 0.0;
+                            currentProb = 0.0;
                         }
                     }
-    				offset += addedOffset;
-    				addedOffset = 0;
+                    offset += addedOffset;
+                    addedOffset = 0;
                 }
 
                 // run reference patent parser in isolation, and produce some traces
@@ -738,7 +762,7 @@ public class ReferenceExtractor implements Closeable {
                     List<PatentItem> patents0 = patentParser.processRawRefText();
                     for (PatentItem pat : patents0) {
                         pat.setContext(ref);
-    					pat.setConf(probPatent.get(j).doubleValue());
+                        pat.setConf(probPatent.get(j).doubleValue());
                         patents.add(pat);
                         //allIndexSegmentPatent.add(index);
 
@@ -793,11 +817,11 @@ public class ReferenceExtractor implements Closeable {
                     j++;
                 }
 
-                if (referencesNPL.size()>0) {
+                if (referencesNPL.size() > 0) {
                     allReferencesNPL.addAll(referencesNPL);
                     allOffsetsNPL.addAll(offsetsNPL);
                     allProbNPL.addAll(probNPL);
-                    for(String ref : referencesNPL) {
+                    for (String ref : referencesNPL) {
                         localIndexSegmentNPL.add(index);
                     }
                 }
@@ -821,42 +845,48 @@ public class ReferenceExtractor implements Closeable {
                 }
             }*/
 
-            if (articles != null && allReferencesNPL != null && allReferencesNPL.size()>0) {
+            if (articles != null && allReferencesNPL != null && allReferencesNPL.size() > 0) {
                 int k = 0;
-                List<BiblioItem> bibResults = parsers.getCitationParser().processingStringMultiple(allReferencesNPL, consolidate);
-                for (String ref : allReferencesNPL) {
-                    BiblioItem result = bibResults.get(k);
-                    if (result == null) {
+                List<BiblioItem> bibResults = parsers.getCitationParser()
+                        .processingStringMultiple(allReferencesNPL, consolidate);
+                if (bibResults != null) {
+                    for (String ref : allReferencesNPL) {
+                        BiblioItem result = bibResults.get(k);
+                        if (result == null) {
+                            k++;
+                            continue;
+                        }
+                        BibDataSet bds = new BibDataSet();
+                        result.setReference(ref);
+                        bds.setResBib(result);
+                        bds.setRawBib(ref);
+                        bds.addOffset(allOffsetsNPL.get(k).intValue());
+                        bds.setConfidence(allProbNPL.get(k).doubleValue());
+                        articles.add(bds);
+                        //allIndexSegmentNPL.add(localIndexSegmentNPL.get(k));
+
+                        List<BibDataSet> localList = articlesBySegment.get(localIndexSegmentNPL.get(k));
+                        if (localList == null) {
+                            localList = new ArrayList<>();
+                        }
+                        localList.add(bds);
+                        articlesBySegment.put(localIndexSegmentNPL.get(k), localList);
+
                         k++;
-                        continue;
                     }
-                    BibDataSet bds = new BibDataSet();
-                    result.setReference(ref);
-                    bds.setResBib(result);
-                    bds.setRawBib(ref);
-                    bds.addOffset(allOffsetsNPL.get(k).intValue());
-                    bds.setConfidence(allProbNPL.get(k).doubleValue());
-                    articles.add(bds);
-                    //allIndexSegmentNPL.add(localIndexSegmentNPL.get(k));
-
-                    List<BibDataSet> localList = articlesBySegment.get(localIndexSegmentNPL.get(k));
-                    if (localList == null) {
-                        localList = new ArrayList<>();
-                    }
-                    localList.add(bds);
-                    articlesBySegment.put(localIndexSegmentNPL.get(k), localList);
-
-                    k++;
                 }
             }
         } catch (Exception e) {
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
 
         StringBuilder resultTEI = new StringBuilder();
-		resultTEI.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-						   "<TEI xml:space=\"preserve\" xmlns=\"http://www.tei-c.org/ns/1.0\" " +
-						   "xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n");
+        resultTEI.append(
+                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+                        +
+                        "<TEI xml:space=\"preserve\" xmlns=\"http://www.tei-c.org/ns/1.0\" "
+                        +
+                        "xmlns:xlink=\"http://www.w3.org/1999/xlink\">\n");
 
         resultTEI.append("\t<teiHeader/>\n");
         resultTEI.append("\t<text>\n");
@@ -865,30 +895,30 @@ public class ReferenceExtractor implements Closeable {
         int positionInIndexPatent = 0;
         int positionInIndexNPL = 0;
 
-        for(List<LayoutToken> tokens : allTokenizations) {
-            // do we have a reference in this text segment ? 
+        for (List<LayoutToken> tokens : allTokenizations) {
+            // do we have a reference in this text segment ?
             List<PatentItem> localPatentsBySegment = patentsBySegment.get(index);
             List<BibDataSet> localArticlesBySegment = articlesBySegment.get(index);
 
-            if ((localPatentsBySegment != null && localPatentsBySegment.size()>0) || 
-                (localArticlesBySegment != null && localArticlesBySegment.size()>0) ) {
+            if ((localPatentsBySegment != null && localPatentsBySegment.size() > 0) ||
+                    (localArticlesBySegment != null && localArticlesBySegment.size() > 0)) {
                 // output text
-                String divID = KeyGen.getKey().substring(0,7);      
+                String divID = KeyGen.getKey().substring(0, 7);
                 resultTEI.append("\t\t<div>\n");
-                resultTEI.append("\t\t\t<p id=\"_"+ divID +"\">");
+                resultTEI.append("\t\t\t<p id=\"_" + divID + "\">");
                 String text = LayoutTokensUtil.toText(tokens);
                 // not affecting offsets:
-                text = text.replace("\n", " ").replace("\t", " ");  
+                text = text.replace("\n", " ").replace("\t", " ");
                 resultTEI.append(TextUtilities.HTMLEncode(text));
                 resultTEI.append("</p>\n");
                 resultTEI.append("\t\t\t<div type=\"references\">\n");
-                if (localPatentsBySegment != null && localPatentsBySegment.size()>0) {
-                    for(PatentItem patentCitation : localPatentsBySegment) {
+                if (localPatentsBySegment != null && localPatentsBySegment.size() > 0) {
+                    for (PatentItem patentCitation : localPatentsBySegment) {
                         resultTEI.append(patentCitation.toTEI(true, divID) + "\n"); // true here means with offsets
                     }
                 }
-                if (localArticlesBySegment != null && localArticlesBySegment.size()>0) {
-                    for(BibDataSet articleCitation : localArticlesBySegment) {
+                if (localArticlesBySegment != null && localArticlesBySegment.size() > 0) {
+                    for (BibDataSet articleCitation : localArticlesBySegment) {
                         resultTEI.append(articleCitation.toTEI(includeRawCitations) + "\n");
                     }
                 }
@@ -900,7 +930,7 @@ public class ReferenceExtractor implements Closeable {
         }
 
         resultTEI.append("\t</text>\n");
-		resultTEI.append("</TEI>");
+        resultTEI.append("</TEI>");
 
         return resultTEI.toString();
     }
@@ -908,28 +938,29 @@ public class ReferenceExtractor implements Closeable {
     /**
      * Annotate all reference from a list of layout tokens and return annotation results in a JSON document.
      */
-    public String annotateAllReferences(Document doc,
-										List<LayoutToken> tokenizations,
-                                        boolean filterDuplicate,
-                                        int consolidate,
-                                        boolean includeRawCitations,
-                                        List<PatentItem> patents,
-                                        List<BibDataSet> articles) {
+    public String annotateAllReferences(
+            Document doc,
+            List<LayoutToken> tokenizations,
+            boolean filterDuplicate,
+            int consolidate,
+            boolean includeRawCitations,
+            List<PatentItem> patents,
+            List<BibDataSet> articles) {
         try {
-			if (tokenizations.size() == 0) {
+            if (tokenizations.size() == 0) {
                 return null;
             }
 
             // if parameters are null, these lists will only be valid in the method
-			if (patents == null) {
-				patents = new ArrayList<PatentItem>();
-			}
+            if (patents == null) {
+                patents = new ArrayList<PatentItem>();
+            }
 
-			if (articles == null) {
-				articles = new ArrayList<BibDataSet>();
-			}
+            if (articles == null) {
+                articles = new ArrayList<BibDataSet>();
+            }
 
-			// parser for patent references
+            // parser for patent references
             if (patentParser == null) {
                 patentParser = new PatentRefParser();
             }
@@ -938,24 +969,24 @@ public class ReferenceExtractor implements Closeable {
             // tokenisation for the CRF parser (with punctuation as tokens)
             ArrayList<String> patentBlocks = new ArrayList<String>();
 
-			// identify the language of the patent document, we use only the last 500 characters
-			// which is enough normally for a very safe language prediction
-			// the text here is the patent description, so strictly monolingual
-			StringBuilder textBuffer = new StringBuilder();
-			int accumulated = 0;
-			for(int n=tokenizations.size()-1; n > 0; n--) {
-				LayoutToken token = tokenizations.get(n);
-				if ( (token != null) && (token.getText() != null) ) {
-					textBuffer.insert(0, token.getText());
-					accumulated += token.getText().length();
-				}
-				if (accumulated > 500)
-					break;
-			}
-			String text = textBuffer.toString();
+            // identify the language of the patent document, we use only the last 500 characters
+            // which is enough normally for a very safe language prediction
+            // the text here is the patent description, so strictly monolingual
+            StringBuilder textBuffer = new StringBuilder();
+            int accumulated = 0;
+            for (int n = tokenizations.size() - 1; n > 0; n--) {
+                LayoutToken token = tokenizations.get(n);
+                if ((token != null) && (token.getText() != null)) {
+                    textBuffer.insert(0, token.getText());
+                    accumulated += token.getText().length();
+                }
+                if (accumulated > 500)
+                    break;
+            }
+            String text = textBuffer.toString();
             text = text.replace("\n", " ").replace("\t", " ");
             Language lang = languageUtilities.runLanguageId(text);
-			//List<String> tokenizations = analyzer.tokenize(lang, text);
+            //List<String> tokenizations = analyzer.tokenize(lang, text);
             int offset = 0;
 
             List<OffsetPosition> journalPositions = null;
@@ -984,20 +1015,19 @@ public class ReferenceExtractor implements Closeable {
             //st = new StringTokenizer(text, delimiters, true);
             int posit = 0;
             //while (st.hasMoreTokens()) {
-			for(LayoutToken token : tokenizations) {
-				String tok = token.getText();
+            for (LayoutToken token : tokenizations) {
+                String tok = token.getText();
                 isJournalToken = false;
                 isAbbrevJournalToken = false;
                 isConferenceToken = false;
                 isPublisherToken = false;
                 skipTest = false;
                 //String tok = st.nextToken();
-                if ( (tok.trim().length() == 0) ||
-					 (tok.equals(" ")) ||
-				     (tok.equals("\t")) ||
-					 (tok.equals("\n")) ||
-					 (tok.equals("\r"))
-					 ) {
+                if ((tok.trim().length() == 0) ||
+                        (tok.equals(" ")) ||
+                        (tok.equals("\t")) ||
+                        (tok.equals("\n")) ||
+                        (tok.equals("\r"))) {
                     posit++;
                     continue;
                 }
@@ -1097,14 +1127,15 @@ public class ReferenceExtractor implements Closeable {
                     }
                 }
 
-                FeaturesVectorReference featureVector =
-                        FeaturesVectorReference.addFeaturesPatentReferences(new LayoutToken(tok), null,
-                                tokenizations.size(),
-                                posit,
-                                isJournalToken,
-                                isAbbrevJournalToken,
-                                isConferenceToken,
-                                isPublisherToken);
+                FeaturesVectorReference featureVector = FeaturesVectorReference.addFeaturesPatentReferences(
+                        new LayoutToken(tok),
+                        null,
+                        tokenizations.size(),
+                        posit,
+                        isJournalToken,
+                        isAbbrevJournalToken,
+                        isConferenceToken,
+                        isPublisherToken);
                 patentBlocks.add(featureVector.printVector());
                 posit++;
             }
@@ -1121,15 +1152,15 @@ public class ReferenceExtractor implements Closeable {
             List<String> referencesNPL = new ArrayList<String>();
             List<Integer> offsets_patent = new ArrayList<Integer>();
             List<Integer> offsets_NPL = new ArrayList<Integer>();
-			List<Double> probPatent = new ArrayList<Double>();
-			List<Double> probNPL = new ArrayList<Double>();
+            List<Double> probPatent = new ArrayList<Double>();
+            List<Double> probNPL = new ArrayList<Double>();
 
             boolean currentPatent = true; // type of current reference
             String reference = null;
-			double currentProb = 0.0;
+            double currentProb = 0.0;
             offset = 0;
             int currentOffset = 0;
-			int addedOffset = 0;
+            int addedOffset = 0;
             String label = null; // label
             String actual = null; // token
             int p = 0; // iterator for the tokenizations for restauring the original tokenization with
@@ -1143,7 +1174,7 @@ public class ReferenceExtractor implements Closeable {
 
                 StringTokenizer st2 = new StringTokenizer(line, "\t ");
                 boolean start = true;
-				String separator = "";
+                String separator = "";
                 label = null;
                 actual = null;
                 while (st2.hasMoreTokens()) {
@@ -1154,13 +1185,13 @@ public class ReferenceExtractor implements Closeable {
                         boolean strop = false;
                         while ((!strop) && (p < tokenizations.size())) {
                             LayoutToken tokenOriginal = tokenizations.get(p);
-							if ( (tokenOriginal == null) || (tokenOriginal.getText() == null) )
-								continue;
+                            if ((tokenOriginal == null) || (tokenOriginal.getText() == null))
+                                continue;
                             String tokOriginal = tokenOriginal.getText();
 
-							addedOffset += tokOriginal.length();
+                            addedOffset += tokOriginal.length();
                             if (tokOriginal.equals(" ")) {
-								separator += tokOriginal;
+                                separator += tokOriginal;
                             } else if (tokOriginal.equals(actual)) {
                                 strop = true;
                             }
@@ -1172,25 +1203,24 @@ public class ReferenceExtractor implements Closeable {
                 }
 
                 if (label == null) {
-					offset += addedOffset;
-					addedOffset = 0;
+                    offset += addedOffset;
+                    addedOffset = 0;
                     continue;
                 }
 
-				double prob = 0.0;
-				int segProb = label.lastIndexOf("/");
-				if (segProb != -1) {
-					String probString = label.substring(segProb+1, label.length());
-					//System.out.println("given prob: " + probString);
-					try {
-						prob = Double.parseDouble(probString);
-						//System.out.println("given prob: " + probString + ", parsed: " + prob);
-					}
-					catch(Exception e) {
-						LOGGER.debug(probString + " cannot be parsed.");
-					}
-					label = label.substring(0,segProb);
-				}
+                double prob = 0.0;
+                int segProb = label.lastIndexOf("/");
+                if (segProb != -1) {
+                    String probString = label.substring(segProb + 1, label.length());
+                    //System.out.println("given prob: " + probString);
+                    try {
+                        prob = Double.parseDouble(probString);
+                        //System.out.println("given prob: " + probString + ", parsed: " + prob);
+                    } catch (Exception e) {
+                        LOGGER.debug(probString + " cannot be parsed.");
+                    }
+                    label = label.substring(0, segProb);
+                }
 
                 if (actual != null) {
                     if (label.endsWith("<refPatent>")) {
@@ -1198,34 +1228,34 @@ public class ReferenceExtractor implements Closeable {
                             reference = separator + actual;
                             currentOffset = offset;
                             currentPatent = true;
-							currentProb = prob;
+                            currentProb = prob;
                         } else {
                             if (currentPatent) {
                                 if (label.equals("I-<refPatent>")) {
                                     referencesPatent.add(reference);
                                     offsets_patent.add(currentOffset);
 
-									probPatent.add(Double.valueOf(currentProb));
+                                    probPatent.add(Double.valueOf(currentProb));
 
                                     currentPatent = true;
-		                            reference = separator + actual;
+                                    reference = separator + actual;
                                     currentOffset = offset;
-									currentProb = prob;
+                                    currentProb = prob;
                                 } else {
                                     reference += separator + actual;
-									if (prob > currentProb) {
-										currentProb = prob;
-									}
+                                    if (prob > currentProb) {
+                                        currentProb = prob;
+                                    }
                                 }
                             } else {
                                 referencesNPL.add(reference);
                                 offsets_NPL.add(currentOffset);
-								probNPL.add(Double.valueOf(currentProb));
+                                probNPL.add(Double.valueOf(currentProb));
 
                                 currentPatent = true;
-	                            reference = separator + actual;
+                                reference = separator + actual;
                                 currentOffset = offset;
-								currentProb = prob;
+                                currentProb = prob;
                             }
                         }
                     } else if (label.endsWith("<refNPL>")) {
@@ -1233,32 +1263,32 @@ public class ReferenceExtractor implements Closeable {
                             reference = separator + actual;
                             currentOffset = offset;
                             currentPatent = false;
-							currentProb = prob;
+                            currentProb = prob;
                         } else {
                             if (currentPatent) {
                                 referencesPatent.add(reference);
                                 offsets_patent.add(currentOffset);
-								probPatent.add(Double.valueOf(currentProb));
+                                probPatent.add(Double.valueOf(currentProb));
 
                                 currentPatent = false;
-	                            reference = separator + actual;
+                                reference = separator + actual;
                                 currentOffset = offset;
-								currentProb = prob;
+                                currentProb = prob;
                             } else {
                                 if (label.equals("I-<refNPL>")) {
                                     referencesNPL.add(reference);
                                     offsets_NPL.add(currentOffset);
-									probNPL.add(Double.valueOf(currentProb));
+                                    probNPL.add(Double.valueOf(currentProb));
 
                                     currentPatent = false;
-		                            reference = separator + actual;
+                                    reference = separator + actual;
                                     currentOffset = offset;
-									currentProb = prob;
+                                    currentProb = prob;
                                 } else {
                                     reference += separator + actual;
-									if (prob > currentProb) {
-										currentProb = prob;
-									}
+                                    if (prob > currentProb) {
+                                        currentProb = prob;
+                                    }
                                 }
                             }
                         }
@@ -1267,20 +1297,20 @@ public class ReferenceExtractor implements Closeable {
                             if (currentPatent) {
                                 referencesPatent.add(reference);
                                 offsets_patent.add(currentOffset);
-								probPatent.add(Double.valueOf(currentProb));
+                                probPatent.add(Double.valueOf(currentProb));
                             } else {
                                 referencesNPL.add(reference);
                                 offsets_NPL.add(currentOffset);
-								probNPL.add(Double.valueOf(currentProb));
+                                probNPL.add(Double.valueOf(currentProb));
                             }
                             currentPatent = false;
                         }
                         reference = null;
-						currentProb	= 0.0;
+                        currentProb = 0.0;
                     }
                 }
-				offset += addedOffset;
-				addedOffset = 0;
+                offset += addedOffset;
+                addedOffset = 0;
             }
 
             // run reference patent parser in isolation, and produce some traces
@@ -1291,16 +1321,17 @@ public class ReferenceExtractor implements Closeable {
                 List<PatentItem> patents0 = patentParser.processRawRefText();
                 for (PatentItem pat : patents0) {
                     pat.setContext(ref);
-					pat.setConf(probPatent.get(j).doubleValue());
+                    pat.setConf(probPatent.get(j).doubleValue());
                     patents.add(pat);
 
-					// get the list of LayoutToken corresponding to the offset positions
-					List<LayoutToken> localTokens = Document.getTokens(tokenizations,
-																	pat.getOffsetBegin(),
-																	pat.getOffsetEnd());
-					// associate the corresponding bounding box
-					if ( (localTokens != null) && (localTokens.size() > 0) )
-						pat.setCoordinates(BoundingBoxCalculator.calculate(localTokens));
+                    // get the list of LayoutToken corresponding to the offset positions
+                    List<LayoutToken> localTokens = Document.getTokens(
+                            tokenizations,
+                            pat.getOffsetBegin(),
+                            pat.getOffsetEnd());
+                    // associate the corresponding bounding box
+                    if ((localTokens != null) && (localTokens.size() > 0))
+                        pat.setCoordinates(BoundingBoxCalculator.calculate(localTokens));
 
                     /*if (pat.getApplication()) {
                         if (pat.getProvisional()) {
@@ -1366,25 +1397,28 @@ public class ReferenceExtractor implements Closeable {
 
             if (articles != null) {
                 int k = 0;
-                List<BiblioItem> bibResults = parsers.getCitationParser().processingStringMultiple(referencesNPL, consolidate);
-                for (String ref : referencesNPL) {
-                    BiblioItem result = bibResults.get(k);
-                    if (result == null) {
+                List<BiblioItem> bibResults = parsers.getCitationParser()
+                        .processingStringMultiple(referencesNPL, consolidate);
+                if (bibResults != null) {
+                    for (String ref : referencesNPL) {
+                        BiblioItem result = bibResults.get(k);
+                        if (result == null) {
+                            k++;
+                            continue;
+                        }
+                        BibDataSet bds = new BibDataSet();
+                        result.setReference(ref);
+                        bds.setResBib(result);
+                        bds.setRawBib(ref);
+                        bds.addOffset(offsets_NPL.get(k).intValue());
+                        //bds.setConfidence(probNPL.get(k).doubleValue());
+                        articles.add(bds);
                         k++;
-                        continue;
                     }
-                    BibDataSet bds = new BibDataSet();
-                    result.setReference(ref);
-                    bds.setResBib(result);
-                    bds.setRawBib(ref);
-                    bds.addOffset(offsets_NPL.get(k).intValue());
-                    //bds.setConfidence(probNPL.get(k).doubleValue());
-                    articles.add(bds);
-                    k++;
                 }
             }
         } catch (Exception e) {
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
         int nbs = 0;
         if (patents != null) {
@@ -1393,14 +1427,14 @@ public class ReferenceExtractor implements Closeable {
         if (articles != null)
             nbs += articles.size();
 
-		StringBuilder resultJson = new StringBuilder();
-		resultJson.append("{");
+        StringBuilder resultJson = new StringBuilder();
+        resultJson.append("{");
 
         // page height and width
         List<Page> pages = doc.getPages();
         int pageNumber = 1;
-		resultJson.append("\"pages\": [");
-        for(Page page : pages) {
+        resultJson.append("\"pages\": [");
+        for (Page page : pages) {
             if (pageNumber > 1)
                 resultJson.append(", ");
 
@@ -1408,34 +1442,34 @@ public class ReferenceExtractor implements Closeable {
             resultJson.append(", \"page_width\":" + page.getWidth() + "}");
             pageNumber++;
         }
-		resultJson.append("]");
+        resultJson.append("]");
 
-		if (patents != null) {
-			resultJson.append(", \"patents\": [");
-			boolean first = true;
-			for(PatentItem patentCitation : patents) {
-				if (first)
-					first = false;
-				else
-					resultJson.append(", ");
-				resultJson.append(patentCitation.toJson(null, true)); // with coordinates
-			}
-			resultJson.append("]");
-		}
+        if (patents != null) {
+            resultJson.append(", \"patents\": [");
+            boolean first = true;
+            for (PatentItem patentCitation : patents) {
+                if (first)
+                    first = false;
+                else
+                    resultJson.append(", ");
+                resultJson.append(patentCitation.toJson(null, true)); // with coordinates
+            }
+            resultJson.append("]");
+        }
 
-		if (articles != null) {
-			resultJson.append(", \"articles\": [");
-			boolean first = true;
-			for(BibDataSet articleCitation : articles) {
-				/*if (first)
-					first = false;
-				else
-					resultJson.append(", ");
-				resultJSON.append(articleCitation.toJson(); */
-			}
-			resultJson.append("]");
-		}
-		resultJson.append("}");
+        if (articles != null) {
+            resultJson.append(", \"articles\": [");
+            boolean first = true;
+            for (BibDataSet articleCitation : articles) {
+                /*if (first)
+                	first = false;
+                else
+                	resultJson.append(", ");
+                resultJSON.append(articleCitation.toJson(); */
+            }
+            resultJson.append("]");
+        }
+        resultJson.append("}");
 
         return resultJson.toString();
     }
@@ -1498,7 +1532,6 @@ public class ReferenceExtractor implements Closeable {
         return result;
     }
 
-
     /**
      * Get the BibTeX string corresponding to the recognized citation section
      * for a given citation
@@ -1522,9 +1555,10 @@ public class ReferenceExtractor implements Closeable {
     /**
      * Annotate XML files with extracted reference results. Not used.
      */
-    private void annotate(File file,
-                          ArrayList<PatentItem> patents,
-                          ArrayList<BibDataSet> articles) {
+    private void annotate(
+            File file,
+            ArrayList<PatentItem> patents,
+            ArrayList<BibDataSet> articles) {
         try {
             // we simply rewrite lines based on identified reference strings without parsing
             // special care for line breaks in the middle of a reference
@@ -1573,7 +1607,7 @@ public class ReferenceExtractor implements Closeable {
             System.out.println(contentString);
 
         } catch (Exception e) {
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
     }
 
@@ -1588,25 +1622,30 @@ public class ReferenceExtractor implements Closeable {
             throw new GrobidResourceException("Cannot process the patent file, because the document path is null.");
         }
         if (!documentPath.endsWith(".xml") && !documentPath.endsWith(".xml.gz")) {
-            throw new GrobidResourceException("Only patent XML files (ST.36 or Marec) can be processed to " +
-                    "generate traning data.");
+            throw new GrobidResourceException("Only patent XML files (ST.36 or Marec) can be processed to "
+                    +
+                    "generate training data.");
         }
 
         File documentFile = new File(documentPath);
         if (!documentFile.exists()) {
-            throw new GrobidResourceException("Cannot process the patent file, because path '" +
-                    documentFile.getAbsolutePath() + "' does not exists.");
+            throw new GrobidResourceException("Cannot process the patent file, because path '"
+                    +
+                    documentFile.getAbsolutePath()
+                    + "' does not exists.");
         }
 
         if (newTrainingPath == null) {
             GrobidProperties.getInstance();
-			newTrainingPath = GrobidProperties.getTempPath().getAbsolutePath();
+            newTrainingPath = GrobidProperties.getTempPath().getAbsolutePath();
         }
 
         File newTrainingFile = new File(newTrainingPath);
         if (!newTrainingFile.exists()) {
-            throw new GrobidResourceException("Cannot process the patent file, because path '" +
-                    newTrainingFile.getAbsolutePath() + "' does not exists.");
+            throw new GrobidResourceException("Cannot process the patent file, because path '"
+                    +
+                    newTrainingFile.getAbsolutePath()
+                    + "' does not exists.");
         }
 
         try {
@@ -1631,18 +1670,17 @@ public class ReferenceExtractor implements Closeable {
             });
             reader.setContentHandler(sax);
 
-			InputSource input = null;
+            InputSource input = null;
 
-			if (documentPath.endsWith(".gz")) {
-				InputStream dataInputStream = new FileInputStream(documentPath);
-				GZIPInputStream gzip = new GZIPInputStream(dataInputStream);
-		       	DataInputStream tmp = new DataInputStream(gzip);
-		      	dataInputStream = tmp;
-				input = new InputSource(dataInputStream);
-			}
-			else {
-            	input = new InputSource(documentPath);
-			}
+            if (documentPath.endsWith(".gz")) {
+                InputStream dataInputStream = new FileInputStream(documentPath);
+                GZIPInputStream gzip = new GZIPInputStream(dataInputStream);
+                DataInputStream tmp = new DataInputStream(gzip);
+                dataInputStream = tmp;
+                input = new InputSource(dataInputStream);
+            } else {
+                input = new InputSource(documentPath);
+            }
             input.setEncoding("UTF-8");
 
             reader.parse(input);
@@ -1660,7 +1698,8 @@ public class ReferenceExtractor implements Closeable {
                 // stored offsets
                 Writer writer = new OutputStreamWriter(
                         new FileOutputStream(new File(newTrainingPath + "/" + currentPatentNumber + ".training.xml"),
-                                false), "UTF-8");
+                                false),
+                        "UTF-8");
 
                 PatentAnnotationSaxParser saxx = new PatentAnnotationSaxParser();
                 saxx.setWriter(writer);
@@ -1681,16 +1720,15 @@ public class ReferenceExtractor implements Closeable {
                 });
                 reader.setContentHandler(saxx);
 
-				if (documentPath.endsWith(".gz")) {
-					InputStream dataInputStream = new FileInputStream(documentPath);
-					GZIPInputStream gzip = new GZIPInputStream(dataInputStream);
-			       	DataInputStream tmp = new DataInputStream(gzip);
-			      	dataInputStream = tmp;
-					input = new InputSource(dataInputStream);
-				}
-				else {
-	            	input = new InputSource(documentPath);
-				}
+                if (documentPath.endsWith(".gz")) {
+                    InputStream dataInputStream = new FileInputStream(documentPath);
+                    GZIPInputStream gzip = new GZIPInputStream(dataInputStream);
+                    DataInputStream tmp = new DataInputStream(gzip);
+                    dataInputStream = tmp;
+                    input = new InputSource(dataInputStream);
+                } else {
+                    input = new InputSource(documentPath);
+                }
 
                 input.setEncoding("UTF-8");
 
@@ -1725,8 +1763,12 @@ public class ReferenceExtractor implements Closeable {
                 if (allBufferReference != null) {
                     if (allBufferReference.length() > 0) {
                         Writer writerReference = new OutputStreamWriter(new FileOutputStream(
-                                new File(newTrainingPath + "/" + currentPatentNumber +
-                                        ".training.references.xml"), false), "UTF-8");
+                                new File(newTrainingPath
+                                        + "/"
+                                        + currentPatentNumber
+                                        +
+                                        ".training.references.xml"),
+                                false), "UTF-8");
                         writerReference.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
                         writerReference.write("<citations>\n");
 
@@ -1739,7 +1781,7 @@ public class ReferenceExtractor implements Closeable {
 
             }
         } catch (Exception e) {
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
     }
 
@@ -1761,16 +1803,17 @@ public class ReferenceExtractor implements Closeable {
                 return true;
             }
         } catch (Exception e) {
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
     }
 
     /**
      * Write the list of extracted references in an XML file
      */
-    public void generateXMLReport(File file,
-                                  ArrayList<PatentItem> patents,
-                                  ArrayList<BibDataSet> articles) {
+    public void generateXMLReport(
+            File file,
+            ArrayList<PatentItem> patents,
+            ArrayList<BibDataSet> articles) {
         try {
             OutputStream tos = new FileOutputStream(file, false);
             Writer writer = new OutputStreamWriter(tos, "UTF-8");
@@ -1788,8 +1831,16 @@ public class ReferenceExtractor implements Closeable {
                 String dnum = pi.getAuthority() + pi.getNumberEpoDoc();
                 if (pi.getKindCode() != null)
                     dnum += pi.getKindCode();
-                content.append("<patcit if=\"pcit" + i + " dnum=\"" + dnum + "\">" +
-                        "<text>" + pi.getContext() + "</text></patcit>");
+                content.append(
+                        "<patcit if=\"pcit"
+                                + i
+                                + " dnum=\""
+                                + dnum
+                                + "\">"
+                                +
+                                "<text>"
+                                + pi.getContext()
+                                + "</text></patcit>");
                 content.append("\n");
                 i++;
             }
@@ -1820,16 +1871,17 @@ public class ReferenceExtractor implements Closeable {
             writer.close();
             tos.close();
         } catch (Exception e) {
-            throw new GrobidException("An exception occured while running Grobid.", e);
+            throw new GrobidException("An exception occurred while running Grobid.", e);
         }
     }
 
     /**
      * not used...
      */
-    private static boolean checkPositionRange(int currentPosition,
-                                              int posit,
-                                              List<OffsetPosition> positions) {
+    private static boolean checkPositionRange(
+            int currentPosition,
+            int posit,
+            List<OffsetPosition> positions) {
         boolean isInRange = false;
         boolean skipTest = false;
         if (currentPosition == positions.size() - 1) {
@@ -1856,7 +1908,7 @@ public class ReferenceExtractor implements Closeable {
 
     @Override
     public void close() throws IOException {
-    	taggerAll.close();
+        taggerAll.close();
         taggerAll = null;
     }
 }

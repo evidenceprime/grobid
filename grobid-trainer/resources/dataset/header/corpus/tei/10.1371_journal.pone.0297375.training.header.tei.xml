@@ -1,0 +1,155 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T14:13:34.037Z">12/2/2025 2:13:34 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T14:13:19.966242Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T14:13:19.966242Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Performance assessment of hybrid machine<lb/> learning approaches for breast cancer and<lb/> recurrence prediction<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Abhilash Pati ID 1<lb/> *, Amrutanshu Panigrahi 1 , Manoranjan Parhi 2 , Jayant Giri ID<lb/> 3,4<lb/> ,<lb/> Hong Qin 5 , Saurav MallikID 6 , Sambit Ranjan Pattanayak 1 , Umang Kumar Agrawal 7<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Department of Computer Science and Engineering, Siksha &apos;O&apos; Anusandhan (Deemed to be University),<lb/></affiliation>
+	</byline>
+
+	<address>Bhubaneswar, Odisha, India,</address>
+
+	<byline>
+	<affiliation>2 Centre for Data Science, Siksha &apos;O&apos; Anusandhan (Deemed to be University),<lb/></affiliation>
+	</byline>
+
+	<address>Bhubaneswar, Odisha, India,</address>
+
+	<byline>
+	<affiliation>3 Department of Mechanical Engineering, Yeshwantrao Chavan College of<lb/> Engineering,</affiliation>
+	</byline>
+
+	<address>Nagpur, India,</address>
+
+	<byline>
+	<affiliation>4 Department of VLSI Microelectronics, Saveetha School of Engineering,<lb/> Saveetha Institute of Medical and Technical Sciences (SIMATS), Saveetha University,</affiliation>
+	</byline>
+
+	<address>Chennai, Tamil Nadu,<lb/> India,</address>
+
+	<byline>
+	<affiliation>5 Department of Computer Science and Engineering, University of Tennessee at Chattanooga,<lb/></affiliation>
+	</byline>
+
+	<address>Chattanooga, Tamil Nadu, United States of America,</address>
+
+	<byline>
+	<affiliation>6 Department of Environmental Health, Harvard T H<lb/> Chan School of Public Health,</affiliation>
+	</byline>
+
+	<address>Boston, Massachusetts, United States of America,</address>
+
+	<byline>
+	<affiliation>7 School of Computer<lb/> Engineering, KIIT (Deemed to be University),</affiliation>
+	</byline>
+
+	<address>Bhubaneswar, Odisha, India<lb/></address>
+
+	*
+	<email>er.abhilash.pati@gmail.com</email>
+
+	Abstract<lb/>
+	<div type="abstract">Breast cancer is a major health concern for women everywhere and a major killer of women.<lb/> Malignant tumors may be distinguished from benign ones, allowing for early diagnosis of<lb/> this disease. Therefore, doctors need an accurate method of diagnosing tumors as either<lb/> malignant or benign. Even if therapy begins immediately after diagnosis, some cancer cells<lb/> may persist in the body, increasing the risk of a recurrence. Metastasis and recurrence are<lb/> the leading causes of death from breast cancer. Therefore, detecting a return of breast can-<lb/>cer early has become a pressing medical issue. Evaluating and contrasting various Machine<lb/> Learning (ML) techniques for breast cancer and recurrence prediction is crucial to choosing<lb/> the best successful method. Inaccurate forecasts are common when using datasets with a<lb/> large number of attributes. This study addresses the need for effective feature selection and<lb/> optimization methods by introducing Recursive Feature Elimination (RFE) and Grey Wolf<lb/> Optimizer (GWO), in response to the limitations observed in existing approaches. In this<lb/> research, the performance evaluation of methods is enhanced by employing the RFE and<lb/> GWO, considering the Wisconsin Diagnostic Breast Cancer (WDBC) and Wisconsin Prog-<lb/>nostic Breast Cancer (WPBC) datasets taken from the UCI-ML repository. Various prepro-<lb/>cessing techniques are applied to raw data, including imputation, scaling, and others. In the<lb/> second step, relevant feature correlations are used with RFE to narrow down candidate dis-<lb/>criminative features. The GWO chooses the best possible combination of attributes for the<lb/> most accurate result in the next step. We use seven ML classifiers in both datasets to make<lb/> a binary decision. On the WDBC and WPBC datasets, several experiments have shown<lb/> accuracies of 98.25% and 93.27%, precisions of 98.13% and 95.56%, sensitivities of<lb/> 99.06% and 96.63%, specificities of 96.92% and 73.33%, F1-scores of 98.59% and 96.09%<lb/> and AUCs of 0.982 and 0.936, respectively. The hybrid approach&apos;s superior feature<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0304768 August 1, 2024<lb/></reference>
+
+	<page>1 / 29<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Pati A, Panigrahi A, Parhi M, Giri J, Qin H,<lb/> Mallik S, et al. (2024) Performance assessment of<lb/> hybrid machine learning approaches for breast<lb/> cancer and recurrence prediction. PLoS ONE 19(8):<lb/> e0304768.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0304768<lb/></idno>
+
+	Editor:
+	<editor>Absalom El-Shamir Ezugwu,</editor>
+
+	<byline>
+	<affiliation>North-West<lb/> University Potchefstroom Campus: North-West<lb/> University,</affiliation>
+	</byline>
+
+	<address>SOUTH AFRICA<lb/></address>
+
+	<note type="submission">Received: October 14, 2023<lb/> Accepted: May 19, 2024<lb/></note>
+
+	Published:
+	<date>August 1, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Pati et al. This is an open access<lb/> article distributed under the terms of the Creative<lb/> Commons Attribution License, which permits<lb/> unrestricted use, distribution, and reproduction in<lb/> any medium, provided the original author and<lb/> source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">Both WPBC and<lb/> WDBC are available from the Wisconsin breast<lb/> cancer database at https://archive.ics.uci.edu/<lb/> dataset/16/breast+cancer+wisconsin+prognostic<lb/> and https://archive.ics.uci.edu/dataset/17/breast<lb/> +cancer+wisconsin+diagnostic, respectively. Also,<lb/> both datasets are cited in the manuscript with<lb/> references [22], and [23].<lb/></note>
+
+	Funding:
+	<note type="funding">HQ thanks the USA NSF award 1663105,<lb/> 1761839 and 2200138, a catalyst award from the<lb/></note>
+			
+	<div type="abstract">selection improved the accuracy of breast cancer performance indicators and recurrence<lb/> classification.<lb/></div>
+			
+	<note type="funding">USA National Academy of Medicine, AI Tennessee<lb/> Initiative, and the support at the University of<lb/> Tennessee at Chattanooga.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

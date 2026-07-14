@@ -1,18 +1,34 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.tokenization;
 
-import org.grobid.core.GrobidModels;
-import org.grobid.core.layout.LayoutToken;
-import org.grobid.core.utilities.LayoutTokensUtil;
-import org.grobid.core.utilities.Pair;
-import org.grobid.core.utilities.GrobidProperties;
-import org.junit.Test;
-import org.junit.BeforeClass;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import org.grobid.core.GrobidModels;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.utilities.GrobidProperties;
+import org.grobid.core.utilities.LayoutTokensUtil;
+import org.grobid.core.utilities.Pair;
 
 /**
  * Testing synchronization
@@ -29,8 +45,7 @@ public class TaggingTokenSynchronizerTest {
     @Test
     public void testBasic() {
         TaggingTokenSynchronizer synchronizer = new TaggingTokenSynchronizer(GrobidModels.modelFor("fulltext"),
-                generateResult(p("This", P), p("Figure", F)), toks("This", " ", "Figure")
-        );
+                generateResult(p("This", P), p("Figure", F)), toks("This", " ", "Figure"));
 
         int cnt = 0;
         boolean spacesPresent = false;
@@ -50,8 +65,7 @@ public class TaggingTokenSynchronizerTest {
     @Test(expected = IllegalStateException.class)
     public void testFailure() {
         TaggingTokenSynchronizer synchronizer = new TaggingTokenSynchronizer(GrobidModels.modelFor("fulltext"),
-                generateResult(p("This", P), p("Figure", F)), toks("This", " ", "Fig")
-        );
+                generateResult(p("This", P), p("Figure", F)), toks("This", " ", "Fig"));
 
         for (LabeledTokensContainer el : synchronizer) {
             LayoutTokensUtil.toText(el.getLayoutTokens());

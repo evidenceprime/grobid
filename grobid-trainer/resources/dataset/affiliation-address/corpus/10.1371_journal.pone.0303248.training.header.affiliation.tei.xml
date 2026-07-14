@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Faculty of Dentistry</orgName>,
+							<orgName type="institution">Thammasat University</orgName>,
+							<address>
+								<settlement>Pathum Thani</settlement>,
+								<settlement>Thailand</settlement>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="laboratory">Visual Intelligence Laboratory</orgName>,
+							<lb/>
+							<orgName type="department">Department of Statistics</orgName>,
+							<orgName type="department">Faculty of Science</orgName>,
+							<orgName type="institution">Khon Kaen University</orgName>,
+							<address>
+								<settlement>Khon Kaen</settlement>,
+								<settlement>Thailand</settlement>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="laboratory">NECTEC</orgName>,
+							<lb/>
+							<orgName type="institution">National Science and Technology Development Agency (NSTDA)</orgName>,
+							<address>
+								<settlement>Pathum Thani</settlement>,
+								<country>Thailand</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤a</marker>
+							 Current address:
+							<orgName type="department">Department of Oral Health</orgName>,
+							<orgName type="institution">Lamlukka Hospital</orgName>,
+							<address>
+								<settlement>Pathum Thani</settlement>,
+								<country>Thailand</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤b</marker> Current address:
+							<orgName type="institution">Thammasat University Research Unit in Dental and Bone Substitute Biomaterials</orgName>,
+							<lb/>
+							<orgName type="institution">Thammasat University</orgName>,
+							<address>
+								<settlement>Pathum Thani</settlement>,
+								<country>Thailand<lb/></country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">International Medical<lb/> University</orgName>,
+							<address>
+								<country>MALAYSIA</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

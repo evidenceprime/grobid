@@ -1,21 +1,34 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities;
 
-import org.apache.commons.lang3.StringUtils;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
 import com.google.common.collect.PeekingIterator;
+import org.apache.commons.lang3.StringUtils;
 
 import org.grobid.core.layout.BoundingBox;
 import org.grobid.core.layout.LayoutToken;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 /**
  * Dealing with layout tokens
@@ -54,7 +67,8 @@ public class LayoutTokensUtil {
     }
 
     public static String normalizeDehyphenizeText(List<LayoutToken> tokens) {
-        return StringUtils.normalizeSpace(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(tokens)).replace("\n", " "));
+        return StringUtils
+                .normalizeSpace(LayoutTokensUtil.toText(LayoutTokensUtil.dehyphenize(tokens)).replace("\n", " "));
     }
 
     public static String toText(List<LayoutToken> tokens) {
@@ -65,18 +79,17 @@ public class LayoutTokensUtil {
         return t.getPage() == -1 || t.getWidth() <= 0;
     }
 
-
     public static boolean spaceyToken(String tok) {
         /*return (tok.equals(" ")
                 || tok.equals("\u00A0")
                 || tok.equals("\n"));*/
-        // all space characters are normalised into simple space character        
+        // all space characters are normalised into simple space character
         return tok.equals(" ");
     }
 
     public static boolean newLineToken(String tok) {
         //return (tok.equals("\n") || tok.equals("\r") || tok.equals("\n\r"));
-        // all new line characters are normalised into simple \n character  
+        // all new line characters are normalised into simple \n character
         return tok.equals("\n");
     }
 
@@ -118,15 +131,19 @@ public class LayoutTokensUtil {
         return -1;
     }
 
-//    public static List<List<LayoutToken>> split(List<LayoutToken> toks, Pattern p) {
-//        return split(toks, p, false);
-//    }
+    //    public static List<List<LayoutToken>> split(List<LayoutToken> toks, Pattern p) {
+    //        return split(toks, p, false);
+    //    }
 
     public static List<List<LayoutToken>> split(List<LayoutToken> toks, Pattern p, boolean preserveSeparator) {
         return split(toks, p, preserveSeparator, true);
     }
 
-    public static List<List<LayoutToken>> split(List<LayoutToken> toks, Pattern p, boolean preserveSeparator, boolean preserveLeftOvers) {
+    public static List<List<LayoutToken>> split(
+            List<LayoutToken> toks,
+            Pattern p,
+            boolean preserveSeparator,
+            boolean preserveLeftOvers) {
         List<List<LayoutToken>> split = new ArrayList<>();
         List<LayoutToken> curToks = new ArrayList<>();
         for (LayoutToken tok : toks) {
@@ -147,7 +164,6 @@ public class LayoutTokensUtil {
         }
         return split;
     }
-
 
     public static boolean tooFarAwayVertically(List<BoundingBox> boxes, double distance) {
         if (boxes == null) {
@@ -182,7 +198,7 @@ public class LayoutTokensUtil {
             //the current token is dash (and is neither subscript nor superscript) checking what's around
             if (currentToken.getText().equals("-") && !(currentToken.isSubscript() || currentToken.isSuperscript())) {
                 if (doesRequireDehypenisation(tokens, i)) {
-                    //Cleanup eventual additional spaces before the hypen that have been already written to the output
+                    //Cleanup eventual additional spaces before the hyphen that have been already written to the output
                     int z = output.size() - 1;
                     while (z >= 0 && output.get(z).getText().equals(" ")) {
                         String tokenString = output.get(z).getText();
@@ -193,12 +209,12 @@ public class LayoutTokensUtil {
                         z--;
                     }
 
-
                     List<Integer> breakLines = new ArrayList<>();
                     List<Integer> spaces = new ArrayList<>();
 
                     int j = i + 1;
-                    while (j < tokens.size() && tokens.get(j).getText().equals(" ") || tokens.get(j).getText().equals("\n")) {
+                    while (j < tokens.size() && tokens.get(j).getText().equals(" ")
+                            || tokens.get(j).getText().equals("\n")) {
                         String tokenString = tokens.get(j).getText();
 
                         if (tokenString.equals("\n")) {
@@ -236,10 +252,10 @@ public class LayoutTokensUtil {
     }
 
     /**
-     * Check if the current token (place i), or the hypen, needs to be removed or not.
+     * Check if the current token (place i), or the hyphen, needs to be removed or not.
      * <p>
      * It will check the tokens before and after. It will get to the next "non space" tokens and verify
-     * that it's a plain word. If it's not it's keeping the hypen.
+     * that it's a plain word. If it's not it's keeping the hyphen.
      * <p>
      * TODO: What to do in case of a punctuation is found?
      */
@@ -276,7 +292,7 @@ public class LayoutTokensUtil {
         if (j < tokens.size()) {
             forward = StringUtils.isAllLowerCase(tokens.get(j).getText());
             if (forward) {
-                //If nothing before the hypen, but it looks like a forward hypenisation, let's trust it
+                //If nothing before the hyphen, but it looks like a forward hypenisation, let's trust it
                 if (i < 1) {
                     return forward;
                 }
@@ -295,7 +311,7 @@ public class LayoutTokensUtil {
                 if (StringUtils.isAlpha(tokens.get(z).getText())) {
                     if (tokens.get(z).getY() < coordinateY) {
                         backward = true;
-                    } else if(coordinateY == -1 && breakLine > 0) {
+                    } else if (coordinateY == -1 && breakLine > 0) {
                         backward = true;
                     }
                 }
@@ -311,9 +327,9 @@ public class LayoutTokensUtil {
 
     public static List<LayoutToken> subListByOffset(List<LayoutToken> token, int startIncluded, int endExcluded) {
         return token
-            .stream()
-            .filter(t -> t.getOffset() >= startIncluded && t.getOffset() < endExcluded)
-            .collect(Collectors.toList());
+                .stream()
+                .filter(t -> t.getOffset() >= startIncluded && t.getOffset() < endExcluded)
+                .collect(Collectors.toList());
     }
 
     public static List<LayoutToken> getLayoutTokensForTokenizedText(List<String> tokens) {

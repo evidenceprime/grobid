@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">School of Life Sciences</orgName>,
+							<orgName type="institution">The Chinese University of Hong Kong</orgName>,
+							<address>
+								<settlement>Shatin, N.T.</settlement>,
+								<region>Hong Kong SAR</region>,
+								<country>China,</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">School of Biomedical Sciences</orgName>,
+							<orgName type="institution">The University of Hong Kong</orgName>,
+							<address>
+								<settlement>Pokfulam</settlement>,
+								<settlement>Hong Kong</settlement>,
+								<region>Hong Kong SAR</region>,
+								<lb/>
+								<country>China</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="laboratory">State Key Laboratory of Liver Research</orgName> (
+							<orgName type="institution">The University of Hong Kong)</orgName>,
+							<address>
+								<settlement>Pokfulam</settlement>,
+								<settlement>Hong Kong</settlement>,
+								<lb/>
+								<region>Hong Kong SAR</region>,
+								<country>China,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">Center for Soybean Research of the State Key Laboratory of Agrobiotechnology</orgName>,
+							<lb/>
+							<orgName type="institution">The Chinese University of Hong Kong</orgName>,
+							<address>
+								<settlement>Shatin N.T.</settlement>,
+								<region>Hong Kong SAR</region>,
+								<country>China</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="department">Center for Novel Biomaterials</orgName>,
+							<lb/>
+							<orgName type="institution">The Chinese University of Hong Kong</orgName>,
+							<address>
+								<settlement>Shatin N.T.</settlement>,
+								<region>Hong Kong SAR</region>,
+								<country>China</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>6</marker>
+							<orgName type="department">Center for Protein Science and<lb/> Crystallography</orgName>,
+							<orgName type="institution">The Chinese University of Hong Kong</orgName>,
+							<orgName type="department">Shatin N.T.</orgName>,
+							<address>
+								<settlement>Shatin N.T.</settlement>,
+								<region>Hong Kong SAR</region>,
+								<country>China</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤b</marker> Current address:
+							<orgName type="laboratory">Unit on Structural Biology</orgName>;
+							<orgName type="department">Division of Basic and Translational Biophysics</orgName>,
+							<orgName type="institution">Eunice<lb/> Kennedy Shriver National Institute of Child Health and Human Development</orgName>,
+							<orgName type="institution">National Institutes of Health</orgName>,
+							<lb/>
+							<address>
+								<settlement>Bethesda</settlement>,
+								<region>Maryland</region>
+								<postCode>20892</postCode>,
+								<country>U.S.A.</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤a</marker> Current address:
+							<orgName type="laboratory">State Key Laboratory of Chemical Biology and Drug Discovery</orgName>,
+							<orgName type="department">Department of Applied<lb/> Biology and Chemical Technology</orgName>,
+							<orgName type="institution">The Hong Kong Polytechnic University</orgName>,
+							<address>
+								<settlement>Hung Hom</settlement>,
+								<region>Hong Kong SAR</region>,
+							<lb/>
+								<country>China</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">Pennsylvania State University<lb/> College of Medicine</orgName>:
+							<orgName type="institution">Penn State College of<lb/> Medicine</orgName>,
+							<address>
+								<country>UNITED STATES</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

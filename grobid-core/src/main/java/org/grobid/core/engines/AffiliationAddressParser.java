@@ -1,10 +1,31 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+
 import org.grobid.core.GrobidModel;
 import org.grobid.core.GrobidModels;
 import org.grobid.core.data.Affiliation;
+import org.grobid.core.engines.config.GrobidAnalysisConfig;
 import org.grobid.core.engines.label.TaggingLabel;
 import org.grobid.core.engines.label.TaggingLabels;
 import org.grobid.core.exceptions.GrobidException;
@@ -18,10 +39,6 @@ import org.grobid.core.utilities.OffsetPosition;
 import org.grobid.core.utilities.TextUtilities;
 import org.grobid.core.utilities.UnicodeUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
-
 public class AffiliationAddressParser extends AbstractParser {
     public Lexicon lexicon = Lexicon.getInstance();
 
@@ -34,6 +51,11 @@ public class AffiliationAddressParser extends AbstractParser {
     }
 
     public List<Affiliation> processing(String input) {
+        warnIfDebugUncaptured("AffiliationAddressParser.processing(String)");
+        return processing(input, null);
+    }
+
+    public List<Affiliation> processing(String input, GrobidAnalysisConfig config) {
         List<Affiliation> results = null;
         try {
             if ((input == null) || (input.length() == 0)) {
@@ -45,8 +67,8 @@ public class AffiliationAddressParser extends AbstractParser {
 
             input = TextUtilities.dehyphenize(input);
 
-			// TBD: pass the language object to the tokenizer 
-			List<LayoutToken> tokenizations = analyzer.tokenizeWithLayoutToken(input);
+            // TBD: pass the language object to the tokenizer
+            List<LayoutToken> tokenizations = analyzer.tokenizeWithLayoutToken(input);
 
             List<String> affiliationBlocks = getAffiliationBlocks(tokenizations);
             List<List<OffsetPosition>> placesPositions = new ArrayList<List<OffsetPosition>>();
@@ -55,10 +77,10 @@ public class AffiliationAddressParser extends AbstractParser {
             countriesPositions.add(lexicon.tokenPositionsCountryNames(tokenizations));
             List<List<LayoutToken>> allTokens = new ArrayList<List<LayoutToken>>();
             allTokens.add(tokenizations);
-            String affiliationSequenceWithFeatures = 
-                FeaturesVectorAffiliationAddress.addFeaturesAffiliationAddress(affiliationBlocks, allTokens, placesPositions, countriesPositions);
+            String affiliationSequenceWithFeatures = FeaturesVectorAffiliationAddress
+                    .addFeaturesAffiliationAddress(affiliationBlocks, allTokens, placesPositions, countriesPositions);
 
-            String res = label(affiliationSequenceWithFeatures);
+            String res = labelAndCapture(affiliationSequenceWithFeatures, config);
 
             results = resultExtractionLayoutTokens(res, tokenizations);
         } catch (Exception e) {
@@ -69,8 +91,8 @@ public class AffiliationAddressParser extends AbstractParser {
 
     protected static List<String> getAffiliationBlocks(List<LayoutToken> tokenizations) {
         ArrayList<String> affiliationBlocks = new ArrayList<String>();
-        for(LayoutToken tok : tokenizations) {
-            if (tok.getText().length() == 0) 
+        for (LayoutToken tok : tokenizations) {
+            if (tok.getText().length() == 0)
                 continue;
 
             if (!tok.getText().equals(" ")) {
@@ -89,17 +111,17 @@ public class AffiliationAddressParser extends AbstractParser {
     protected static List<String> getAffiliationBlocksFromSegments(List<List<LayoutToken>> tokenizations) {
         ArrayList<String> affiliationBlocks = new ArrayList<>();
         int end = 0;
-        for(List<LayoutToken> tokenizationSegment : tokenizations) {
+        for (List<LayoutToken> tokenizationSegment : tokenizations) {
             if (CollectionUtils.isEmpty(tokenizationSegment))
                 continue;
 
             // if we have an offset shit, we introduce a segmentation of the affiliation block
             LayoutToken startToken = tokenizationSegment.get(0);
             int start = startToken.getOffset();
-            if (start-end > 2 && end > 0)
+            if (start - end > 2 && end > 0)
                 affiliationBlocks.add("\n");
 
-            for(LayoutToken tok : tokenizationSegment) {
+            for (LayoutToken tok : tokenizationSegment) {
                 if (StringUtils.isEmpty(tok.getText())) {
                     continue;
                 }
@@ -117,6 +139,13 @@ public class AffiliationAddressParser extends AbstractParser {
     }
 
     public List<Affiliation> processingLayoutTokens(List<List<LayoutToken>> tokenizations) {
+        warnIfDebugUncaptured("AffiliationAddressParser.processingLayoutTokens(List)");
+        return processingLayoutTokens(tokenizations, null);
+    }
+
+    public List<Affiliation> processingLayoutTokens(
+            List<List<LayoutToken>> tokenizations,
+            GrobidAnalysisConfig config) {
         List<Affiliation> results = null;
         try {
             if ((tokenizations == null) || (tokenizations.size() == 0)) {
@@ -130,7 +159,7 @@ public class AffiliationAddressParser extends AbstractParser {
 
             List<String> affiliationBlocks = getAffiliationBlocksFromSegments(tokenizations);
 
-//System.out.println(affiliationBlocks.toString());
+            //System.out.println(affiliationBlocks.toString());
 
             List<List<OffsetPosition>> placesPositions = new ArrayList<>();
             List<List<OffsetPosition>> countriesPositions = new ArrayList<>();
@@ -138,17 +167,16 @@ public class AffiliationAddressParser extends AbstractParser {
             countriesPositions.add(lexicon.tokenPositionsCountryNames(tokenizationsAffiliation));
             List<List<LayoutToken>> allTokens = new ArrayList<>();
             allTokens.add(tokenizationsAffiliation);
-            String affiliationSequenceWithFeatures = 
-                FeaturesVectorAffiliationAddress.addFeaturesAffiliationAddress(affiliationBlocks, allTokens, placesPositions, countriesPositions);
+            String affiliationSequenceWithFeatures = FeaturesVectorAffiliationAddress
+                    .addFeaturesAffiliationAddress(affiliationBlocks, allTokens, placesPositions, countriesPositions);
 
-            String res = label(affiliationSequenceWithFeatures);
+            String res = labelAndCapture(affiliationSequenceWithFeatures, config);
             results = resultExtractionLayoutTokens(res, tokenizationsAffiliation);
         } catch (Exception e) {
             throw new GrobidException("An exception occurred while running Grobid.", e);
         }
         return results;
     }
-
 
     /**
      * Extract results from a labeled sequence.
@@ -159,15 +187,16 @@ public class AffiliationAddressParser extends AbstractParser {
      */
     protected List<Affiliation> resultExtractionLayoutTokens(String result, List<LayoutToken> tokenizations) {
         List<Affiliation> affiliations = new ArrayList<>();
-        if (result == null) 
+        if (result == null)
             return affiliations;
 
         Affiliation affiliation = new Affiliation();
 
-//System.out.println(result);
+        //System.out.println(result);
 
         TaggingLabel lastClusterLabel = null;
-        TaggingTokenClusteror clusteror = new TaggingTokenClusteror(GrobidModels.AFFILIATION_ADDRESS, result, tokenizations);
+        TaggingTokenClusteror clusteror = new TaggingTokenClusteror(GrobidModels.AFFILIATION_ADDRESS, result,
+                tokenizations);
 
         String tokenLabel = null;
         boolean newline = true;
@@ -188,87 +217,87 @@ public class AffiliationAddressParser extends AbstractParser {
             List<LayoutToken> tokens = cluster.concatTokens();
 
             if (clusterLabel.equals(TaggingLabels.AFFILIATION_MARKER)) {
-                // if an affiliation has already a merker, or if a marker start a line, 
-                // we introduce a new affiliation 
+                // if an affiliation has already a merker, or if a marker start a line,
+                // we introduce a new affiliation
                 if (affiliation.getMarker() != null || newline) {
                     if (affiliation.isNotNull()) {
                         affiliations.add(affiliation);
                     }
                     affiliation = new Affiliation();
                 }
-                
+
                 affiliation.setMarker(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_MARKER, tokens);
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_INSTITUTION)) {
-                if (affiliation.getInstitutions() != null && affiliation.getInstitutions().size()>0) {
+                if (affiliation.getInstitutions() != null && affiliation.getInstitutions().size() > 0) {
                     if (affiliation.hasAddress()) {
                         // new affiliation
                         if (affiliation.isNotNull()) {
                             affiliations.add(affiliation);
                         }
                         affiliation = new Affiliation();
-                    } 
+                    }
                 }
                 affiliation.addInstitution(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_INSTITUTION, tokens);
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_DEPARTMENT)) {
-                if (affiliation.getDepartments() != null && affiliation.getDepartments().size()>0) {
+                if (affiliation.getDepartments() != null && affiliation.getDepartments().size() > 0) {
                     if (affiliation.hasAddress()) {
                         // new affiliation
                         if (affiliation.isNotNull()) {
                             affiliations.add(affiliation);
                         }
                         affiliation = new Affiliation();
-                    } 
+                    }
                 }
                 affiliation.addDepartment(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_DEPARTMENT, tokens);
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_LABORATORY)) {
-                if (affiliation.getLaboratories() != null && affiliation.getLaboratories().size()>0) {
+                if (affiliation.getLaboratories() != null && affiliation.getLaboratories().size() > 0) {
                     if (affiliation.hasAddress()) {
                         // new affiliation
                         if (affiliation.isNotNull()) {
                             affiliations.add(affiliation);
                         }
                         affiliation = new Affiliation();
-                    } 
+                    }
                 }
                 affiliation.addLaboratory(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_LABORATORY, tokens);
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_COUNTRY)) {
                 if (affiliation.getCountry() != null) {
-                    if(!affiliation.getCountry().equals(clusterContent))
+                    if (!affiliation.getCountry().equals(clusterContent))
                         affiliation.setCountry(affiliation.getCountry() + " " + clusterContent);
                 } else
                     affiliation.setCountry(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_COUNTRY, tokens);
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_POSTCODE)) {
-                if (affiliation.getPostCode() != null) 
+                if (affiliation.getPostCode() != null)
                     affiliation.setPostCode(affiliation.getPostCode() + " " + clusterContent);
                 else
                     affiliation.setPostCode(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_POSTCODE, tokens);
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_POSTBOX)) {
-                if (affiliation.getPostBox() != null) 
+                if (affiliation.getPostBox() != null)
                     affiliation.setPostBox(affiliation.getPostBox() + " " + clusterContent);
                 else
                     affiliation.setPostBox(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_POSTBOX, tokens);
-                
+
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_REGION)) {
-                if (affiliation.getRegion() != null) 
+                if (affiliation.getRegion() != null)
                     affiliation.setRegion(affiliation.getRegion() + " " + clusterContent);
                 else
                     affiliation.setRegion(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_REGION, tokens);
 
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_SETTLEMENT)) {
-                if (affiliation.getSettlement() != null) 
+                if (affiliation.getSettlement() != null)
                     affiliation.setSettlement(affiliation.getSettlement() + " " + clusterContent);
                 else
                     affiliation.setSettlement(clusterContent);
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_SETTLEMENT, tokens);
-                
+
             } else if (clusterLabel.equals(TaggingLabels.AFFILIATION_ADDRESSLINE)) {
                 if (affiliation.getAddrLine() != null) {
                     affiliation.setAddrLine(affiliation.getAddrLine() + " " + clusterContent);
@@ -276,7 +305,7 @@ public class AffiliationAddressParser extends AbstractParser {
                     affiliation.setAddrLine(clusterContent);
                 }
                 affiliation.addLabeledResult(TaggingLabels.AFFILIATION_ADDRESSLINE, tokens);
-            } 
+            }
 
             if (!clusterLabel.equals(TaggingLabels.OTHER) && affiliation.isNotNull()) {
                 affiliation.appendLayoutTokens(tokens);
@@ -292,9 +321,9 @@ public class AffiliationAddressParser extends AbstractParser {
 
             newline = false;
             if (tokens.size() > 0) {
-                LayoutToken lastToken = tokens.get(tokens.size()-1);
+                LayoutToken lastToken = tokens.get(tokens.size() - 1);
                 if (lastToken.getText() != null && lastToken.getText().equals("\n"))
-                    newline = true;                    
+                    newline = true;
             }
         }
 
@@ -310,9 +339,10 @@ public class AffiliationAddressParser extends AbstractParser {
      * DEPRECATED
      **/
     @Deprecated
-    protected ArrayList<Affiliation> resultBuilder(String result,
-                                                 List<LayoutToken> tokenizations,
-                                                 boolean usePreLabel) {
+    protected ArrayList<Affiliation> resultBuilder(
+            String result,
+            List<LayoutToken> tokenizations,
+            boolean usePreLabel) {
         ArrayList<Affiliation> fullAffiliations = null;
 
         if (result == null) {
@@ -361,7 +391,7 @@ public class AffiliationAddressParser extends AbstractParser {
                 }
                 String delimiter = "\t";
                 if (line.indexOf(delimiter) == -1)
-                    delimiter = " "; 
+                    delimiter = " ";
                 StringTokenizer st3 = new StringTokenizer(line, delimiter);
                 int ll = st3.countTokens();
                 int i = 0;
@@ -431,8 +461,7 @@ public class AffiliationAddressParser extends AbstractParser {
                     newMarker = false;
                 } else if (s1.equals("<institution>") || s1.equals("I-<institution>")) {
                     if ((!usePreLabel) ||
-                            ((usePreLabel) && (s3.equals("<affiliation>") || s3.equals("I-<affiliation>")))
-                            ) {
+                            ((usePreLabel) && (s3.equals("<affiliation>") || s3.equals("I-<affiliation>")))) {
                         hasInstitution = true;
                         if (aff.getInstitutions() != null) {
                             if (s1.equals("I-<institution>") &&
@@ -529,15 +558,13 @@ public class AffiliationAddressParser extends AbstractParser {
                     }
                 } else if (s1.equals("<department>") || s1.equals("I-<department>")) {
                     if ((!usePreLabel) ||
-                            ((usePreLabel) && (s3.equals("<affiliation>") || s3.equals("I-<affiliation>")))
-                            ) {
+                            ((usePreLabel) && (s3.equals("<affiliation>") || s3.equals("I-<affiliation>")))) {
                         if (aff.getDepartments() != null) {
                             /*if (localFeatures.contains("LINESTART"))
                                        aff.department += " " + s2;*/
 
                             if ((s1.equals("I-<department>")) &&
-                                    (localFeatures.contains("LINESTART"))
-                                    ) {
+                                    (localFeatures.contains("LINESTART"))) {
                                 if (aff.isNotNull()) {
                                     if (fullAffiliations == null)
                                         fullAffiliations = new ArrayList<Affiliation>();
@@ -585,8 +612,7 @@ public class AffiliationAddressParser extends AbstractParser {
                                        aff.department += " " + s2;*/
 
                             if ((s1.equals("I-<department>")) && hasAddress &&
-                                    (localFeatures.contains("LINESTART"))
-                                    ) {
+                                    (localFeatures.contains("LINESTART"))) {
                                 if (aff.isNotNull()) {
                                     if (fullAffiliations == null)
                                         fullAffiliations = new ArrayList<Affiliation>();
@@ -620,8 +646,7 @@ public class AffiliationAddressParser extends AbstractParser {
                     }
                 } else if (s1.equals("<laboratory>") || s1.equals("I-<laboratory>")) {
                     if ((!usePreLabel) ||
-                            ((usePreLabel) && (s3.equals("<affiliation>") || s3.equals("I-<affiliation>")))
-                            ) {
+                            ((usePreLabel) && (s3.equals("<affiliation>") || s3.equals("I-<affiliation>")))) {
                         hasLaboratory = true;
                         if (aff.getLaboratories() != null) {
                             if (s1.equals("I-<laboratory>") &&
@@ -856,7 +881,7 @@ public class AffiliationAddressParser extends AbstractParser {
             return null;
         }*/
 
-        if (tokenizationsAffiliation == null || tokenizationsAffiliation.size() == 0) 
+        if (tokenizationsAffiliation == null || tokenizationsAffiliation.size() == 0)
             return null;
 
         List<String> affiliationBlocks = getAffiliationBlocks(tokenizationsAffiliation);
@@ -869,9 +894,9 @@ public class AffiliationAddressParser extends AbstractParser {
 
         String affiliationSequenceWithFeatures = null;
         try {
-            affiliationSequenceWithFeatures = 
-                FeaturesVectorAffiliationAddress.addFeaturesAffiliationAddress(affiliationBlocks, allTokens, placesPositions, countriesPositions);
-        } catch(Exception e) {
+            affiliationSequenceWithFeatures = FeaturesVectorAffiliationAddress
+                    .addFeaturesAffiliationAddress(affiliationBlocks, allTokens, placesPositions, countriesPositions);
+        } catch (Exception e) {
             throw new GrobidException("An exception occurred while running Grobid.", e);
         }
 
@@ -942,7 +967,6 @@ public class AffiliationAddressParser extends AbstractParser {
                 i++;
             }
 
-
             lastTag0 = null;
             if (lastTag != null) {
                 if (lastTag.startsWith("I-")) {
@@ -976,19 +1000,30 @@ public class AffiliationAddressParser extends AbstractParser {
 
             String output = writeField(s1, lastTag0, s2, "<marker>", "<marker>", addSpace, 7);
             if (output != null) {
-                if (hasAddressTag) {
-                    bufferAffiliation.append("\t\t\t\t\t\t\t</address>\n");
+                // output != null implies writeField matched on s1, so s1 is non-null here; the
+                // explicit guard keeps that obvious to static analysis (CodeQL) and at runtime.
+                if (s1 != null && s1.startsWith("I-")) {
+                    // start of a new marker: it begins a new affiliation block, so close the
+                    // previous affiliation/address before opening a fresh <affiliation><marker>.
+                    if (hasAddressTag) {
+                        bufferAffiliation.append("\t\t\t\t\t\t\t</address>\n");
+                        hasAddressTag = false;
+                    }
+                    if (hasAffiliationTag) {
+                        bufferAffiliation.append("\t\t\t\t\t\t</affiliation>\n");
+                        hasAffiliationTag = false;
+                    }
+                    bufferAffiliation.append("\t\t\t\t\t\t<affiliation>\n" + output);
+                    hasAffiliationTag = true;
                     hasAddressTag = false;
+                    hasAddress = false;
+                    hasAffiliation = false;
+                } else {
+                    // continuation of the current marker: only append its text, so that a
+                    // multi-token marker stays inside the same <marker> element instead of
+                    // re-opening the affiliation and crossing the (still open) </marker>.
+                    bufferAffiliation.append(output);
                 }
-                if (hasAffiliationTag) {
-                    bufferAffiliation.append("\t\t\t\t\t\t</affiliation>\n");
-                    hasAffiliationTag = false;
-                }
-                bufferAffiliation.append("\t\t\t\t\t\t<affiliation>\n" + output);
-                hasAffiliationTag = true;
-                hasAddressTag = false;
-                hasAddress = false;
-                hasAffiliation = false;
                 lastTag = s1;
                 continue;
             } else {
@@ -1239,13 +1274,14 @@ public class AffiliationAddressParser extends AbstractParser {
         return bufferAffiliation;
     }
 
-    private String writeField(String s1,
-                              String lastTag0,
-                              String s2,
-                              String field,
-                              String outField,
-                              boolean addSpace,
-                              int nbIndent) {
+    private String writeField(
+            String s1,
+            String lastTag0,
+            String s2,
+            String field,
+            String outField,
+            boolean addSpace,
+            int nbIndent) {
         String result = null;
         if ((s1.equals(field)) || (s1.equals("I-" + field))) {
             if ((s1.equals("<other>") || s1.equals("I-<other>"))) {
@@ -1273,9 +1309,10 @@ public class AffiliationAddressParser extends AbstractParser {
         return result;
     }
 
-    private boolean testClosingTag(StringBuilder buffer,
-                                   String currentTag0,
-                                   String lastTag0) {
+    private boolean testClosingTag(
+            StringBuilder buffer,
+            String currentTag0,
+            String lastTag0) {
         boolean res = false;
         if (!currentTag0.equals(lastTag0)) {
             res = true;

@@ -1,0 +1,1724 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Contrasting Characteristics and Outcomes of Sports-Related and Non–Sports-Related Traumatic Brain Injury</title>
+      <author>
+        <persName>
+          <forename>Michail</forename>
+          <surname>Ntikas</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>William</forename>
+          <surname>Stewart</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Magdalena</forename>
+          <surname>Ietswaart</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Angus M.</forename>
+          <surname>Hunter</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Andrew I. R.</forename>
+          <surname>Maas</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>David K.</forename>
+          <surname>Menon</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Lindsay</forename>
+          <surname>Wilson</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename/>
+          <surname/>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Cecilia</forename>
+          <surname>Ackerlund</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Krisztina</forename>
+          <surname>Amrein</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Nada</forename>
+          <surname>Andelic</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Lasse</forename>
+          <surname>Andreassen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Audny</forename>
+          <surname>Anke</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Anna</forename>
+          <surname>Antoni</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Gérard</forename>
+          <surname>Audibert</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Philippe</forename>
+          <surname>Azouvi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Maria Luisa</forename>
+          <surname>Azzolini</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ronald</forename>
+          <surname>Bartels</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Pál</forename>
+          <surname>Barzó</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Romuald</forename>
+          <surname>Beauvais</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ronny</forename>
+          <surname>Beer</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Bo-Michael</forename>
+          <surname>Bellander</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Antonio</forename>
+          <surname>Belli</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Habib</forename>
+          <surname>Benali</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Maurizio</forename>
+          <surname>Berardino</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Luigi</forename>
+          <surname>Beretta</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Morten</forename>
+          <surname>Blaabjerg</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Peter</forename>
+          <surname>Bragge</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alexandra</forename>
+          <surname>Brazinova</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Vibeke</forename>
+          <surname>Brinck</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Joanne</forename>
+          <surname>Brooker</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Camilla</forename>
+          <surname>Brorsson</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Andras</forename>
+          <surname>Buki</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Monika</forename>
+          <surname>Bullinger</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Manuel</forename>
+          <surname>Cabeleira</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alessio</forename>
+          <surname>Caccioppola</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Emiliana</forename>
+          <surname>Calappi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Maria Rosa</forename>
+          <surname>Calvi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Peter</forename>
+          <surname>Cameron</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Guillermo</forename>
+          <surname>Carbayo Lozano</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Marco</forename>
+          <surname>Carbonara</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ana M.</forename>
+          <surname>Castaño-León</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Simona</forename>
+          <surname>Cavallo</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Giorgio</forename>
+          <surname>Chevallard</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Arturo</forename>
+          <surname>Chieregato</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Giuseppe</forename>
+          <surname>Citerio</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Hans</forename>
+          <surname>Clusmann</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Mark Steven</forename>
+          <surname>Coburn</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jonathan</forename>
+          <surname>Coles</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jamie D.</forename>
+          <surname>Cooper</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Marta</forename>
+          <surname>Correia</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Amra</forename>
+          <surname>Čović</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Nicola</forename>
+          <surname>Curry</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Endre</forename>
+          <surname>Czeiter</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Marek</forename>
+          <surname>Czosnyka</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Claire</forename>
+          <surname>Dahyot-Fizelier</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Paul</forename>
+          <surname>Dark</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Helen</forename>
+          <surname>Dawes</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Véronique</forename>
+          <surname>De Keyser</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Vincent</forename>
+          <surname>Degos</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Francesco</forename>
+          <surname>Della Corte</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Hugo</forename>
+          <surname>den Boogert</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Bart</forename>
+          <surname>Depreitere</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Đula</forename>
+          <surname>Đilvesi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Abhishek</forename>
+          <surname>Dixit</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Emma</forename>
+          <surname>Donoghue</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jens</forename>
+          <surname>Dreier</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Guy-Loup</forename>
+          <surname>Dulière</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ari</forename>
+          <surname>Ercole</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Patrick</forename>
+          <surname>Esser</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Erzsébet</forename>
+          <surname>Ezer</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Martin</forename>
+          <surname>Fabricius</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Valery L.</forename>
+          <surname>Feigin</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Kelly</forename>
+          <surname>Foks</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Shirin</forename>
+          <surname>Frisvold</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alex</forename>
+          <surname>Furmanov</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Pablo</forename>
+          <surname>Gagliardo</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Damien</forename>
+          <surname>Galanaud</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Dashiell</forename>
+          <surname>Gantner</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Guoyi</forename>
+          <surname>Gao</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Pradeep</forename>
+          <surname>George</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alexandre</forename>
+          <surname>Ghuysen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Lelde</forename>
+          <surname>Giga</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ben</forename>
+          <surname>Glocker</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jagoš</forename>
+          <surname>Golubović</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Pedro A.</forename>
+          <surname>Gomez</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Johannes</forename>
+          <surname>Gratz</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Benjamin</forename>
+          <surname>Gravesteijn</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Francesca</forename>
+          <surname>Grossi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Russell L.</forename>
+          <surname>Gruen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Deepak</forename>
+          <surname>Gupta</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Juanita A.</forename>
+          <surname>Haagsma</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Iain</forename>
+          <surname>Haitsma</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Raimund</forename>
+          <surname>Helbok</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Eirik</forename>
+          <surname>Helseth</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Lindsay</forename>
+          <surname>Horton</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jilske</forename>
+          <surname>Huijben</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Peter J.</forename>
+          <surname>Hutchinson</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Bram</forename>
+          <surname>Jacobs</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Stefan</forename>
+          <surname>Jankowski</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Mike</forename>
+          <surname>Jarrett</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ji-yao</forename>
+          <surname>Jiang</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Faye</forename>
+          <surname>Johnson</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Kelly</forename>
+          <surname>Jones</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Mladen</forename>
+          <surname>Karan</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Angelos G.</forename>
+          <surname>Kolias</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Erwin</forename>
+          <surname>Kompanje</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Daniel</forename>
+          <surname>Kondziella</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Evgenios</forename>
+          <surname>Kornaropoulos</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Lars-Owe</forename>
+          <surname>Koskinen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Noémi</forename>
+          <surname>Kovács</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ana</forename>
+          <surname>Kowark</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alfonso</forename>
+          <surname>Lagares</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Linda</forename>
+          <surname>Lanyon</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Steven</forename>
+          <surname>Laureys</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Fiona</forename>
+          <surname>Lecky</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Didier</forename>
+          <surname>Ledoux</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Rolf</forename>
+          <surname>Lefering</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Valerie</forename>
+          <surname>Legrand</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Aurelie</forename>
+          <surname>Lejeune</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Leon</forename>
+          <surname>Levi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Roger</forename>
+          <surname>Lightfoot</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Hester</forename>
+          <surname>Lingsma</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Marc</forename>
+          <surname>Maegele</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Marek</forename>
+          <surname>Majdan</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alex</forename>
+          <surname>Manara</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Geoffrey</forename>
+          <surname>Manley</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Hugues</forename>
+          <surname>Maréchal</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Costanza</forename>
+          <surname>Martino</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Julia</forename>
+          <surname>Mattern</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Catherine</forename>
+          <surname>McMahon</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Béla</forename>
+          <surname>Melegh</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Tomas</forename>
+          <surname>Menovsky</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ana</forename>
+          <surname>Mikolic</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Benoit</forename>
+          <surname>Misset</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Visakh</forename>
+          <surname>Muraleedharan</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Lynnette</forename>
+          <surname>Murray</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Nandesh</forename>
+          <surname>Nair</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ancuta</forename>
+          <surname>Negru</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>David</forename>
+          <surname>Nelson</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Virginia</forename>
+          <surname>Newcombe</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Daan</forename>
+          <surname>Nieboer</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>József</forename>
+          <surname>Nyirádi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Matej</forename>
+          <surname>Oresic</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Fabrizio</forename>
+          <surname>Ortolano</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Olubukola</forename>
+          <surname>Otesile</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Aarno</forename>
+          <surname>Palotie</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Paul M.</forename>
+          <surname>Parizel</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jean-François</forename>
+          <surname>Payen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Natascha</forename>
+          <surname>Perera</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Vincent</forename>
+          <surname>Perlbarg</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Paolo</forename>
+          <surname>Persona</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Wilco</forename>
+          <surname>Peul</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Anna</forename>
+          <surname>Piippo-Karjalainen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Matti</forename>
+          <surname>Pirinen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Dana</forename>
+          <surname>Pisica</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Horia</forename>
+          <surname>Ples</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Suzanne</forename>
+          <surname>Polinder</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Inigo</forename>
+          <surname>Pomposo</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jussi P.</forename>
+          <surname>Posti</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Louis</forename>
+          <surname>Puybasset</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Andreea</forename>
+          <surname>Rădoi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Arminas</forename>
+          <surname>Ragauskas</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Rahul</forename>
+          <surname>Raj</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Malinka</forename>
+          <surname>Rambadagalla</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Isabel</forename>
+          <surname>Retel Helmrich</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jonathan</forename>
+          <surname>Rhodes</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Sylvia</forename>
+          <surname>Richardson</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Sophie</forename>
+          <surname>Richter</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Samuli</forename>
+          <surname>Ripatti</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Saulius</forename>
+          <surname>Rocka</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Cecilie</forename>
+          <surname>Roe</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Olav</forename>
+          <surname>Roise</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jonathan</forename>
+          <surname>Rosand</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jeffrey</forename>
+          <surname>Rosenfeld</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Christina</forename>
+          <surname>Rosenlund</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Guy</forename>
+          <surname>Rosenthal</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Rolf</forename>
+          <surname>Rossaint</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Sandra</forename>
+          <surname>Rossi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Daniel</forename>
+          <surname>Rueckert</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Martin</forename>
+          <surname>Rusnák</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Juan</forename>
+          <surname>Sahuquillo</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Oliver</forename>
+          <surname>Sakowitz</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Renan</forename>
+          <surname>Sanchez-Porras</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Janos</forename>
+          <surname>Sandor</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Nadine</forename>
+          <surname>Schäfer</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Silke</forename>
+          <surname>Schmidt</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Herbert</forename>
+          <surname>Schoechl</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Guus</forename>
+          <surname>Schoonman</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Rico Frederik</forename>
+          <surname>Schou</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Elisabeth</forename>
+          <surname>Schwendenwein</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ranjit D.</forename>
+          <surname>Singh</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Charlie</forename>
+          <surname>Sewalt</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Toril</forename>
+          <surname>Skandsen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Peter</forename>
+          <surname>Smielewski</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Abayomi</forename>
+          <surname>Sorinola</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Emmanuel</forename>
+          <surname>Stamatakis</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Simon</forename>
+          <surname>Stanworth</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Robert</forename>
+          <surname>Stevens</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ewout W.</forename>
+          <surname>Steyerberg</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Nino</forename>
+          <surname>Stocchetti</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Nina</forename>
+          <surname>Sundström</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Riikka</forename>
+          <surname>Takala</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Viktória</forename>
+          <surname>Tamás</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Tomas</forename>
+          <surname>Tamosuitis</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Mark Steven</forename>
+          <surname>Taylor</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Braden</forename>
+          <surname>Te Ao</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Olli</forename>
+          <surname>Tenovuo</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alice</forename>
+          <surname>Theadom</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Matt</forename>
+          <surname>Thomas</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Aurore</forename>
+          <surname>Thibaut</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Dick</forename>
+          <surname>Tibboel</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Marjolijn</forename>
+          <surname>Timmers</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Christos</forename>
+          <surname>Tolias</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Tony</forename>
+          <surname>Trapani</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Cristina Maria</forename>
+          <surname>Tudora</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Andreas</forename>
+          <surname>Unterberg</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Peter</forename>
+          <surname>Vajkoczy</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Egils</forename>
+          <surname>Valeinis</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Shirley</forename>
+          <surname>Vallance</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Zoltán</forename>
+          <surname>Vámos</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Mathieu</forename>
+          <surname>van der Jagt</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Joukje</forename>
+          <surname>van der Naalt</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Gregory</forename>
+          <surname>Van der Steen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jeroen T.J.M.</forename>
+          <surname>van Dijck</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Inge A.</forename>
+          <surname>van Erp</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Thomas A.</forename>
+          <surname>van Essen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Wim</forename>
+          <surname>Van Hecke</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Caroline</forename>
+          <surname>van Heugten</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Dominique</forename>
+          <surname>Van Praag</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Ernest</forename>
+          <surname>van Veen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Roel P.J.</forename>
+          <surname>van Wijk</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Thijs</forename>
+          <surname>Vande Vyvere</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alessia</forename>
+          <surname>Vargiolu</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Emmanuel</forename>
+          <surname>Vega</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Kimberley</forename>
+          <surname>Velt</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Jan</forename>
+          <surname>Verheyden</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Paul M.</forename>
+          <surname>Vespa</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Anne</forename>
+          <surname>Vik</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Rimantas</forename>
+          <surname>Vilcinis</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Victor</forename>
+          <surname>Volovici</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Nicole</forename>
+          <surname>von Steinbüchel</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Daphne</forename>
+          <surname>Voormolen</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Peter</forename>
+          <surname>Vulekovic</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Kevin K.W.</forename>
+          <surname>Wang</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Daniel</forename>
+          <surname>Whitehouse</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Eveline</forename>
+          <surname>Wiegers</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Guy</forename>
+          <surname>Williams</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Stefan</forename>
+          <surname>Winzeck</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Stefan</forename>
+          <surname>Wolf</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Zhihui</forename>
+          <surname>Yang</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Peter</forename>
+          <surname>Ylén</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Alexander</forename>
+          <surname>Younsi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Frederick A.</forename>
+          <surname>Zeiler</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Veronika</forename>
+          <surname>Zelinkova</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Agate</forename>
+          <surname>Ziverte</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Tommaso</forename>
+          <surname>Zoerle</surname>
+        </persName>
+      </author>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-11-12T09:41:40.259Z">11/12/2025 9:41:40 AM</date>
+        <title>corrections</title>
+      <idno type="fileref">10.1001$1$jamanetworkopen.2023.53318</idno></edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher>American Medical Association (AMA)</publisher>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication">2024</date>
+      <idno type="DOI">10.1001/jamanetworkopen.2023.53318</idno>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>Michail Ntikas, William Stewart, Magdalena Ietswaart, Angus M. Hunter, Andrew I. R. Maas, David K. Menon, Lindsay Wilson, None None, Cecilia Ackerlund, Krisztina Amrein, Nada Andelic, Lasse Andreassen, Audny Anke, Anna Antoni, Gérard Audibert, Philippe Azouvi, Maria Luisa Azzolini, Ronald Bartels, Pál Barzó, Romuald Beauvais, Ronny Beer, Bo-Michael Bellander, Antonio Belli, Habib Benali, Maurizio Berardino, Luigi Beretta, Morten Blaabjerg, Peter Bragge, Alexandra Brazinova, Vibeke Brinck, Joanne Brooker, Camilla Brorsson, Andras Buki, Monika Bullinger, Manuel Cabeleira, Alessio Caccioppola, Emiliana Calappi, Maria Rosa Calvi, Peter Cameron, Guillermo Carbayo Lozano, Marco Carbonara, Ana M. Castaño-León, Simona Cavallo, Giorgio Chevallard, Arturo Chieregato, Giuseppe Citerio, Hans Clusmann, Mark Steven Coburn, Jonathan Coles, Jamie D. Cooper, Marta Correia, Amra Čović, Nicola Curry, Endre Czeiter, Marek Czosnyka, Claire Dahyot-Fizelier, Paul Dark, Helen Dawes, Véronique De Keyser, Vincent Degos, Francesco Della Corte, Hugo den Boogert, Bart Depreitere, Đula Đilvesi, Abhishek Dixit, Emma Donoghue, Jens Dreier, Guy-Loup Dulière, Ari Ercole, Patrick Esser, Erzsébet Ezer, Martin Fabricius, Valery L. Feigin, Kelly Foks, Shirin Frisvold, Alex Furmanov, Pablo Gagliardo, Damien Galanaud, Dashiell Gantner, Guoyi Gao, Pradeep George, Alexandre Ghuysen, Lelde Giga, Ben Glocker, Jagoš Golubović, Pedro A. Gomez, Johannes Gratz, Benjamin Gravesteijn, Francesca Grossi, Russell L. Gruen, Deepak Gupta, Juanita A. Haagsma, Iain Haitsma, Raimund Helbok, Eirik Helseth, Lindsay Horton, Jilske Huijben, Peter J. Hutchinson, Bram Jacobs, Stefan Jankowski, Mike Jarrett, Ji-yao Jiang, Faye Johnson, Kelly Jones, Mladen Karan, Angelos G. Kolias, Erwin Kompanje, Daniel Kondziella, Evgenios Kornaropoulos, Lars-Owe Koskinen, Noémi Kovács, Ana Kowark, Alfonso Lagares, Linda Lanyon, Steven Laureys, Fiona Lecky, Didier Ledoux, Rolf Lefering, Valerie Legrand, Aurelie Lejeune, Leon Levi, Roger Lightfoot, Hester Lingsma, Marc Maegele, Marek Majdan, Alex Manara, Geoffrey Manley, Hugues Maréchal, Costanza Martino, Julia Mattern, Catherine McMahon, Béla Melegh, Tomas Menovsky, Ana Mikolic, Benoit Misset, Visakh Muraleedharan, Lynnette Murray, Nandesh Nair, Ancuta Negru, David Nelson, Virginia Newcombe, Daan Nieboer, József Nyirádi, Matej Oresic, Fabrizio Ortolano, Olubukola Otesile, Aarno Palotie, Paul M. Parizel, Jean-François Payen, Natascha Perera, Vincent Perlbarg, Paolo Persona, Wilco Peul, Anna Piippo-Karjalainen, Matti Pirinen, Dana Pisica, Horia Ples, Suzanne Polinder, Inigo Pomposo, Jussi P. Posti, Louis Puybasset, Andreea Rădoi, Arminas Ragauskas, Rahul Raj, Malinka Rambadagalla, Isabel Retel Helmrich, Jonathan Rhodes, Sylvia Richardson, Sophie Richter, Samuli Ripatti, Saulius Rocka, Cecilie Roe, Olav Roise, Jonathan Rosand, Jeffrey Rosenfeld, Christina Rosenlund, Guy Rosenthal, Rolf Rossaint, Sandra Rossi, Daniel Rueckert, Martin Rusnák, Juan Sahuquillo, Oliver Sakowitz, Renan Sanchez-Porras, Janos Sandor, Nadine Schäfer, Silke Schmidt, Herbert Schoechl, Guus Schoonman, Rico Frederik Schou, Elisabeth Schwendenwein, Ranjit D. Singh, Charlie Sewalt, Toril Skandsen, Peter Smielewski, Abayomi Sorinola, Emmanuel Stamatakis, Simon Stanworth, Robert Stevens, Ewout W. Steyerberg, Nino Stocchetti, Nina Sundström, Riikka Takala, Viktória Tamás, Tomas Tamosuitis, Mark Steven Taylor, Braden Te Ao, Olli Tenovuo, Alice Theadom, Matt Thomas, Aurore Thibaut, Dick Tibboel, Marjolijn Timmers, Christos Tolias, Tony Trapani, Cristina Maria Tudora, Andreas Unterberg, Peter Vajkoczy, Egils Valeinis, Shirley Vallance, Zoltán Vámos, Mathieu van der Jagt, Joukje van der Naalt, Gregory Van der Steen, Jeroen T.J.M. van Dijck, Inge A. van Erp, Thomas A. van Essen, Wim Van Hecke, Caroline van Heugten, Dominique Van Praag, Ernest van Veen, Roel P.J. van Wijk, Thijs Vande Vyvere, Alessia Vargiolu, Emmanuel Vega, Kimberley Velt, Jan Verheyden, Paul M. Vespa, Anne Vik, Rimantas Vilcinis, Victor Volovici, Nicole von Steinbüchel, Daphne Voormolen, Peter Vulekovic, Kevin K.W. Wang, Daniel Whitehouse, Eveline Wiegers, Guy Williams, Stefan Winzeck, Stefan Wolf, Zhihui Yang, Peter Ylén, Alexander Younsi, Frederick A. Zeiler, Veronika Zelinkova, Agate Ziverte, Tommaso Zoerle. (2024). Contrasting Characteristics and Outcomes of Sports-Related and Non–Sports-Related Traumatic Brain Injury. JAMA Network Open, 7(1), e2353318. DOI: 10.1001/jamanetworkopen.2023.53318</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-11-12T09:31:48.823213Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.segmentation</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-11-12T09:31:48.823213Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		 <front>Original Investigation | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State <lb/>After Dobbs <lb/>Taylor Riley, PhD, MPH; Anna E. Fiastro, PhD, MPH, MEM; Lyndsey S. Benson, MD, MS; Anuj Khattar, MD; Sarah Prager, MD, MAS; Emily M. Godfrey, MD, MPH <lb/>Abstract <lb/>IMPORTANCE The Supreme Court decision Dobbs v Jackson Women&apos;s Health Organization (Dobbs) <lb/>overturned federal protections to abortion care and altered the reproductive health care landscape. <lb/>Thus far, aggregated state-level data reveal increases in the number of abortions in states where <lb/>abortion is still legal, but there is limited information on delays to care and changes in the <lb/>characteristics of people accessing abortion in these states after Dobbs. <lb/>OBJECTIVE To examine changes in abortion provision and delays to care after Dobbs. <lb/>DESIGN, SETTING, AND PARTICIPANTS Retrospective cohort study of all abortions performed at <lb/>an independent, high-volume reproductive health care clinic network in Washington state from <lb/>January 1, 2017, to July 31, 2023. Using an interrupted time series, the study assessed changes in <lb/>abortion care after Dobbs. <lb/>EXPOSURE Abortion care obtained after (June 24, 2022, to July 31, 2023) vs before (January 1, <lb/>2017, to June 23, 2022) Dobbs. <lb/>MAIN OUTCOME AND MEASURE Primary outcomes included weekly number of abortions and <lb/>out-of-state patients and weekly average of gestational duration (days) and time to <lb/>appointment (days). <lb/>RESULTS Among the 18 379 abortions during the study period, most were procedural (13 192 <lb/>abortions [72%]) and funded by public insurance (11 412 abortions [62%]). The mean (SD) age of <lb/>individuals receiving abortion care was 28.5 (6.44) years. Following Dobbs, the number of procedural <lb/>abortions per week increased by 6.35 (95% CI, 2.83-9.86), but then trended back toward pre-Dobbs <lb/>levels. The number of out-of-state patients per week increased by 2 (95% CI, 1.1-3.6) and trends <lb/>remained stable. The average gestational duration per week increased by 6.9 (95% CI, 3.6-10.2) days <lb/>following Dobbs, primarily due to increased gestations of procedural abortions. The average <lb/>gestational duration among out-of-state patients did not change following Dobbs, but it did increase <lb/>by 6 days for in-state patients (5.9; 95% CI, 3.2-8.6 days). There were no significant changes in time <lb/>to appointment. <lb/>CONCLUSIONS AND RELEVANCE These findings provide a detailed picture of changes in abortion <lb/>provision and delays to care after Dobbs in a state bordering a total ban state. In this study, more <lb/>people traveled from out of state to receive care and in-state patients sought care a week later in <lb/>gestation. These findings can inform interventions and policies to improve access for all seeking <lb/>abortion care. <lb/>JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 <lb/>Key Points <lb/>Question What are the changes in <lb/>abortion provision and delays to care <lb/>after the Supreme Court Dobbs v <lb/>Jackson Women&apos;s Health Organization <lb/>(Dobbs) decision in a state where <lb/>abortion remained legal? <lb/>Findings This cohort study of 18 379 <lb/>abortions found significant increases in <lb/>the weekly number of procedural <lb/>abortions, number of abortions among <lb/>out-of-state individuals, and average <lb/>gestational duration following the Dobbs <lb/>decision. No significant changes were <lb/>found in the time from first scheduling <lb/>an appointment to receiving the <lb/>abortion. <lb/>Meaning These findings suggest that <lb/>more people are traveling from out of <lb/>state for abortion care after Dobbs and <lb/>that more in-state patients are obtaining <lb/>abortions but are doing so <lb/>approximately a week later in gestation <lb/>on average. <lb/>+ Supplemental content <lb/>Author affiliations and article information are <lb/>listed at the end of this article. <lb/>Open Access. This is an open access article distributed under the terms of the CC-BY License. <lb/>JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/>1/12 <lb/>Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></front>
+
+			<body>Introduction <lb/>The Supreme Court decision in Dobbs v Jackson Women&apos;s Health Organization (Dobbs) in June 2022 <lb/>overturned the federal right to abortion and altered the reproductive health care landscape. <lb/>Following this decision, state trigger bans took immediate effect and a cascade of abortion <lb/>restrictions were implemented across the country. Studies measuring the impact of Dobbs have <lb/>reported increased out-of-state travel for abortion 1-3 and increased travel time to abortion-providing <lb/>facilities. 4 In particular, the number of clinician-provided abortions has increased in states that <lb/>neighbor states where abortion is restricted or banned. 1 However, little is known about how abortion <lb/>provision and delays to care may be changing in these legal states after Dobbs. <lb/>The longstanding inequities in abortion access, particularly at the intersections of race and class, <lb/>are likely to be exacerbated after Dobbs. 5 Structural factors, such as racism, sexism, and their <lb/>economic consequences, underlie these inequities. 6 Previous research documents the substantial <lb/>barriers and delays to care among racially and economically marginalized individuals when abortion <lb/>access was still a federally protected right. 7 Indeed, the population health consequences of the <lb/>Dobbs decision are expected to be dire, particularly among Black and other racially marginalized <lb/>people. 8 Thus far, the available state-level aggregated data do not provide information on any <lb/>changes in the sociodemographic characteristics and delays to care among those receiving abortion <lb/>care in legal states after Dobbs. <lb/>Washington is one of these legal states that is protective of abortion rights and borders Idaho <lb/>where abortion is now completely banned. Before Dobbs, around 17 000 abortions were obtained in <lb/>Washington per year, equivalent to a rate of 12 abortions per 1000 women aged 15 to 44 years, and <lb/>around 6% of abortions were among individuals traveling from another state. 9,10 Abortions are legal <lb/>up to the point of fetal viability (as determined by clinician) or to protect the life or health of the <lb/>pregnant person. Washington has had longstanding protective abortion policies such as requiring <lb/>insurance plans (both Medicaid and private plans) to cover abortion and allowing abortion provision <lb/>by qualified health professionals other than physicians (eg, physician assistant or advanced <lb/>registered nurse practitioner). 10 In 2023, Washington passed laws that shield clinicians who provide <lb/>abortion care from investigations in other states and protect private data for people seeking abortion <lb/>care. 10 Neighboring Idaho had existing restrictive laws like mandatory waiting periods, restricted <lb/>funding, and limitations on eligible clinicians before Dobbs, and the state&apos;s trigger ban took effect on <lb/>August 25, 2022, after the Dobbs decision. 10 <lb/>This study leverages a unique individual-level dataset from a large, independent abortion-<lb/>providing clinic network in Washington to examine changes in abortion provision and delays to care <lb/>after Dobbs. We conducted an interrupted time series (ITS) analysis, a robust design that controls for <lb/>secular trends, 11 to explore these temporal changes overall and stratified by race and ethnicity and <lb/>by state of residence. Due to the national rapid response and increased support of resources like <lb/>abortion funds 2 that enabled more people to be able to travel for care, we hypothesized an <lb/>immediate increase in the number of abortions after Dobbs and, consequently, increased delays to <lb/>care. We also hypothesized disproportionate increases in delays among out-of-state patients due to <lb/>greater travel distances and costs, and among racially marginalized individuals due to structural <lb/>barriers. <lb/>Methods <lb/>Study Population and Data <lb/>The study population included all abortions from January 1, 2017, to July 31, 2023, performed at <lb/>Cedar River Clinics, an independent, high-volume reproductive health care clinic network with 4 <lb/>locations in Washington, of which 2 to 3 were open at any given time during the study period, <lb/>primarily located in Western Washington. The clinic provides approximately 15% of all abortions <lb/>occurring in Washington per year 12 and provides care up to 26 weeks&apos; gestation. Clinic protocol <lb/></body>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>2/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<body>requires 2 days in clinic for those at 18 weeks&apos; or more gestation, while procedures at 24 weeks or <lb/>greater may require 2 or 3 days. <lb/>Data on patient sociodemographic characteristics and zip code of residence, type and timing of <lb/>abortion, and gestational duration were extracted from electronic medical records. Data on <lb/>appointment scheduling dates and calls were extracted from administrative records. These datasets <lb/>were linked based on patient and encounter number identifiers (20 records, 0.1% of the study <lb/>population, could not be linked to administrative data due to missing data). The University of <lb/>Washington institutional review board approved the protocol for this study with exemption from <lb/>informed consent because data were deidentified. This study followed the Strengthening the <lb/>Reporting of Observational Studies in Epidemiology (STROBE) reporting guidelines. <lb/>Measures <lb/>Patients self-identified their age, race and ethnicity (non-Hispanic American Indian or Alaska Native, <lb/>non-Hispanic Asian, non-Hispanic Black, Hispanic or Latina, non-Hispanic Native Hawaiian or Pacific <lb/>Islander, non-Hispanic White, and multiracial), primary language, reproductive history, and <lb/>residential zip code when completing the patient history intake form. We conceptualized race and <lb/>ethnicity as sociopolitical categories, rather than biological, that reflect historical and contemporary <lb/>structural racism. 13 Thus, race and ethnicity were assessed in this study to examine how structural <lb/>racism contributes to inequities in abortion care before and after Dobbs. The patient&apos;s primary <lb/>payment method was categorized by the clinic&apos;s financial staff as cash self-payment (no insurance <lb/>used and includes support from abortion funds), public insurance (Medicaid), or private insurance. <lb/>The primary outcomes of interest were type of abortion (medication and procedural), <lb/>gestational duration (in days), time to appointment (number of days from first contact with clinic <lb/>scheduling an appointment to receiving abortion care), and patient&apos;s state of residence (based on <lb/>self-reported zip code). We conceptualized time to appointment and gestational duration as proxies <lb/>for delays to care. Gestational duration was documented by clinic staff (in priority order) using <lb/>ultrasound or calculated using individual-reported last menstrual period and consultation date. We <lb/>performed additional data checks and cleaning for any gestational durations that were missing or <lb/>over 13 weeks. Nineteen within the sample (0.1%) had documented pregnancies of unknown <lb/>locations and 217 (1.2%) were missing gestational duration. These were included in the analyses of <lb/>overall counts but excluded from the gestational duration analyses (described later). <lb/>Statistical Analysis <lb/>We used standard frequency tabulation and summary statistics to report the distribution of <lb/>sociodemographic and clinical characteristics of the study population in the periods before Dobbs <lb/>(January 1, 2017, to June 23, 2022) and after Dobbs (June 24, 2022, to July 31, 2023). These pre-post <lb/>comparisons do not account for underlying trends over time, which is particularly important given <lb/>the national trends in increasing medication abortion use over the study period. 14 Therefore, we <lb/>conducted an interrupted time series (ITS) analysis to estimate changes in the outcomes of interest <lb/>after the Dobbs decision while controlling for the overall trend in the same outcomes over time. In <lb/>this study, the intervention date is the Dobbs Supreme Court decision on June 24, 2022. While <lb/>abortion access was immediately restricted in 12 states on the day of the Dobbs decision, other bans <lb/>or gestational limits were enacted in the following months. Therefore, for ease of interpretation, we <lb/>used the Dobbs decision date to mark the end of federal protections for abortion (eFigure 2 in <lb/>Supplement 1). <lb/>Anonymized patient-level data were aggregated into weekly counts of total number of <lb/>abortions (medication and procedural), average gestational duration (days), average time to <lb/>appointment (days), and total number of out-of-state patients. Segmented regression models were <lb/>used to estimate both a level change (immediate change comparing before and after Dobbs) and a <lb/>slope change for a sustained change in the outcomes of interest after Dobbs (eMethods in <lb/>Supplement 1). <lb/></body>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>3/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<body>We fit a segmented generalized least squares regression with Newey-West SEs to account for <lb/>autocorrelation and heteroskedasticity. 11,15 We included dummy variables (spring, summer, and fall) <lb/>to control for seasonality of abortions. 16 We assessed autocorrelation through visual inspection of <lb/>complete and partial autocorrelation function plots and calculation of the Durbin-Watson <lb/>statistic. 11,17,18 Following best practices, 19 we plotted the observed and expected temporal trends in <lb/>the outcomes of interest, which were derived from the segmented regression models. To assess any <lb/>differential changes associated with Dobbs on racialized groups and states of residence, we <lb/>conducted exploratory analyses stratifying by race and ethnicity and by state of residence (out of <lb/>Washington vs in Washington). For the race-stratified analysis, we combined Asian and Native <lb/>Hawaiian or Pacific Islander and only included racialized groups that accounted for greater than 10% <lb/>of the population for adequate sample sizes. Analyses were conducted in R Version 4.3.0 (R Project <lb/>for Statistical Computing). Statistical tests were 2 sided and used P &lt; .05 to indicate statistical <lb/>significance. <lb/>Results <lb/>A total of 18 379 abortions occurred during the study period, of which 3378 occurred after Dobbs <lb/>(June 24, 2022, to July 31, 2023). The mean (SD) age of individuals receiving abortion care was 28.5 <lb/>(6.44) years. Most were procedural abortions (13 192 abortions [72%]) compared with medication. <lb/>A total of 2457 abortions (13%) were among Asian people, 4184 (23%) were among Black people, <lb/>2583 (14%) were among Hispanic/Latina people, and 5718 (31%) were among White people (Table 1; <lb/>eFigure 1 in Supplement 1). Over half of individuals receiving abortion care had 1 or more children <lb/>(11 253 individuals [61%]) and used public insurance (11 412 individuals [62%]). Most self-reported <lb/>English as their primary language (16 980 individuals [92%]). <lb/>ITS models showed the Dobbs decision was associated with increases in the weekly number of <lb/>procedural abortions, average gestational duration of procedural abortions, and number of patients <lb/>from out of state (Table 2, Figure 1, and Figure 2). The total weekly number of procedural abortions <lb/>increased by 6.35 (95% CI, 2.83 to 9.86) following Dobbs. The weekly trend in number of procedural <lb/>abortions decreased slightly after Dobbs (-0.12; 95% CI, -0.19 to -0.05) toward the level before <lb/>Dobbs. There were no changes in the weekly number of medication abortions. The overall weekly <lb/>average gestational duration increased by 6.9 days (95% CI, 3.6 to 10.2 days) following the Dobbs <lb/>decision. The model-based average gestational duration before Dobbs was around 9 weeks and 4 <lb/>days (67 days; 95% CI, 66 to 68 days) and after Dobbs was around 10 weeks and 4 days (74 days; <lb/>95% CI, 71 to 77 days). This overall increase was due to increases in the average gestational duration <lb/>of procedural abortions (8.1 days; 95% CI, 3.6 to 12.6 days) and not medication abortions. The post-<lb/>Dobbs weekly trend in average gestational duration was stable. There were no significant changes in <lb/>the time to appointment following Dobbs. The weekly number of out-of-state patients increased by <lb/>2 (95% CI, 1.1 to 3.6) following Dobbs. <lb/>In stratified ITS analyses, the largest increases in the average gestational duration following <lb/>Dobbs were among Latina (8.1 days; 95% CI, 0.7 to 15.5 days), White (7.9 days; 95% CI, 3.0 to 13.0 <lb/>days), and Black (4.7 days; 95% CI, 1.0 to 8.4 days) individuals (Table 3). There was an increase in <lb/>average gestational duration among Asian individuals following the Dobbs decision but it was not <lb/>significant (5.9 days; 95% CI, -0.9 to 12.6 days). While there were no significant changes in time to <lb/>appointment among the entire population, stratified analyses revealed an increased time to <lb/>appointment following Dobbs among Black (1.6 days; 95% CI, 0.3 to 2.9 days) and White (1.5 days; <lb/>95% CI, 0.3 to 2.6 days) people obtaining care. <lb/>Around 4% of abortions (559 abortions) were among people living outside of Washington <lb/>before Dobbs and increased to 6% (196 abortions) after Dobbs. A higher proportion of out-of-state <lb/>patients compared with in-state were Indigenous and White (and less so Asian, Black, and Hispanic), <lb/>obtained procedural compared with medication abortions, self-paid for their abortion, sought care <lb/>due to a fetal indication (eg, genetic abnormalities), and had a higher gestational duration compared <lb/></body>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>4/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<body>with in-state patients (eTable 1 in Supplement 1). The proportion of out-of-state patients who <lb/>identified as Indigenous decreased substantially after Dobbs (from 120 [22%] to 15 [8%]). <lb/>Conversely, the proportion of Black (from 43 [8%] to 42 [21%]) and Latina (from 45 [8%] to 32 <lb/>[16%]) patients from out of state increased. Out-of-state patients receiving abortion care at less than <lb/>14 weeks increased by 54% and paying out of pocket increased by 67% after Dobbs, and there were <lb/>minimal changes among in-state patients across time periods. The average gestational duration <lb/>Table 1. Characteristics of People Receiving Abortion Care at Clinic Network in Washington State, <lb/>Before Dobbs v Jackson Women&apos;s Health Organization (Dobbs) (January 1, 2017, to June 23, 2022) <lb/>and After Dobbs (June 24, 2022, to July 31, 2023) <lb/>Characteristics <lb/>Individuals, No. (%) <lb/>Before Dobbs <lb/>(n = 15 001) <lb/>After Dobbs <lb/>(n = 3378) <lb/>Total <lb/>(N = 18 379) <lb/>Age, mean (SD), y <lb/>28.5 (6.41) <lb/>28.8 (6.58) <lb/>28.5 (6.44) <lb/>Race and ethnicity <lb/>American Indian or Alaskan Native <lb/>379 (2.5) <lb/>67 (2.0) <lb/>446 (2.4) <lb/>Asian <lb/>2023 (13.5) <lb/>434 (12.8) <lb/>2457 (13.4) <lb/>Black <lb/>3460 (23.1) <lb/>724 (21.4) <lb/>4184 (22.8) <lb/>Hispanic/Latina <lb/>2011 (13.4) <lb/>572 (16.9) <lb/>2583 (14.1) <lb/>Native Hawaiian or Pacific Islander <lb/>314 (2.1) <lb/>60 (1.8) <lb/>374 (2.0) <lb/>White <lb/>4731 (31.5) <lb/>987 (29.2) <lb/>5718 (31.1) <lb/>Multiracial or other <lb/>671 (4.5) <lb/>340 (10.1) <lb/>1011 (5.5) <lb/>Declined to provide or missing <lb/>1412 (9.4) <lb/>194 (5.7) <lb/>1606 (8.7) <lb/>Self-reported primary language <lb/>English <lb/>13 867 (92.4) <lb/>3113 (92.2) <lb/>16 980 (92.4) <lb/>Spanish <lb/>425 (2.8) <lb/>134 (4.0) <lb/>559 (3.0) <lb/>Other <lb/>709 (4.7) <lb/>131 (3.9) <lb/>840 (4.6) <lb/>Out of state <lb/>559 (3.7) <lb/>196 (5.8) <lb/>755 (4.1) <lb/>No. of children <lb/>0 <lb/>5471 (36.5) <lb/>1318 (39.0) <lb/>6789 (36.9) <lb/>1 <lb/>3757 (25.0) <lb/>802 (23.7) <lb/>4559 (24.8) <lb/>≥2 <lb/>5492 (36.6) <lb/>1202 (35.6) <lb/>6694 (36.4) <lb/>Missing <lb/>281 (1.9) <lb/>56 (1.7) <lb/>337 (1.8) <lb/>Primary payer <lb/>Self-pay <lb/>2721 (18.1) <lb/>703 (20.8) <lb/>3424 (18.6) <lb/>Public insurance <lb/>9425 (62.8) <lb/>1987 (58.8) <lb/>11 412 (62.1) <lb/>Private insurance <lb/>2855 (19.0) <lb/>688 (20.4) <lb/>3543 (19.3) <lb/>Type of abortion <lb/>Medication abortion <lb/>3790 (25.3) <lb/>1397 (41.4) <lb/>5187 (28.2) <lb/>Procedural abortion <lb/>11 211 (74.7) <lb/>1981 (58.6) <lb/>13 192 (71.8) <lb/>Fetal indication a <lb/>521 (3.5) <lb/>206 (6.1) <lb/>727 (4.0) <lb/>Estimated gestational duration, mean (SD), wks and d <lb/>68.3 (36.8) <lb/>68.0 (36.4) <lb/>68.2 (36.7) <lb/>≤5wk 6d <lb/>2959 (19.7) <lb/>693 (20.5) <lb/>3652 (19.9) <lb/>6wk 0d-6wk 6d <lb/>3516 (23.4) <lb/>729 (21.6) <lb/>4245 (23.1) <lb/>7wk 0d-7wk 6d <lb/>1501 (10.0) <lb/>360 (10.7) <lb/>1861 (10.1) <lb/>8wk 0d-8wk 6d <lb/>1149 (7.7) <lb/>295 (8.7) <lb/>1444 (7.9) <lb/>9wk 0d-9wk 6d <lb/>857 (5.7) <lb/>196 (5.8) <lb/>1053 (5.7) <lb/>10wk 0d-13wk 6d <lb/>1895 (12.6) <lb/>465 (13.8) <lb/>2360 (12.8) <lb/>14wk 0d-17wk 6d <lb/>1308 (8.7) <lb/>294 (8.7) <lb/>1602 (8.7) <lb/>18wk 0d-21wk 6d <lb/>953 (6.4) <lb/>159 (4.7) <lb/>1112 (6.1) <lb/>22wk 0d-23wk 6d <lb/>301 (2.0) <lb/>65 (1.9) <lb/>366 (2.0) <lb/>≥24wk 0d <lb/>356 (2.4) <lb/>92 (2.7) <lb/>448 (2.4) <lb/>Missing <lb/>206 (1.4) <lb/>30 (0.9) <lb/>236 (1.3) <lb/>Time to appointment, mean (SD), d <lb/>6.09 (7.19) <lb/>6.27 (7.62) <lb/>6.12 (7.28) <lb/>a Includes fetal anomalies, genetic abnormalities, <lb/>previable preterm premature rupture of membranes, <lb/>and pregnancy loss. <lb/></body>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>5/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<body>among out-of-state patients increased but was not statistically significant (5.1 days; 95% CI, -6.1 to <lb/>16.3 days) following the Dobbs decision, but it did significantly increase by 6 days for in-state patients <lb/>(5.9 days; 95% CI, 3.2 to 8.6 days) (Table 3). We found no changes in time to appointment for either <lb/>in-state or out-of-state patients. <lb/>Discussion <lb/>Our study finds evidence of increases in procedural abortions and gestational duration among people <lb/>receiving abortion services at a large abortion clinic network in Washington. Following the Dobbs <lb/>decision, there were around 6 more procedural abortions per week on average, which were generally <lb/>8 days later in gestation, and 2 more out-of-state patients compared with the period before Dobbs. <lb/>This aligns with other studies showing increases in the number of facility-based abortions in <lb/>Washington, 1,3 increases in individuals traveling out of state for care, 2 and increased gestational <lb/>duration after Dobbs. 20 While most published studies have reported aggregated numbers, this study <lb/>leverages a unique individual-level clinical and administrative dataset with a rigorous study design <lb/>to present a more detailed picture of the changes in abortion provision and delays in a large clinic <lb/>network. These findings also affirm the emerging evidence that the post-Dobbs increase in abortions <lb/>in legal states is not just due to out-of-state patients but that more people living within legal states <lb/>are obtaining abortions, potentially because a previously unmet need for abortion is now being met <lb/>with increased resources for and attention on abortion after Dobbs that may impact people&apos;s <lb/>abortion decision-making (eTable 2 in Supplement 1). 1 <lb/>Our findings also provide new information about delays to care after Dobbs. While there were <lb/>no changes in the time from first scheduling an appointment to receiving the abortion, we did find <lb/>that people, primarily those living in Washington, obtained abortions almost a week later in gestation <lb/>after Dobbs. Together, these findings suggest that people are seeking care later due to factors that <lb/>are external to the clinic. There are numerous factors that could contribute to seeking care later in <lb/>pregnancy, including delays in suspecting pregnancy, difficulty in deciding to terminate, primigravity, <lb/>finding an abortion clinician, sorting out insurance coverage, and making financial and logistical <lb/>arrangements. 21-25 It is also possible that individuals first sought care at other clinics that had limited <lb/>availability or longer wait times, resulting in obtaining care at this clinic network later in gestation. <lb/>The Dobbs decision could have exacerbated these barriers, as well as added more confusion and <lb/>uncertainty about the legality of abortion and where to seek care, leading to further delays. 26 While <lb/>the average increase from around 9 to 10 weeks could push people near or beyond eligibility for <lb/>medication abortion, studies have found that any delay increases the risk of complications 27 and can <lb/>Table 2. Level and Trend Changes From Interrupted Time Series Models Before and After the Dobbs v Jackson <lb/>Women&apos;s Health Organization (Dobbs) Decision, January 1, 2017, to July 31, 2023 <lb/>Level change after Dobbs <lb/>Weekly trend after Dobbs <lb/>β (95% CI) <lb/>P value <lb/>β (95% CI) <lb/>P value <lb/>No. of abortions <lb/>Total <lb/>5.67 (-0.07 to 11.42) <lb/>.05 <lb/>-0.17 (-0.31 to -0.03) <lb/>.02 <lb/>Medication abortions <lb/>-0.67 (-3.67 to 2.33) <lb/>.66 <lb/>-0.05 (-0.13 to 0.03) <lb/>.21 <lb/>Procedural abortions <lb/>6.35 (2.83 to 9.86) <lb/>&lt;.001 <lb/>-0.12 (-0.19 to -0.05) <lb/>.001 <lb/>Delays to care, d <lb/>Average gestational duration (total) <lb/>6.92 (3.61 to 10.23) <lb/>&lt;.001 <lb/>-0.02 (-0.1 to 0.06) <lb/>.58 <lb/>Average gestational duration for <lb/>medication abortion <lb/>0.54 (-0.98 to 2.05) <lb/>.49 <lb/>0 (-0.04 to 0.05) <lb/>.93 <lb/>Average gestational duration for <lb/>procedural abortion <lb/>8.11 (3.58 to 12.64) <lb/>&lt;.001 <lb/>-0.02 (-0.12 to 0.07) <lb/>.64 <lb/>Time to appointment <lb/>1.03 (-0.08 to 2.13) <lb/>.07 <lb/>-0.02 (-0.06 to 0.02) <lb/>.40 <lb/>No. of out of state patients <lb/>2.33 (1.1 to 3.56) <lb/>&lt;.001 <lb/>-0.01 (-0.04 to 0.02) <lb/>.43 <lb/></body>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>6/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<body>Figure 1. Changes in Weekly Number of Abortions and Out-of-State Patients Before and After the <lb/>Dobbs v Jackson Women&apos;s Health Organization Decision, January 1, 2017, to July 31, 2023 <lb/>70 <lb/>80 <lb/>90 <lb/>60 <lb/>50 <lb/>40 <lb/>30 <lb/>20 <lb/>Weekly total No. of abortions <lb/>2017 <lb/>Month and year <lb/>Total abortions <lb/></body>
+
+			<front>A <lb/>Mar Sep <lb/>Dobbs <lb/>2018 <lb/>Mar Sep <lb/>2019 <lb/>Mar Sep <lb/>2020 <lb/>Mar Sep <lb/>2021 <lb/>Mar Sep <lb/>2022 <lb/>Mar Sep <lb/>2023 <lb/>Mar Sep <lb/>80 <lb/>60 <lb/>40 <lb/>0 <lb/>20 <lb/>Weekly total No. of procedural abortions <lb/>2017 <lb/>Month and year <lb/>Procedural abortions <lb/>B <lb/>Mar Sep <lb/>Dobbs <lb/>2018 <lb/>Mar Sep <lb/>2019 <lb/>Mar Sep <lb/>2020 <lb/>Mar Sep <lb/>2021 <lb/>Mar Sep <lb/>2022 <lb/>Mar Sep <lb/>2023 <lb/>Mar Sep <lb/>30 <lb/>40 <lb/>20 <lb/>10 <lb/>0 <lb/>Weekly No. of medication abortions <lb/>2017 <lb/>Month and year <lb/>Medication abortions <lb/>C <lb/>Mar Sep <lb/>Dobbs <lb/>2018 <lb/>Mar Sep <lb/>2019 <lb/>Mar Sep <lb/>2020 <lb/>Mar Sep <lb/>2021 <lb/>Mar Sep <lb/>2022 <lb/>Mar Sep <lb/>2023 <lb/>Mar Sep <lb/>7.5 <lb/>10.0 <lb/>5.0 <lb/>2.5 <lb/>0 <lb/>Weekly No. of out-of-state patients <lb/>2017 <lb/>Month and year <lb/>Out-of-state patients <lb/>D <lb/>Mar Sep <lb/>Dobbs <lb/>2018 <lb/>Mar Sep <lb/>2019 <lb/>Mar Sep <lb/>2020 <lb/>Mar Sep <lb/>2021 <lb/>Mar Sep <lb/>2022 <lb/>Mar Sep <lb/>2023 <lb/>Mar Sep <lb/>Vertical orange line indicates the Supreme Court Dobbs v Jackson Women&apos;s Health Organization decision (June 24, 2022). The blue line indicates deseasonalized trends, the black line indicates estimated seasonality, the dotted line <lb/>indicates the counterfactual, and the dots indicate the outcome (eg, weekly number of abortions). <lb/></front>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>7/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<body>Figure 2. Changes in Delays to Care Before and After the <lb/>Dobbs v Jackson Women&apos;s Health Organization (Dobbs) Decision, January 1, 2017, to July 31, 2023 <lb/>100 <lb/>80 <lb/>60 <lb/>40 <lb/>Gestational duration, d <lb/>2017 <lb/>Month and year <lb/>Weekly average gestational duration <lb/>A <lb/>Mar <lb/>Sep <lb/>Dobbs <lb/>2018 <lb/>Mar <lb/>Sep <lb/>2019 <lb/>Mar <lb/>Sep <lb/>2020 <lb/>Mar <lb/>Sep <lb/>2021 <lb/>Mar <lb/>Sep <lb/>2022 <lb/>Mar <lb/>Sep <lb/>2023 <lb/>Mar <lb/>Sep <lb/>70 <lb/>60 <lb/>50 <lb/>40 <lb/>30 <lb/>Gestational duration of medication abortions, d <lb/>2017 <lb/>Month and year <lb/>Gestational duration of medication abortions <lb/>B <lb/>Mar <lb/>Sep <lb/>Dobbs <lb/>2018 <lb/>Mar <lb/>Sep <lb/>2019 <lb/>Mar <lb/>Sep <lb/>2020 <lb/>Mar <lb/>Sep <lb/>2021 <lb/>Mar <lb/>Sep <lb/>2022 <lb/>Mar <lb/>Sep <lb/>2023 <lb/>Mar <lb/>Sep <lb/>100 <lb/>90 <lb/>80 <lb/>50 <lb/>60 <lb/>70 <lb/>Gestational duration of procedural abortions, d <lb/>2017 <lb/>Month and year <lb/>Gestational duration of procedural abortions <lb/>C <lb/>Mar <lb/>Sep <lb/>Dobbs <lb/>2018 <lb/>Mar <lb/>Sep <lb/>2019 <lb/>Mar <lb/>Sep <lb/>2020 <lb/>Mar <lb/>Sep <lb/>2021 <lb/>Mar <lb/>Sep <lb/>2022 <lb/>Mar <lb/>Sep <lb/>2023 <lb/>Mar <lb/>Sep <lb/>15 <lb/>10 <lb/>5 <lb/>0 <lb/>Time to appointment, d <lb/>2017 <lb/>Month and year <lb/>Time to appointment <lb/>D <lb/>Mar <lb/>Sep <lb/>Dobbs <lb/>2018 <lb/>Mar <lb/>Sep <lb/>2019 <lb/>Mar <lb/>Sep <lb/>2020 <lb/>Mar <lb/>Sep <lb/>2021 <lb/>Mar <lb/>Sep <lb/>2022 <lb/>Mar <lb/>Sep <lb/>2023 <lb/>Mar <lb/>Sep <lb/>Vertical orange line indicates the Supreme Court Dobbs decision (June 24, 2022). <lb/>A, Trend line includes all abortions (medication and procedural), which is therefore impacted by the increasing trends in medication abortion (which occur at earlier gestations) pre-Dobbs (see Figure 1C). B And C, gestational duration <lb/>among just medication abortions (2B) and procedural abortions (2C) which shows changes in gestational duration while holding constant the type of abortion. The blue line indicates deseasonalized trends, the black line indicates <lb/>estimated seasonality, the dotted line indicates the counterfactual, and the dots indicate the outcome (eg, weekly number of abortions). <lb/></body>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>8/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<body>have negative impacts on psychological well-being. 28 Thus, this potential early trend is concerning <lb/>given the economic and health implications of later abortion care. 29,30 <lb/>We also generated new insights into the sociodemographic shifts in abortion access after <lb/>Dobbs. The most substantial changes were among out-of-state patients with proportional increases <lb/>in Black and Hispanic patients, decreases in Indigenous patients, and increases in self-payment, <lb/>which could be due to increased abortion fund support as documented in other studies. 2 Conversely, <lb/>a consistent proportion of out-of-state patients sought care for fetal anomalies or abnormal <lb/>pregnancies both before and after Dobbs, suggesting this clinic network has long been an important <lb/>resource for those seeking care for this reason, which typically occurs at later gestations when <lb/>abortion is restricted in other states. Regarding delays, we found increases across racialized groups <lb/>but differing magnitude and statistical significance. While 1 previous study 31 documented potential <lb/>delayed recognition of pregnancy due to increased menstrual irregularities among Latina women, <lb/>which could contribute to seeking care at later gestations, we were unable to explore the <lb/>mechanisms of these differential delays. Importantly, these findings by racialized groups reflect <lb/>structural inequities, rather than individual behavior or biology, and future research should address <lb/>these underlying mechanisms. 6 We urge cautious interpretation of these exploratory findings and <lb/>encourage future research to address the sociopolitical factors that influence inequitable access and <lb/>experiences with abortion care. <lb/>As clinicians and policymakers in Washington and elsewhere adapt to the new legal landscape <lb/>and aim to provide supportive and prompt access to abortion care for all, these findings point to <lb/>important policy and practice recommendations. First, this early trend of an approximate 1 week <lb/>increase in gestational duration after Dobbs is worrisome given the economic and health implications <lb/>of delayed care and later abortions. 24,27,28 Strengthening existing primary care and telehealth <lb/>accessibility, financial support, and referral systems within the state could address these delays by <lb/>expanding accessibility to earlier abortion care. Increased public education and awareness about <lb/>where and how to seek abortion care in Washington can also help reduce delays. Second, because <lb/>the majority of Washington counties have no abortion-providing facility (59%), which accounts for <lb/>10% of the state&apos;s female population, 32 expanding the number of abortion-providing facilities in <lb/>Table 3. Level and Trend Changes After Dobbs v Jackson Women&apos;s Health Organization (Dobbs) in Delays <lb/>to Care From Stratified Interrupted Time Series Models, by Patient&apos;s Self-Reported Race and Ethnicity <lb/>and State of Residence, January 1, 2017, to July 31, 2023 <lb/>Delays to care <lb/>Level change after Dobbs <lb/>Weekly trend after Dobbs <lb/>β (95% CI) <lb/>P value <lb/>β (95% CI) <lb/>P value <lb/>Average gestational duration, d <lb/>Race and ethnicity <lb/>Asian <lb/>5.89 (-0.85 to 12.63) <lb/>.08 <lb/>0 (-0.15 to 0.15) <lb/>.99 <lb/>Black <lb/>4.7 (1.02 to 8.37) <lb/>.01 <lb/>-0.02 (-0.11 to 0.07) <lb/>.65 <lb/>Hispanic/Latina <lb/>8.06 (0.67 to 15.46) <lb/>.03 <lb/>0.04 (-0.16 to 0.23) <lb/>.72 <lb/>White <lb/>7.94 (2.96 to 12.93) <lb/>.002 <lb/>0.02 (-0.14 to 0.17) <lb/>.84 <lb/>Residence <lb/>Out of state <lb/>5.06 (-6.13 to 16.25) <lb/>.38 <lb/>0.04 (-0.33 to 0.4) <lb/>.83 <lb/>In state <lb/>5.92 (3.21 to 8.63) <lb/>&lt;.001 <lb/>-0.03 (-0.11 to 0.05) <lb/>.40 <lb/>Time to appointment, d <lb/>Race and ethnicity <lb/>Asian <lb/>0.79 (-0.43 to 2.01) <lb/>.21 <lb/>-0.02 (-0.05 to 0.02) <lb/>.26 <lb/>Black <lb/>1.6 (0.28 to 2.91) <lb/>.02 <lb/>-0.02 (-0.05 to 0.02) <lb/>.38 <lb/>Hispanic/Latina <lb/>0.71 (-1.22 to 2.64) <lb/>.47 <lb/>-0.02 (-0.09 to 0.04) <lb/>.44 <lb/>White <lb/>1.45 (0.34 to 2.55) <lb/>.01 <lb/>-0.02 (-0.06 to 0.02) <lb/>.35 <lb/>Residence <lb/>Out of state <lb/>2.71 (-0.6 to 6.03) <lb/>.11 <lb/>-0.02 (-0.11 to 0.07) <lb/>.67 <lb/>In state <lb/>0.96 (-0.12 to 2.04) <lb/>.08 <lb/>-0.02 (-0.06 to 0.02) <lb/>.36 <lb/></body>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>9/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<body>underserved areas of the state could also ameliorate delays. Lastly, while these findings are specific <lb/>to a clinic network in Washington, researchers in other protective states might find this ITS analytic <lb/>approach useful because it is an improvement over pre-post study designs that mask underlying <lb/>trends and can help develop policy solutions that respond to context-specific changes attributable to <lb/>the Dobbs decision. <lb/>Limitations <lb/>This study has important limitations. This clinic network may not be generalizable to other clinical <lb/>settings and the data do not include self-managed abortions; thus, these findings do not provide the <lb/>full picture of abortion access in Washington. The time to appointment was calculated starting from <lb/>each individual&apos;s first call to the clinic and we do not have any information on previous care-seeking <lb/>elsewhere. Additionally, using gestational duration as a proxy for delays to care is limited in capturing <lb/>all aspects of delayed abortion care (eg, does not include people who were delayed and never <lb/>received care). Zip codes were self-reported during appointment scheduling and confirmed at intake, <lb/>but it is possible out-of-state individuals used a Washington zip code, perhaps to avoid detection or <lb/>to obtain public insurance. If this is the case, the number of out-of-state patients would be <lb/>underestimated. We do not have data on individual income or class status, which would better <lb/>highlight economic disparities in abortion access and delays. Additionally, missingness on self-<lb/>reported race and ethnicity was around 9% which could bias the stratified racialized group analyses. <lb/>While ITS studies are only vulnerable to time-varying confounders and there were likely no <lb/>competing interventions at the same time as the Dobbs decision, there were no available data or an <lb/>appropriate control to minimize this potential confounding and thus there is the possibility of <lb/>residual unmeasured confounding. Additionally, this study only examined trends during the first 13 <lb/>months after the Dobbs decision, but abortion trends and the distribution of gestational duration <lb/>could have changed in subsequent months given the ongoing changes to the national abortion legal <lb/>and health care landscape. <lb/>Conclusions <lb/>This study provides novel evidence of the association between Dobbs and delays to care and <lb/>abortion provision in Washington, which borders a total-ban state (Idaho). The Dobbs decision was <lb/>associated with significant increases in the number of procedural abortions and out-of-state patients, <lb/>as well as an average week increase in gestational duration, among individuals receiving care at a <lb/>large clinic network. These findings provide a detailed picture of changes in abortion care that can <lb/>inform state policies and practices to improve access for all seeking abortion care. <lb/></body>
+
+			<front>ARTICLE INFORMATION <lb/>Accepted for Publication: March 24, 2024. <lb/>Published: May 29, 2024. doi:10.1001/jamanetworkopen.2024.13847 <lb/>Open Access: This is an open access article distributed under the terms of the CC-BY License. © 2024 Riley T <lb/>et al. JAMA Network Open. <lb/>Corresponding Author: Taylor Riley, PhD, MPH, Hans Rosling Center for Population Health, Department of <lb/>Epidemiology, University of Washington School of Public Health, 3980 15th Ave NE, Seattle, WA 98195 <lb/>(striley@uw.edu). <lb/>Author Affiliations: Department of Epidemiology, University of Washington, Seattle (Riley); Department of Family <lb/>Medicine, University of Washington, Seattle (Fiastro, Godfrey); Department of Obstetrics and Gynecology, <lb/>University of Washington, Seattle (Benson, Prager); Cedar River Clinics, Washington (Khattar). <lb/></front>
+    
+    <div type="contribution">Author Contributions: Dr Riley had full access to all of the data in the study and takes responsibility for the <lb/>integrity of the data and the accuracy of the data analysis. <lb/>Concept and design: Riley, Godfrey. <lb/></div>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>10/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<div type="contribution">Acquisition, analysis, or interpretation of data: Riley, Fiastro, Benson, Khattar, Prager. <lb/>Drafting of the manuscript: Riley, Fiastro. <lb/>Critical review of the manuscript for important intellectual content: Fiastro, Benson, Khattar, Prager, Godfrey. <lb/>Statistical analysis: Riley, Fiastro. <lb/>Obtained funding: Riley, Fiastro, Godfrey. <lb/>Administrative, technical, or material support: Fiastro, Prager, Godfrey. <lb/>Supervision: Godfrey. <lb/></div>
+
+			<div type="conflict">Conflict of Interest Disclosures: Dr Godfrey reported receiving personal fees from Organon Pharmaceuticals and <lb/>Paradigm Medical Communications outside the submitted work; and receiving travel reimbursement for <lb/>participation on Centers for Disease Control and Prevention Medical Eligibility Criteria Working Group in 2023. No <lb/>other disclosures were reported. <lb/></div>
+
+			<div type="funding">Funding/Support: The study was funded by the Population Health Initiative at the University of Washington. Part <lb/>of Dr Godfrey&apos;s time on this publication was funded by Society of Family Planning (grant No. SFPRF16-IAA4) during <lb/>the conduct of the study. <lb/>Role of the Funder/Sponsor: The funder had no role in the design and conduct of the study; collection, <lb/>management, analysis, and interpretation of the data; preparation, review, or approval of the manuscript; and <lb/>decision to submit the manuscript for publication. <lb/></div>
+
+			<div type="availability">Data Sharing Statement: See Supplement 2. <lb/></div>
+
+			<listBibl>REFERENCES <lb/>1. Society of Family Planning. #WeCount Report April 2022 to June 2023. 2023. Accessed October 30, 2023. https:// <lb/>societyfp.org/wp-content/uploads/2023/10/WeCountReport_10.16.23.pdf <lb/>2. Keefe-Oates B, Fulcher I, Fortin J, et al. Use of abortion services in massachusetts after the Dobbs decision <lb/>among in-state vs out-of-state residents. JAMA Netw Open. 2023;6(9):e2332400. doi:10.1001/jamanetworkopen. <lb/>2023.32400 <lb/>3. Guttmacher Institute. Monthly abortion provision study. 2023. Accessed October 19, 2023. https://www. <lb/>guttmacher.org/monthly-abortion-provision-study <lb/>4. Rader B, Upadhyay UD, Sehgal NKR, Reis BY, Brownstein JS, Hswen Y. Estimated travel time and spatial access <lb/>to abortion facilities in the US before and after the Dobbs v Jackson Women&apos;s Health Decision. JAMA. 2022;328 <lb/>(20):2041-2047. doi:10.1001/jama.2022.20424 <lb/>5. Kozhimannil KB, Hassan A, Hardeman RR. Abortion access as a racial justice issue. N Engl J Med. 2022;387(17): <lb/>1537-1539. doi:10.1056/NEJMp2209737 <lb/>6. Dehlendorf C, Harris LH, Weitz TA. Disparities in abortion rates: a public health approach. Am J Public Health. <lb/>2013;103(10):1772-1779. doi:10.2105/AJPH.2013.301339 <lb/>7. Dehlendorf C, Weitz T. Access to abortion services: a neglected health disparity. J Health Care Poor <lb/>Underserved. 2011;22(2):415-421. doi:10.1353/hpu.2011.0064 <lb/>8. Stevenson AJ. The pregnancy-related mortality impact of a total abortion ban in the United States: a research <lb/>note on increased deaths due to remaining pregnant. Demography. 2021;58(6):2019-2028. doi:10.1215/ <lb/>00703370-9585908 <lb/>9. Washington State Department of Health. Abortion. Accessed October 5, 2023. https://doh.wa.gov/you-and-your-<lb/>family/sexual-and-reproductive-health/abortion <lb/>10. Guttmacher Institute. Interactive map: US abortion policies and access after Roe. Accessed October 5, 2023. <lb/>https://states.guttmacher.org/policies/ <lb/>11. Bernal JL, Cummins S, Gasparrini A. Interrupted time series regression for the evaluation of public health <lb/>interventions: a tutorial. Int J Epidemiol. 2017;46(1):348-355. doi:10.1093/ije/dyw098 <lb/>12. Washington State Department of Health. Pregnancy and abortion dashboard. Accessed October 23, 2023. https:// <lb/>doh.wa.gov/data-statistical-reports/washington-tracking-network-wtn/pregnancy-and-abortion/county-<lb/>dashboard <lb/>13. Lett E, Asabor E, Beltrán S, Cannon AM, Arah OA. Conceptualizing, contextualizing, and operationalizing race <lb/>in quantitative health sciences research. Ann Fam Med. 2022;20(2):157-163. doi:10.1370/afm.2792 <lb/>14. Jones R, Nash E, Cross L, Philbin J, Kirstein M. Medication abortion now accounts for more than half of all US <lb/>abortions. Guttmacher Institute; 2022. Accessed May 8, 2024. https://www.guttmacher.org/article/2022/02/ <lb/>medication-abortion-now-accounts-more-half-all-us-abortions <lb/></listBibl>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>11/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 <lb/></note>
+
+			<listBibl>15. Newey WK, West KD. A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent <lb/>covariance matrix. Econometrica. 1987;55(3):703-708. doi:10.2307/1913610 <lb/>16. Franklin TE, Theisen G, Salyer CV, Pinkston C, Gunaratnam B. The seasonality of abortion in Kentucky. <lb/>Contraception. 2017;95(2):181-185. doi:10.1016/j.contraception.2016.08.019 <lb/>17. Wagner AK, Soumerai SB, Zhang F, Ross-Degnan D. Segmented regression analysis of interrupted time series <lb/>studies in medication use research. J Clin Pharm Ther. 2002;27(4):299-309. doi:10.1046/j.1365-2710.2002. <lb/>00430.x <lb/>18. Gebski V, Ellingson K, Edwards J, Jernigan J, Kleinbaum D. Modelling interrupted time series to evaluate <lb/>prevention and control of infection in healthcare. Epidemiol Infect. 2012;140(12):2131-2141. doi:10.1017/ <lb/>S0950268812000179 <lb/>19. Turner SL, Karahalios A, Forbes AB, et al. Creating effective interrupted time series graphs: review and <lb/>recommendations. Res Synth Methods. 2021;12(1):106-117. doi:10.1002/jrsm.1435 <lb/>20. Trevino J, Paul R, King E, Reeves J, Madden T. P035 -change in clinic volume and gestational age at time of <lb/>abortion in southern Illinois Before And After Dobbs v Jackson Women&apos;s Health Organization. Contraception. <lb/>2023;127:110202. doi:10.1016/j.contraception.2023.110202 <lb/>21. Foster DG, Jackson RA, Cosby K, Weitz TA, Darney PD, Drey EA. Predictors of delay in each step leading to an <lb/>abortion. Contraception. 2008;77(4):289-293. doi:10.1016/j.contraception.2007.10.010 <lb/>22. Jung C, Fiastro A, Cornell A, Steward R, Rible R, Gipson JD. Patient perspectives on barriers in obtaining timely <lb/>abortion care in Los Angeles, California. Contraception. 2023;117:50-54. doi:10.1016/j.contraception.2022.08.003 <lb/>23. Foster DG, Gould H, Biggs MA. Timing of pregnancy discovery among women seeking abortion. <lb/>Contraception. 2021;104(6):642-647. doi:10.1016/j.contraception.2021.07.110 <lb/>24. Upadhyay UD, Weitz TA, Jones RK, Barar RE, Foster DG. Denial of abortion because of provider gestational age <lb/>limits in the United States. Am J Public Health. 2014;104(9):1687-1694. doi:10.2105/AJPH.2013.301378 <lb/>25. Kiley JW, Yee LM, Niemi CM, Feinglass JM, Simon MA. Delays in request for pregnancy termination: <lb/>comparison of patients in the first and second trimesters. Contraception. 2010;81(5):446-451. doi:10.1016/j. <lb/>contraception.2009.12.021 <lb/>26. Aiken ARA, Starling JE, Scott JG, Gomperts R. Requests for self-managed medication abortion provided using <lb/>online telemedicine in 30 US states before and after the Dobbs v Jackson Women&apos;s Health Organization decision. <lb/>JAMA. 2022;328(17):1768-1770. doi:10.1001/jama.2022.18865 <lb/>27. Cates W Jr, Schulz KF, Grimes DA, Tyler CW Jr. 1. The effect of delay and method choice on the risk of abortion <lb/>morbidity. Fam Plann Perspect. 1977;9(6):266-268, 273. doi:10.2307/2134347 <lb/>28. Wasser O, Ralph L, Kaller S, Antonia Biggs M. Experiences of delay-causing obstacles and mental health at the <lb/>time of abortion seeking. Contracept X. Published online March 6, 2024. doi:10.1016/j.conx.2024.100105 <lb/>29. Upadhyay UD, Desai S, Zlidar V, et al. Incidence of emergency department visits and complications after <lb/>abortion. Obstet Gynecol. 2015;125(1):175-183. doi:10.1097/AOG.0000000000000603 <lb/>30. Roberts SCM, Gould H, Kimport K, Weitz TA, Foster DG. Out-of-pocket costs and insurance coverage for <lb/>abortion in the United States. Womens Health Issues. 2014;24(2):e211-e218. doi:10.1016/j.whi.2014.01.003 <lb/>31. Nobles J, Cannon L, Wilcox AJ. Menstrual irregularity as a biological limit to early pregnancy awareness. Proc <lb/>Natl Acad Sci U S A. 2022;119(1):e2113762118. doi:10.1073/pnas.2113762118 <lb/>32. Jones R, Witwer E, Jerman J. Abortion Incidence and Service Availability in the United States, 2017. Guttmacher <lb/>Institute; 2019. doi:10.1363/2019.30760 <lb/></listBibl>
+
+			<div type="annex">SUPPLEMENT 1. <lb/>eTable 1. Characteristics of Out-of-State and In-State Patients, Before and After Dobbs, January 1, 2017, to July 31, <lb/>2023 <lb/>eFigure 1. Total Number of Abortions, Stratified by Self-Reported Race and Ethnicity of Patient, January 1, 2017, to <lb/>July 31, 2023 <lb/>eTable 2. Level and Trend Changes From Interrupted Time Series Models Before and After Dobbs Decision, In-State <lb/>Washington Patients Only, January 1, 2017, to July 31, 2023 <lb/>eFigure 2. Weekly Total Number of Abortions With Key Dates Highlighted, January 1, 2017, to July 31, 2023 <lb/>eMethods. Analysis Details and R Script <lb/>SUPPLEMENT 2. <lb/>Data Sharing Statement <lb/></div>
+
+			<note place="headnote">JAMA Network Open | Obstetrics and Gynecology <lb/>Abortion Provision and Delays to Care in a Clinic Network in Washington State After Dobbs <lb/></note>
+
+			<note place="footnote">JAMA Network Open. 2024;7(5):e2413847. doi:10.1001/jamanetworkopen.2024.13847 (Reprinted) <lb/>May 29, 2024 <lb/></note>
+
+			<page>12/12 <lb/></page>
+
+			<note place="footnote">Downloaded from jamanetwork.com by guest on 09/08/2025 </note>
+
+
+	</text>
+
+
+  </TEI>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Department of Geography, Planning and Environment</orgName>,
+							<orgName type="institution">University of Concordia</orgName>,
+							<address>
+								<settlement>Montreal</settlement>,
+								<country>Canada,</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">World Wide Fund for Nature</orgName>,
+							<orgName type="department">Regional Office for Africa/Cameroon Country Program Office</orgName>,
+							<address>
+								<settlement>Yaounde<lb/> ´</settlement>,<lb/>
+								<country>Republic of Cameroon</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">Faculty of Environment and Natural Resource</orgName>,
+							<orgName type="institution">University of Freiburg</orgName>,
+							<address>
+								<settlement>Freiburg</settlement>,
+							<lb/>
+								<country>Germany</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">Institute for Forest and Wildlife Management</orgName>,
+							<orgName type="institution">Inland Norway University of Applied Sciences</orgName>,
+							<address>
+								<settlement>Koppang</settlement>,
+								<country>Norway</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">The Australian National<lb/> University</orgName>,
+							<address>
+								<addrLine>AUSTRALIA<lb/></addrLine>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

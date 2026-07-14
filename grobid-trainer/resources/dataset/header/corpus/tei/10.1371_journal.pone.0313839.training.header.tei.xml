@@ -1,0 +1,142 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-04T11:37:41.963Z">12/4/2025 11:37:41 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-04T11:37:25.157581Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-04T11:37:25.157581Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Detection of driver mutations and genomic<lb/> signatures in endometrial cancers using<lb/> artificial intelligence algorithms<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Anda Stan 1☯ , Korey Bosart 1☯ , Mehak Kaur 1☯ , Martin Vo 2 , Wilber Escorcia 2 , Ryan J. Yoder 3 ,<lb/> Renee A. BouleyID 3 *, Ruben C. PetreacaID 4,5 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Biology Program, The Ohio State University,</affiliation>
+	</byline>
+
+	<address>Marion, Ohio, United States of America,</address>
+
+	<byline>
+	<affiliation>2 Biology<lb/> Department, Xavier University,</affiliation>
+	</byline>
+
+	<address>Cincinnati, Ohio, United States of America,</address>
+
+	<byline>
+	<affiliation>3 Department of Chemistry and<lb/> Biochemistry, The Ohio State University,</affiliation>
+	</byline>
+
+	<address>Marion, Ohio, United States of America,</address>
+
+	<byline>
+	<affiliation>4 Department of Molecular<lb/> Genetics, The Ohio State University,</affiliation>
+	</byline>
+
+	<address>Marion, Ohio, United States of America,</address>
+
+	<byline>
+	<affiliation>5 James Comprehensive<lb/> Cancer Center, The Ohio State University Columbus,</affiliation>
+	</byline>
+
+	<address>Columbus, Ohio, United States of America<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> *
+	<email>bouley.8@osu.edu</email>
+
+	(RAB);
+	<email>petreaca.1@osu.edu</email>
+
+	(RCB) Abstract<lb/>
+	<div type="abstract">Analyzed endometrial cancer (EC) genomes have allowed for the identification of molecular<lb/> signatures, which enable the classification, and sometimes prognostication, of these can-<lb/>cers. Artificial intelligence algorithms have facilitated the partitioning of mutations into driver<lb/> and passenger based on a variety of parameters, including gene function and frequency of<lb/> mutation. Here, we undertook an evaluation of EC cancer genomes deposited on the Cata-<lb/>logue of Somatic Mutations in Cancers (COSMIC), with the goal to classify all mutations as<lb/> either driver or passenger. Our analysis showed that approximately 2.5% of all mutations are<lb/> driver and cause cellular transformation and immortalization. We also characterized nucleo-<lb/>tide level mutation signatures, gross chromosomal re-arrangements, and gene expression<lb/> profiles. We observed that endometrial cancers show distinct nucleotide substitution and<lb/> chromosomal re-arrangement signatures compared to other cancers. We also identified high<lb/> expression levels of the CLDN18 claudin gene, which is involved in growth, survival, metasta-<lb/>sis and proliferation. We then used in silico protein structure analysis to examine the effect of<lb/> certain previously uncharacterized driver mutations on protein structure. We found that cer-<lb/>tain mutations in CTNNB1 and TP53 increase protein stability, which may contribute to cellu-<lb/>lar transformation. While our analysis retrieved previously classified mutations and genomic<lb/> alterations, which is to be expected, this study also identified new signatures. Additionally,<lb/> we show that artificial intelligence algorithms can be effectively leveraged to accurately pre-<lb/>dict key drivers of cancer. This analysis will expand our understanding of ECs and improve<lb/> the molecular toolbox for classification, diagnosis, or potential treatment of these cancers.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0299114 February 26, 2024<lb/></reference>
+
+	<page>1 / 19<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Stan A, Bosart K, Kaur M, Vo M, Escorcia<lb/> W, Yoder RJ, et al. (2024) Detection of driver<lb/> mutations and genomic signatures in endometrial<lb/> cancers using artificial intelligence algorithms.<lb/> PLoS ONE 19(2): e0299114.</reference>
+
+	<idno>https://doi.org/<lb/> 10.1371/journal.pone.0299114<lb/></idno>
+
+	Editor:
+	<editor>Nandini Dey,</editor>
+
+	<byline>
+	<affiliation>Avera Research Institute,<lb/></affiliation>
+	</byline>
+
+	<address>UNITED STATES<lb/></address>
+
+	<note type="submission">Received: October 16, 2023<lb/> Accepted: February 5, 2024<lb/></note>
+
+	Published:
+	<date>February 26, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Stan et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All data can be found<lb/> at COSMIC: https://cancer.sanger.ac.uk/cosmic<lb/> cBioPortal: https://www.cbioportal.org/.<lb/></note>
+
+	Funding:
+	<note type="funding">Ohio State University Comprehensive<lb/> Cancer Center -Arthur G. James Cancer Hospital<lb/> and Richard J. Solove Research Institute. There is<lb/> no grant number.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

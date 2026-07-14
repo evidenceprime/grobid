@@ -1,0 +1,149 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-01T14:17:44.814Z">12/1/2025 2:17:44 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-01T14:14:01.957565Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-01T14:14:01.957565Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Health system&apos;s availability and readiness of<lb/> health facilities for chronic non-<lb/>communicable diseases: Evidence from the<lb/> Ethiopian national surveys<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Atkure Defar 1,2 , Girum Taye Zeleke 1 , Della Berhanu 1,3 , Ephrem Tekle Lemango 4 ,<lb/> Abebe Bekele 1 , Kassahun Alemu 2 , Sibhatu Biadgilign ID 5 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Ethiopian Public Health Institute,</affiliation>
+	</byline>
+
+	<address>Addis Ababa, Ethiopia,</address>
+
+	<byline>
+	<affiliation>2 College of Medicine and Health Science,<lb/> Institute of Public Health, Department of Epidemiology and Biostatistics, University of Gondar,</affiliation>
+	</byline>
+
+	<address>Gondar,<lb/> Ethiopia,</address>
+
+	<byline>
+	<affiliation>3 London School of Hygiene &amp; Tropical Medicine</affiliation>
+	</byline>,
+
+	<address>London, United Kingdom,</address>
+
+			
+	<byline>
+	<affiliation>4 Maternal, Child<lb/> Health and Nutrition Directorate, Ministry of Health,</affiliation>
+	</byline>
+
+	<address>Addis Ababa, Ethiopia,</address>
+
+	<byline>
+	<affiliation>5 Independent Public Health<lb/> Analyst and Research Consultant,</affiliation>
+	</byline>
+
+	<address>Addis Ababa, Ethiopia<lb/></address>
+
+	*
+	<email>sibhatu2010@gmail.com</email>
+
+	Abstract
+	<div type="abstract">Introduction<lb/> Non-communicable diseases (NCDs) currently cause more deaths than all other causes of<lb/> deaths. Cardiovascular disease, diabetes, cancer, and chronic respiratory diseases-<lb/>threaten the health and economies of individuals and populations worldwide. This study<lb/> aimed to assess the availability and readiness of health facilities for chronic non-communi-<lb/>cable diseases (NCDs) and describe the changes of service availability for common NCDs<lb/> in Ethiopia.<lb/> Methods<lb/> We used data from the 2014 Ethiopia Service Provision Assessment Plus (ESPA +) and<lb/> 2016 and 2018 Service Availability and Readiness Assessment (SARA) surveys, which<lb/> were cross-sectional health facility-based studies. A total of 873 health facilities in 2014, 547<lb/> in 2016, 632 in 2018 were included in the analysis. (ESPA+) and SARA surveys are con-<lb/>ducted as a census or a nationally/sub-nationally representative sample of health facilities.<lb/> Proportion of facilities that offered the service for diabetes, cardiovascular disease, chronic<lb/> respiratory disease, cancer diseases, mental illness, and chronic renal diseases was calcu-<lb/>lated to measure health service availability. The health facility service readiness was mea-<lb/>sured using the mean availably of tracer items that are required to offer the service. Thus,<lb/> 13 tracer items for diabetes disease, 12 for cardiovascular disease, 11 for chronic respira-<lb/>tory disease and 11 cervical cancer services were used. Results<lb/> The services available for diagnosis and management did not show improvement between<lb/> 2014, 2016 and 2018 for diabetes (59%, 22% and 36%); for cardiovascular diseases (73%,<lb/> 41% and 49%); chronic respiratory diseases (76%, 45% and 53%). Similarly, at the national<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+			
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0297622 February 23, 2024<lb/></reference>
+
+	<page>1 / 15<lb/></page>
+			
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Defar A, Zeleke GT, Berhanu D, Lemango<lb/> ET, Bekele A, Alemu K, et al. (2024) Health<lb/> system&apos;s availability and readiness of health<lb/> facilities for chronic non-communicable diseases:<lb/> Evidence from the Ethiopian national surveys.<lb/> PLoS ONE 19(2): e0297622.</reference>
+
+	<idno>https://doi.org/<lb/> 10.1371/journal.pone.0297622<lb/></idno>
+
+	Editor:
+	<editor>Charu C. Garg,</editor>
+
+	<byline>
+	<affiliation>Institute for Human<lb/> Development,</affiliation>
+	</byline>
+
+	<address>INDIA<lb/></address>
+
+	<note type="submission">Received: February 4, 2022<lb/> Accepted: January 9, 2024<lb/></note>
+
+	Published:
+	<date>February 23, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0297622<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Defar et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">The data belong to<lb/> the National Data Management Center (NDMC) at<lb/> the Ethiopian Public Health Institute (EPHI).<lb/></note>
+
+	<div type="abstract">level, the mean availability of tracer items between 2014, 2016 and 2018 for diabetes (37%,<lb/> 53% and 48%); cardiovascular diseases (36%, 41% and 42%); chronic respiratory diseases<lb/> (26%, 27% and 27%); and cancer diseases (6%, 72% and 51%). However, in 2014 survey<lb/> year, the mean availability of tracer items was 7% each for mental illness and chronic renal<lb/> diseases, respectively. Conclusions<lb/> The majority of the health facilities have low and gradual decrement in the availability to pro-<lb/>vide NCDs services in Ethiopia. There is a need to increase NCD service availability and<lb/> readiness at primary hospitals and health centers, and private and rural health facilities<lb/> where majority of the population need the services.<lb/></div>
+
+	<note type="availability">National health and health related data have their<lb/> own data governance system and shall be<lb/> managing under the national data sharing policy.<lb/> Anyone interested to use the data sets could<lb/> communicate to the Ethiopian Public Health<lb/> institute, National Data Management Centrer using<lb/> the following link: https://rtds.ephi.gov.et/public/<lb/> showdetail/94#step-1. The data can be accessed<lb/> using following URLs: ESPA+ 2014 (https://rtds.<lb/> ephi.gov.et/public/showdetail/76), SARA 2016<lb/> (https://rtds.ephi.gov.et/public/showdetail/93) and<lb/> SARA 2018 (https://rtds.ephi.gov.et/public/<lb/> showdetail/94).<lb/></note>
+
+	Funding:
+	<note type="funding">The authors received no specific funding<lb/> for this work.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

@@ -1,8 +1,19 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.data.util;
-
-import com.google.common.base.Splitter;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -12,6 +23,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.google.common.base.Splitter;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 public class EmailSanitizer {
     private static final Pattern DASHES_PATTERN = Pattern.compile("(%E2%80%90|%e2%80%90)");
@@ -73,17 +88,15 @@ public class EmailSanitizer {
             "office",
             "technolog",
             "compute",
-            "elsevier"
-    );
+            "elsevier");
 
-
-    private static final Pattern[] EMAIL_STRIP_PATTERNS = new Pattern[] {
+    private static final Pattern[] EMAIL_STRIP_PATTERNS = new Pattern[]{
             Pattern.compile("^(e\\-mail|email|e\\smail|mail):"),
             Pattern.compile("[\\r\\n\\t ]"), // newlines, tabs and spaces
             Pattern.compile("\\(.*\\)$"),
     };
 
-    private static final Pattern[] AT_SYMBOL_REPLACEMENTS = new Pattern[] {
+    private static final Pattern[] AT_SYMBOL_REPLACEMENTS = new Pattern[]{
             Pattern.compile("&#64;"),
             Pattern.compile("@\\."),
             Pattern.compile("\\.@"),
@@ -92,7 +105,6 @@ public class EmailSanitizer {
     private static final Pattern EMAIL_SPLITTER_PATTERN = Pattern.compile("(\\sor\\s|,|;|/)");
 
     private static final Pattern AT_SPLITTER = Pattern.compile("@");
-
 
     /**
      * @param addresses email addresses
@@ -109,54 +121,56 @@ public class EmailSanitizer {
 
             emailAddress = initialReplace(emailAddress);
 
-//            StringTokenizer st = new StringTokenizer(emailAddress, ", ");
-//            List<String> emails = new ArrayList<String>();
-//            while (st.hasMoreTokens()) {
-//                String token = st.nextToken();
-//                if (token.length() > 2) {
-//                    emails.add(token);
-//                }
-//            }
-//
-//            int i = 0;
-//            for (String token : emails) {
-//                if (!token.contains("@")) {
-//                    // the domain information is missing, we are taking the first one of the next tokens
-//                    String newToken = null;
-//                    int j = 0;
-//                    for (String token2 : emails) {
-//                        if (j <= i) {
-//                            j++;
-//                        } else {
-//                            int ind = token2.indexOf("@");
-//                            if (ind != -1) {
-//                                newToken = token + token2.substring(ind, token2.length());
-//                                break;
-//                            }
-//                            j++;
-//                        }
-//                    }
-//                    if (newToken != null) {
-//                        emails.set(i, newToken);
-//                    }
-//                }
-//                i++;
-//            }
-//
+            //            StringTokenizer st = new StringTokenizer(emailAddress, ", ");
+            //            List<String> emails = new ArrayList<String>();
+            //            while (st.hasMoreTokens()) {
+            //                String token = st.nextToken();
+            //                if (token.length() > 2) {
+            //                    emails.add(token);
+            //                }
+            //            }
+            //
+            //            int i = 0;
+            //            for (String token : emails) {
+            //                if (!token.contains("@")) {
+            //                    // the domain information is missing, we are taking the first one of the next tokens
+            //                    String newToken = null;
+            //                    int j = 0;
+            //                    for (String token2 : emails) {
+            //                        if (j <= i) {
+            //                            j++;
+            //                        } else {
+            //                            int ind = token2.indexOf("@");
+            //                            if (ind != -1) {
+            //                                newToken = token + token2.substring(ind, token2.length());
+            //                                break;
+            //                            }
+            //                            j++;
+            //                        }
+            //                    }
+            //                    if (newToken != null) {
+            //                        emails.set(i, newToken);
+            //                    }
+            //                }
+            //                i++;
+            //            }
+            //
 
-
-
-            List<String> splitEmails = Lists.newArrayList(Splitter.on(EMAIL_SPLITTER_PATTERN)
-                    .omitEmptyStrings()
-                    .split(emailAddress.toLowerCase()).iterator());
+            List<String> splitEmails = Lists.newArrayList(
+                    Splitter.on(EMAIL_SPLITTER_PATTERN)
+                            .omitEmptyStrings()
+                            .split(emailAddress.toLowerCase())
+                            .iterator());
 
             if (splitEmails.size() > 1) {
                 // Some emails are of the form jiglesia,cmt@ll.iac.es or jiglesia;cmt@ll.iac.es or bono/caputo/vittorio@mporzio.astro.it
-                List<String> atSeparatedStrings = Lists.newArrayList(Splitter.on(AT_SPLITTER)
-                        .omitEmptyStrings()
-                        .split(emailAddress.toLowerCase()).iterator());
+                List<String> atSeparatedStrings = Lists.newArrayList(
+                        Splitter.on(AT_SPLITTER)
+                                .omitEmptyStrings()
+                                .split(emailAddress.toLowerCase())
+                                .iterator());
                 if (atSeparatedStrings.size() == 2) {
-                    // Only the last email address has a domain, so append it to the rest of the splitted emails
+                    // Only the last email address has a domain, so append it to the rest of the split emails
                     int atIndex = splitEmails.get(splitEmails.size() - 1).indexOf('@');
                     String domain = splitEmails.get(splitEmails.size() - 1).substring(atIndex + 1);
                     for (int i = 0; i < splitEmails.size() - 1; i++) {
@@ -205,8 +219,9 @@ public class EmailSanitizer {
         email = email.replace("}", "");
         email = email.replace("(", "");
         email = email.replace(")", "").trim();
-        email = email.replaceAll("(E|e)lectronic(\\s)(A|a)ddress(\\:)?", "");
-        email = email.replaceAll("^(e|E)?(\\-)?mail(\\:)?(\\s)(A|a)ddress(\\:)?", "");
+        // Regex patterns may intentionally match OCR typos in source text
+        email = email.replaceAll("(E|e)lectronic(\\s)(A|a)ddress(\\:)?", "");  // codespell:ignore ddress
+        email = email.replaceAll("^(e|E)?(\\-)?mail(\\:)?(\\s)(A|a)ddress(\\:)?", "");  // codespell:ignore ddress
         email = email.replaceAll("^(e|E)?(\\-)?mail(\\:)?(\\s)?", "");
         // case: Peter Pan -peter.pan@email.org with asterisks and spaces
         email = email.replaceAll("^[A-Z][a-z]+\\s+[A-Z][a-z]+(\\*)?(\\s)*-(\\s)*", "");
@@ -234,7 +249,6 @@ public class EmailSanitizer {
         return orig;
     }
 
-
     private static String cleanEmail(String email) throws UnsupportedEncodingException {
         if (email == null) {
             return null;
@@ -260,6 +274,5 @@ public class EmailSanitizer {
         }
         return email;
     }
-
 
 }

@@ -1,15 +1,31 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.service.process;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import org.grobid.core.utilities.GrobidProperties;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.Status;
 import jakarta.ws.rs.core.UriInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.grobid.core.engines.tagging.TaggerFactory;
+import org.grobid.service.GrobidRestService;
 
 @Singleton
 public class GrobidRestProcessGeneric {
@@ -22,22 +38,18 @@ public class GrobidRestProcessGeneric {
     }
 
     /**
-     * Returns a string containing true, if the service is alive.
+     * Returns whether the service is alive and initialized.
      *
-     * @return a response object containing the string true if service
-     * is alive.
+     * @return a response object containing "true"/"false" with HTTP 200/503
      */
-    public String isAlive() {
+    public Response isAlive() {
         LOGGER.debug("called isAlive()...");
 
-        String retVal = null;
-        try {
-            retVal = Boolean.valueOf(true).toString();
-        } catch (Exception e) {
-            LOGGER.error("GROBID Service is not alive, because of: ", e);
-            retVal = Boolean.valueOf(false).toString();
+        if (GrobidRestService.isInitialized() && !TaggerFactory.hasFailures()) {
+            return Response.ok("true").type(MediaType.TEXT_PLAIN).build();
+        } else {
+            return Response.status(503).entity("false").type(MediaType.TEXT_PLAIN).build();
         }
-        return retVal;
     }
 
     /**
@@ -51,22 +63,17 @@ public class GrobidRestProcessGeneric {
 
         LOGGER.debug("called getDescription_html()...");
 
-        String htmlCode = "<h4>grobid-service documentation</h4>" +
-                "This service provides a RESTful interface for using the grobid system. grobid extracts data from pdf files. For more information see: " +
+        String htmlCode = "<h4>grobid-service documentation</h4>"
+                +
+                "This service provides a RESTful interface for using the grobid system. grobid extracts data from pdf files. For more information see: "
+                +
                 "<a href=\"http://grobid.readthedocs.org/\">http://grobid.readthedocs.org/</a>";
 
-        response = Response.status(Status.OK).entity(htmlCode)
-                .type(MediaType.TEXT_HTML).build();
+        response = Response.status(Status.OK)
+                .entity(htmlCode)
+                .type(MediaType.TEXT_HTML)
+                .build();
 
         return response;
-    }
-
-    /**
-     * Returns a string containing GROBID version.
-     *
-     * @return a response object containing version as string.
-     */
-    public Response getVersion() {
-        return Response.status(Status.OK).entity(GrobidProperties.getVersion()).build();
     }
 }

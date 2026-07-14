@@ -12,7 +12,7 @@ In large scale scientific document ingestion tasks, the large majority of docume
 
 To process publisher XML, complementary to GROBID, we built [Pub2TEI](https://github.com/kermitt2/Pub2TEI), a collection of style sheets developed over 11 years able to transform a variety of publisher XML formats to the same TEI XML format as produced by GROBID. This common format, which supersedes a dozen of publisher formats and many of their flavors, can centralize further any processing across PDF and heterogeneous XML sources without information loss, and support various applications (see __Fig. 1__). Similarly, LaTeX sources (typically all available arXiv sources) can be processed with our fork of [LaTeXML](https://github.com/kermitt2/LaTeXML) to produce a TEI representation compatible with GROBID and Pub2TEI output, without information loss from LaTeXML XML.
 
-The rest of this page gives an overview of the main GROBID design principles. Skip it if you are not interested in the technical details. Functionalities are described in the [User Manual](index.md). Recent benchmarking are available [here](Benchmarking.md).
+The rest of this page gives an overview of the main GROBID design principles. Skip it if you are not interested in the technical details. Functionalities are described in the [User Manual](index.md). Recent benchmarking are available [here](benchmarks/Benchmarking.md).
 
 ## Document parsing as a cascade of sequence labeling models
 
@@ -85,13 +85,13 @@ In practice, the size of GROBID training data is smaller than the ones of CERMIN
 
 As the training data is crafted for accuracy and coverage, training data is strongly biased by undersampling non-edge cases. Or to rephrase it maybe more clearly: the less "informative" training examples, which are the most common ones, are less represented in our training data. Because of this bias, our manually labeled data cannot be used for evaluation. Evaluations of GROBID models are thus done with separated and stable holdout sets from publishers, which follow more realistic distributions of document variations. 
 
-See the current evaluations with [PubMed Central holdout set](Benchmarking-pmc.md) (1,943 documents, 90,125 bibliographical references in 139,835 citation contexts), [bioarXiv holdout set](Benchmarking-biorxiv.md) (2,000 documents, 98,753 bibliographical references in 142,796 citation contexts), [eLife holdout set](Benchmarking-elife.md) (984 documents, 63,664 bibliographical references in 109,022 reference contexts) and [PLOS holdout set](Benchmarking-plos.md) (1,000 documents, 48,449 bibliographical references in 69,755 reference contexts). 
+See the current evaluations with [PubMed Central holdout set](benchmarks/Benchmarking-pmc.md) (1,943 documents, 90,125 bibliographical references in 139,835 citation contexts), [bioarXiv holdout set](benchmarks/Benchmarking-biorxiv.md) (2,000 documents, 98,753 bibliographical references in 142,796 citation contexts), [eLife holdout set](benchmarks/Benchmarking-elife.md) (984 documents, 63,664 bibliographical references in 109,022 reference contexts) and [PLOS holdout set](benchmarks/Benchmarking-plos.md) (1,000 documents, 48,449 bibliographical references in 69,755 reference contexts). 
 
 Our evaluation approach, however, raises two main issues: 
 
 - our publisher evaluation sets present currently the same lack of diversity drawback as discussed above with publisher XML-based training data, because the evaluation sets are all coming from life science or preprints. However, as compared to most of the similar works, we do not train and evaluate at the same time with the same domains and sources of publications, because we maintain a strong diversity in the training data. 
 
-- although much better adapted to tackle the gap between the n-fold validation and real performance, the usage of stable holdout sets (usually favored by ML practitioners) can lead to lower reliability over time due to successive re-uses of the holdout data for guiding design improvements (as we validate addition of training data and features based on holdout set performance). 
+- although much better adapted to tackle the gap between the n-fold validation and real performance, the usage of stable holdout sets (usually favored by ML practitioners) can lead to lower reliability over time due to successive reuses of the holdout data for guiding design improvements (as we validate addition of training data and features based on holdout set performance). 
 
 For addressing these two issues, we plan to regularly add new holdout sets from various sources over time, trying to exploit new XML publications available under appropriate license. 
 

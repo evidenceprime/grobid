@@ -1,19 +1,34 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer;
 
-import org.grobid.core.GrobidModels;
-import org.grobid.core.exceptions.GrobidException;
-import org.grobid.core.features.FeaturesVectorReferenceSegmenter;
-import org.grobid.trainer.sax.TEIReferenceSegmenterSaxParser;
-import org.grobid.core.utilities.GrobidProperties;
-import org.grobid.core.utilities.UnicodeUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import java.io.*;
 import java.util.List;
 import java.util.StringTokenizer;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.grobid.core.GrobidModels;
+import org.grobid.core.exceptions.GrobidException;
+import org.grobid.core.utilities.UnicodeUtil;
+import org.grobid.trainer.sax.TEIReferenceSegmenterSaxParser;
 
 public class ReferenceSegmenterTrainer extends AbstractTrainer {
     public static final Logger LOGGER = LoggerFactory.getLogger(ReferenceSegmenterTrainer.class);
@@ -39,12 +54,14 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
                 LOGGER.info("output path for evaluation data: " + evaluationOutputPath);
             }
 
-			File teiCorpusDir = new File(corpusDir.getAbsolutePath() + "/tei/");
-			if (!teiCorpusDir.exists()) {
-                throw new IllegalStateException("Folder " + corpusDir.getAbsolutePath() +
+            File teiCorpusDir = new File(corpusDir.getAbsolutePath() + "/tei/");
+            if (!teiCorpusDir.exists()) {
+                throw new IllegalStateException("Folder "
+                        + corpusDir.getAbsolutePath()
+                        +
                         " does not exist. Please have a look!");
-			}
-			
+            }
+
             // we convert the tei files into the usual CRF label format
             // we process all tei files in the output directory
             final File[] refFiles = teiCorpusDir.listFiles(new FilenameFilter() {
@@ -54,7 +71,9 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
             });
 
             if (refFiles == null) {
-                throw new IllegalStateException("Folder " + teiCorpusDir.getAbsolutePath() +
+                throw new IllegalStateException("Folder "
+                        + teiCorpusDir.getAbsolutePath()
+                        +
                         " does not seem to contain training data. Please check");
             }
 
@@ -76,19 +95,19 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
                 evaluationWriter = new OutputStreamWriter(evaluationOS, "UTF8");
             }
 
-			System.out.println("training data under: " + trainingOutputPath);
-			System.out.println("evaluation data under: " + evaluationOutputPath);
+            System.out.println("training data under: " + trainingOutputPath);
+            System.out.println("evaluation data under: " + evaluationOutputPath);
 
             // get a factory for SAX parser
             SAXParserFactory spf = SAXParserFactory.newInstance();
-//            List<List<OffsetPosition>> placesPositions;
+            //            List<List<OffsetPosition>> placesPositions;
 
             int n = 0;
             for (; n < refFiles.length; n++) {
                 final File teifile = refFiles[n];
                 final TEIReferenceSegmenterSaxParser saxParser = new TEIReferenceSegmenterSaxParser();
 
-				String name = teifile.getName();
+                String name = teifile.getName();
 
                 // get a new instance of parser
                 final SAXParser p = spf.newSAXParser();
@@ -99,25 +118,31 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
 
                 // we can now add the features
                 // we open the featured file
-				File rawCorpusDir = new File(corpusDir.getAbsolutePath() + "/raw/");
-				if (!rawCorpusDir.exists()) {
-	                throw new IllegalStateException("Folder " + rawCorpusDir.getAbsolutePath() +
-	                        " does not exist. Please have a look!");
-				}
-				
-				File theRawFile = new File(rawCorpusDir.getAbsolutePath() + File.separator + 
-					name.replace(".tei.xml", ""));
-				if (!theRawFile.exists()) {
-	                System.out.println("Raw file " + theRawFile +
-	                        " does not exist. Please have a look!");
-					continue;
-				}
-				
+                File rawCorpusDir = new File(corpusDir.getAbsolutePath() + "/raw/");
+                if (!rawCorpusDir.exists()) {
+                    throw new IllegalStateException("Folder "
+                            + rawCorpusDir.getAbsolutePath()
+                            +
+                            " does not exist. Please have a look!");
+                }
+
+                File theRawFile = new File(rawCorpusDir.getAbsolutePath() + File.separator +
+                        name.replace(".tei.xml", ""));
+                if (!theRawFile.exists()) {
+                    System.out.println(
+                            "Raw file "
+                                    + theRawFile
+                                    +
+                                    " does not exist. Please have a look!");
+                    continue;
+                }
+
                 int q = 0;
                 BufferedReader bis = new BufferedReader(
                         new InputStreamReader(new FileInputStream(
-                                rawCorpusDir.getAbsolutePath() + File.separator + 
-									name.replace(".tei.xml", "")), "UTF8"));
+                                rawCorpusDir.getAbsolutePath() + File.separator +
+                                        name.replace(".tei.xml", "")),
+                                "UTF8"));
 
                 StringBuilder referenceText = new StringBuilder();
 
@@ -128,7 +153,7 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
                     if (ii != -1) {
                         token = line.substring(0, ii);
                         // unicode normalisation of the token - it should not be necessary if the training data
-                        // has been gnerated by a recent version of grobid
+                        // has been generated by a recent version of grobid
                         token = UnicodeUtil.normaliseTextAndRemoveSpaces(token);
                     }
                     // we get the label in the labelled data file for the same token
@@ -138,14 +163,14 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
                         if (st.hasMoreTokens()) {
                             String localToken = st.nextToken();
                             // unicode normalisation of the token - it should not be necessary if the training data
-                            // has been gnerated by a recent version of grobid
+                            // has been generated by a recent version of grobid
                             localToken = UnicodeUtil.normaliseTextAndRemoveSpaces(localToken);
 
                             if (localToken.equals(token)) {
                                 String tag = st.nextToken();
                                 referenceText.append(line).append(" ").append(tag).append("\n");
-//                                lastTag = tag;
-//                                found = true;
+                                //                                lastTag = tag;
+                                //                                found = true;
                                 q = pp + 1;
                                 pp = q + 10;
                             }
@@ -169,8 +194,8 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
 
                 //String[] chunks = featureVector.split("\n\n");
 
-                //for (String chunk : chunks) 
-				{
+                //for (String chunk : chunks)
+                {
                     if ((trainingWriter == null) && (evaluationWriter != null))
                         evaluationWriter.write(referenceText.toString() + "\n \n");
                     if ((trainingWriter != null) && (evaluationWriter == null))
@@ -196,7 +221,8 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
             }
 
         } catch (Exception e) {
-            throw new GrobidException("An exception occurred while trainining/evaluating reference segmenter model.", e);
+            throw new GrobidException("An exception occurred while trainining/evaluating reference segmenter model.",
+                    e);
         }
         return totalExamples;
     }
@@ -205,12 +231,9 @@ public class ReferenceSegmenterTrainer extends AbstractTrainer {
      * Command line execution.
      *
      * @param args Command line arguments.
-     * @throws Exception 
+     * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-    	GrobidProperties.getInstance();
-        AbstractTrainer.runTraining(new ReferenceSegmenterTrainer());
-        System.out.println(AbstractTrainer.runEvaluation(new ReferenceSegmenterTrainer()));
-        System.exit(0);
+        AbstractTrainer.trainAndEvaluate(ReferenceSegmenterTrainer::new);
     }
 }

@@ -1,9 +1,24 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities;
 
 import java.util.*;
 
 /**
- * Distance and aligment of strings based on Levenshtein edit distances using the
+ * Distance and alignment of strings based on Levenshtein edit distances using the
  * standard <b>Dynamic Programming</b> algorithm. Standard Levenshtein distance is
  * implemented, i.e. without transpose!
  * <p/>
@@ -32,7 +47,9 @@ public class LevenshteinDistanceAligment<E> {
         compute();
     }
 
-    public enum Op {Start, Match, Insert, Delete, Substitute}
+    public enum Op {
+        Start, Match, Insert, Delete, Substitute
+    }
 
     private static class Diagonal<E> {
         /**
@@ -239,18 +256,17 @@ public class LevenshteinDistanceAligment<E> {
         LinkedList<Op> alignment = new LinkedList<Op>();
         int i = Math.min(a.length, b.length);
 
-        LOOP:
-        while (true) {
+        LOOP : while (true) {
             // adds operations in reverse order
             if (diag == null)
                 break LOOP;  //PL
             Op op = diag.getOp(i);
             switch (op) {
-                case Match:
-                case Substitute:
+                case Match :
+                case Substitute :
                     i--;
                     break;
-                case Insert:
+                case Insert :
                     if (diag.offset == 0) {
                         diag = diag.prev;
                         i--;
@@ -261,7 +277,7 @@ public class LevenshteinDistanceAligment<E> {
                         i--;
                     }
                     break;
-                case Delete:
+                case Delete :
                     if (diag.offset == 0) {
                         diag = diag.next;
                         i--;
@@ -272,7 +288,7 @@ public class LevenshteinDistanceAligment<E> {
                         diag = diag.prev;
                     }
                     break;
-                case Start:
+                case Start :
                     break LOOP;
             }
             alignment.add(op);
@@ -281,7 +297,7 @@ public class LevenshteinDistanceAligment<E> {
         Collections.reverse(alignment);
 
         if (twist) {
-            // we take the symetric of the current result, so simply replace substitute by delete and resp.
+            // we take the symmetric of the current result, so simply replace substitute by delete and resp.
             LinkedList<Op> alignment2 = new LinkedList<Op>();
             for (Op op : alignment) {
                 if (op == Op.Delete)
@@ -309,9 +325,8 @@ public class LevenshteinDistanceAligment<E> {
 
     public static void main(String[] args) {
         assert args.length == 2;
-        LevenshteinDistanceAligment<Character> foo =
-                new LevenshteinDistanceAligment<Character>(str2chararray(args[0]),
-                        str2chararray(args[1]));
+        LevenshteinDistanceAligment<Character> foo = new LevenshteinDistanceAligment<Character>(str2chararray(args[0]),
+                str2chararray(args[1]));
         System.out.println("Levenshtein distance = " + foo.getDistance());
         System.out.println("Alignment: " + foo.getAlignment());
     }

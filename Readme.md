@@ -1,17 +1,16 @@
 # GROBID
 
 [![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-[![Coverage Status](https://coveralls.io/repos/kermitt2/grobid/badge.svg)](https://coveralls.io/r/kermitt2/grobid)
+[![Coverage Status](https://coveralls.io/repos/github/grobidOrg/grobid/badge.svg?branch=master)](https://coveralls.io/github/grobidOrg/grobid?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/grobid/badge/?version=latest)](https://readthedocs.org/projects/grobid/?badge=latest)
-[![GitHub release](https://img.shields.io/github/release/kermitt2/grobid.svg)](https://github.com/kermitt2/grobid/releases/)
-[![Demo grobid.science-miner.com](https://img.shields.io/website-up-down-green-red/https/grobid.science-miner.com.svg)](https://grobid.science-miner.com)
+[![GitHub release](https://img.shields.io/github/release/grobidOrg/grobid.svg)](https://github.com/grobidOrg/grobid/releases/)
+[![Demo grobidOrg-grobid.hf.space](https://img.shields.io/website-up-down-green-red/https/grobidOrg-grobid.hf.space.svg)](https://grobidOrg-grobid.hf.space)
 [![Docker Hub](https://img.shields.io/docker/pulls/grobid/grobid.svg)](https://hub.docker.com/r/grobid/grobid/ "Docker Pulls")
 [![Docker Hub](https://img.shields.io/docker/pulls/lfoppiano/grobid.svg)](https://hub.docker.com/r/lfoppiano/grobid/ "Docker Pulls")
-[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/kermitt2/grobid/)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/kermitt2/grobid)
+[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/grobidOrg/grobid/)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/grobidOrg/grobid)
 
-## GROBID documentation
-
-Visit the [GROBID documentation](https://grobid.readthedocs.io) for more detailed information.
+> [!TIP]
+> Getting started [here](https://grobid.readthedocs.io/en/latest/getting_started/).
 
 ## Summary
 
@@ -37,9 +36,20 @@ The following functionalities are available:
 
 In a complete PDF processing, GROBID manages 68 final labels used to build relatively fine-grained structures, from traditional publication metadata (title, author first/last/middle names, affiliation types, detailed address, journal, volume, issue, pages, DOI, PMID, etc.) to full text structures (section title, paragraph, reference markers, head/foot notes, figure captions, etc.).
 
-GROBID includes a comprehensive [web service API](https://grobid.readthedocs.io/en/latest/Grobid-service/), [Docker images](https://grobid.readthedocs.io/en/latest/Grobid-docker/), [batch processing](https://grobid.readthedocs.io/en/latest/Grobid-batch/), a JAVA API, a generic [training and evaluation framework](https://grobid.readthedocs.io/en/latest/Training-the-models-of-Grobid/) (precision, recall, etc., n-fold cross-evaluation), systematic [end-to-end benchmarking](https://grobid.readthedocs.io/en/latest/Benchmarking/) on thousand documents and the semi-automatic generation of training data.
+GROBID includes a comprehensive [web service API](https://grobid.readthedocs.io/en/latest/Grobid-service/), [Docker images](https://grobid.readthedocs.io/en/latest/Grobid-docker/), [batch processing](https://grobid.readthedocs.io/en/latest/Grobid-batch/), a JAVA API, a generic [training and evaluation framework](https://grobid.readthedocs.io/en/latest/Training-the-models-of-Grobid/) (precision, recall, etc., n-fold cross-evaluation), systematic [end-to-end benchmarking](https://grobid.readthedocs.io/en/latest/benchmarks/Benchmarking/) on thousand documents and the semi-automatic generation of training data.
 
 GROBID can be considered as production ready. Deployments in production includes ResearchGate, Semantic Scholar, HAL Research Archive, scite.ai, Academia.edu, Internet Archive Scholar, INIST-CNRS, CERN (Invenio), and many more. The tool is designed for speed and high scalability in order to address the full scientific literature corpus.
+
+## Requirements
+
+- **OpenJDK 21** for building GROBID from source
+- Linux (64 bits) or macOS (Intel and ARM) for native builds
+- [Optional] Python 3.10-3.11 with JEP for Deep Learning models 
+- [Optional] NVIDIA GPU with CUDA support for faster Deep Learning models
+
+For detailed installation instructions, including JDK setup and platform-specific requirements, see the [Installation documentation](doc/Install-Grobid.md).
+
+If you are upgrading from an earlier version, see the [Upgrade guide](doc/Upgrading.md) for version-specific migration notes.
 
 GROBID should run properly "out of the box" on Linux (64 bits) and macOS (Intel and ARM). We cannot ensure currently support for Windows as we did before (help welcome!).
 
@@ -51,11 +61,11 @@ Note that by default the Deep Learning models are not used, only CRF are selecte
 
 ### Demo server
 
-For testing purposes, two public GROBID demo servers are available thanks to HuggingFace, hosted as [spaces](https://huggingface.co/kermitt2).
+For testing purposes, two public GROBID demo servers are available thanks to Hugging Face Spaces.
 
-A GROBID demo server with a combination of Deep Learning models and CRF models is available at the following address: [https://kermitt2-grobid.hf.space/](https://kermitt2-grobid.hf.space/) or at [https://huggingface.co/spaces/kermitt2/grobid](https://huggingface.co/spaces/kermitt2/grobid). This demo runs however on CPU only. If you have GPU for your own server deployment, it will be significantly faster. 
+A GROBID demo server with a combination of Deep Learning models and CRF models is available at the following address: [https://grobidOrg-grobid.hf.space/](https://grobidOrg-grobid.hf.space/). This demo runs however on CPU only. If you have GPU for your own server deployment, it will be significantly faster. 
 
-A faster demo with CRF only is available at [https://kermitt2-grobid-crf.hf.space/](https://kermitt2-grobid-crf.hf.space/) or [https://huggingface.co/spaces/kermitt2/grobid-crf](https://huggingface.co/spaces/kermitt2/grobid-crf). However, accuracy is lower.
+A faster demo with CRF only is available at [https://grobidOrg-grobid-crf.hf.space/](https://grobidOrg-grobid-crf.hf.space/). However, accuracy is lower.
 
 The Web services are documented [here](https://grobid.readthedocs.io/en/latest/Grobid-service/).
 
@@ -64,7 +74,7 @@ For any serious works, you will need to deploy and use your own Grobid server, s
 
 ### Try in Play With Docker
 
-<a href="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/kermitt2/grobid/master/compose.yml">
+<a href="https://labs.play-with-docker.com/?stack=https://raw.githubusercontent.com/grobidOrg/grobid/master/compose.yml">
   <img src="https://raw.githubusercontent.com/play-with-docker/stacks/master/assets/images/button.png" alt="Try in PWD"/>
 </a>
 
@@ -102,14 +112,14 @@ Visit the [documentation page describing the system](https://grobid.readthedocs.
 
 - Technical choices and [default settings](https://grobid.readthedocs.io/en/latest/Principles/#balancing-accuracy-and-scalability) are driven by the ability to process PDF quickly, with commodity hardware and with good parallelization and scalability capacities.
 
-Detailed end-to-end [benchmarking](https://grobid.readthedocs.io/en/latest/Benchmarking/) are available [GROBID documentation](https://grobid.readthedocs.org) and continuously updated.
+Detailed end-to-end [benchmarking](https://grobid.readthedocs.io/en/latest/benchmarks/Benchmarking/) are available [GROBID documentation](https://grobid.readthedocs.org) and continuously updated.
 
 ## GROBID Modules
 
 A series of additional modules have been developed for performing __structure aware__ text mining directly on scholar PDF, reusing GROBID's PDF processing and sequence labelling weaponry:
 
 - [software-mention](https://github.com/ourresearch/software-mentions): recognition of software mentions and associated attributes in scientific literature
-- [datastet](https://github.com/kermitt2/datastet): identification of sections and sentences introducing datasets in a scientific article, identification of dataset names and attributes (implict and named datasets) and classification of the type of datasets
+- [datastet](https://github.com/kermitt2/datastet): identification of sections and sentences introducing datasets in a scientific article, identification of dataset names and attributes (implicit and named datasets) and classification of the type of datasets
 - [grobid-quantities](https://github.com/kermitt2/grobid-quantities): recognition and normalization of physical quantities/measurements
 - [grobid-superconductors](https://github.com/lfoppiano/grobid-superconductors): recognition of superconductor material and properties in scientific literature
 - [entity-fishing](https://github.com/kermitt2/entity-fishing), a tool for extracting Wikidata entities from text and document, which can also use Grobid to pre-process scientific articles in PDF, leading to more precise and relevant entity extraction and the capacity to annotate the PDF with interactive layout
@@ -117,6 +127,10 @@ A series of additional modules have been developed for performing __structure aw
 - [grobid-astro](https://github.com/kermitt2/grobid-astro): recognition of astronomical entities in scientific papers
 - [grobid-bio](https://github.com/kermitt2/grobid-bio): a toy bio-entity tagger using BioNLP/NLPBA 2004 dataset
 - [grobid-dictionaries](https://github.com/MedKhem/grobid-dictionaries): structuring dictionaries in raw PDF format
+
+## Community
+
+Join the GROBID community to ask questions, get help, and stay up to date — mailing list, Discord, and more on the [Community page](https://grobid.readthedocs.io/en/latest/Community/).
 
 ## Release and changes
 
@@ -138,19 +152,40 @@ ej-technologies provided us a free open-source license for its Java Profiler. Cl
 
 [![JProfiler](doc/img/jprofiler_medium.png)](http://www.ej-technologies.com/products/jprofiler/overview.html)
 
+JetBrains provided us with a free licence for the development: 
+
+[![JetBrains logo.](https://resources.jetbrains.com/storage/products/company/brand/logos/jetbrains.svg)](https://jb.gg/OpenSource)
+
+
 ## How to cite
 
-If you want to cite this work, please refer to the present GitHub project, together with the [Software Heritage](https://www.softwareheritage.org/) project-level permanent identifier. For example, with BibTeX:
+If you want reference this software, please refer to the present GitHub project, together with the [Software Heritage](https://www.softwareheritage.org/) project-level permanent identifier.
+
+For example, the BibTeX would look like this:
 
 ```bibtex
-@misc{GROBID,
+@misc{grobid,
     title = {GROBID},
-    howpublished = {\url{https://github.com/kermitt2/grobid}},
+    howpublished = {\url{https://github.com/grobidOrg/grobid}},
     publisher = {GitHub},
-    year = {2008--2024},
+    date = {2008/},
     archivePrefix = {swh},
     eprint = {1:dir:dab86b296e3c3216e2241968f0d63b68e8209d3c}
 }
 ```
+
+> [!TIP]
+> To fetch the latest SWID you can use the following command line (requires `curl` and `jq`):
+    
+```
+curl -s "https://archive.softwareheritage.org/api/1/origin/https://github.com/grobidOrg/grobid/visit/latest/" \
+  -H "Accept: application/json" | jq -r '.snapshot' | \
+  xargs -I {} curl -s "https://archive.softwareheritage.org/api/1/snapshot/{}/" | \
+  jq -r '.branches["refs/heads/master"].target' | \
+  xargs -I {} echo "swh:1:dir:{}"
+  
+swh:1:dir:324a18113b0c7624a66a21550bd0e8522e328b4e
+```
+
 
 See the [GROBID documentation](https://grobid.readthedocs.org/en/latest/References) for more related resources. 

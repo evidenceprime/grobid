@@ -1,7 +1,26 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.document;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
+
 import org.grobid.core.layout.BoundingBox;
 
 /**
@@ -123,12 +142,27 @@ public class DocumentNode {
     }
 
     public String toString() {
-        return toString(0);
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("id", id)
+                .append("address", address)
+                .append("label", label)
+                .append("startToken", startToken)
+                .append("endToken", endToken)
+                .toString();
     }
 
     public String toString(int tab) {
         StringBuilder sb = new StringBuilder();
-        sb.append(id).append(" ").append(address).append(" ").append(label).append(" ").append(startToken).append(" ").append(endToken).append("\n");
+        sb.append(id)
+                .append(" ")
+                .append(address)
+                .append(" ")
+                .append(label)
+                .append(" ")
+                .append(startToken)
+                .append(" ")
+                .append(endToken)
+                .append("\n");
 
         if (children != null) {
             for (DocumentNode node : children) {
@@ -168,7 +202,6 @@ public class DocumentNode {
         }
     }
 
-
     /*public DocumentNode nextSlibing() {
          if ( (children != null) && (children.size() > 0) ) {
              return children.get(0);
@@ -190,4 +223,3 @@ public class DocumentNode {
         this.id = id;
     }
 }
-

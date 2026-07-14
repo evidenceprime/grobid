@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="institution">Ethiopian Public Health Institute</orgName>,
+							<address>
+								<settlement>Addis Ababa</settlement>,
+								<country>Ethiopia,</country>
+							</address>
+						</affiliation>
+
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="department">College of Medicine and Health Science</orgName>,
+							<lb/>
+							<orgName type="department">Institute of Public Health</orgName>,
+							<orgName type="department">Department of Epidemiology and Biostatistics</orgName>,
+							<orgName type="institution">University of Gondar</orgName>,
+							<address>
+								<settlement>Gondar</settlement>,
+							<lb/>
+								<country>Ethiopia,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="department">London School of Hygiene &amp; Tropical Medicine</orgName>,
+							<address>
+								<settlement>London</settlement>,
+								<country>United Kingdom,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="department">Maternal, Child<lb/> Health and Nutrition Directorate</orgName>,
+							<orgName type="institution">Ministry of Health</orgName>,
+							<address>
+								<settlement>Addis Ababa</settlement>,
+								<country>Ethiopia,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>5</marker>
+							<orgName type="institution">Independent Public Health<lb/> Analyst and Research Consultant</orgName>,
+							<address>
+								<settlement>Addis Ababa</settlement>,
+								<country>Ethiopia</country>
+							<lb/>
+							</address>
+						</affiliation>
+                        <affiliation>
+                            <orgName type="institution">Institute for Human<lb/> Development</orgName>,
+                            <address>
+                                <country>INDIA<lb/></country>
+                            </address>
+                        </affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

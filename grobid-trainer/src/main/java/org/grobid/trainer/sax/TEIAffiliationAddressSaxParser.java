@@ -1,18 +1,34 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.sax;
+
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
 
 import org.grobid.core.analyzers.GrobidAnalyzer;
 import org.grobid.core.layout.LayoutToken;
 import org.grobid.core.lexicon.Lexicon;
 import org.grobid.core.utilities.OffsetPosition;
 import org.grobid.core.utilities.TextUtilities;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
-
-import java.io.Writer;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * SAX parser for affiliation+address sequences encoded in the TEI format data.
@@ -84,19 +100,18 @@ public class TEIAffiliationAddressSaxParser extends DefaultHandler {
         return allTokens;
     }
 
-    public void endElement(java.lang.String uri,
-                           java.lang.String localName,
-                           java.lang.String qName) throws SAXException {
-        if ((
-                (qName.equals("addrLine")) ||
-                        (qName.equals("settlement")) ||
-                        (qName.equals("region")) ||
-                        (qName.equals("postCode")) ||
-                        (qName.equals("postBox")) ||
-                        (qName.equals("marker")) ||
-                        (qName.equals("country") ||
-                                (qName.equals("orgName")))
-        )) {
+    public void endElement(
+            java.lang.String uri,
+            java.lang.String localName,
+            java.lang.String qName) throws SAXException {
+        if (((qName.equals("addrLine")) ||
+                (qName.equals("settlement")) ||
+                (qName.equals("region")) ||
+                (qName.equals("postCode")) ||
+                (qName.equals("postBox")) ||
+                (qName.equals("marker")) ||
+                (qName.equals("country") ||
+                        (qName.equals("orgName"))))) {
             String text = getText();
             writeField(text);
             if (allContent != null) {
@@ -154,10 +169,11 @@ public class TEIAffiliationAddressSaxParser extends DefaultHandler {
         }
     }
 
-    public void startElement(String namespaceURI,
-                             String localName,
-                             String qName,
-                             Attributes atts)
+    public void startElement(
+            String namespaceURI,
+            String localName,
+            String qName,
+            Attributes atts)
             throws SAXException {
         if (!qName.equals("lb") && !qName.equals("pb")) {
             String text = getText();
@@ -250,7 +266,7 @@ public class TEIAffiliationAddressSaxParser extends DefaultHandler {
             } else if (tok.equals("+PAGE+")) {
                 // page break - no influence here
                 labeled.add("@newline");
-            } else*/ 
+            } else*/
             {
                 String content = tok;
                 int i = 0;

@@ -1,0 +1,128 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T15:43:23.325Z">12/2/2025 3:43:23 PM</date>
+        <title>corrections</title>
+      <idno type="fileref">10.1371_journal.pone.0298111</idno></edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T15:43:11.472543Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T15:43:11.472543Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Effects of partial demand uncertainty<lb/> reduction on private equity financing in small<lb/> and medium-sized enterprises: A supply chain perspective<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Jie Deng ID 1<lb/> , Li Yao 2 , Mengyi Chen 2 , Qingsong He ID<lb/> 3 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 School of Accountancy, Chongqing Technology and Business University,</affiliation>
+	</byline>
+
+	<address>Chongqing, China,</address>
+
+	<byline>
+	<affiliation>2 School of<lb/> Business Administration, Chongqing Technology and Business University,</affiliation>
+	</byline>
+
+	<address>Chongqing, China,</address>
+
+	<byline>
+	<affiliation>3 School of<lb/> Economics and Management, Harbin Institute of Technology (Weihai),</affiliation>
+	</byline>
+
+	<address>Weihai, China<lb/></address>
+
+	*
+	<email>he_qingsong@126.com</email>
+
+	Abstract<lb/>
+	<div type="abstract">The effect of demand uncertainty reduction (DUR) on supply chain management has<lb/> received tremendous attention. From a financial perspective, studying the impact of DUR is<lb/> equally significant. This study explores the relationship between DUR and private equity<lb/> (PE) financing in retail enterprises within a supply chain, which comprises a dominant sup-<lb/>plier and a subordinate retailer. This article establishes decision models for a retailer backed<lb/> by PE under three market demand conditions: range, mean, and range with mean. The<lb/> study further investigates the impact of partial demand uncertainty reduction (PDUR) on the<lb/> retailer and PE through comparative analysis of these scenarios. To address incomplete<lb/> market demand information during the decision-making process, the study employs the<lb/> minimax regret criterion to construct and solve the model. An intriguing finding of this study<lb/> is that contrary to intuition, PDUR not only fails to promote PE but also reduces the retailer&apos;s<lb/> willingness to finance and decreases the asset size for both the retailer and PE. In addition,<lb/> the better the growth potential for the retail enterprise, the more severe the negative impact<lb/> brought about by PDUR. Moreover, the impact of PDUR on supplier and supply chain per-<lb/>formance is two-fold. PDUR based on range information has a negative impact on the<lb/> expected profit of the supplier and the supply chain, while PDUR based on mean information<lb/> has a positive impact on their expected profit.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0295713 March 28, 2024<lb/></reference>
+
+	<page>1 / 20<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Deng J, Yao L, Chen M, He Q (2024)<lb/> Effects of partial demand uncertainty reduction on<lb/> private equity financing in small and medium-sized<lb/> enterprises: A supply chain perspective. PLoS ONE<lb/> 19(3): e0295713.</reference>
+
+	<idno>https://doi.org/10.1371/journal.<lb/> pone.0295713<lb/></idno>
+
+	Editor:
+	<editor>Jianhua Zhu,</editor>
+
+	<byline>
+	<affiliation>Harbin Institute of<lb/> Technology,</affiliation>
+	</byline>
+
+	<address>CHINA<lb/></address>
+
+	<note type="submission">Received: October 12, 2023<lb/> Accepted: November 23, 2023<lb/></note>
+
+	Published:
+	<date>March 28, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Deng et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the manuscript and Supporting information<lb/> files.<lb/></note>
+
+	Funding:
+	<note type="funding">This research was supported by the<lb/> Chongqing Social Science Planning Fund (Grant<lb/> No. 2022NDQN42)(URL https://www.cqskl.com/<lb/> ch/singlenews_detail.html?articleId=d9e14836-<lb/>a789-48b5-b0c9-af1901072a9c), the Science and<lb/> Technology Research Program of Chongqing<lb/> Municipal Education Commission (Grant No.<lb/> KJQN202300848)(URL http://jw.cq.gov.cn/zwxx_<lb/> 209/gggs/202307/t20230703_12113880.html),<lb/> and the Humanities and Social Science Fund of<lb/> Ministry of Education of China (Grant No.<lb/> 23YJA630018)(URL http://www.moe.gov.cn/s78/<lb/> A13/tongzhi/202310/t20231019_1086367.html).<lb/> All grant were awarded to JD.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+
+  </TEI>

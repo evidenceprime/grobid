@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+
+						<author>
+							<persName>
+								 <forename>Ernest</forename>
+								 <surname>Amoussou</surname>
+								 <marker>1,2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Félix</forename>
+								 <middlename>Toundé</middlename>
+								 <surname>Amoussou</surname>
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Aymar</forename>
+								 <middlename>Yaovi</middlename>
+								 <surname>Bossa</surname>
+								 <marker>3</marker> ,
+							</persName>
+							<persName>
+								 <forename>Domiho</forename>
+								 <middlename>Japhet</middlename>
+								 <surname>Kodja</surname>
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Henri</forename>
+								 <middlename>Sourou</middlename>
+								 <middlename>Totin</middlename>
+								 <surname>Vodounon</surname>
+								 <marker>1,2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Constant</forename>
+								 <surname>Houndénou</surname>
+								 <marker>2</marker> ,
+							</persName>
+							<persName>
+								 <forename>Valérie</forename>
+								 <middlename>Borrell</middlename>
+								 <surname>Estupina</surname>
+								 <marker>4</marker> ,
+							</persName>
+							<persName>
+								 <forename>Jean-Emmanuel</forename>
+								 <surname>Paturel</surname>
+								 <marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Gil</forename>
+								 <surname>Mahé</surname>
+								 <marker>5</marker> ,
+							</persName>
+							<persName>
+								 <forename>Christophe</forename>
+								 <surname>Cudennec</surname>
+								 <marker>6</marker> , and
+							</persName>
+							<persName>
+								 <forename>Michel</forename>
+								 <surname>Boko</surname>
+								 <marker>2</marker>
+							</persName>
+							<persName>
+								<forename>Félix</forename>
+								<middlename>Toundé</middlename>
+								<surname>Amoussou</surname>
+							</persName>
+							<persName>
+								 <forename>Ernest</forename>
+								 <surname>Amoussou</surname>
+							</persName>
+						</author>
+
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

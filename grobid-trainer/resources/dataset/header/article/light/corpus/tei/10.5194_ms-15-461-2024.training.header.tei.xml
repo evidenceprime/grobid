@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<tei xml:space="preserve">
+	<teiHeader>
+		<fileDesc xml:id="origin17564528924330208426"/>
+	</teiHeader>
+	<text xml:lang="en">
+		<front>
+<lb/>
+	<reference>Atmos. Meas. Tech., 17, 1229-1250, 2024<lb/> https://doi.org/10.5194/amt-17-1229-2024<lb/></reference>
+
+	<note type="copyright">© Author(s) 2024. This work is distributed under<lb/> the Creative Commons Attribution 4.0 License.<lb/></note>
+
+	<docTitle>
+	<titlePart>Detection and long-term quantification of methane emissions from<lb/> an active landfill<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Pramod Kumar 1 , Christopher Caldow 1,2 , Grégoire Broquet 1 , Adil Shah 1 , Olivier Laurent 1 , Camille Yver-Kwok 1 ,<lb/> Sebastien Ars 3 , Sara Defratyka 1,a,b , Susan Warao Gichuki 1 , Luc Lienhardt 1 , Mathis Lozano 1 , Jean-Daniel Paris 1 ,<lb/> Felix Vogel 3 , Caroline Bouchet 4 , Elisa Allegrini 4 , Robert Kelly 4 , Catherine Juery 5 , and Philippe Ciais 1<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Laboratoire des Sciences du Climat et de l&apos;Environnement (LSCE/IPSL), CEA-CNRS-UVSQ, Université Paris-Saclay,<lb/></affiliation>
+	</byline>
+
+	<address>91191 Gif-sur-Yvette, France<lb/></address>
+
+	<byline>
+	<affiliation>2 Climate Science Centre, CSIRO Oceans and Atmosphere,</affiliation>
+	</byline>
+
+	<address>Aspendale, VIC, 3195, Australia<lb/></address>
+
+	<byline>
+	<affiliation>3 Climate Research Division, Environment and Climate Change Canada,</affiliation>
+	</byline>
+
+	<address>Toronto M3H 5T4, Ontario, Canada<lb/></address>
+
+	<byline>
+	<affiliation>4 SUEZ-Smart &amp; Environmental Solutions,</affiliation>
+	</byline>
+
+	<address>Tour CB21/16 place de l&apos;Iris, 92040, La Défense, France<lb/></address>
+
+	<byline>
+	<affiliation>5 TotalEnergies Laboratoire Qualité de l&apos;Air (LQA),</affiliation>
+	</byline>
+
+	<address>69360 Solaize CEDEX, France<lb/></address>
+
+	<byline>
+	<affiliation>a now at: The University of Edinburgh,</affiliation>
+	</byline>
+
+	<address>Edinburgh, EH89YL, United Kingdom<lb/></address>
+
+	<byline>
+	<affiliation>b now at: National Physical Laboratories,</affiliation>
+	</byline>
+
+	<address>Teddington, TW110LW, United Kingdom<lb/></address>
+
+	Correspondence:
+	<byline>
+	<docAuthor>Pramod Kumar</docAuthor>
+	</byline>
+
+	(
+	<email>pramod.kumar@lsce.ipsl.fr</email>
+
+	)<lb/>
+	<note type="submission">Received: 13 June 2023 -Discussion started: 10 August 2023<lb/> Revised: 12 December 2023 -Accepted: 26 December 2023</note>
+
+	-Published:
+	<date>22 February 2024</date>
+
+		</front>
+	</text>
+</tei>

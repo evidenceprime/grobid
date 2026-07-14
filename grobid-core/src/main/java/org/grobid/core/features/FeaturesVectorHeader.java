@@ -1,9 +1,21 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.features;
 
 import java.io.*;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.regex.Matcher;
 
 import org.grobid.core.layout.LayoutToken;
 import org.grobid.core.utilities.TextUtilities;
@@ -20,7 +32,7 @@ public class FeaturesVectorHeader {
     public String lineStatus = null; // one of LINESTART, LINEIN, LINEEND
     public String alignmentStatus = null; // one of ALIGNEDLEFT, INDENTED, CENTERED - applied to the whole line
     public String fontStatus = null; // one of NEWFONT, SAMEFONT
-    
+
     public boolean bold = false;
     public boolean italic = false;
     public boolean rotation = false;
@@ -42,8 +54,8 @@ public class FeaturesVectorHeader {
 
     public String punctuationProfile = null; // the punctuations of the current line of the token
 
-    public int spacingWithPreviousBlock = 0; // discretized 
-    public int characterDensity = 0; // discretized 
+    public int spacingWithPreviousBlock = 0; // discretized
+    public int characterDensity = 0; // discretized
 
     // font size related
     public String fontSize = null; // one of HIGHERFONT, SAMEFONTSIZE, LOWERFONT
@@ -53,8 +65,10 @@ public class FeaturesVectorHeader {
     //public boolean superscript = false;
 
     public String printVector() {
-        if (string == null) return null;
-        if (string.length() == 0) return null;
+        if (string == null)
+            return null;
+        if (string.length() == 0)
+            return null;
         StringBuffer res = new StringBuffer();
 
         // token string (1)
@@ -82,8 +96,8 @@ public class FeaturesVectorHeader {
 
         // line information (1)
         res.append(" " + lineStatus);
-		
-		// line position/indentation (1)
+
+        // line position/indentation (1)
         res.append(" " + alignmentStatus);
 
         // font information (1)

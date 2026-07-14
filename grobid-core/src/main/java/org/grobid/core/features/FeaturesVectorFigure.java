@@ -1,3 +1,18 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.features;
 
 import org.grobid.core.layout.LayoutToken;
@@ -32,21 +47,23 @@ public class FeaturesVectorFigure {
     public boolean http = false;
     //public boolean acronym = false;
 
-    public String punctType = null; 
+    public String punctType = null;
     // one of NOPUNCT, OPENBRACKET, ENDBRACKET, DOT, COMMA, HYPHEN, QUOTE, PUNCT (default)
 
-    public int relativeDocumentPosition = -1; 
-    public int relativePagePosition = -1; 
+    public int relativeDocumentPosition = -1;
+    public int relativePagePosition = -1;
 
     public boolean bitmapAround = false;
     public boolean vectorAround = false;
-    public int closestGraphicHeight = -1; 
-    public int closestGraphicWidth = -1; 
-    public int closestGraphicSurface = -1; 
+    public int closestGraphicHeight = -1;
+    public int closestGraphicWidth = -1;
+    public int closestGraphicSurface = -1;
 
     public String printVector() {
-        if (string == null) return null;
-        if (string.length() == 0) return null;
+        if (string == null)
+            return null;
+        if (string.length() == 0)
+            return null;
         StringBuffer res = new StringBuffer();
 
         // token string (1)
@@ -77,7 +94,7 @@ public class FeaturesVectorFigure {
         // page information (1)
         res.append(" " + pageStatus);
 
-        // alignmet/horizontal position information (1)
+        // alignment/horizontal position information (1)
         //res.append(" " + alignmentStatus);
 
         // font information (1)

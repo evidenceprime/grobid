@@ -1,0 +1,169 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T15:58:06.572Z">12/2/2025 3:58:06 PM</date>
+        <title>corrections</title>
+      <idno type="fileref">10.1371_journal.pone.0298178</idno></edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T15:57:02.705514Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T15:57:02.705514Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Frequency of breaks, amount of muscular<lb/> rest, and sustained muscle activity related to<lb/> neck pain in a pooled dataset<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Markus Koch ID 1<lb/> *, Mikael Forsman 2☯ , Henrik Enquist ID 3☯<lb/> , Henrik Baare Olsen 4☯ ,<lb/> Karen Søgaard 4,5☯ , Gisela SjøgaardID 4☯ , Tove Østensvik 6☯ , Petter Nilsen 6☯ , Lars<lb/> Louis Andersen 7☯ , Markus Due Jacobsen 7☯ , Mikkel Brandt 7☯ , Rolf Westgaard 8☯ , Paul<lb/> Jarle MorkID 9☯ , Xuelong FanID 2☯ , Morten Waersted 1☯ , Kaj Bo Veiersted 1☯<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 National Institute of Occupational Health, Research Group for Work Psychology and Physiology,</affiliation>
+	</byline>
+
+	<address>Oslo,<lb/>Norway,</address>
+
+	<byline>
+	<affiliation>2 Division of Occupational and Environmental Medicine, Department of Public Health Sciences,<lb/> Karolinska Institute,</affiliation>
+	</byline>
+
+	<address>Stockholm, Sweden,</address>
+
+	<byline>
+	<affiliation>3 Division of Occupational and Environmental Medicine, Lund<lb/> University,</affiliation>
+	</byline>
+
+	<address>Lund, Sweden,</address>
+
+	<byline>
+	<affiliation>4 Department of Sports Science and Clinical Biomechanics, University of<lb/> Southern Denmark, </affiliation>
+	</byline>
+
+	<address>Odense, Denmark,</address>
+
+	<byline>
+	<affiliation>5 Department of Clinical Research, University of Southern Denmark,<lb/></affiliation>
+	</byline>
+
+	<address>Odense, Denmark,</address>
+
+	<byline>
+	<affiliation>6 Norwegian Institute of Bioeconomy Research,</affiliation>
+	</byline>
+
+	<address>Ås, Norway,</address>
+
+	<byline>
+	<affiliation>7 National Research<lb/> Centre for the Working Environment, Musculoskeletal Disorders and Physical Workload,</affiliation>
+	</byline>
+
+	<address>Copenhagen,<lb/> Denmark,</address>
+
+	<byline>
+	<affiliation>8 Department of Industrial Economics and Technology Management, Norwegian University of<lb/> Science and Technology,</affiliation>
+	</byline>
+
+	<address>Trondheim, Norway,</address>
+
+	<byline>
+	<affiliation>9 Department of Public Health and Nursing, Norwegian<lb/> University of Science and Technology,</affiliation>
+	</byline>
+
+	<address>Trondheim, Norway<lb/></address>
+
+	☯ These authors contributed equally to this work.<lb/> *
+	<email>Markus.Koch@stami.no</email>
+
+	Abstract
+	<div type="abstract">Background<lb/> Neck pain remains a persistent challenge in modern society and is frequently encountered<lb/> across a wide range of occupations, particularly those involving repetitive and monotonous<lb/> tasks. It might be expected that patterns of trapezius muscle activity at work, characterized<lb/> by few breaks and prolonged periods of sustained muscle activity, are linked to neck pain.<lb/> However, previous cross-sectional studies have generally failed to establish a definitive<lb/> association. While some longitudinal studies have suggested that extended periods of<lb/> heightened muscle activity could be a risk factor for neck pain, these findings often relied on<lb/> limited participant numbers or specific professional groups. This study aimed to investigate<lb/> the relationship between trapezius muscle activity and neck pain by pooling data from seven<lb/> Scandinavian research institutes encompassing a diverse range of occupational<lb/> backgrounds. Methods<lb/> Electromyographic (EMG) data for the upper trapezius muscle, collected during working<lb/> hours, were coupled with questionnaire responses pertaining to neck pain, individual char-<lb/>acteristics, and potential confounding variables for a total of 731 subjects. Additionally, longi-<lb/>tudinal data from 258 subjects were available. The various EMG datasets were<lb/> consolidated into a standardized format, and efforts were made to harmonize inquiries<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0297859 June 25, 2024<lb/></reference>
+
+	<page>1 / 22<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Koch M, Forsman M, Enquist H, Baare<lb/> Olsen H, Søgaard K, Sjøgaard G, et al. (2024)<lb/> Frequency of breaks, amount of muscular rest, and<lb/> sustained muscle activity related to neck pain in a<lb/> pooled dataset. PLoS ONE 19(6): e0297859.<lb/></reference>
+
+	<idno>https://doi.org/10.1371/journal.pone.0297859<lb/></idno>
+
+	Editor:
+	<editor>Tatiana de Oliveira Sato,</editor>
+
+	<byline>
+	<affiliation>Universidade<lb/> Federal de Sao Carlos,</affiliation>
+	</byline>
+
+	<address>BRAZIL<lb/></address>
+
+	<note type="submission">Received: September 26, 2023<lb/> Accepted: January 10, 2024<lb/></note>
+
+	Published:
+	<date>June 25, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Koch et al. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">A minimal dataset<lb/> was uploaded (S6_Dataset).<lb/></note>
+
+	Funding:
+	<note type="funding">This study is funded by the Working<lb/> Environment Committee of the Nordic Council of<lb/> Ministers, project number 102362(1). &quot;The funders<lb/> had no role in study design, data collection and<lb/> analysis, decision to publish, or preparation of the<lb/> manuscript&quot;.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors declare that they<lb/> have no known competing financial interests or<lb/></note>
+
+	<div type="abstract">about neck pain. Regression analyses, adjusting for sex and height, were conducted to<lb/> explore the associations between muscle activity variables and neck pain. An exposure<lb/> index was devised to quantify the cumulative neck load experienced during working hours<lb/> and to differentiate between various occupational categories. Results<lb/> The cross-sectional data displayed a distinct pattern characterized by positive associations<lb/> for brief periods of sustained muscle activity (SUMA) and negative associations for pro-<lb/>longed SUMA-periods and neck pain. The longitudinal data exhibited a contrasting trend,<lb/> although it was not as pronounced as the cross-sectional findings. When employing the<lb/> exposure index, notable differences in cumulative muscle load emerged among occupa-<lb/>tional groups, and positive associations with longitudinal neck pain were identified. Discussion<lb/> The results suggest that individuals with neck pain experience higher cumulative workloads<lb/> and extended periods of muscle activity over the long term. In the short term, they appear to<lb/> compensate by taking frequent short breaks, resulting in a lower cumulative workload.<lb/> Regardless of their occupation, it is crucial to distribute work breaks throughout the workday<lb/> to ensure that the cumulative load remains manageable.<lb/></div>
+
+	<note type="conflict">personal relationships that could have appeared to<lb/> influence the work reported in this paper.<lb/></note>
+
+
+		</front>
+	</text>
+
+
+  </TEI>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<orgName type="department">Shemyakin-Ovchinnikov Institute of Bioorganic Chemistry</orgName> of the
+							<orgName type="institution">Russian Academy of Sciences</orgName>,
+							<address>
+								<settlement>Moscow</settlement>,
+							<lb/>
+								<country>Russia</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤a</marker> Current address:
+							<orgName type="department">Department of Biochemistry and Molecular Biophysics</orgName>,
+							<orgName type="institution">Columbia University</orgName>,
+							<address>
+								<settlement>New York</settlement>,
+							<lb/>
+								<region>NY</region>,
+								<country>United States of America</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>¤b</marker> Current address:
+							<orgName type="department">Institute of Organic Chemistry and Chemical Biology</orgName>,
+							<orgName type="institution">Goethe University</orgName>
+							<address>
+								<settlement>Frankfurt</settlement>,
+							<lb/>
+								<settlement>Frankfurt am Main</settlement>,
+								<country>Germany</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">Bioinformatics Institute</orgName>,
+							<lb/>
+							<address>
+								<country>SINGAPORE</country>
+							</address>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

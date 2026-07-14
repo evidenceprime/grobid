@@ -1,26 +1,40 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.main;
+
+import static org.apache.commons.lang3.ArrayUtils.isEmpty;
+
+import java.io.File;
+import java.io.FilenameFilter;
+import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Set;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.SystemUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.grobid.core.engines.tagging.GrobidCRFEngine;
 import org.grobid.core.exceptions.GrobidException;
 import org.grobid.core.jni.PythonEnvironmentConfig;
 import org.grobid.core.utilities.GrobidProperties;
 import org.grobid.core.utilities.Utilities;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.File;
-import java.io.FilenameFilter;
-import java.lang.reflect.Field;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Set;
-
-import static org.apache.commons.lang3.ArrayUtils.isEmpty;
 
 public class LibraryLoader {
 
@@ -40,38 +54,48 @@ public class LibraryLoader {
             LOGGER.debug(getLibraryFolder());
 
             Set<GrobidCRFEngine> distinctModels = GrobidProperties.getInstance().getDistinctModels();
-            for(GrobidCRFEngine distinctModel : distinctModels) {
+            for (GrobidCRFEngine distinctModel : distinctModels) {
                 if (distinctModel != GrobidCRFEngine.CRFPP &&
-                    distinctModel != GrobidCRFEngine.WAPITI &&
-                    distinctModel != GrobidCRFEngine.DELFT) {
+                        distinctModel != GrobidCRFEngine.WAPITI &&
+                        distinctModel != GrobidCRFEngine.DELFT) {
                     throw new IllegalStateException("Unsupported sequence labelling engine: " + distinctModel);
                 }
             }
 
             File libraryFolder = new File(getLibraryFolder());
             if (!libraryFolder.exists() || !libraryFolder.isDirectory()) {
-                LOGGER.error("Unable to find a native sequence labelling library: Folder " + libraryFolder + " does not exist");
+                LOGGER.error(
+                        "Unable to find a native sequence labelling library: Folder "
+                                + libraryFolder
+                                + " does not exist");
                 throw new RuntimeException(
-                    "Unable to find a native sequence labelling library: Folder " + libraryFolder + " does not exist");
+                        "Unable to find a native sequence labelling library: Folder "
+                                + libraryFolder
+                                + " does not exist");
             }
 
             if (CollectionUtils.containsAny(distinctModels, Collections.singletonList(GrobidCRFEngine.CRFPP))) {
-                File[] files = libraryFolder.listFiles(file -> file.getName().toLowerCase().startsWith(CRFPP_NATIVE_LIB_NAME));
+                File[] files = libraryFolder
+                        .listFiles(file -> file.getName().toLowerCase().startsWith(CRFPP_NATIVE_LIB_NAME));
 
                 if (ArrayUtils.isEmpty(files)) {
-                    LOGGER.error("Unable to find a native CRF++ library: No files starting with "
-                        + CRFPP_NATIVE_LIB_NAME
-                        + " are in folder " + libraryFolder);
+                    LOGGER.error(
+                            "Unable to find a native CRF++ library: No files starting with "
+                                    + CRFPP_NATIVE_LIB_NAME
+                                    + " are in folder "
+                                    + libraryFolder);
                     throw new RuntimeException(
-                        "Unable to find a native CRF++ library: No files starting with "
-                            + CRFPP_NATIVE_LIB_NAME
-                            + " are in folder " + libraryFolder);
+                            "Unable to find a native CRF++ library: No files starting with "
+                                    + CRFPP_NATIVE_LIB_NAME
+                                    + " are in folder "
+                                    + libraryFolder);
                 }
 
                 if (files.length > 1) {
-                    LOGGER.error("Unable to load a native CRF++ library: More than 1 library exists in " + libraryFolder);
+                    LOGGER.error(
+                            "Unable to load a native CRF++ library: More than 1 library exists in " + libraryFolder);
                     throw new RuntimeException(
-                        "Unable to load a native CRF++ library: More than 1 library exists in " + libraryFolder);
+                            "Unable to load a native CRF++ library: More than 1 library exists in " + libraryFolder);
                 }
 
                 String libPath = files[0].getAbsolutePath();
@@ -82,11 +106,24 @@ public class LibraryLoader {
                 } catch (Exception e) {
                     LOGGER.error("Unable to load a native CRF++ library, although it was found under path " + libPath);
                     throw new RuntimeException(
-                        "Unable to load a native CRF++ library, although it was found under path " + libPath, e);
+                            "Unable to load a native CRF++ library, although it was found under path " + libPath, e);
                 }
             }
-            
-            if (CollectionUtils.containsAny(distinctModels, Collections.singletonList(GrobidCRFEngine.WAPITI))) {    
+
+            if (CollectionUtils.containsAny(distinctModels, Collections.singletonList(GrobidCRFEngine.WAPITI))) {
+                // The Wapiti JNI argument parser splits on whitespace, so any space in
+                // the grobid-home path would silently corrupt all model and training paths.
+                // Fail fast here with a clear message rather than producing mysterious errors later.
+                String grobidHomePath = GrobidProperties.getGrobidHome().getAbsolutePath();
+                if (grobidHomePath.contains(" ")) {
+                    throw new RuntimeException(
+                            "The grobid-home path contains a space character which is not supported "
+                                    + "when using the Wapiti sequence labeller. "
+                                    + "Please move grobid-home to a path without spaces. "
+                                    + "Current path: "
+                                    + grobidHomePath);
+                }
+
                 File[] wapitiLibFiles = libraryFolder.listFiles(new FilenameFilter() {
                     @Override
                     public boolean accept(File dir, String name) {
@@ -123,18 +160,24 @@ public class LibraryLoader {
                     } finally {
                         if (CollectionUtils.containsAny(distinctModels, Arrays.asList(GrobidCRFEngine.DELFT))) {
                             // restore libstdc++
-                            String libstdcppPathNew = libraryFolder.getAbsolutePath() + File.separator + "libstdc++.so.6.new";
+                            String libstdcppPathNew = libraryFolder.getAbsolutePath()
+                                    + File.separator
+                                    + "libstdc++.so.6.new";
                             File libstdcppFileNew = new File(libstdcppPathNew);
                             if (libstdcppFileNew.exists()) {
-                                File libstdcppFile = new File(libraryFolder.getAbsolutePath() + File.separator + "libstdc++.so.6");
+                                File libstdcppFile = new File(
+                                        libraryFolder.getAbsolutePath() + File.separator + "libstdc++.so.6");
                                 libstdcppFileNew.renameTo(libstdcppFile);
                             }
 
                             // restore libgcc
-                            String libgccPathNew = libraryFolder.getAbsolutePath() + File.separator + "libgcc_s.so.1.new";
+                            String libgccPathNew = libraryFolder.getAbsolutePath()
+                                    + File.separator
+                                    + "libgcc_s.so.1.new";
                             File libgccFileNew = new File(libgccPathNew);
                             if (libgccFileNew.exists()) {
-                                File libgccFile = new File(libraryFolder.getAbsolutePath() + File.separator + "libgcc_s.so.1");
+                                File libgccFile = new File(
+                                        libraryFolder.getAbsolutePath() + File.separator + "libgcc_s.so.1");
                                 libgccFileNew.renameTo(libgccFile);
                             }
                         }
@@ -144,8 +187,8 @@ public class LibraryLoader {
 
             if (CollectionUtils.containsAny(distinctModels, Collections.singletonList(GrobidCRFEngine.DELFT))) {
                 LOGGER.info("Loading JEP native library for DeLFT... " + libraryFolder.getAbsolutePath());
-                // actual loading will be made at JEP initialization, so we just need to add the path in the 
-                // java.library.path (JEP will anyway try to load from java.library.path, so explicit file 
+                // actual loading will be made at JEP initialization, so we just need to add the path in the
+                // java.library.path (JEP will anyway try to load from java.library.path, so explicit file
                 // loading here will not help)
                 try {
 
@@ -192,8 +235,9 @@ public class LibraryLoader {
 
     public static String getLibraryFolder() {
         GrobidProperties.getInstance();
-        return String.format("%s" + File.separator + "%s", 
-            GrobidProperties.getNativeLibraryPath().getAbsolutePath(), 
-            Utilities.getOsNameAndArch());
+        return String.format(
+                "%s" + File.separator + "%s",
+                GrobidProperties.getNativeLibraryPath().getAbsolutePath(),
+                Utilities.getOsNameAndArch());
     }
 }

@@ -1,40 +1,48 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines;
-
-import org.apache.commons.lang3.tuple.Triple;
-import org.grobid.core.GrobidModels;
-import org.grobid.core.analyzers.GrobidAnalyzer;
-import org.grobid.core.data.Date;
-import org.grobid.core.features.FeaturesVectorDate;
-import org.grobid.core.layout.LayoutToken;
-import org.grobid.core.lexicon.Lexicon;
-import org.grobid.core.utilities.GrobidConfig;
-import org.grobid.core.utilities.GrobidProperties;
-import org.grobid.core.utilities.GrobidTestUtils;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.powermock.api.easymock.PowerMock;
-import org.powermock.core.classloader.annotations.PrepareForTest;
-import org.powermock.modules.junit4.PowerMockRunner;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 
-@RunWith(PowerMockRunner.class)
-@PrepareForTest(Lexicon.class)
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.apache.commons.lang3.tuple.Triple;
+import org.junit.Before;
+import org.junit.Test;
+
+import org.grobid.core.GrobidModels;
+import org.grobid.core.analyzers.GrobidAnalyzer;
+import org.grobid.core.data.Date;
+import org.grobid.core.features.FeaturesVectorDate;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.utilities.GrobidConfig;
+import org.grobid.core.utilities.GrobidProperties;
+import org.grobid.core.utilities.GrobidTestUtils;
+
 public class DateParserTest {
 
     private DateParser target;
-    
+
     @Before
     public void setUp() throws Exception {
-        PowerMock.mockStatic(Lexicon.class);
         GrobidConfig.ModelParameters modelParameters = new GrobidConfig.ModelParameters();
         modelParameters.name = "bao";
         GrobidProperties.addModel(modelParameters);
@@ -212,21 +220,20 @@ public class DateParserTest {
     @Test
     public void testResultExtraction_StandardDate_shouldWork() throws Exception {
         String input = "1983-1-1";
-        
+
         List<LayoutToken> inputAsLayoutTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(input);
         List<String> features = generateFeatures(inputAsLayoutTokens);
 
         // These triples made in following way: label, starting index (included), ending index (excluded)
         List<Triple<String, Integer, Integer>> labels = Arrays.asList(
-            Triple.of("<year>", 0, 1),
-            Triple.of("<month>", 2, 3),
-            Triple.of("<day>", 4, 5)
-        );
-        
+                Triple.of("<year>", 0, 1),
+                Triple.of("<month>", 2, 3),
+                Triple.of("<day>", 4, 5));
+
         String result = GrobidTestUtils.getWapitiResult(features, labels);
 
         List<Date> dates = target.resultExtraction(result, inputAsLayoutTokens);
-        
+
         assertThat(dates, hasSize(1));
         assertThat(dates.get(0).getYearString(), is("1983"));
         assertThat(dates.get(0).getMonthString(), is("1"));
@@ -242,13 +249,12 @@ public class DateParserTest {
 
         // These triples made in following way: label, starting index (included), ending index (excluded)
         List<Triple<String, Integer, Integer>> labels = Arrays.asList(
-            Triple.of("<year>", 0, 1),
-            Triple.of("<month>", 2, 3),
-            Triple.of("<day>", 4, 5),
-            Triple.of("<year>", 5, 6),
-            Triple.of("<month>", 7, 8),
-            Triple.of("<day>", 9, 10)
-        );
+                Triple.of("<year>", 0, 1),
+                Triple.of("<month>", 2, 3),
+                Triple.of("<day>", 4, 5),
+                Triple.of("<year>", 5, 6),
+                Triple.of("<month>", 7, 8),
+                Triple.of("<day>", 9, 10));
 
         String result = GrobidTestUtils.getWapitiResult(features, labels);
 
@@ -264,11 +270,10 @@ public class DateParserTest {
         assertThat(dates.get(1).getDayString(), is("2"));
     }
 
-
     private List<String> generateFeatures(List<LayoutToken> layoutTokens) throws Exception {
         List<String> tokensAsStrings = layoutTokens.stream()
-            .map(layoutToken -> layoutToken.getText() + " " + "<date>")
-            .collect(Collectors.toList());
+                .map(layoutToken -> layoutToken.getText() + " " + "<date>")
+                .collect(Collectors.toList());
         String features = FeaturesVectorDate.addFeaturesDate(tokensAsStrings);
         return Arrays.asList(features.split("\n"));
     }

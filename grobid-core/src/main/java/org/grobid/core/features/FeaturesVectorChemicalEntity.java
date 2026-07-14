@@ -1,9 +1,24 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.features;
-
-import org.grobid.core.utilities.TextUtilities;
 
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
+
+import org.grobid.core.utilities.TextUtilities;
 
 /**
  * Class for features used for chemical entity identification in raw texts such as scientific articles
@@ -37,8 +52,10 @@ public class FeaturesVectorChemicalEntity {
     }
 
     public String printVector() {
-        if (string == null) return null;
-        if (string.length() == 0) return null;
+        if (string == null)
+            return null;
+        if (string.length() == 0)
+            return null;
         StringBuffer res = new StringBuffer();
 
         // token string (1)
@@ -117,11 +134,12 @@ public class FeaturesVectorChemicalEntity {
     /**
      * Add the features for the chemical entity extraction model.
      */
-    static public FeaturesVectorChemicalEntity addFeaturesChemicalEntities(String line,
-                                                                           int totalLength,
-                                                                           int position,
-                                                                           boolean isChemicalToken,
-                                                                           boolean isChemicalNameToken) {
+    static public FeaturesVectorChemicalEntity addFeaturesChemicalEntities(
+            String line,
+            int totalLength,
+            int position,
+            boolean isChemicalToken,
+            boolean isChemicalNameToken) {
         FeatureFactory featureFactory = FeatureFactory.getInstance();
 
         FeaturesVectorChemicalEntity featuresVector = new FeaturesVectorChemicalEntity();
@@ -186,8 +204,7 @@ public class FeaturesVectorChemicalEntity {
             if (featuresVector.punctType == null)
                 featuresVector.punctType = "NOPUNCT";
 
-            featuresVector.relativeDocumentPosition =
-                    featureFactory.linearScaling(position, totalLength, nbBins);
+            featuresVector.relativeDocumentPosition = featureFactory.linearScaling(position, totalLength, nbBins);
 
             if (isChemicalToken) {
                 featuresVector.isKnownChemicalToken = true;
@@ -202,5 +219,3 @@ public class FeaturesVectorChemicalEntity {
     }
 
 }
-	
-	

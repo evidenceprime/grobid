@@ -1,17 +1,31 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.sax;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import org.grobid.core.utilities.TextUtilities;
-import org.grobid.core.utilities.UnicodeUtil;
-import org.grobid.core.layout.LayoutToken;
 import org.grobid.core.analyzers.*;
 import org.grobid.core.lang.Language;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.grobid.core.layout.LayoutToken;
+import org.grobid.core.utilities.UnicodeUtil;
 
 /**
  * SAX parser for author sequences encoded in the TEI format data.
@@ -61,11 +75,14 @@ public class TEIAuthorSaxParser extends DefaultHandler {
         return allTokens;
     }
 
-    public void endElement(java.lang.String uri,
-                           java.lang.String localName,
-                           java.lang.String qName) throws SAXException {
-        if ((qName.equals("firstname") || qName.equals("forename") || qName.equals("middlename") || qName.equals("title") ||
-                qName.equals("suffix") || qName.equals("surname") || qName.equals("lastname") || qName.equals("marker") ||
+    public void endElement(
+            java.lang.String uri,
+            java.lang.String localName,
+            java.lang.String qName) throws SAXException {
+        if ((qName.equals("firstname") || qName.equals("forename") || qName.equals("middlename")
+                || qName.equals("title") ||
+                qName.equals("suffix") || qName.equals("surname") || qName.equals("lastname") || qName.equals("marker")
+                ||
                 qName.equals("roleName")) & (currentTag != null)) {
             String text = getText();
             writeField(text);
@@ -87,10 +104,11 @@ public class TEIAuthorSaxParser extends DefaultHandler {
         accumulator.setLength(0);
     }
 
-    public void startElement(String namespaceURI,
-                             String localName,
-                             String qName,
-                             Attributes atts)
+    public void startElement(
+            String namespaceURI,
+            String localName,
+            String qName,
+            Attributes atts)
             throws SAXException {
 
         String text = getText();
@@ -116,10 +134,10 @@ public class TEIAuthorSaxParser extends DefaultHandler {
             accumulator = new StringBuffer();
             labeled = new ArrayList<String>();
             tokens = new ArrayList<LayoutToken>();
-        } else if (!qName.equals("analytic") && !qName.equals("biblStruct") && 
-            !qName.equals("sourceDesc") && !qName.equals("fileDesc") && 
-            !qName.equals("teiHeader") && !qName.equals("TEI") && 
-            !qName.equals("persName") && !qName.equals("tei") && !qName.equals("lb")) {
+        } else if (!qName.equals("analytic") && !qName.equals("biblStruct") &&
+                !qName.equals("sourceDesc") && !qName.equals("fileDesc") &&
+                !qName.equals("teiHeader") && !qName.equals("TEI") &&
+                !qName.equals("persName") && !qName.equals("tei") && !qName.equals("lb")) {
             System.out.println("Warning, invalid tag: <" + qName + ">");
         }
     }
@@ -128,9 +146,9 @@ public class TEIAuthorSaxParser extends DefaultHandler {
         // we segment the text
         //List<String> tokens = TextUtilities.segment(text, TextUtilities.punctuations);
         List<LayoutToken> localTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(text);
-        if ( (localTokens == null) || (localTokens.size() == 0) )
+        if ((localTokens == null) || (localTokens.size() == 0))
             localTokens = GrobidAnalyzer.getInstance().tokenizeWithLayoutToken(text, new Language("en", 1.0));
-        if  ( (localTokens == null) || (localTokens.size() == 0) )
+        if ((localTokens == null) || (localTokens.size() == 0))
             return;
 
         boolean begin = true;
@@ -153,7 +171,7 @@ public class TEIAuthorSaxParser extends DefaultHandler {
             }
 
             content = UnicodeUtil.normaliseTextAndRemoveSpaces(content);
-            if (content.trim().length() == 0) { 
+            if (content.trim().length() == 0) {
                 labeled.add(null);
                 continue;
             }

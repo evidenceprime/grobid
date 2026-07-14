@@ -1,42 +1,54 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities;
 
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.grobid.core.GrobidModel;
-import org.grobid.core.engines.tagging.GrobidCRFEngine;
-import org.grobid.core.exceptions.GrobidPropertyException;
-import org.grobid.core.exceptions.GrobidResourceException;
-import org.grobid.core.utilities.GrobidConfig.ModelParameters;
-import org.grobid.core.utilities.GrobidConfig.DelftModelParameters;
-import org.grobid.core.utilities.GrobidConfig.DelftModelParameterSet;
-import org.grobid.core.utilities.GrobidConfig.WapitiModelParameters;
-import org.grobid.core.main.GrobidHomeFinder;
-import org.grobid.core.utilities.Consolidation.GrobidConsolidationService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.fasterxml.jackson.databind.DeserializationFeature;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.grobid.core.GrobidModel;
+import org.grobid.core.engines.tagging.GrobidCRFEngine;
+import org.grobid.core.exceptions.GrobidPropertyException;
+import org.grobid.core.main.GrobidHomeFinder;
+import org.grobid.core.utilities.Consolidation.GrobidConsolidationService;
+import org.grobid.core.utilities.GrobidConfig.DelftModelParameterSet;
+import org.grobid.core.utilities.GrobidConfig.DelftModelParameters;
+import org.grobid.core.utilities.GrobidConfig.ModelParameters;
 
 /**
- * This class provide methods to set/load/access grobid config value from a yaml config file loaded 
- * in the class {@link GrobidConfig}. 
+ * This class provide methods to set/load/access grobid config value from a yaml config file loaded
+ * in the class {@link GrobidConfig}.
  *
- * New yaml parameters and former properties should be equivalent via this class. We keep the 
+ * New yaml parameters and former properties should be equivalent via this class. We keep the
  * class name "GrobidProperties" for compatibility with Grobid modules and other Java applications
  * using Grobid as a library.
- * 
- * to be done: having parameters that can be overridden by a system property having a compatible name. 
+ *
+ * to be done: having parameters that can be overridden by a system property having a compatible name.
  */
 public class GrobidProperties {
     public static final Logger LOGGER = LoggerFactory.getLogger(GrobidProperties.class);
@@ -44,8 +56,13 @@ public class GrobidProperties {
     static final String FOLDER_NAME_MODELS = "models";
     static final String FILE_NAME_MODEL = "model";
     private static final String GROBID_VERSION_FILE = "/grobid-version.txt";
-    static final String UNKNOWN_VERSION_STR = "unknown";
-    
+    private static final String UNKNOWN_VERSION_STR = "unknown";
+    private static final String GROBID_REVISION_FILE = "/grobid-revision.txt";
+
+    // Version
+    private static String VERSION = null;
+    private static String REVISION = null;
+
     private static GrobidProperties grobidProperties = null;
 
     // indicate if GROBID is running in server mode or not
@@ -57,7 +74,7 @@ public class GrobidProperties {
     private static GrobidConfig grobidConfig = null;
 
     /**
-     * Map models specified inthe config file to their parameters
+     * Map models specified in the config file to their parameters
      */
     private static Map<String, ModelParameters> modelMap = null;
 
@@ -166,14 +183,16 @@ public class GrobidProperties {
         grobidHome = new File(pGROBID_HOME_PATH);
         // exception if prop file does not exist
         if (!grobidHome.exists()) {
-            throw new GrobidPropertyException("Could not read GROBID_HOME, the directory '" + pGROBID_HOME_PATH + "' does not exist.");
+            throw new GrobidPropertyException(
+                    "Could not read GROBID_HOME, the directory '" + pGROBID_HOME_PATH + "' does not exist.");
         }
 
         try {
             grobidHome = grobidHome.getCanonicalFile();
         } catch (IOException e) {
-            throw new GrobidPropertyException("Cannot set grobid home path to the given one '" + pGROBID_HOME_PATH
-                + "', because it does not exist.");
+            throw new GrobidPropertyException("Cannot set grobid home path to the given one '"
+                    + pGROBID_HOME_PATH
+                    + "', because it does not exist.");
         }
     }
 
@@ -210,26 +229,28 @@ public class GrobidProperties {
         File grobidConfigPath = new File(pGrobidConfigPath);
         // exception if config file does not exist
         if (!grobidConfigPath.exists()) {
-            throw new GrobidPropertyException("Cannot read GROBID yaml config file, the file '" + pGrobidConfigPath + "' does not exist.");
+            throw new GrobidPropertyException(
+                    "Cannot read GROBID yaml config file, the file '" + pGrobidConfigPath + "' does not exist.");
         }
 
         try {
             GROBID_CONFIG_PATH = grobidConfigPath.getCanonicalFile();
         } catch (IOException e) {
-            throw new GrobidPropertyException("Cannot set grobid yaml config file path to the given one '" + pGrobidConfigPath
-                + "', because it does not exist.");
+            throw new GrobidPropertyException("Cannot set grobid yaml config file path to the given one '"
+                    + pGrobidConfigPath
+                    + "', because it does not exist.");
         }
     }
 
     /**
      * Create a new object and search where to find the grobid-home folder.
-     * 
+     *
      * We check if the system property GrobidPropertyKeys.PROP_GROBID_HOME
      * is set. If not set, the method will search for a folder named
      * grobid-home in the current project.
-     * 
-     * Finally from the found grobid-home, the yaml config file is loaded and 
-     * the native and data resource paths are initialized. 
+     *
+     * Finally from the found grobid-home, the yaml config file is loaded and
+     * the native and data resource paths are initialized.
      */
     public GrobidProperties() {
         assignGrobidHomePath();
@@ -241,10 +262,12 @@ public class GrobidProperties {
             mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
             grobidConfig = mapper.readValue(GROBID_CONFIG_PATH, GrobidConfig.class);
         } catch (IOException exp) {
-            throw new GrobidPropertyException("Cannot open GROBID config yaml file at location '" + GROBID_CONFIG_PATH.getAbsolutePath()
-                + "'", exp);
+            throw new GrobidPropertyException("Cannot open GROBID config yaml file at location '"
+                    + GROBID_CONFIG_PATH.getAbsolutePath()
+                    + "'", exp);
         } catch (Exception exp) {
-            throw new GrobidPropertyException("Cannot open GROBID config yaml file " + getGrobidConfigPath().getAbsolutePath(), exp);
+            throw new GrobidPropertyException(
+                    "Cannot open GROBID config yaml file " + getGrobidConfigPath().getAbsolutePath(), exp);
         }
 
         //Map<String, String> configParametersViaEnvironment = getEnvironmentVariableOverrides(System.getenv());
@@ -260,8 +283,8 @@ public class GrobidProperties {
      * Create a map between model names and associated parameters
      */
     private static void createModelMap() {
-        for(ModelParameters modelParameter : grobidConfig.grobid.models) {
-            if (modelMap == null) 
+        for (ModelParameters modelParameter : grobidConfig.grobid.models) {
+            if (modelMap == null)
                 modelMap = new TreeMap<>();
             modelMap.put(modelParameter.name, modelParameter);
         }
@@ -271,14 +294,14 @@ public class GrobidProperties {
      * Add a model with its parameter object in the model map
      */
     public static void addModel(ModelParameters modelParameter) {
-        if (modelMap == null) 
+        if (modelMap == null)
             modelMap = new TreeMap<>();
         modelMap.put(modelParameter.name, modelParameter);
     }
 
     /**
      * Create indicated tmp path if it does not exist
-     */ 
+     */
     private void initializeTmpPath() {
         File tmpDir = getTempPath();
         if (!tmpDir.exists()) {
@@ -288,7 +311,7 @@ public class GrobidProperties {
         }
     }
 
-    /** 
+    /**
      * Return the distinct values of all the engines that are specified in the the model map
      */
     public static Set<GrobidCRFEngine> getDistinctModels() {
@@ -313,24 +336,49 @@ public class GrobidProperties {
      * @return GROBID version
      */
     public static String getVersion() {
-        if (GROBID_VERSION == null) {
-            synchronized (GrobidProperties.class) {
-                if (GROBID_VERSION == null) {
-                    String grobidVersion = UNKNOWN_VERSION_STR;
-                    try (InputStream is = GrobidProperties.class.getResourceAsStream(GROBID_VERSION_FILE)) {
-                        grobidVersion = IOUtils.toString(is, "UTF-8");
-                    } catch (IOException e) {
-                        LOGGER.error("Cannot read Grobid version from resources", e);
-                    }
-                    GROBID_VERSION = grobidVersion;
-                }
+        if (VERSION != null) {
+            return VERSION;
+        }
+        synchronized (GrobidProperties.class) {
+            if (VERSION == null) {
+                VERSION = readFromSystemPropertyOrFromFile("project.version", GROBID_VERSION_FILE);
             }
         }
-        return GROBID_VERSION;
+        return VERSION;
+    }
+
+    public static String getRevision() {
+        if (REVISION != null) {
+            return REVISION;
+        }
+        synchronized (GrobidProperties.class) {
+            if (REVISION == null) {
+                REVISION = readFromSystemPropertyOrFromFile("gitRevision", GROBID_REVISION_FILE);
+            }
+        }
+        return REVISION;
+    }
+
+    private static String readFromSystemPropertyOrFromFile(String systemPropertyName, String filePath) {
+        String grobidVersion = UNKNOWN_VERSION_STR;
+        String systemPropertyValue = System.getProperty(systemPropertyName);
+        if (systemPropertyValue != null) {
+            grobidVersion = systemPropertyValue;
+        } else {
+            try (InputStream is = GrobidProperties.class.getResourceAsStream(filePath)) {
+                String grobidVersionTmp = IOUtils.toString(is, StandardCharsets.UTF_8);
+                if (!StringUtils.startsWithIgnoreCase(grobidVersionTmp, "${project_")) {
+                    grobidVersion = grobidVersionTmp;
+                }
+            } catch (IOException e) {
+                LOGGER.error("Cannot read the version from resources", e);
+            }
+        }
+        return grobidVersion;
     }
 
     /**
-     * Returns the temprorary path of grobid
+     * Returns the temporary path of grobid
      *
      * @return a directory for temp files
      */
@@ -380,7 +428,7 @@ public class GrobidProperties {
     }
 
     public static String getGluttonUrl() {
-        if (grobidConfig.grobid.consolidation.glutton.url == null || grobidConfig.grobid.consolidation.glutton.url.trim().length() == 0) 
+        if (StringUtils.isEmpty(grobidConfig.grobid.consolidation.glutton.url))
             return null;
         else
             return grobidConfig.grobid.consolidation.glutton.url;
@@ -393,10 +441,10 @@ public class GrobidProperties {
     /**
      * Returns the host for a proxy connection, given in the grobid config file.
      *
-     * @return proxy host 
+     * @return proxy host
      */
     public static String getProxyHost() {
-        if (grobidConfig.grobid.proxy.host == null || grobidConfig.grobid.proxy.host.trim().length() == 0)
+        if (grobidConfig.grobid.proxy.host == null || StringUtils.trimToEmpty(grobidConfig.grobid.proxy.host).isEmpty())
             return null;
         else
             return grobidConfig.grobid.proxy.host;
@@ -405,7 +453,7 @@ public class GrobidProperties {
     /**
      * Sets the host a proxy connection, given in the config file.
      *
-     * @param the proxy host to be used
+     * @param host the proxy host to be used
      */
     public static void setProxyHost(final String host) {
         grobidConfig.grobid.proxy.host = host;
@@ -416,7 +464,7 @@ public class GrobidProperties {
     /**
      * Returns the port for a proxy connection, given in the grobid config file.
      *
-     * @return proxy port 
+     * @return proxy port
      */
     public static Integer getProxyPort() {
         return grobidConfig.grobid.proxy.port;
@@ -439,7 +487,8 @@ public class GrobidProperties {
      * @return string of the email parameter to be used for requesting crossref
      */
     public static String getCrossrefMailto() {
-        if (grobidConfig.grobid.consolidation.crossref.mailto == null || grobidConfig.grobid.consolidation.crossref.mailto.trim().length() == 0)
+        if (grobidConfig.grobid.consolidation.crossref.mailto == null
+                || grobidConfig.grobid.consolidation.crossref.mailto.trim().length() == 0)
             return null;
         else
             return grobidConfig.grobid.consolidation.crossref.mailto;
@@ -464,7 +513,8 @@ public class GrobidProperties {
      * @return authorization token to be used for requesting crossref
      */
     public static String getCrossrefToken() {
-        if (grobidConfig.grobid.consolidation.crossref.token == null || grobidConfig.grobid.consolidation.crossref.token.trim().length() == 0)
+        if (grobidConfig.grobid.consolidation.crossref.token == null
+                || grobidConfig.grobid.consolidation.crossref.token.trim().length() == 0)
             return null;
         else
             return grobidConfig.grobid.consolidation.crossref.token;
@@ -473,12 +523,12 @@ public class GrobidProperties {
     /**
      * Sets the port for a proxy connection, given in the grobid config file.
      *
-     * @param proxy port 
+     * @param port the proxy port
      */
     public static void setProxyPort(int port) {
         grobidConfig.grobid.proxy.port = port;
-        System.setProperty("http.proxyPort", ""+port);
-        System.setProperty("https.proxyPort", ""+port);
+        System.setProperty("http.proxyPort", "" + port);
+        System.setProperty("https.proxyPort", "" + port);
     }
 
     public static Integer getPdfaltoMemoryLimitMb() {
@@ -507,9 +557,9 @@ public class GrobidProperties {
      * @return number of threads
      */
     public static Integer getWapitiNbThreads() {
-        Integer nbThreadsConfig = Integer.valueOf(grobidConfig.grobid.wapiti.nbThreads);
-        if (nbThreadsConfig.intValue() == 0) {
-            return Integer.valueOf(Runtime.getRuntime().availableProcessors());
+        int nbThreadsConfig = grobidConfig.grobid.wapiti.nbThreads;
+        if (nbThreadsConfig == 0) {
+            return Runtime.getRuntime().availableProcessors();
         }
         return nbThreadsConfig;
     }
@@ -546,8 +596,6 @@ public class GrobidProperties {
 
     /**
      * Sets if a language id shall be used, given in the grobid-property file.
-     *
-     * @param useLanguageId true, if a language id shall be used
      */
     /*public static void setUseLanguageId(final String useLanguageId) {
         setPropertyValue(GrobidPropertyKeys.PROP_USE_LANG_ID, useLanguageId);
@@ -570,8 +618,9 @@ public class GrobidProperties {
         pathToPdfalto = new File(grobidHome.getPath(), pathName);
         if (!pathToPdfalto.exists()) {
             throw new GrobidPropertyException(
-                "Path to pdfalto doesn't exists. " + 
-                "Please set the path to pdfalto in the config file");
+                    "Path to pdfalto doesn't exists. "
+                            +
+                            "Please set the path to pdfalto in the config file");
         }
 
         pathToPdfalto = new File(pathToPdfalto, Utilities.getOsNameAndArch());
@@ -593,11 +642,11 @@ public class GrobidProperties {
         // if we have a flavor of the model, we can fall back to the configuration
         // of the parent model
         String fallBackModelName = modelName;
-        while(param == null) {
+        while (param == null) {
             LOGGER.debug("No configuration parameter defined for model " + modelName);
             int ind = fallBackModelName.lastIndexOf("-");
             if (ind != -1) {
-                fallBackModelName = modelName.substring(0,ind);
+                fallBackModelName = modelName.substring(0, ind);
             } else {
                 return null;
             }
@@ -607,10 +656,20 @@ public class GrobidProperties {
     }
 
     public static String getGrobidEngineName(final String modelName) {
-        ModelParameters param = getGrobidModelParameters(modelName);
-        if (param == null)
-            return null;
-        return param.engine;
+        // Field-level prefix-fallback: a flavor entry that does not declare an engine
+        // inherits it from the closest ancestor (by stripping trailing "-suffix" tokens)
+        // that does. This lets flavor entries focus on per-flavor overrides (e.g. a
+        // different DeLFT architecture) without having to repeat the base's engine.
+        String name = modelName;
+        while (name != null) {
+            ModelParameters param = modelMap.get(name);
+            if (param != null && StringUtils.isNotBlank(param.engine)) {
+                return param.engine;
+            }
+            int ind = name.lastIndexOf("-");
+            name = (ind == -1) ? null : name.substring(0, ind);
+        }
+        return null;
     }
 
     public static GrobidCRFEngine getGrobidEngine(final String modelName) {
@@ -629,7 +688,7 @@ public class GrobidProperties {
         if (modelMap.get(model.getModelName()) == null) {
             // model is either:
             // - a flavor without config, but that should fallback to the parent model config
-            //   if no specific config exists. If it is the case, the model path is infered
+            //   if no specific config exists. If it is the case, the model path is inferred
             //   from the flavor model name
             // - a normal model not specified in the config, so returning null
 
@@ -638,9 +697,13 @@ public class GrobidProperties {
             }
         }
         String extension = getGrobidEngine(model).getExt();
-        return new File(getGrobidHome(), FOLDER_NAME_MODELS + File.separator
-            + model.getFolderName() + File.separator
-            + FILE_NAME_MODEL + "." + extension);
+        return new File(getGrobidHome(), FOLDER_NAME_MODELS
+                + File.separator
+                + model.getFolderName()
+                + File.separator
+                + FILE_NAME_MODEL
+                + "."
+                + extension);
     }
 
     public static File getModelPath() {
@@ -652,11 +715,15 @@ public class GrobidProperties {
         if (param == null)
             return null;
 
-        File theFile = new File(resourcesDir, "dataset/" + model.getFolderName()
-            + "/crfpp-templates/" + model.getTemplateName());
+        File theFile = new File(resourcesDir, "dataset/"
+                + model.getFolderName()
+                + "/crfpp-templates/"
+                + model.getTemplateName());
         if (!theFile.exists()) {
-            theFile = new File("resources/dataset/" + model.getFolderName()
-                + "/crfpp-templates/" + model.getTemplateName());
+            theFile = new File("resources/dataset/"
+                    + model.getFolderName()
+                    + "/crfpp-templates/"
+                    + model.getTemplateName());
         }
         return theFile;
     }
@@ -709,8 +776,9 @@ public class GrobidProperties {
      * @return the consolidation service to be used
      */
     public static GrobidConsolidationService getConsolidationService() {
-        if (grobidConfig.grobid.consolidation.service == null)
+        if (grobidConfig.grobid.consolidation.service == null) {
             grobidConfig.grobid.consolidation.service = "crossref";
+        }
         return GrobidConsolidationService.get(grobidConfig.grobid.consolidation.service);
     }
 
@@ -722,10 +790,59 @@ public class GrobidProperties {
     }
 
     /**
+     * Get the Crossref timeout in seconds for consolidation service requests.
+     * @return timeout in seconds
+     */
+    public static int getCrossrefConsolidationTimeout() {
+        if (grobidConfig.grobid.consolidation.crossref == null) {
+            LOGGER.warn("Crossref consolidation configuration is missing. Using default timeout of 60 seconds.");
+            return 60;
+        }
+        return grobidConfig.grobid.consolidation.crossref.timeoutSec;
+    }
+
+    /**
+     * Get the minimum interval between consecutive CrossRef API request submissions (in milliseconds).
+     * Returns -1 (auto-compute from tier) by default. A positive value overrides the tier-based rate.
+     * @return minimum interval in milliseconds, or -1 for auto
+     */
+    public static long getCrossrefMinRequestInterval() {
+        if (grobidConfig.grobid.consolidation.crossref == null) {
+            return -1;
+        }
+        return grobidConfig.grobid.consolidation.crossref.minRequestIntervalMs;
+    }
+
+    /**
+     * Get the Glutton timeout in seconds for consolidation service requests.
+     * @return timeout in seconds
+     */
+    public static int getGluttonConsolidationTimeout() {
+        if (grobidConfig.grobid.consolidation.glutton == null) {
+            LOGGER.warn("Biblio-glutton consolidation configuration is missing. Using default timeout of 60 seconds.");
+            return 60;
+        }
+        return grobidConfig.grobid.consolidation.glutton.timeoutSec;
+    }
+
+    /**
+     * Get whether post-validation is enabled for CrossRef consolidation results.
+     * When true, GROBID will validate CrossRef results against the source metadata.
+     *
+     * @return true if post-validation is enabled (default), false otherwise
+     */
+    public static boolean getCrossrefPostValidation() {
+        if (grobidConfig.grobid.consolidation.crossref == null) {
+            return true;
+        }
+        return grobidConfig.grobid.consolidation.crossref.postValidation;
+    }
+
+    /**
      * Returns if the execution context is stand alone or server.
      *
      * @return the context of execution. Return false if the property value is
-     * not readable.
+     * null or empty.
      */
     public static boolean isContextExecutionServer() {
         return contextExecutionServer;
@@ -752,7 +869,7 @@ public class GrobidProperties {
         ModelParameters parameters = getGrobidModelParameters(model.getModelName());
         if (parameters != null && parameters.wapiti != null)
             return parameters.wapiti.window;
-        else 
+        else
             return 20;
     }
 
@@ -760,7 +877,7 @@ public class GrobidProperties {
         ModelParameters parameters = getGrobidModelParameters(model.getModelName());
         if (parameters != null && parameters.wapiti != null)
             return parameters.wapiti.epsilon;
-        else 
+        else
             return 0.00001;
     }
 
@@ -768,7 +885,7 @@ public class GrobidProperties {
         ModelParameters parameters = getGrobidModelParameters(model.getModelName());
         if (parameters != null && parameters.wapiti != null)
             return parameters.wapiti.nbMaxIterations;
-        else 
+        else
             return 2000;
     }
 
@@ -787,17 +904,21 @@ public class GrobidProperties {
     }
 
     public static String getDelftArchitecture(final String modelName) {
-        ModelParameters param = getGrobidModelParameters(modelName);
-        if (param == null) {
-            LOGGER.debug("No configuration parameter defined for model " + modelName);
-            return null;
+        // Field-level prefix-fallback: a flavor entry without `delft.architecture`
+        // inherits the architecture from the closest ancestor that sets it.
+        String name = modelName;
+        while (name != null) {
+            ModelParameters param = modelMap.get(name);
+            if (param != null
+                    && param.delft != null
+                    && StringUtils.isNotBlank(param.delft.architecture)) {
+                return param.delft.architecture;
+            }
+            int ind = name.lastIndexOf("-");
+            name = (ind == -1) ? null : name.substring(0, ind);
         }
-        DelftModelParameters delftParam = param.delft;
-        if (delftParam == null) {
-            LOGGER.debug("No configuration parameter defined for DeLFT engine for model " + modelName);
-            return null;
-        }
-        return param.delft.architecture;
+        LOGGER.debug("No DeLFT architecture configured for model " + modelName + " or any ancestor");
+        return null;
     }
 
     public static String getDelftEmbeddingsName(final String modelName) {
@@ -922,7 +1043,7 @@ public class GrobidProperties {
 
     public static String getDelftArchitecture(final GrobidModel model) {
         return getDelftArchitecture(model.getModelName());
-    }   
+    }
 
     /*protected static Map<String, String> getEnvironmentVariableOverrides(Map<String, String> environmentVariablesMap) {
         EnvironmentVariableProperties envParameters = new EnvironmentVariableProperties(environmentVariablesMap, "(grobid__).+");

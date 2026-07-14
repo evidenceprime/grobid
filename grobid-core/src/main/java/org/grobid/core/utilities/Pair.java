@@ -1,4 +1,24 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class Pair<A, B> {
 
@@ -12,32 +32,31 @@ public class Pair<A, B> {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb
-                .append("('")
-                .append(a)
-                .append("'; '")
-                .append(b)
-                .append("')");
-        return sb.toString();
+        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
+                .append("a", a)
+                .append("b", b)
+                .toString();
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
+        if (this == o)
             return true;
-        }
-        if (!(o instanceof Pair)) {
+        if (!(o instanceof Pair))
             return false;
-        }
         Pair<?, ?> that = (Pair<?, ?>) o;
-        return ((this.a == null) ? that.a == null : this.a.equals(that.a)) &&
-                ((this.b == null) ? that.b == null : this.b.equals(that.b));
+        return new EqualsBuilder()
+                .append(a, that.a)
+                .append(b, that.b)
+                .isEquals();
     }
 
     @Override
     public int hashCode() {
-        return 7 * (a != null ? a.hashCode() : 11) + 13 * (b != null ? b.hashCode() : 3);
+        return new HashCodeBuilder(17, 37)
+                .append(a)
+                .append(b)
+                .toHashCode();
     }
 
     public A getA() {

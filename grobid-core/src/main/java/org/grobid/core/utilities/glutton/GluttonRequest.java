@@ -1,39 +1,41 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.utilities.glutton;
 
-import org.grobid.core.utilities.GrobidProperties;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.http.Header;
 import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
+import org.apache.http.HttpHost;
 import org.apache.http.client.ResponseHandler;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.DefaultProxyRoutePlanner;
 import org.apache.http.util.EntityUtils;
-import org.apache.http.HttpHost;
-import org.apache.http.conn.params.*;
-import org.apache.http.impl.conn.*;
 
+import org.grobid.core.exceptions.GrobidResourceException;
+import org.grobid.core.utilities.GrobidProperties;
+import org.grobid.core.utilities.crossref.CrossrefDeserializer;
 import org.grobid.core.utilities.crossref.CrossrefRequestListener;
 import org.grobid.core.utilities.crossref.CrossrefRequestListener.Response;
-import org.grobid.core.utilities.crossref.CrossrefDeserializer;
-import org.grobid.core.utilities.crossref.CrossrefRequest;
-import org.grobid.core.exceptions.GrobidResourceException;
-
-import org.apache.commons.io.IOUtils;
-import java.net.URL;
-import java.io.*;
 
 /**
  * Glutton request
@@ -42,7 +44,8 @@ import java.io.*;
 public class GluttonRequest<T extends Object> extends Observable {
 
     protected String BASE_PATH = "/service/lookup";
-    protected static final List<String> identifiers = Arrays.asList("doi", "DOI", "pmid", "PMID", "pmcid", "PMCID", "pmc", "PMC");
+    protected static final List<String> identifiers = Arrays
+            .asList("doi", "DOI", "pmid", "PMID", "pmcid", "PMCID", "pmc", "PMC");
 
     /**
      * Query parameters, cannot be null, ex: ?atitle=[title]&firstAuthor=[first_author_lastname]
@@ -51,26 +54,26 @@ public class GluttonRequest<T extends Object> extends Observable {
     public Map<String, String> params;
 
     /**
-     * JSON response deserializer, ex: WorkDeserializer to convert metadata to BiblioItem, it's similar 
+     * JSON response deserializer, ex: WorkDeserializer to convert metadata to BiblioItem, it's similar
      * to CrossRef, but possibly enriched with some additional metadata (e.g. PubMed)
      */
     protected CrossrefDeserializer<T> deserializer;
-    
+
     protected ArrayList<CrossrefRequestListener<T>> listeners;
-    
+
     public GluttonRequest(String model, Map<String, String> params, CrossrefDeserializer<T> deserializer) {
         this.params = params;
         this.deserializer = deserializer;
         this.listeners = new ArrayList<CrossrefRequestListener<T>>();
     }
-    
+
     /**
      * Add listener to catch response when request is executed.
      */
     public void addListener(CrossrefRequestListener<T> listener) {
         this.listeners.add(listener);
     }
-    
+
     /**
      * Notify all connected listeners
      */
@@ -78,7 +81,7 @@ public class GluttonRequest<T extends Object> extends Observable {
         for (CrossrefRequestListener<T> listener : listeners)
             listener.notify(message);
     }
-    
+
     /**
      * Execute request, handle response by sending to listeners a CrossrefRequestListener.Response
      */
@@ -86,19 +89,33 @@ public class GluttonRequest<T extends Object> extends Observable {
         if (params == null) {
             // this should not happen
             CrossrefRequestListener.Response<T> message = new CrossrefRequestListener.Response<T>();
-            message.setException(new Exception("Empty list of parameter, cannot build request to glutton service"), this.toString());
+            message.setException(
+                    new Exception("Empty list of parameter, cannot build request to glutton service"),
+                    this.toString());
             notifyListeners(message);
             return;
         }
         CloseableHttpClient httpclient = null;
+
+        // Get the configured timeout in milliseconds
+        int timeout = GrobidProperties.getGluttonConsolidationTimeout() * 1000; // Convert to milliseconds
+        RequestConfig requestConfig = RequestConfig.custom()
+                .setConnectTimeout(timeout)
+                .setSocketTimeout(timeout)
+                .setConnectionRequestTimeout(timeout)
+                .build();
+
         if (GrobidProperties.getProxyHost() != null) {
             HttpHost proxy = new HttpHost(GrobidProperties.getProxyHost(), GrobidProperties.getProxyPort());
             DefaultProxyRoutePlanner routePlanner = new DefaultProxyRoutePlanner(proxy);
             httpclient = HttpClients.custom()
-                .setRoutePlanner(routePlanner)
-                .build();
+                    .setRoutePlanner(routePlanner)
+                    .setDefaultRequestConfig(requestConfig)
+                    .build();
         } else {
-            httpclient = HttpClients.createDefault();   
+            httpclient = HttpClients.custom()
+                    .setDefaultRequestConfig(requestConfig)
+                    .build();
         }
 
         try {
@@ -106,7 +123,7 @@ public class GluttonRequest<T extends Object> extends Observable {
             if (url == null) {
                 throw new Exception("Invalid url for glutton service");
             }
-            
+
             URIBuilder uriBuilder = new URIBuilder(url + BASE_PATH);
 
             // check if we have a strong identifier directly supported by Glutton: DOI, PMID, PMCID
@@ -116,20 +133,21 @@ public class GluttonRequest<T extends Object> extends Observable {
                 if (doi == null)
                     doi = params.get("doi");
                 uriBuilder.setParameter("doi", doi);
-            } 
+            }
             if (params.get("HALID") != null || params.get("halId") != null) {
                 String doi = params.get("HALID");
                 if (doi == null)
                     doi = params.get("halId");
                 uriBuilder.setParameter("halId", doi);
-            } 
+            }
             if (params.get("PMID") != null || params.get("pmid") != null) {
                 String pmid = params.get("PMID");
                 if (pmid == null)
                     pmid = params.get("pmid");
                 uriBuilder.setParameter("pmid", pmid);
-            } 
-            if (params.get("PMCID") != null || params.get("pmcid") != null || params.get("pmc") != null || params.get("PMC") != null) {
+            }
+            if (params.get("PMCID") != null || params.get("pmcid") != null || params.get("pmc") != null
+                    || params.get("PMC") != null) {
                 String pmcid = params.get("PMCID");
                 if (pmcid == null)
                     pmcid = params.get("pmcid");
@@ -138,10 +156,10 @@ public class GluttonRequest<T extends Object> extends Observable {
                 if (pmcid == null)
                     pmcid = params.get("pmc");
                 uriBuilder.setParameter("pmc", pmcid);
-            } 
+            }
             {
                 for (Entry<String, String> cursor : params.entrySet()) {
-                    if (!identifiers.contains(cursor.getKey())) 
+                    if (!identifiers.contains(cursor.getKey()))
                         uriBuilder.setParameter(mapFromCrossref(cursor.getKey()), cursor.getValue());
                 }
             }
@@ -179,13 +197,13 @@ public class GluttonRequest<T extends Object> extends Observable {
 
                 return null;
             };
-            
+
             httpclient.execute(httpget, responseHandler);
-            
+
         } catch (GrobidResourceException gre) {
             try {
                 httpclient.close();
-            } catch (IOException e) { 
+            } catch (IOException e) {
                 // to log
             }
             try {
@@ -201,7 +219,7 @@ public class GluttonRequest<T extends Object> extends Observable {
         } finally {
             try {
                 httpclient.close();
-            } catch (IOException e) {           
+            } catch (IOException e) {
                 CrossrefRequestListener.Response<T> message = new CrossrefRequestListener.Response<T>();
                 message.setException(e, this.toString());
                 notifyListeners(message);
@@ -215,7 +233,7 @@ public class GluttonRequest<T extends Object> extends Observable {
     private String mapFromCrossref(String field) {
         if (field.equals("query.bibliographic"))
             return "biblio";
- 
+
         if (field.equals("query.title")) {
             return "atitle";
         }
@@ -227,18 +245,19 @@ public class GluttonRequest<T extends Object> extends Observable {
         if (field.equals("query.container-title")) {
             return "jtitle";
         }
-        
+
         return field;
     }
-    
+
     public String toString() {
-        String str = "";
-        str += " (";
+        StringBuilder sb = new StringBuilder();
+        sb.append(" (");
         if (params != null) {
-            for (Entry<String, String> cursor : params.entrySet())
-                str += ","+cursor.getKey()+"="+cursor.getValue();
+            for (Entry<String, String> cursor : params.entrySet()) {
+                sb.append(",").append(cursor.getKey()).append("=").append(cursor.getValue());
+            }
         }
-        str += ")";
-        return str;
+        sb.append(")");
+        return sb.toString();
     }
 }

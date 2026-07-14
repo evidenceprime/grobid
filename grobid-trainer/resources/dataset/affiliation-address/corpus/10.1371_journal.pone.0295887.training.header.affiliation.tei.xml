@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei xml:space="preserve" xmlns="http://www.tei-c.org/ns/1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML">
+	<teiHeader>
+		<fileDesc>
+			<sourceDesc>
+				<biblStruct>
+					<analytic>
+						<author>
+
+						<affiliation>
+							<marker>1</marker>
+							<orgName type="department">Policy Cures Research</orgName>,
+							<address>
+								<settlement>Sydney</settlement>,
+								<region>New South Wales</region>,
+								<country>Australia</country>,
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>2</marker>
+							<orgName type="institution">Instituto Clodomiro Picado</orgName>,
+							<orgName type="department">Facultad de<lb/> Microbiologı ´a</orgName>,
+							<orgName type="institution">Universidad de Costa Rica</orgName>,
+							<address>
+								<settlement>San Jose ´</settlement>,
+								<country>Costa Rica,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>3</marker>
+							<orgName type="institution">VenomAid Diagnostics</orgName>,
+							<address>
+								<settlement>Lyngby</settlement>,
+							<lb/>
+								<country>Denmark,</country>
+							</address>
+						</affiliation>
+						<affiliation>
+							<marker>4</marker>
+							<orgName type="laboratory">Infectious and Tropical Diseases Unit</orgName>,
+							<orgName type="department">Department of Medicine</orgName>,
+							<orgName type="institution">Bayero University</orgName>,
+							<address>
+								<settlement>Kano</settlement>,
+								<country>Nigeria</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">Fundac ¸ão de<lb/> Medicina Tropical</orgName>
+							<address>
+								<addrLine>Doutor Heitor Vieira Dourado</addrLine>,
+							<lb/>
+								<country>BRAZIL</country>
+							<lb/>
+							</address>
+						</affiliation>
+						<affiliation>
+							<orgName type="institution">Instituto Clodomiro Picado (Universidad de Costa<lb/> Rica</orgName>
+						</affiliation>
+
+						</author>
+					</analytic>
+				</biblStruct>
+			</sourceDesc>
+		</fileDesc>
+	</teiHeader>
+</tei>

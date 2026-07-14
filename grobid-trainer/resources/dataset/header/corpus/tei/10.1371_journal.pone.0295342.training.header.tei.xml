@@ -1,0 +1,163 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T13:38:19.359Z">12/2/2025 1:38:19 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T13:38:09.369858Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T13:38:09.369858Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Identification and characterization of calcium<lb/> binding protein, spermatid-associated 1<lb/> (CABS1) # in selected human tissues and fluids<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Eduardo Reyes-Serratos 1,2 , Joy Ramielle L. Santos 1,2 , Lakshmi Puttagunta 1,3 , Stephen<lb/> J. Lewis 4 , Mechiko Watanabe 4,5 , Aron Gonshor 6 , Robert Buck 6,7 , A. Dean Befus 1,2 *,<lb/> Marcelo Marcet-PalaciosID 1,8 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Alberta Respiratory Centre, University of Alberta,</affiliation>
+	</byline>
+
+	<address>Edmonton, Alberta, Canada,</address>
+
+	<byline>
+	<affiliation>2 Division of Pulmonary<lb/> Medicine, Department of Medicine, University of Alberta,</affiliation>
+	</byline>
+
+	<address>Edmonton, Alberta, Canada,</address>
+
+	<byline>
+	<affiliation>3 Department of<lb/> Laboratory Medicine, University of Alberta,</affiliation>
+	</byline>
+
+	<address>Edmonton, Alberta, Canada,</address>
+
+	<byline>
+	<affiliation>4 Departments of Pediatrics and<lb/> Pharmacology, Rainbow Babies and Children&apos;s Hospital, Case Western Reserve University, School of<lb/> Medicine,</affiliation>
+	</byline>
+
+	<address>Cleveland, Ohio, United States of America,</address>
+
+	<byline>
+	<affiliation>5 Division of Pediatric Cardiology, Department of<lb/> Pediatrics, Rainbow Babies and Children&apos;s Hospital, Case Western Reserve University, School of Medicine,<lb/></affiliation>
+	</byline>
+
+	<address>Cleveland, Ohio, United States of America,</address>
+
+	<byline>
+	<affiliation>6 GB Diagnostics,</affiliation>
+	</byline>
+
+	<address>Montreal, Quebec, Canada,</address>
+
+	<byline>
+	<affiliation>7 GB<lb/> Diagnostics,</affiliation>
+	</byline>
+
+	<address>Albuquerque, New Mexico, United States of America,</address>
+
+	<byline>
+	<affiliation>8 Northern Alberta Institute of<lb/> Technology,</affiliation>
+	</byline>
+
+	<address>Edmonton, Alberta, Canada<lb/></address>
+
+	*
+	<email>marcelo@ualberta.ca</email>
+
+	(MMP);
+	<email>dean.befus@ualberta.ca</email>
+
+	(ADB) Abstract<lb/>
+	<div type="abstract">Calcium binding protein, spermatid associated 1 (CABS1) is a protein most widely studied in<lb/> spermatogenesis. However, mRNA for CABS1 has been found in numerous tissues, albeit<lb/> with little information about the protein. Previously, we identified CABS1 mRNA and protein<lb/> in human salivary glands and provided evidence that in humans CABS1 contains a hepta-<lb/>peptide near its carboxyl terminus that has anti-inflammatory activities. Moreover, levels of<lb/> an immunoreactive form of CABS1 were elevated in psychological stress. To more fully<lb/> characterize human CABS1 we developed additional polyclonal and monoclonal antibodies<lb/> to different sections of the protein and used these antibodies to characterize CABS1 in an<lb/> overexpression cell lysate, human salivary glands, saliva, serum and testes using western<lb/> blot, immunohistochemistry and bioinformatics approaches exploiting the Gene Expression<lb/> Omnibus (GEO) database. CABS1 appears to have multiple molecular weight forms, con-<lb/>sistent with its recognition as a structurally disordered protein, a protein with structural plas-<lb/>ticity. Interestingly, in human testes, its cellular distribution differs from that in rodents and<lb/> pigs, and includes Leydig cells, primary spermatogonia, Sertoli cells and developing sper-<lb/>matocytes and spermatids, Geodata suggests that CABS1 is much more widely distributed<lb/> than previously recognized, including in the urogenital, gastrointestinal and respiratory<lb/> tracts, as well as in the nervous system, immune system and other tissues. Much remains to<lb/> be learned about this intriguing protein.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0301855 May 16, 2024<lb/></reference>
+
+	<page>1 / 22<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Reyes-Serratos E, Ramielle L. Santos J,<lb/> Puttagunta L, Lewis SJ, Watanabe M, Gonshor A,<lb/> et al. (2024) Identification and characterization of<lb/> calcium binding protein, spermatid-associated 1<lb/> (CABS1) # in selected human tissues and fluids.<lb/> PLoS ONE 19(5): e0301855.</reference>
+
+	<idno>https://doi.org/<lb/> 10.1371/journal.pone.0301855<lb/></idno>
+
+	Editor:
+	<editor>Abeer El Wakil</editor>,
+
+	<byline>
+	<affiliation>Alexandria University</affiliation>,
+	</byline>
+
+	<address>EGYPT<lb/></address>
+
+	<note type="submission">Received: September 28, 2023<lb/> Accepted: March 22, 2024<lb/></note>
+
+	Published:
+	<date>May 16, 2024<lb/></date>
+
+	Peer Review History: PLOS recognizes the<lb/> benefits of transparency in the peer review<lb/> process; therefore, we enable the publication of<lb/> all of the content of peer review and author<lb/> responses alongside final, published articles. The<lb/> editorial history of this article is available here:<lb/>
+	<idno>https://doi.org/10.1371/journal.pone.0301855<lb/></idno>
+
+	Copyright:
+	<note type="copyright">© 2024 Reyes-Serratos et al. This is an<lb/> open access article distributed under the terms of<lb/> the Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the manuscript and its Supporting<lb/> information files. Also the public repository can be<lb/> found at: https://sites.ualberta.ca/~marcelo/Data_<lb/> Repository.zip.<lb/></note>
+
+	Funding:
+	<note type="funding">MMP, RGPIN-2020-04553, Natural<lb/> Sciences and Engineering Research Council of<lb/> Canada, https://www.nserc-crsng.gc.ca/. The<lb/> funder had no role in study design, data collection<lb/> and analysis, decision to publish, or preparation of<lb/> the manuscript. ADB, 16BB-MSI-C5 and 18BB-SI-<lb/>C9. AllerGen. https://www.allergen.ca/. The funder<lb/> had no role in study design, data collection and<lb/> analysis, decision to publish, or preparation of the<lb/> manuscript. GB Diagnostics, 10515302 Canada<lb/> Inc. provided funding within the company for<lb/> characterization of the polyclonal and monoclonal<lb/> antibodies to human CABS1 and for their long term<lb/> storage. Drs Buck and Gonshor, co-owners of GB<lb/> Diagnostics contributed to design of the<lb/> monoclonal antibodies and analysis of their<lb/> specificities, as well as to discussions about the<lb/> preparation of the manuscript and its editing.<lb/> Stephen Lewis and Michiko Watanabe have no<lb/> funding to declare.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">I have read the journal&apos;s<lb/> policy and the authors of this manuscript have the<lb/> following competing interests: A. Dean Befus,<lb/> together with the University of Alberta holds a<lb/> patent on CABS1 as a biomarker of stress, and an<lb/> associated licensing agreement with GB<lb/> Diagnostics, 10515302 Canada Inc. Aron Gonshor<lb/> and Robert Buck are co-owners of GB Diagnostics<lb/> 10515302 Canada Inc. GB Diagnostics helped with<lb/> the processing of the application and partially<lb/> funded the approved USA patent 16/084,617,<lb/> entitled: Calcium Binding Protein, Spermatid<lb/> Specific 1, as a Biomarker for Diagnosis or<lb/> Treatment of Stress. The company is also assisting<lb/> with the application and partially funding of the<lb/> Canadian National Application No. CA 3,017,604,<lb/> Calcium Binding Protein, Spermatid Specific 1, as a<lb/> Biomarker for Diagnosis or Treatment of Stress<lb/> (pending approval). GB Diagnostics 10515302<lb/> Canada Inc. is developing a stress biomarker test<lb/> for commercial application under its licensing<lb/> agreement with the University of Alberta. The<lb/> commercial affiliation with GB Diagnostics Canada<lb/> Inc. does not alter our adherence to PLOS ONE<lb/> policies on sharing data and materials for this<lb/> manuscript.</note>
+
+		</front>
+	</text>
+
+</TEI>

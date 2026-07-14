@@ -1,13 +1,28 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core;
 
-import org.grobid.core.utilities.GrobidConfig;
-import org.grobid.core.utilities.GrobidProperties;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.assertThat;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.assertThat;
+import org.grobid.core.utilities.GrobidConfig;
+import org.grobid.core.utilities.GrobidProperties;
 
 public class GrobidModelsTest {
 
@@ -15,7 +30,6 @@ public class GrobidModelsTest {
     public static void setInitialContext() throws Exception {
         GrobidProperties.getInstance();
     }
-
 
     @Test
     public void testGrobidModelsEnum_StandardModel_affiliation() throws Exception {
@@ -76,5 +90,13 @@ public class GrobidModelsTest {
 
         assertThat(GrobidModels.Flavor.fromLabel("3gpp"), is(nullValue()));
         assertThat(GrobidModels.Flavor.fromLabel("sdo/3gpp"), is(GrobidModels.Flavor._3GPP));
+    }
+
+    @Test
+    public void testGrobidFlavor_missing_shouldFallbackToStandardModel() throws Exception {
+        GrobidModel modelFlavor = GrobidModels.getModelFlavor(GrobidModels.DATE, GrobidModels.Flavor.IETF);
+        assertThat(modelFlavor.getFolderName(), is("date"));
+        assertThat(modelFlavor.getModelPath(), not(containsString("ietf")));
+        assertThat(modelFlavor.getModelPath(), endsWith("date/model.wapiti"));
     }
 }

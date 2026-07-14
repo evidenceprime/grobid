@@ -1,0 +1,199 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T10:30:24.548Z">12/2/2025 10:30:24 AM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T10:29:43.499003Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T10:29:43.499003Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Entomological assessment of hessian fabric<lb/> transfluthrin vapour emanators as a means to<lb/> protect against outdoor-biting Aedes after<lb/> providing them to households for routine use<lb/> in Port-au-Prince, Haiti<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Chicoye Supreme 1 , Obrillant Damus 1 , Joseph Frederick 2 † , Jean-Frantz Lemoine 2 ,<lb/> Christian Raccurt 1 , Justin McBeath 3¤ , Nosrat Mirzai 4 , Sheila B. Ogoma 5 , Vincent Corbel 6,7 ,<lb/> Daniel Impoinvil 8 , Gerry F. Killeen ID<lb/> 9,10,11 *, Cyrille Czeher 6,12<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Universite ´Quisqueya,</affiliation>
+	</byline>
+
+	<address>Port-au-Prince, Republic of Haiti,</address>
+
+	<byline>
+	<affiliation>2 Programme National de Contro ˆle de la Malaria,<lb/> Ministère de la Sante ´Publique et de la Population,</affiliation>
+	</byline>
+
+	<address>Port-au-Prince, Republic of Haiti,</address>
+
+	<byline>
+	<affiliation>3 Envu UK Ltd,<lb/></affiliation>
+	</byline>
+
+	<address>Cambridge, Milton, Cambridge, United Kingdom,</address>
+
+	<byline>
+	<affiliation>4 Institute of Biodiversity, Animal Health and Comparative<lb/> Medicine, University of Glasgow,</affiliation>
+	</byline>
+
+	<address>Glasgow, United Kingdom,</address>
+
+	<byline>
+	<affiliation>5 Abt Associates,</affiliation>
+	</byline>
+
+	<address>Nairobi, Kenya,</address>
+
+	<byline>
+	<affiliation>6 Institut de<lb/> Recherche pour le Developpement, University of Montpellier,</affiliation>
+	</byline>
+
+	<address>Montpellier, France,</address>
+
+	<byline>
+	<affiliation>7 Laborato ´rio de Fisiologia<lb/> e Controle de Artro ´podes Vetores (Laficave), Instituto Oswaldo Cruz (IOC), Fundac ¸ão Oswaldo Cruz<lb/> (FIOCRUZ),</affiliation>
+	</byline>
+
+	<address>Rio de Janeiro, RJ, Brazil,</address>
+
+	<byline>
+	<affiliation>8 Centers for Disease Control and Prevention,</affiliation>
+	</byline>
+
+	<address>Atlanta, Georgia,<lb/> United States of America,</address>
+
+	<byline>
+	<affiliation>9 Ifakara Health Institute,</affiliation>
+	</byline>
+
+	<address>Ifakara, Morogoro, United Republic of Tanzania,<lb/></address>
+
+	<byline>
+	<affiliation>10 Liverpool School of Tropical Medicine, Department of Vector Biology,</affiliation>
+	</byline>
+
+	<address>Liverpool, United Kingdom,<lb/></address>
+
+	<byline>
+	<affiliation>11 School of Biological Earth &amp; Environmental Sciences, Environmental Research Institute, University<lb/> College Cork,</affiliation>
+	</byline>
+
+	<address>Cork, Republic of Ireland,</address>
+
+	<byline>
+	<affiliation>12 Entente Interde ´partementale pour la De ´moustication du Littoral<lb/> Me ´diterrane ´en (EID Me ´diterrane ´e),</affiliation>
+	</byline>
+
+	<address>Montpellier, France<lb/></address>
+
+	† Deceased.<lb/> ¤ Current address:
+	<byline>
+	<affiliation>Innovative Vector Control Consortium,</affiliation>
+	</byline>
+
+	<address>Pembroke Place, Liverpool, United Kingdom<lb/></address>
+
+	*
+	<email>gerard.killeen@ucc.ie</email>
+
+	Abstract
+	<div type="abstract">Background<lb/> A simple treated fabric device for passively emanating the volatile pyrethroid transfluthrin<lb/> was recently developed in Tanzania that protected against nocturnal Anopheles and Culex<lb/> mosquitoes for several months. Here these transfluthrin emanators were assessed in Port-<lb/>au-Prince, Haiti against outdoor-biting Aedes. Methods<lb/> Transfluthrin emanators were distributed to participating households in poor-to-middle class<lb/> urban neighbourhoods and evaluated once every two months in terms of their effects on<lb/> human landing rates of wild Aedes populations. A series of three such entomological<lb/> assessment experiments were conducted, to examine the influence of changing weather<lb/> conditions, various transfluthrin formulations and emanator placement on protective efficacy<lb/> measurements. Laboratory experiments assessed resistance of local Aedes aegypti to<lb/> transfluthrin and deltamethrin, and the irritancy and repellency of the transfluthrin-treated<lb/> fabric used in the field.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0298919 May 28, 2024<lb/></reference>
+
+	<page>1 / 27<lb/></page>
+			a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Supreme C, Damus O, Frederick J,<lb/> Lemoine J-F, Raccurt C, McBeath J, et al. (2024)<lb/></reference>
+
+	<div type="abstract">Entomological assessment of hessian fabric<lb/> transfluthrin vapour emanators as a means to<lb/> protect against outdoor-biting Aedes after<lb/> providing them to households for routine use in<lb/></div>
+
+	<reference>Port-au-Prince, Haiti. PLoS ONE 19(5): e0298919.<lb/></reference>
+
+	<idno>https://doi.org/10.1371/journal.pone.0298919<lb/></idno>
+
+	Editor:
+	<editor>Luca Nelli,</editor>
+
+	<byline>
+	<affiliation>University of Glasgow College of<lb/> Medical Veterinary and Life Sciences,</affiliation>
+	</byline>
+
+	<address>UNITED KINGDOM<lb/></address>
+
+	<note type="submission">Received: May 16, 2023<lb/> Accepted: January 31, 2024<lb/></note>
+
+	Published:
+	<date>May 28, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">This is an open access article, free of all<lb/> copyright, and may be freely reproduced,<lb/> distributed, transmitted, modified, built upon, or<lb/> otherwise used by anyone for any lawful purpose.<lb/> The work is made available under the Creative<lb/> Commons CC0 public domain dedication.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All relevant data are<lb/> within the manuscript and its Supporting<lb/> Information files. The data and material availability<lb/> statement now reads as follows: The data for all<lb/> three rounds of field assessments of transfluthrin<lb/> emanator efficacy are available as S1 Data and the<lb/> R script used to process the data for all three<lb/> rounds of field assessments of transfluthrin<lb/> emanator efficacy and optimize the model</note> 
+		
+    <div type="abstract">Results<lb/> Across all three entomological field assessments, little evidence of protection against wild<lb/> Ae. aegypti was observed, regardless of weather conditions, transfluthrin formulation or<lb/> emanator placement: A generalized linear mixed model fitted to the pooled data from all<lb/> three assessment rounds (921 females caught over 5129 hours) estimated a relative land-<lb/>ing rate [95% Confidence interval] of 0.87 [0.73, 1.04] for users of treated versus untreated<lb/> emanators (P = 0.1241). Wild Ae. aegypti in this setting were clearly resistant to transfluthrin<lb/> when compared to a fully susceptible colony. Conclusions<lb/> Transfluthrin emanators had little if any apparent effect upon Aedes landing rates by wild<lb/> Ae. aegypti in urban Haiti, and similar results have been obtained by comparable studies in<lb/> Tanzania, Brazil and Peru. In stark contrast, however, parallel sociological assessments of<lb/> perspectives among these same end-users in urban Haitian communities indicate strong<lb/> satisfaction in terms of perceived protection against mosquitoes. It remains unclear why the<lb/> results obtained from these complementary entomological and sociological assessments in<lb/> Haiti differ so much, as do those from a similar set of studies in Brazil. It is encouraging, how-<lb/>ever, that similar contrasts between the entomological and epidemiological results of a<lb/> recent large-scale assessment of another transfluthrin emanator product in Peru, which indi-<lb/>cate they provide useful protection against Aedes-borne arboviral infections, despite appar-<lb/>ently providing only modest protection against Aedes mosquito bites.<lb/></div>
+			
+    <note type="availability">presented in table 1 is available as S2 Analytical<lb/> Script. Access to the transfluthrin formulations<lb/> used for this study may be requested from Envu<lb/> AG though the most relevant national contact<lb/> person at https://www.envu.com/.<lb/></note>
+
+	Funding:
+	<note type="funding">This research was primarily funded by<lb/> the United States Agency for International<lb/> Development through its Combating Zika and<lb/> Future Threats: A Grand Challenge for<lb/> Development scheme (Award number AID-OAA-F-<lb/>16-00095). GFK was partially supported by an AXA<lb/> Research Chair award, jointly funded by the AXA<lb/> Research Fund and the College of Science,<lb/> Engineering and Food Sciences at University<lb/> College Cork. The funders had no role in study<lb/> design, data collection and analysis, decision to<lb/> publish, or preparation of the manuscript. Open<lb/> access publication was funded and facilitated<lb/> through the ongoing agreement between PLoS and<lb/> the IReL consortium of Irish research libraries.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">JM was employed by Bayer/<lb/> Envu AG at the time of the study, which<lb/> manufactured all the transfluthrin formulations that<lb/> were used in this study. Otherwise, all the other<lb/> authors declare that they have no competing<lb/> interests. This does not alter our adherence to<lb/> PLoS One policies on sharing data and materials.<lb/></note>
+
+	Abbreviations:
+	CI, Confidence interval; EC,<lb/> Emulsifiable Concentrate; GLMM, Generalized<lb/> Linear Mixed Model; HITSS, High-Throughput<lb/> Screening System; NA, Not applicable because this<lb/> was the reference value specified in the model; RR,<lb/> Relative Rate; σ, Variance; SD, Standard Deviation;<lb/> TC, Technical Concentrate; WHO, World Health<lb/> Organization.
+
+		</front>
+	</text>
+
+</TEI>

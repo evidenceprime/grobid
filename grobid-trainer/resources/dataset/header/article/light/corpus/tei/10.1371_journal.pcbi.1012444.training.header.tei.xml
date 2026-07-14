@@ -1,0 +1,145 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Construct prognostic models of multiple myeloma with pathway information incorporated</title>
+      <author>
+        <persName>
+          <forename>Shuo</forename>
+          <surname>Wang</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>ShanJin</forename>
+          <surname>Wang</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Wei</forename>
+          <surname>Pan</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>YuYang</forename>
+          <surname>Yi</surname>
+        </persName>
+      </author>
+      <author>
+        <persName>
+          <forename>Junyan</forename>
+          <surname>Lu</surname>
+        </persName>
+      </author>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-04T17:37:55.722Z">12/4/2025 5:37:55 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher>Public Library of Science (PLoS)</publisher>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication">2024</date>
+      <idno type="DOI">10.1371/journal.pcbi.1012444</idno>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>Shuo Wang, ShanJin Wang, Wei Pan, YuYang Yi, Junyan Lu. (2024). Construct prognostic models of multiple myeloma with pathway information incorporated. PLOS Computational Biology, 20(9), e1012444. DOI: 10.1371/journal.pcbi.1012444</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-04T17:37:20.933020Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-04T17:37:20.933020Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>Perceptuo-affective organization of touched<lb/> materials in younger and older adults<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Knut DrewingID*<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>HapLab, Institute for Psychology, Justus-Liebig University,</affiliation>
+	</byline>
+
+	<address>Giessen, Germany<lb/></address>
+
+	*
+	<email>Knut.Drewing@psychol.uni-giessen.de</email>
+
+	Abstract<lb/>
+	<div type="abstract">In everyday interaction we touch different materials, which we experience along a limited<lb/> number of perceptual and emotional dimensions: For instances, a furry surface feels soft<lb/> and pleasant, whereas sandpaper feels rough and unpleasant. In a previous study, younger<lb/> adults manually explored a representative set of solid, fluid and granular materials. Their rat-<lb/>ings were made along six perceptual dimensions (roughness, fluidity, granularity, deform-<lb/>ability, fibrousness, heaviness) and three emotional ones (valence, arousal, dominance).<lb/> Perceptual and emotional dimensions were systematically correlated. Here, we wondered<lb/> how this perceptuo-affective organization of touched materials depends on age, given that<lb/> older adults show decline in haptic abilities, in particular detail perception. 30 younger partic-<lb/>ipants (~22 years, half females) and 15 older participants (~66 years) explored 25 materials<lb/> using 18 perceptual and 9 emotional adjectives. We extracted 6 perceptual and 2 emotional<lb/> dimensions. Older and younger adults showed similar dimensions. However, in younger<lb/> participants roughness and granularity judgments were done separately, while they were<lb/> collapsed in a single dimension in older people. Further, age groups differed in the percep-<lb/>tion of roughness, granularity and valence, and older people did not show a positive correla-<lb/>tion between valence and granularity as did younger people. As expected, control analyses<lb/> between young males and females did not reveal similar gender differences. Overall, the<lb/> results demonstrate that older people organize and experience materials partly differently<lb/> from younger people, which we lead back to sensory decline. However, other aspects of<lb/> perceptual organization that also include fine perception are preserved into older age.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0296633 January 22, 2024<lb/></reference>
+
+	<page>1 / 17<lb/></page>
+          a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Drewing K (2024) Perceptuo-affective<lb/> organization of touched materials in younger and<lb/> older adults. PLoS ONE 19(1): e0296633.</reference>
+
+	<idno>https://<lb/> doi.org/10.1371/journal.pone.0296633<lb/></idno>
+
+	Editor:
+	<editor>Dan-Cristian Dabija</editor>,
+
+	<byline>
+	<affiliation>Babes-Bolyai<lb/> University</affiliation>,
+	</byline>
+
+	<address>Cluj-Napoca, ROMANIA<lb/></address>
+
+	<note type="submission">Received: June 26, 2023<lb/> Accepted: December 16, 2023<lb/></note>
+
+	Published:
+	<date>January 22, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Knut Drewing. This is an open<lb/> access article distributed under the terms of the<lb/> Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">The datasets<lb/> generated during and/or analysed during the<lb/> current study will be available upon publication in<lb/> the Zenodo repository, https://doi.org/10.5281/<lb/> zenodo.7944861.<lb/></note>
+
+	Funding:
+	<note type="funding">The research was supported by grants to<lb/> K.D. from Deutsche Forschungsgemeinschaft<lb/> (DFG, German Research Foundation, https://www.<lb/> dfg.de/) -project number 222641018-SFB/<lb/> TRR135 A5, and-project no. 502774891-ORA<lb/> project &quot;UNTOUCH&quot;. The funders had no role in<lb/> study design, data collection and analysis, decision<lb/> to publish, or preparation of the manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.</note>
+
+		</front>
+	</text>
+
+</TEI>

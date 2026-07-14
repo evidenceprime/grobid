@@ -1,44 +1,63 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.trainer.evaluation;
 
-import org.apache.commons.lang3.StringUtils;
-import org.grobid.core.GrobidModels;
-import org.grobid.core.engines.config.GrobidAnalysisConfig;
-import org.grobid.core.exceptions.*;
-import org.grobid.core.engines.Engine;
-import org.grobid.core.factory.GrobidFactory;
-import org.grobid.core.utilities.GrobidProperties;
-import org.grobid.core.utilities.UnicodeUtil;
-import org.grobid.core.utilities.TextUtilities;
-import org.grobid.core.factory.GrobidPoolingFactory;
-import org.grobid.trainer.evaluation.utilities.FieldSpecificationFlavors;
-import org.grobid.trainer.evaluation.utilities.NamespaceContextMap;
-import org.grobid.trainer.evaluation.utilities.FieldSpecification;
-
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.stream.Collectors;
+import java.util.concurrent.*;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.collections4.CollectionUtils;
-
-import org.w3c.dom.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathFactory;
-import javax.xml.parsers.*;
-import org.xml.sax.*;
-
 import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathFactory;
 
 import com.rockymadden.stringmetric.similarity.RatcliffObershelpMetric;
+import me.tongfei.progressbar.DelegatingProgressBarConsumer;
+import me.tongfei.progressbar.ProgressBar;
+import me.tongfei.progressbar.ProgressBarBuilder;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import scala.Option;
 
-import me.tongfei.progressbar.*;
+import org.grobid.core.GrobidModels;
+import org.grobid.core.engines.Engine;
+import org.grobid.core.engines.config.GrobidAnalysisConfig;
+import org.grobid.core.exceptions.GrobidException;
+import org.grobid.core.exceptions.GrobidResourceException;
+import org.grobid.core.factory.GrobidFactory;
+import org.grobid.core.factory.GrobidPoolingFactory;
+import org.grobid.core.utilities.GrobidProperties;
+import org.grobid.core.utilities.TextUtilities;
+import org.grobid.core.utilities.UnicodeUtil;
+import org.grobid.core.utilities.counters.impl.CntManagerReportRepresentation;
+import org.grobid.trainer.evaluation.utilities.FieldSpecification;
+import org.grobid.trainer.evaluation.utilities.FieldSpecificationFlavors;
+import org.grobid.trainer.evaluation.utilities.NamespaceContextMap;
 
 //import org.apache.log4j.xml.DOMConfigurator;
 
@@ -48,6 +67,7 @@ import me.tongfei.progressbar.*;
  *
  */
 public class EndToEndEvaluation {
+    private static final Logger LOGGER = LoggerFactory.getLogger(EndToEndEvaluation.class);
     private static String xmlInputPath = null;
     private Engine engine = null;
 
@@ -63,6 +83,11 @@ public class EndToEndEvaluation {
 
     public static final double minLevenshteinDistance = 0.8;
     public static final double minRatcliffObershelpSimilarity = 0.95;
+
+    // label under which the per-author linked-affiliation metric is reported
+    private static final String AFFILIATION_LINKED_LABEL = "affiliation_linked";
+    // minimum length for a substring-containment affiliation match (avoids trivial hits)
+    private static final int AFFILIATION_CONTAINMENT_FLOOR = 5;
 
     // the list of labels considered for the evaluation
     private List<String> headerLabels = null;
@@ -93,13 +118,13 @@ public class EndToEndEvaluation {
             Engine engine = null;
             try {
                 engine = Engine.getEngine(true);
-                GrobidAnalysisConfig config =
-                    GrobidAnalysisConfig.builder()
+                GrobidAnalysisConfig config = GrobidAnalysisConfig.builder()
                         .consolidateHeader(1)
                         .consolidateCitations(0)
                         .consolidateFunders(0)
                         .withPreprocessImages(true)
                         .withSentenceSegmentation(false)
+                        .flavor(flavor)
                         .build();
 
                 String tei = engine.fullTextToTEI(this.pdfFile, flavor, config);
@@ -110,9 +135,8 @@ public class EndToEndEvaluation {
 
                 // write the result in the same directory
                 File resultTEI = Paths.get(
-                    pdfFile.getParent(),
-                    pdfFile.getName().replace(".pdf", replacement)
-                ).toFile();
+                        pdfFile.getParent(),
+                        pdfFile.getName().replace(".pdf", replacement)).toFile();
                 FileUtils.writeStringToFile(resultTEI, tei, "UTF-8");
 
             } catch (NoSuchElementException nseExp) {
@@ -132,6 +156,78 @@ public class EndToEndEvaluation {
             }
 
             return success;
+        }
+    }
+
+    /**
+     * Holds the evaluation results for a single document, used to accumulate
+     * per-document statistics that are later merged across all documents in parallel.
+     */
+    static final class DocumentEvaluationResult {
+        Stats strictStats = new Stats();
+        Stats softStats = new Stats();
+        Stats levenshteinStats = new Stats();
+        Stats ratcliffObershelpStats = new Stats();
+        Stats documentLevelStatementsRatioStat = new Stats();
+
+        int nbFile = 0;
+        int totalExpectedInstances = 0;
+        int totalObservedInstances = 0;
+        // number of articles that contributed at least one scoreable author to affiliation_linked
+        int articlesWithLinkedAffiliation = 0;
+        int totalCorrectInstancesStrict = 0;
+        int totalCorrectInstancesSoft = 0;
+        int totalCorrectInstancesLevenshtein = 0;
+        int totalCorrectInstancesRatcliffObershelp = 0;
+
+        int totalExpectedReferences = 0;
+        int totalObservedReferences = 0;
+        int totalExpectedCitations = 0;
+        int totalObservedCitations = 0;
+        int totalCorrectObservedCitations = 0;
+        int totalWrongObservedCitations = 0;
+
+        // citation signature level 1: title + date
+        int match1 = 0;
+        // citation signature level 2: all author names + date
+        int match2 = 0;
+        // citation signature level 3: journal + volume + page
+        int match3 = 0;
+        // citation signature level 4: fuzzy title + date + at least one author or first page
+        int match4 = 0;
+
+        /**
+         * Accumulates counts from {@code other} into this result.
+         * Called from the aggregation step after all per-document futures have completed.
+         *
+         * @param other the per-document result to merge; a {@code null} value is silently ignored
+         */
+        void merge(DocumentEvaluationResult other) {
+            if (other == null)
+                return;
+            strictStats.merge(other.strictStats);
+            softStats.merge(other.softStats);
+            levenshteinStats.merge(other.levenshteinStats);
+            ratcliffObershelpStats.merge(other.ratcliffObershelpStats);
+            documentLevelStatementsRatioStat.merge(other.documentLevelStatementsRatioStat);
+            nbFile += other.nbFile;
+            totalExpectedInstances += other.totalExpectedInstances;
+            totalObservedInstances += other.totalObservedInstances;
+            articlesWithLinkedAffiliation += other.articlesWithLinkedAffiliation;
+            totalCorrectInstancesStrict += other.totalCorrectInstancesStrict;
+            totalCorrectInstancesSoft += other.totalCorrectInstancesSoft;
+            totalCorrectInstancesLevenshtein += other.totalCorrectInstancesLevenshtein;
+            totalCorrectInstancesRatcliffObershelp += other.totalCorrectInstancesRatcliffObershelp;
+            totalExpectedReferences += other.totalExpectedReferences;
+            totalObservedReferences += other.totalObservedReferences;
+            totalExpectedCitations += other.totalExpectedCitations;
+            totalObservedCitations += other.totalObservedCitations;
+            totalCorrectObservedCitations += other.totalCorrectObservedCitations;
+            totalWrongObservedCitations += other.totalWrongObservedCitations;
+            match1 += other.match1;
+            match2 += other.match2;
+            match3 += other.match3;
+            match4 += other.match4;
         }
     }
 
@@ -156,7 +252,7 @@ public class EndToEndEvaluation {
 
             engine = GrobidFactory.getInstance().createEngine();
         } catch (Exception e) {
-			e.printStackTrace();
+            e.printStackTrace();
         }
 
         // initialize the field specifications and label list
@@ -169,26 +265,1358 @@ public class EndToEndEvaluation {
         citationsLabels = new ArrayList<>();
 
         if (flavor == null) {
-            FieldSpecification.setUpFields(headerFields, fulltextFields, citationsFields,
-                headerLabels, fulltextLabels, citationsLabels);
+            FieldSpecification.setUpFields(
+                    headerFields,
+                    fulltextFields,
+                    citationsFields,
+                    headerLabels,
+                    fulltextLabels,
+                    citationsLabels);
         } else if (flavor == GrobidModels.Flavor.ARTICLE_LIGHT) {
             FieldSpecificationFlavors.setUpFields(
-                headerFields,
-                new ArrayList<>(),
-                new ArrayList<>(),
-                headerLabels,
-                new ArrayList<>(),
-                new ArrayList<>()
-            );
+                    headerFields,
+                    new ArrayList<>(),
+                    new ArrayList<>(),
+                    headerLabels,
+                    new ArrayList<>(),
+                    new ArrayList<>());
         } else if (flavor == GrobidModels.Flavor.ARTICLE_LIGHT_WITH_REFERENCES) {
             FieldSpecificationFlavors.setUpFields(
-                headerFields,
-                new ArrayList<>(),
-                citationsFields,
-                headerLabels,
-                new ArrayList<>(),
-                citationsLabels
-            );
+                    headerFields,
+                    new ArrayList<>(),
+                    citationsFields,
+                    headerLabels,
+                    new ArrayList<>(),
+                    citationsLabels);
+        }
+    }
+
+    /**
+     * Callable that processes a single document directory and returns its evaluation results.
+     * Instances are submitted to a fixed thread pool in {@code evaluationRun()} so that the
+     * matching phase runs in parallel across documents.  The callable is a non-static inner
+     * class so that it can read the outer {@code flavor} and {@code inputType} fields without
+     * additional parameters.  On any per-document error the callable logs the exception and
+     * returns {@code null}; the caller excludes {@code null} results from the final merge.
+     */
+    private class DocumentEvaluationCallable implements Callable<DocumentEvaluationResult> {
+        private final File dir;
+        private final int runType;
+        private final int sectionType;
+        private final List<FieldSpecification> fields;
+
+        private DocumentEvaluationCallable(
+                File dir,
+                int runType,
+                int sectionType,
+                List<FieldSpecification> fields) {
+            this.dir = dir;
+            this.runType = runType;
+            this.sectionType = sectionType;
+            this.fields = fields;
+        }
+
+        @Override
+        public DocumentEvaluationResult call() {
+            DocumentEvaluationResult result = new DocumentEvaluationResult();
+
+            // get the gold file in the directory
+            File[] refFiles2 = dir.listFiles(new FilenameFilter() {
+                public boolean accept(File dir, String name) {
+                    return name.endsWith(".nxml") || name.endsWith(".pub2tei.tei.xml");
+                }
+            });
+
+            if (refFiles2 == null || refFiles2.length == 0) {
+                // in the case of a bioRxiv NLM/JATS file, we have an .xml extension
+                refFiles2 = dir.listFiles(new FilenameFilter() {
+                    public boolean accept(File dir, String name) {
+                        return name.endsWith(".xml") && !name.endsWith(".tei.xml");
+                    }
+                });
+
+                if (refFiles2 == null || refFiles2.length == 0) {
+                    LOGGER.warn("No evaluation (gold) XML data file found under {}", dir.getPath());
+                    return null;
+                }
+            }
+
+            if (refFiles2.length != 1) {
+                LOGGER.warn(
+                        "More than one evaluation (gold) XML data file found under {}, processing only the first one: {}",
+                        dir.getPath(),
+                        Arrays.toString(refFiles2));
+            }
+
+            File goldFile = refFiles2[0];
+
+            DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
+            docFactory.setValidating(false);
+
+            try {
+                DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+                docBuilder.setEntityResolver(
+                        (publicId, systemId) -> new InputSource(
+                                new ByteArrayInputStream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>".getBytes()))); // swap in a dummy resolver to neutralise the online DTD
+                Document gold = docBuilder.parse(goldFile);
+
+                // get the results of the evaluated tool for this file
+                if (runType == GROBID) {
+                    final String fileSuffix;
+                    if (flavor != null) {
+                        fileSuffix = ".fulltext." + flavor.getPlainLabel() + ".tei.xml";
+                    } else {
+                        fileSuffix = ".fulltext.tei.xml";
+                    }
+
+                    // results are produced in a TEI file
+                    File[] refFiles3 = dir.listFiles((dir1, name) -> name.endsWith(fileSuffix));
+
+                    if ((refFiles3 == null) || (refFiles3.length == 0)) {
+                        LOGGER.warn("No Grobid TEI file found under {}", dir.getPath());
+                        return null;
+                    }
+
+                    if (refFiles3.length != 1) {
+                        LOGGER.warn(
+                                "More than one Grobid TEI file found under {}, processing only the first one",
+                                dir.getPath());
+                    }
+
+                    File teiFile = refFiles3[0];
+                    Document tei = docBuilder.parse(teiFile);
+
+                    XPathFactory xpf = XPathFactory.newInstance();
+                    XPath xp = xpf.newXPath();
+                    Map<String, String> mappings = new HashMap<>();
+                    mappings.put("tei", "http://www.tei-c.org/ns/1.0");
+                    xp.setNamespaceContext(new NamespaceContextMap(mappings));
+
+                    if (sectionType == CITATION) {
+                        // we start by identifying each expected citation
+                        // the first FieldSpecification object for the citation is the base path for
+                        // each citation structure in the corresponding XML
+                        FieldSpecification base = fields.get(0);
+
+                        String path = null;
+                        if (inputType.equals("nlm"))
+                            path = base.nlmPath.get(0);
+                        else
+                            path = base.grobidPath.get(0);
+
+                        NodeList nodeList = (NodeList) xp.compile(path)
+                                .evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
+                        int nbCitationsGold = nodeList.getLength();
+                        result.totalExpectedInstances += nbCitationsGold;
+
+                        List<Map<String, List<String>>> goldCitations = new ArrayList<Map<String, List<String>>>();
+
+                        // "signature" of the citations for this file
+                        // level 1 signature: titre + date
+                        List<String> goldCitationSignaturesLevel1 = new ArrayList<>();
+
+                        // level 2 signature: all authors names + date
+                        List<String> goldCitationSignaturesLevel2 = new ArrayList<>();
+
+                        // level 3 signature: journal + volume + page
+                        List<String> goldCitationSignaturesLevel3 = new ArrayList<>();
+
+                        // level 4 signature:  "fuzzy titre" + date + at least one of auteurs or first page
+                        List<String> goldCitationSignaturesLevel4 = new ArrayList<>();
+
+                        // map between citation id from gold and from grobid (if matching between the two citations)
+                        Map<String, String> idMap = new HashMap<>();
+                        Map<String, String> reverseIdMap = new HashMap<>();
+                        List<String> goldIds = new ArrayList<>();
+
+                        for (int i = 0; i < nodeList.getLength(); i++) {
+                            // sometimes we just have the raw citation below this, so we will have to further
+                            // test if we have something structured
+                            Map<String, List<String>> fieldsValues = new HashMap<>();
+                            Node node = nodeList.item(i);
+                            int p = 0;
+                            for (FieldSpecification field : fields) {
+                                String fieldName = field.fieldName;
+                                if (fieldName.equals("base")) {
+                                    //p++;
+                                    continue;
+                                }
+                                List<String> subpaths = null;
+                                if (inputType.equals("nlm")) {
+                                    subpaths = field.nlmPath;
+                                } else if (inputType.equals("tei")) {
+                                    subpaths = field.grobidPath;
+                                }
+
+                                if (subpaths == null)
+                                    continue;
+
+                                for (String subpath : subpaths) {
+                                    NodeList nodeList2 = (NodeList) xp.compile(subpath)
+                                            .evaluate(node, XPathConstants.NODESET);
+
+                                    List<String> goldResults = new ArrayList<>();
+                                    for (int j = 0; j < nodeList2.getLength(); j++) {
+                                        String content = nodeList2.item(j).getNodeValue();
+                                        if ((content != null) && (content.trim().length() > 0)) {
+                                            if (fieldName.equals("doi") || fieldName.equals("pmid")
+                                                    || fieldName.equals("pmcid")) {
+                                                content = identifierNormalization(content);
+                                            }
+                                            goldResults.add(content);
+                                        }
+                                    }
+
+                                    if (goldResults.size() > 0) {
+                                        fieldsValues.put(fieldName, goldResults);
+                                        if (!fieldName.equals("id")) {
+                                            result.strictStats.incrementExpected(fieldName);
+                                            result.softStats.incrementExpected(fieldName);
+                                            result.levenshteinStats.incrementExpected(fieldName);
+                                            result.ratcliffObershelpStats.incrementExpected(fieldName);
+                                        }
+                                    }
+                                }
+
+                                p++;
+                            }
+
+                            // signature for this citation
+                            String goldTitle = "";
+                            List<String> goldResults = fieldsValues.get("title");
+                            if (goldResults != null) {
+                                for (String res : goldResults) {
+                                    goldTitle += " " + res;
+                                }
+                            }
+                            goldTitle = basicNormalization(goldTitle);
+                            String goldTitleSoft = removeFullPunct(goldTitle);
+
+                            // source title / inTitle information
+                            String goldInTitle = "";
+                            List<String> inTitleResults = fieldsValues.get("inTitle");
+                            if (inTitleResults != null) {
+                                for (String res : inTitleResults) {
+                                    goldInTitle += " " + res;
+                                }
+                            }
+                            goldInTitle = basicNormalization(goldInTitle);
+                            String goldInTitleSoft = removeFullPunct(goldInTitle);
+
+                            // first author last name only
+                            List<String> authorResults = fieldsValues.get("first_author");
+                            String goldAuthor = "";
+                            if ((authorResults != null) && (authorResults.size() > 0))
+                                goldAuthor = authorResults.get(0);
+                            goldAuthor = basicNormalization(goldAuthor);
+                            String goldAuthorSoft = removeFullPunct(goldAuthor);
+
+                            // all authors last names
+                            String goldAuthors = "";
+                            List<String> authorsResults = fieldsValues.get("authors");
+                            if ((authorsResults != null) && (authorsResults.size() > 0)) {
+                                for (String aut : authorsResults)
+                                    goldAuthors += aut;
+                            }
+                            goldAuthors = basicNormalization(goldAuthors);
+                            String goldAuthorsSoft = removeFullPunct(goldAuthors);
+
+                            // date of publication
+                            List<String> dateResults = fieldsValues.get("date");
+                            String goldDate = "";
+                            if ((dateResults != null) && (dateResults.size() > 0))
+                                goldDate = dateResults.get(0);
+                            goldDate = basicNormalization(goldDate);
+
+                            // volume
+                            List<String> volumeResults = fieldsValues.get("volume");
+                            String goldVolume = "";
+                            if ((volumeResults != null) && (volumeResults.size() > 0))
+                                goldVolume = volumeResults.get(0);
+                            goldVolume = basicNormalization(goldVolume);
+
+                            // first page
+                            List<String> pageResults = fieldsValues.get("page");
+                            String goldPage = "";
+                            if ((pageResults != null) && (pageResults.size() > 0))
+                                goldPage = pageResults.get(0);
+                            goldPage = basicNormalization(goldPage);
+
+                            // identifier
+                            List<String> idResults = fieldsValues.get("id");
+                            String goldId = "";
+                            if ((idResults != null) && (idResults.size() > 0))
+                                goldId = idResults.get(0);
+                            goldId = basicNormalization(goldId);
+                            goldIds.add(goldId);
+                            /*
+                             * We introduce 4 sequential alignment rules to match an extracted citation with an expected citation.
+                             * If the first rule is not working, we test the second one, and so on until the last one.
+                             * If all rules fail, the extracted citation is considered as false positive for its non-empty fields.
+                             * - first rule: matching of the "soft" title (title ignoring case, punctuation and space mismatches) and year
+                             * - second rule: matching all of "soft" authors and year
+                             * - third rule: matching of "soft" inTitle (title of Journal or Conference), volume and first page
+                             * - forth rule: matching of first author last name and title, or inTitle if title is empty
+                             */
+                            String signature1 = null;
+                            if ((goldTitleSoft.length() > 0) && (goldDate.length() > 0)) {
+                                signature1 = goldTitleSoft + goldDate;
+                                //signature1 = signature1.replaceAll("[^\\x00-\\x7F]", "");
+                            }
+
+                            String signature2 = null;
+                            if ((goldAuthorsSoft.length() > 0) && (goldDate.length() > 0)) {
+                                signature2 = goldAuthorsSoft + goldDate;
+                                //signature2 = signature2.replaceAll("[^\\x00-\\x7F]", "");
+                            }
+
+                            String signature3 = null;
+                            if ((goldInTitleSoft.length() > 0) && (goldVolume.length() > 0)
+                                    && (goldPage.length() > 0)) {
+                                signature3 = goldInTitleSoft + goldVolume + goldPage;
+                                //signature3 = signature3.replaceAll("[^\\x00-\\x7F]", "");
+                            }
+
+                            String signature4 = null;
+                            if (((goldInTitleSoft.length() > 0) || (goldTitleSoft.length() > 0))
+                                    && (goldAuthorSoft.length() > 0)) {
+                                if (goldTitleSoft.length() > 0)
+                                    signature4 = goldAuthorSoft + goldTitleSoft;
+                                else
+                                    signature4 = goldAuthorSoft + goldInTitleSoft;
+                            }
+
+                            goldCitationSignaturesLevel1.add(signature1);
+                            goldCitationSignaturesLevel2.add(signature2);
+                            goldCitationSignaturesLevel3.add(signature3);
+                            goldCitationSignaturesLevel4.add(signature4);
+                            goldCitations.add(fieldsValues);
+
+                        }
+
+                        // get the Grobid citations
+                        path = base.grobidPath.get(0);
+                        nodeList = (NodeList) xp.compile(path)
+                                .evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
+                        int nbCitationsGrobid = nodeList.getLength();
+
+                        //if (nbCitationsGold != nbCitationsGrobid)
+                        //System.out.println(dir.getPath() + " references: " + nbCitationsGold + " (expected) / " + nbCitationsGrobid + " (grobid)");
+
+                        result.totalObservedInstances += nbCitationsGrobid;
+                        List<Map<String, List<String>>> grobidCitations = new ArrayList<Map<String, List<String>>>();
+                        for (int i = 0; i < nodeList.getLength(); i++) {
+                            Map<String, List<String>> fieldsValues = new HashMap<String, List<String>>();
+                            Node node = nodeList.item(i);
+                            int p = 0;
+                            for (FieldSpecification field : fields) {
+                                String fieldName = field.fieldName;
+                                if (fieldName.equals("base")) {
+                                    //p++;
+                                    continue;
+                                }
+                                for (String subpath : field.grobidPath) {
+                                    NodeList nodeList2 = (NodeList) xp.compile(subpath)
+                                            .evaluate(node, XPathConstants.NODESET);
+                                    List<String> grobidResults = new ArrayList<>();
+                                    for (int j = 0; j < nodeList2.getLength(); j++) {
+                                        String content = nodeList2.item(j).getNodeValue();
+                                        if ((content != null) && (content.trim().length() > 0)) {
+                                            if (fieldName.equals("doi") || fieldName.equals("pmid")
+                                                    || fieldName.equals("pmcid")) {
+                                                content = identifierNormalization(content);
+                                            }
+                                            grobidResults.add(content);
+                                        }
+                                    }
+                                    if (grobidResults.size() > 0) {
+                                        fieldsValues.put(fieldName, grobidResults);
+                                    }
+                                }
+                                p++;
+                            }
+                            grobidCitations.add(fieldsValues);
+                        }
+
+                        for (Map<String, List<String>> grobidCitation : grobidCitations) {
+                            String grobidTitle = "";
+
+                            List<String> titleResults = grobidCitation.get("title");
+                            if (titleResults != null) {
+                                for (String res : titleResults) {
+                                    grobidTitle += " " + res;
+                                }
+                            }
+                            grobidTitle = basicNormalization(grobidTitle);
+                            String grobidTitleSoft = removeFullPunct(grobidTitle);
+
+                            List<String> inTitleResults = grobidCitation.get("inTitle");
+                            String grobidInTitle = "";
+                            if (inTitleResults != null) {
+                                for (String res : inTitleResults) {
+                                    grobidInTitle += " " + res;
+                                }
+                            }
+                            grobidInTitle = basicNormalization(grobidInTitle);
+                            String grobidInTitleSoft = removeFullPunct(grobidInTitle);
+
+                            // first author last name only
+                            List<String> authorResults = grobidCitation.get("first_author");
+                            String grobidAuthor = "";
+                            if ((authorResults != null) && (authorResults.size() > 0))
+                                grobidAuthor = authorResults.get(0);
+                            grobidAuthor = basicNormalization(grobidAuthor);
+                            String grobidAuthorSoft = removeFullPunct(grobidAuthor);
+
+                            // all authors last names
+                            String grobidAuthors = "";
+                            List<String> authorsResults = grobidCitation.get("authors");
+                            if ((authorsResults != null) && (authorsResults.size() > 0)) {
+                                for (String aut : authorsResults)
+                                    grobidAuthors += aut;
+                            }
+                            grobidAuthors = basicNormalization(grobidAuthors);
+                            String grobidAuthorsSoft = removeFullPunct(grobidAuthors);
+
+                            // date of publication
+                            List<String> dateResults = grobidCitation.get("date");
+                            String grobidDate = "";
+                            if ((dateResults != null) && (dateResults.size() > 0))
+                                grobidDate = dateResults.get(0);
+                            grobidDate = basicNormalization(grobidDate);
+
+                            // volume
+                            List<String> volumeResults = grobidCitation.get("volume");
+                            String grobidVolume = "";
+                            if ((volumeResults != null) && (volumeResults.size() > 0))
+                                grobidVolume = volumeResults.get(0);
+                            grobidVolume = basicNormalization(grobidVolume);
+
+                            // first page
+                            List<String> pageResults = grobidCitation.get("page");
+                            String grobidPage = "";
+                            if ((pageResults != null) && (pageResults.size() > 0))
+                                grobidPage = pageResults.get(0);
+                            grobidPage = basicNormalization(grobidPage);
+
+                            // identifier
+                            List<String> idResults = grobidCitation.get("id");
+                            String grobidId = "";
+                            if ((idResults != null) && (idResults.size() > 0))
+                                grobidId = idResults.get(0);
+                            grobidId = basicNormalization(grobidId);
+
+                            // DOI
+                            List<String> doiResults = grobidCitation.get("doi");
+                            String grobidDOI = "";
+                            if ((doiResults != null) && (doiResults.size() > 0))
+                                grobidDOI = doiResults.get(0);
+                            grobidDOI = identifierNormalization(grobidDOI);
+
+                            // PMID
+                            List<String> pmidResults = grobidCitation.get("pmid");
+                            String grobidPMID = "";
+                            if ((pmidResults != null) && (pmidResults.size() > 0))
+                                grobidPMID = pmidResults.get(0);
+                            grobidPMID = identifierNormalization(grobidPMID);
+
+                            // PMCID
+                            List<String> pmcidResults = grobidCitation.get("pmcid");
+                            String grobidPMCID = "";
+                            if ((pmcidResults != null) && (pmcidResults.size() > 0))
+                                grobidPMCID = pmcidResults.get(0);
+                            grobidPMCID = identifierNormalization(grobidPMCID);
+
+                            String grobidSignature1 = null;
+                            if ((grobidTitleSoft.length() > 0) && (grobidDate.length() > 0)) {
+                                grobidSignature1 = grobidTitleSoft + grobidDate;
+                                //grobidSignature1 = grobidSignature1.replaceAll("[^\\x00-\\x7F]", "");
+                            }
+
+                            String grobidSignature2 = null;
+                            if ((grobidAuthorsSoft.length() > 0) && (grobidDate.length() > 0)) {
+                                grobidSignature2 = grobidAuthorsSoft + grobidDate;
+                                //grobidSignature2 = grobidSignature2.replaceAll("[^\\x00-\\x7F]", "");
+                            }
+
+                            String grobidSignature3 = null;
+                            if ((grobidInTitleSoft.length() > 0) && (grobidVolume.length() > 0)
+                                    && (grobidPage.length() > 0)) {
+                                grobidSignature3 = grobidInTitleSoft + grobidVolume + grobidPage;
+                                //grobidSignature3 = grobidSignature3.replaceAll("[^\\x00-\\x7F]", "");
+                            }
+
+                            String grobidSignature4 = null;
+                            if (((grobidInTitleSoft.length() > 0) || (grobidTitleSoft.length() > 0))
+                                    && (grobidAuthorSoft.length() > 0)) {
+                                if (grobidTitleSoft.length() > 0)
+                                    grobidSignature4 = grobidAuthorSoft + grobidTitleSoft;
+                                else
+                                    grobidSignature4 = grobidAuthorSoft + grobidInTitleSoft;
+                                //grobidSignature4 = grobidSignature4.replaceAll("[^\\x00-\\x7F]", "");
+                            }
+
+                            int indexGold = -1;
+                            // try to match an expected citation with the signature
+                            if (((grobidSignature1 != null) && (grobidSignature1.length() > 0)) ||
+                                    ((grobidSignature2 != null) && (grobidSignature2.length() > 0)) ||
+                                    ((grobidSignature3 != null) && (grobidSignature3.length() > 0)) ||
+                                    ((grobidSignature4 != null) && (grobidSignature4.length() > 0))) {
+                                if ((grobidSignature1 != null) &&
+                                        goldCitationSignaturesLevel1.contains(grobidSignature1)) {
+                                    // we have a citation-level match and we can evaluate the fields
+                                    indexGold = goldCitationSignaturesLevel1.indexOf(grobidSignature1);
+                                    result.match1++;
+                                } else if ((grobidSignature2 != null) &&
+                                        goldCitationSignaturesLevel2.contains(grobidSignature2)) {
+                                    // we have a citation-level match and we can evaluate the fields
+                                    indexGold = goldCitationSignaturesLevel2.indexOf(grobidSignature2);
+                                    result.match2++;
+                                } else if ((grobidSignature3 != null) &&
+                                        goldCitationSignaturesLevel3.contains(grobidSignature3)) {
+                                    // we have a citation-level match and we can evaluate the fields
+                                    indexGold = goldCitationSignaturesLevel3.indexOf(grobidSignature3);
+                                    result.match3++;
+                                } else if ((grobidSignature4 != null) &&
+                                        goldCitationSignaturesLevel4.contains(grobidSignature4)) {
+                                    // we have a citation-level match and we can evaluate the fields
+                                    indexGold = goldCitationSignaturesLevel4.indexOf(grobidSignature4);
+                                    result.match4++;
+                                }
+
+                                if (indexGold != -1) {
+                                    // we have aligned an extracted citation with an expected ones
+                                    boolean allGoodStrict = true;
+                                    boolean allGoodSoft = true;
+                                    boolean allGoodLevenshtein = true;
+                                    boolean allGoodRatcliffObershelp = true;
+                                    Map<String, List<String>> goldCitation = goldCitations.get(indexGold);
+                                    goldCitationSignaturesLevel1.remove(indexGold);
+                                    goldCitationSignaturesLevel2.remove(indexGold);
+                                    goldCitationSignaturesLevel3.remove(indexGold);
+                                    goldCitationSignaturesLevel4.remove(indexGold);
+                                    goldCitations.remove(indexGold);
+
+                                    if (goldCitation.get("id") != null && goldCitation.get("id").size() > 0) {
+
+                                        idMap.put(goldCitation.get("id").get(0), grobidId);
+                                        reverseIdMap.put(grobidId, goldCitation.get("id").get(0));
+
+                                        int p = 0;
+                                        for (FieldSpecification field : fields) {
+                                            String label = field.fieldName;
+                                            if (label.equals("base") || label.equals("id")) {
+                                                //p++;
+                                                continue;
+                                            }
+
+                                            List<String> grobidResults = grobidCitation.get(label);
+                                            String grobidResult = "";
+                                            if (grobidResults != null) {
+                                                for (String res : grobidResults) {
+                                                    grobidResult += " " + res;
+                                                }
+                                            }
+                                            grobidResult = basicNormalization(grobidResult);
+
+                                            List<String> goldResults = goldCitation.get(label);
+                                            String goldResult = "";
+                                            if (goldResults != null) {
+                                                for (String res : goldResults) {
+                                                    goldResult += " " + res;
+                                                }
+                                            }
+                                            goldResult = basicNormalization(goldResult);
+
+                                            // strict
+                                            if ((goldResult.length() > 0) && (goldResult.equals(grobidResult))) {
+                                                result.strictStats.incrementObserved(label);
+                                            } else {
+                                                if ((grobidResult.length() > 0)) {
+                                                    result.strictStats.incrementFalsePositive(label);
+                                                    allGoodStrict = false;
+                                                } else if (goldResult.length() > 0) {
+                                                    result.strictStats.incrementFalseNegative(label);
+                                                    allGoodStrict = false;
+                                                }
+                                            }
+
+                                            // soft
+                                            String goldResultSoft = goldResult;
+                                            String grobidResultSoft = grobidResult;
+                                            if (field.isTextual) {
+                                                goldResultSoft = removeFullPunct(goldResult);
+                                                grobidResultSoft = removeFullPunct(grobidResult);
+                                            }
+                                            if ((goldResultSoft.length() > 0) &&
+                                                    (goldResultSoft.equals(grobidResultSoft))) {
+                                                result.softStats.incrementObserved(label);
+                                            } else {
+                                                if (grobidResultSoft.length() > 0) {
+                                                    result.softStats.incrementFalsePositive(label);
+                                                    allGoodSoft = false;
+                                                } else if (goldResultSoft.length() > 0) {
+                                                    result.softStats.incrementFalseNegative(label);
+                                                    allGoodSoft = false;
+                                                }
+                                            }
+
+                                            // Levenshtein
+                                            double pct = 0.0;
+                                            if ((goldResultSoft.length() > 0) && goldResult.equals(grobidResult))
+                                                pct = 1.0;
+                                            if (field.isTextual) {
+                                                int distance = TextUtilities
+                                                        .getLevenshteinDistance(goldResult, grobidResult);
+                                                // Levenshtein distance is an integer value, not a percentage... however
+                                                // articles usually introduced it as a percentage... so we report it
+                                                // following the straightforward formula:
+                                                int bigger = Math.max(goldResult.length(), grobidResult.length());
+                                                pct = (double) (bigger - distance) / bigger;
+                                            }
+                                            if ((goldResultSoft.length() > 0) && (pct >= minLevenshteinDistance)) {
+                                                result.levenshteinStats.incrementObserved(label);
+                                            } else {
+                                                if (grobidResultSoft.length() > 0) {
+                                                    result.levenshteinStats.incrementFalsePositive(label);
+                                                    allGoodLevenshtein = false;
+                                                } else if (goldResultSoft.length() > 0) {
+                                                    result.levenshteinStats.incrementFalseNegative(label);
+                                                    allGoodLevenshtein = false;
+                                                }
+                                            }
+
+                                            // RatcliffObershelp
+                                            Double similarity = 0.0;
+                                            if ((goldResultSoft.length() > 0) && goldResult.equals(grobidResult))
+                                                similarity = 1.0;
+                                            if (field.isTextual) {
+                                                if ((goldResult.length() > 0) && (grobidResult.length() > 0)) {
+                                                    Option<Object> similarityObject = RatcliffObershelpMetric
+                                                            .compare(goldResult, grobidResult);
+                                                    if ((similarityObject != null)
+                                                            && (similarityObject.get() != null))
+                                                        similarity = (Double) similarityObject.get();
+                                                }
+                                            }
+                                            if ((goldResultSoft.length() > 0) &&
+                                                    (similarity >= minRatcliffObershelpSimilarity)) {
+                                                result.ratcliffObershelpStats.incrementObserved(label);
+                                            } else {
+                                                if (grobidResultSoft.length() > 0) {
+                                                    result.ratcliffObershelpStats.incrementFalsePositive(label);
+                                                    allGoodRatcliffObershelp = false;
+                                                } else if (goldResultSoft.length() > 0) {
+                                                    result.ratcliffObershelpStats.incrementFalseNegative(label);
+                                                    allGoodRatcliffObershelp = false;
+                                                }
+                                            }
+
+                                            p++;
+                                        }
+                                        if (allGoodStrict) {
+                                            result.totalCorrectInstancesStrict++;
+                                        }
+                                        if (allGoodSoft) {
+                                            result.totalCorrectInstancesSoft++;
+                                        }
+                                        if (allGoodLevenshtein) {
+                                            result.totalCorrectInstancesLevenshtein++;
+                                        }
+                                        if (allGoodRatcliffObershelp) {
+                                            result.totalCorrectInstancesRatcliffObershelp++;
+                                        }
+                                    }
+                                } else {
+                                    // we have a Grobid extracted citation, but no matching with
+                                    // expected ones -> false positive for all the present fields
+                                    int p = 0;
+                                    for (FieldSpecification field : fields) {
+                                        String label = field.fieldName;
+                                        if (label.equals("base")) {
+                                            //p++;
+                                            continue;
+                                        }
+
+                                        List<String> grobidResults = grobidCitation.get(label);
+                                        if ((grobidResults == null) || (grobidResults.size() == 0)) {
+                                            p++;
+                                            continue;
+                                        }
+
+                                        result.strictStats.incrementFalsePositive(label);
+                                        result.softStats.incrementFalsePositive(label);
+                                        result.levenshteinStats.incrementFalsePositive(label);
+                                        result.ratcliffObershelpStats.incrementFalsePositive(label);
+
+                                        p++;
+                                    }
+                                }
+                            }
+                        }
+
+                        // reference context matching
+                        if ((sectionType == CITATION) && (runType == GROBID)) {
+                            // list of identifiers present in the bibliographical references
+                            List<String> refBibRefIds = new ArrayList<>();
+                            List<String> grobidBibRefIds = new ArrayList<>();
+
+                            String subpath = null;
+                            if (inputType.equals("nlm")) {
+                                subpath = FieldSpecification.nlmBibReferenceId;
+                            } else if (inputType.equals("tei")) {
+                                subpath = FieldSpecification.grobidBibReferenceId;
+                            }
+
+                            // gold
+                            nodeList = (NodeList) xp.compile(subpath)
+                                    .evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
+                            //System.out.println(path + ": " + nodeList.getLength() + " nodes");
+                            int nbgoldResults = nodeList.getLength();
+                            for (int i = 0; i < nodeList.getLength(); i++) {
+                                refBibRefIds.add(nodeList.item(i).getNodeValue());
+                            }
+                            result.totalExpectedReferences += refBibRefIds.size();
+
+                            // grobid
+                            nodeList = (NodeList) xp.compile(FieldSpecification.grobidBibReferenceId)
+                                    .evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
+                            //System.out.println(FieldSpecification.grobidBibReferenceId + ": " + nodeList.getLength() + " nodes");
+                            for (int i = 0; i < nodeList.getLength(); i++) {
+                                grobidBibRefIds.add(nodeList.item(i).getNodeValue());
+                            }
+                            result.totalObservedReferences += grobidBibRefIds.size();
+
+                            // Map associating the identifiers present in the reference callout with their number of occurrences
+                            Map<String, Integer> refCalloutRefIds = new HashMap<>();
+                            Map<String, Integer> grobidCalloutRefIds = new HashMap<>();
+
+                            if (inputType.equals("nlm")) {
+                                subpath = FieldSpecification.nlmCitationContextId;
+                            } else if (inputType.equals("tei")) {
+                                subpath = FieldSpecification.grobidCitationContextId;
+                            }
+
+                            // gold
+                            nodeList = (NodeList) xp.compile(subpath)
+                                    .evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
+                            nbgoldResults = nodeList.getLength();
+                            for (int i = 0; i < nodeList.getLength(); i++) {
+                                String localIds = nodeList.item(i).getNodeValue();
+                                if ((localIds != null) && (localIds.length() > 0)) {
+                                    // we might have several identifiers, separated by space: e.g.:
+                                    // <xref rid="bb0010 bb0090 bb0125 bb0135 bb0150" ref-type="bibr">Beauregard et al., 2008; Jordan and Miller, 2009;
+                                    // 			Symer and Boeke, 2010; Tenaillon et al., 2010; Wolf and Goff, 2008</xref>
+                                    String[] theIds = localIds.split(" ");
+                                    for (int j = 0; j < theIds.length; j++) {
+                                        String localId = theIds[j];
+                                        localId = localId.replace("#", "");
+                                        if (refCalloutRefIds.get(localId) == null)
+                                            refCalloutRefIds.put(localId, Integer.valueOf(1));
+                                        else {
+                                            int val = refCalloutRefIds.get(localId).intValue();
+                                            refCalloutRefIds.put(localId, Integer.valueOf(val + 1));
+                                        }
+                                        result.totalExpectedCitations++;
+                                    }
+                                }
+                            }
+
+                            // grobid
+                            nodeList = (NodeList) xp.compile(FieldSpecification.grobidCitationContextId)
+                                    .evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
+                            //System.out.println(FieldSpecification.grobidCitationContextId + ": " + nodeList.getLength() + " nodes");
+                            for (int i = 0; i < nodeList.getLength(); i++) {
+                                String localId = nodeList.item(i).getNodeValue();
+                                localId = localId.replace("#", "");
+                                if ((localId != null) && (localId.length() > 0)) {
+                                    if (grobidCalloutRefIds.get(localId) == null)
+                                        grobidCalloutRefIds.put(localId, Integer.valueOf(1));
+                                    else {
+                                        int val = grobidCalloutRefIds.get(localId).intValue();
+                                        grobidCalloutRefIds.put(localId, Integer.valueOf(val + 1));
+                                    }
+                                    result.totalObservedCitations++;
+                                }
+                            }
+
+                            // simple estimation of correct citation identifications by checking overlapped ids and map
+                            int nbCorrect = 0;
+                            int nbWrong = 0;
+                            for (Map.Entry<String, Integer> entry : grobidCalloutRefIds.entrySet()) {
+                                int nbGrobidId = entry.getValue();
+                                int nbRefId = 0;
+                                if ((refCalloutRefIds != null) && (reverseIdMap.get(entry.getKey()) != null)) {
+                                    if (refCalloutRefIds.get(reverseIdMap.get(entry.getKey())) != null) {
+                                        nbRefId = refCalloutRefIds.get(reverseIdMap.get(entry.getKey()));
+                                    }
+
+                                    if (nbGrobidId > nbRefId) {
+                                        nbWrong += nbGrobidId - nbRefId;
+                                        nbCorrect += nbRefId;
+                                    } else
+                                        nbCorrect += nbGrobidId;
+                                } else {
+                                    // all wrong matches
+                                    nbWrong += nbGrobidId;
+                                }
+                            }
+                            result.totalCorrectObservedCitations += nbCorrect;
+                            result.totalWrongObservedCitations += nbWrong;
+                        }
+
+                        // cleaning
+                        result.strictStats.removeLabel("id");
+                        result.softStats.removeLabel("id");
+                        result.levenshteinStats.removeLabel("id");;
+                        result.ratcliffObershelpStats.removeLabel("id");
+
+                    } else if (sectionType == HEADER) {
+                        // HEADER structures
+                        int p = 0;
+                        boolean allGoodStrict = true;
+                        boolean allGoodSoft = true;
+                        boolean allGoodLevenshtein = true;
+                        boolean allGoodRatcliffObershelp = true;
+                        for (FieldSpecification field : fields) {
+                            String fieldName = field.fieldName;
+
+                            List<String> grobidResults = new ArrayList<>();
+                            for (String path : field.grobidPath) {
+                                NodeList nodeList = (NodeList) xp.compile(path)
+                                        .evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
+                                for (int i = 0; i < nodeList.getLength(); i++) {
+                                    grobidResults.add((nodeList.item(i).getNodeValue().replaceAll(" +", " ")));
+                                }
+                            }
+                            //if (!field.hasMultipleValue)
+                            {
+                                String grobidResult = "";
+                                for (String res : grobidResults)
+                                    grobidResult += " " + res;
+                                // basic normalisation
+                                grobidResult = basicNormalization(grobidResult);
+                                //System.out.println("Grobid: " + fieldName + ":\t" + grobidResult);
+                                grobidResults = new ArrayList<>();
+                                grobidResults.add(grobidResult);
+                            }
+
+                            /*if (fieldName.equals("title") && (grobidResults.size() == 0 || grobidResults.get(0).length() == 0))
+                            System.out.println(dir.getPath() + " no GROBID title");
+
+                            if (fieldName.equals("authors") && (grobidResults.size() == 0 || grobidResults.get(0).length() == 0))
+                            System.out.println(dir.getPath() + " no authors");
+
+                            if (fieldName.equals("abstract") && (grobidResults.size() == 0 || grobidResults.get(0).length() == 0))
+                            System.out.println(dir.getPath() + " no abstract");
+                            */
+                            List<String> goldResults = new ArrayList<>();
+                            int nbGoldResults = 0;
+                            List<String> subpaths = null;
+                            if (inputType.equals("nlm")) {
+                                subpaths = field.nlmPath;
+                            } else if (inputType.equals("tei")) {
+                                subpaths = field.grobidPath;
+                            }
+
+                            if (subpaths == null)
+                                continue;
+
+                            for (String path : subpaths) {
+                                NodeList nodeList = (NodeList) xp.compile(path)
+                                        .evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
+                                //System.out.println(path + ": " + nodeList.getLength() + " nodes");
+                                nbGoldResults = nodeList.getLength();
+                                for (int i = 0; i < nodeList.getLength(); i++) {
+                                    goldResults.add(nodeList.item(i).getNodeValue().replaceAll(" +", " "));
+                                }
+                            }
+
+                            //if (!field.hasMultipleValue)
+                            {
+                                String goldResult = "";
+                                for (String res : goldResults)
+                                    goldResult += " " + res;
+                                // basic normalisation
+                                goldResult = basicNormalization(goldResult);
+                                if (fieldName.equals("abstract")) {
+                                    // some additional cleaning for abstract is required, because PMC and bioRxiv
+                                    // tends to put the useless abstract title "Abstract" together with the abstract
+                                    if (goldResult.toLowerCase().startsWith("abstract")
+                                            || goldResult.toLowerCase().startsWith("summary")) {
+                                        goldResult = goldResult
+                                                .replaceAll("(?i)^(abstract)|(summary)(\\n)?( )?", "");
+                                    }
+                                }
+                                //System.out.println("gold:  " + fieldName + ":\t" + goldResult);
+                                goldResults = new ArrayList<>();
+                                goldResults.add(goldResult);
+                                nbGoldResults = 1;
+                            }
+
+                            int g = 0;
+                            for (String goldResult : goldResults) {
+                                String grobidResult = "";
+                                if (g < grobidResults.size())
+                                    grobidResult = grobidResults.get(g);
+
+                                if (goldResult.trim().length() == 0 && grobidResult.trim().length() == 0) {
+                                    g++;
+                                    continue;
+                                }
+
+                                // nb expected results
+                                if (goldResult.trim().length() > 0) {
+                                    result.strictStats.incrementExpected(fieldName);
+                                    result.softStats.incrementExpected(fieldName);
+                                    result.levenshteinStats.incrementExpected(fieldName);
+                                    result.ratcliffObershelpStats.incrementExpected(fieldName);
+                                }
+
+                                // strict
+                                if ((goldResult.trim().length() > 0) && goldResult.equals(grobidResult)) {
+                                    result.strictStats.incrementObserved(fieldName);
+                                } else {
+                                    /*System.out.println("gold:  " + fieldName);
+                                    System.out.println("gold:   " + goldResult);
+                                    System.out.println("grobid: " + grobidResult);*/
+                                    if (grobidResult.length() > 0) {
+                                        result.strictStats.incrementFalsePositive(fieldName);
+                                        allGoodStrict = false;
+                                    } else if (goldResult.length() > 0) {
+                                        result.strictStats.incrementFalseNegative(fieldName);
+                                        allGoodStrict = false;
+                                    }
+                                }
+
+                                // soft
+                                String goldResultSoft = goldResult;
+                                String grobidResultSoft = grobidResult;
+                                if (field.isTextual) {
+                                    goldResultSoft = removeFullPunct(goldResult);
+                                    grobidResultSoft = removeFullPunct(grobidResult);
+                                }
+
+                                if ((goldResult.trim().length() > 0) && goldResultSoft.equals(grobidResultSoft)) {
+                                    result.softStats.incrementObserved(fieldName);
+                                } else {
+                                    //System.out.println("\n" + teiFile.getPath());
+                                    //System.out.println("gold:" + fieldName);
+                                    //System.out.println("gold:   " + goldResultSoft);
+                                    //System.out.println("grobid: " + grobidResultSoft);
+                                    //System.out.println("gold:" + goldResult);
+                                    //System.out.println("grobid:" + grobidResult);
+                                    if (grobidResultSoft.length() > 0) {
+                                        result.softStats.incrementFalsePositive(fieldName);
+                                        allGoodSoft = false;
+                                    } else if (goldResultSoft.length() > 0) {
+                                        result.softStats.incrementFalseNegative(fieldName);
+                                        allGoodSoft = false;
+                                    }
+                                }
+
+                                // Levenshtein
+                                double pct = 0.0;
+                                if (goldResult.equals(grobidResult))
+                                    pct = 1.0;
+                                if (field.isTextual) {
+                                    int distance = TextUtilities.getLevenshteinDistance(goldResult, grobidResult);
+                                    // Levenshtein distance is an integer value, not a percentage... however
+                                    // articles usually introduced it as a percentage... so we report it
+                                    // following the straightforward formula:
+                                    int bigger = Math.max(goldResult.length(), grobidResult.length());
+                                    pct = (double) (bigger - distance) / bigger;
+                                }
+                                if ((goldResult.length() > 0) && (pct >= minLevenshteinDistance)) {
+                                    result.levenshteinStats.incrementObserved(fieldName);
+                                } else {
+                                    if (grobidResultSoft.length() > 0) {
+                                        result.levenshteinStats.incrementFalsePositive(fieldName);
+                                        allGoodLevenshtein = false;
+                                    } else if (goldResultSoft.length() > 0) {
+                                        result.levenshteinStats.incrementFalseNegative(fieldName);
+                                        allGoodLevenshtein = false;
+                                    }
+                                }
+
+                                // RatcliffObershelp
+                                Double similarity = 0.0;
+                                if (goldResult.trim().equals(grobidResult.trim()))
+                                    similarity = 1.0;
+                                if (field.isTextual) {
+                                    if ((goldResult.length() > 0) && (grobidResult.length() > 0)) {
+                                        Option<Object> similarityObject = RatcliffObershelpMetric
+                                                .compare(goldResult, grobidResult);
+                                        if ((similarityObject != null) && (similarityObject.get() != null))
+                                            similarity = (Double) similarityObject.get();
+                                    }
+                                }
+                                if ((goldResult.length() > 0) && (similarity >= minRatcliffObershelpSimilarity)) {
+                                    result.ratcliffObershelpStats.incrementObserved(fieldName);
+                                } else {
+                                    if (grobidResultSoft.length() > 0) {
+                                        result.ratcliffObershelpStats.incrementFalsePositive(fieldName);
+                                        allGoodRatcliffObershelp = false;
+                                    } else if (goldResultSoft.length() > 0) {
+                                        result.ratcliffObershelpStats.incrementFalseNegative(fieldName);
+                                        allGoodRatcliffObershelp = false;
+                                    }
+                                }
+                                g++;
+                            }
+                            p++;
+                        }
+
+                        // additional, linking-aware metric: per-author affiliation accuracy.
+                        // Unlike the flat header fields above (which concatenate all affiliation
+                        // text across all authors), this pairs each gold author with a grobid
+                        // author and compares their *linked* affiliations. Accumulated under the
+                        // dedicated label "affiliation_linked" on the four matching variants.
+                        try {
+                            int linkedScoredAuthors = evaluateLinkedAffiliations(
+                                    gold,
+                                    tei,
+                                    inputType,
+                                    xp,
+                                    result.strictStats,
+                                    result.softStats,
+                                    result.levenshteinStats,
+                                    result.ratcliffObershelpStats);
+                            if (linkedScoredAuthors > 0) {
+                                result.articlesWithLinkedAffiliation++;
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                        result.totalExpectedInstances++;
+                        if (allGoodStrict) {
+                            result.totalCorrectInstancesStrict++;
+                        }
+                        if (allGoodSoft) {
+                            result.totalCorrectInstancesSoft++;
+                        }
+                        if (allGoodLevenshtein) {
+                            result.totalCorrectInstancesLevenshtein++;
+                        }
+                        if (allGoodRatcliffObershelp) {
+                            result.totalCorrectInstancesRatcliffObershelp++;
+                        }
+                    } else if (sectionType == FULLTEXT) {
+                        // full text structures
+                        int p = 0;
+                        boolean allGoodStrict = true;
+                        boolean allGoodSoft = true;
+                        boolean allGoodLevenshtein = true;
+                        boolean allGoodRatcliffObershelp = true;
+
+                        Map<String, Boolean> grobidDocumentLevelStatements = new HashMap<>();
+                        Map<String, Boolean> goldDocumentLevelStatements = new HashMap<>();
+
+                        for (FieldSpecification field : fields) {
+                            String fieldName = field.fieldName;
+
+                            List<String> grobidResults = new ArrayList<>();
+                            for (String path : field.grobidPath) {
+                                NodeList nodeList = (NodeList) xp.compile(path)
+                                        .evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
+                                for (int i = 0; i < nodeList.getLength(); i++) {
+                                    String normalizedString = basicNormalizationFullText(
+                                            nodeList.item(i).getNodeValue(),
+                                            fieldName);
+                                    if (normalizedString != null && normalizedString.length() > 0)
+                                        grobidResults.add(normalizedString);
+                                }
+                            }
+
+                            /*boolean first = true;
+                            System.out.print("\n"+fieldName+" - ");
+                            System.out.print("\ngrobidResults:\t");
+                            for(String res : grobidResults) {
+                            	if (!first)
+                            		System.out.print(" | ");
+                            	else
+                            		first = false;
+                            	System.out.print(res);
+                            }
+                            System.out.println("");*/
+
+                            List<String> goldResults = new ArrayList<>();
+                            int nbgoldResults = 0;
+                            List<String> subpaths = null;
+                            if (inputType.equals("nlm")) {
+                                subpaths = field.nlmPath;
+                            } else if (inputType.equals("tei")) {
+                                subpaths = field.grobidPath;
+                            }
+
+                            for (String path : subpaths) {
+                                NodeList nodeList = (NodeList) xp.compile(path)
+                                        .evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
+                                //System.out.println(path + ": " + nodeList.getLength() + " nodes");
+                                nbgoldResults = nodeList.getLength();
+                                for (int i = 0; i < nodeList.getLength(); i++) {
+                                    String normalizedString = basicNormalizationFullText(
+                                            nodeList.item(i).getNodeValue(),
+                                            fieldName);
+                                    if (normalizedString != null && normalizedString.length() > 0)
+                                        goldResults.add(normalizedString);
+                                }
+                            }
+
+                            /*first = true;
+                            System.out.print("goldResults:\t");
+                            for(String res : goldResults) {
+                            	if (!first)
+                            		System.out.print(" | ");
+                            	else
+                            		first = false;
+                            	System.out.print(res);
+                            }
+                            System.out.println("");*/
+
+                            if (field.computeDocumentLevelMetrics) {
+                                if (CollectionUtils.isNotEmpty(goldResults)) {
+                                    goldDocumentLevelStatements.put(fieldName, true);
+                                }
+
+                                if (CollectionUtils.isNotEmpty(grobidResults)) {
+                                    grobidDocumentLevelStatements.put(fieldName, true);
+                                }
+                            }
+
+                            // Workaround to avoid having two different lists with the same content
+                            // Probably to be extended to other fields if does not cause
+                            if (field.mergeMultipleValues) {
+                                if (CollectionUtils.isNotEmpty(goldResults)) {
+                                    List<String> goldResults2 = new ArrayList<>();
+                                    goldResults2.add(String.join(" ", goldResults).replace("  ", " "));
+                                    goldResults = goldResults2;
+                                    //                                        System.out.print("\n\n---- GOLD ----");
+                                    //                                        for (String goldResult : goldResults) {
+                                    //                                            System.out.print("\n" + goldResult);
+                                    //                                        }
+                                    //                                        System.out.print("\n--------");
+                                }
+
+                                if (CollectionUtils.isNotEmpty(grobidResults)) {
+                                    List<String> grobidResults2 = new ArrayList<>();
+                                    grobidResults2.add(String.join(" ", grobidResults).replace("  ", " "));
+                                    grobidResults = grobidResults2;
+
+                                    //                                        System.out.print("\n---- GROBID ----");
+                                    //                                        for (String grobidResult : grobidResults) {
+                                    //                                            System.out.print("\n" + grobidResult);
+                                    //                                        }
+                                    //                                        System.out.print("\n--------");
+                                }
+                                // we compare the two result sets
+                            }
+
+                            // prepare first the grobidResult set for soft match
+                            List<String> grobidSoftResults = new ArrayList<>();
+                            for (String res : grobidResults)
+                                grobidSoftResults.add(removeFullPunct(res));
+
+                            int g = 0;
+                            int grobidResultsSize = grobidResults.size();
+                            int nbMatchStrict = 0; // number of matched grobid results, strict set
+                            int nbMatchSoft = 0;
+                            int nbMatchLevenshtein = 0;
+                            int nbMatchRatcliffObershelp = 0;
+                            for (String goldResult : goldResults) {
+                                // nb expected results
+                                if (goldResult.length() > 0) {
+                                    result.strictStats.incrementExpected(fieldName);
+                                    result.softStats.incrementExpected(fieldName);
+                                    result.levenshteinStats.incrementExpected(fieldName);
+                                    result.ratcliffObershelpStats.incrementExpected(fieldName);
+                                }
+
+                                double pct = 0.0;
+                                // strict
+                                if ((goldResult.length() > 0) && grobidResults.contains(goldResult)) {
+                                    result.strictStats.incrementObserved(fieldName);
+                                    nbMatchStrict++;
+                                    pct = 1.0;
+                                    grobidResults.remove(goldResult);
+                                } else {
+                                    if (goldResult.length() > 0) {
+                                        result.strictStats.incrementFalseNegative(fieldName);
+                                        allGoodStrict = false;
+                                    }
+                                }
+
+                                // soft
+                                String goldResultSoft = goldResult;
+                                if (field.isTextual) {
+                                    goldResultSoft = removeFullPunct(goldResult);
+                                }
+                                if ((goldResult.length() > 0) && grobidSoftResults.contains(goldResultSoft)) {
+                                    result.softStats.incrementObserved(fieldName);
+                                    nbMatchSoft++;
+                                    grobidSoftResults.remove(goldResultSoft);
+                                } else {
+                                    if (goldResultSoft.length() > 0) {
+                                        result.softStats.incrementFalseNegative(fieldName);
+                                        allGoodSoft = false;
+                                    }
+                                }
+
+                                /*StringBuilder goldResultBuilder = new StringBuilder();
+                                for (String goldResult : goldResults) {
+                                	goldResultBuilder.append(goldResult).append(" ");
+                                }
+                                String goldResultString = goldResultBuilder.toString();
+                                StringBuilder grobidResultBuilder = new StringBuilder();
+                                for (String grobidResult : grobidResults) {
+                                	grobidResultBuilder.append(grobidResult).append(" ");
+                                }
+                                String grobidResultString = grobidResultBuilder.toString();
+
+                                // Levenshtein
+                                if (field.isTextual) {
+                                	int distance = TextUtilities.getLevenshteinDistance(goldResultString, grobidResultString);
+                                	// Levenshtein distance is an integer value, not a percentage... however
+                                	// articles usually introduced it as a percentage... so we report it
+                                	// following the straightforward formula:
+                                	int bigger = Math.max(goldResult.length(), grobidResult.length());
+                                	pct = (double)(bigger - distance) / bigger;
+                                }
+                                if ((goldResult.length() > 0) && (pct >= minLevenshteinDistance)) {
+                                	Integer count = counterObservedLevenshtein.get(p);
+                                	counterObservedLevenshtein.set(p, count+1);
+                                	nbMatchLevenshtein++;
+                                }
+                                else {
+                                	if (goldResult.length() > 0){
+                                		Integer count = counterFalseNegativeLevenshtein.get(p);
+                                		counterFalseNegativeLevenshtein.set(p, count+1);
+                                		allGoodLevenshtein = false;
+                                	}
+                                }
+
+                                // RatcliffObershelp
+                                Double similarity = 0.0;
+                                if (goldResult.trim().equals(grobidResult.trim()))
+                                	similarity = 1.0;
+                                if (field.isTextual) {
+                                	if ( (goldResult.length() > 0) && (grobidResult.length() > 0) ) {
+                                		Option<Object> similarityObject =
+                                			RatcliffObershelpMetric.compare(goldResultString, grobidResultString);
+                                		if ( (similarityObject != null) && (similarityObject.get() != null) )
+                                			 similarity = (Double)similarityObject.get();
+                                	}
+                                }
+                                if ((goldResult.length() > 0) && (similarity >= minRatcliffObershelpSimilarity)) {
+                                	Integer count = counterObservedRatcliffObershelp.get(p);
+                                	counterObservedRatcliffObershelp.set(p, count+1);
+                                	nbMatchRatcliffObershelp++;
+                                }
+                                else {
+                                	if (grobidResultSoft.length() > 0) {
+                                		Integer count = counterFalsePositiveRatcliffObershelp.get(p);
+                                		counterFalsePositiveRatcliffObershelp.set(p, count+1);
+                                		allGoodRatcliffObershelp = false;
+                                	}
+                                	else if (goldResultSoft.length() > 0){
+                                		Integer count = counterFalseNegativeRatcliffObershelp.get(p);
+                                		counterFalseNegativeRatcliffObershelp.set(p, count+1);
+                                		allGoodRatcliffObershelp = false;
+                                	}
+                                }*/
+                                g++;
+                            }
+
+                            if (nbMatchStrict < grobidResultsSize) {
+                                result.strictStats.incrementFalsePositive(fieldName, grobidResultsSize - nbMatchStrict);
+                                allGoodStrict = false;
+                            }
+
+                            if (nbMatchSoft < grobidResultsSize) {
+                                result.softStats.incrementFalsePositive(fieldName, grobidResultsSize - nbMatchSoft);
+                                allGoodSoft = false;
+                            }
+
+                            /*if (nbMatchLevenshtein < grobidResultsSize) {
+                            result.levenshteinStats.incrementFalsePositive(fieldName, grobidResultsSize-nbMatchLevenshtein);
+                            	allGoodLevenshtein= false;
+                            }
+
+                            if (nbMatchRatcliffObershelp < grobidResultsSize) {
+                            result.ratcliffObershelpStats.incrementFalsePositive(fieldName, grobidResultsSize-nbMatchRatcliffObershelp);
+                            	allGoodRatcliffObershelp = false;
+                            }*/
+
+                            p++;
+                        }
+
+                        // document level ratio for statements
+                        Set<String> combinedStatements = new HashSet<>();
+                        combinedStatements.addAll(grobidDocumentLevelStatements.keySet());
+                        combinedStatements.addAll(goldDocumentLevelStatements.keySet());
+
+                        for (String localFieldName : combinedStatements) {
+                            boolean grobidStatement = false;
+                            boolean goldStatement = false;
+                            if (grobidDocumentLevelStatements.containsKey(localFieldName)) {
+                                grobidStatement = grobidDocumentLevelStatements.get(localFieldName);
+                                if (grobidStatement) {
+                                    result.documentLevelStatementsRatioStat.incrementObserved(localFieldName);
+                                }
+                            }
+
+                            if (goldDocumentLevelStatements.containsKey(localFieldName)) {
+                                goldStatement = goldDocumentLevelStatements.get(localFieldName);
+                                if (goldStatement) {
+                                    result.documentLevelStatementsRatioStat.incrementExpected(localFieldName);
+                                }
+                            }
+
+                            if (grobidStatement && !goldStatement) {
+                                result.documentLevelStatementsRatioStat.incrementFalsePositive(localFieldName);
+                            }
+
+                            if (!grobidStatement && goldStatement)
+                                result.documentLevelStatementsRatioStat.incrementFalseNegative(localFieldName);
+
+                        }
+                    }
+                } else if (runType == PDFX) {
+                    // TBD
+                } else if (runType == CERMINE) {
+                    // TBD
+                }
+            } catch (Exception e) {
+                LOGGER.error("Error evaluating document under " + dir.getPath(), e);
+                return null;
+            }
+            result.nbFile = 1;
+            return result;
+        }
+    }
+
+    private static ProgressBar createProgressBar(String taskName, long initialMax) {
+        String mode = System.getProperty("grobid.progressbar", "auto");
+        boolean useSimple;
+        if ("simple".equals(mode) || "false".equals(mode)) {
+            useSimple = true;
+        } else if ("fancy".equals(mode)) {
+            useSimple = false;
+        } else {
+            // "auto": System.console() is null when not a real TTY
+            useSimple = (System.console() == null);
+        }
+
+        if (useSimple) {
+            return new ProgressBarBuilder()
+                    .setTaskName(taskName)
+                    .setInitialMax(initialMax)
+                    .setUpdateIntervalMillis(30000)
+                    .setConsumer(new DelegatingProgressBarConsumer(System.err::println))
+                    .build();
+        } else {
+            return new ProgressBar(taskName, initialMax);
         }
     }
 
@@ -218,7 +1646,8 @@ public class EndToEndEvaluation {
             long start = System.currentTimeMillis();
             int fails = 0;
 
-            ExecutorService executor = Executors.newFixedThreadPool(GrobidProperties.getInstance().getMaxConcurrency() - 1);
+            ExecutorService executor = Executors
+                    .newFixedThreadPool(GrobidProperties.getInstance().getMaxConcurrency() - 1);
             List<Future<Boolean>> results = new ArrayList<>();
 
             if (refFiles.length > 0) {
@@ -253,7 +1682,7 @@ public class EndToEndEvaluation {
             //executor.awaitTermination(5, TimeUnit.SECONDS);
 
             System.out.println("\n");
-            try (ProgressBar pb = new ProgressBar("PDF processing", refFiles.length)) {
+            try (ProgressBar pb = createProgressBar("PDF processing", refFiles.length)) {
                 for (Future<Boolean> result : results) {
                     try {
                         Boolean success = result.get();
@@ -271,8 +1700,14 @@ public class EndToEndEvaluation {
             System.out.println("\n-------------> GROBID failed on " + fails + " PDF\n");
             double processTime = ((double) System.currentTimeMillis() - start) / 1000.0;
 
-            System.out.println(n + " PDF files processed in " +
-                processTime + " seconds, " + ((double) processTime) / n + " seconds per PDF file\n");
+            System.out.println(
+                    n
+                            + " PDF files processed in "
+                            +
+                            processTime
+                            + " seconds, "
+                            + ((double) processTime) / n
+                            + " seconds per PDF file\n");
         }
 
         // evaluation of the run
@@ -293,14 +1728,21 @@ public class EndToEndEvaluation {
         if (CollectionUtils.isNotEmpty(fulltextFields)) {
             report.append("\n======= Fulltext structures ======= \n");
             reportMD.append("\n## Fulltext structures \n\n");
-            reportMD.append("Fulltext structure contents are complicated to capture from JATS NLM files. They are often normalized and different from the actual PDF content and are can be inconsistent from one document to another. The scores of the following metrics are thus not very meaningful in absolute term, in particular for the strict matching (textual content of the srtructure can be very long). As relative values for comparing different models, they seem however useful.\n\n");
+            reportMD.append(
+                    "Fulltext structure contents are complicated to capture from JATS NLM files. They are often normalized and different from the actual PDF content and can be inconsistent from one document to another. The scores of the following metrics are thus not very meaningful in absolute term, in particular for the strict matching (textual content of the structure can be very long). As relative values for comparing different models, they seem however useful.\n\n");
             report.append(evaluationRun(GROBID, FULLTEXT, reportMD));
         }
 
-        System.out.println("Evaluation metrics produced in " +
-            (System.currentTimeMillis() - start) / (1000.00) + " seconds");
-        reportMD.append("Evaluation metrics produced in " +
-            (System.currentTimeMillis() - start) / (1000.00) + " seconds\n");
+        System.out.println(
+                "Evaluation metrics produced in "
+                        +
+                        (System.currentTimeMillis() - start) / (1000.00)
+                        + " seconds");
+        reportMD.append(
+                "Evaluation metrics produced in "
+                        +
+                        (System.currentTimeMillis() - start) / (1000.00)
+                        + " seconds\n");
 
         return report.toString();
     }
@@ -373,7 +1815,10 @@ public class EndToEndEvaluation {
      * @param fieldSpecification     field specification list where the fields needs to be removed
      * @param labelsSpecification    field specification labels list where the fields needs to be removed
      */
-    protected static void removeFieldsFromEvaluation(List<String> listFieldNamesToRemove, List<FieldSpecification> fieldSpecification, List<String> labelsSpecification) {
+    protected static void removeFieldsFromEvaluation(
+            List<String> listFieldNamesToRemove,
+            List<FieldSpecification> fieldSpecification,
+            List<String> labelsSpecification) {
 
         for (String fieldNameToRemove : listFieldNamesToRemove) {
             List<FieldSpecification> toRemove = new ArrayList<>();
@@ -415,30 +1860,8 @@ public class EndToEndEvaluation {
         // These variants only apply to textual fields, not numerical and dates fields
         // (such as volume, issue, dates).
 
-        Stats strictStats = new Stats();
-        Stats softStats = new Stats();
-        Stats levenshteinStats = new Stats();
-        Stats ratcliffObershelpStats = new Stats();
-
-        Stats availabilityRatioStat = new Stats();
-
         List<String> labels = null;
         List<FieldSpecification> fields = null;
-
-        int totalExpectedInstances = 0;
-        int totalObservedInstances = 0;
-        int totalCorrectInstancesStrict = 0;
-        int totalCorrectInstancesSoft = 0;
-        int totalCorrectInstancesLevenshtein = 0;
-        int totalCorrectInstancesRatcliffObershelp = 0;
-
-        int totalExpectedReferences = 0;
-        int totalObservedReferences = 0;
-
-        int totalExpectedCitations = 0;
-        int totalObservedCitations = 0;
-        int totalCorrectObservedCitations = 0;
-        int totalWrongObservedCitations = 0;
 
         if (sectionType == HEADER) {
             fields = headerFields;
@@ -451,12 +1874,6 @@ public class EndToEndEvaluation {
             labels = fulltextLabels;
         }
 
-        // statics about citation matching
-        int match1 = 0;
-        int match2 = 0;
-        int match3 = 0;
-        int match4 = 0;
-
         if (StringUtils.containsAnyIgnoreCase(xmlInputPath, "pmc", "plos", "elife")) {
             // for PMC files, we further specify the NLM type: some fields might be encoded but not in the document (like PMID, DOI)
             removeFieldsFromEvaluation(Arrays.asList("doi", "pmid", "pmcid"), citationsFields, citationsLabels);
@@ -465,11 +1882,26 @@ public class EndToEndEvaluation {
         if (StringUtils.containsIgnoreCase(xmlInputPath, "elife")) {
             // keywords are present in the eLife XML, but not in the PDF !
             removeFieldsFromEvaluation(Arrays.asList("keywords"), headerFields, headerLabels);
+
+            // Contributions in eLife are not text elements, but a combination between the author and some text elements,
+            //  since we cannot easily put them together it's better to ignore them for the time being.
+            removeFieldsFromEvaluation(
+                    Arrays.asList("contribution_stmt", "conflict_stmt"),
+                    fulltextFields,
+                    fulltextLabels);
         }
 
         if (StringUtils.containsIgnoreCase(xmlInputPath, "pmc")) {
             // remove availability and funding statements from PMC (not covered, and it would make metrics not comparable over time)
-            removeFieldsFromEvaluation(Arrays.asList("availability_stmt", "funding_stmt"), fulltextFields, fulltextLabels);
+            removeFieldsFromEvaluation(
+                    Arrays.asList("availability_stmt", "funding_stmt", "conflict_stmt", "contribution_stmt"),
+                    fulltextFields,
+                    fulltextLabels);
+        }
+
+        if (StringUtils.containsIgnoreCase(xmlInputPath, "plos")) {
+            // Contributions in PLOS are not text elements but attributes in the author list.
+            removeFieldsFromEvaluation(Arrays.asList("contribution_stmt"), fulltextFields, fulltextLabels);
         }
 
         File input = new File(xmlInputPath);
@@ -484,11 +1916,6 @@ public class EndToEndEvaluation {
             return report.toString();
         }
 
-        // get a factory for SAX parsers
-        SAXParserFactory spf = SAXParserFactory.newInstance();
-        Random rand = new Random();
-        int nbFile = 0;
-
         String typeEval = "";
         if (sectionType == HEADER)
             typeEval = "header";
@@ -497,1251 +1924,99 @@ public class EndToEndEvaluation {
         if (sectionType == CITATION)
             typeEval = "citation";
 
-        System.out.println("\n");
-        try (ProgressBar pb = new ProgressBar("Evaluation " + typeEval, refFiles.length)) {
-
-            for (File dir : refFiles) {
-                pb.step();
-
-                if (!dir.isDirectory())
-                    continue;
-
-                // file ratio filtering
-                double random = rand.nextDouble();
-                if (random > fileRatio) {
-                    continue;
-                }
-
-                // get the gold file in the directory
-                File[] refFiles2 = dir.listFiles(new FilenameFilter() {
-                    public boolean accept(File dir, String name) {
-                        return name.endsWith(".nxml") || name.endsWith(".pub2tei.tei.xml");
-                    }
-                });
-
-                if (refFiles2 == null || refFiles2.length == 0) {
-                    // in the case of a bioRxiv NLM/JATS file, we have an .xml extension
-                    refFiles2 = dir.listFiles(new FilenameFilter() {
-                        public boolean accept(File dir, String name) {
-                            return name.endsWith(".xml") && !name.endsWith(".tei.xml");
-                        }
-                    });
-
-                    if (refFiles2 == null || refFiles2.length == 0) {
-                        System.out.println("warning: no evaluation (gold) XML data file found under " + dir.getPath());
-                        continue;
-                    }
-                }
-
-                if (refFiles2.length != 1) {
-                    System.out.println("warning: more than one evaluation (gold) XML data files found under " + dir.getPath());
-                    for (int m = 0; m < refFiles2.length; m++) {
-                        System.out.println(refFiles2[m].getPath());
-                    }
-                    System.out.println("processing only the first one...");
-                }
-
-                File goldFile = refFiles2[0];
-
-                DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
-                docFactory.setValidating(false);
-
-                try {
-                    DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-                    docBuilder.setEntityResolver((publicId, systemId) -> new InputSource(
-                        new ByteArrayInputStream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>".getBytes()))); // swap in a dummy resolver to neutralise the online DTD
-                    Document gold = docBuilder.parse(goldFile);
-
-                    // get the results of the evaluated tool for this file
-                    if (runType == GROBID) {
-                        final String fileSuffix;
-                        if (this.flavor != null) {
-                            fileSuffix = ".fulltext." + flavor.getPlainLabel() + ".tei.xml";
-                        } else {
-                             fileSuffix = ".fulltext.tei.xml";
-                        }
-
-                        // results are produced in a TEI file
-                        File[] refFiles3 = dir.listFiles((dir1, name) -> name.endsWith(fileSuffix));
-
-                        if ((refFiles3 == null) || (refFiles3.length == 0)) {
-                            System.out.println("warning: no Grobid TEI file found under " + dir.getPath());
-                            continue;
-                        }
-
-                        if (refFiles3.length != 1) {
-                            System.out.println("warning: more than one Grobid TEI files found under " + dir.getPath());
-                            System.out.println("processing only the first one...");
-                        }
-
-                        File teiFile = refFiles3[0];
-                        Document tei = docBuilder.parse(teiFile);
-
-                        XPathFactory xpf = XPathFactory.newInstance();
-                        XPath xp = xpf.newXPath();
-                        HashMap map = new HashMap();
-                        // explicit indication of the default namespace
-                        map.put("tei", "http://www.tei-c.org/ns/1.0");
-
-                        Map<String, String> mappings = new HashMap<>();
-                        mappings.put("tei", "http://www.tei-c.org/ns/1.0");
-                        xp.setNamespaceContext(new NamespaceContextMap(mappings));
-
-                        if (sectionType == CITATION) {
-                            // we start by identifying each expected citation
-                            // the first FieldSpecification object for the citation is the base path for
-                            // each citation structure in the corresponding XML
-                            FieldSpecification base = fields.get(0);
-
-                            String path = null;
-                            if (inputType.equals("nlm"))
-                                path = base.nlmPath.get(0);
-                            else
-                                path = base.grobidPath.get(0);
-
-                            NodeList nodeList = (NodeList) xp.compile(path).
-                                evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
-                            int nbCitationsGold = nodeList.getLength();
-                            totalExpectedInstances += nbCitationsGold;
-
-                            List<Map<String, List<String>>> goldCitations =
-                                new ArrayList<Map<String, List<String>>>();
-
-                            // "signature" of the citations for this file
-                            // level 1 signature: titre + date
-                            List<String> goldCitationSignaturesLevel1 = new ArrayList<>();
-
-                            // level 2 signature: all authors names + date
-                            List<String> goldCitationSignaturesLevel2 = new ArrayList<>();
-
-                            // level 3 signature: journal + volume + page
-                            List<String> goldCitationSignaturesLevel3 = new ArrayList<>();
-
-                            // level 4 signature:  "fuzzy titre" + date + at least one of auteurs or first page
-                            List<String> goldCitationSignaturesLevel4 = new ArrayList<>();
-
-                            // map between citation id from gold and from grobid (if matching between the two citations)
-                            Map<String, String> idMap = new HashMap<>();
-                            Map<String, String> reverseIdMap = new HashMap<>();
-                            List<String> goldIds = new ArrayList<>();
-
-                            for (int i = 0; i < nodeList.getLength(); i++) {
-                                // sometimes we just have the raw citation bellow this, so we will have to further
-                                // test if we have something structured
-                                Map<String, List<String>> fieldsValues = new HashMap<>();
-                                Node node = nodeList.item(i);
-                                int p = 0;
-                                for (FieldSpecification field : fields) {
-                                    String fieldName = field.fieldName;
-                                    if (fieldName.equals("base")) {
-                                        //p++;
-                                        continue;
-                                    }
-                                    List<String> subpaths = null;
-                                    if (inputType.equals("nlm")) {
-                                        subpaths = field.nlmPath;
-                                    } else if (inputType.equals("tei")) {
-                                        subpaths = field.grobidPath;
-                                    }
-
-                                    if (subpaths == null)
-                                        continue;
-
-                                    for (String subpath : subpaths) {
-                                        NodeList nodeList2 = (NodeList) xp.compile(subpath).
-                                            evaluate(node, XPathConstants.NODESET);
-
-                                        List<String> goldResults = new ArrayList<>();
-                                        for (int j = 0; j < nodeList2.getLength(); j++) {
-                                            String content = nodeList2.item(j).getNodeValue();
-                                            if ((content != null) && (content.trim().length() > 0)) {
-                                                if (fieldName.equals("doi") || fieldName.equals("pmid") || fieldName.equals("pmcid")) {
-                                                    content = identifierNormalization(content);
-                                                }
-                                                goldResults.add(content);
-                                            }
-                                        }
-
-                                        if (goldResults.size() > 0) {
-                                            fieldsValues.put(fieldName, goldResults);
-                                            if (!fieldName.equals("id")) {
-                                                strictStats.incrementExpected(fieldName);
-                                                softStats.incrementExpected(fieldName);
-                                                levenshteinStats.incrementExpected(fieldName);
-                                                ratcliffObershelpStats.incrementExpected(fieldName);
-                                            }
-                                        }
-                                    }
-
-                                    p++;
-                                }
-
-                                // signature for this citation
-                                String goldTitle = "";
-                                List<String> goldResults = fieldsValues.get("title");
-                                if (goldResults != null) {
-                                    for (String res : goldResults) {
-                                        goldTitle += " " + res;
-                                    }
-                                }
-                                goldTitle = basicNormalization(goldTitle);
-                                String goldTitleSoft = removeFullPunct(goldTitle);
-
-                                // source title / inTitle information
-                                String goldInTitle = "";
-                                List<String> inTitleResults = fieldsValues.get("inTitle");
-                                if (inTitleResults != null) {
-                                    for (String res : inTitleResults) {
-                                        goldInTitle += " " + res;
-                                    }
-                                }
-                                goldInTitle = basicNormalization(goldInTitle);
-                                String goldInTitleSoft = removeFullPunct(goldInTitle);
-
-                                // first author last name only
-                                List<String> authorResults = fieldsValues.get("first_author");
-                                String goldAuthor = "";
-                                if ((authorResults != null) && (authorResults.size() > 0))
-                                    goldAuthor = authorResults.get(0);
-                                goldAuthor = basicNormalization(goldAuthor);
-                                String goldAuthorSoft = removeFullPunct(goldAuthor);
-
-                                // all authors last names
-                                String goldAuthors = "";
-                                List<String> authorsResults = fieldsValues.get("authors");
-                                if ((authorsResults != null) && (authorsResults.size() > 0)) {
-                                    for (String aut : authorsResults)
-                                        goldAuthors += aut;
-                                }
-                                goldAuthors = basicNormalization(goldAuthors);
-                                String goldAuthorsSoft = removeFullPunct(goldAuthors);
-
-                                // date of publication
-                                List<String> dateResults = fieldsValues.get("date");
-                                String goldDate = "";
-                                if ((dateResults != null) && (dateResults.size() > 0))
-                                    goldDate = dateResults.get(0);
-                                goldDate = basicNormalization(goldDate);
-
-                                // volume
-                                List<String> volumeResults = fieldsValues.get("volume");
-                                String goldVolume = "";
-                                if ((volumeResults != null) && (volumeResults.size() > 0))
-                                    goldVolume = volumeResults.get(0);
-                                goldVolume = basicNormalization(goldVolume);
-
-                                // first page
-                                List<String> pageResults = fieldsValues.get("page");
-                                String goldPage = "";
-                                if ((pageResults != null) && (pageResults.size() > 0))
-                                    goldPage = pageResults.get(0);
-                                goldPage = basicNormalization(goldPage);
-
-                                // identifier
-                                List<String> idResults = fieldsValues.get("id");
-                                String goldId = "";
-                                if ((idResults != null) && (idResults.size() > 0))
-                                    goldId = idResults.get(0);
-                                goldId = basicNormalization(goldId);
-                                goldIds.add(goldId);
-                                /*
-                                 * We introduce 4 sequential alignment rules to match an extracted citation with an expected citation.
-                                 * If the first rule is not working, we test the second one, and so on until the last one.
-                                 * If all rules fail, the extracted citation is considered as false positive for its non-empty fields.
-                                 * - first rule: matching of the "soft" title (title ignoring case, punctuation ans space mismatches) and year
-                                 * - second rule: matching all of "soft" authors and year
-                                 * - third rule: matching of "soft" inTitle (title of Journal or Conference), volume and first page
-                                 * - forth rule: matching of first author last name and title, or inTitle if title is empty
-                                 */
-                                String signature1 = null;
-                                if ((goldTitleSoft.length() > 0) && (goldDate.length() > 0)) {
-                                    signature1 = goldTitleSoft + goldDate;
-                                    //signature1 = signature1.replaceAll("[^\\x00-\\x7F]", "");
-                                }
-
-                                String signature2 = null;
-                                if ((goldAuthorsSoft.length() > 0) && (goldDate.length() > 0)) {
-                                    signature2 = goldAuthorsSoft + goldDate;
-                                    //signature2 = signature2.replaceAll("[^\\x00-\\x7F]", "");
-                                }
-
-                                String signature3 = null;
-                                if ((goldInTitleSoft.length() > 0) && (goldVolume.length() > 0) && (goldPage.length() > 0)) {
-                                    signature3 = goldInTitleSoft + goldVolume + goldPage;
-                                    //signature3 = signature3.replaceAll("[^\\x00-\\x7F]", "");
-                                }
-
-                                String signature4 = null;
-                                if (((goldInTitleSoft.length() > 0) || (goldTitleSoft.length() > 0))
-                                    && (goldAuthorSoft.length() > 0)) {
-                                    if (goldTitleSoft.length() > 0)
-                                        signature4 = goldAuthorSoft + goldTitleSoft;
-                                    else
-                                        signature4 = goldAuthorSoft + goldInTitleSoft;
-                                }
-
-                                goldCitationSignaturesLevel1.add(signature1);
-                                goldCitationSignaturesLevel2.add(signature2);
-                                goldCitationSignaturesLevel3.add(signature3);
-                                goldCitationSignaturesLevel4.add(signature4);
-                                goldCitations.add(fieldsValues);
-
-                            }
-
-                            // get the Grobid citations
-                            path = base.grobidPath.get(0);
-                            nodeList = (NodeList) xp.compile(path).
-                                evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
-                            int nbCitationsGrobid = nodeList.getLength();
-
-//if (nbCitationsGold != nbCitationsGrobid)
-//System.out.println(dir.getPath() + " references: " + nbCitationsGold + " (expected) / " + nbCitationsGrobid + " (grobid)");
-
-                            totalObservedInstances += nbCitationsGrobid;
-                            List<Map<String, List<String>>> grobidCitations =
-                                new ArrayList<Map<String, List<String>>>();
-                            for (int i = 0; i < nodeList.getLength(); i++) {
-                                Map<String, List<String>> fieldsValues = new HashMap<String, List<String>>();
-                                Node node = nodeList.item(i);
-                                int p = 0;
-                                for (FieldSpecification field : fields) {
-                                    String fieldName = field.fieldName;
-                                    if (fieldName.equals("base")) {
-                                        //p++;
-                                        continue;
-                                    }
-                                    for (String subpath : field.grobidPath) {
-                                        NodeList nodeList2 = (NodeList) xp.compile(subpath).
-                                            evaluate(node, XPathConstants.NODESET);
-                                        List<String> grobidResults = new ArrayList<>();
-                                        for (int j = 0; j < nodeList2.getLength(); j++) {
-                                            String content = nodeList2.item(j).getNodeValue();
-                                            if ((content != null) && (content.trim().length() > 0)) {
-                                                if (fieldName.equals("doi") || fieldName.equals("pmid") || fieldName.equals("pmcid")) {
-                                                    content = identifierNormalization(content);
-                                                }
-                                                grobidResults.add(content);
-                                            }
-                                        }
-                                        if (grobidResults.size() > 0) {
-                                            fieldsValues.put(fieldName, grobidResults);
-                                        }
-                                    }
-                                    p++;
-                                }
-                                grobidCitations.add(fieldsValues);
-                            }
-
-                            for (Map<String, List<String>> grobidCitation : grobidCitations) {
-                                String grobidTitle = "";
-
-                                List<String> titleResults = grobidCitation.get("title");
-                                if (titleResults != null) {
-                                    for (String res : titleResults) {
-                                        grobidTitle += " " + res;
-                                    }
-                                }
-                                grobidTitle = basicNormalization(grobidTitle);
-                                String grobidTitleSoft = removeFullPunct(grobidTitle);
-
-                                List<String> inTitleResults = grobidCitation.get("inTitle");
-                                String grobidInTitle = "";
-                                if (inTitleResults != null) {
-                                    for (String res : inTitleResults) {
-                                        grobidInTitle += " " + res;
-                                    }
-                                }
-                                grobidInTitle = basicNormalization(grobidInTitle);
-                                String grobidInTitleSoft = removeFullPunct(grobidInTitle);
-
-                                // first author last name only
-                                List<String> authorResults = grobidCitation.get("first_author");
-                                String grobidAuthor = "";
-                                if ((authorResults != null) && (authorResults.size() > 0))
-                                    grobidAuthor = authorResults.get(0);
-                                grobidAuthor = basicNormalization(grobidAuthor);
-                                String grobidAuthorSoft = removeFullPunct(grobidAuthor);
-
-                                // all authors last names
-                                String grobidAuthors = "";
-                                List<String> authorsResults = grobidCitation.get("authors");
-                                if ((authorsResults != null) && (authorsResults.size() > 0)) {
-                                    for (String aut : authorsResults)
-                                        grobidAuthors += aut;
-                                }
-                                grobidAuthors = basicNormalization(grobidAuthors);
-                                String grobidAuthorsSoft = removeFullPunct(grobidAuthors);
-
-                                // date of publication
-                                List<String> dateResults = grobidCitation.get("date");
-                                String grobidDate = "";
-                                if ((dateResults != null) && (dateResults.size() > 0))
-                                    grobidDate = dateResults.get(0);
-                                grobidDate = basicNormalization(grobidDate);
-
-                                // volume
-                                List<String> volumeResults = grobidCitation.get("volume");
-                                String grobidVolume = "";
-                                if ((volumeResults != null) && (volumeResults.size() > 0))
-                                    grobidVolume = volumeResults.get(0);
-                                grobidVolume = basicNormalization(grobidVolume);
-
-                                // first page
-                                List<String> pageResults = grobidCitation.get("page");
-                                String grobidPage = "";
-                                if ((pageResults != null) && (pageResults.size() > 0))
-                                    grobidPage = pageResults.get(0);
-                                grobidPage = basicNormalization(grobidPage);
-
-                                // identifier
-                                List<String> idResults = grobidCitation.get("id");
-                                String grobidId = "";
-                                if ((idResults != null) && (idResults.size() > 0))
-                                    grobidId = idResults.get(0);
-                                grobidId = basicNormalization(grobidId);
-
-                                // DOI
-                                List<String> doiResults = grobidCitation.get("doi");
-                                String grobidDOI = "";
-                                if ((doiResults != null) && (doiResults.size() > 0))
-                                    grobidDOI = doiResults.get(0);
-                                grobidDOI = identifierNormalization(grobidDOI);
-
-                                // PMID
-                                List<String> pmidResults = grobidCitation.get("pmid");
-                                String grobidPMID = "";
-                                if ((pmidResults != null) && (pmidResults.size() > 0))
-                                    grobidPMID = pmidResults.get(0);
-                                grobidPMID = identifierNormalization(grobidPMID);
-
-                                // PMCID
-                                List<String> pmcidResults = grobidCitation.get("pmcid");
-                                String grobidPMCID = "";
-                                if ((pmcidResults != null) && (pmcidResults.size() > 0))
-                                    grobidPMCID = pmcidResults.get(0);
-                                grobidPMCID = identifierNormalization(grobidPMCID);
-
-                                String grobidSignature1 = null;
-                                if ((grobidTitleSoft.length() > 0) && (grobidDate.length() > 0)) {
-                                    grobidSignature1 = grobidTitleSoft + grobidDate;
-                                    //grobidSignature1 = grobidSignature1.replaceAll("[^\\x00-\\x7F]", "");
-                                }
-
-                                String grobidSignature2 = null;
-                                if ((grobidAuthorsSoft.length() > 0) && (grobidDate.length() > 0)) {
-                                    grobidSignature2 = grobidAuthorsSoft + grobidDate;
-                                    //grobidSignature2 = grobidSignature2.replaceAll("[^\\x00-\\x7F]", "");
-                                }
-
-                                String grobidSignature3 = null;
-                                if ((grobidInTitleSoft.length() > 0) && (grobidVolume.length() > 0)
-                                    && (grobidPage.length() > 0)) {
-                                    grobidSignature3 = grobidInTitleSoft + grobidVolume + grobidPage;
-                                    //grobidSignature3 = grobidSignature3.replaceAll("[^\\x00-\\x7F]", "");
-                                }
-
-                                String grobidSignature4 = null;
-                                if (((grobidInTitleSoft.length() > 0) || (grobidTitleSoft.length() > 0))
-                                    && (grobidAuthorSoft.length() > 0)) {
-                                    if (grobidTitleSoft.length() > 0)
-                                        grobidSignature4 = grobidAuthorSoft + grobidTitleSoft;
-                                    else
-                                        grobidSignature4 = grobidAuthorSoft + grobidInTitleSoft;
-                                    //grobidSignature4 = grobidSignature4.replaceAll("[^\\x00-\\x7F]", "");
-                                }
-
-                                int indexGold = -1;
-                                // try to match an expected citation with the signature
-                                if (((grobidSignature1 != null) && (grobidSignature1.length() > 0)) ||
-                                    ((grobidSignature2 != null) && (grobidSignature2.length() > 0)) ||
-                                    ((grobidSignature3 != null) && (grobidSignature3.length() > 0)) ||
-                                    ((grobidSignature4 != null) && (grobidSignature4.length() > 0))) {
-                                    if ((grobidSignature1 != null) &&
-                                        goldCitationSignaturesLevel1.contains(grobidSignature1)) {
-                                        // we have a citation-level match and we can evaluate the fields
-                                        indexGold = goldCitationSignaturesLevel1.indexOf(grobidSignature1);
-                                        match1++;
-                                    } else if ((grobidSignature2 != null) &&
-                                        goldCitationSignaturesLevel2.contains(grobidSignature2)) {
-                                        // we have a citation-level match and we can evaluate the fields
-                                        indexGold = goldCitationSignaturesLevel2.indexOf(grobidSignature2);
-                                        match2++;
-                                    } else if ((grobidSignature3 != null) &&
-                                        goldCitationSignaturesLevel3.contains(grobidSignature3)) {
-                                        // we have a citation-level match and we can evaluate the fields
-                                        indexGold = goldCitationSignaturesLevel3.indexOf(grobidSignature3);
-                                        match3++;
-                                    } else if ((grobidSignature4 != null) &&
-                                        goldCitationSignaturesLevel4.contains(grobidSignature4)) {
-                                        // we have a citation-level match and we can evaluate the fields
-                                        indexGold = goldCitationSignaturesLevel4.indexOf(grobidSignature4);
-                                        match4++;
-                                    }
-
-                                    if (indexGold != -1) {
-                                        // we have aligned an extracted citation with an expected ones
-                                        boolean allGoodStrict = true;
-                                        boolean allGoodSoft = true;
-                                        boolean allGoodLevenshtein = true;
-                                        boolean allGoodRatcliffObershelp = true;
-                                        Map<String, List<String>> goldCitation = goldCitations.get(indexGold);
-                                        goldCitationSignaturesLevel1.remove(indexGold);
-                                        goldCitationSignaturesLevel2.remove(indexGold);
-                                        goldCitationSignaturesLevel3.remove(indexGold);
-                                        goldCitationSignaturesLevel4.remove(indexGold);
-                                        goldCitations.remove(indexGold);
-
-                                        if (goldCitation.get("id") != null && goldCitation.get("id").size() > 0) {
-
-                                            idMap.put(goldCitation.get("id").get(0), grobidId);
-                                            reverseIdMap.put(grobidId, goldCitation.get("id").get(0));
-
-                                            int p = 0;
-                                            for (FieldSpecification field : fields) {
-                                                String label = field.fieldName;
-                                                if (label.equals("base") || label.equals("id")) {
-                                                    //p++;
-                                                    continue;
-                                                }
-
-                                                List<String> grobidResults = grobidCitation.get(label);
-                                                String grobidResult = "";
-                                                if (grobidResults != null) {
-                                                    for (String res : grobidResults) {
-                                                        grobidResult += " " + res;
-                                                    }
-                                                }
-                                                grobidResult = basicNormalization(grobidResult);
-
-                                                List<String> goldResults = goldCitation.get(label);
-                                                String goldResult = "";
-                                                if (goldResults != null) {
-                                                    for (String res : goldResults) {
-                                                        goldResult += " " + res;
-                                                    }
-                                                }
-                                                goldResult = basicNormalization(goldResult);
-
-                                                // strict
-                                                if ((goldResult.length() > 0) && (goldResult.equals(grobidResult))) {
-                                                    strictStats.incrementObserved(label);
-                                                } else {
-                                                    if ((grobidResult.length() > 0)) {
-                                                        strictStats.incrementFalsePositive(label);
-                                                        allGoodStrict = false;
-                                                    } else if (goldResult.length() > 0) {
-                                                        strictStats.incrementFalseNegative(label);
-                                                        allGoodStrict = false;
-                                                    }
-                                                }
-
-                                                // soft
-                                                String goldResultSoft = goldResult;
-                                                String grobidResultSoft = grobidResult;
-                                                if (field.isTextual) {
-                                                    goldResultSoft = removeFullPunct(goldResult);
-                                                    grobidResultSoft = removeFullPunct(grobidResult);
-                                                }
-                                                if ((goldResultSoft.length() > 0) &&
-                                                    (goldResultSoft.equals(grobidResultSoft))) {
-                                                    softStats.incrementObserved(label);
-                                                } else {
-                                                    if (grobidResultSoft.length() > 0) {
-                                                        softStats.incrementFalsePositive(label);
-                                                        allGoodSoft = false;
-                                                    } else if (goldResultSoft.length() > 0) {
-                                                        softStats.incrementFalseNegative(label);
-                                                        allGoodSoft = false;
-                                                    }
-                                                }
-
-                                                // Levenshtein
-                                                double pct = 0.0;
-                                                if ((goldResultSoft.length() > 0) && goldResult.equals(grobidResult))
-                                                    pct = 1.0;
-                                                if (field.isTextual) {
-                                                    int distance =
-                                                        TextUtilities.getLevenshteinDistance(goldResult, grobidResult);
-                                                    // Levenshtein distance is an integer value, not a percentage... however
-                                                    // articles usually introduced it as a percentage... so we report it
-                                                    // following the straightforward formula:
-                                                    int bigger = Math.max(goldResult.length(), grobidResult.length());
-                                                    pct = (double) (bigger - distance) / bigger;
-                                                }
-                                                if ((goldResultSoft.length() > 0) && (pct >= minLevenshteinDistance)) {
-                                                    levenshteinStats.incrementObserved(label);
-                                                } else {
-                                                    if (grobidResultSoft.length() > 0) {
-                                                        levenshteinStats.incrementFalsePositive(label);
-                                                        allGoodLevenshtein = false;
-                                                    } else if (goldResultSoft.length() > 0) {
-                                                        levenshteinStats.incrementFalseNegative(label);
-                                                        allGoodLevenshtein = false;
-                                                    }
-                                                }
-
-                                                // RatcliffObershelp
-                                                Double similarity = 0.0;
-                                                if ((goldResultSoft.length() > 0) && goldResult.equals(grobidResult))
-                                                    similarity = 1.0;
-                                                if (field.isTextual) {
-                                                    if ((goldResult.length() > 0) && (grobidResult.length() > 0)) {
-                                                        Option<Object> similarityObject =
-                                                            RatcliffObershelpMetric.compare(goldResult, grobidResult);
-                                                        if ((similarityObject != null) && (similarityObject.get() != null))
-                                                            similarity = (Double) similarityObject.get();
-                                                    }
-                                                }
-                                                if ((goldResultSoft.length() > 0) &&
-                                                    (similarity >= minRatcliffObershelpSimilarity)) {
-                                                    ratcliffObershelpStats.incrementObserved(label);
-                                                } else {
-                                                    if (grobidResultSoft.length() > 0) {
-                                                        ratcliffObershelpStats.incrementFalsePositive(label);
-                                                        allGoodRatcliffObershelp = false;
-                                                    } else if (goldResultSoft.length() > 0) {
-                                                        ratcliffObershelpStats.incrementFalseNegative(label);
-                                                        allGoodRatcliffObershelp = false;
-                                                    }
-                                                }
-
-                                                p++;
-                                            }
-                                            if (allGoodStrict) {
-                                                totalCorrectInstancesStrict++;
-                                            }
-                                            if (allGoodSoft) {
-                                                totalCorrectInstancesSoft++;
-                                            }
-                                            if (allGoodLevenshtein) {
-                                                totalCorrectInstancesLevenshtein++;
-                                            }
-                                            if (allGoodRatcliffObershelp) {
-                                                totalCorrectInstancesRatcliffObershelp++;
-                                            }
-                                        }
-                                    } else {
-                                        // we have a Grobid extracted citation, but no matching with
-                                        // expected ones -> false positive for all the present fields
-                                        int p = 0;
-                                        for (FieldSpecification field : fields) {
-                                            String label = field.fieldName;
-                                            if (label.equals("base")) {
-                                                //p++;
-                                                continue;
-                                            }
-
-                                            List<String> grobidResults = grobidCitation.get(label);
-                                            if ((grobidResults == null) || (grobidResults.size() == 0)) {
-                                                p++;
-                                                continue;
-                                            }
-
-                                            strictStats.incrementFalsePositive(label);
-                                            softStats.incrementFalsePositive(label);
-                                            levenshteinStats.incrementFalsePositive(label);
-                                            ratcliffObershelpStats.incrementFalsePositive(label);
-
-                                            p++;
-                                        }
-                                    }
-                                }
-                            }
-
-                            // reference context matching
-                            if ((sectionType == this.CITATION) && (runType == this.GROBID)) {
-                                // list of identifiers present in the bibliographical references
-                                List<String> refBibRefIds = new ArrayList<>();
-                                List<String> grobidBibRefIds = new ArrayList<>();
-
-                                String subpath = null;
-                                if (inputType.equals("nlm")) {
-                                    subpath = FieldSpecification.nlmBibReferenceId;
-                                } else if (inputType.equals("tei")) {
-                                    subpath = FieldSpecification.grobidBibReferenceId;
-                                }
-
-                                // gold
-                                nodeList = (NodeList) xp.compile(subpath).
-                                    evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
-                                //System.out.println(path + ": " + nodeList.getLength() + " nodes");
-                                int nbgoldResults = nodeList.getLength();
-                                for (int i = 0; i < nodeList.getLength(); i++) {
-                                    refBibRefIds.add(nodeList.item(i).getNodeValue());
-                                }
-                                totalExpectedReferences += refBibRefIds.size();
-
-                                // grobid
-                                nodeList = (NodeList) xp.compile(FieldSpecification.grobidBibReferenceId).
-                                    evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
-                                //System.out.println(FieldSpecification.grobidBibReferenceId + ": " + nodeList.getLength() + " nodes");
-                                for (int i = 0; i < nodeList.getLength(); i++) {
-                                    grobidBibRefIds.add(nodeList.item(i).getNodeValue());
-                                }
-                                totalObservedReferences += grobidBibRefIds.size();
-
-                                // Map associating the identifiers present in the reference callout with their number of occurences
-                                Map<String, Integer> refCalloutRefIds = new HashMap<>();
-                                Map<String, Integer> grobidCalloutRefIds = new HashMap<>();
-
-                                if (inputType.equals("nlm")) {
-                                    subpath = FieldSpecification.nlmCitationContextId;
-                                } else if (inputType.equals("tei")) {
-                                    subpath = FieldSpecification.grobidCitationContextId;
-                                }
-
-                                // gold
-                                nodeList = (NodeList) xp.compile(subpath).
-                                    evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
-                                nbgoldResults = nodeList.getLength();
-                                for (int i = 0; i < nodeList.getLength(); i++) {
-                                    String localIds = nodeList.item(i).getNodeValue();
-                                    if ((localIds != null) && (localIds.length() > 0)) {
-                                        // we might have several identifiers, separated by space: e.g.:
-                                        // <xref rid="bb0010 bb0090 bb0125 bb0135 bb0150" ref-type="bibr">Beauregard et al., 2008; Jordan and Miller, 2009;
-                                        // 			Symer and Boeke, 2010; Tenaillon et al., 2010; Wolf and Goff, 2008</xref>
-                                        String[] theIds = localIds.split(" ");
-                                        for (int j = 0; j < theIds.length; j++) {
-                                            String localId = theIds[j];
-                                            localId = localId.replace("#", "");
-                                            if (refCalloutRefIds.get(localId) == null)
-                                                refCalloutRefIds.put(localId, Integer.valueOf(1));
-                                            else {
-                                                int val = refCalloutRefIds.get(localId).intValue();
-                                                refCalloutRefIds.put(localId, Integer.valueOf(val + 1));
-                                            }
-                                            totalExpectedCitations++;
-                                        }
-                                    }
-                                }
-
-                                // grobid
-                                nodeList = (NodeList) xp.compile(FieldSpecification.grobidCitationContextId).
-                                    evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
-                                //System.out.println(FieldSpecification.grobidCitationContextId + ": " + nodeList.getLength() + " nodes");
-                                for (int i = 0; i < nodeList.getLength(); i++) {
-                                    String localId = nodeList.item(i).getNodeValue();
-                                    localId = localId.replace("#", "");
-                                    if ((localId != null) && (localId.length() > 0)) {
-                                        if (grobidCalloutRefIds.get(localId) == null)
-                                            grobidCalloutRefIds.put(localId, Integer.valueOf(1));
-                                        else {
-                                            int val = grobidCalloutRefIds.get(localId).intValue();
-                                            grobidCalloutRefIds.put(localId, Integer.valueOf(val + 1));
-                                        }
-                                        totalObservedCitations++;
-                                    }
-                                }
-
-                                // simple estimation of correct citation identifications by checking overlaped ids and map
-                                int nbCorrect = 0;
-                                int nbWrong = 0;
-                                for (Map.Entry<String, Integer> entry : grobidCalloutRefIds.entrySet()) {
-                                    int nbGrobidId = entry.getValue();
-                                    int nbRefId = 0;
-                                    if ((refCalloutRefIds != null) && (reverseIdMap.get(entry.getKey()) != null)) {
-                                        if (refCalloutRefIds.get(reverseIdMap.get(entry.getKey())) != null) {
-                                            nbRefId = refCalloutRefIds.get(reverseIdMap.get(entry.getKey()));
-                                        }
-
-                                        if (nbGrobidId > nbRefId) {
-                                            nbWrong += nbGrobidId - nbRefId;
-                                            nbCorrect += nbRefId;
-                                        } else
-                                            nbCorrect += nbGrobidId;
-                                    } else {
-                                        // all wrong matches
-                                        nbWrong += nbGrobidId;
-                                    }
-                                }
-                                totalCorrectObservedCitations += nbCorrect;
-                                totalWrongObservedCitations += nbWrong;
-                            }
-
-                            // cleaning
-                            strictStats.removeLabel("id");
-                            softStats.removeLabel("id");
-                            levenshteinStats.removeLabel("id");
-                            ;
-                            ratcliffObershelpStats.removeLabel("id");
-
-                        } else if (sectionType == this.HEADER) {
-                            // HEADER structures
-                            int p = 0;
-                            boolean allGoodStrict = true;
-                            boolean allGoodSoft = true;
-                            boolean allGoodLevenshtein = true;
-                            boolean allGoodRatcliffObershelp = true;
-                            for (FieldSpecification field : fields) {
-                                String fieldName = field.fieldName;
-
-                                List<String> grobidResults = new ArrayList<>();
-                                for (String path : field.grobidPath) {
-                                    NodeList nodeList = (NodeList) xp.compile(path).
-                                        evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
-                                    for (int i = 0; i < nodeList.getLength(); i++) {
-                                        grobidResults.add((nodeList.item(i).getNodeValue().replaceAll(" +", " ")));
-                                    }
-                                }
-                                //if (!field.hasMultipleValue)
-                                {
-                                    String grobidResult = "";
-                                    for (String res : grobidResults)
-                                        grobidResult += " " + res;
-                                    // basic normalisation
-                                    grobidResult = basicNormalization(grobidResult);
-                                    //System.out.println("Grobid: " + fieldName + ":\t" + grobidResult);
-                                    grobidResults = new ArrayList<>();
-                                    grobidResults.add(grobidResult);
-                                }
-
-/*if (fieldName.equals("title") && (grobidResults.size() == 0 || grobidResults.get(0).length() == 0))  
-System.out.println(dir.getPath() + " no GROBID title");
-
-if (fieldName.equals("authors") && (grobidResults.size() == 0 || grobidResults.get(0).length() == 0)) 
-System.out.println(dir.getPath() + " no authors");
-
-if (fieldName.equals("abstract") && (grobidResults.size() == 0 || grobidResults.get(0).length() == 0)) 
-System.out.println(dir.getPath() + " no abstract");
-*/
-                                List<String> goldResults = new ArrayList<>();
-                                int nbGoldResults = 0;
-                                List<String> subpaths = null;
-                                if (inputType.equals("nlm")) {
-                                    subpaths = field.nlmPath;
-                                } else if (inputType.equals("tei")) {
-                                    subpaths = field.grobidPath;
-                                }
-
-                                if (subpaths == null)
-                                    continue;
-
-                                for (String path : subpaths) {
-                                    NodeList nodeList = (NodeList) xp.compile(path).
-                                        evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
-                                    //System.out.println(path + ": " + nodeList.getLength() + " nodes");
-                                    nbGoldResults = nodeList.getLength();
-                                    for (int i = 0; i < nodeList.getLength(); i++) {
-                                        goldResults.add(nodeList.item(i).getNodeValue().replaceAll(" +", " "));
-                                    }
-                                }
-
-                                //if (!field.hasMultipleValue)
-                                {
-                                    String goldResult = "";
-                                    for (String res : goldResults)
-                                        goldResult += " " + res;
-                                    // basic normalisation
-                                    goldResult = basicNormalization(goldResult);
-                                    if (fieldName.equals("abstract")) {
-                                        // some additional cleaning for abstract is required, because PMC and bioRxiv
-                                        // tends to put the useless abstract title "Abstract" together with the abstract
-                                        if (goldResult.toLowerCase().startsWith("abstract") || goldResult.toLowerCase().startsWith("summary")) {
-                                            goldResult = goldResult.replaceAll("(?i)^(abstract)|(summary)(\\n)?( )?", "");
-                                        }
-                                    }
-                                    //System.out.println("gold:  " + fieldName + ":\t" + goldResult);
-                                    goldResults = new ArrayList<>();
-                                    goldResults.add(goldResult);
-                                    nbGoldResults = 1;
-                                }
-
-                                int g = 0;
-                                for (String goldResult : goldResults) {
-                                    String grobidResult = "";
-                                    if (g < grobidResults.size())
-                                        grobidResult = grobidResults.get(g);
-
-                                    if (goldResult.trim().length() == 0 && grobidResult.trim().length() == 0) {
-                                        g++;
-                                        continue;
-                                    }
-
-                                    // nb expected results
-                                    if (goldResult.trim().length() > 0) {
-                                        strictStats.incrementExpected(fieldName);
-                                        softStats.incrementExpected(fieldName);
-                                        levenshteinStats.incrementExpected(fieldName);
-                                        ratcliffObershelpStats.incrementExpected(fieldName);
-                                    }
-
-                                    // strict
-                                    if ((goldResult.trim().length() > 0) && goldResult.equals(grobidResult)) {
-                                        strictStats.incrementObserved(fieldName);
-                                    } else {
-/*System.out.println("gold:  " + fieldName);
-System.out.println("gold:   " + goldResult);
-System.out.println("grobid: " + grobidResult);*/
-                                        if (grobidResult.length() > 0) {
-                                            strictStats.incrementFalsePositive(fieldName);
-                                            allGoodStrict = false;
-                                        } else if (goldResult.length() > 0) {
-                                            strictStats.incrementFalseNegative(fieldName);
-                                            allGoodStrict = false;
-                                        }
-                                    }
-
-                                    // soft
-                                    String goldResultSoft = goldResult;
-                                    String grobidResultSoft = grobidResult;
-                                    if (field.isTextual) {
-                                        goldResultSoft = removeFullPunct(goldResult);
-                                        grobidResultSoft = removeFullPunct(grobidResult);
-                                    }
-
-                                    if ((goldResult.trim().length() > 0) && goldResultSoft.equals(grobidResultSoft)) {
-                                        softStats.incrementObserved(fieldName);
-                                    } else {
-//System.out.println("\n" + teiFile.getPath());
-//System.out.println("gold:" + fieldName);								
-//System.out.println("gold:   " + goldResultSoft);
-//System.out.println("grobid: " + grobidResultSoft);
-//System.out.println("gold:" + goldResult);
-//System.out.println("grobid:" + grobidResult);
-                                        if (grobidResultSoft.length() > 0) {
-                                            softStats.incrementFalsePositive(fieldName);
-                                            allGoodSoft = false;
-                                        } else if (goldResultSoft.length() > 0) {
-                                            softStats.incrementFalseNegative(fieldName);
-                                            allGoodSoft = false;
-                                        }
-                                    }
-
-                                    // Levenshtein
-                                    double pct = 0.0;
-                                    if (goldResult.equals(grobidResult))
-                                        pct = 1.0;
-                                    if (field.isTextual) {
-                                        int distance = TextUtilities.getLevenshteinDistance(goldResult, grobidResult);
-                                        // Levenshtein distance is an integer value, not a percentage... however
-                                        // articles usually introduced it as a percentage... so we report it
-                                        // following the straightforward formula:
-                                        int bigger = Math.max(goldResult.length(), grobidResult.length());
-                                        pct = (double) (bigger - distance) / bigger;
-                                    }
-                                    if ((goldResult.length() > 0) && (pct >= minLevenshteinDistance)) {
-                                        levenshteinStats.incrementObserved(fieldName);
-                                    } else {
-                                        if (grobidResultSoft.length() > 0) {
-                                            levenshteinStats.incrementFalsePositive(fieldName);
-                                            allGoodLevenshtein = false;
-                                        } else if (goldResultSoft.length() > 0) {
-                                            levenshteinStats.incrementFalseNegative(fieldName);
-                                            allGoodLevenshtein = false;
-                                        }
-                                    }
-
-                                    // RatcliffObershelp
-                                    Double similarity = 0.0;
-                                    if (goldResult.trim().equals(grobidResult.trim()))
-                                        similarity = 1.0;
-                                    if (field.isTextual) {
-                                        if ((goldResult.length() > 0) && (grobidResult.length() > 0)) {
-                                            Option<Object> similarityObject =
-                                                RatcliffObershelpMetric.compare(goldResult, grobidResult);
-                                            if ((similarityObject != null) && (similarityObject.get() != null))
-                                                similarity = (Double) similarityObject.get();
-                                        }
-                                    }
-                                    if ((goldResult.length() > 0) && (similarity >= minRatcliffObershelpSimilarity)) {
-                                        ratcliffObershelpStats.incrementObserved(fieldName);
-                                    } else {
-                                        if (grobidResultSoft.length() > 0) {
-                                            ratcliffObershelpStats.incrementFalsePositive(fieldName);
-                                            allGoodRatcliffObershelp = false;
-                                        } else if (goldResultSoft.length() > 0) {
-                                            ratcliffObershelpStats.incrementFalseNegative(fieldName);
-                                            allGoodRatcliffObershelp = false;
-                                        }
-                                    }
-                                    g++;
-                                }
-                                p++;
-                            }
-                            totalExpectedInstances++;
-                            if (allGoodStrict) {
-                                totalCorrectInstancesStrict++;
-                            }
-                            if (allGoodSoft) {
-                                totalCorrectInstancesSoft++;
-                            }
-                            if (allGoodLevenshtein) {
-                                totalCorrectInstancesLevenshtein++;
-                            }
-                            if (allGoodRatcliffObershelp) {
-                                totalCorrectInstancesRatcliffObershelp++;
-                            }
-                        } else if (sectionType == this.FULLTEXT) {
-                            // full text structures
-                            int p = 0;
-                            boolean allGoodStrict = true;
-                            boolean allGoodSoft = true;
-                            boolean allGoodLevenshtein = true;
-                            boolean allGoodRatcliffObershelp = true;
-
-                            boolean grobidAvailabilityStatement = false;
-                            boolean goldAvailabilityStatement = false;
-
-                            for (FieldSpecification field : fields) {
-                                String fieldName = field.fieldName;
-
-                                List<String> grobidResults = new ArrayList<>();
-                                for (String path : field.grobidPath) {
-                                    NodeList nodeList = (NodeList) xp.compile(path).
-                                        evaluate(tei.getDocumentElement(), XPathConstants.NODESET);
-                                    for (int i = 0; i < nodeList.getLength(); i++) {
-                                        String normalizedString = basicNormalizationFullText(nodeList.item(i).getNodeValue(), fieldName);
-                                        if (normalizedString != null && normalizedString.length() > 0)
-                                            grobidResults.add(normalizedString);
-                                    }
-                                }
-
-							/*boolean first = true;
-							System.out.print("\n"+fieldName+" - ");
-							System.out.print("\ngrobidResults:\t");
-							for(String res : grobidResults) {
-								if (!first)
-									System.out.print(" | ");
-								else 
-									first = false;
-								System.out.print(res);
-							}
-							System.out.println("");*/
-
-                                List<String> goldResults = new ArrayList<>();
-                                int nbgoldResults = 0;
-                                List<String> subpaths = null;
-                                if (inputType.equals("nlm")) {
-                                    subpaths = field.nlmPath;
-                                } else if (inputType.equals("tei")) {
-                                    subpaths = field.grobidPath;
-                                }
-
-                                for (String path : subpaths) {
-                                    NodeList nodeList = (NodeList) xp.compile(path).
-                                        evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
-                                    //System.out.println(path + ": " + nodeList.getLength() + " nodes");
-                                    nbgoldResults = nodeList.getLength();
-                                    for (int i = 0; i < nodeList.getLength(); i++) {
-                                        String normalizedString = basicNormalizationFullText(nodeList.item(i).getNodeValue(), fieldName);
-                                        if (normalizedString != null && normalizedString.length() > 0)
-                                            goldResults.add(normalizedString);
-                                    }
-                                }
-
-							/*first = true;
-							System.out.print("goldResults:\t");
-							for(String res : goldResults) {
-								if (!first)
-									System.out.print(" | ");
-								else 
-									first = false;
-								System.out.print(res);
-							}
-							System.out.println("");*/
-
-                                // Workaround to avoid having two different lists with the same content
-                                // Probably to be extended to other fields if does not cause
-                                if (fieldName.equals("availability_stmt")) {
-                                    if (CollectionUtils.isNotEmpty(grobidResults)) {
-                                        List<String> grobidResults2 = new ArrayList<>();
-                                        grobidResults2.add(grobidResults.stream().collect(Collectors.joining(" ")).replace("  ", " "));
-                                        grobidResults = grobidResults2;
-                                        grobidAvailabilityStatement = true;
-                                    }
-                                    if (CollectionUtils.isNotEmpty(goldResults)) {
-                                        List<String> goldResults2 = new ArrayList<>();
-                                        goldResults2.add(goldResults.stream().collect(Collectors.joining(" ")).replace("  ", " "));
-                                        goldResults = goldResults2;
-                                        goldAvailabilityStatement = true;
-                                    }
-                                }
-
-                                // we compare the two result sets
-
-							/*if (fieldName.equals("availability_stmt")) {
-								if (goldResults.size() > 0) {
-									System.out.print("\n\n---- GOLD ----");
-									for (String goldResult : goldResults) {
-										System.out.print("\n" + goldResult);
-									}
-								}
-								if (grobidResults.size() > 0) {
-									System.out.print("\n---- GROBID ----");
-									for (String grobidResult : grobidResults) {
-										System.out.print("\n" + grobidResult);
-									}
-								}
-							}*/
-
-                                // prepare first the grobidResult set for soft match
-                                List<String> grobidSoftResults = new ArrayList<>();
-                                for (String res : grobidResults)
-                                    grobidSoftResults.add(removeFullPunct(res));
-
-                                int g = 0;
-                                int grobidResultsSize = grobidResults.size();
-                                int nbMatchStrict = 0; // number of matched grobid results, strict set
-                                int nbMatchSoft = 0;
-                                int nbMatchLevenshtein = 0;
-                                int nbMatchRatcliffObershelp = 0;
-                                for (String goldResult : goldResults) {
-                                    // nb expected results
-                                    if (goldResult.length() > 0) {
-                                        strictStats.incrementExpected(fieldName);
-                                        softStats.incrementExpected(fieldName);
-                                        levenshteinStats.incrementExpected(fieldName);
-                                        ratcliffObershelpStats.incrementExpected(fieldName);
-                                    }
-
-                                    double pct = 0.0;
-                                    // strict
-                                    if ((goldResult.length() > 0) && grobidResults.contains(goldResult)) {
-                                        strictStats.incrementObserved(fieldName);
-                                        nbMatchStrict++;
-                                        pct = 1.0;
-                                        grobidResults.remove(goldResult);
-                                    } else {
-                                        if (goldResult.length() > 0) {
-                                            strictStats.incrementFalseNegative(fieldName);
-                                            allGoodStrict = false;
-                                        }
-                                    }
-
-                                    // soft
-                                    String goldResultSoft = goldResult;
-                                    if (field.isTextual) {
-                                        goldResultSoft = removeFullPunct(goldResult);
-                                    }
-                                    if ((goldResult.length() > 0) && grobidSoftResults.contains(goldResultSoft)) {
-                                        softStats.incrementObserved(fieldName);
-                                        nbMatchSoft++;
-                                        grobidSoftResults.remove(goldResultSoft);
-                                    } else {
-                                        if (goldResultSoft.length() > 0) {
-                                            softStats.incrementFalseNegative(fieldName);
-                                            allGoodSoft = false;
-                                        }
-                                    }
-						
-								/*StringBuilder goldResultBuilder = new StringBuilder();
-								for (String goldResult : goldResults) {
-									goldResultBuilder.append(goldResult).append(" ");
-								}
-								String goldResultString = goldResultBuilder.toString();
-								StringBuilder grobidResultBuilder = new StringBuilder();
-								for (String grobidResult : grobidResults) {
-									grobidResultBuilder.append(grobidResult).append(" ");
-								}
-								String grobidResultString = grobidResultBuilder.toString();
-								
-								// Levenshtein
-								if (field.isTextual) {
-									int distance = TextUtilities.getLevenshteinDistance(goldResultString, grobidResultString);
-									// Levenshtein distance is an integer value, not a percentage... however
-									// articles usually introduced it as a percentage... so we report it
-									// following the straightforward formula:
-									int bigger = Math.max(goldResult.length(), grobidResult.length());
-									pct = (double)(bigger - distance) / bigger;
-								}
-								if ((goldResult.length() > 0) && (pct >= minLevenshteinDistance)) {
-									Integer count = counterObservedLevenshtein.get(p);
-									counterObservedLevenshtein.set(p, count+1);
-									nbMatchLevenshtein++;
-								}
-								else {
-									if (goldResult.length() > 0){
-										Integer count = counterFalseNegativeLevenshtein.get(p);
-										counterFalseNegativeLevenshtein.set(p, count+1);
-										allGoodLevenshtein = false;
-									}
-								}
-						
-								// RatcliffObershelp
-								Double similarity = 0.0;
-								if (goldResult.trim().equals(grobidResult.trim()))
-									similarity = 1.0;
-								if (field.isTextual) {
-									if ( (goldResult.length() > 0) && (grobidResult.length() > 0) ) {
-										Option<Object> similarityObject = 
-											RatcliffObershelpMetric.compare(goldResultString, grobidResultString);
-										if ( (similarityObject != null) && (similarityObject.get() != null) )
-											 similarity = (Double)similarityObject.get();
-									}
-								}
-								if ((goldResult.length() > 0) && (similarity >= minRatcliffObershelpSimilarity)) {
-									Integer count = counterObservedRatcliffObershelp.get(p);
-									counterObservedRatcliffObershelp.set(p, count+1);
-									nbMatchRatcliffObershelp++;
-								}
-								else {
-									if (grobidResultSoft.length() > 0) {
-										Integer count = counterFalsePositiveRatcliffObershelp.get(p);
-										counterFalsePositiveRatcliffObershelp.set(p, count+1);
-										allGoodRatcliffObershelp = false;
-									}
-									else if (goldResultSoft.length() > 0){
-										Integer count = counterFalseNegativeRatcliffObershelp.get(p);
-										counterFalseNegativeRatcliffObershelp.set(p, count+1);
-										allGoodRatcliffObershelp = false;
-									}
-								}*/
-                                    g++;
-                                }
-
-                                if (nbMatchStrict < grobidResultsSize) {
-                                    strictStats.incrementFalsePositive(fieldName, grobidResultsSize - nbMatchStrict);
-                                    allGoodStrict = false;
-                                }
-
-                                if (nbMatchSoft < grobidResultsSize) {
-                                    softStats.incrementFalsePositive(fieldName, grobidResultsSize - nbMatchSoft);
-                                    allGoodSoft = false;
-                                }
-
-							/*if (nbMatchLevenshtein < grobidResultsSize) {
-                                levenshteinStats.incrementFalsePositive(fieldName, grobidResultsSize-nbMatchLevenshtein);
-								allGoodLevenshtein= false;
-							}
-
-							if (nbMatchRatcliffObershelp < grobidResultsSize) {
-                                ratcliffObershelpStats.incrementFalsePositive(fieldName, grobidResultsSize-nbMatchRatcliffObershelp);
-								allGoodRatcliffObershelp = false;
-							}*/
-
-                                p++;
-                            }
-
-                            // document level ratio for availability statements
-                            if (grobidAvailabilityStatement)
-                                availabilityRatioStat.incrementObserved("availability_stmt");
-
-                            if (goldAvailabilityStatement)
-                                availabilityRatioStat.incrementExpected("availability_stmt");
-
-                            if (grobidAvailabilityStatement && !goldAvailabilityStatement)
-                                availabilityRatioStat.incrementFalsePositive("availability_stmt");
-
-
-                            if (!grobidAvailabilityStatement && goldAvailabilityStatement)
-                                availabilityRatioStat.incrementFalseNegative("availability_stmt");
-                        }
-                    } else if (runType == this.PDFX) {
-                        // TBD
-                    } else if (runType == this.CERMINE) {
-                        // TBD
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                nbFile++;
-            }
+        // Pre-filter directories based on isDirectory check and fileRatio sampling
+        List<File> selectedDirs = new ArrayList<>();
+        Random rand = new Random();
+        for (File dir : refFiles) {
+            if (!dir.isDirectory())
+                continue;
+            if (rand.nextDouble() > fileRatio)
+                continue;
+            selectedDirs.add(dir);
         }
 
-        report.append("\nEvaluation on " + nbFile + " random PDF files out of " +
-            (refFiles.length - 2) + " PDF (ratio " + fileRatio + ").\n");
-        reportMD.append("\nEvaluation on " + nbFile + " random PDF files out of " +
-            (refFiles.length - 2) + " PDF (ratio " + fileRatio + ").\n");
+        // Process documents in parallel using a thread pool
+        int nbEvalThreads = GrobidProperties.getInstance().getMaxConcurrency();
+        ExecutorService evalExecutor = Executors.newFixedThreadPool(nbEvalThreads);
+        CompletionService<DocumentEvaluationResult> completion = new ExecutorCompletionService<>(evalExecutor);
+        int submitted = 0;
+        for (File dir : selectedDirs) {
+            completion.submit(new DocumentEvaluationCallable(dir, runType, sectionType, fields));
+            submitted++;
+        }
+
+        // Collect and merge results with a progress bar; results are taken in completion
+        // order so the bar advances as each document finishes, not in submission order
+        DocumentEvaluationResult mergedResult = new DocumentEvaluationResult();
+        System.out.println("\n");
+        try (ProgressBar pb = createProgressBar("Evaluation " + typeEval, submitted)) {
+            for (int i = 0; i < submitted; i++) {
+                try {
+                    DocumentEvaluationResult docResult = completion.take().get();
+                    pb.step();
+                    mergedResult.merge(docResult);
+                } catch (InterruptedException | ExecutionException e) {
+                    LOGGER.error("Error collecting evaluation result", e);
+                }
+            }
+        } finally {
+            evalExecutor.shutdown();
+        }
+
+        // Unpack merged result into local variables for report generation
+        int nbFile = mergedResult.nbFile;
+        Stats strictStats = mergedResult.strictStats;
+        Stats softStats = mergedResult.softStats;
+        Stats levenshteinStats = mergedResult.levenshteinStats;
+        Stats ratcliffObershelpStats = mergedResult.ratcliffObershelpStats;
+        Stats documentLevelStatementsRatioStat = mergedResult.documentLevelStatementsRatioStat;
+        int totalExpectedInstances = mergedResult.totalExpectedInstances;
+        int articlesWithLinkedAffiliation = mergedResult.articlesWithLinkedAffiliation;
+
+        // Report affiliation_linked's support as the number of contributing articles (same unit as
+        // the other header fields), not its raw per-author-link count. P/R/F1 are unaffected.
+        if (sectionType == HEADER) {
+            Map<String, Long> affSupport = Collections.singletonMap(
+                    AFFILIATION_LINKED_LABEL,
+                    (long) articlesWithLinkedAffiliation);
+            strictStats.setSupportOverride(affSupport);
+            softStats.setSupportOverride(affSupport);
+            levenshteinStats.setSupportOverride(affSupport);
+            ratcliffObershelpStats.setSupportOverride(affSupport);
+        }
+        int totalObservedInstances = mergedResult.totalObservedInstances;
+        int totalCorrectInstancesStrict = mergedResult.totalCorrectInstancesStrict;
+        int totalCorrectInstancesSoft = mergedResult.totalCorrectInstancesSoft;
+        int totalCorrectInstancesLevenshtein = mergedResult.totalCorrectInstancesLevenshtein;
+        int totalCorrectInstancesRatcliffObershelp = mergedResult.totalCorrectInstancesRatcliffObershelp;
+        int totalExpectedReferences = mergedResult.totalExpectedReferences;
+        int totalObservedReferences = mergedResult.totalObservedReferences;
+        int totalExpectedCitations = mergedResult.totalExpectedCitations;
+        int totalObservedCitations = mergedResult.totalObservedCitations;
+        int totalCorrectObservedCitations = mergedResult.totalCorrectObservedCitations;
+        int totalWrongObservedCitations = mergedResult.totalWrongObservedCitations;
+        int match1 = mergedResult.match1;
+        int match2 = mergedResult.match2;
+        int match3 = mergedResult.match3;
+        int match4 = mergedResult.match4;
+        report.append(
+                "\nEvaluation on "
+                        + nbFile
+                        + " random PDF files out of "
+                        +
+                        (refFiles.length - 2)
+                        + " PDF (ratio "
+                        + fileRatio
+                        + ").\n");
+        reportMD.append(
+                "\nEvaluation on "
+                        + nbFile
+                        + " random PDF files out of "
+                        +
+                        (refFiles.length - 2)
+                        + " PDF (ratio "
+                        + fileRatio
+                        + ").\n");
 
         report.append("\n======= Strict Matching ======= (exact matches)\n");
         reportMD.append("\n#### Strict Matching (exact matches)\n");
@@ -1750,8 +2025,10 @@ System.out.println("grobid: " + grobidResult);*/
         report.append(EvaluationUtilities.computeMetrics(strictStats));
         reportMD.append(EvaluationUtilities.computeMetricsMD(strictStats));
 
-        report.append("\n\n======== Soft Matching ======== (ignoring punctuation, " +
-            "case and space characters mismatches)\n");
+        report.append(
+                "\n\n======== Soft Matching ======== (ignoring punctuation, "
+                        +
+                        "case and space characters mismatches)\n");
         reportMD.append("\n\n#### Soft Matching (ignoring punctuation, case and space characters mismatches)\n");
         report.append("\n===== Field-level results =====\n");
         reportMD.append("\n**Field-level results**\n");
@@ -1759,19 +2036,31 @@ System.out.println("grobid: " + grobidResult);*/
         reportMD.append(EvaluationUtilities.computeMetricsMD(softStats));
 
         if (sectionType != this.FULLTEXT) {
-            report.append("\n\n==== Levenshtein Matching ===== (Minimum Levenshtein distance at " +
-                this.minLevenshteinDistance + ")\n");
-            reportMD.append("\n\n#### Levenshtein Matching (Minimum Levenshtein distance at " +
-                this.minLevenshteinDistance + ")\n");
+            report.append(
+                    "\n\n==== Levenshtein Matching ===== (Minimum Levenshtein distance at "
+                            +
+                            this.minLevenshteinDistance
+                            + ")\n");
+            reportMD.append(
+                    "\n\n#### Levenshtein Matching (Minimum Levenshtein distance at "
+                            +
+                            this.minLevenshteinDistance
+                            + ")\n");
             report.append("\n===== Field-level results =====\n");
             reportMD.append("\n**Field-level results**\n");
             report.append(EvaluationUtilities.computeMetrics(levenshteinStats));
             reportMD.append(EvaluationUtilities.computeMetricsMD(levenshteinStats));
 
-            report.append("\n\n= Ratcliff/Obershelp Matching = (Minimum Ratcliff/Obershelp similarity at " +
-                minRatcliffObershelpSimilarity + ")\n");
-            reportMD.append("\n\n#### Ratcliff/Obershelp Matching (Minimum Ratcliff/Obershelp similarity at " +
-                minRatcliffObershelpSimilarity + ")\n");
+            report.append(
+                    "\n\n= Ratcliff/Obershelp Matching = (Minimum Ratcliff/Obershelp similarity at "
+                            +
+                            minRatcliffObershelpSimilarity
+                            + ")\n");
+            reportMD.append(
+                    "\n\n#### Ratcliff/Obershelp Matching (Minimum Ratcliff/Obershelp similarity at "
+                            +
+                            minRatcliffObershelpSimilarity
+                            + ")\n");
             report.append("\n===== Field-level results =====\n");
             reportMD.append("\n**Field-level results**\n");
             report.append(EvaluationUtilities.computeMetrics(ratcliffObershelpStats));
@@ -1786,61 +2075,73 @@ System.out.println("grobid: " + grobidResult);*/
 
             localReport.append("Total expected instances: \t\t").append(totalExpectedInstances).append("\n");
             localReport.append("Total extracted instances: \t\t").append(totalObservedInstances).append("\n");
-            localReport.append("Total correct instances: \t\t").append(totalCorrectInstancesStrict)
-                .append(" (strict) \n");
-            localReport.append("Total correct instances: \t\t").append(totalCorrectInstancesSoft)
-                .append(" (soft) \n");
-            localReport.append("Total correct instances: \t\t").append(totalCorrectInstancesLevenshtein)
-                .append(" (Levenshtein) \n");
-            localReport.append("Total correct instances: \t\t").append(totalCorrectInstancesRatcliffObershelp)
-                .append(" (RatcliffObershelp) \n");
+            localReport.append("Total correct instances: \t\t")
+                    .append(totalCorrectInstancesStrict)
+                    .append(" (strict) \n");
+            localReport.append("Total correct instances: \t\t")
+                    .append(totalCorrectInstancesSoft)
+                    .append(" (soft) \n");
+            localReport.append("Total correct instances: \t\t")
+                    .append(totalCorrectInstancesLevenshtein)
+                    .append(" (Levenshtein) \n");
+            localReport.append("Total correct instances: \t\t")
+                    .append(totalCorrectInstancesRatcliffObershelp)
+                    .append(" (RatcliffObershelp) \n");
 
             double precisionStrict = (double) totalCorrectInstancesStrict / (totalObservedInstances);
             double precisionSoft = (double) totalCorrectInstancesSoft / (totalObservedInstances);
             double precisionLevenshtein = (double) totalCorrectInstancesLevenshtein / (totalObservedInstances);
             double precisionRatcliffObershelp = (double) totalCorrectInstancesRatcliffObershelp /
-                (totalObservedInstances);
+                    (totalObservedInstances);
             localReport.append("\nInstance-level precision:\t")
-                .append(TextUtilities.formatTwoDecimals(precisionStrict * 100)).append(" (strict) \n");
+                    .append(TextUtilities.formatTwoDecimals(precisionStrict * 100))
+                    .append(" (strict) \n");
             localReport.append("Instance-level precision:\t")
-                .append(TextUtilities.formatTwoDecimals(precisionSoft * 100)).append(" (soft) \n");
+                    .append(TextUtilities.formatTwoDecimals(precisionSoft * 100))
+                    .append(" (soft) \n");
             localReport.append("Instance-level precision:\t")
-                .append(TextUtilities.formatTwoDecimals(precisionLevenshtein * 100))
-                .append(" (Levenshtein) \n");
+                    .append(TextUtilities.formatTwoDecimals(precisionLevenshtein * 100))
+                    .append(" (Levenshtein) \n");
             localReport.append("Instance-level precision:\t")
-                .append(TextUtilities.formatTwoDecimals(precisionRatcliffObershelp * 100))
-                .append(" (RatcliffObershelp) \n");
+                    .append(TextUtilities.formatTwoDecimals(precisionRatcliffObershelp * 100))
+                    .append(" (RatcliffObershelp) \n");
 
             double recallStrict = (double) totalCorrectInstancesStrict / (totalExpectedInstances);
             double recallSoft = (double) totalCorrectInstancesSoft / (totalExpectedInstances);
             double recallLevenshtein = (double) totalCorrectInstancesLevenshtein / (totalExpectedInstances);
             double recallRatcliffObershelp = (double) totalCorrectInstancesRatcliffObershelp /
-                (totalExpectedInstances);
+                    (totalExpectedInstances);
             localReport.append("\nInstance-level recall:\t")
-                .append(TextUtilities.formatTwoDecimals(recallStrict * 100)).append("\t(strict) \n");
+                    .append(TextUtilities.formatTwoDecimals(recallStrict * 100))
+                    .append("\t(strict) \n");
             localReport.append("Instance-level recall:\t")
-                .append(TextUtilities.formatTwoDecimals(recallSoft * 100)).append("\t(soft) \n");
+                    .append(TextUtilities.formatTwoDecimals(recallSoft * 100))
+                    .append("\t(soft) \n");
             localReport.append("Instance-level recall:\t")
-                .append(TextUtilities.formatTwoDecimals(recallLevenshtein * 100))
-                .append("\t(Levenshtein) \n");
+                    .append(TextUtilities.formatTwoDecimals(recallLevenshtein * 100))
+                    .append("\t(Levenshtein) \n");
             localReport.append("Instance-level recall:\t")
-                .append(TextUtilities.formatTwoDecimals(recallRatcliffObershelp * 100))
-                .append("\t(RatcliffObershelp) \n");
+                    .append(TextUtilities.formatTwoDecimals(recallRatcliffObershelp * 100))
+                    .append("\t(RatcliffObershelp) \n");
 
             double f0Strict = (2 * precisionStrict * recallStrict) / (precisionStrict + recallStrict);
             double f0Soft = (2 * precisionSoft * recallSoft) / (precisionSoft + recallSoft);
             double f0Levenshtein = (2 * precisionLevenshtein * recallLevenshtein) /
-                (precisionLevenshtein + recallLevenshtein);
+                    (precisionLevenshtein + recallLevenshtein);
             double f0RatcliffObershelp = (2 * precisionRatcliffObershelp * recallRatcliffObershelp) /
-                (precisionRatcliffObershelp + recallRatcliffObershelp);
+                    (precisionRatcliffObershelp + recallRatcliffObershelp);
             localReport.append("\nInstance-level f-score:\t")
-                .append(TextUtilities.formatTwoDecimals(f0Strict * 100)).append(" (strict) \n");
+                    .append(TextUtilities.formatTwoDecimals(f0Strict * 100))
+                    .append(" (strict) \n");
             localReport.append("Instance-level f-score:\t")
-                .append(TextUtilities.formatTwoDecimals(f0Soft * 100)).append(" (soft) \n");
+                    .append(TextUtilities.formatTwoDecimals(f0Soft * 100))
+                    .append(" (soft) \n");
             localReport.append("Instance-level f-score:\t")
-                .append(TextUtilities.formatTwoDecimals(f0Levenshtein * 100)).append(" (Levenshtein) \n");
+                    .append(TextUtilities.formatTwoDecimals(f0Levenshtein * 100))
+                    .append(" (Levenshtein) \n");
             localReport.append("Instance-level f-score:\t")
-                .append(TextUtilities.formatTwoDecimals(f0RatcliffObershelp * 100)).append(" (RatcliffObershelp) \n");
+                    .append(TextUtilities.formatTwoDecimals(f0RatcliffObershelp * 100))
+                    .append(" (RatcliffObershelp) \n");
 
             localReport.append("\nMatching 1 :\t").append(match1 + "\n");
             localReport.append("\nMatching 2 :\t").append(match2 + "\n");
@@ -1856,65 +2157,109 @@ System.out.println("grobid: " + grobidResult);*/
 
             localReport = new StringBuilder();
 
-            localReport.append("\nTotal expected references: \t ").append(totalExpectedReferences)
-                .append(" - ").append(TextUtilities.formatTwoDecimals((double) totalExpectedReferences / nbFile)).append(" references per article");
-            localReport.append("\nTotal predicted references: \t ").append(totalObservedReferences)
-                .append(" - ").append(TextUtilities.formatTwoDecimals((double) totalObservedReferences / nbFile)).append(" references per article");
+            localReport.append("\nTotal expected references: \t ")
+                    .append(totalExpectedReferences)
+                    .append(" - ")
+                    .append(TextUtilities.formatTwoDecimals((double) totalExpectedReferences / nbFile))
+                    .append(" references per article");
+            localReport.append("\nTotal predicted references: \t ")
+                    .append(totalObservedReferences)
+                    .append(" - ")
+                    .append(TextUtilities.formatTwoDecimals((double) totalObservedReferences / nbFile))
+                    .append(" references per article");
 
             //report.append("\nTotal observed references (instance): \t ").append(totalObservedInstances);
             //report.append("\nTotal correct observed references: \t ").append(totalCorrectInstancesRatcliffObershelp);
 
-            localReport.append("\n\nTotal expected citation contexts: \t ").append(totalExpectedCitations)
-                .append(" - ").append(TextUtilities.formatTwoDecimals((double) totalExpectedCitations / nbFile)).append(" citation contexts per article");
-            localReport.append("\nTotal predicted citation contexts: \t ").append(totalObservedCitations)
-                .append(" - ").append(TextUtilities.formatTwoDecimals((double) totalObservedCitations / nbFile)).append(" citation contexts per article");
-            localReport.append("\n\nTotal correct predicted citation contexts: \t ").append(totalCorrectObservedCitations)
-                .append(" - ").append(TextUtilities.formatTwoDecimals((double) totalCorrectObservedCitations / nbFile)).append(" citation contexts per article");
+            localReport.append("\n\nTotal expected citation contexts: \t ")
+                    .append(totalExpectedCitations)
+                    .append(" - ")
+                    .append(TextUtilities.formatTwoDecimals((double) totalExpectedCitations / nbFile))
+                    .append(" citation contexts per article");
+            localReport.append("\nTotal predicted citation contexts: \t ")
+                    .append(totalObservedCitations)
+                    .append(" - ")
+                    .append(TextUtilities.formatTwoDecimals((double) totalObservedCitations / nbFile))
+                    .append(" citation contexts per article");
+            localReport.append("\n\nTotal correct predicted citation contexts: \t ")
+                    .append(totalCorrectObservedCitations)
+                    .append(" - ")
+                    .append(TextUtilities.formatTwoDecimals((double) totalCorrectObservedCitations / nbFile))
+                    .append(" citation contexts per article");
 
-            localReport.append("\nTotal wrong predicted citation contexts: \t ").append(totalWrongObservedCitations).append(" (wrong callout matching, callout missing in NLM, or matching with a bib. ref. not aligned with a bib.ref. in NLM)");
+            localReport.append("\nTotal wrong predicted citation contexts: \t ")
+                    .append(totalWrongObservedCitations)
+                    .append(
+                            " (wrong callout matching, callout missing in NLM, or matching with a bib. ref. not aligned with a bib.ref. in NLM)");
 
             double precisionCitationContext = (double) totalCorrectObservedCitations / totalObservedCitations;
             double recallCitationContext = (double) totalCorrectObservedCitations / totalExpectedCitations;
-            double fscoreCitationContext = (2 * precisionCitationContext * recallCitationContext) / (precisionCitationContext + recallCitationContext);
-            ;
+            double fscoreCitationContext = (2 * precisionCitationContext * recallCitationContext)
+                    / (precisionCitationContext + recallCitationContext);;
 
-            localReport.append("\n\nPrecision citation contexts: \t ").append(TextUtilities.formatTwoDecimals(precisionCitationContext * 100));
-            localReport.append("\nRecall citation contexts: \t ").append(TextUtilities.formatTwoDecimals(recallCitationContext * 100));
-            localReport.append("\nfscore citation contexts: \t ").append(TextUtilities.formatTwoDecimals(fscoreCitationContext * 100));
+            localReport.append("\n\nPrecision citation contexts: \t ")
+                    .append(TextUtilities.formatTwoDecimals(precisionCitationContext * 100));
+            localReport.append("\nRecall citation contexts: \t ")
+                    .append(TextUtilities.formatTwoDecimals(recallCitationContext * 100));
+            localReport.append("\nfscore citation contexts: \t ")
+                    .append(TextUtilities.formatTwoDecimals(fscoreCitationContext * 100));
             localReport.append("\n");
 
             report.append(localReport.toString());
             reportMD.append("```\n" + localReport.toString() + "```\n\n");
         } else if (sectionType == this.HEADER) {
+            String affiliationNote = "\nNote: the \"affiliation_linked\" field above is a "
+                    + "linking-aware metric (each author is paired with its gold counterpart and "
+                    + "their attached affiliations compared). Its support column reports the number "
+                    + "of articles the metric is computed from (those with at least one explicit "
+                    + "gold affiliation link), while precision/recall/F1 are measured over the "
+                    + "individual author-affiliation links.\n"
+                    + "Only authors whose gold affiliation link is explicit are scored; "
+                    + "affiliations encoded purely positionally in the gold (no xref/@rid and no "
+                    + "nested aff) are out of scope, not counted as misses.\n"
+                    + "Ground truth: single-affiliation papers (exactly one <aff>) have been "
+                    + "completed by linking every author to that sole affiliation (~1,649 authors "
+                    + "across PMC, bioRxiv and PLOS). Still to be done: multi-affiliation papers "
+                    + "that encode the author-to-affiliation mapping only positionally, which "
+                    + "require the PDF superscripts to disambiguate.\n";
+            report.append(affiliationNote);
+            reportMD.append(affiliationNote);
+
             report.append("\n===== Instance-level results =====\n\n");
             reportMD.append("\n#### Instance-level results\n\n");
 
             StringBuilder localReport = new StringBuilder();
 
             localReport.append("Total expected instances: \t").append(totalExpectedInstances).append("\n");
-            localReport.append("Total correct instances: \t").append(totalCorrectInstancesStrict)
-                .append(" (strict) \n");
-            localReport.append("Total correct instances: \t").append(totalCorrectInstancesSoft)
-                .append(" (soft) \n");
-            localReport.append("Total correct instances: \t").append(totalCorrectInstancesLevenshtein)
-                .append(" (Levenshtein) \n");
-            localReport.append("Total correct instances: \t").append(totalCorrectInstancesRatcliffObershelp)
-                .append(" (ObservedRatcliffObershelp) \n");
+            localReport.append("Total correct instances: \t")
+                    .append(totalCorrectInstancesStrict)
+                    .append(" (strict) \n");
+            localReport.append("Total correct instances: \t")
+                    .append(totalCorrectInstancesSoft)
+                    .append(" (soft) \n");
+            localReport.append("Total correct instances: \t")
+                    .append(totalCorrectInstancesLevenshtein)
+                    .append(" (Levenshtein) \n");
+            localReport.append("Total correct instances: \t")
+                    .append(totalCorrectInstancesRatcliffObershelp)
+                    .append(" (ObservedRatcliffObershelp) \n");
             double accuracyStrict = (double) totalCorrectInstancesStrict / (totalExpectedInstances);
             double accuracySoft = (double) totalCorrectInstancesSoft / (totalExpectedInstances);
             double accuracyLevenshtein = (double) totalCorrectInstancesLevenshtein / (totalExpectedInstances);
             double accuracyRatcliffObershelp = (double) totalCorrectInstancesRatcliffObershelp /
-                (totalExpectedInstances);
+                    (totalExpectedInstances);
             localReport.append("\nInstance-level recall:\t")
-                .append(TextUtilities.formatTwoDecimals(accuracyStrict * 100)).append("\t(strict) \n");
+                    .append(TextUtilities.formatTwoDecimals(accuracyStrict * 100))
+                    .append("\t(strict) \n");
             localReport.append("Instance-level recall:\t")
-                .append(TextUtilities.formatTwoDecimals(accuracySoft * 100)).append("\t(soft) \n");
+                    .append(TextUtilities.formatTwoDecimals(accuracySoft * 100))
+                    .append("\t(soft) \n");
             localReport.append("Instance-level recall:\t")
-                .append(TextUtilities.formatTwoDecimals(accuracyLevenshtein * 100))
-                .append("\t(Levenshtein) \n");
+                    .append(TextUtilities.formatTwoDecimals(accuracyLevenshtein * 100))
+                    .append("\t(Levenshtein) \n");
             localReport.append("Instance-level recall:\t")
-                .append(TextUtilities.formatTwoDecimals(accuracyRatcliffObershelp * 100))
-                .append("\t(RatcliffObershelp) \n");
+                    .append(TextUtilities.formatTwoDecimals(accuracyRatcliffObershelp * 100))
+                    .append("\t(RatcliffObershelp) \n");
 
             report.append(localReport.toString());
             reportMD.append("```\n" + localReport.toString() + "```\n\n");
@@ -1923,8 +2268,8 @@ System.out.println("grobid: " + grobidResult);*/
         if (sectionType == this.FULLTEXT) {
             report.append("\n===== Document-level ratio results =====\n");
             reportMD.append("\n**Document-level ratio results**\n");
-            report.append(EvaluationUtilities.computeMetrics(availabilityRatioStat));
-            reportMD.append(EvaluationUtilities.computeMetricsMD(availabilityRatioStat));
+            report.append(EvaluationUtilities.computeMetrics(documentLevelStatementsRatioStat));
+            reportMD.append(EvaluationUtilities.computeMetricsMD(documentLevelStatementsRatioStat));
         }
 
         return report.toString();
@@ -1970,7 +2315,12 @@ System.out.println("grobid: " + grobidResult);*/
         string = string.replace("_", " ");
         string = string.replace("\u00A0", " ");
         if (fieldName.equals("reference_figure")) {
-            string = string.replace("figure", "").replace("Figure", "").replace("fig.", "").replace("Fig.", "").replace("fig", "").replace("Fig", "");
+            string = string.replace("figure", "")
+                    .replace("Figure", "")
+                    .replace("fig.", "")
+                    .replace("Fig.", "")
+                    .replace("fig", "")
+                    .replace("Fig", "");
         }
         if (fieldName.equals("reference_table")) {
             string = string.replace("table", "").replace("Table", "");
@@ -1986,7 +2336,9 @@ System.out.println("grobid: " + grobidResult);*/
     private static String removeFullPunct(String string) {
         StringBuilder result = new StringBuilder();
         string = string.toLowerCase();
-        String allMismatchToIgnore = TextUtilities.fullPunctuations + "‐ \t\n\r\u00A0" + "\u00B7\u25FC\u25B2\u25BA\u25C6\u25CB\u25C7\u25CF\u25CE\u25FD\u25F8\u25F9\u25FA";//last are placeholders used for to be OCR chars
+        String allMismatchToIgnore = TextUtilities.fullPunctuations
+                + "‐ \t\n\r\u00A0"
+                + "\u00B7\u25FC\u25B2\u25BA\u25C6\u25CB\u25C7\u25CF\u25CE\u25FD\u25F8\u25F9\u25FA";//last are placeholders used for to be OCR chars
         for (int i = 0; i < string.length(); i++) {
             if (allMismatchToIgnore.indexOf(string.charAt(i)) == -1) {
                 result.append(string.charAt(i));
@@ -1996,16 +2348,352 @@ System.out.println("grobid: " + grobidResult);*/
     }
 
     /**
+     * Per-author linked-affiliation accuracy metric.
+     *
+     * <p>The standard header fields concatenate all affiliation text across all authors into a
+     * single string before comparing, so they measure affiliation <i>extraction</i>, not the
+     * author&#8596;affiliation <i>linking</i>. This metric instead pairs each gold author with a
+     * grobid author (by normalised surname, forename initial as a tie-break) and compares the
+     * affiliations that are actually attached to each of them. Results are accumulated under the
+     * label {@code affiliation_linked} on the four matching variants (strict / soft / Levenshtein /
+     * Ratcliff-Obershelp), so they appear automatically in the existing field-level tables.</p>
+     *
+     * <p>Scope note: only authors whose gold affiliation link is explicit (JATS {@code xref/@rid}
+     * or a nested {@code aff}, or a nested {@code affiliation} in pub2TEI gold) are scored. Gold
+     * documents that encode affiliations purely positionally are out of scope (such authors are
+     * skipped, not counted as missed). Collaboration "authors" are skipped.</p>
+     *
+     * @return the number of gold authors actually scored (those with an explicit, resolvable
+     *     affiliation link). A return value {@code > 0} means this article contributes to the
+     *     affiliation_linked metric; the caller uses it to count contributing articles.
+     */
+    private int evaluateLinkedAffiliations(
+            Document gold,
+            Document tei,
+            String inputType,
+            XPath xp,
+            Stats strictStats,
+            Stats softStats,
+            Stats levenshteinStats,
+            Stats ratcliffObershelpStats) throws Exception {
+
+        List<AuthorAff> grobidAuthors = extractGrobidAuthors(tei, xp);
+        List<AuthorAff> goldAuthors = inputType.equals("nlm")
+                ? extractNlmAuthors(gold, xp)
+                : extractGrobidAuthors(gold, xp);
+
+        Stats[] allStats = {strictStats, softStats, levenshteinStats, ratcliffObershelpStats};
+
+        boolean[] consumed = new boolean[grobidAuthors.size()];
+        int scoredAuthors = 0;
+        for (AuthorAff goldAuthor : goldAuthors) {
+            if (goldAuthor.surnameNorm.isEmpty()) {
+                // collaboration or otherwise unnamed contributor: out of scope
+                continue;
+            }
+            if (goldAuthor.affs.isEmpty()) {
+                // no explicit gold affiliation link for this author: out of scope (not a miss)
+                continue;
+            }
+
+            int matchIdx = findMatchingGrobidAuthor(goldAuthor, grobidAuthors, consumed);
+            List<Aff> grobidAffs;
+            if (matchIdx >= 0) {
+                consumed[matchIdx] = true;
+                grobidAffs = grobidAuthors.get(matchIdx).affs;
+            } else {
+                // unmatched gold author: every expected affiliation is a false negative
+                grobidAffs = Collections.emptyList();
+            }
+
+            for (int level = 0; level < allStats.length; level++) {
+                scoreAuthorAffiliations(goldAuthor.affs, grobidAffs, level, allStats[level]);
+            }
+            scoredAuthors++;
+        }
+
+        // grobid authors that were never paired but still carry affiliation text:
+        // these affiliations were linked to an author that does not align with any gold author
+        for (int i = 0; i < grobidAuthors.size(); i++) {
+            if (consumed[i]) {
+                continue;
+            }
+            int nbAffs = grobidAuthors.get(i).affs.size();
+            for (Stats stats : allStats) {
+                for (int k = 0; k < nbAffs; k++) {
+                    stats.incrementFalsePositive(AFFILIATION_LINKED_LABEL);
+                }
+            }
+        }
+
+        return scoredAuthors;
+    }
+
+    /**
+     * Greedy 1:1 matching of a single author's gold affiliations against the grobid ones, for a
+     * given matching variant. Each gold affiliation is one expected unit; a matched grobid
+     * affiliation is a true positive (observed), an unmatched gold affiliation a false negative,
+     * and any leftover grobid affiliation a false positive.
+     */
+    private void scoreAuthorAffiliations(List<Aff> goldAffs, List<Aff> grobidAffs, int level, Stats stats) {
+        boolean[] used = new boolean[grobidAffs.size()];
+        for (Aff goldAff : goldAffs) {
+            stats.incrementExpected(AFFILIATION_LINKED_LABEL);
+            int match = -1;
+            for (int k = 0; k < grobidAffs.size(); k++) {
+                if (used[k]) {
+                    continue;
+                }
+                if (affiliationMatches(goldAff, grobidAffs.get(k), level)) {
+                    match = k;
+                    break;
+                }
+            }
+            if (match >= 0) {
+                used[match] = true;
+                stats.incrementObserved(AFFILIATION_LINKED_LABEL);
+            } else {
+                stats.incrementFalseNegative(AFFILIATION_LINKED_LABEL);
+            }
+        }
+        for (int k = 0; k < grobidAffs.size(); k++) {
+            if (!used[k]) {
+                stats.incrementFalsePositive(AFFILIATION_LINKED_LABEL);
+            }
+        }
+    }
+
+    /**
+     * Whether a gold and a grobid affiliation match at the given variant.
+     * level: 0 = strict, 1 = soft, 2 = Levenshtein, 3 = Ratcliff/Obershelp.
+     * For the non-strict variants a substring-containment fallback is allowed, because gold JATS
+     * affiliation text is usually a superset of grobid's structured orgName (it bundles
+     * city/country/zip that grobid splits into the address).
+     */
+    private boolean affiliationMatches(Aff gold, Aff grobid, int level) {
+        if (level == 0) {
+            return gold.strictNorm.length() > 0 && gold.strictNorm.equals(grobid.strictNorm);
+        }
+
+        boolean contained = containment(gold.softNorm, grobid.orgNorm)
+                || containment(gold.orgNorm, grobid.softNorm);
+
+        if (level == 1) {
+            return (gold.softNorm.length() > 0 && gold.softNorm.equals(grobid.softNorm)) || contained;
+        }
+
+        if (level == 2) {
+            if (gold.strictNorm.length() > 0 && grobid.strictNorm.length() > 0) {
+                int distance = TextUtilities.getLevenshteinDistance(gold.strictNorm, grobid.strictNorm);
+                int bigger = Math.max(gold.strictNorm.length(), grobid.strictNorm.length());
+                double pct = (double) (bigger - distance) / bigger;
+                if (pct >= minLevenshteinDistance) {
+                    return true;
+                }
+            }
+            return contained;
+        }
+
+        // Ratcliff/Obershelp
+        if (gold.strictNorm.length() > 0 && grobid.strictNorm.length() > 0) {
+            Option<Object> similarityObject = RatcliffObershelpMetric.compare(gold.strictNorm, grobid.strictNorm);
+            if ((similarityObject != null) && (similarityObject.get() != null)
+                    && ((Double) similarityObject.get() >= minRatcliffObershelpSimilarity)) {
+                return true;
+            }
+        }
+        return contained;
+    }
+
+    private static boolean containment(String a, String b) {
+        if (a == null || b == null) {
+            return false;
+        }
+        if (a.length() < AFFILIATION_CONTAINMENT_FLOOR || b.length() < AFFILIATION_CONTAINMENT_FLOOR) {
+            return false;
+        }
+        return a.contains(b) || b.contains(a);
+    }
+
+    /**
+     * Greedy author pairing: the first not-yet-consumed grobid author with the same normalised
+     * surname; a matching forename initial is preferred when several share the surname.
+     */
+    private int findMatchingGrobidAuthor(AuthorAff gold, List<AuthorAff> grobidAuthors, boolean[] consumed) {
+        int firstSurnameMatch = -1;
+        for (int i = 0; i < grobidAuthors.size(); i++) {
+            if (consumed[i]) {
+                continue;
+            }
+            AuthorAff candidate = grobidAuthors.get(i);
+            if (candidate.surnameNorm.isEmpty() || !candidate.surnameNorm.equals(gold.surnameNorm)) {
+                continue;
+            }
+            if (firstSurnameMatch < 0) {
+                firstSurnameMatch = i;
+            }
+            if (!gold.forenameInitial.isEmpty() && gold.forenameInitial.equals(candidate.forenameInitial)) {
+                return i;
+            }
+        }
+        return firstSurnameMatch;
+    }
+
+    /**
+     * Extract authors and their nested affiliations from a grobid (or pub2TEI gold) TEI document.
+     */
+    private List<AuthorAff> extractGrobidAuthors(Document doc, XPath xp) throws Exception {
+        List<AuthorAff> result = new ArrayList<>();
+        NodeList authorNodes = (NodeList) xp.compile("//sourceDesc/biblStruct/analytic/author")
+                .evaluate(doc.getDocumentElement(), XPathConstants.NODESET);
+        for (int i = 0; i < authorNodes.getLength(); i++) {
+            Node authorNode = authorNodes.item(i);
+            AuthorAff record = new AuthorAff();
+            record.surnameNorm = normalizeName(getTextContent(xp, authorNode, "persName/surname/text()"));
+            String forename = getTextContent(xp, authorNode, "persName/forename[@type=\"first\"]/text()");
+            if (forename.isEmpty()) {
+                forename = getTextContent(xp, authorNode, "persName/forename/text()");
+            }
+            record.forenameInitial = initial(forename);
+
+            NodeList affNodes = (NodeList) xp.compile("affiliation").evaluate(authorNode, XPathConstants.NODESET);
+            for (int j = 0; j < affNodes.getLength(); j++) {
+                Node affNode = affNodes.item(j);
+                // skip collaboration-as-affiliation
+                NodeList collab = (NodeList) xp.compile("orgName[@type=\"collaboration\"]")
+                        .evaluate(affNode, XPathConstants.NODESET);
+                if (collab.getLength() > 0) {
+                    continue;
+                }
+                String orgName = getTextContent(xp, affNode, "orgName/text()");
+                String address = getTextContent(xp, affNode, "address//text()");
+                String full = (orgName + " " + address).trim();
+                if (!full.isEmpty()) {
+                    record.affs.add(makeAff(orgName, full));
+                }
+            }
+            result.add(record);
+        }
+        return result;
+    }
+
+    /**
+     * Extract authors and their linked affiliations from an NLM/JATS gold document.
+     * The author&#8594;affiliation link follows {@code contrib/xref[@ref-type="aff"]/@rid} to the
+     * {@code aff} with the matching id (under {@code contrib-group} or {@code article-meta}), with a
+     * fallback to an {@code aff} nested directly inside the {@code contrib}.
+     */
+    private List<AuthorAff> extractNlmAuthors(Document gold, XPath xp) throws Exception {
+        // index every affiliation by its id (label child excluded)
+        Map<String, Aff> affById = new HashMap<>();
+        NodeList affNodes = (NodeList) xp.compile("//article-meta//aff")
+                .evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
+        for (int i = 0; i < affNodes.getLength(); i++) {
+            Node affNode = affNodes.item(i);
+            String id = getTextContent(xp, affNode, "@id");
+            if (id.isEmpty()) {
+                continue;
+            }
+            String text = getTextContent(xp, affNode, ".//text()[not(parent::label)]");
+            affById.put(id, makeAff(text, text));
+        }
+
+        List<AuthorAff> result = new ArrayList<>();
+        NodeList contribs = (NodeList) xp.compile(
+                "/article/front/article-meta/contrib-group/contrib[@contrib-type=\"author\"]")
+                .evaluate(gold.getDocumentElement(), XPathConstants.NODESET);
+        for (int i = 0; i < contribs.getLength(); i++) {
+            Node contrib = contribs.item(i);
+            AuthorAff record = new AuthorAff();
+            String surname = getTextContent(xp, contrib, "name/surname/text()");
+            if (surname.isEmpty()) {
+                surname = getTextContent(xp, contrib, "string-name/surname/text()");
+            }
+            record.surnameNorm = normalizeName(surname);
+            record.forenameInitial = initial(getTextContent(xp, contrib, "name/given-names/text()"));
+
+            NodeList rids = (NodeList) xp.compile("xref[@ref-type=\"aff\"]/@rid")
+                    .evaluate(contrib, XPathConstants.NODESET);
+            if (rids.getLength() > 0) {
+                for (int r = 0; r < rids.getLength(); r++) {
+                    for (String rid : rids.item(r).getNodeValue().trim().split("\\s+")) {
+                        Aff aff = affById.get(rid);
+                        if (aff != null) {
+                            record.affs.add(aff);
+                        }
+                    }
+                }
+            } else {
+                // fallback: affiliation nested directly inside the contrib
+                NodeList nested = (NodeList) xp.compile(".//aff").evaluate(contrib, XPathConstants.NODESET);
+                for (int n = 0; n < nested.getLength(); n++) {
+                    String text = getTextContent(xp, nested.item(n), ".//text()[not(parent::label)]");
+                    if (!text.trim().isEmpty()) {
+                        record.affs.add(makeAff(text, text));
+                    }
+                }
+            }
+            result.add(record);
+        }
+        return result;
+    }
+
+    /** Concatenated value of every node selected by the relative path, space-separated. */
+    private String getTextContent(XPath xp, Node context, String path) throws Exception {
+        NodeList nodes = (NodeList) xp.compile(path).evaluate(context, XPathConstants.NODESET);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < nodes.getLength(); i++) {
+            String value = nodes.item(i).getNodeValue();
+            if (value != null) {
+                sb.append(value).append(" ");
+            }
+        }
+        return sb.toString().trim();
+    }
+
+    private static String normalizeName(String name) {
+        return removeFullPunct(basicNormalization(name == null ? "" : name));
+    }
+
+    private static String initial(String forename) {
+        String normalized = normalizeName(forename);
+        return normalized.isEmpty() ? "" : normalized.substring(0, 1);
+    }
+
+    private static Aff makeAff(String orgNameText, String fullText) {
+        Aff aff = new Aff();
+        aff.strictNorm = basicNormalization(fullText);
+        aff.softNorm = removeFullPunct(fullText);
+        aff.orgNorm = removeFullPunct(orgNameText);
+        return aff;
+    }
+
+    /** An author with the affiliations linked to them, for linking-aware evaluation. */
+    private static class AuthorAff {
+        String surnameNorm = "";
+        String forenameInitial = "";
+        List<Aff> affs = new ArrayList<>();
+    }
+
+    /** A single affiliation reduced to the normalisations used by the matching variants. */
+    private static class Aff {
+        String strictNorm = "";
+        String softNorm = "";
+        String orgNorm = "";
+    }
+
+    /**
      * Command line execution.
      *
      * @param args Command line arguments.
      */
     public static void main(String[] args) {
-    	//DOMConfigurator is called to force logger to use the xml configuration file
+        //DOMConfigurator is called to force logger to use the xml configuration file
         //DOMConfigurator.configure("src/main/resources/log4j.xml");
 
-		if (args.length > 5 || args.length == 0) {
-			System.err.println("usage: command [path to the (gold) evaluation XML dataset] Run[0|1] fileRatio[0.0-1.0]");
+        if (args.length > 5 || args.length == 0) {
+            System.err
+                    .println("usage: command [path to the (gold) evaluation XML dataset] Run[0|1] fileRatio[0.0-1.0]");
             return;
         }
 
@@ -2051,8 +2739,7 @@ System.out.println("grobid: " + grobidResult);*/
             String flavor = args[4];
             parsedFlavor = GrobidModels.Flavor.fromLabel(flavor);
             if (parsedFlavor == null) {
-                System.err.println("Invalid value for flavor: " + flavor + ". Omit or correct the parameter. ");
-                return;
+                System.out.println("Flavor was not specified, or was empty. Using default Grobid process. ");
             } else {
                 System.out.println("Setting flavor to: " + parsedFlavor);
             }
@@ -2082,10 +2769,11 @@ System.out.println("grobid: " + grobidResult);*/
             String report = eval.evaluationGrobid(runGrobidVal, reportMD);
 
             System.out.println(report);
-            System.out.println(Engine.getCntManager());
+            System.out.println(new CntManagerReportRepresentation().getRepresentation(Engine.getCntManager()));
 
             // write markdown report
-            File fileMarkDown = new File(GrobidProperties.getInstance().getTempPath().getPath() + File.separator + "report.md");
+            File fileMarkDown = new File(
+                    GrobidProperties.getInstance().getTempPath().getPath() + File.separator + "report.md");
             FileUtils.writeStringToFile(fileMarkDown, reportMD.toString(), "UTF-8");
             System.out.println("\nEvaluation report in markdown format saved under " + fileMarkDown.getAbsolutePath());
         } catch (Exception e) {

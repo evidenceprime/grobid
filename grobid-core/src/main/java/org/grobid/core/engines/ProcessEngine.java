@@ -1,20 +1,21 @@
+/*
+ * Copyright 2008-2026 GROBID contributors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.grobid.core.engines;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.grobid.core.data.*;
-import org.grobid.core.engines.config.GrobidAnalysisConfig;
-import org.grobid.core.exceptions.GrobidResourceException;
-import org.grobid.core.factory.GrobidFactory;
-import org.grobid.core.main.batch.GrobidMainArgs;
-import org.grobid.core.utilities.IOUtilities;
-import org.grobid.core.utilities.KeyGen;
-import org.grobid.core.visualization.CitationsVisualizer;
-import org.grobid.core.document.Document;
-import org.grobid.core.document.DocumentSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static org.apache.commons.collections4.CollectionUtils.isEmpty;
 
 import java.io.Closeable;
 import java.io.File;
@@ -24,7 +25,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.apache.commons.collections4.CollectionUtils.isEmpty;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.grobid.core.data.*;
+import org.grobid.core.document.Document;
+import org.grobid.core.document.DocumentSource;
+import org.grobid.core.engines.config.GrobidAnalysisConfig;
+import org.grobid.core.exceptions.GrobidResourceException;
+import org.grobid.core.factory.GrobidFactory;
+import org.grobid.core.main.batch.GrobidMainArgs;
+import org.grobid.core.utilities.IOUtilities;
+import org.grobid.core.utilities.counters.impl.CntManagerReportRepresentation;
+import org.grobid.core.visualization.CitationsVisualizer;
 
 public class ProcessEngine implements Closeable {
 
@@ -91,31 +107,43 @@ public class ProcessEngine implements Closeable {
             for (final File currPdf : files) {
                 try {
                     if (currPdf.getName().toLowerCase().endsWith(".pdf")) {
-                        result = getEngine().processHeader(currPdf.getAbsolutePath(), 0, null);
+                        result = getEngine().processHeader(currPdf.getAbsolutePath(), null);
                         File outputPathFile = new File(outputPath);
                         if (!outputPathFile.exists()) {
                             outputPathFile.mkdirs();
                         }
                         if (currPdf.getName().endsWith(".pdf")) {
-                            IOUtilities.writeInFile(outputPath + File.separator
-                                    + new File(currPdf.getAbsolutePath())
-                                    .getName().replace(".pdf", ".tei.xml"), result.toString());
+                            IOUtilities.writeInFile(
+                                    outputPath + File.separator
+                                            + new File(currPdf.getAbsolutePath())
+                                                    .getName()
+                                                    .replace(".pdf", ".tei.xml"),
+                                    result.toString());
                         } else if (currPdf.getName().endsWith(".PDF")) {
-                            IOUtilities.writeInFile(outputPath + File.separator
-                                    + new File(currPdf.getAbsolutePath())
-                                    .getName().replace(".PDF", ".tei.xml"), result.toString());
+                            IOUtilities.writeInFile(
+                                    outputPath + File.separator
+                                            + new File(currPdf.getAbsolutePath())
+                                                    .getName()
+                                                    .replace(".PDF", ".tei.xml"),
+                                    result.toString());
                         }
                     } else if (recurse && currPdf.isDirectory()) {
                         File[] newFiles = currPdf.listFiles();
                         if (newFiles != null) {
                             String newLevel = currPdf.getName();
-                            processHeaderDirectory(newFiles, pGbdArgs, outputPath +
-                                    File.separator + newLevel);
+                            processHeaderDirectory(
+                                    newFiles,
+                                    pGbdArgs,
+                                    outputPath +
+                                            File.separator + newLevel);
                         }
                     }
                 } catch (final Exception exp) {
-                    LOGGER.error("An error occured while processing the file " + currPdf.getAbsolutePath()
-                            + ". Continuing the process for the other files", exp);
+                    LOGGER.error(
+                            "An error occurred while processing the file "
+                                    + currPdf.getAbsolutePath()
+                                    + ". Continuing the process for the other files",
+                            exp);
                 }
             }
         }
@@ -137,11 +165,28 @@ public class ProcessEngine implements Closeable {
         } else {
             List<String> elementCoordinates = null;
             if (pGbdArgs.getTeiCoordinates()) {
-                elementCoordinates = Arrays.asList("figure", "persName", "ref", "biblStruct", "formula", "s", "note", "title", "head", "affiliation", "p");
+                elementCoordinates = Arrays.asList(
+                        "figure",
+                        "persName",
+                        "ref",
+                        "biblStruct",
+                        "formula",
+                        "s",
+                        "note",
+                        "title",
+                        "head",
+                        "affiliation",
+                        "p");
             }
-            processFullTextDirectory(files, pGbdArgs, pGbdArgs.getPath2Output(), pGbdArgs.getSaveAssets(), 
-                elementCoordinates, pGbdArgs.getSegmentSentences(), pGbdArgs.getAddElementId());
-            System.out.println(Engine.getCntManager());
+            processFullTextDirectory(
+                    files,
+                    pGbdArgs,
+                    pGbdArgs.getPath2Output(),
+                    pGbdArgs.getSaveAssets(),
+                    elementCoordinates,
+                    pGbdArgs.getSegmentSentences(),
+                    pGbdArgs.getAddElementId());
+            System.out.println(new CntManagerReportRepresentation().getRepresentation(Engine.getCntManager()));
         }
     }
 
@@ -152,13 +197,14 @@ public class ProcessEngine implements Closeable {
      * @param pGbdArgs The parameters.
      * @throws Exception
      */
-    private void processFullTextDirectory(File[] files,
-                                          final GrobidMainArgs pGbdArgs,
-                                          String outputPath,
-                                          boolean saveAssets,
-                                          List<String> elementCoordinates,
-                                          boolean segmentSentences,
-                                          boolean addElementId) {
+    private void processFullTextDirectory(
+            File[] files,
+            final GrobidMainArgs pGbdArgs,
+            String outputPath,
+            boolean saveAssets,
+            List<String> elementCoordinates,
+            boolean segmentSentences,
+            boolean addElementId) {
         if (files != null) {
             boolean recurse = pGbdArgs.isRecursive();
             String result;
@@ -189,25 +235,41 @@ public class ProcessEngine implements Closeable {
                             outputPathFile.mkdir();
                         }
                         if (currPdf.getName().endsWith(".pdf")) {
-                            IOUtilities.writeInFile(outputPath + File.separator
-                                    + new File(currPdf.getAbsolutePath())
-                                    .getName().replace(".pdf", ".tei.xml"), result.toString());
+                            IOUtilities.writeInFile(
+                                    outputPath + File.separator
+                                            + new File(currPdf.getAbsolutePath())
+                                                    .getName()
+                                                    .replace(".pdf", ".tei.xml"),
+                                    result.toString());
                         } else if (currPdf.getName().endsWith(".PDF")) {
-                            IOUtilities.writeInFile(outputPath + File.separator
-                                    + new File(currPdf.getAbsolutePath())
-                                    .getName().replace(".PDF", ".tei.xml"), result.toString());
+                            IOUtilities.writeInFile(
+                                    outputPath + File.separator
+                                            + new File(currPdf.getAbsolutePath())
+                                                    .getName()
+                                                    .replace(".PDF", ".tei.xml"),
+                                    result.toString());
                         }
                     } else if (recurse && currPdf.isDirectory()) {
                         File[] newFiles = currPdf.listFiles();
                         if (newFiles != null) {
                             String newLevel = currPdf.getName();
-                            processFullTextDirectory(newFiles, pGbdArgs, outputPath +
-                                    File.separator + newLevel, saveAssets, elementCoordinates, segmentSentences, addElementId);
+                            processFullTextDirectory(
+                                    newFiles,
+                                    pGbdArgs,
+                                    outputPath +
+                                            File.separator + newLevel,
+                                    saveAssets,
+                                    elementCoordinates,
+                                    segmentSentences,
+                                    addElementId);
                         }
                     }
                 } catch (final Exception exp) {
-                    LOGGER.error("An error occured while processing the file " + currPdf.getAbsolutePath()
-                            + ". Continuing the process for the other files", exp);
+                    LOGGER.error(
+                            "An error occurred while processing the file "
+                                    + currPdf.getAbsolutePath()
+                                    + ". Continuing the process for the other files",
+                            exp);
                 }
             }
         }
@@ -238,7 +300,8 @@ public class ProcessEngine implements Closeable {
         inferOutputPath(pGbdArgs);
         final List<Person> result = getEngine().processAuthorsHeader(pGbdArgs.getInput());
         if (isEmpty(result)) {
-            throw new GrobidResourceException("Cannot read the input data for processAuthorHeader. Check the documentation. ");
+            throw new GrobidResourceException(
+                    "Cannot read the input data for processAuthorHeader. Check the documentation. ");
         }
         IOUtilities.writeInFile(pGbdArgs.getPath2Output() + File.separator + "result", result.get(0).toTEI(false));
     }
@@ -253,7 +316,8 @@ public class ProcessEngine implements Closeable {
         inferOutputPath(pGbdArgs);
         final List<Person> result = getEngine().processAuthorsCitation(pGbdArgs.getInput());
         if (isEmpty(result)) {
-            throw new GrobidResourceException("Cannot read the input data for authorsCitation. Check the documentation. ");
+            throw new GrobidResourceException(
+                    "Cannot read the input data for authorsCitation. Check the documentation. ");
         }
         IOUtilities.writeInFile(pGbdArgs.getPath2Output() + File.separator + "result", result.get(0).toTEI(false));
     }
@@ -270,7 +334,9 @@ public class ProcessEngine implements Closeable {
         if (isEmpty(result)) {
             throw new GrobidResourceException("Cannot read the input data for affiliations. Check the documentation. ");
         }
-        IOUtilities.writeInFile(pGbdArgs.getPath2Output() + File.separator + "result", Affiliation.toTEI(result.get(0),0));
+        IOUtilities.writeInFile(
+                pGbdArgs.getPath2Output() + File.separator + "result",
+                Affiliation.toTEI(result.get(0), 0));
     }
 
     /**
@@ -316,8 +382,7 @@ public class ProcessEngine implements Closeable {
             for (final File currPdf : files) {
                 try {
                     if (currPdf.getName().toLowerCase().endsWith(".pdf")) {
-                        final List<BibDataSet> results =
-                                getEngine().processReferences(currPdf, 0);
+                        final List<BibDataSet> results = getEngine().processReferences(currPdf, 0);
                         File outputPathFile = new File(outputPath);
                         if (!outputPathFile.exists()) {
                             outputPathFile.mkdir();
@@ -325,12 +390,18 @@ public class ProcessEngine implements Closeable {
 
                         StringBuilder result = new StringBuilder();
                         // dummy header
-                        result.append("<?xml version=\"1.0\" ?>\n<TEI xmlns=\"http://www.tei-c.org/ns/1.0\" " +
-                                "xmlns:xlink=\"http://www.w3.org/1999/xlink\" " +
-                                "\n xmlns:mml=\"http://www.w3.org/1998/Math/MathML\">\n");
+                        result.append(
+                                "<?xml version=\"1.0\" ?>\n<TEI xmlns=\"http://www.tei-c.org/ns/1.0\" "
+                                        +
+                                        "xmlns:xlink=\"http://www.w3.org/1999/xlink\" "
+                                        +
+                                        "\n xmlns:mml=\"http://www.w3.org/1998/Math/MathML\">\n");
 
-                        result.append("\t<teiHeader>\n\t\t<fileDesc xml:id=\"f_" + id +
-                                "\"/>\n\t</teiHeader>\n");
+                        result.append(
+                                "\t<teiHeader>\n\t\t<fileDesc xml:id=\"f_"
+                                        + id
+                                        +
+                                        "\"/>\n\t</teiHeader>\n");
 
                         result.append("\t<text>\n\t\t<front/>\n\t\t<body/>\n\t\t<back>\n\t\t\t<listBibl>\n");
                         for (BibDataSet res : results) {
@@ -340,25 +411,35 @@ public class ProcessEngine implements Closeable {
                         result.append("\t\t\t</listBibl>\n\t\t</back>\n\t</text>\n</TEI>\n");
 
                         if (currPdf.getName().endsWith(".pdf")) {
-                            IOUtilities.writeInFile(outputPath + File.separator
-                                            + new File(currPdf.getAbsolutePath()).getName().replace(".pdf", ".references.tei.xml"),
+                            IOUtilities.writeInFile(
+                                    outputPath + File.separator
+                                            + new File(currPdf.getAbsolutePath()).getName()
+                                                    .replace(".pdf", ".references.tei.xml"),
                                     result.toString());
                         } else if (currPdf.getName().endsWith(".PDF")) {
-                            IOUtilities.writeInFile(outputPath + File.separator
-                                            + new File(currPdf.getAbsolutePath()).getName().replace(".PDF", ".references.tei.xml"),
+                            IOUtilities.writeInFile(
+                                    outputPath + File.separator
+                                            + new File(currPdf.getAbsolutePath()).getName()
+                                                    .replace(".PDF", ".references.tei.xml"),
                                     result.toString());
                         }
                     } else if (recurse && currPdf.isDirectory()) {
                         File[] newFiles = currPdf.listFiles();
                         if (newFiles != null) {
                             String newLevel = currPdf.getName();
-                            processReferencesDirectory(newFiles, pGbdArgs, outputPath +
-                                    File.separator + newLevel);
+                            processReferencesDirectory(
+                                    newFiles,
+                                    pGbdArgs,
+                                    outputPath +
+                                            File.separator + newLevel);
                         }
                     }
                 } catch (final Exception exp) {
-                    LOGGER.error("An error occured while processing the file " + currPdf.getAbsolutePath()
-                            + ". Continuing the process for the other files", exp);
+                    LOGGER.error(
+                            "An error occurred while processing the file "
+                                    + currPdf.getAbsolutePath()
+                                    + ". Continuing the process for the other files",
+                            exp);
                 }
                 id++;
             }
@@ -373,7 +454,11 @@ public class ProcessEngine implements Closeable {
     public void createTraining(final GrobidMainArgs pGbdArgs) {
         inferPdfInputPath(pGbdArgs);
         inferOutputPath(pGbdArgs);
-        int result = getEngine().batchCreateTraining(pGbdArgs.getPath2Input(), pGbdArgs.getPath2Output(), -1, pGbdArgs.getModelFlavor());
+        int result = getEngine().batchCreateTraining(
+                pGbdArgs.getPath2Input(),
+                pGbdArgs.getPath2Output(),
+                -1,
+                pGbdArgs.getModelFlavor());
         LOGGER.info(result + " files processed.");
     }
 
@@ -392,7 +477,7 @@ public class ProcessEngine implements Closeable {
 
     /**
      * Generate blank training data from provided directory of PDF documents, i.e. where TEI files are text only
-     * without tags. This can be used to start from scratch any new model. 
+     * without tags. This can be used to start from scratch any new model.
      *
      * @param pGbdArgs The parameters.
      * @throws Exception
@@ -413,7 +498,8 @@ public class ProcessEngine implements Closeable {
     public void createTrainingCitationPatent(final GrobidMainArgs pGbdArgs) throws Exception {
         inferPdfInputPath(pGbdArgs);
         inferOutputPath(pGbdArgs);
-        int result = getEngine().batchCreateTrainingPatentcitations(pGbdArgs.getPath2Input(), pGbdArgs.getPath2Output());
+        int result = getEngine()
+                .batchCreateTrainingPatentcitations(pGbdArgs.getPath2Input(), pGbdArgs.getPath2Output());
         LOGGER.info(result + " files processed.");
     }
 
@@ -450,7 +536,7 @@ public class ProcessEngine implements Closeable {
                             pGbdArgs.getPath2Output() + File.separator + currTEI.getName(), 0);
                 }
             } catch (final Exception exp) {
-                LOGGER.error("An error occured while processing the file " + currTEI.getAbsolutePath()
+                LOGGER.error("An error occurred while processing the file " + currTEI.getAbsolutePath()
                         + ". Continuing the process for the other files", exp);
             }
         }
@@ -474,19 +560,30 @@ public class ProcessEngine implements Closeable {
                         currXML.getName().toLowerCase().endsWith(".xml.gz")) {
                     List<BibDataSet> articles = new ArrayList<BibDataSet>();
                     List<PatentItem> patents = new ArrayList<PatentItem>();
-                    result = getEngine().processAllCitationsInXMLPatent(pGbdArgs.getPath2Input() + File.separator + currXML.getName(),
-                            articles, patents, 0, false);
+                    result = getEngine().processAllCitationsInXMLPatent(
+                            pGbdArgs.getPath2Input() + File.separator + currXML.getName(),
+                            articles,
+                            patents,
+                            0,
+                            false);
                     if (currXML.getName().endsWith(".gz")) {
-                        IOUtilities.writeInFile(pGbdArgs.getPath2Output() + File.separator
-                                + new File(currXML.getAbsolutePath()).getName().replace(".xml.gz", ".tei.xml"), result);
+                        IOUtilities.writeInFile(
+                                pGbdArgs.getPath2Output() + File.separator
+                                        + new File(currXML.getAbsolutePath()).getName().replace(".xml.gz", ".tei.xml"),
+                                result);
                     } else {
-                        IOUtilities.writeInFile(pGbdArgs.getPath2Output() + File.separator
-                                + new File(currXML.getAbsolutePath()).getName().replace(".xml", ".tei.xml"), result);
+                        IOUtilities.writeInFile(
+                                pGbdArgs.getPath2Output() + File.separator
+                                        + new File(currXML.getAbsolutePath()).getName().replace(".xml", ".tei.xml"),
+                                result);
                     }
                 }
             } catch (final Exception exp) {
-                LOGGER.error("An error occured while processing the file " + currXML.getAbsolutePath()
-                        + ". Continuing the process for the other files", exp);
+                LOGGER.error(
+                        "An error occurred while processing the file "
+                                + currXML.getAbsolutePath()
+                                + ". Continuing the process for the other files",
+                        exp);
             }
         }
     }
@@ -510,12 +607,17 @@ public class ProcessEngine implements Closeable {
                     List<BibDataSet> articles = new ArrayList<BibDataSet>();
                     List<PatentItem> patents = new ArrayList<PatentItem>();
                     result = getEngine().processAllCitationsInPatent(inputStr, articles, patents, 0, false);
-                    IOUtilities.writeInFile(pGbdArgs.getPath2Output() + File.separator
-                            + new File(currTXT.getAbsolutePath()).getName().replace(".txt", ".tei.xml"), result);
+                    IOUtilities.writeInFile(
+                            pGbdArgs.getPath2Output() + File.separator
+                                    + new File(currTXT.getAbsolutePath()).getName().replace(".txt", ".tei.xml"),
+                            result);
                 }
             } catch (final Exception exp) {
-                LOGGER.error("An error occured while processing the file " + currTXT.getAbsolutePath()
-                        + ". Continuing the process for the other files", exp);
+                LOGGER.error(
+                        "An error occurred while processing the file "
+                                + currTXT.getAbsolutePath()
+                                + ". Continuing the process for the other files",
+                        exp);
             }
         }
     }
@@ -537,19 +639,31 @@ public class ProcessEngine implements Closeable {
                 if (currPDF.getName().toLowerCase().endsWith(".pdf")) {
                     List<BibDataSet> articles = new ArrayList<BibDataSet>();
                     List<PatentItem> patents = new ArrayList<PatentItem>();
-                    result = getEngine().processAllCitationsInPDFPatent(pGbdArgs.getPath2Input() +
-                            File.separator + currPDF.getName(), articles, patents, 0, false);
+                    result = getEngine().processAllCitationsInPDFPatent(
+                            pGbdArgs.getPath2Input() +
+                                    File.separator + currPDF.getName(),
+                            articles,
+                            patents,
+                            0,
+                            false);
                     if (currPDF.getName().endsWith(".pdf")) {
-                        IOUtilities.writeInFile(pGbdArgs.getPath2Output() + File.separator
-                                + new File(currPDF.getAbsolutePath()).getName().replace(".pdf", ".tei.xml"), result);
+                        IOUtilities.writeInFile(
+                                pGbdArgs.getPath2Output() + File.separator
+                                        + new File(currPDF.getAbsolutePath()).getName().replace(".pdf", ".tei.xml"),
+                                result);
                     } else if (currPDF.getName().endsWith(".PDF")) {
-                        IOUtilities.writeInFile(pGbdArgs.getPath2Output() + File.separator
-                                + new File(currPDF.getAbsolutePath()).getName().replace(".PDF", ".tei.xml"), result);
+                        IOUtilities.writeInFile(
+                                pGbdArgs.getPath2Output() + File.separator
+                                        + new File(currPDF.getAbsolutePath()).getName().replace(".PDF", ".tei.xml"),
+                                result);
                     }
                 }
             } catch (final Exception exp) {
-                LOGGER.error("An error occured while processing the file " + currPDF.getAbsolutePath()
-                        + ". Continuing the process for the other files", exp);
+                LOGGER.error(
+                        "An error occurred while processing the file "
+                                + currPDF.getAbsolutePath()
+                                + ". Continuing the process for the other files",
+                        exp);
             }
         }
     }
@@ -575,8 +689,7 @@ public class ProcessEngine implements Closeable {
                     elementWithCoords.add("ref");
                     elementWithCoords.add("biblStruct");
 
-                    GrobidAnalysisConfig config = new GrobidAnalysisConfig
-                            .GrobidAnalysisConfigBuilder()
+                    GrobidAnalysisConfig config = new GrobidAnalysisConfig.GrobidAnalysisConfigBuilder()
                             .consolidateCitations(1)
                             .generateTeiCoordinates(elementWithCoords)
                             .build();
@@ -588,23 +701,28 @@ public class ProcessEngine implements Closeable {
                         DocumentSource documentSource = teiDoc.getDocumentSource();
                         out = CitationsVisualizer.annotatePdfWithCitations(document, teiDoc, null);
                     } else {
-                        throw new RuntimeException("Cannot identify any pages in the input document. " +
-                            "The document cannot be annotated. Please check whether the document is valid or the logs.");
+                        throw new RuntimeException("Cannot identify any pages in the input document. "
+                                +
+                                "The document cannot be annotated. Please check whether the document is valid or the logs.");
                     }
 
                     if (out != null) {
                         File outputFile = null;
                         if (outDirectory.getPath().equals(pdfDirectory.getPath()))
-                            outputFile = new File(outDirectory.getPath() + "/" + currPDF.getName().replace(".pdf", ".grobid.pdf"));
+                            outputFile = new File(
+                                    outDirectory.getPath() + "/" + currPDF.getName().replace(".pdf", ".grobid.pdf"));
                         else
-                             outputFile = new File(outDirectory.getPath() + "/" + currPDF.getName());
+                            outputFile = new File(outDirectory.getPath() + "/" + currPDF.getName());
                         out.save(outputFile);
                         System.out.println("Saved: " + outputFile.getPath());
                     }
                 }
             } catch (final Exception exp) {
-                LOGGER.error("An error occured while processing the file " + currPDF.getAbsolutePath()
-                        + ". Continuing the process for the other files", exp);
+                LOGGER.error(
+                        "An error occurred while processing the file "
+                                + currPDF.getAbsolutePath()
+                                + ". Continuing the process for the other files",
+                        exp);
             } finally {
                 if (document != null)
                     document.close();
@@ -614,7 +732,6 @@ public class ProcessEngine implements Closeable {
             }
         }
     }
-
 
     /**
      * List the engine methods that can be called.

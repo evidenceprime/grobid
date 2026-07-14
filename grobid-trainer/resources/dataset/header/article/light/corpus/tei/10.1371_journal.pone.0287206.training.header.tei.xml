@@ -1,0 +1,135 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title level="a">Unknown Title</title>
+      <respStmt>
+        <persName xml:id="kazuyo">Kazuyo</persName>
+        <resp>Annotator</resp>
+      </respStmt>
+    </titleStmt>
+    <editionStmt>
+      <edition>
+        <date when="2025-12-02T12:44:10.609Z">12/2/2025 12:44:10 PM</date>
+        <title>corrections</title>
+      </edition>
+    </editionStmt>
+    <publicationStmt>
+      <publisher/>
+      <availability>
+        <licence target="https://creativecommons.org/licenses/by/4.0/"/>
+      </availability>
+      <date type="publication"/>
+      <idno type="DOI"/>
+    </publicationStmt>
+    <sourceDesc>
+      <bibl>. (). Unknown Title. , (), . DOI: None</bibl>
+    </sourceDesc>
+  </fileDesc>
+  <encodingDesc>
+    <appInfo>
+      <application version="1.0" ident="pdf-tei-editor" type="editor">
+        <ref target="https://github.com/mpilhlt/pdf-tei-editor"/>
+      </application>
+      <application version="0.8.3-SNAPSHOT" ident="GROBID" when="2025-12-02T12:43:50.136443Z" type="extractor">
+        <desc>GROBID - A machine learning software for extracting information from scholarly documents</desc>
+        <label type="revision">4ae14a7</label>
+        <label type="flavor">default</label>
+        <label type="variant-id">grobid.training.header</label>
+        <ref target="https://github.com/kermitt2/grobid"/>
+      </application>
+    </appInfo>
+  </encodingDesc>
+  <revisionDesc>
+    <change when="2025-12-02T12:43:50.136443Z" status="draft">
+      <desc>Generated with createTraining API</desc>
+    </change>
+  </revisionDesc>
+</teiHeader>
+  <text xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+		<front>
+<lb/>
+	<note type="doctype">RESEARCH ARTICLE<lb/></note>
+
+	<docTitle>
+	<titlePart>A new oviraptorosaur (Dinosauria:<lb/> Theropoda) from the end-Maastrichtian Hell<lb/> Creek Formation of North America<lb/></titlePart>
+	</docTitle>
+
+	<byline>
+	<docAuthor>Kyle L. Atkins-Weltman ID 1<lb/> *, D. Jade Simon 2 , Holly N. Woodward 1 , Gregory<lb/> F. FunstonID 3 *, Eric SnivelyID 1 *<lb/></docAuthor>
+	</byline>
+
+	<byline>
+	<affiliation>1 Oklahoma State University,</affiliation>
+	</byline>
+
+	<address>Tahlequah, OK, United States of America,</address>
+
+	<byline>
+	<affiliation>2 Department of Ecology and<lb/> Evolutionary Biology, University of Toronto,</affiliation>
+	</byline>
+
+	<address>Toronto, Ontario, Canada,</address>
+
+	<byline>
+	<affiliation>3 Royal Ontario Museum,</affiliation>
+	</byline>
+
+	<address>Toronto,<lb/> Ontario, Canada<lb/></address>
+
+	*
+	<email>kyle.l.atkins-weltman@okstate.edu</email>
+
+	(KLA-W);
+	<email>Greg.Funston@rom.on.ca</email>
+
+	(GFF);
+	<email>eric.snively@okstate.edu<lb/></email>
+
+	(ES) Abstract<lb/>
+	<div type="abstract">Caenagnathidae is a clade of derived, Late Cretaceous oviraptorosaurian theropods from<lb/> Asia and North America. Because their remains are rare and often fragmentary, caenag-<lb/>nathid diversity is poorly understood. Anzu wyliei is the only caenagnathid species currently<lb/> described from the late Maastrichtian Hell Creek Formation of the USA and is also among<lb/> the largest and most completely preserved North American caenagnathids. Smaller, less<lb/> complete caenagnathid material has long been known from the Hell Creek Formation, but it<lb/> is unclear whether these are juvenile representatives of Anzu or if they represent distinct,<lb/> unnamed taxa. Here, we describe a relatively small caenagnathid hindlimb from the Hell<lb/> Creek Formation, and conduct osteohistological analysis to assess its maturity. Histological<lb/> data and morphological differences from Anzu wyliei and other caenagnathids allow us to<lb/> conclude that this specimen represents a new species of caenagnathid from the Hell Creek<lb/> Formation, with a smaller adult body size than Anzu. This new taxon is also distinct from<lb/> other small caenagnathid material previously described from the area, potentially indicating<lb/> the coexistence of three distinct caenagnathid species in the Hell Creek Formation. These<lb/> results show that caenagnathid diversity in the Hell Creek ecosystem has been<lb/> underestimated.<lb/></div>
+
+	<title level="j">PLOS ONE<lb/></title>
+	<reference>PLOS ONE | https://doi.org/10.1371/journal.pone.0294901 January 24, 2024<lb/></reference>
+
+	<page>1 / 27<lb/></page>
+	a1111111111<lb/> a1111111111<lb/> a1111111111<lb/> a1111111111 a1111111111<lb/>
+	<note type="doctype">OPEN ACCESS<lb/></note>
+
+	Citation:
+	<reference>Atkins-Weltman KL, Simon DJ,<lb/> Woodward HN, Funston GF, Snively E (2024) A<lb/> new oviraptorosaur (Dinosauria: Theropoda) from<lb/> the end-Maastrichtian Hell Creek Formation of<lb/> North America. PLoS ONE 19(1): e0294901.<lb/></reference>
+
+	<idno>https://doi.org/10.1371/journal.pone.0294901<lb/></idno>
+
+	Editor:
+	<editor>Max Cardoso Langer,</editor>
+
+	<byline>
+	<affiliation>Universidade de Sao<lb/> Paulo,</affiliation>
+	</byline>
+
+	<address>BRAZIL<lb/></address>
+
+	<note type="submission">Received: July 5, 2023<lb/> Accepted: November 8, 2023<lb/></note>
+
+	Published:
+	<date>January 24, 2024<lb/></date>
+
+	Copyright:
+	<note type="copyright">© 2024 Atkins-Weltman et al. This is an<lb/> open access article distributed under the terms of<lb/> the Creative Commons Attribution License, which<lb/> permits unrestricted use, distribution, and<lb/> reproduction in any medium, provided the original<lb/> author and source are credited.<lb/></note>
+
+	Data Availability Statement:
+	<note type="availability">All available locality<lb/> data is reposited at Carnegie Museum of Natural<lb/> History and is available upon request by contacting<lb/> Amy Henrici at henricia@carnegiemnh.org. All<lb/> character and phylogenetic data are included within<lb/> the Supplementary Files.<lb/></note>
+
+	Funding:
+	<note type="funding">Funding for histology processing<lb/> provided to HNW by Oklahoma State University for<lb/> Health Sciences. Funding to GFF provided by the<lb/> Royal Society (Grant NIF\R1\191527) and a<lb/> Banting Fellowship (NSERC). The funders had no<lb/> role in study design, data collection and analysis,<lb/> decision to publish, or preparation of the<lb/> manuscript.<lb/></note>
+
+	Competing interests:
+	<note type="conflict">The authors have declared<lb/> that no competing interests exist.<lb/></note>
+
+	Institutional abbreviations<lb/> BHM, Black Hills Institute of Geological Research, Hill City, South Dakota, United States of<lb/> America; CM, Carnegie Museum of Natural History, Pittsburgh, Pennsylvania, United States<lb/> of America; FMNH, Field Museum of Natural History, Chicago, Illinois, United States of<lb/> America; MPC, Mongolian Paleontological Center, Ulaanbaatar, Mongolia; MRF, Marmarth<lb/> Research Foundation, Marmarth, North Dakota, United States of America; OMNH, Sam<lb/> Noble Oklahoma Museum of Natural History, Norman, Oklahoma, United States of America;<lb/> ROM, Royal Ontario Museum, Toronto, Ontario, Canada; TMP, Royal Tyrrell Museum of<lb/> Palaeontology, Drumheller, Alberta, Canada; UALVP, University of Alberta Laboratory for<lb/> Vertebrate Palaeontology, Edmonton, Alberta, Canada.
+
+		</front>
+	</text>
+
+</TEI>
