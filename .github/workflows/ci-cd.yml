@@ -3,11 +3,10 @@ name: Build and push a CRF-only docker image
 on:
   push:
     branches:
-      - master
-      - update-from-upstream
+      - cochrane-lab
   pull_request:
     branches:
-      - master
+      - cochrane-lab
 
 concurrency:
   group: gradle
